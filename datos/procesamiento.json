@@ -1,0 +1,536 @@
+{
+  "limite": {
+    "procesado": "2026-09-26T19:00:43+00:00",
+    "archivo_crudo": "ign/departamento_06581.geojson",
+    "sha256_crudo": "1fe9bdb7c6479470c834517d68100e66b732a97553dad9afbd1798bffeced7dd",
+    "elementos": 1,
+    "vertices": 32136,
+    "caja": [
+      -59.67703,
+      -38.73667,
+      -58.61945,
+      -37.61675
+    ],
+    "atributos_origen": {
+      "gid": 1105,
+      "objeto": "Departamento",
+      "fna": "Partido de Necochea",
+      "gna": "Partido",
+      "nam": "Necochea",
+      "in1": "06581",
+      "fdc": "ARBA - Gerencia de Servicios Catastrales",
+      "sag": "IGN"
+    },
+    "fecha_datos": null
+  },
+  "incendios_modis": {
+    "procesado": "2026-09-26T19:00:43+00:00",
+    "archivo_crudo": "firms/modis_*_Argentina_caja.csv",
+    "elementos": 654,
+    "fecha_datos": "2000-11-16 a 2024-11-12",
+    "anios_con_archivo": [
+      "2000",
+      "2001",
+      "2002",
+      "2003",
+      "2004",
+      "2005",
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010",
+      "2011",
+      "2012",
+      "2013",
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024"
+    ],
+    "focos_por_anio": {
+      "2000": 3,
+      "2001": 28,
+      "2002": 37,
+      "2003": 73,
+      "2004": 84,
+      "2005": 65,
+      "2006": 47,
+      "2007": 37,
+      "2008": 9,
+      "2009": 24,
+      "2010": 10,
+      "2011": 21,
+      "2012": 19,
+      "2013": 14,
+      "2014": 20,
+      "2015": 14,
+      "2016": 17,
+      "2017": 11,
+      "2018": 15,
+      "2019": 17,
+      "2020": 17,
+      "2021": 30,
+      "2022": 19,
+      "2023": 6,
+      "2024": 17
+    },
+    "focos_por_tipo": {
+      "0": 637,
+      "2": 17
+    },
+    "versiones": [
+      "6.03",
+      "6.2",
+      "61.03"
+    ]
+  },
+  "incendios_viirs": {
+    "procesado": "2026-09-26T19:00:43+00:00",
+    "archivo_crudo": "firms/viirs-snpp_*_Argentina_caja.csv",
+    "elementos": 601,
+    "fecha_datos": "2012-02-10 a 2024-12-20",
+    "anios_con_archivo": [
+      "2012",
+      "2013",
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024"
+    ],
+    "focos_por_anio": {
+      "2012": 41,
+      "2013": 30,
+      "2014": 78,
+      "2015": 44,
+      "2016": 55,
+      "2017": 45,
+      "2018": 56,
+      "2019": 43,
+      "2020": 55,
+      "2021": 44,
+      "2022": 56,
+      "2023": 23,
+      "2024": 31
+    },
+    "focos_por_tipo": {
+      "0": 601
+    },
+    "versiones": [
+      "2"
+    ]
+  },
+  "hidrografia": {
+    "procesado": "2026-09-26T19:00:43+00:00",
+    "archivo_crudo": "osm/hidrografia.json",
+    "sha256_crudo": "b41f3669bac79d533bcc2f0b509650877300642a873d952c5101bf5d7fd9491b",
+    "elementos": 2279,
+    "fecha_datos": "2026-09-26T17:21:54Z",
+    "descartes_de_la_consulta": {
+      "excluidos": 0,
+      "fuera_del_partido": 2337,
+      "geometria_incompleta": 0
+    }
+  },
+  "portuaria_instalaciones": {
+    "procesado": "2026-09-26T19:00:43+00:00",
+    "archivo_crudo": "osm/portuaria.json",
+    "sha256_crudo": "8f6f209ea217d76708a4ba1740f8e37698f8bc69ca53bc9f384792bc6f9ccac0",
+    "elementos": 643,
+    "fecha_datos": "2026-09-26T17:24:01Z",
+    "descartes_de_la_consulta": {
+      "excluidos": 0,
+      "fuera_del_partido": 1067,
+      "geometria_incompleta": 0
+    }
+  },
+  "ferrocarril": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "lineas_de_transporte_ferroviario_AN010": "842ca3bb89a6c278c1256e9c595d94d75388877dc72467d9cb571c1fc3903e9a",
+      "puntos_de_transporte_ferroviario_AN070": "28294434773f3ef307af25f527f7a2c4490e7b4bb736e2ccae9ef58ede72da7f"
+    },
+    "elementos": 14,
+    "capas_wfs": {
+      "lineas_de_transporte_ferroviario_AN010": {
+        "en_la_caja": 12,
+        "en_el_partido": 6
+      },
+      "puntos_de_transporte_ferroviario_AN070": {
+        "en_la_caja": 20,
+        "en_el_partido": 8
+      }
+    },
+    "fecha_datos": null
+  },
+  "red_vial": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "vial_nacional": "c7e2b9987f811a33142cf7189799b7a9d9c89661842dc47996142a3aa3927e7a",
+      "vial_provincial": "d0ed2949f85e297416dfcec165747eb267a3be98b2cdc428b51ad08e2a7af597"
+    },
+    "elementos": 19,
+    "capas_wfs": {
+      "vial_nacional": {
+        "en_la_caja": 9,
+        "en_el_partido": 6
+      },
+      "vial_provincial": {
+        "en_la_caja": 45,
+        "en_el_partido": 13
+      }
+    },
+    "fecha_datos": null
+  },
+  "hidrografia_ign": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "lineas_de_aguas_continentales_perenne": "600b1a7d0087ab90678b6a5af2d6fd50f1b5a249d13fdc764d264509dcfe60eb",
+      "lineas_de_aguas_continentales_intermitentes": "843a0e1d87c6f457eb36665cb7f4ffbf290c0a7caf0373caf3ae285194692035",
+      "lineas_de_aguas_continentales_BH020": "167793ed1dc6dd5bbded9b68466724febf096ddc0da3038b6082ceeca0798a4d",
+      "lineas_de_aguas_continentales_BH030": "54fc6cc0afe9c8ee04e2c05df584afc43eab231c6b89a626ad31b2e9b091832b",
+      "areas_de_aguas_continentales_perenne": "feb21766695ed6edcea2150f86eef50a70a17c565924366b995e4895ee61b72d",
+      "areas_de_aguas_continentales_intermitente": "a2caf16c04842462a8ce68714722deb8abb1015486159c0c08194d729b97eee0",
+      "areas_de_aguas_continentales_BH020": "6fd7b7ac07bb9359531bac87733578d9b3b8fc07849014127faaca925c5cd9dc",
+      "areas_de_aguas_continentales_BH140": "025f4434b850c7acb8b66b607ea945dff3b254519948cdeee37a36d7e03002ae",
+      "areas_de_aguas_continentales_BH130": "76865864b8923e7596953e4b7c4170814157c0e7b5f46530a2d8ede33a518362"
+    },
+    "elementos": 138,
+    "capas_wfs": {
+      "lineas_de_aguas_continentales_perenne": {
+        "en_la_caja": 98,
+        "en_el_partido": 34
+      },
+      "lineas_de_aguas_continentales_intermitentes": {
+        "en_la_caja": 197,
+        "en_el_partido": 54
+      },
+      "lineas_de_aguas_continentales_BH020": {
+        "en_la_caja": 0,
+        "en_el_partido": 0
+      },
+      "lineas_de_aguas_continentales_BH030": {
+        "en_la_caja": 18,
+        "en_el_partido": 6
+      },
+      "areas_de_aguas_continentales_perenne": {
+        "en_la_caja": 117,
+        "en_el_partido": 43
+      },
+      "areas_de_aguas_continentales_intermitente": {
+        "en_la_caja": 0,
+        "en_el_partido": 0
+      },
+      "areas_de_aguas_continentales_BH020": {
+        "en_la_caja": 0,
+        "en_el_partido": 0
+      },
+      "areas_de_aguas_continentales_BH140": {
+        "en_la_caja": 1,
+        "en_el_partido": 1
+      },
+      "areas_de_aguas_continentales_BH130": {
+        "en_la_caja": 0,
+        "en_el_partido": 0
+      }
+    },
+    "fecha_datos": null
+  },
+  "curvas_nivel": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "lineas_de_geomorfologia_CA010": "ff7c8a508d96b6ddfb4c6f37fd5796762fadd841cee29e203ba39066f4daba62"
+    },
+    "elementos": 229,
+    "capas_wfs": {
+      "lineas_de_geomorfologia_CA010": {
+        "en_la_caja": 551,
+        "en_el_partido": 229
+      }
+    },
+    "fecha_datos": null
+  },
+  "localidades": {
+    "procesado": "2026-09-26T19:00:43+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "localidad_bahra": "7ea09e5f6e6436e79a462dda8b8881ea2ad02c9e67c474796b60e6916d092e44"
+    },
+    "elementos": 6,
+    "capas_wfs": {
+      "localidad_bahra": {
+        "en_la_caja": 15,
+        "en_el_partido": 6
+      }
+    },
+    "fecha_datos": null
+  },
+  "planta_urbana": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "areas_de_asentamientos_y_edificios_020105": "2fc46d4eb2d61eca5c271314e588a784641e07aec737d57e585dddcf37ab5706"
+    },
+    "elementos": 7,
+    "capas_wfs": {
+      "areas_de_asentamientos_y_edificios_020105": {
+        "en_la_caja": 16,
+        "en_el_partido": 7
+      }
+    },
+    "fecha_datos": null
+  },
+  "vegetacion_hidrofila": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "vegetacion_hidrofila_ED020": "f22b24ae5e56ca2835adc8c47bb46497f708cc0e2b0260159c8f8552c5e05061"
+    },
+    "elementos": 40,
+    "capas_wfs": {
+      "vegetacion_hidrofila_ED020": {
+        "en_la_caja": 107,
+        "en_el_partido": 40
+      }
+    },
+    "fecha_datos": null
+  },
+  "puentes_vados": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "puntos_de_cruces_y_enlaces_AQ040": "be2be54a2fb7b6fff30e637d076923695207c4c6493bd02dd4b639c3be0636b7",
+      "puntos_de_cruces_y_enlaces_BH070": "04c3d37cd1cec174a7a9757c0cdf3130dcdd416ba543313e60564a912d6f7d86"
+    },
+    "elementos": 16,
+    "capas_wfs": {
+      "puntos_de_cruces_y_enlaces_AQ040": {
+        "en_la_caja": 37,
+        "en_el_partido": 14
+      },
+      "puntos_de_cruces_y_enlaces_BH070": {
+        "en_la_caja": 3,
+        "en_el_partido": 2
+      }
+    },
+    "fecha_datos": null
+  },
+  "forestaciones": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "vegetacion_arborea_060301": "bcc83b764520ef3a8b1f7cdc1077fb3ddebe391c9900b23046e1188a805ad6cd",
+      "vegetacion_arborea_EC015": "bf693d85ed37e20419456f27d79de241d940b674a4ad5b90cf72fa99b2bf73e3",
+      "plantacion_permanente_KB025": "c0a9a855f6ebba262de1eb3021e7af5d580720369e4fcc8b2d1311b350439d5b"
+    },
+    "elementos": 47,
+    "capas_wfs": {
+      "vegetacion_arborea_060301": {
+        "en_la_caja": 63,
+        "en_el_partido": 36
+      },
+      "vegetacion_arborea_EC015": {
+        "en_la_caja": 9,
+        "en_el_partido": 7
+      },
+      "plantacion_permanente_KB025": {
+        "en_la_caja": 4,
+        "en_el_partido": 4
+      }
+    },
+    "fecha_datos": null
+  },
+  "energia_ductos": {
+    "procesado": "2026-09-26T18:50:59+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "lineas_de_estructura_asociada_ducto_subterraneo": "6186a09a68201e052a0688807f38e8d36906365dbf2be66a9c6674515f1d9c0a",
+      "lineas_de_energia_AT030": "3d3cbdc83bb29542b8638be3ac3bce2b90e0dcc8024ca4c076d6a64ce3d3408f",
+      "puntos_de_energia_AD010": "3b15f93890872bfc8adc1155e04f15366a06006f459786db28dede5e8b36fa9d",
+      "puntos_de_energia_AD030": "7ba240b4b84504c8f6c031fd5a32d2cf302ca6f978d0952d6659c42675bd8b47"
+    },
+    "elementos": 11,
+    "capas_wfs": {
+      "lineas_de_estructura_asociada_ducto_subterraneo": {
+        "en_la_caja": 1,
+        "en_el_partido": 0
+      },
+      "lineas_de_energia_AT030": {
+        "en_la_caja": 9,
+        "en_el_partido": 7
+      },
+      "puntos_de_energia_AD010": {
+        "en_la_caja": 2,
+        "en_el_partido": 2
+      },
+      "puntos_de_energia_AD030": {
+        "en_la_caja": 3,
+        "en_el_partido": 2
+      }
+    },
+    "fecha_datos": null
+  },
+  "industria_residuos": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "areas_de_fabricacion_y_procesamiento_AC070": "90b5416af718bb1a770954fad4484019ab2bab59fc7cb3ce06267fece345fce0",
+      "puntos_de_fabricacion_y_procesamiento_AC000": "14e5d6a472095af1b3932767c8f3d196db4e117288bf25e5f937d9ecf5e6c83f",
+      "infraestructura_de_transporte_AQ170": "c5fcebd51b1b0775fd9abd14a21c34b67296f57fe5e7f3a163537bb468777d46",
+      "areas_de_gestion_de_residuos_AB000": "e5f88ed69830cbc5886de6b60e997bb7f1b8f4ee246c350f8988282c6c5dadf0",
+      "areas_de_fabricacion_y_procesamiento_AC507": "d9ca0d5c1562c832840a7f46c4138fc33b77c25a476be7848df55f2498b1494a",
+      "puntos_de_fabricacion_y_procesamiento_AC507": "57e0a8b2f3e8d905d258c9edb6ec2883a77e75da572073709a21826273b71031"
+    },
+    "elementos": 31,
+    "capas_wfs": {
+      "areas_de_fabricacion_y_procesamiento_AC070": {
+        "en_la_caja": 3,
+        "en_el_partido": 1
+      },
+      "puntos_de_fabricacion_y_procesamiento_AC000": {
+        "en_la_caja": 4,
+        "en_el_partido": 3
+      },
+      "infraestructura_de_transporte_AQ170": {
+        "en_la_caja": 37,
+        "en_el_partido": 22
+      },
+      "areas_de_gestion_de_residuos_AB000": {
+        "en_la_caja": 3,
+        "en_el_partido": 1
+      },
+      "areas_de_fabricacion_y_procesamiento_AC507": {
+        "en_la_caja": 3,
+        "en_el_partido": 2
+      },
+      "puntos_de_fabricacion_y_procesamiento_AC507": {
+        "en_la_caja": 3,
+        "en_el_partido": 2
+      }
+    },
+    "fecha_datos": null
+  },
+  "puerto_navegacion": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "puntos_de_puertos_y_muelles_BB005": "9d348e69de1e11dbf8fac613f6cdba9a6730a78ff40ed56b8f4b63fbc812972a",
+      "lineas_de_puertos_y_muelles_BB041": "b19c8b07d74ffadeca448027c127cb90c200f69905357ab5bd7de4cc2d29bcf9",
+      "puntos_de_puertos_y_muelles_BB041": "ecc2643e4f7120735bf4d6378aa770b1691e05eb27cbd693fb7cca39fb730d9e",
+      "ayuda_a_la_navegacion_BC050": "7ca4cbfb75f41dbc9488320f0808bb4676565fbb4986bd85985918c4c27a0abf",
+      "ayuda_a_la_navegacion_BC101": "3d43193578d0120e4905080cd5357534034117baebe4c9b55ede89bb5b268f4e",
+      "mareas_y_corrientes_BG020": "9333602d5fe177dea073e37fd4f6bfecdf4c265b1b6592ef5f68c068e72e9df1"
+    },
+    "elementos": 9,
+    "capas_wfs": {
+      "puntos_de_puertos_y_muelles_BB005": {
+        "en_la_caja": 1,
+        "en_el_partido": 1
+      },
+      "lineas_de_puertos_y_muelles_BB041": {
+        "en_la_caja": 2,
+        "en_el_partido": 2
+      },
+      "puntos_de_puertos_y_muelles_BB041": {
+        "en_la_caja": 2,
+        "en_el_partido": 2
+      },
+      "ayuda_a_la_navegacion_BC050": {
+        "en_la_caja": 1,
+        "en_el_partido": 1
+      },
+      "ayuda_a_la_navegacion_BC101": {
+        "en_la_caja": 2,
+        "en_el_partido": 2
+      },
+      "mareas_y_corrientes_BG020": {
+        "en_la_caja": 1,
+        "en_el_partido": 1
+      }
+    },
+    "fecha_datos": null
+  },
+  "educacion": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "puntos_de_ciencia_y_educacion_020601": "8e9df90081173a0f8a0ae82daa2a5ae90a8b8b3fb349438004c8e85ca1066dca",
+      "puntos_de_ciencia_y_educacion_020602": "8fcddc6fe85523e03beaa866fcbaf5bcb53e9efe91a2b72cfb1c6f8cc84ae861"
+    },
+    "elementos": 140,
+    "capas_wfs": {
+      "puntos_de_ciencia_y_educacion_020601": {
+        "en_la_caja": 224,
+        "en_el_partido": 137
+      },
+      "puntos_de_ciencia_y_educacion_020602": {
+        "en_la_caja": 3,
+        "en_el_partido": 3
+      }
+    },
+    "fecha_datos": null
+  },
+  "salud": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "salud_020801": "1fd68fe64de2dd0281276e43355a506a877fa1a45b9848baf5de6c5cbdb7cbe6"
+    },
+    "elementos": 22,
+    "capas_wfs": {
+      "salud_020801": {
+        "en_la_caja": 32,
+        "en_el_partido": 22
+      }
+    },
+    "fecha_datos": null
+  },
+  "energia": {
+    "procesado": "2026-09-26T19:00:44+00:00",
+    "archivo_crudo": "ign/*.geojson",
+    "sha256_crudos": {
+      "lineas_de_estructura_asociada_ducto_subterraneo": "6186a09a68201e052a0688807f38e8d36906365dbf2be66a9c6674515f1d9c0a",
+      "lineas_de_energia_AT030": "3d3cbdc83bb29542b8638be3ac3bce2b90e0dcc8024ca4c076d6a64ce3d3408f",
+      "puntos_de_energia_AD010": "3b15f93890872bfc8adc1155e04f15366a06006f459786db28dede5e8b36fa9d",
+      "puntos_de_energia_AD030": "7ba240b4b84504c8f6c031fd5a32d2cf302ca6f978d0952d6659c42675bd8b47"
+    },
+    "elementos": 11,
+    "capas_wfs": {
+      "lineas_de_estructura_asociada_ducto_subterraneo": {
+        "en_la_caja": 1,
+        "en_el_partido": 0
+      },
+      "lineas_de_energia_AT030": {
+        "en_la_caja": 9,
+        "en_el_partido": 7
+      },
+      "puntos_de_energia_AD010": {
+        "en_la_caja": 2,
+        "en_el_partido": 2
+      },
+      "puntos_de_energia_AD030": {
+        "en_la_caja": 3,
+        "en_el_partido": 2
+      }
+    },
+    "fecha_datos": null
+  }
+}

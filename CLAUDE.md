@@ -14,7 +14,7 @@ Mapa de riesgos del partido de Necochea (provincia de Buenos Aires, Argentina), 
 
 **Fase 1 (hecha, 26/09/2026):** relevamiento de fuentes en `DATOS.md` para tres amenazas: inundaciones y anegamientos, incendios de pastizal y rurales, y actividad portuaria e industrial. Ninguna fuente quedó verificada porque la red del entorno las bloqueaba.
 
-**Fase 2 (aprobada por Sebastián; pendiente):**
+**Fase 2 (aprobada por Sebastián; en curso desde el 26/09/2026):**
 - Primero, descargar y verificar las fuentes con scripts en Python en `/scripts`, y actualizar `DATOS.md` pasando cada fuente de "identificada" a "verificada", con fecha y licencia reales.
 - Sitio estático (HTML, CSS y JS) con Leaflet o MapLibre, sin backend.
 - Capas activables por separado, con leyenda clara y un panel por capa que muestre fuente, fecha y licencia.
@@ -23,6 +23,8 @@ Mapa de riesgos del partido de Necochea (provincia de Buenos Aires, Argentina), 
 - Diseño sobrio, legible en celular, e instalable como aplicación web (PWA: manifiesto más service worker). Aclarar que el mapa de fondo necesita conexión.
 - README con instrucciones para publicar en GitHub Pages y para actualizar los datos.
 - Atribución de OpenStreetMap visible ("© colaboradores de OpenStreetMap", ODbL) y cita de cada fuente.
+
+Estado al 26/09/2026: límite (Georef), focos de calor (FIRMS), instalaciones portuarias e hidrografía detallada (OpenStreetMap) e hidrografía oficial, curvas de nivel, ferrocarril y rutas (IGN, por WFS) descargados y verificados; sitio en `docs/` (Leaflet 1.9.4, PWA); tubería completa con `python3 scripts/actualizar.py`. Lo que falta está en la sección 5 de `DATOS.md`.
 
 Trabajar por etapas y dejar un resumen al final de cada una.
 
