@@ -188,6 +188,9 @@
       return;
     }
     const datos = await cargarDatos(capa);
+    // Si la casilla se destildó mientras se descargaba el archivo, no se dibuja.
+    const casilla = document.getElementById("casilla-" + capa.id);
+    if (casilla && !casilla.checked) return;
     if (actual) mapa.removeLayer(actual);
     const nueva = crearCapaLeaflet(capa, datos).addTo(mapa);
     estado.capasLeaflet[capa.id] = nueva;

@@ -81,9 +81,22 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 | Licencia | No encontrada. |
 | Decisión | No se usa: sin servicio abierto ni licencia no se puede redistribuir, y extraer la capa de una aplicación interna sería un rodeo. Entraría como referencia si la ADA o IDEBA la publican por WFS o descarga con licencia. **Adivinando:** "ssrh" puede aludir a la Subsecretaría de Recursos Hídricos (provincial o nacional); si fuera la delimitación nacional de cuencas, podría estar publicada como dato abierto en otro sitio. |
 
+### 1.1 ter ADA, red hidrométrica y freatímetros · **Identificada, sin descargar ni licencia** · no se usa
+
+| Campo | Detalle |
+|---|---|
+| Organismo | Autoridad del Agua, provincia de Buenos Aires |
+| URLs | Documento: https://ada.gba.gov.ar/wp-content/uploads/2025/03/capa-estaciones-hidrometricas-y-freatimetricas.pdf · visor, estaciones hidrométricas: https://gis.ada.gba.gov.ar/gis/?l=red_hidrometrica · visor, freatímetros: https://gis.ada.gba.gov.ar/gis/?l=freatimetros (las encontró Sebastián el 26/09/2026) |
+| Qué representa | La red con la que la ADA mide el nivel de los ríos (estaciones hidrométricas) y el de la napa freática (freatímetros). Para un mapa de riesgos es **capacidad de monitoreo** de la amenaza: dónde se mide. La napa importa para leer los anegamientos en la llanura. |
+| Qué no representa | No es un mapa de amenaza ni de zonas inundables. Que haya una estación no implica que exista un sistema de alerta para esa zona. |
+| Acceso desde el entorno | El PDF no se pudo bajar: ada.gba.gov.ar corta la conexión desde la nube (26/09/2026). Los visores son la misma aplicación interna que el de cuencas (1.1 bis): no exponen un servicio abierto de la capa. |
+| Licencia / fecha / formato | No confirmados. La fecha de publicación del PDF que surge de su ruta (marzo de 2025) es inferida, no leída. |
+| Para que sea capa | Hacen falta coordenadas en formato reutilizable (por ejemplo, una tabla del PDF) **y** licencia explícita de la ADA. Sin licencia, se cita y se enlaza en la Metodología pero no se redistribuye (misma regla que 1.5). El camino limpio es pedirle a la ADA los datos y el permiso de uso. |
+| Acción manual | Sebastián descarga el PDF y cuenta qué trae (tabla con coordenadas, fecha, notas de uso). **No subirlo al repositorio público**: sería redistribuirlo sin licencia. |
+
 Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comité de Cuenca Hídrica del Río Quequén Grande se creó el 05/07/2002 por Resolución 004/02 e integra a Necochea, Lobería, Tandil, Adolfo Gonzales Chaves, Benito Juárez y San Cayetano (https://ada.gba.gov.ar/listado-de-los-comites-de-cuencas/).
 
-### 1.2 IDEBA, geoservicios provinciales (incluida la ADA) · **Identificada** · en revisión (Fase 2)
+### 1.2 IDEBA, geoservicios provinciales (incluida la ADA) · **Identificada**
 
 | Campo | Detalle |
 |---|---|
@@ -92,6 +105,7 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 | Qué ofrece | Listado de servicios WMS y WFS de organismos provinciales. |
 | Licencia / formato / fecha / cobertura | A confirmar capa por capa al descargar. |
 | Limitaciones | Un WMS es solo una imagen; para reutilizar el dato hace falta WFS o descarga vectorial. |
+| Fase 2 | El sitio responde desde el entorno (26/09/2026), pero la revisión de sus geoservicios no se completó. Queda pendiente (sección 5). |
 
 ### 1.3 Hidrografía: IGN (cursos y cuerpos de agua, línea de costa) · **Identificada** · no se usa
 
@@ -132,6 +146,7 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 ### 1.6 Otras referencias encontradas (no son capas)
 
 - Oficina de Riesgo Agropecuario, mapas de déficit y exceso hídrico: http://www.ora.gob.ar/riesgo_mapas.php (imágenes de monitoreo agroclimático; sirven para la Metodología, no como capa vectorial).
+- ADA, informes de coyuntura del 23/09/2026 (los encontró Sebastián; desde el entorno no se pudieron abrir, así que la descripción sale del nombre del archivo y es inferida): precipitación estimada por satélite con el producto PERSIANN, https://ada.gba.gov.ar/wp-content/uploads/2026/09/Presentacion_Precipitacion-Persiann-PBA-23-09-2026.pdf, y estado de humedad del suelo en la provincia, https://ada.gba.gov.ar/wp-content/uploads/2026/09/Presentacion_Estado_HumedadPBA-23-09-2026.pdf. Son fotos de la situación de una semana, en PDF y sin licencia a la vista: sirven para un apartado de la Metodología sobre dónde seguir la situación actual (con enlace), no como capa. Falta saber desde qué página de la ADA se publican, para enlazar esa y no archivos fechados.
 - Artículo académico sobre un modelo de anegamiento en el sudeste bonaerense, *GeoFocus*: https://www.geofocus.org/index.php/geofocus/article/view/262 (bibliografía; no es un dato abierto descargable, a confirmar).
 
 **Estado de la amenaza "Inundaciones":** la referencia (hidrografía y costa) está verificada, pero **no hay un mapa oficial de peligrosidad hídrica para el partido**: la ADA todavía no elaboró la carta de riesgo hídrico de la cuenca del Quequén Grande (1.1). La capa de amenaza sigue **"pendiente de fuente"** hasta que se publique.
@@ -232,9 +247,11 @@ No se encontró un producto abierto del INTA con superficie quemada para el sude
 Pendientes a mano:
 
 1. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
-2. **Ferrocarril en OSM (3.1):** revisar en https://www.openstreetmap.org con qué etiqueta está el ramal a Quequén.
-3. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
-4. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
+2. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** bajar el PDF desde una conexión propia, anotar qué trae (coordenadas, fecha, notas de uso) y, si se quiere como capa, pedirle a la ADA los datos y el permiso de uso. No subir el PDF al repositorio.
+3. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA (1.1 bis y 1.1 ter).
+4. **Ferrocarril en OSM (3.1):** revisar en https://www.openstreetmap.org con qué etiqueta está el ramal a Quequén.
+5. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
+6. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
 
 Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `datos/crudos/` para procesarlo con `python3 scripts/actualizar.py --offline` (instrucciones en el README).
 
