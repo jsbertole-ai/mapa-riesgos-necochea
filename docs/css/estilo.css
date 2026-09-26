@@ -251,6 +251,8 @@ a { color: var(--acento); }
   margin: 14px 0;
 }
 
+.ficha-capa .nota { font-size: 13px; color: var(--texto-suave); }
+
 .ficha-capa dl { display: grid; grid-template-columns: 170px 1fr; gap: 4px 12px; margin: 8px 0 0; font-size: 14px; }
 .ficha-capa dt { font-weight: 600; }
 .ficha-capa dd { margin: 0; overflow-wrap: anywhere; }
@@ -283,7 +285,9 @@ a { color: var(--acento); }
   }
   .panel.abierto { transform: none; }
   .aviso-flotante { left: 56px; }
-  .ficha-capa dl { grid-template-columns: 1fr; }
+  .ficha-capa .nota { font-size: 13px; color: var(--texto-suave); }
+
+.ficha-capa dl { grid-template-columns: 1fr; }
   .ficha-capa dt { margin-top: 6px; }
 }
 

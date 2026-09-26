@@ -290,7 +290,7 @@ El catálogo provincial también publica "Unidades Penitenciarias" (IDEBA): **qu
 Pendientes:
 
 1. **Hidrografía de OSM (1.4):** decidir si queda como capa complementaria o se retira.
-2. **Indicadores del partido del IGN (sección 7):** decidir si se usan y, antes, conseguir su documentación (período de DesInventar, significado de los códigos, escala del IVSD).
+2. **Indicadores del partido del IGN (sección 7): hecho** para DesInventar hidrometeorológico, IVSD y SINAGIR. Pendiente: la escala y la metodología del IVSD (informe de consultoría no publicado) y la documentación de DesInventar físico-químico.
 3. **Cuarteles de bomberos (sección 8):** el IGN los publica; decidir si entran o si quedan dentro de la exclusión de infraestructura de seguridad.
 4. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
@@ -332,20 +332,17 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 
 ---
 
-## 7. Indicadores del partido en el IGN (espacio `ign_riesgo`) · **Identificados, a decidir**
+## 7. Indicadores del partido en el IGN (espacio `ign_riesgo`) · **Verificados** · en la Metodología ("El partido en las estadísticas nacionales")
 
-El WFS del IGN tiene un espacio `ign_riesgo` con 66 capas (https://wms.ign.gob.ar/geoserver/ign_riesgo/ows). Consultadas el 26/09/2026 en un punto interior del partido, estas son las que traen datos para Necochea:
+El WFS del IGN tiene un espacio `ign_riesgo` con 66 capas (https://wms.ign.gob.ar/geoserver/ign_riesgo/ows). Se usan tres, como indicadores del partido y no como capas del mapa. Script: `scripts/descargar_indicadores.py`; archivo publicado: `docs/datos/ficha_partido.json`.
 
-| Capa | Qué dice para Necochea | Escala | Qué falta saber |
-|---|---|---|---|
-| `desinventar_hidrometeorologico_riesgo` | 25 registros: 9 de inundación (`des_inun`), 9 de tormenta (`des_torm`), 3 de sequía (`des_sequia`), 2 `des_viefue`, 1 `des_tormni` y 1 `des_graniz`. Categoría: "Baja cantidad de registros DESINVENTAR". Fuente: "Base DESINVENTAR". | Partido | Período que cubren los registros y definición exacta de cada código. |
-| `desinventar_fisico_quimico_riesgo` | 10 registros: 4 `des_incend`, 5 `des_estruc` y 1 `des_sobret`. Categoría: "Muy baja cantidad de registros DESINVENTAR". | Partido | Lo mismo. |
-| `ivsd_2024_depto` | Índice de vulnerabilidad social frente a desastres (IVSD): 30 (Lobería, el partido vecino: 34,4), con decenas de subindicadores. | Partido | Escala y método del índice, y año de los datos de base. |
-| `sinagir_amenazas_hidrometeorologicas_riesgo` | Región Centro (Buenos Aires, Córdoba, Entre Ríos, La Pampa y Santa Fe): "Alto nivel de exposicion SINAGIR Centro". Fuente: "SINAGIR, PNRRD". | Región | No distingue partidos. |
-| `sinagir_amenazas_fisico_quimicas_riesgo` | Región Centro: "Muy alto nivel de exposicion SINAGIR Centro". | Región | Lo mismo. |
-| `mayds_sup_afectada_2022` | Provincia de Buenos Aires: 142 ha afectadas por incendios en 2022 (MAyDS y SNMF). | Provincia | No distingue partidos. |
+| Indicador | Qué dice para Necochea | Documentación comprobada |
+|---|---|---|
+| DesInventar, amenazas hidrometeorológicas (`desinventar_hidrometeorologico_riesgo`) | 25 eventos entre 1970 y 2015: inundaciones (9), tormentas (9), sequía (3), vientos fuertes (2), tormentas de nieve (1) y granizo (1). Categoría del IGN: "Baja cantidad de registros DESINVENTAR". El script comprueba que la suma por tipo coincida con el total. | Metadato https://www.ign.gob.ar/capas-sig/metadata/desinventar_hidrometeorologico_riesgo.pdf (creado el 07/09/2022, actualización anual declarada): georreferencia la "Base de DESINVENTAR Sendai, por departamento, 1970-2015" (UNDRR, https://www.desinventar.net/); advierte textualmente que "La misma presenta subregistros, nos brinda un contexto aproximado"; las categorías salen de cortes naturales (Jenks) en cinco clases; define cada campo (`des_inun` inundaciones, `des_torm` tormentas, `des_viefue` vientos fuertes, `des_tormni` tormenta de nieve, `des_graniz` granizo, `des_sequia` sequía, entre otros). Licencia: "Libre uso de la información, cumpliendo con la cita adecuada del Instituto Geográfico Nacional". |
+| IVSD 2024 por departamento (`ivsd_2024_depto`) | 30. Entre 511 departamentos del país: de 11,6 a 75,5, mediana 41,8; 52 con valor menor. Entre 134 partidos de la provincia: de 11,6 a 46,4, mediana 32,7; 32 con valor menor. | Metadato https://www.ign.gob.ar/capas-sig/metadata/ivsd_2024_depto.pdf: índice sintético del Proyecto ARG19003 (Plan Nacional de Adaptación al Cambio Climático, MAyDS) con indicadores actualizados al Censo 2022, en dimensiones demográfica, vivienda, servicios y conectividad, salud, educación, trabajo, ingresos y familia. **No publica la escala ni la metodología** (remite a un informe de consultoría). Licencia: "Libre uso de la información, cumpliendo con la cita adecuada de acuerdo a los créditos". **Inferido:** un valor más alto indica más vulnerabilidad (en la provincia, los extremos bajos son Vicente López y San Isidro; los altos, José C. Paz y Presidente Perón). |
+| SINAGIR, niveles de exposición por región (`sinagir_amenazas_hidrometeorologicas_riesgo` y `_fisico_quimicas_riesgo`) | Región Centro: "Alto nivel de exposicion SINAGIR Centro" (hidrometeorológicas) y "Muy alto nivel de exposicion SINAGIR Centro" (físico-químicas). | Resumen del servicio: "sumatoria de niveles de exposición de amenazas ... por región, PNRRD". Escala regional: no distingue partidos. |
 
-Licencia: términos del IGN (0.2); cada fuente primaria (DesInventar, SINAGIR, INDEC y otras) puede tener condiciones propias, a revisar. **No se publica ninguno** hasta tener la documentación. Los de escala de partido (DesInventar e IVSD) son candidatos para una ficha del partido en la Metodología; los regionales y provinciales, a lo sumo, para contexto.
+No se usan: DesInventar físico-químico (`desinventar_fisico_quimico_riesgo`), porque no tiene metadato publicado y sus códigos (`des_incend`, `des_estruc`, `des_sobret`) y su período no están documentados; y la superficie afectada por incendios de 2022 (`mayds_sup_afectada_2022`), porque es provincial.
 
 ---
 
