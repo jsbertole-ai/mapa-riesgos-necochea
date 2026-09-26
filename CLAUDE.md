@@ -7,7 +7,7 @@ Mapa de riesgos del partido de Necochea (provincia de Buenos Aires, Argentina), 
 - **Nunca inventar, estimar ni simular datos** para completar una capa. Una capa sin datos verificados se muestra como "pendiente de fuente".
 - Cada fuente se registra en `DATOS.md` con: organismo, URL exacta, fecha de los datos, licencia, formato, cobertura y limitaciones. Estado: verificada, identificada o sin fuente.
 - Si el entorno no deja descargar un sitio, no se buscan rodeos: se anota la URL en `DATOS.md` para que Sebastián la descargue a mano.
-- **Exclusiones:** ninguna ubicación de cámaras de videovigilancia, infraestructura de seguridad (comisarías, centros de monitoreo) ni datos personales. Filtrar de forma explícita `man_made=surveillance` y `amenity=police` en las consultas a OpenStreetMap.
+- **Exclusiones:** ninguna ubicación de cámaras de videovigilancia, infraestructura de seguridad (comisarías, centros de monitoreo) ni datos personales. Filtrar de forma explícita `man_made=surveillance` y `amenity=police` en las consultas a OpenStreetMap. Los cuarteles de bomberos (voluntarios o no) y Defensa Civil sí se publican: son capacidad de respuesta, no infraestructura de seguridad (decisión de Sebastián, 26/09/2026).
 - Todo el sitio y la documentación, en español rioplatense. Comillas clásicas, sin guiones largos.
 
 ## Plan

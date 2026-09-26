@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-26T19:00:50+00:00",
+  "generado": "2026-09-26T19:14:57+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -20,6 +20,10 @@
     {
       "id": "expuestos",
       "nombre": "Elementos expuestos"
+    },
+    {
+      "id": "respuesta",
+      "nombre": "Capacidad de respuesta"
     }
   ],
   "capas": [
@@ -740,6 +744,52 @@
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
         ]
       }
+    },
+    {
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
+      "id": "bomberos",
+      "grupo": "respuesta",
+      "nombre": "Cuarteles de bomberos (OpenStreetMap)",
+      "archivo": "bomberos.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#d62728",
+        "radio": 6
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Cuarteles de bomberos, voluntarios o no, cargados en OpenStreetMap (amenity=fire_station): el de Necochea y los Bomberos Voluntarios de La Dulce. Coinciden con los dos que publica el IGN.",
+      "que_no_representa": "No indica dotación, equipamiento ni área de cobertura.",
+      "limitaciones": "Registro incompleto: el partido tiene más cuarteles que los cargados (según Sebastián, 26/09/2026); los que se sumen a OpenStreetMap aparecen en la próxima actualización. Del operador de cada cuartel no se guarda nada, porque puede ser el nombre de una persona.",
+      "estado": "verificada",
+      "elementos": 2,
+      "fecha_datos": "Base de OpenStreetMap al 2026-09-26T19:07:48Z (UTC).",
+      "procesado": "2026-09-26T19:14:16+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "2 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "id": "defensa_civil",
+      "grupo": "respuesta",
+      "nombre": "Defensa Civil de Necochea",
+      "archivo": null,
+      "organismo": "Municipalidad de Necochea; OpenStreetMap para la ubicación",
+      "url_fuente": "https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/",
+      "motivo_pendiente": "Según el municipio (noticia del 17/09/2026), las instalaciones de Defensa Civil están \"sobre avenida 10, casi Pinolandia\". El punto que tiene OpenStreetMap está sobre calle 56, así que está desactualizado y no se publica. La dirección oficial no tiene número: convertirla en coordenadas sería estimar. Entra cuando se corrija el punto en OpenStreetMap.",
+      "que_representa": "Sería la sede de Defensa Civil del municipio.",
+      "que_no_representa": "No reemplaza los canales oficiales de emergencia.",
+      "estado": "sin_fuente"
     }
   ]
 }

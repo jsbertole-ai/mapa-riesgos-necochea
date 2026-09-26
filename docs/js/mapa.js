@@ -18,8 +18,10 @@
     railway: { rail: "Vía férrea" },
     highway: { trunk: "Ruta troncal", primary: "Ruta primaria" },
     hgv: { designated: "Vía designada para camiones" },
+    amenity: { fire_station: "Cuartel de bomberos" },
+    office: { government: "Oficina pública" },
   };
-  const ORDEN_CLAVES = ["waterway", "natural", "man_made", "harbour", "landuse", "industrial", "railway", "highway", "hgv"];
+  const ORDEN_CLAVES = ["waterway", "natural", "man_made", "harbour", "landuse", "industrial", "railway", "highway", "hgv", "amenity", "office"];
 
   const TIPOS_FIRMS = {
     0: "Presunto incendio de vegetación",

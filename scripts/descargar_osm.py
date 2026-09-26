@@ -2,6 +2,7 @@
 
 Uso:  python3 scripts/descargar_osm.py            (consulta Overpass y procesa)
       python3 scripts/descargar_osm.py --offline  (procesa lo ya guardado en datos/crudos/osm/)
+      python3 scripts/descargar_osm.py respuesta  (solo una consulta: hidrografia, portuaria o respuesta)
 
 Requiere el límite del partido (scripts/descargar_limite.py). La consulta usa
 la caja envolvente del límite y después recorta por el polígono: queda todo
@@ -46,7 +47,32 @@ CONSULTAS = {
   nwr["harbour"]({caja});
   nwr["man_made"~"^(silo|storage_tank|pier|breakwater)$"]({caja});
 """,
+    "respuesta": """
+  nwr["amenity"="fire_station"]({caja});
+  nwr["name"~"Defensa Civil",i]({caja});
+""",
 }
+
+# Elementos con ubicación en duda: se descartan mientras sigan en la posición registrada acá.
+# Si alguien los corrige en OSM (los mueve más de 100 m), vuelven a entrar solos.
+EN_REVISION = {
+    # Según el municipio (https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/,
+    # 17/09/2026), Defensa Civil está "sobre avenida 10, casi Pinolandia"; este nodo está sobre calle 56.
+    "node/4092470096": (-58.7387, -38.5560),
+}
+
+
+def en_revision(el, geom):
+    registro = EN_REVISION.get(f"{el['type']}/{el['id']}")
+    if not registro or geom["type"] != "Point":
+        return False
+    x, y = geom["coordinates"]
+    return abs(x - registro[0]) * 87 < 0.1 and abs(y - registro[1]) * 111 < 0.1  # 100 m, en km por grado
+
+
+# En la capa de respuesta solo se conserva qué es y su nombre: el operador de un cuartel
+# puede ser el nombre de una persona.
+TAGS_RESPUESTA = {"name", "amenity", "office", "government", "emergency"}
 
 TAGS_CONSERVADAS = {
     "name", "waterway", "natural", "water", "intermittent", "landuse", "industrial", "harbour",
@@ -178,9 +204,16 @@ def procesar(nombre, crudo, limite, caja):
         if not algun_vertice_dentro(geom, limite, caja):
             descartes["fuera_del_partido"] += 1
             continue
-        props = {k: v for k, v in tags.items() if k in TAGS_CONSERVADAS}
+        if en_revision(el, geom):
+            descartes["en_revision"] = descartes.get("en_revision", 0) + 1
+            continue
+        permitidas = TAGS_RESPUESTA if nombre == "respuesta" else TAGS_CONSERVADAS
+        props = {k: v for k, v in tags.items() if k in permitidas}
         props["osm"] = f"{el['type']}/{el['id']}"
-        capa = "hidrografia" if nombre == "hidrografia" else capa_portuaria(tags)
+        if nombre == "respuesta":
+            capa = "bomberos" if tags.get("amenity") == "fire_station" else "defensa_civil"
+        else:
+            capa = nombre if nombre == "hidrografia" else capa_portuaria(tags)
         if capa is None:
             continue
         salidas.setdefault(capa, []).append({"type": "Feature", "properties": props, "geometry": geom})
@@ -189,10 +222,14 @@ def procesar(nombre, crudo, limite, caja):
 
 def main():
     offline = "--offline" in sys.argv
+    # Se pueden pedir consultas sueltas: python3 scripts/descargar_osm.py respuesta
+    pedidas = [a for a in sys.argv[1:] if not a.startswith("--")] or list(CONSULTAS)
     limite, caja = cargar_limite()
     carpeta = CRUDOS / "osm"
     resultado = 0
     for nombre, cuerpo in CONSULTAS.items():
+        if nombre not in pedidas:
+            continue
         ruta = carpeta / f"{nombre}.json"
         if not offline:
             consulta = armar_consulta(cuerpo, caja)

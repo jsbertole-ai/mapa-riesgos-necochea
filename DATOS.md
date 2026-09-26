@@ -278,7 +278,7 @@ El catálogo provincial también publica "Unidades Penitenciarias" (IDEBA): **qu
 
 - Cámaras de videovigilancia y cualquier infraestructura de seguridad (comisarías, centros de monitoreo, etcétera).
 - Datos personales.
-- En las capas del IGN no se incluyen instalaciones militares, edificios de seguridad, instituciones penitenciarias ni puestos de control. Los cuarteles de bomberos quedan en suspenso hasta que Sebastián decida (sección 8). En las estaciones de servicio se descartan los nombres, porque identifican a sus titulares.
+- En las capas del IGN no se incluyen instalaciones militares, edificios de seguridad, instituciones penitenciarias ni puestos de control. Los cuarteles de bomberos (voluntarios o no) y Defensa Civil **sí se publican**: son capacidad de respuesta, no infraestructura de seguridad (decisión de Sebastián, 26/09/2026, quien además confirmó que Defensa Civil no comparte ubicación con infraestructura excluida). En las estaciones de servicio se descartan los nombres, porque identifican a sus titulares.
 - Cómo se aplica: las consultas a OpenStreetMap restan `man_made=surveillance`, `amenity=police`, `surveillance=*` y `surveillance:type=*`; el script de OSM vuelve a descartar esos elementos al procesar; `scripts/verificar.py` revisa tanto la respuesta cruda como el archivo publicado, y si encontrara alguno, la capa no se publica. De cada elemento solo se conservan etiquetas descriptivas (nombre, tipo, operador, referencia), nunca teléfonos, correos ni otros datos de contacto.
 
 ---
@@ -291,7 +291,7 @@ Pendientes:
 
 1. **Hidrografía de OSM (1.4):** decidir si queda como capa complementaria o se retira.
 2. **Indicadores del partido del IGN (sección 7): hecho** para DesInventar hidrometeorológico, IVSD y SINAGIR. Pendiente: la escala y la metodología del IVSD (informe de consultoría no publicado) y la documentación de DesInventar físico-químico.
-3. **Cuarteles de bomberos (sección 8):** el IGN los publica; decidir si entran o si quedan dentro de la exclusión de infraestructura de seguridad.
+3. **Capacidad de respuesta (sección 9):** Sebastián va a cargar en OpenStreetMap los cuarteles que faltan y a corregir el punto de Defensa Civil (a partir de su conocimiento del lugar o de las imágenes del editor de OSM, nunca copiando de Google Maps). Después, correr `python3 scripts/descargar_osm.py respuesta`.
 4. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
 6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
@@ -329,6 +329,8 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Expuestos: planta urbana | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (7) |
 | Expuestos: establecimientos educativos | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (140) |
 | Expuestos: establecimientos de salud | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (22) |
+| Respuesta: cuarteles de bomberos | OpenStreetMap | Verificada, ODbL; registro incompleto | Publicada, apagada al inicio (2) |
+| Respuesta: Defensa Civil | Municipio (dirección) y OpenStreetMap (ubicación) | El punto de OSM está desactualizado | Pendiente de fuente |
 
 ---
 
@@ -367,7 +369,21 @@ Del inventario de las 192 capas del WFS del IGN se sumaron las que aportan a las
 Criterios aplicados:
 
 - **Datos personales:** en las estaciones de servicio el nombre es el del titular (por ejemplo, "Apellido Nombre (Marca)"), así que se descarta. Los nombres de escuelas y centros de salud son de instituciones y se conservan.
-- **Exclusiones:** no se incluyen `instalacion_militar_SU001`, `estructuras_operativas_y_defensivas_FA517` (edificio de seguridad), `_090101` (institución penitenciaria) ni `controles_AH070` (puesto de control). Tampoco `_090102` (cuartel de bomberos), hasta que Sebastián decida si entra (sección 5).
+- **Exclusiones:** no se incluyen `instalacion_militar_SU001`, `estructuras_operativas_y_defensivas_FA517` (edificio de seguridad), `_090101` (institución penitenciaria) ni `controles_AH070` (puesto de control). Los cuarteles de bomberos del IGN (`_090102`, 2 en el partido) no se usan porque son los mismos dos de OpenStreetMap; la capa sale de OSM (sección 9).
 - **Sin datos en el partido:** barriales, salinas, sedimento fluvial, playas de arena, canales, alcantarillas, diques, embalses rurales, tanques de combustible, rellenos sanitarios y canteras dieron cero elementos en la caja.
 - **No incluidas por ahora:** médanos (4 en la caja), arenales (3) y accidentes costeros (2), para la etapa costera y naval; aeródromos (11) y puntos acotados (119), por no aportar a las tres amenazas.
+
+---
+
+## 9. Capacidad de respuesta: bomberos y Defensa Civil · **Verificada (bomberos)** · Defensa Civil pendiente
+
+Decisión de Sebastián (26/09/2026): los cuarteles de bomberos, voluntarios o no, y Defensa Civil del municipio se publican.
+
+| Campo | Detalle |
+|---|---|
+| Consulta | OpenStreetMap vía Overpass: `amenity=fire_station` y elementos con nombre "Defensa Civil", en la caja del límite y recortados por el polígono. Script: `scripts/descargar_osm.py` (se puede correr sola con `python3 scripts/descargar_osm.py respuesta`). |
+| Fecha de los datos | Base de OpenStreetMap al 2026-09-26T19:07:48Z. |
+| Licencia | ODbL 1.0 (1.4). |
+| Bomberos | 2 cuarteles: "Estación de bomberos" (Necochea, `node/4090042291`) y "Bomberos Voluntarios de La Dulce" (`node/5871881594`). Coinciden con los dos del IGN (capa `estructuras_operativas_y_defensivas_090102`; el de Necochea declara como fuente de captura "OSM/Street View"). Del operador no se guarda nada: en el cuartel de Necochea figura un nombre que puede ser el de una persona. **Registro incompleto:** según Sebastián, el partido tiene más cuarteles. Archivo: `docs/datos/bomberos.geojson`. |
+| Defensa Civil | OSM tiene un punto "Defensa Civil" (`node/4092470096`, `office=government`, sobre calle 56, junto a la Municipalidad). Según el municipio, sus instalaciones están "sobre avenida 10, casi Pinolandia" (https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/, 17/09/2026), y Sebastián indicó una ubicación a unos 3 km del punto de OSM. El punto está desactualizado: el script lo descarta mientras siga a menos de 100 m de su posición actual, y vuelve a entrar solo si se corrige en OSM. La dirección oficial no tiene número, así que no se convierte en coordenadas (sería estimar). La ubicación que indicó Sebastián salió de Google Maps y no se usa: sus condiciones no permiten copiar esos datos. |
 
