@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-26T19:19:34+00:00",
+  "generado": "2026-09-26T19:34:53+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -763,9 +763,9 @@
         "radio": 6
       },
       "activa_al_inicio": false,
-      "que_representa": "Cuarteles de bomberos, voluntarios o no, cargados en OpenStreetMap (amenity=fire_station): el de Necochea y los Bomberos Voluntarios de La Dulce. Coinciden con los dos que publica el IGN.",
+      "que_representa": "Los cuarteles de bomberos del partido, según OpenStreetMap (amenity=fire_station): el de Necochea y los Bomberos Voluntarios de La Dulce. Coinciden con los dos que publica el IGN, y según Juan Sebastián Bértole (26/09/2026) no hay otros en el partido.",
       "que_no_representa": "No indica dotación, equipamiento ni área de cobertura.",
-      "limitaciones": "Registro incompleto: el partido tiene más cuarteles que los cargados (según Sebastián, 26/09/2026); los que se sumen a OpenStreetMap aparecen en la próxima actualización. Del operador de cada cuartel no se guarda nada, porque puede ser el nombre de una persona.",
+      "limitaciones": "Si se abre un cuartel nuevo, aparece en el mapa cuando se cargue en OpenStreetMap y se actualicen los datos. Del operador de cada cuartel no se guarda nada, porque puede ser el nombre de una persona.",
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T19:07:48Z (UTC).",
