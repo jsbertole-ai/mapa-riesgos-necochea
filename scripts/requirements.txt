@@ -1,0 +1,2 @@
+# Los scripts usan solo la biblioteca estándar de Python (3.9 o posterior).
+# No hace falta instalar nada.

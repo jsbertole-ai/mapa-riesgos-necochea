@@ -1,0 +1,287 @@
+{
+  "datos/crudos/departamentos.geojson": {
+    "url": "https://apis.datos.gob.ar/georef/api/departamentos.geojson",
+    "descargado": "2026-09-26T17:29:03+00:00",
+    "last_modified": "Wed, 19 Aug 2026 15:02:17 GMT",
+    "bytes": 1193417,
+    "sha256": "31afdfe5983b6d7648eba1eafc7a5a8fe3c591abdca4b17c311c08c75d361e92"
+  },
+  "datos/crudos/firms/modis_2000_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2000/modis_2000_Argentina.csv",
+    "descargado": "2026-09-26T17:15:56+00:00",
+    "bytes_archivo_nacional": 583111,
+    "sha256_archivo_nacional": "46e8a305afc510c74ba061c283db731bbfa0cb2d5cb169035618c290e4cd3718",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2001_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2001/modis_2001_Argentina.csv",
+    "descargado": "2026-09-26T17:15:57+00:00",
+    "bytes_archivo_nacional": 2551003,
+    "sha256_archivo_nacional": "2047af87f695fed3c318e9155a0755aa2fe443357dca4e47940a779d6912fa77",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2002_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2002/modis_2002_Argentina.csv",
+    "descargado": "2026-09-26T17:15:57+00:00",
+    "bytes_archivo_nacional": 4797680,
+    "sha256_archivo_nacional": "d5369096f3dc0f3114dfa251a0690db3104244b30e5def56db44becda68e4b23",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2003_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2003/modis_2003_Argentina.csv",
+    "descargado": "2026-09-26T17:15:59+00:00",
+    "bytes_archivo_nacional": 9275846,
+    "sha256_archivo_nacional": "98ef63553ccbab41cfd093654267dd66a00345c18a497c8c5ec0f8394fa361f1",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2004_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2004/modis_2004_Argentina.csv",
+    "descargado": "2026-09-26T17:15:59+00:00",
+    "bytes_archivo_nacional": 7924650,
+    "sha256_archivo_nacional": "aca0e9343579ccb152dbb9bd01625ec6414324f8c78bddeec0508067ac565862",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2005_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2005/modis_2005_Argentina.csv",
+    "descargado": "2026-09-26T17:16:00+00:00",
+    "bytes_archivo_nacional": 5649257,
+    "sha256_archivo_nacional": "2805b62fad32df221877704098633863c6e82a28830adaa279352ed91c4f1bf8",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2006_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2006/modis_2006_Argentina.csv",
+    "descargado": "2026-09-26T17:16:01+00:00",
+    "bytes_archivo_nacional": 6705606,
+    "sha256_archivo_nacional": "eca42247cd7ef2d0fde65605693e378722dac8274d46bf70c01e9bffccc13218",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2007_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2007/modis_2007_Argentina.csv",
+    "descargado": "2026-09-26T17:16:01+00:00",
+    "bytes_archivo_nacional": 6192110,
+    "sha256_archivo_nacional": "abdeb916b85147e82148ea8e3db76546c61e6d28f29079f0725f15bd850f8c88",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2008_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2008/modis_2008_Argentina.csv",
+    "descargado": "2026-09-26T17:16:02+00:00",
+    "bytes_archivo_nacional": 8303607,
+    "sha256_archivo_nacional": "a8ab1f53ddebafe7b792da3411ff0ebf29abbb9bf7946927c5f1dfccab358051",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2009_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2009/modis_2009_Argentina.csv",
+    "descargado": "2026-09-26T17:16:03+00:00",
+    "bytes_archivo_nacional": 6514805,
+    "sha256_archivo_nacional": "e1ecc9e75a1b110923eac84a3c7b454a1c4213cf5e840cf0d657b45057190819",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2010_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2010/modis_2010_Argentina.csv",
+    "descargado": "2026-09-26T17:16:03+00:00",
+    "bytes_archivo_nacional": 4970212,
+    "sha256_archivo_nacional": "57dcc45ca47f899d1773ad1b89a49effddb4da08de0811e043202ac720f3423b",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2011_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2011/modis_2011_Argentina.csv",
+    "descargado": "2026-09-26T17:16:04+00:00",
+    "bytes_archivo_nacional": 6064259,
+    "sha256_archivo_nacional": "f900a5efefd2b1ea9680cc2eb4fdcf728ff841ceedae2308a832f0960bbe83d8",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2012_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2012/modis_2012_Argentina.csv",
+    "descargado": "2026-09-26T17:16:05+00:00",
+    "bytes_archivo_nacional": 4903703,
+    "sha256_archivo_nacional": "d2d0c9a8af8aedebfc6dddbd813072be81e879291ba70990d931e91c1195a5f3",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2013_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2013/modis_2013_Argentina.csv",
+    "descargado": "2026-09-26T17:16:05+00:00",
+    "bytes_archivo_nacional": 5280563,
+    "sha256_archivo_nacional": "ce5650fc3939a750ea5c4ce1a00a0b8f76878743bc0fe6818154a3805b90df0c",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2014_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2014/modis_2014_Argentina.csv",
+    "descargado": "2026-09-26T17:16:06+00:00",
+    "bytes_archivo_nacional": 2921271,
+    "sha256_archivo_nacional": "2ae44f8ccee2d7206a32b4088d4fc5b799c7896b30226939d8405e64655d16cf",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2015_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2015/modis_2015_Argentina.csv",
+    "descargado": "2026-09-26T17:16:06+00:00",
+    "bytes_archivo_nacional": 3572980,
+    "sha256_archivo_nacional": "cc3f70d1834553afa533ada41dbda6b5c94c2827fd00b78b150c52140171f320",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2016_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2016/modis_2016_Argentina.csv",
+    "descargado": "2026-09-26T17:16:07+00:00",
+    "bytes_archivo_nacional": 4397743,
+    "sha256_archivo_nacional": "3fffbd2eeb8a1888d8770ea6fac05a608bb3a51cf128126659797d256cf9a580",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2017_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2017/modis_2017_Argentina.csv",
+    "descargado": "2026-09-26T17:16:07+00:00",
+    "bytes_archivo_nacional": 4788746,
+    "sha256_archivo_nacional": "5240365806bb8161b9afa5421c5020f492c8602973ff1db3d84726f8341375d0",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2018_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2018/modis_2018_Argentina.csv",
+    "descargado": "2026-09-26T17:16:08+00:00",
+    "bytes_archivo_nacional": 4443653,
+    "sha256_archivo_nacional": "d0dd7be6b8b323854d7540499c6089937d086e113d98407b4901967a52ab45ff",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2019_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2019/modis_2019_Argentina.csv",
+    "descargado": "2026-09-26T17:16:08+00:00",
+    "bytes_archivo_nacional": 4043829,
+    "sha256_archivo_nacional": "bcb2bf07943e312f6d61ccd69008a40a09e22216ede34867d59ce88dc56d11d2",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2020_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2020/modis_2020_Argentina.csv",
+    "descargado": "2026-09-26T17:16:09+00:00",
+    "bytes_archivo_nacional": 9972297,
+    "sha256_archivo_nacional": "59d485a2c6a4acc088d90c481d71d34901d1e2b3a5a16d57689865c76aa3a1cf",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2021_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2021/modis_2021_Argentina.csv",
+    "descargado": "2026-09-26T17:16:10+00:00",
+    "bytes_archivo_nacional": 4566299,
+    "sha256_archivo_nacional": "04cc5b10dfacea4775c1b8bc0a9d1fa7721a21a84c3d396dfca0ac0608d1d857",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2022_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2022/modis_2022_Argentina.csv",
+    "descargado": "2026-09-26T17:16:11+00:00",
+    "bytes_archivo_nacional": 6231134,
+    "sha256_archivo_nacional": "6c5ad252fda14943060fd37f04358bd482b6f107940981cdb1d6bd9be63c4627",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2023_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2023/modis_2023_Argentina.csv",
+    "descargado": "2026-09-26T17:16:11+00:00",
+    "bytes_archivo_nacional": 3898226,
+    "sha256_archivo_nacional": "45152ac1c0569bfd4e0d77127b4a489ea96c1f49a2137536992118dc4440f47f",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/modis_2024_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2024/modis_2024_Argentina.csv",
+    "descargado": "2026-09-26T17:16:12+00:00",
+    "bytes_archivo_nacional": 4043604,
+    "sha256_archivo_nacional": "3bdedb8b223b7e3cf472108101ab64e4cefd4a2e41d11d9895d237c1c330c360",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2012_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2012/viirs-snpp_2012_Argentina.csv",
+    "descargado": "2026-09-26T17:16:13+00:00",
+    "bytes_archivo_nacional": 15235582,
+    "sha256_archivo_nacional": "d685afc4b16b4fd654d504c1ce103be4494e64a07e522ca0d0ece68671e0707d",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2013_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2013/viirs-snpp_2013_Argentina.csv",
+    "descargado": "2026-09-26T17:16:15+00:00",
+    "bytes_archivo_nacional": 19061532,
+    "sha256_archivo_nacional": "a45be3200412b4bbd7e6f78db57a1f4c2f81b7c55a2d0db1aeefd797a93dad68",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2014_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2014/viirs-snpp_2014_Argentina.csv",
+    "descargado": "2026-09-26T17:16:16+00:00",
+    "bytes_archivo_nacional": 10138373,
+    "sha256_archivo_nacional": "9caaa6cf0e690cad118511dfef83b50e2c73ddeeb1c3294960968f14488fdba3",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2015_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2015/viirs-snpp_2015_Argentina.csv",
+    "descargado": "2026-09-26T17:16:17+00:00",
+    "bytes_archivo_nacional": 12124867,
+    "sha256_archivo_nacional": "ba4514b7188785c6fb805a3263115ae6e704a0edaaa2f7960c2427dd94902a68",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2016_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2016/viirs-snpp_2016_Argentina.csv",
+    "descargado": "2026-09-26T17:16:18+00:00",
+    "bytes_archivo_nacional": 14556663,
+    "sha256_archivo_nacional": "85c3d5f233762ba3f6b26d956d3b48590292e619fe0bce57cc514ff62a417515",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2017_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2017/viirs-snpp_2017_Argentina.csv",
+    "descargado": "2026-09-26T17:16:19+00:00",
+    "bytes_archivo_nacional": 16182697,
+    "sha256_archivo_nacional": "192ce79b159d9c0110ea97916ea339571301b3f12108ec7784ff70a599b03cfc",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2018_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2018/viirs-snpp_2018_Argentina.csv",
+    "descargado": "2026-09-26T17:16:20+00:00",
+    "bytes_archivo_nacional": 14836152,
+    "sha256_archivo_nacional": "9c236f96a58d65f11c7364d89e3c705a6812649aaf9f73080078ab0b76294e9e",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2019_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2019/viirs-snpp_2019_Argentina.csv",
+    "descargado": "2026-09-26T17:16:21+00:00",
+    "bytes_archivo_nacional": 12976401,
+    "sha256_archivo_nacional": "b32417ae0437c0de9d5cca73c1214921fcd03e0575869bea6466d8056de9b26a",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2020_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2020/viirs-snpp_2020_Argentina.csv",
+    "descargado": "2026-09-26T17:16:25+00:00",
+    "bytes_archivo_nacional": 35993088,
+    "sha256_archivo_nacional": "48ca3db0721d41aa6f0457fc649ef5bf69141b13da964dac73ee1b708cf466f4",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2021_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2021/viirs-snpp_2021_Argentina.csv",
+    "descargado": "2026-09-26T17:16:27+00:00",
+    "bytes_archivo_nacional": 15895377,
+    "sha256_archivo_nacional": "915bcb6794ab0c11663d9a3c71f4d9ff53bd5700d00ed4deda05ee101938a37c",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2022_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2022/viirs-snpp_2022_Argentina.csv",
+    "descargado": "2026-09-26T17:16:29+00:00",
+    "bytes_archivo_nacional": 25114506,
+    "sha256_archivo_nacional": "c441a07213b84debd04623dde97cc38ac7ebc7286c864f236a0140a6ede7911c",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2023_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2023/viirs-snpp_2023_Argentina.csv",
+    "descargado": "2026-09-26T17:16:30+00:00",
+    "bytes_archivo_nacional": 13782846,
+    "sha256_archivo_nacional": "ca895e71b8e5d878e0c971e643dacb8a018893c237d0ff567c41c921081c1eac",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/firms/viirs-snpp_2024_Argentina_caja.csv": {
+    "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2024/viirs-snpp_2024_Argentina.csv",
+    "descargado": "2026-09-26T17:16:31+00:00",
+    "bytes_archivo_nacional": 12276220,
+    "sha256_archivo_nacional": "27d3c8e6d27b448e101b127decd4c721a20f664298a9475d1698104aa3dd8683",
+    "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
+  },
+  "datos/crudos/osm/hidrografia.json": {
+    "url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3B%0A%28%0A%0A++way%5B%22waterway%22~%22%5E%28river%7Cstream%7Ccanal%7Cdrain%7Cditch%29%24%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++nwr%5B%22natural%22%3D%22water%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++way%5B%22natural%22%3D%22coastline%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A%29+-%3E+.todo%3B%0A%28%0A%0A++nwr%5B%22man_made%22%3D%22surveillance%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++nwr%5B%22amenity%22%3D%22police%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++nwr%5B%22surveillance%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++nwr%5B%22surveillance%3Atype%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A%29+-%3E+.excluido%3B%0A%28.todo%3B+-+.excluido%3B%29%3B%0Aout+body+geom%3B%0A",
+    "descargado": "2026-09-26T17:24:16+00:00",
+    "bytes": 11293881,
+    "sha256": "b41f3669bac79d533bcc2f0b509650877300642a873d952c5101bf5d7fd9491b"
+  },
+  "datos/crudos/osm/portuaria.json": {
+    "url": "https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3B%0A%28%0A%0A++nwr%5B%22landuse%22~%22%5E%28industrial%7Cport%29%24%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++nwr%5B%22industrial%22%3D%22port%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++nwr%5B%22harbour%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++nwr%5B%22man_made%22~%22%5E%28silo%7Cstorage_tank%7Cpier%7Cbreakwater%29%24%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++way%5B%22railway%22%3D%22rail%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++way%5B%22highway%22~%22%5E%28trunk%7Cprimary%29%24%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++way%5B%22hgv%22%3D%22designated%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A%29+-%3E+.todo%3B%0A%28%0A%0A++nwr%5B%22man_made%22%3D%22surveillance%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++nwr%5B%22amenity%22%3D%22police%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++nwr%5B%22surveillance%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A++nwr%5B%22surveillance%3Atype%22%5D%28-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%29%3B%0A%29+-%3E+.excluido%3B%0A%28.todo%3B+-+.excluido%3B%29%3B%0Aout+body+geom%3B%0A",
+    "descargado": "2026-09-26T17:26:03+00:00",
+    "bytes": 860953,
+    "sha256": "8f6f209ea217d76708a4ba1740f8e37698f8bc69ca53bc9f384792bc6f9ccac0"
+  }
+}

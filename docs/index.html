@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapa de riesgos del partido de Necochea</title>
+  <meta name="description" content="Mapa interactivo de amenazas del partido de Necochea (inundaciones, incendios rurales y actividad portuaria e industrial) hecho solo con datos abiertos.">
+  <meta name="theme-color" content="#1f4e79">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="iconos/icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="iconos/icono-180.png">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header class="cabecera">
+    <h1><span class="titulo-largo">Mapa de riesgos del partido de Necochea</span><span class="titulo-corto">Riesgos Necochea</span></h1>
+    <button id="boton-capas" type="button" aria-controls="panel" aria-expanded="false">Capas</button>
+    <nav>
+      <a href="./" aria-current="page">Mapa</a>
+      <a href="metodologia.html">Metodología</a>
+    </nav>
+  </header>
+
+  <div class="app">
+    <aside id="panel" class="panel" aria-label="Capas del mapa">
+      <p class="aviso">Este mapa muestra amenazas y elementos expuestos con datos abiertos. No es un mapa oficial de riesgo ni reemplaza la información de Defensa Civil. Leé la <a href="metodologia.html">metodología</a> antes de sacar conclusiones.</p>
+      <div id="lista-capas"><p>Cargando capas…</p></div>
+      <div class="pie-panel">
+        Mapa de fondo: © <a href="https://www.openstreetmap.org/copyright">colaboradores de OpenStreetMap</a> (ODbL). El mapa de fondo necesita conexión.
+        Hecho por Juan Sebastián Bértole. Código bajo licencia MIT; cada capa conserva la licencia de su fuente.
+        <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea">Repositorio</a>.
+      </div>
+    </aside>
+    <main id="mapa" aria-label="Mapa"></main>
+    <p id="aviso-sin-conexion" class="aviso aviso-flotante" role="status" hidden>Sin conexión: las capas guardadas siguen disponibles, pero el mapa de fondo necesita conexión para verse.</p>
+  </div>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="js/mapa.js"></script>
+</body>
+</html>

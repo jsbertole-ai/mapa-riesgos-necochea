@@ -1,0 +1,20 @@
+{
+  "https://datosgobar.github.io/georef-ar-api/terms/": {
+    "leido": "2026-09-26T17:29:31+00:00",
+    "frase": "se disponibilizan bajo la licencia Creative Commons Attribution 4.0",
+    "encontrada": true,
+    "fragmento": "ETL ETL Inicio Datos Instalación y Ejecución Condiciones de uso ¶ Legales ¶ Los datos del Servicio de Normalización de Datos Geográficos de Argentina se disponibilizan bajo la licencia Creative Commons Attribution 4.0 y pueden ser usados para cualquier fin, incluyendo fines comerciales. Técnicas ¶ La API del servicio de normalización se encuentra en estado alpha de desarrollo y las cuotas de uso abierto sin autenticación no están definidas. A medida que el servic"
+  },
+  "https://www.openstreetmap.org/copyright": {
+    "leido": "2026-09-26T17:29:35+00:00",
+    "frase": "Open Data Commons Open Database License",
+    "encontrada": true,
+    "fragmento": "ty . Support the project by joining the OSM Foundation and making a donation . OpenStreetMap licensing OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL) by the OpenStreetMap Foundation (OSMF). In summary: You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result on"
+  },
+  "https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy": {
+    "leido": "2026-09-26T17:29:34+00:00",
+    "frase": "data provided from a NASA-led mission are licensed as Creative Commons Zero (CC0)",
+    "encontrada": true,
+    "fragmento": "as such and the use of that data shall be in accordance with the designated license. Unless the content is marked with a use restriction or license, data provided from a NASA-led mission are licensed as Creative Commons Zero (CC0). While there are no restrictions on the use of these data, data users are very strongly urged to cite the data used in their work products. NASA occasionally uses copyrighted material by permission on its website. NASA's use does not convey any righ"
+  }
+}

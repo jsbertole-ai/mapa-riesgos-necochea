@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metodología del mapa de riesgos de Necochea</title>
+  <meta name="description" content="Qué representa cada capa del mapa de riesgos del partido de Necochea, qué no representa, sus fuentes, licencias y limitaciones.">
+  <meta name="theme-color" content="#1f4e79">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="iconos/icono.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="iconos/icono-180.png">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header class="cabecera">
+    <h1><span class="titulo-largo">Mapa de riesgos del partido de Necochea</span><span class="titulo-corto">Riesgos Necochea</span></h1>
+    <nav>
+      <a href="./">Mapa</a>
+      <a href="metodologia.html" aria-current="page">Metodología</a>
+    </nav>
+  </header>
+
+  <main class="documento">
+    <h1>Metodología</h1>
+    <p>Este mapa reúne, para el partido de Necochea, datos abiertos sobre tres amenazas: inundaciones y anegamientos, incendios de pastizal y rurales, y actividad portuaria e industrial. Es una pieza de divulgación. No es un mapa oficial de riesgo, no tiene valor normativo y no reemplaza la información de Defensa Civil ni de los organismos competentes.</p>
+
+    <h2>Qué muestra y qué no</h2>
+    <p>El riesgo de desastre surge de combinar una amenaza con la exposición y la vulnerabilidad de lo que está expuesto. Este mapa no calcula esa combinación: muestra piezas sueltas. Algunas capas registran indicios de una amenaza (los focos de calor), otras ubican elementos expuestos o que pueden originar un evento (silos, tanques, zonas industriales) y otras sirven de referencia para leer las demás (la hidrografía, el límite del partido). Ninguna capa, sola o combinada con otras, dice cuánto riesgo hay en un lugar.</p>
+    <p>La regla del proyecto es no inventar, estimar ni simular datos para completar una capa. Cuando no hay un dato abierto que se pueda verificar, la capa figura como <strong>"pendiente de fuente"</strong> y no se dibuja nada en su lugar.</p>
+
+    <h2>Cómo se verifica cada capa</h2>
+    <p>Los datos se descargan con scripts en Python que están en el repositorio (carpeta <code>scripts</code>). Cada descarga queda registrada con su dirección, fecha y huella digital (SHA-256). Una capa se publica como verificada solo si pasa cuatro controles automáticos:</p>
+    <ol>
+      <li>el archivo existe, es GeoJSON válido y tiene elementos;</li>
+      <li>todos los elementos tocan el partido;</li>
+      <li>ningún elemento corresponde a vigilancia o seguridad (ver "Exclusiones");</li>
+      <li>la página de licencia de la fuente contiene, al momento de la verificación, la frase que declara esa licencia.</li>
+    </ol>
+    <p>El recorte al partido se hace con el polígono de Georef: un punto entra si cae dentro; una línea o un polígono entra si al menos uno de sus vértices cae dentro, de modo que un río o una ruta que cruza el límite se ve completo.</p>
+
+    <h2>Focos de calor: cómo leerlos</h2>
+    <p>Las dos capas de incendios vienen del sistema FIRMS de la NASA. Cada punto es el centro de un píxel en el que un satélite detectó una temperatura anómala en el momento de su pasada. Eso tiene consecuencias que conviene tener presentes:</p>
+    <ul>
+      <li><strong>Un foco de calor no es un incendio confirmado.</strong> Puede ser una quema agrícola, una fuente industrial o un falso positivo.</li>
+      <li>No mide superficie quemada. Un incendio grande puede generar muchos focos, y uno chico o breve puede no generar ninguno.</li>
+      <li>MODIS trabaja con píxeles de alrededor de 1 km y VIIRS con píxeles de alrededor de 375 m. Las nubes y la hora de paso del satélite provocan omisiones.</li>
+      <li>MODIS y VIIRS pueden detectar el mismo fuego. Las dos capas no se suman.</li>
+      <li>Cada foco trae un "tipo" inferido por FIRMS: 0, presunto incendio de vegetación; 1, volcán activo; 2, otra fuente terrestre estática; 3, costa afuera. No se filtró ninguno: el tipo se muestra al tocar el punto.</li>
+      <li>La hora es la de la pasada del satélite, en tiempo universal coordinado (UTC). No se convierte a hora local porque el huso de la Argentina cambió en algunos años de la serie.</li>
+    </ul>
+    <p>El aviso legal que acompaña los datos de FIRMS dice textualmente:</p>
+    <blockquote lang="en">"Due to the spatial resolution and other characteristics of these data, their use for tactical decision-making or informing about conditions at a local scale are not advised."</blockquote>
+    <p>En castellano (traducción propia): por la resolución espacial y otras características de estos datos, no se aconseja usarlos para tomar decisiones tácticas ni para informar sobre condiciones a escala local. Por eso estas capas sirven para ver patrones a lo largo de los años, no para seguir un incendio en curso ni para ubicar con precisión un foco.</p>
+
+    <h2>Capas, fuentes y limitaciones</h2>
+    <p>Esta sección se genera a partir del mismo registro que usa el mapa (<code>datos/capas.json</code>), así que siempre muestra el estado de la última verificación.</p>
+    <div id="fichas"><p>Cargando…</p></div>
+
+    <h2>Exclusiones</h2>
+    <p>El mapa no incluye, en ninguna capa, la ubicación de cámaras de videovigilancia ni de infraestructura de seguridad (comisarías, centros de monitoreo y similares), ni datos personales. En las consultas a OpenStreetMap se descartan de forma explícita los elementos etiquetados como <code>man_made=surveillance</code>, <code>amenity=police</code> o con claves de vigilancia, primero en la consulta y otra vez al procesar. De cada elemento se conservan solo las etiquetas que describen qué es (nombre, tipo, operador), no teléfonos, correos ni otros datos de contacto.</p>
+
+    <h2>Uso sin conexión</h2>
+    <p>El sitio se puede instalar como aplicación en el celular o la computadora. Una vez abierto con conexión, las páginas y las capas que ya se vieron quedan guardadas y se pueden consultar sin red. <strong>El mapa de fondo necesita conexión:</strong> la política de uso de las teselas de OpenStreetMap prohíbe guardarlas para uso sin conexión, así que sin red las capas se ven sobre un fondo liso.</p>
+
+    <h2>Licencias y atribución</h2>
+    <ul>
+      <li>Mapa de fondo y capas derivadas de OpenStreetMap: © colaboradores de OpenStreetMap, bajo la <a href="https://www.openstreetmap.org/copyright">Open Database License (ODbL)</a>. Los archivos derivados que publica este proyecto se distribuyen bajo la misma licencia.</li>
+      <li>Límite del partido: Georef (datos.gob.ar), geometría del IGN, bajo licencia <a href="https://datosgobar.github.io/georef-ar-api/terms/">Creative Commons Atribución 4.0</a>.</li>
+      <li>Focos de calor: NASA FIRMS. Los datos de misiones de la NASA sin otra marca se publican como CC0, según la <a href="https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy">política de uso de datos de Earthdata</a>; se citan y se enlaza el <a href="https://firms.modaps.eosdis.nasa.gov/download/Readme.txt">aviso legal de FIRMS</a>, como pide la fuente.</li>
+      <li>Código del sitio y de los scripts: licencia MIT. Los datos no se relicencian: cada uno conserva la licencia de su fuente.</li>
+    </ul>
+
+    <h2>Autoría</h2>
+    <p>Proyecto de Juan Sebastián Bértole, estudiante de la Licenciatura en Gestión de Riesgos y Siniestralidad del Instituto Universitario Vucetich. El registro completo de fuentes, con las que se descartaron y por qué, está en <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea/blob/main/DATOS.md">DATOS.md</a>.</p>
+  </main>
+
+  <script src="js/metodologia.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function () {});
+  </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+{
+  "_nota": "Datos fijos de cada capa. Lo que surge de descargar y procesar (fecha, cantidad, huella) lo agrega scripts/verificar.py al generar docs/datos/capas.json. No inventar valores acá: si algo no se sabe, va como null.",
+  "grupos": [
+    {
+      "id": "referencia",
+      "nombre": "Referencia"
+    },
+    {
+      "id": "inundaciones",
+      "nombre": "Inundaciones y anegamientos"
+    },
+    {
+      "id": "incendios",
+      "nombre": "Incendios de pastizal y rurales"
+    },
+    {
+      "id": "portuaria",
+      "nombre": "Actividad portuaria e industrial"
+    }
+  ],
+  "capas": [
+    {
+      "id": "limite",
+      "grupo": "referencia",
+      "nombre": "Límite del partido",
+      "archivo": "limite.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#3a3a3a",
+        "relleno": false,
+        "trazo": "6 4"
+      },
+      "activa_al_inicio": true,
+      "organismo": "Servicio de Normalización de Datos Geográficos de Argentina (Georef), datos.gob.ar; geometría del Instituto Geográfico Nacional (IGN)",
+      "url_fuente": "https://datosgobar.github.io/georef-ar-api/download/",
+      "url_datos": "https://apis.datos.gob.ar/georef/api/departamentos.geojson",
+      "licencia": "CC BY 4.0",
+      "url_licencia": "https://datosgobar.github.io/georef-ar-api/terms/",
+      "frase_licencia": "se disponibilizan bajo la licencia Creative Commons Attribution 4.0",
+      "cita": "Georef, Servicio de Normalización de Datos Geográficos de Argentina (datos.gob.ar), capa de departamentos; geometría del IGN. CC BY 4.0.",
+      "formato": "GeoJSON",
+      "que_representa": "El límite administrativo del partido de Necochea (departamento 06581 de la provincia de Buenos Aires), tal como lo publica Georef con geometría del IGN.",
+      "que_no_representa": "No es un límite catastral ni de precisión: sirve para ubicarse y para recortar las demás capas.",
+      "limitaciones": "La geometría viene muy generalizada (un polígono de 57 vértices): la línea de costa y los bordes con los partidos vecinos pueden correrse cientos de metros respecto del terreno. Georef no informa la fecha de la capa de origen del IGN."
+    },
+    {
+      "id": "inundaciones_peligrosidad",
+      "grupo": "inundaciones",
+      "nombre": "Peligrosidad hídrica",
+      "archivo": null,
+      "organismo": "Autoridad del Agua (ADA), provincia de Buenos Aires",
+      "url_fuente": "https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/",
+      "motivo_pendiente": "La Autoridad del Agua todavía no elaboró la carta de riesgo hídrico de la cuenca del río Quequén Grande: no figura entre las cartas publicadas (revisión manual de Juan Sebastián Bértole, 26/09/2026). Hasta que exista, no hay un mapa oficial de peligrosidad hídrica para el partido.",
+      "que_representa": "Sería la zonificación oficial de la amenaza de inundación (categorías de peligrosidad).",
+      "que_no_representa": "La hidrografía no la reemplaza: saber por dónde corre el agua no dice dónde se inunda."
+    },
+    {
+      "id": "hidrografia",
+      "grupo": "inundaciones",
+      "nombre": "Hidrografía y costa",
+      "archivo": "hidrografia.geojson",
+      "geometria": "mixta",
+      "estilo": {
+        "color": "#1f6fb2",
+        "relleno": "#9cc7ea"
+      },
+      "activa_al_inicio": true,
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "frase_licencia": "Open Data Commons Open Database License",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
+      "que_representa": "Ríos, arroyos, canales, zanjas y cuerpos de agua cargados en OpenStreetMap (waterway, natural=water) y la línea de costa (natural=coastline).",
+      "que_no_representa": "No indica zonas inundables ni niveles de peligrosidad. Es una capa de referencia para leer la amenaza, no la amenaza.",
+      "limitaciones": "Carga voluntaria sin control oficial: la completitud en zona rural es desigual. Un curso ausente en el mapa puede existir en el terreno."
+    },
+    {
+      "id": "incendios_modis",
+      "grupo": "incendios",
+      "nombre": "Focos de calor MODIS (2000 a 2024)",
+      "archivo": "incendios_modis.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#b35806",
+        "radio": 5
+      },
+      "activa_al_inicio": false,
+      "organismo": "NASA, LANCE / FIRMS (Fire Information for Resource Management System)",
+      "url_fuente": "https://firms.modaps.eosdis.nasa.gov/country/",
+      "url_datos": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/{año}/modis_{año}_Argentina.csv",
+      "licencia": "CC0 (datos de misiones de la NASA sin otra marca), con pedido de cita y de enlazar el aviso legal de FIRMS",
+      "url_licencia": "https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy",
+      "frase_licencia": "data provided from a NASA-led mission are licensed as Creative Commons Zero (CC0)",
+      "url_aviso_legal": "https://firms.modaps.eosdis.nasa.gov/download/Readme.txt",
+      "cita": "NASA FIRMS. MODIS Active Fire / Thermal Anomalies, datos de calidad estándar (MCD14ML) procesados por el equipo MODIS Fire de la Universidad de Maryland y distribuidos por LANCE / FIRMS (NASA ESDIS), resumen anual por país (Argentina).",
+      "formato": "CSV (resumen anual por país) convertido a GeoJSON",
+      "que_representa": "Píxeles de unos 1 km en los que los satélites Terra y Aqua detectaron una anomalía térmica. Cada punto es el centro del píxel.",
+      "que_no_representa": "Un foco de calor no es un incendio confirmado ni mide la superficie quemada. Incluye quemas agrícolas, fuentes industriales y falsos positivos.",
+      "limitaciones": "Resolución de 1 km y dos pasadas diarias por satélite: se pierden fuegos chicos, breves o tapados por nubes. El aviso legal de FIRMS desaconseja usar estos datos para decisiones tácticas o para informar condiciones a escala local. FIRMS avisa que faltan datos MODIS en partes de 2001, 2002, 2007 y 2009. FIRMS todavía no publicó el resumen anual de 2025 (la descarga del 26/09/2026 devolvió 404), así que la serie termina en 2024. La serie mezcla colecciones según el año, tal como la publica FIRMS: el campo version vale 6.2 (2000 a 2017), 6.03 (2018 a 2022) y 61.03 (2023 y 2024). Según la FAQ de FIRMS, la Colección 6.1 no cambió el algoritmo de detección, solo la calibración."
+    },
+    {
+      "id": "incendios_viirs",
+      "grupo": "incendios",
+      "nombre": "Focos de calor VIIRS S-NPP (2012 a 2024)",
+      "archivo": "incendios_viirs.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#c0182a",
+        "radio": 4
+      },
+      "activa_al_inicio": false,
+      "organismo": "NASA, LANCE / FIRMS (Fire Information for Resource Management System)",
+      "url_fuente": "https://firms.modaps.eosdis.nasa.gov/country/",
+      "url_datos": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/{año}/viirs-snpp_{año}_Argentina.csv",
+      "licencia": "CC0 (datos de misiones de la NASA sin otra marca), con pedido de cita y de enlazar el aviso legal de FIRMS",
+      "url_licencia": "https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy",
+      "frase_licencia": "data provided from a NASA-led mission are licensed as Creative Commons Zero (CC0)",
+      "url_aviso_legal": "https://firms.modaps.eosdis.nasa.gov/download/Readme.txt",
+      "cita": "NASA FIRMS. VIIRS 375 m Active Fire / Thermal Anomalies de Suomi NPP, datos de calidad estándar (VNP14IMGTML) procesados por la Universidad de Maryland y distribuidos por LANCE / FIRMS (NASA ESDIS), resumen anual por país (Argentina).",
+      "formato": "CSV (resumen anual por país) convertido a GeoJSON",
+      "que_representa": "Píxeles de unos 375 m en los que el satélite Suomi NPP detectó una anomalía térmica. Cada punto es el centro del píxel.",
+      "que_no_representa": "Un foco de calor no es un incendio confirmado ni mide la superficie quemada. MODIS y VIIRS pueden detectar el mismo fuego: no hay que sumar las dos capas.",
+      "limitaciones": "Detecta fuegos más chicos que MODIS, pero sigue dependiendo de la hora de paso y de la nubosidad. El aviso legal de FIRMS desaconseja usar estos datos para decisiones tácticas o para informar condiciones a escala local. FIRMS todavía no publicó el resumen anual de 2025 (la descarga del 26/09/2026 devolvió 404), así que la serie termina en 2024."
+    },
+    {
+      "id": "incendios_superficie",
+      "grupo": "incendios",
+      "nombre": "Superficie quemada",
+      "archivo": null,
+      "motivo_pendiente": "No se encontró un producto abierto de superficie quemada para el sudeste bonaerense (INTA, SNMF). Las estadísticas del Servicio Nacional de Manejo del Fuego se agregan por provincia, sin geometría.",
+      "que_representa": "Sería el área efectivamente afectada por el fuego.",
+      "que_no_representa": "Los focos de calor no la reemplazan."
+    },
+    {
+      "id": "portuaria_instalaciones",
+      "grupo": "portuaria",
+      "nombre": "Puerto, industria y almacenamiento",
+      "archivo": "portuaria_instalaciones.geojson",
+      "geometria": "mixta",
+      "estilo": {
+        "color": "#5b3a8c",
+        "relleno": "#b9a3d8",
+        "radio": 5
+      },
+      "activa_al_inicio": true,
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "frase_licencia": "Open Data Commons Open Database License",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
+      "que_representa": "Zonas industriales y portuarias (landuse=industrial, landuse=port, industrial=port, harbour), silos, tanques de almacenamiento, muelles y escolleras cargados en OpenStreetMap.",
+      "que_no_representa": "Muestra dónde están las instalaciones, no cuánto riesgo generan: no hay datos abiertos de sustancias, volúmenes ni planes de contingencia.",
+      "limitaciones": "Carga voluntaria sin control oficial. Excluye de forma explícita cámaras de vigilancia e infraestructura de seguridad."
+    },
+    {
+      "id": "portuaria_transporte",
+      "grupo": "portuaria",
+      "nombre": "Rutas principales y ferrocarril",
+      "archivo": "portuaria_transporte.geojson",
+      "geometria": "linea",
+      "estilo": {
+        "color": "#6b5d4f",
+        "grosor": 2
+      },
+      "activa_al_inicio": false,
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "frase_licencia": "Open Data Commons Open Database License",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
+      "que_representa": "Vías férreas (railway=rail), rutas troncales y primarias (highway=trunk, highway=primary) y vías marcadas para camiones (hgv=designated) en OpenStreetMap.",
+      "que_no_representa": "No es un mapa de rutas de camiones de carga peligrosa: los accesos de camiones rara vez están etiquetados y no se deducen.",
+      "limitaciones": "Carga voluntaria sin control oficial. En la consulta del 26/09/2026 no apareció ninguna vía férrea (railway=rail) dentro del límite del partido: la capa hoy muestra solo rutas. Si el ramal ferroviario está cargado en OpenStreetMap con otra etiqueta, no se incluye; si se carga como railway=rail, aparecerá en la próxima actualización. La categoría vial de OpenStreetMap no siempre coincide con la jurisdicción oficial de la ruta."
+    },
+    {
+      "id": "portuaria_zonificacion",
+      "grupo": "portuaria",
+      "nombre": "Zonificación industrial (ordenamiento territorial)",
+      "archivo": null,
+      "organismo": "Municipalidad de Necochea",
+      "motivo_pendiente": "La zonificación (Ordenanza 2005/81 y modificatorias) no está publicada como dato geográfico abierto. No se digitaliza a ojo desde un plano.",
+      "que_representa": "Sería la zonificación oficial de usos del suelo, incluidas las zonas industriales.",
+      "que_no_representa": "Los polígonos industriales de OpenStreetMap no la reemplazan."
+    }
+  ]
+}
