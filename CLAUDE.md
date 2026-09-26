@@ -24,7 +24,7 @@ Mapa de riesgos del partido de Necochea (provincia de Buenos Aires, Argentina), 
 - README con instrucciones para publicar en GitHub Pages y para actualizar los datos.
 - Atribución de OpenStreetMap visible ("© colaboradores de OpenStreetMap", ODbL) y cita de cada fuente.
 
-Estado al 26/09/2026: límite (Georef), focos de calor (FIRMS) y tres capas de OpenStreetMap descargados y verificados; sitio en `docs/` (Leaflet 1.9.4, PWA); tubería completa con `python3 scripts/actualizar.py`. Lo que falta está en la sección 5 de `DATOS.md`.
+Estado al 26/09/2026: límite (Georef), focos de calor (FIRMS), instalaciones portuarias e hidrografía detallada (OpenStreetMap) e hidrografía oficial, curvas de nivel, ferrocarril y rutas (IGN, por WFS) descargados y verificados; sitio en `docs/` (Leaflet 1.9.4, PWA); tubería completa con `python3 scripts/actualizar.py`. Lo que falta está en la sección 5 de `DATOS.md`.
 
 Trabajar por etapas y dejar un resumen al final de cada una.
 

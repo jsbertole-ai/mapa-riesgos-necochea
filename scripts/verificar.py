@@ -93,6 +93,9 @@ def verificar_crudo_osm(proc):
 
 
 def fecha_de_datos(capa, proc, registro):
+    if capa.get("fecha_datos_fija"):
+        # Capas cuya fuente no informa la fecha en los datos: se deja la nota de fuentes.json y el día de la consulta.
+        return f"{capa['fecha_datos_fija']} Consulta al servicio: {(proc.get('procesado') or '')[:10]}."
     if capa["id"] == "limite":
         entrada = registro.get("datos/crudos/" + proc.get("archivo_crudo", ""), {})
         lm = entrada.get("last_modified")
@@ -115,6 +118,7 @@ def main():
     for capa in fuentes["capas"]:
         c = dict(capa)
         c.pop("frase_licencia", None)
+        c.pop("fecha_datos_fija", None)
         if not capa.get("archivo"):
             c["estado"] = "sin_fuente"
             salida.append(c)

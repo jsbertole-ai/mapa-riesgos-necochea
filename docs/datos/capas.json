@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-26T18:05:41+00:00",
+  "generado": "2026-09-26T18:42:20+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -44,7 +44,7 @@
       "estado": "verificada",
       "elementos": 1,
       "fecha_datos": "Archivo publicado el Wed, 19 Aug 2026 15:02:17 GMT (según el servidor); fecha de la geometría del IGN no informada.",
-      "procesado": "2026-09-26T18:05:39+00:00",
+      "procesado": "2026-09-26T18:42:18+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
@@ -66,16 +66,49 @@
       "estado": "sin_fuente"
     },
     {
-      "id": "hidrografia",
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "hidrografia_ign",
       "grupo": "inundaciones",
-      "nombre": "Hidrografía y costa",
-      "archivo": "hidrografia.geojson",
+      "nombre": "Hidrografía oficial (IGN)",
+      "archivo": "hidrografia_ign.geojson",
       "geometria": "mixta",
       "estilo": {
         "color": "#1f6fb2",
         "relleno": "#9cc7ea"
       },
       "activa_al_inicio": true,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: corrientes de agua perennes e intermitentes, acequias y zanjas, canales, espejos de agua y embalses.",
+      "que_representa": "Corrientes de agua perennes e intermitentes, acequias y zanjas, canales, espejos de agua (lagunas) y embalses, según la cartografía oficial del IGN.",
+      "que_no_representa": "No indica zonas inundables ni niveles de peligrosidad. Es una capa de referencia para leer la amenaza, no la amenaza.",
+      "limitaciones": "Mucho menos detallada que la de OpenStreetMap: no incluye la mayoría de los cuerpos de agua chicos ni la línea de costa. El IGN no informa la escala ni la fecha de la capa. Un curso que cruza el límite se ve completo.",
+      "estado": "verificada",
+      "elementos": 129,
+      "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:42:19+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "129 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "id": "hidrografia",
+      "grupo": "inundaciones",
+      "nombre": "Hidrografía detallada (OpenStreetMap)",
+      "archivo": "hidrografia.geojson",
+      "geometria": "mixta",
+      "estilo": {
+        "color": "#4a90c2",
+        "relleno": "#c3dcef"
+      },
+      "activa_al_inicio": false,
       "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
       "url_fuente": "https://www.openstreetmap.org/",
       "url_datos": "https://overpass-api.de/api/interpreter",
@@ -89,13 +122,46 @@
       "estado": "verificada",
       "elementos": 2290,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:21:54Z (UTC).",
-      "procesado": "2026-09-26T18:05:40+00:00",
+      "procesado": "2026-09-26T18:42:19+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
           "2290 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "curvas_nivel",
+      "grupo": "inundaciones",
+      "nombre": "Curvas de nivel (IGN)",
+      "archivo": "curvas_nivel.geojson",
+      "geometria": "linea",
+      "estilo": {
+        "color": "#c9b48f",
+        "grosor": 1
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: curvas de nivel (fuentes de captura: Atlas 1:500.000, 1.ª edición, y SIG 1:250.000).",
+      "que_representa": "Líneas que unen puntos de igual altura sobre el nivel del mar (en la zona, cotas de 10 a 300 m). Ayudan a leer la forma del relieve: por dónde escurre el agua y dónde puede acumularse.",
+      "que_no_representa": "No es un mapa de zonas inundables: el relieve no dice cuánta agua llega ni con qué frecuencia.",
+      "limitaciones": "Según su campo de fuente de captura, provienen de cartografía a escala 1:500.000 y 1:250.000: sirven para ver el relieve general, no para decidir si una calle o un lote se inunda. Los intervalos entre curvas no son regulares. Una curva que cruza el límite se ve completa. En 95 curvas el código de método de obtención es 6, que no figura en la documentación de la capa.",
+      "estado": "verificada",
+      "elementos": 231,
+      "fecha_datos": "El servicio del IGN no informa la fecha de esta capa; la documentación que republica la provincia es del 24/10/2021. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:42:19+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "231 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
         ]
       }
     },
@@ -124,7 +190,7 @@
       "estado": "verificada",
       "elementos": 658,
       "fecha_datos": "2000-11-16 a 2024-11-12",
-      "procesado": "2026-09-26T18:05:39+00:00",
+      "procesado": "2026-09-26T18:42:18+00:00",
       "focos_por_anio": {
         "2000": 3,
         "2001": 28,
@@ -189,7 +255,7 @@
       "estado": "verificada",
       "elementos": 600,
       "fecha_datos": "2012-02-10 a 2024-12-20",
-      "procesado": "2026-09-26T18:05:39+00:00",
+      "procesado": "2026-09-26T18:42:18+00:00",
       "focos_por_anio": {
         "2012": 41,
         "2013": 30,
@@ -251,7 +317,7 @@
       "estado": "verificada",
       "elementos": 646,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:24:01Z (UTC).",
-      "procesado": "2026-09-26T18:05:40+00:00",
+      "procesado": "2026-09-26T18:42:19+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
@@ -262,36 +328,68 @@
       }
     },
     {
-      "id": "portuaria_transporte",
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "ferrocarril",
       "grupo": "portuaria",
-      "nombre": "Rutas principales y ferrocarril",
-      "archivo": "portuaria_transporte.geojson",
+      "nombre": "Ferrocarril (IGN)",
+      "archivo": "ferrocarril.geojson",
       "geometria": "linea",
       "estilo": {
-        "color": "#6b5d4f",
-        "grosor": 2
+        "color": "#222222",
+        "bicolor": true
       },
-      "activa_al_inicio": false,
-      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
-      "url_fuente": "https://www.openstreetmap.org/",
-      "url_datos": "https://overpass-api.de/api/interpreter",
-      "licencia": "ODbL 1.0",
-      "url_licencia": "https://www.openstreetmap.org/copyright",
-      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
-      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
-      "que_representa": "Vías férreas (railway=rail), rutas troncales y primarias (highway=trunk, highway=primary) y vías marcadas para camiones (hgv=designated) en OpenStreetMap.",
-      "que_no_representa": "No es un mapa de rutas de camiones de carga peligrosa: los accesos de camiones rara vez están etiquetados y no se deducen.",
-      "limitaciones": "Carga voluntaria sin control oficial. En la consulta del 26/09/2026 no apareció ninguna vía férrea (railway=rail) dentro del límite del partido: la capa hoy muestra solo rutas. Si el ramal ferroviario está cargado en OpenStreetMap con otra etiqueta, no se incluye; si se carga como railway=rail, aparecerá en la próxima actualización. La categoría vial de OpenStreetMap no siempre coincide con la jurisdicción oficial de la ruta.",
+      "activa_al_inicio": true,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: ferrocarril (fuente de captura: IGN, Ministerio de Transporte de la Nación y Ferrosur).",
+      "que_representa": "Los ramales del Ferrocarril General Roca que atraviesan el partido (R18, R21, R23, R25 y R27), según la cartografía oficial del IGN.",
+      "que_no_representa": "No indica si el ramal está en servicio ni qué carga transporta: el IGN no publica ese dato en la capa.",
+      "limitaciones": "Un ramal que cruza el límite se ve completo, también fuera del partido. El IGN no informa la escala ni la fecha de la capa.",
       "estado": "verificada",
-      "elementos": 66,
-      "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:24:01Z (UTC).",
-      "procesado": "2026-09-26T18:05:40+00:00",
+      "elementos": 6,
+      "fecha_datos": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:42:19+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
-          "66 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
-          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-26)."
+          "6 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "red_vial",
+      "grupo": "portuaria",
+      "nombre": "Rutas nacionales y provinciales (IGN)",
+      "archivo": "red_vial.geojson",
+      "geometria": "linea",
+      "estilo": {
+        "color": "#a0522d",
+        "grosor": 2.5
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: red vial nacional y provincial (fuente de captura: Dirección Nacional de Vialidad y Dirección de Vialidad de la Provincia de Buenos Aires).",
+      "que_representa": "Las rutas nacionales y provinciales del partido, con su número, jurisdicción y tipo de superficie, según la cartografía oficial del IGN.",
+      "que_no_representa": "No es un mapa de rutas de camiones ni de transporte de cargas peligrosas. Los caminos rurales (red terciaria) no se incluyen.",
+      "limitaciones": "Un tramo que cruza el límite se ve completo. La red terciaria del IGN (797 tramos en la caja envolvente del partido) queda afuera para que el mapa se pueda leer.",
+      "estado": "verificada",
+      "elementos": 21,
+      "fecha_datos": "Metadato del IGN creado el 24/10/2021, con actualización mensual declarada (https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf); el servicio no informa la fecha de la versión consultada. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:42:19+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "21 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
         ]
       }
     },

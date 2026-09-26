@@ -21,6 +21,8 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 - **Después del ajuste del "Network access" hecho por Sebastián:** el proxy dejó de rechazar conexiones. Responden apis.datos.gob.ar e infra.datos.gob.ar (la raíz de ambos devuelve 403 del propio servidor, pero la API y las descargas funcionan), datosgobar.github.io, www.ign.gob.ar, firms.modaps.eosdis.nasa.gov, ideba.gba.gob.ar, www.openstreetmap.org, tile.openstreetmap.org, www.earthdata.nasa.gov, operations.osmfoundation.org, docs.github.com, www.geofabrik.de y overpass-turbo.eu.
 - **Cortan la conexión desde el entorno:** ada.gba.gov.ar, riesgohidrico.ada.gba.gov.ar y download.geofabrik.de, siempre; overpass-api.de, de forma intermitente (pasó con pedidos GET espaciados y reintentos). El túnel se abre y el corte llega después del saludo TLS, así que no es el filtro del entorno. Sebastián comprobó el mismo día que ada.gba.gov.ar, www.geofabrik.de y overpass-turbo.eu abren desde su conexión. **Inferido:** esos servidores (o sus redes) rechazan conexiones que llegan desde la nube.
 - **Corta las descargas:** catalogo.datos.gba.gob.ar (catálogo de datos abiertos de la provincia) responde, pero corta en 31.610 bytes cualquier archivo más grande (probado con un ZIP y un PDF, en HTTP/1.1 y HTTP/2, varias veces), sin fallas registradas en el proxy; un CSV de 5 KB llegó completo. gis.ada.gba.gov.ar (visor de la ADA) responde.
+- **Catálogo provincial, también desde la conexión de Sebastián:** los siete ZIP que bajó llegaron truncados (de 220.726 a 220.730 bytes, cuando debían pesar entre 0,6 y 23 MB); el de curvas de nivel, bajado dos veces, dio las dos veces la misma huella SHA-256 (`03c89a98…`). El problema es del servidor del catálogo.
+- **IGN:** www.ign.gob.ar y su servicio WFS (wms.ign.gob.ar) responden desde el entorno; el WFS corta alguna conexión suelta, que los reintentos del script resuelven.
 
 ---
 
@@ -41,18 +43,16 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 | Corrección a la Fase 1 | La consulta por API propuesta en la Fase 1 (`/georef/api/departamentos?provincia=06&nombre=necochea&formato=geojson`) **no sirve para el límite**: aun con `campos=completo`, devuelve solo el centroide (Point, -59,1673869; -38,2554110). El polígono está únicamente en el archivo de descarga completo. |
 | Archivo publicado | `docs/datos/limite.geojson`. Script: `scripts/descargar_limite.py`. |
 
-### 0.2 IGN, capa "Departamentos" · **Identificada** · alternativa · en revisión (Fase 2)
+### 0.2 IGN: términos y condiciones, servicio WFS y capa "Departamentos" · **Licencia comprobada**
 
 | Campo | Detalle |
 |---|---|
 | Organismo | Instituto Geográfico Nacional (IGN) |
-| URL | https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG |
-| Licencia | **No confirmada.** La documentación del IGN describe la licencia como "libre según Freedom Defined", pero no se pudo leer el texto exacto. Georef, que usa estas geometrías, las publica bajo CC BY 4.0. |
-| Formato | SHP, KML, GeoJSON; también WMS y WFS (https://www.ign.gob.ar/geoservicios). |
-| Fecha / cobertura | A confirmar al descargar. Nacional. |
-| Limitaciones | Igual que Georef. |
-| Por qué importa | Si el IGN publica la misma capa con más detalle y licencia explícita, mejoraría la costa y los bordes del límite de Georef (57 vértices). |
-| Republicación provincial | El catálogo de datos abiertos de la provincia republica capas del IGN (ferrocarril, red vial, curvas de nivel, cursos y cuerpos de agua) con licencia CC BY 4.0 (comprobado en sus metadatos, 26/09/2026; ver 1.7, 1.8 y 3.4). La licencia propia del IGN sigue en revisión. |
+| Licencia | "Términos y Condiciones de uso de la información descargada del sitio web del Instituto Geográfico Nacional", https://www.ign.gob.ar/descargas/tyc1.html, leídos el 26/09/2026. Cláusulas textuales: "Debe citarse la fuente de los documentos objeto de la reutilización: 'FUENTE: Instituto Geográfico Nacional de la República Argentina'"; "No se podrá indicar, insinuar o sugerir que el Instituto Geográfico Nacional, participa, patrocina o apoya la utilización o reutilización de la misma"; "En el caso de que se generen productos derivados, deberá además mencionarse la fecha de los datos originales del IGN"; "Los datos descargados deben compartirse de manera libre y gratuita"; "Se permite su uso comercial únicamente en el caso de obras derivadas en que la información sea utilizada como insumo para generar un nuevo producto". La reutilización "puede incluir la copia, difusión, modificación, adaptación, extracción, reordenamiento y combinación de la información". |
+| Lectura práctica | Compatible con un sitio público, gratuito y sin fines comerciales, siempre que se cite la fuente con esa fórmula, se conserven los metadatos y se mencione la fecha de los datos originales. Cuando el IGN no informa esa fecha, la ficha de la capa lo dice. |
+| Servicio | WFS https://wms.ign.gob.ar/geoserver/wfs: 192 capas en el espacio `ign`, con salida GeoJSON. El botón "Descargar capa" de https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG llama a ese mismo servicio (comprobado en el código de la página), así que bajar por el WFS es descargar del sitio del IGN y rigen los términos de arriba. |
+| Metadatos | Para ferrocarril, corrientes y espejos de agua, el enlace "Descargar metadato" está comentado en el código de la página y el archivo al que apunta (`ejemplo.pdf`) devuelve 404. La red vial provincial sí tiene metadato: https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf (creado el 24/10/2021, "Frecuencia de actualización: mensualmente"). |
+| Capa "Departamentos" | No se revisó todavía en el WFS. El límite sigue saliendo de Georef (0.1), que usa la geometría del IGN con licencia CC BY 4.0. Queda pendiente comparar el detalle del IGN con los 57 vértices de Georef (sección 5). |
 
 **Decisión:** el mapa usa Georef (0.1) por tener licencia explícita comprobada, y cita al IGN como origen de la geometría.
 
@@ -109,19 +109,20 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 | Limitaciones | Un WMS es solo una imagen; para reutilizar el dato hace falta WFS o descarga vectorial. |
 | Fase 2 | El sitio responde desde el entorno (26/09/2026), pero la revisión de sus geoservicios no se completó. Queda pendiente (sección 5). |
 
-### 1.3 Hidrografía: IGN (cursos y cuerpos de agua, línea de costa) · **Identificada** · no se usa
+### 1.3 Hidrografía oficial: IGN por WFS · **Verificada** · en uso (capa principal)
 
 | Campo | Detalle |
 |---|---|
-| Organismo | Instituto Geográfico Nacional |
-| URL | https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG (clase Hidrografía y oceanografía) |
-| Licencia | No confirmada (ver 0.2). |
-| Formato | SHP, KML, GeoJSON; WMS y WFS. |
-| Fecha / cobertura | A confirmar. Nacional. |
-| Limitaciones | Representa dónde corre el agua, **no** dónde se inunda. Sirve de referencia, no de amenaza. |
-| Fase 2 | No se descargó del IGN. La misma información está republicada con CC BY 4.0 en el catálogo de la provincia (1.7). |
+| Organismo | Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG (0.2) |
+| Capas del WFS | `ign:lineas_de_aguas_continentales_perenne`, `_intermitentes`, `_BH020` (canal) y `_BH030` (acequia, zanja, zanjón); `ign:areas_de_aguas_continentales_perenne` (espejo de agua perenne), `_intermitente`, `_BH020`, `_BH140` (corriente de agua como área) y `_BH130` (embalse). |
+| Licencia | Términos y Condiciones del IGN (0.2). Cita: "FUENTE: Instituto Geográfico Nacional de la República Argentina". |
+| Formato | GeoJSON del WFS, pedido con la caja del límite y recortado por el polígono (entra todo elemento con algún vértice dentro); coordenadas redondeadas a 5 decimales; se conservan nombre, tipo, fuente de captura y autoridad. |
+| Fecha de los datos | **No informada**: el IGN no publicó metadatos de estas capas (0.2). Consulta al servicio: 26/09/2026. |
+| Resultado | 129 elementos: 30 corrientes de agua perennes, 49 intermitentes, 6 acequias o zanjas, 43 espejos de agua perennes y 1 corriente de agua como área. Con nombre: río Quequén Grande, arroyos Quequén Chico, Calenqueyú, Diamante, Dulce, El Pescado Castigado, La Reserva, Mendoza, Quelacinta y de Zavala, y lagunas La Dulce Grande, La Salada, Tupungato y del Carrizal, entre otros. |
+| Limitaciones | Mucho menos detallada que la de OpenStreetMap (129 elementos frente a 2.290): no trae la mayoría de los cuerpos de agua chicos ni la línea de costa. El IGN no informa escala ni fecha. Representa dónde corre el agua, **no** dónde se inunda. |
+| Archivo publicado | `docs/datos/hidrografia_ign.geojson`. Script: `scripts/descargar_ign.py`. |
 
-### 1.4 Hidrografía: OpenStreetMap · **Verificada** · en uso
+### 1.4 Hidrografía detallada: OpenStreetMap · **Verificada** · complementaria
 
 | Campo | Detalle |
 |---|---|
@@ -134,7 +135,7 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 | Resultado | 2.290 elementos: 1.932 cuerpos de agua, 122 arroyos, 91 canales, 67 zanjas, 43 desagües, 19 tramos de río y 16 tramos de línea de costa. Otros 2.326 elementos de la caja quedaron fuera del partido. |
 | Limitaciones | Carga voluntaria, sin control oficial: la completitud en zona rural es desigual. Un río que cruza el límite se ve completo, incluso fuera del partido. |
 | Archivo publicado | `docs/datos/hidrografia.geojson` (2,2 MB). |
-| Decisión (26/09/2026) | Sebastián eligió la hidrografía oficial (1.7). Esta capa sigue publicada hasta que la oficial esté procesada y verificada; después se retira. |
+| Decisión (26/09/2026) | Sebastián eligió la hidrografía oficial (1.3). Como la oficial resultó mucho menos detallada, esta capa queda como complementaria, apagada al abrir el mapa, hasta que Sebastián decida si se mantiene o se retira. |
 
 ### 1.5 INTA, cartas de suelos (drenaje, anegabilidad) · **Identificada, licencia no confirmada**
 
@@ -153,32 +154,28 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 - Mapas de disponibilidad estimada de recurso hídrico superficial y de uso de los acuíferos libre, pampeano y puelche (imágenes aportadas por Sebastián, sin fuente ni fecha a la vista): clasifican la disponibilidad del recurso en buena, condicionada o restringida. Miden disponibilidad para usos, no amenaza; como imágenes no se pueden convertir en capa sin digitalizar a ojo. **Inferido:** la disponibilidad restringida del acuífero libre en la franja costera de Necochea habla de salinización y abastecimiento, fuera de las tres amenazas del proyecto.
 - Artículo académico sobre un modelo de anegamiento en el sudeste bonaerense, *GeoFocus*: https://www.geofocus.org/index.php/geofocus/article/view/262 (bibliografía; no es un dato abierto descargable, a confirmar).
 
-### 1.7 IGN vía catálogo de datos abiertos de la provincia: cursos y cuerpos de agua · **Identificada, CC BY 4.0** · pendiente de descarga manual
+### 1.7 Catálogo de datos abiertos de la provincia: capas del IGN republicadas · **Descartado: descargas truncadas**
 
 | Campo | Detalle |
 |---|---|
-| Organismo | Instituto Geográfico Nacional (autor, según los metadatos); publica IDEBA en el catálogo de datos abiertos de la provincia de Buenos Aires |
-| URLs | https://catalogo.datos.gba.gob.ar/dataset/cursos-agua · https://catalogo.datos.gba.gob.ar/dataset/cuerpos-agua |
-| Licencia | Creative Commons Attribution 4.0 (https://creativecommons.org/licenses/by/4.0/), según los metadatos del catálogo (API CKAN, 26/09/2026). |
-| Formato | Shapefile comprimido: `cursos-agua-pba.zip` (17.472.854 bytes) y `cuerpos-agua-pba.zip` (23.348.775 bytes). |
-| Fecha | Recursos modificados el 10/06/2026 y metadatos el 19/08/2026, según el catálogo. La fecha de la información de origen del IGN no figura en los metadatos; puede estar en la documentación. |
-| Cobertura | Provincia de Buenos Aires. |
-| Por qué importa | Hidrografía oficial con licencia explícita, del mismo organismo que el límite del partido. **Decisión de Sebastián (26/09/2026): reemplaza a la de OpenStreetMap (1.4)** cuando esté descargada y verificada. |
-| Estado | No se pudo bajar desde el entorno (el servidor corta en 31.610 bytes). Descarga manual pendiente (sección 5). |
+| Qué publica | Ferrocarril, red vial, curvas de nivel, cursos de agua y cuerpos de agua, con autoría del IGN y licencia CC BY 4.0 según los metadatos del catálogo (API CKAN, 26/09/2026): https://catalogo.datos.gba.gob.ar/dataset/ferroviario, /red-vial, /curvas-nivel, /cursos-agua y /cuerpos-agua. |
+| Problema | El servidor corta las descargas: desde el entorno, en 31.610 bytes; desde la conexión de Sebastián, alrededor de 220.726 bytes (ver "Estado de la red"). Ningún ZIP llegó entero. Por las cabeceras de los archivos truncados se ve que no traen shapefile sino GeoJSON (ferrocarril y curvas) y KML (cursos de agua). |
+| Lo que sí sirvió | Los PDF de documentación de la red vial y de las curvas de nivel llegaron completos (239.413 y 229.373 bytes, igual que lo declarado por el catálogo): sistema de referencia EPSG:4326, fuente IGN, "Fecha de fuente de documentación: 24 de octubre de 2021" y los dominios de los campos, que se usan en el mapa para traducir los códigos. |
+| Decisión | Se usa la fuente original, el WFS del IGN (1.3, 1.8 y 3.4), que entrega lo mismo recortado a la zona y sin estos cortes. |
 
-### 1.8 IGN vía catálogo de datos abiertos de la provincia: curvas de nivel · **Identificada, CC BY 4.0** · pendiente de descarga manual
+### 1.8 Curvas de nivel: IGN por WFS · **Verificada** · en uso (apagada al inicio)
 
 | Campo | Detalle |
 |---|---|
-| Organismo | Instituto Geográfico Nacional (autor); publica el Ministerio de Infraestructura y Servicios Públicos de la provincia |
-| URL | https://catalogo.datos.gba.gob.ar/dataset/curvas-nivel |
-| Licencia | Creative Commons Attribution 4.0, según los metadatos del catálogo (26/09/2026). |
-| Formato | Shapefile comprimido: `curvas-nivel-pba.zip` (20.249.791 bytes), más un PDF de documentación. |
-| Fecha | Recurso modificado el 10/06/2026 según el catálogo; fecha de origen a confirmar en la documentación. |
-| Qué representaría | La topografía: ayuda a leer por dónde escurre y dónde puede acumularse el agua. **No** es un mapa de zonas inundables. |
-| Estado | Descarga manual pendiente (sección 5). |
+| Capa del WFS | `ign:lineas_de_geomorfologia_CA010` (en la página de Capas SIG figura como "Curva de nivel GeoPackage"). |
+| Licencia | Términos y Condiciones del IGN (0.2). |
+| Formato | GeoJSON del WFS, recortado como las demás capas del IGN. |
+| Fecha de los datos | **No informada** por el servicio; la documentación que republica la provincia es del 24/10/2021 (1.7). |
+| Resultado | 231 curvas con algún vértice dentro del partido (551 en la caja envolvente), con cotas de 10 a 300 m. Según el campo de fuente de captura, 136 vienen del "Atlas 500k 1° Ediciónl" (así, con esa errata) y 95 del "SIG 250 mil". |
+| Limitaciones | Escala 1:500.000 y 1:250.000 según su fuente de captura: sirven para leer el relieve general, **no** para decidir si una calle o un lote se inunda. Los intervalos no son regulares (cada 10 m hasta 150 m y después 200, 250 y 300 m). En 95 curvas el método de obtención tiene código 6, que no figura en la documentación de la capa. Una curva que cruza el límite se ve completa. |
+| Archivo publicado | `docs/datos/curvas_nivel.geojson` (0,97 MB). |
 
-**Estado de la amenaza "Inundaciones":** la referencia (hidrografía y costa) está verificada, pero **no hay un mapa oficial de peligrosidad hídrica para el partido**: la ADA todavía no elaboró la carta de riesgo hídrico de la cuenca del Quequén Grande (1.1). La capa de amenaza sigue **"pendiente de fuente"** hasta que se publique.
+**Estado de la amenaza "Inundaciones":** la referencia (hidrografía oficial del IGN, hidrografía detallada de OSM y curvas de nivel) está verificada, pero **no hay un mapa oficial de peligrosidad hídrica para el partido**: la ADA todavía no elaboró la carta de riesgo hídrico de la cuenca del Quequén Grande (1.1). La capa de amenaza sigue **"pendiente de fuente"** hasta que se publique.
 
 ---
 
@@ -215,7 +212,7 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 
 ### 2.3 Índice de peligro de incendio (SMN) · **Identificada, no aplica como capa**
 
-https://www.smn.gob.ar/indices_peligro_fuego. Es un índice meteorológico diario, no un registro histórico. Se puede mencionar en la Metodología. Fase 2: desde el entorno, smn.gob.ar responde 403 de Cloudflare (protección contra bots), así que la dirección no se pudo comprobar; no se enlaza hasta confirmarla a mano.
+https://www.smn.gob.ar/indices_peligro_fuego. Es un índice meteorológico diario, no un registro histórico. Se puede mencionar en la Metodología. Fase 2: desde el entorno, smn.gob.ar responde 403 de Cloudflare (protección contra bots); Sebastián confirmó el 26/09/2026 que esta página y https://www.smn.gob.ar/alertas abren. Las dos se enlazan en la Metodología, en "Dónde seguir la situación actual".
 
 ### 2.4 INTA, superficie quemada · **Sin fuente**
 
@@ -227,18 +224,18 @@ No se encontró un producto abierto del INTA con superficie quemada para el sude
 
 ## 3. Actividad portuaria e industrial
 
-### 3.1 OpenStreetMap: puerto, silos, zonas industriales, ferrocarril y rutas · **Verificada** · en uso
+### 3.1 OpenStreetMap: puerto, silos y zonas industriales · **Verificada** · en uso
 
 | Campo | Detalle |
 |---|---|
-| Qué se consulta | `landuse=industrial`, `landuse=port`, `industrial=port`, `harbour=*`, `man_made=silo`, `man_made=storage_tank`, `man_made=pier`, `man_made=breakwater`, `railway=rail`, `highway=trunk`, `highway=primary` y `hgv=designated`, en la caja del límite y recortado por el polígono. Consulta exacta en `datos/crudos/osm/portuaria.overpassql`. |
+| Qué se consulta | `landuse=industrial`, `landuse=port`, `industrial=port`, `harbour=*`, `man_made=silo`, `man_made=storage_tank`, `man_made=pier` y `man_made=breakwater`, en la caja del límite y recortado por el polígono. Consulta exacta en `datos/crudos/osm/portuaria.overpassql`. |
 | Licencia, URL y formato | Igual que 1.4 (ODbL 1.0, misma lectura de la página de licencia). |
 | Fecha de los datos | Base de OpenStreetMap al 2026-09-26T17:24:01Z. |
 | Resultado: instalaciones | 646 elementos (`docs/datos/portuaria_instalaciones.geojson`): 575 silos (462 puntos y 113 polígonos), 40 tanques de almacenamiento, 16 zonas industriales (dos con rubro: `industrial=agriculture` e `industrial=gas`), 13 muelles, 1 escollera ("Escollera Norte") y 1 nodo `harbour=yes` ("Puerto Quequén"). **No hay ningún elemento `landuse=port` ni `industrial=port` dentro del partido.** |
-| Resultado: transporte | 66 tramos (`docs/datos/portuaria_transporte.geojson`): 48 troncales y 18 primarios, con referencias RN228, RP227, RP72, RP75, RP86, RP88 y 076-09. **Ninguna vía `railway=rail` dentro del partido:** las 12 de la caja están en partidos vecinos. Tampoco hay vías con `hgv=designated`. |
+| Transporte (retirado) | Hasta el 26/09/2026 esta consulta traía también rutas y ferrocarril. En la base de OSM de ese día no había ninguna vía `railway=rail` dentro del partido (las 12 de la caja estaban en partidos vecinos) y las rutas eran 66 tramos troncales y primarios. Ferrocarril y rutas salen ahora del IGN (3.4). |
 | Exclusiones | La consulta resta `man_made=surveillance`, `amenity=police`, `surveillance=*` y `surveillance:type=*`; el script vuelve a filtrar al procesar. Las respuestas crudas no trajeron ningún elemento excluido. |
 | Limitaciones | Completitud desconocida y carga voluntaria. Los accesos de camiones no están etiquetados y **no se deducen**. La capa muestra **dónde están** las instalaciones, **no cuánto riesgo generan**: no hay datos abiertos sobre sustancias, volúmenes ni planes de contingencia. |
-| Pregunta abierta | Con qué etiqueta figura en OSM el ramal ferroviario a Quequén (puede estar como `disused`, `abandoned` u otra). La consulta de control del 26/09/2026 se cortó; revisar a mano en https://www.openstreetmap.org. |
+| Nota | Con qué etiqueta figura en OSM el ramal a Quequén queda como pregunta sin consecuencia para el mapa: el ferrocarril sale del IGN. |
 
 ### 3.2 Consorcio de Gestión del Puerto Quequén · **Identificada, sin datos geográficos abiertos**
 
@@ -257,20 +254,21 @@ No se encontró un producto abierto del INTA con superficie quemada para el sude
 | Limitaciones | No se encontró la zonificación como dato geográfico abierto. Sin archivo oficial, **no se digitaliza a ojo desde un plano**. |
 | Acción manual | Consultar al municipio si publica la zonificación en SHP o GeoJSON, y con qué licencia. |
 
-### 3.4 IGN vía catálogo de datos abiertos de la provincia: sistema ferroviario y red vial · **Identificada, CC BY 4.0** · pendiente de descarga manual
+### 3.4 Ferrocarril y rutas: IGN por WFS · **Verificada** · en uso
 
 | Campo | Detalle |
 |---|---|
-| Organismo | Instituto Geográfico Nacional (autor, Dirección de Información Geoespacial); publica el Ministerio de Infraestructura y Servicios Públicos de la provincia |
-| URLs | https://catalogo.datos.gba.gob.ar/dataset/ferroviario · https://catalogo.datos.gba.gob.ar/dataset/red-vial |
-| Licencia | Creative Commons Attribution 4.0, según los metadatos del catálogo (26/09/2026). |
-| Formato | Shapefile comprimido: `lineas-ferrocarril.zip` (579.638 bytes; el servidor declara `Last-Modified` del 05/08/2026) y `red-vial-provincial.zip` (2.229.570 bytes), cada uno con un PDF de documentación. |
-| Por qué importa | OpenStreetMap no tiene ninguna vía `railway=rail` dentro del partido (3.1). Esta capa oficial puede cubrir ese hueco; la red vial oficial permitiría contrastar la de OSM. |
-| Estado | No se pudo bajar desde el entorno (el servidor corta en 31.610 bytes). Descarga manual pendiente (sección 5). |
+| Capas del WFS | `ign:lineas_de_transporte_ferroviario_AN010` (ferrocarril), `ign:vial_nacional` y `ign:vial_provincial`. La red terciaria (`ign:vial_terciaria`, 797 tramos en la caja envolvente) queda afuera para que el mapa se pueda leer. |
+| Licencia | Términos y Condiciones del IGN (0.2). |
+| Fecha de los datos | Ferrocarril: **no informada** (sin metadatos, 0.2). Red vial: metadato creado el 24/10/2021, con actualización mensual declarada; el servicio no informa la fecha de la versión consultada. Consulta: 26/09/2026. |
+| Resultado: ferrocarril | 6 tramos con algún vértice dentro del partido: ramales R18, R21, R23, R25 y R27 del Ferrocarril General Roca. Fuente de captura: "IGN/Ministerio de Transporte de la Nación", con "/Ferrosur" en tres tramos. Cubre el hueco de OSM (3.1). |
+| Resultado: rutas | 21 tramos: 8 de rutas nacionales y 13 de rutas provinciales (números 228, 227, 88, 80, 85, 30, 72 y 86), 18 pavimentados, 1 consolidado y 2 de tierra. Fuente de captura: Dirección Nacional de Vialidad y "DVP Buenos Aires". Los códigos se traducen con los dominios de la documentación de la capa (1.7). |
+| Qué no representa | No indica si el ramal está en servicio ni qué transporta; no es un mapa de rutas de camiones ni de cargas peligrosas. |
+| Archivos publicados | `docs/datos/ferrocarril.geojson` y `docs/datos/red_vial.geojson`. |
 
-El mismo catálogo publica "Unidades Penitenciarias" (IDEBA): **queda excluida** por la regla de infraestructura de seguridad. También publica los centros de almacenamiento transitorio de envases de fitosanitarios (Ministerio de Ambiente, CC BY 4.0): **no se usa**, porque el CSV no trae coordenadas (solo direcciones) e incluye nombres, teléfonos y correos de personas.
+El catálogo provincial también publica "Unidades Penitenciarias" (IDEBA): **queda excluida** por la regla de infraestructura de seguridad. Y los centros de almacenamiento transitorio de envases de fitosanitarios (Ministerio de Ambiente, CC BY 4.0): **no se usan**, porque el CSV no trae coordenadas (solo direcciones) e incluye nombres, teléfonos y correos de personas.
 
-**Estado de la amenaza "Portuaria e industrial":** capas publicadas con OpenStreetMap. Muestran dónde están las instalaciones y la red vial principal, no cuánto riesgo generan. La zonificación sigue **"pendiente de fuente"**.
+**Estado de la amenaza "Portuaria e industrial":** capas publicadas: instalaciones (OpenStreetMap), ferrocarril y rutas (IGN). Muestran dónde están las instalaciones y la infraestructura de transporte, no cuánto riesgo generan. La zonificación sigue **"pendiente de fuente"**.
 
 ---
 
@@ -284,17 +282,18 @@ El mismo catálogo publica "Unidades Penitenciarias" (IDEBA): **queda excluida**
 
 ## 5. Pendientes y descargas manuales
 
-**Dominios que usan los scripts** (tienen que estar habilitados en el "Network access" del entorno): `apis.datos.gob.ar`, `infra.datos.gob.ar`, `datosgobar.github.io`, `firms.modaps.eosdis.nasa.gov`, `overpass-api.de`, `www.openstreetmap.org` y `www.earthdata.nasa.gov`. Si Overpass corta desde la nube, correr `scripts/descargar_osm.py` desde una computadora propia.
+**Dominios que usan los scripts** (tienen que estar habilitados en el "Network access" del entorno): `apis.datos.gob.ar`, `infra.datos.gob.ar`, `datosgobar.github.io`, `firms.modaps.eosdis.nasa.gov`, `overpass-api.de`, `wms.ign.gob.ar`, `www.ign.gob.ar`, `www.openstreetmap.org` y `www.earthdata.nasa.gov`. Si Overpass corta desde la nube, correr `scripts/descargar_osm.py` desde una computadora propia.
 
-Pendientes a mano:
+Pendientes:
 
-1. **Descargas manuales del catálogo provincial (1.7, 1.8 y 3.4):** desde una conexión propia, bajar el ZIP y el PDF de documentación de https://catalogo.datos.gba.gob.ar/dataset/ferroviario, /curvas-nivel, /cursos-agua, /cuerpos-agua y /red-vial, y pasarlos a la sesión. Son CC BY 4.0: se pueden publicar.
-2. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
-3. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** el PDF ya se revisó (la capa se descarga en shapefile desde el visor, sin licencia). Si se quiere como capa, pedirle a la ADA el permiso de uso.
-4. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA (1.1 bis y 1.1 ter).
-5. **Ferrocarril en OSM (3.1):** revisar en https://www.openstreetmap.org con qué etiqueta está el ramal a Quequén.
-6. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
-7. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
+1. **Hidrografía de OSM (1.4):** decidir si queda como capa complementaria o se retira.
+2. **Indicadores del partido del IGN (sección 7):** decidir si se usan y, antes, conseguir su documentación (período de DesInventar, significado de los códigos, escala del IVSD).
+3. **Límite con más detalle (0.2):** revisar la capa de departamentos del WFS del IGN y compararla con los 57 vértices de Georef.
+4. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
+5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
+6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
+7. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
+8. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
 
 Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `datos/crudos/` para procesarlo con `python3 scripts/actualizar.py --offline` (instrucciones en el README).
 
@@ -306,13 +305,30 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 |---|---|---|---|
 | Límite del partido | Georef (geometría del IGN) | Verificada, CC BY 4.0; archivo del 19/08/2026 | Publicada |
 | Inundaciones: peligrosidad | ADA | Sin fuente: la carta de riesgo hídrico del Quequén Grande no está hecha (confirmado a mano) | Pendiente de fuente |
-| Inundaciones: hidrografía y costa | OpenStreetMap | Verificada, ODbL; base del 26/09/2026 | Publicada (2.290 elementos) |
+| Inundaciones: hidrografía oficial | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada (129 elementos) |
+| Inundaciones: hidrografía detallada | OpenStreetMap | Verificada, ODbL; base del 26/09/2026 | Publicada, apagada al inicio (2.290 elementos) |
+| Inundaciones: curvas de nivel | IGN (WFS) | Verificada, términos del IGN; escala 1:500.000 y 1:250.000 | Publicada, apagada al inicio (231 curvas) |
 | Incendios: focos de calor MODIS | NASA FIRMS | Verificada, CC0 con cita; 2000 a 2024 | Publicada (658 focos) |
 | Incendios: focos de calor VIIRS S-NPP | NASA FIRMS | Verificada, CC0 con cita; 2012 a 2024 | Publicada (600 focos) |
 | Incendios: superficie quemada | Ninguna | Sin fuente | Pendiente de fuente |
 | Portuaria e industrial: instalaciones | OpenStreetMap | Verificada, ODbL; base del 26/09/2026 | Publicada (646 elementos) |
-| Portuaria e industrial: rutas y ferrocarril | OpenStreetMap | Verificada, ODbL; sin vías férreas en el partido | Publicada (66 tramos) |
+| Portuaria e industrial: ferrocarril | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada (6 tramos) |
+| Portuaria e industrial: rutas nacionales y provinciales | IGN (WFS) | Verificada, términos del IGN; metadato de 2021, actualización mensual declarada | Publicada, apagada al inicio (21 tramos) |
 | Portuaria e industrial: zonificación | Municipio | Sin fuente geográfica | Pendiente de fuente |
-| Propuesta: ferrocarril oficial | IGN vía catálogo provincial | Identificada, CC BY 4.0 | Pendiente de descarga manual |
-| Propuesta: curvas de nivel | IGN vía catálogo provincial | Identificada, CC BY 4.0 | Pendiente de descarga manual |
-| Propuesta: hidrografía oficial | IGN vía catálogo provincial | Identificada, CC BY 4.0 | Pendiente de descarga manual y de decisión (reemplazar o complementar a OSM) |
+
+---
+
+## 7. Indicadores del partido en el IGN (espacio `ign_riesgo`) · **Identificados, a decidir**
+
+El WFS del IGN tiene un espacio `ign_riesgo` con 66 capas (https://wms.ign.gob.ar/geoserver/ign_riesgo/ows). Consultadas el 26/09/2026 en un punto interior del partido, estas son las que traen datos para Necochea:
+
+| Capa | Qué dice para Necochea | Escala | Qué falta saber |
+|---|---|---|---|
+| `desinventar_hidrometeorologico_riesgo` | 25 registros: 9 de inundación (`des_inun`), 9 de tormenta (`des_torm`), 3 de sequía (`des_sequia`), 2 `des_viefue`, 1 `des_tormni` y 1 `des_graniz`. Categoría: "Baja cantidad de registros DESINVENTAR". Fuente: "Base DESINVENTAR". | Partido | Período que cubren los registros y definición exacta de cada código. |
+| `desinventar_fisico_quimico_riesgo` | 10 registros: 4 `des_incend`, 5 `des_estruc` y 1 `des_sobret`. Categoría: "Muy baja cantidad de registros DESINVENTAR". | Partido | Lo mismo. |
+| `ivsd_2024_depto` | Índice de vulnerabilidad social frente a desastres (IVSD): 30 (Lobería, el partido vecino: 34,4), con decenas de subindicadores. | Partido | Escala y método del índice, y año de los datos de base. |
+| `sinagir_amenazas_hidrometeorologicas_riesgo` | Región Centro (Buenos Aires, Córdoba, Entre Ríos, La Pampa y Santa Fe): "Alto nivel de exposicion SINAGIR Centro". Fuente: "SINAGIR, PNRRD". | Región | No distingue partidos. |
+| `sinagir_amenazas_fisico_quimicas_riesgo` | Región Centro: "Muy alto nivel de exposicion SINAGIR Centro". | Región | Lo mismo. |
+| `mayds_sup_afectada_2022` | Provincia de Buenos Aires: 142 ha afectadas por incendios en 2022 (MAyDS y SNMF). | Provincia | No distingue partidos. |
+
+Licencia: términos del IGN (0.2); cada fuente primaria (DesInventar, SINAGIR, INDEC y otras) puede tener condiciones propias, a revisar. **No se publica ninguno** hasta tener la documentación. Los de escala de partido (DesInventar e IVSD) son candidatos para una ficha del partido en la Metodología; los regionales y provinciales, a lo sumo, para contexto.

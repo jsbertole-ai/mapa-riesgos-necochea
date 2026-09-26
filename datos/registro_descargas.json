@@ -283,5 +283,96 @@
     "descargado": "2026-09-26T17:26:03+00:00",
     "bytes": 860953,
     "sha256": "8f6f209ea217d76708a4ba1740f8e37698f8bc69ca53bc9f384792bc6f9ccac0"
+  },
+  "datos/crudos/ign/lineas_de_transporte_ferroviario_AN010.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_transporte_ferroviario_AN010&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:36:36+00:00",
+    "last_modified": null,
+    "bytes": 27479,
+    "sha256": "5a36bcd3e8cb48ad7f3c1ea84c611772645b701c3217e7a4479bdbdd2ba66849"
+  },
+  "datos/crudos/ign/vial_nacional.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Avial_nacional&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:36:38+00:00",
+    "last_modified": null,
+    "bytes": 13009,
+    "sha256": "816255f064984cdbee25d3bebcdbff2c206c022e09033eeaaf4f815cfa582cab"
+  },
+  "datos/crudos/ign/vial_provincial.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Avial_provincial&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:36:39+00:00",
+    "last_modified": null,
+    "bytes": 81930,
+    "sha256": "fd30243f5866d5b00db0500356d52d3c4a5d18b028a3ec935c2dd4603989b2de"
+  },
+  "datos/crudos/ign/lineas_de_aguas_continentales_perenne.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_perenne&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:37:50+00:00",
+    "last_modified": null,
+    "bytes": 278146,
+    "sha256": "78e7e6bcff0baa56eb925124f42a5306d14cf66ffdea816a47de22e47e285206"
+  },
+  "datos/crudos/ign/lineas_de_aguas_continentales_intermitentes.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_intermitentes&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:37:52+00:00",
+    "last_modified": null,
+    "bytes": 309497,
+    "sha256": "c4214a3e64c64fd7e6cbe228a12a74caccd9f40f6567ededbcb95a2b52aa5f00"
+  },
+  "datos/crudos/ign/lineas_de_aguas_continentales_BH020.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_BH020&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:37:53+00:00",
+    "last_modified": null,
+    "bytes": 147,
+    "sha256": "8b42516f808a1d3112af6af5471ea19c3c13734e4d9b68ca607501d85e1661d6"
+  },
+  "datos/crudos/ign/lineas_de_aguas_continentales_BH030.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_BH030&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:37:54+00:00",
+    "last_modified": null,
+    "bytes": 15399,
+    "sha256": "d55bfca63f90201e8f7f86e5a4c3b1d632d89d0cd35efc418345311abdca603a"
+  },
+  "datos/crudos/ign/areas_de_aguas_continentales_perenne.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_perenne&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:37:56+00:00",
+    "last_modified": null,
+    "bytes": 270522,
+    "sha256": "29178eb165637ad89955d94a5c60f2881f739aafe035b8dcbc2690a5fd3dbdbf"
+  },
+  "datos/crudos/ign/areas_de_aguas_continentales_intermitente.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_intermitente&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:37:57+00:00",
+    "last_modified": null,
+    "bytes": 147,
+    "sha256": "5ed49a79de95fb8f6f4d081a87fb851b9a2a9ce45582fbde75ebd2dea6b65412"
+  },
+  "datos/crudos/ign/areas_de_aguas_continentales_BH020.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_BH020&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:37:57+00:00",
+    "last_modified": null,
+    "bytes": 147,
+    "sha256": "ebfb22fb446f24c2fb16768e4abf848d3d0f4ee02e8af7dfb27b537053d1a328"
+  },
+  "datos/crudos/ign/areas_de_aguas_continentales_BH140.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_BH140&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:38:00+00:00",
+    "last_modified": null,
+    "bytes": 286043,
+    "sha256": "4cd0fa53374345c7f9b91fccb9deec72b8b5df494f853dca5d65b595a5ab0cdb"
+  },
+  "datos/crudos/ign/areas_de_aguas_continentales_BH130.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_BH130&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:38:01+00:00",
+    "last_modified": null,
+    "bytes": 147,
+    "sha256": "344f136418723b6e9579893f65db6cbf694d41adde393b80024779f3f33a6f0a"
+  },
+  "datos/crudos/ign/lineas_de_geomorfologia_CA010.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_geomorfologia_CA010&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:37:47+00:00",
+    "last_modified": null,
+    "bytes": 2369481,
+    "sha256": "4b3ae5f6b9efebb1093f79258816339d1d662def93935bb4d3c10fdf02561f9f"
   }
 }

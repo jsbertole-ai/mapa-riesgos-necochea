@@ -1,4 +1,4 @@
-"""Hidrografía e infraestructura portuaria, industrial y de transporte desde OpenStreetMap.
+"""Hidrografía detallada e infraestructura portuaria e industrial desde OpenStreetMap.
 
 Uso:  python3 scripts/descargar_osm.py            (consulta Overpass y procesa)
       python3 scripts/descargar_osm.py --offline  (procesa lo ya guardado en datos/crudos/osm/)
@@ -45,21 +45,20 @@ CONSULTAS = {
   nwr["industrial"="port"]({caja});
   nwr["harbour"]({caja});
   nwr["man_made"~"^(silo|storage_tank|pier|breakwater)$"]({caja});
-  way["railway"="rail"]({caja});
-  way["highway"~"^(trunk|primary)$"]({caja});
-  way["hgv"="designated"]({caja});
 """,
 }
 
 TAGS_CONSERVADAS = {
     "name", "waterway", "natural", "water", "intermittent", "landuse", "industrial", "harbour",
-    "man_made", "content", "product", "railway", "usage", "highway", "ref", "hgv", "operator",
+    "man_made", "content", "product", "operator",
 }
 
-# Cómo se reparte la consulta portuaria en las dos capas del mapa.
+# El ferrocarril y las rutas salen del IGN (descargar_ign.py). Si una respuesta vieja de Overpass
+# todavía los trae, se descartan acá.
 def capa_portuaria(tags):
-    if tags.get("railway") == "rail" or tags.get("highway") in ("trunk", "primary") or tags.get("hgv") == "designated":
-        return "portuaria_transporte"
+    if "railway" in tags or "highway" in tags or "hgv" in tags:
+        if not any(k in tags for k in ("landuse", "industrial", "harbour", "man_made")):
+            return None
     return "portuaria_instalaciones"
 
 
@@ -182,6 +181,8 @@ def procesar(nombre, crudo, limite, caja):
         props = {k: v for k, v in tags.items() if k in TAGS_CONSERVADAS}
         props["osm"] = f"{el['type']}/{el['id']}"
         capa = "hidrografia" if nombre == "hidrografia" else capa_portuaria(tags)
+        if capa is None:
+            continue
         salidas.setdefault(capa, []).append({"type": "Feature", "properties": props, "geometry": geom})
     return salidas, descartes, fecha_osm
 

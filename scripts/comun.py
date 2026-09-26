@@ -89,7 +89,7 @@ def registrar_descarga(url, destino, contenido, modificado=None):
     """Anota cada descarga (URL, fecha, tamaño, huella y Last-Modified) en datos/registro_descargas.json."""
     registro = leer_json(REGISTRO, {})
     registro[str(pathlib.Path(destino).relative_to(RAIZ))] = {
-        "url": url if len(url) < 300 else url.split("?")[0] + "?data=(ver la consulta .overpassql)",
+        "url": url if len(url) < 300 else url.split("?")[0] + "?… (consulta abreviada; la completa la arma el script)",
         "descargado": ahora(),
         "last_modified": modificado,
         "bytes": len(contenido),

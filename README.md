@@ -57,8 +57,8 @@ Eso corre, en orden:
 
 1. `descargar_limite.py`: baja el archivo de departamentos de Georef y extrae el partido de Necochea. Sin límite no se puede recortar nada, así que si falla, se corta ahí.
 2. `descargar_firms.py`: baja los resúmenes anuales de focos de calor de NASA FIRMS para la Argentina (MODIS desde 2000, VIIRS S-NPP desde 2012), guarda solo lo que cae en la zona y recorta por el partido. Los años que FIRMS todavía no publicó responden 404 y se saltean.
-3. `descargar_osm.py`: consulta OpenStreetMap por la API Overpass (hidrografía, instalaciones portuarias e industriales, rutas y ferrocarril), descarta vigilancia y policía, y recorta por el partido.
-4. `procesar_catalogo_gba.py`: capas del IGN republicadas con licencia CC BY 4.0 en el catálogo de datos abiertos de la provincia (ferrocarril, red vial, curvas de nivel, cursos y cuerpos de agua). Lee el shapefile sin dependencias, toma la proyección del `.prj` y recorta por el partido. Si el ZIP llega truncado, no lo guarda.
+3. `descargar_osm.py`: consulta OpenStreetMap por la API Overpass (hidrografía detallada e instalaciones portuarias e industriales), descarta vigilancia y policía, y recorta por el partido.
+4. `descargar_ign.py`: pide al servicio WFS del Instituto Geográfico Nacional, solo para la zona del partido, la hidrografía, las curvas de nivel, el ferrocarril y las rutas nacionales y provinciales, y recorta por el partido. Es el mismo servicio que usa el botón "Descargar capa" del sitio del IGN.
 5. `verificar.py`: controla cada capa (archivo válido, dentro del partido, sin etiquetas excluidas y con la licencia confirmada en la página de la fuente) y genera `docs/datos/capas.json`. Una capa que no pasa los controles se publica como "pendiente de fuente".
 
 Después de actualizar:
@@ -77,7 +77,7 @@ python3 scripts/actualizar.py --offline
 
 - Límite: el GeoJSON de https://apis.datos.gob.ar/georef/api/departamentos.geojson, guardado como `datos/crudos/departamentos.geojson`.
 - Focos de calor: los CSV de https://firms.modaps.eosdis.nasa.gov/data/country/modis/AÑO/modis_AÑO_Argentina.csv y https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/AÑO/viirs-snpp_AÑO_Argentina.csv, guardados con su nombre original en `datos/crudos/firms/`.
-- Catálogo de la provincia: desde el entorno en la nube, el servidor corta las descargas en 31.610 bytes (26/09/2026). Bajar a mano el ZIP de cada conjunto (https://catalogo.datos.gba.gob.ar/dataset/ferroviario, /red-vial, /curvas-nivel, /cursos-agua y /cuerpos-agua) y guardarlo con su nombre original en `datos/crudos/gba/`.
+- IGN: cada capa se puede bajar desde https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG en formato GeoJSON. Para usarla con `--offline`, guardarla en `datos/crudos/ign/` con el nombre de la capa del servicio (por ejemplo, `lineas_de_transporte_ferroviario_AN010.geojson`; la lista está en `scripts/descargar_ign.py`). Ojo: la descarga del sitio trae todo el país, y el script recorta igual.
 - OpenStreetMap: al correr `descargar_osm.py`, la consulta queda escrita en `datos/crudos/osm/hidrografia.overpassql` y `datos/crudos/osm/portuaria.overpassql` aunque la descarga falle. Se puede repetir a mano con curl, por ejemplo:
 
   ```
@@ -99,4 +99,5 @@ Overpass a veces corta la conexión cuando recibe muchos pedidos seguidos; el sc
 - Datos: cada capa conserva la licencia de su fuente y no se relicencia. Detalle en `docs/datos/LEAME.md`.
   - Mapa de fondo y capas derivadas de OpenStreetMap: © colaboradores de OpenStreetMap, Open Database License (ODbL) 1.0. Los GeoJSON derivados se publican bajo ODbL.
   - Límite del partido: Georef (datos.gob.ar), geometría del IGN, Creative Commons Atribución 4.0.
+  - Hidrografía oficial, curvas de nivel, ferrocarril y rutas: "FUENTE: Instituto Geográfico Nacional de la República Argentina", según los términos y condiciones del IGN (uso libre y gratuito, con cita de la fuente y de la fecha de los datos).
   - Focos de calor: NASA FIRMS, CC0 según la política de datos de Earthdata, con cita y enlace al aviso legal de FIRMS.

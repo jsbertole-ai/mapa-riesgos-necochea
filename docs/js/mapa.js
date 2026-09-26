@@ -29,6 +29,13 @@
   };
   const CONFIANZA_VIIRS = { l: "baja", n: "nominal", h: "alta" };
 
+  // Dominios de la red vial del IGN, según la documentación de la capa.
+  const JURISDICCION_IGN = { 1: "Ruta nacional", 2: "Ruta provincial", 4: "Camino terciario", 5: "Camino vecinal" };
+  const SUPERFICIE_IGN = { 1: "Pavimentado", 2: "Consolidado", 3: "Tierra" };
+  const METODO_CURVAS_IGN = { 1: "Por restitución", 2: "Por modelo digital de elevaciones", 3: "Por plancheta", 4: "Por fotogrametría" };
+  const CAPAS_IGN = ["hidrografia_ign", "ferrocarril", "red_vial", "curvas_nivel"];
+  const CITA_IGN = "FUENTE: Instituto Geográfico Nacional de la República Argentina";
+
   const estado = { capas: {}, datos: {}, capasLeaflet: {}, anios: null };
 
   const mapa = L.map("mapa", { preferCanvas: true, zoomSnap: 0.5 }).setView(VISTA_INICIAL.centro, VISTA_INICIAL.zoom);
@@ -93,6 +100,23 @@
     );
   }
 
+  function popupIgn(p) {
+    const filas = [];
+    if (p.fna && p.tipo) filas.push(["Tipo", p.tipo]);
+    if (p.hct !== undefined) filas.push(["Jurisdicción", JURISDICCION_IGN[p.hct] || "s/d"]);
+    if (p.rtn) filas.push(["Número", p.rtn]);
+    if (p.rst !== undefined) filas.push(["Superficie", SUPERFICIE_IGN[p.rst] || "s/d"]);
+    if (p.mo2 !== undefined) filas.push(["Método", METODO_CURVAS_IGN[p.mo2] || "Código " + p.mo2 + " (no figura en la documentación)"]);
+    if (p.fdc) filas.push(["Fuente de captura", p.fdc]);
+    const titulo = p.crv !== undefined ? "Curva de nivel: " + numero(p.crv) + " m"
+      : p.fna || (p.hct !== undefined && p.rtn ? (JURISDICCION_IGN[p.hct] || "Ruta") + " " + p.rtn : p.tipo);
+    return (
+      "<h3>" + esc(titulo) + "</h3>" +
+      (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
+      '<p class="nota">' + esc(CITA_IGN) + ".</p>"
+    );
+  }
+
   function popupFirms(p, capa) {
     const hora = p.acq_time ? String(p.acq_time).padStart(4, "0") : "";
     const esViirs = capa.id === "incendios_viirs";
@@ -146,12 +170,23 @@
 
   function crearCapaLeaflet(capa, datos) {
     const e = capa.estilo || {};
+    if (e.bicolor) {
+      // Simbología de vía férrea: línea negra de base (la que recibe los clics) con trazos blancos encima.
+      const base = L.geoJSON(datos, {
+        style: { color: e.color, weight: 5, pane: "lineas" },
+        attribution: 'FUENTE: <a href="https://www.ign.gob.ar/">Instituto Geográfico Nacional de la República Argentina</a>',
+        onEachFeature: function (f, l) { l.bindPopup(function () { return popupIgn(f.properties); }); },
+      });
+      const trazos = L.geoJSON(datos, { style: { color: "#ffffff", weight: 2.5, dashArray: "7 7", pane: "lineas" }, interactive: false });
+      return L.featureGroup([base, trazos]);
+    }
     return L.geoJSON(datos, {
       style: estiloDe(capa),
       filter: filtroAnios(capa),
       interactive: capa.id !== "limite",
       attribution: capa.id === "limite" ? "Límite: Georef / IGN (CC BY 4.0)"
         : capa.id.startsWith("incendios_") ? 'Focos de calor: <a href="https://firms.modaps.eosdis.nasa.gov/">NASA FIRMS</a>'
+        : CAPAS_IGN.indexOf(capa.id) >= 0 ? 'FUENTE: <a href="https://www.ign.gob.ar/">Instituto Geográfico Nacional de la República Argentina</a>'
         : null,
       pointToLayer: function (f, latlng) {
         return L.circleMarker(latlng, {
@@ -166,7 +201,9 @@
       onEachFeature: function (f, l) {
         if (capa.id === "limite") return;
         l.bindPopup(function () {
-          return capa.id.startsWith("incendios_") ? popupFirms(f.properties, capa) : popupOsm(f.properties);
+          if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
+          if (CAPAS_IGN.indexOf(capa.id) >= 0) return popupIgn(f.properties);
+          return popupOsm(f.properties);
         });
       },
     });
@@ -211,7 +248,7 @@
 
   function muestraDe(capa) {
     const e = capa.estilo || {};
-    const clase = capa.geometria === "punto" ? "punto" : capa.geometria === "linea" ? "linea" : "";
+    const clase = e.bicolor ? "ferro" : capa.geometria === "punto" ? "punto" : capa.geometria === "linea" ? "linea" : "";
     const discontinua = e.trazo ? " discontinua" : "";
     const fondo = capa.geometria === "punto" ? "" : e.relleno && e.relleno !== false ? "background:" + e.relleno + ";" : "";
     return '<span class="muestra ' + clase + discontinua + '" style="color:' + esc(e.color || "#888") + ";" + fondo + '"></span>';
