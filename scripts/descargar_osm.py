@@ -56,8 +56,10 @@ CONSULTAS = {
 # Elementos con ubicación en duda: se descartan mientras sigan en la posición registrada acá.
 # Si alguien los corrige en OSM (los mueve más de 100 m), vuelven a entrar solos.
 EN_REVISION = {
-    # Según el municipio (https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/,
-    # 17/09/2026), Defensa Civil está "sobre avenida 10, casi Pinolandia"; este nodo está sobre calle 56.
+    # Defensa Civil figuraba en el Palacio Municipal (calle 56), donde no funciona desde hace años; según el
+    # municipio está "sobre avenida 10, casi Pinolandia". Sebastián movió el nodo en OSM (versión 8,
+    # 26/09/2026). La entrada se mantiene para que una respuesta vieja de Overpass no reintroduzca la
+    # posición del Palacio: el nodo movido está a casi 3 km y ya no la cumple.
     "node/4092470096": (-58.7387, -38.5560),
 }
 
