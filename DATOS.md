@@ -88,7 +88,7 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 | Campo | Detalle |
 |---|---|
 | Organismo | Autoridad del Agua, provincia de Buenos Aires |
-| URLs | Documento: https://ada.gba.gov.ar/wp-content/uploads/2025/03/capa-estaciones-hidrometricas-y-freatimetricas.pdf · visor, estaciones hidrométricas: https://gis.ada.gba.gov.ar/gis/?l=red_hidrometrica · visor, freatímetros: https://gis.ada.gba.gov.ar/gis/?l=freatimetros (las encontró Sebastián el 26/09/2026) |
+| URLs | Documento: https://ada.gba.gov.ar/wp-content/uploads/2025/03/capa-estaciones-hidrometricas-y-freatimetricas.pdf · visor, estaciones hidrométricas: https://gis.ada.gba.gov.ar/gis/?l=red_hidrometrica · visor, freatímetros: https://gis.ada.gba.gov.ar/gis/?l=freatimetros (las encontró Sebastián el 26/09/2026) · página de la red: https://ada.gba.gov.ar/red-hidrometrica/ (indicada por Sebastián; desde el entorno no abre) |
 | Qué representa | La red con la que la ADA mide el nivel de los ríos (estaciones hidrométricas) y el de la napa freática (freatímetros). Para un mapa de riesgos es **capacidad de monitoreo** de la amenaza: dónde se mide. La napa importa para leer los anegamientos en la llanura. |
 | Qué no representa | No es un mapa de amenaza ni de zonas inundables. Que haya una estación no implica que exista un sistema de alerta para esa zona. |
 | Qué dice el documento de la ADA | Sebastián aportó una copia del PDF (2 páginas; metadatos: creado el 17/03/2025). Comprobado en su texto: la capa se abre directo con las URLs del visor; las estaciones se consultan con las herramientas Información o Selección y los resultados "se pueden descargar en formato Excel"; las mediciones (aforos, limnigrafías, niveles de escala y profundidad de agua subterránea) también se exportan a Excel; y con la opción "Descargar capa" del menú contextual "se podrá obtener en formato 'shapefile' (shp) las ubicaciones de las estaciones hidrométricas o freatimétricas". **No menciona licencia ni condiciones de uso.** |
@@ -134,6 +134,7 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 | Resultado | 2.290 elementos: 1.932 cuerpos de agua, 122 arroyos, 91 canales, 67 zanjas, 43 desagües, 19 tramos de río y 16 tramos de línea de costa. Otros 2.326 elementos de la caja quedaron fuera del partido. |
 | Limitaciones | Carga voluntaria, sin control oficial: la completitud en zona rural es desigual. Un río que cruza el límite se ve completo, incluso fuera del partido. |
 | Archivo publicado | `docs/datos/hidrografia.geojson` (2,2 MB). |
+| Decisión (26/09/2026) | Sebastián eligió la hidrografía oficial (1.7). Esta capa sigue publicada hasta que la oficial esté procesada y verificada; después se retira. |
 
 ### 1.5 INTA, cartas de suelos (drenaje, anegabilidad) · **Identificada, licencia no confirmada**
 
@@ -148,7 +149,7 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 ### 1.6 Otras referencias encontradas (no son capas)
 
 - Oficina de Riesgo Agropecuario, mapas de déficit y exceso hídrico: http://www.ora.gob.ar/riesgo_mapas.php (imágenes de monitoreo agroclimático; sirven para la Metodología, no como capa vectorial).
-- Subsecretaría de Recursos Hídricos de la provincia, informes "Estado hídrico" del 23/09/2026 (Sebastián aportó copias; comprobado en su texto): humedad del suelo a partir de imágenes SMAP de la NASA procesadas en Google Earth Engine (humedad superficial de 0 a 5 cm, resolución de 9 km aproximadamente, promedio de los 7 días anteriores, con una clasificación de "riesgo por saturación de humedad del suelo"), https://ada.gba.gov.ar/wp-content/uploads/2026/09/Presentacion_Estado_HumedadPBA-23-09-2026.pdf; y precipitación estimada con PERSIANN PDIR-Now (4 km, desarrollado por el CHRS de la Universidad de California, Irvine; disponible en https://irain.eng.uci.edu) para el período del 17/09 al 23/09/2026, https://ada.gba.gov.ar/wp-content/uploads/2026/09/Presentacion_Precipitacion-Persiann-PBA-23-09-2026.pdf. Son informes de coyuntura en PDF, sin licencia a la vista: van a la Metodología como enlace, no como capa. Falta saber desde qué página de la ADA se publican, para enlazar esa y no archivos fechados.
+- Subsecretaría de Recursos Hídricos de la provincia, informes "Estado hídrico" del 23/09/2026 (Sebastián aportó copias; comprobado en su texto): humedad del suelo a partir de imágenes SMAP de la NASA procesadas en Google Earth Engine (humedad superficial de 0 a 5 cm, resolución de 9 km aproximadamente, promedio de los 7 días anteriores, con una clasificación de "riesgo por saturación de humedad del suelo"), https://ada.gba.gov.ar/wp-content/uploads/2026/09/Presentacion_Estado_HumedadPBA-23-09-2026.pdf; y precipitación estimada con PERSIANN PDIR-Now (4 km, desarrollado por el CHRS de la Universidad de California, Irvine; disponible en https://irain.eng.uci.edu) para el período del 17/09 al 23/09/2026, https://ada.gba.gov.ar/wp-content/uploads/2026/09/Presentacion_Precipitacion-Persiann-PBA-23-09-2026.pdf. Son informes de coyuntura en PDF, sin licencia a la vista: van a la Metodología como enlace, no como capa. Los de humedad del suelo se publican en https://ada.gba.gov.ar/humedad-suelo/ (indicada por Sebastián el 26/09/2026; desde el entorno no abre); esa página, y no los PDF fechados, es la que se enlaza en la Metodología, en el apartado "Dónde seguir la situación actual".
 - Mapas de disponibilidad estimada de recurso hídrico superficial y de uso de los acuíferos libre, pampeano y puelche (imágenes aportadas por Sebastián, sin fuente ni fecha a la vista): clasifican la disponibilidad del recurso en buena, condicionada o restringida. Miden disponibilidad para usos, no amenaza; como imágenes no se pueden convertir en capa sin digitalizar a ojo. **Inferido:** la disponibilidad restringida del acuífero libre en la franja costera de Necochea habla de salinización y abastecimiento, fuera de las tres amenazas del proyecto.
 - Artículo académico sobre un modelo de anegamiento en el sudeste bonaerense, *GeoFocus*: https://www.geofocus.org/index.php/geofocus/article/view/262 (bibliografía; no es un dato abierto descargable, a confirmar).
 
@@ -162,7 +163,7 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 | Formato | Shapefile comprimido: `cursos-agua-pba.zip` (17.472.854 bytes) y `cuerpos-agua-pba.zip` (23.348.775 bytes). |
 | Fecha | Recursos modificados el 10/06/2026 y metadatos el 19/08/2026, según el catálogo. La fecha de la información de origen del IGN no figura en los metadatos; puede estar en la documentación. |
 | Cobertura | Provincia de Buenos Aires. |
-| Por qué importa | Hidrografía oficial con licencia explícita, del mismo organismo que el límite del partido. Podría reemplazar a la de OpenStreetMap (1.4) como referencia. |
+| Por qué importa | Hidrografía oficial con licencia explícita, del mismo organismo que el límite del partido. **Decisión de Sebastián (26/09/2026): reemplaza a la de OpenStreetMap (1.4)** cuando esté descargada y verificada. |
 | Estado | No se pudo bajar desde el entorno (el servidor corta en 31.610 bytes). Descarga manual pendiente (sección 5). |
 
 ### 1.8 IGN vía catálogo de datos abiertos de la provincia: curvas de nivel · **Identificada, CC BY 4.0** · pendiente de descarga manual
@@ -214,7 +215,7 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 
 ### 2.3 Índice de peligro de incendio (SMN) · **Identificada, no aplica como capa**
 
-https://www.smn.gob.ar/indices_peligro_fuego. Es un índice meteorológico diario, no un registro histórico. Se puede mencionar en la Metodología.
+https://www.smn.gob.ar/indices_peligro_fuego. Es un índice meteorológico diario, no un registro histórico. Se puede mencionar en la Metodología. Fase 2: desde el entorno, smn.gob.ar responde 403 de Cloudflare (protección contra bots), así que la dirección no se pudo comprobar; no se enlaza hasta confirmarla a mano.
 
 ### 2.4 INTA, superficie quemada · **Sin fuente**
 

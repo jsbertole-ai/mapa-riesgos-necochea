@@ -56,6 +56,15 @@
     <p>Esta sección se genera a partir del mismo registro que usa el mapa (<code>datos/capas.json</code>), así que siempre muestra el estado de la última verificación.</p>
     <div id="fichas"><p>Cargando…</p></div>
 
+    <h2>Dónde seguir la situación actual</h2>
+    <p>Este mapa reúne registros históricos y elementos fijos: no sirve para seguir un evento en curso. Para la situación del momento están las fuentes oficiales de monitoreo:</p>
+    <ul>
+      <li><strong>Humedad del suelo</strong>, Autoridad del Agua de la provincia: <a href="https://ada.gba.gov.ar/humedad-suelo/">ada.gba.gov.ar/humedad-suelo</a>. Informes de estado hídrico elaborados con imágenes satelitales.</li>
+      <li><strong>Red hidrométrica</strong>, Autoridad del Agua: <a href="https://ada.gba.gov.ar/red-hidrometrica/">ada.gba.gov.ar/red-hidrometrica</a>. Estaciones que miden el nivel de los ríos y el de la napa freática. Sus mediciones se consultan en el visor de la ADA: <a href="https://gis.ada.gba.gov.ar/gis/?l=red_hidrometrica">estaciones hidrométricas</a> y <a href="https://gis.ada.gba.gov.ar/gis/?l=freatimetros">freatímetros</a>.</li>
+      <li><strong>Focos de calor en tiempo casi real</strong>, NASA FIRMS: <a href="https://firms.modaps.eosdis.nasa.gov/map/">firms.modaps.eosdis.nasa.gov/map</a>. Valen las mismas advertencias que para las capas de este mapa: un foco de calor no es un incendio confirmado.</li>
+    </ul>
+    <p>Ante una emergencia, las indicaciones que valen son las de Defensa Civil y los canales oficiales del municipio.</p>
+
     <h2>Exclusiones</h2>
     <p>El mapa no incluye, en ninguna capa, la ubicación de cámaras de videovigilancia ni de infraestructura de seguridad (comisarías, centros de monitoreo y similares), ni datos personales. En las consultas a OpenStreetMap se descartan de forma explícita los elementos etiquetados como <code>man_made=surveillance</code>, <code>amenity=police</code> o con claves de vigilancia, primero en la consulta y otra vez al procesar. De cada elemento se conservan solo las etiquetas que describen qué es (nombre, tipo, operador), no teléfonos, correos ni otros datos de contacto.</p>
 
