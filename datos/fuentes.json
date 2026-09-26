@@ -540,15 +540,27 @@
       "limitaciones": "Si se abre un cuartel nuevo, aparece en el mapa cuando se cargue en OpenStreetMap y se actualicen los datos. Del operador de cada cuartel no se guarda nada, porque puede ser el nombre de una persona."
     },
     {
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "frase_licencia": "Open Data Commons Open Database License",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
       "id": "defensa_civil",
       "grupo": "respuesta",
-      "nombre": "Defensa Civil de Necochea",
-      "archivo": null,
-      "organismo": "Municipalidad de Necochea; OpenStreetMap para la ubicación",
-      "url_fuente": "https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/",
-      "motivo_pendiente": "Según el municipio (noticia del 17/09/2026), las instalaciones de Defensa Civil están \"sobre avenida 10, casi Pinolandia\". El punto que tiene OpenStreetMap marca el Palacio Municipal (está a unos 15 m del punto de la Municipalidad en el IGN), donde Defensa Civil no funciona desde hace muchos años, según confirmó Juan Sebastián Bértole: no se publica. La dirección oficial no tiene número y convertirla en coordenadas sería estimar. Entra cuando el punto se corrija en OpenStreetMap.",
-      "que_representa": "Sería la sede de Defensa Civil del municipio.",
-      "que_no_representa": "No reemplaza los canales oficiales de emergencia."
+      "nombre": "Defensa Civil (OpenStreetMap)",
+      "archivo": "defensa_civil.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#17becf",
+        "radio": 7
+      },
+      "activa_al_inicio": false,
+      "que_representa": "La sede de Defensa Civil del municipio, sobre calle 10 (según el municipio, \"sobre avenida 10, casi Pinolandia\").",
+      "que_no_representa": "No reemplaza los canales oficiales de emergencia.",
+      "limitaciones": "El punto de OpenStreetMap estuvo hasta el 26/09/2026 en el Palacio Municipal, donde Defensa Civil no funciona desde hace años; ese día Juan Sebastián Bértole lo corrigió a partir de su conocimiento del lugar."
     }
   ]
 }

@@ -291,7 +291,7 @@ Pendientes:
 
 1. **Hidrografía de OSM (1.4):** decidir si queda como capa complementaria o se retira.
 2. **Indicadores del partido del IGN (sección 7): hecho** para DesInventar hidrometeorológico, IVSD y SINAGIR. Pendiente: la escala y la metodología del IVSD (informe de consultoría no publicado) y la documentación de DesInventar físico-químico.
-3. **Defensa Civil (sección 9):** corregir en OpenStreetMap el punto de Defensa Civil (a partir de su conocimiento del lugar o de las imágenes del editor de OSM, nunca copiando de Google Maps). Después, correr `python3 scripts/descargar_osm.py respuesta`.
+3. **Defensa Civil (sección 9): hecho.** Sebastián corrigió en OpenStreetMap el punto de Defensa Civil (a partir de su conocimiento del lugar o de las imágenes del editor de OSM, nunca copiando de Google Maps). Después, correr `python3 scripts/descargar_osm.py respuesta`.
 4. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
 6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
@@ -330,7 +330,7 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Expuestos: establecimientos educativos | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (140) |
 | Expuestos: establecimientos de salud | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (22) |
 | Respuesta: cuarteles de bomberos | OpenStreetMap | Verificada, ODbL; completa según Sebastián | Publicada, apagada al inicio (2) |
-| Respuesta: Defensa Civil | Municipio (dirección) y OpenStreetMap (ubicación) | El punto de OSM está desactualizado | Pendiente de fuente |
+| Respuesta: Defensa Civil | OpenStreetMap (corregido el 26/09/2026) | Verificada, ODbL | Publicada, apagada al inicio (1) |
 
 ---
 
@@ -375,15 +375,15 @@ Criterios aplicados:
 
 ---
 
-## 9. Capacidad de respuesta: bomberos y Defensa Civil · **Verificada (bomberos)** · Defensa Civil pendiente
+## 9. Capacidad de respuesta: bomberos y Defensa Civil · **Verificada** · en uso
 
 Decisión de Sebastián (26/09/2026): los cuarteles de bomberos, voluntarios o no, y Defensa Civil del municipio se publican.
 
 | Campo | Detalle |
 |---|---|
 | Consulta | OpenStreetMap vía Overpass: `amenity=fire_station` y elementos con nombre "Defensa Civil", en la caja del límite y recortados por el polígono. Script: `scripts/descargar_osm.py` (se puede correr sola con `python3 scripts/descargar_osm.py respuesta`). |
-| Fecha de los datos | Base de OpenStreetMap al 2026-09-26T19:07:48Z. |
+| Fecha de los datos | Base de OpenStreetMap al 2026-09-26T20:35:01Z (posterior a la corrección de Defensa Civil). |
 | Licencia | ODbL 1.0 (1.4). |
 | Bomberos | 2 cuarteles: "Estación de bomberos" (Necochea, `node/4090042291`) y "Bomberos Voluntarios de La Dulce" (`node/5871881594`). Coinciden con los dos del IGN (capa `estructuras_operativas_y_defensivas_090102`; el de Necochea declara como fuente de captura "OSM/Street View"). Del operador no se guarda nada: en el cuartel de Necochea figura un nombre que puede ser el de una persona. Según Sebastián (26/09/2026), son todos los cuarteles del partido. Archivo: `docs/datos/bomberos.geojson`. |
-| Defensa Civil | OSM tiene un punto "Defensa Civil" (`node/4092470096`, `office=government`, sobre calle 56, junto a la Municipalidad). Según el municipio, sus instalaciones están "sobre avenida 10, casi Pinolandia" (https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/, 17/09/2026), y Sebastián indicó una ubicación a unos 3 km del punto de OSM. Además, el punto de OSM está a unos 15 m del de la Municipalidad de Necochea en el IGN (`puntos_de_asentamientos_y_edificios_020101`), y Sebastián confirmó que marca el Palacio Municipal, donde Defensa Civil no funciona desde hace muchos años. El punto está desactualizado: el script lo descarta mientras siga a menos de 100 m de su posición actual, y vuelve a entrar solo si se corrige en OSM. Historial del nodo (API de OSM, consultada el 26/09/2026): creado el 02/04/2016 en calle 56 N° 2945; en la versión 7 (26/09/2026, 19:25 UTC) Sebastián cambió la dirección a "Calle 10" N° 4500, pero la posición sigue siendo la de 2016. La dirección sola no se convierte en coordenadas: sería interpolar sobre la cuadra, es decir, estimar. La dirección oficial no tiene número, así que no se convierte en coordenadas (sería estimar). La ubicación que indicó Sebastián salió de Google Maps y no se usa: sus condiciones no permiten copiar esos datos. |
+| Defensa Civil | OSM tiene un punto "Defensa Civil" (`node/4092470096`, `office=government`, sobre calle 56, junto a la Municipalidad). Según el municipio, sus instalaciones están "sobre avenida 10, casi Pinolandia" (https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/, 17/09/2026), y Sebastián indicó una ubicación a unos 3 km del punto de OSM. Además, el punto de OSM está a unos 15 m del de la Municipalidad de Necochea en el IGN (`puntos_de_asentamientos_y_edificios_020101`), y Sebastián confirmó que marca el Palacio Municipal, donde Defensa Civil no funciona desde hace muchos años. El punto está desactualizado: el script lo descarta mientras siga a menos de 100 m de su posición actual, y vuelve a entrar solo si se corrige en OSM. Historial del nodo (API de OSM, consultada el 26/09/2026): creado el 02/04/2016 en calle 56 N° 2945; en la versión 7 (26/09/2026, 19:25 UTC) Sebastián cambió la dirección a "Calle 10" N° 4500, pero la posición sigue siendo la de 2016. La dirección sola no se convierte en coordenadas: sería interpolar sobre la cuadra, es decir, estimar. **Resuelto:** en la versión 8 (26/09/2026, 20:30 UTC) Sebastián movió el nodo 2.907 m, hasta calle 10 N° 4500, a partir de su conocimiento del lugar. Con la base de Overpass de las 20:35 UTC, Defensa Civil se publica (`docs/datos/defensa_civil.geojson`). La entrada de exclusión se mantiene en el script para que una respuesta vieja de Overpass no reintroduzca la posición del Palacio Municipal. La dirección oficial no tiene número, así que no se convierte en coordenadas (sería estimar). La ubicación que indicó Sebastián salió de Google Maps y no se usa: sus condiciones no permiten copiar esos datos. |
 
