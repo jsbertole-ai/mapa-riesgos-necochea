@@ -50,6 +50,7 @@ CONSULTAS = {
     "respuesta": """
   nwr["amenity"="fire_station"]({caja});
   nwr["name"~"Defensa Civil",i]({caja});
+  nwr["name"~"Centro Operativo de Monitoreo",i]({caja});
 """,
 }
 
@@ -74,7 +75,7 @@ def en_revision(el, geom):
 
 # En la capa de respuesta solo se conserva qué es y su nombre: el operador de un cuartel
 # puede ser el nombre de una persona.
-TAGS_RESPUESTA = {"name", "amenity", "office", "government", "emergency"}
+TAGS_RESPUESTA = {"name", "official_name", "description", "amenity", "office", "government", "emergency"}
 
 TAGS_CONSERVADAS = {
     "name", "waterway", "natural", "water", "intermittent", "landuse", "industrial", "harbour",
@@ -213,7 +214,15 @@ def procesar(nombre, crudo, limite, caja):
         props = {k: v for k, v in tags.items() if k in permitidas}
         props["osm"] = f"{el['type']}/{el['id']}"
         if nombre == "respuesta":
-            capa = "bomberos" if tags.get("amenity") == "fire_station" else "defensa_civil"
+            nombre_el = tags.get("name", "").lower()
+            if tags.get("amenity") == "fire_station":
+                capa = "bomberos"
+            elif "defensa civil" in nombre_el:
+                capa = "defensa_civil"
+            elif "monitoreo" in nombre_el:
+                capa = "monitoreo"
+            else:
+                continue
         else:
             capa = nombre if nombre == "hidrografia" else capa_portuaria(tags)
         if capa is None:

@@ -534,11 +534,11 @@
     "fecha_datos": null
   },
   "bomberos": {
-    "procesado": "2026-09-26T20:38:24+00:00",
+    "procesado": "2026-09-26T23:47:50+00:00",
     "archivo_crudo": "osm/respuesta.json",
-    "sha256_crudo": "dfcc0c3324276889d5770f4a596fe2d8df52c7a61b29612f165c76bf800b29ee",
+    "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "elementos": 2,
-    "fecha_datos": "2026-09-26T20:35:01Z",
+    "fecha_datos": "2026-09-26T23:42:00Z",
     "descartes_de_la_consulta": {
       "excluidos": 0,
       "fuera_del_partido": 2,
@@ -546,11 +546,23 @@
     }
   },
   "defensa_civil": {
-    "procesado": "2026-09-26T20:38:24+00:00",
+    "procesado": "2026-09-26T23:47:50+00:00",
     "archivo_crudo": "osm/respuesta.json",
-    "sha256_crudo": "dfcc0c3324276889d5770f4a596fe2d8df52c7a61b29612f165c76bf800b29ee",
+    "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "elementos": 1,
-    "fecha_datos": "2026-09-26T20:35:01Z",
+    "fecha_datos": "2026-09-26T23:42:00Z",
+    "descartes_de_la_consulta": {
+      "excluidos": 0,
+      "fuera_del_partido": 2,
+      "geometria_incompleta": 0
+    }
+  },
+  "monitoreo": {
+    "procesado": "2026-09-26T23:47:50+00:00",
+    "archivo_crudo": "osm/respuesta.json",
+    "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
+    "elementos": 1,
+    "fecha_datos": "2026-09-26T23:42:00Z",
     "descartes_de_la_consulta": {
       "excluidos": 0,
       "fuera_del_partido": 2,

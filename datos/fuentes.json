@@ -561,6 +561,29 @@
       "que_representa": "La sede de Defensa Civil del municipio, sobre calle 10 (según el municipio, \"sobre avenida 10, casi Pinolandia\").",
       "que_no_representa": "No reemplaza los canales oficiales de emergencia.",
       "limitaciones": "El punto de OpenStreetMap estuvo hasta el 26/09/2026 en el Palacio Municipal, donde Defensa Civil no funciona desde hace años; ese día Juan Sebastián Bértole lo corrigió a partir de su conocimiento del lugar."
+    },
+    {
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "frase_licencia": "Open Data Commons Open Database License",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
+      "id": "monitoreo",
+      "grupo": "respuesta",
+      "nombre": "Centro Operativo de Monitoreo (OpenStreetMap)",
+      "archivo": "monitoreo.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#393b79",
+        "radio": 7
+      },
+      "activa_al_inicio": false,
+      "que_representa": "La sede del Centro Operativo de Monitoreo del municipio (nombre oficial cargado en OpenStreetMap: \"Subsecretaría de Prevención y Monitoreo.\"), un espacio multiagencia de coordinación.",
+      "que_no_representa": "No incluye, ni va a incluir, la ubicación de las cámaras de videovigilancia: esa exclusión se mantiene.",
+      "limitaciones": "El punto está cargado en OpenStreetMap solo con nombre, descripción y dirección, sin etiqueta de tipo: la consulta lo encuentra por su nombre."
     }
   ]
 }

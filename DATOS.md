@@ -276,7 +276,7 @@ El catálogo provincial también publica "Unidades Penitenciarias" (IDEBA): **qu
 
 ## 4. Exclusiones (no se incluyen en ninguna capa)
 
-- Cámaras de videovigilancia y cualquier infraestructura de seguridad (comisarías, centros de monitoreo, etcétera).
+- Cámaras de videovigilancia y comisarías. El Centro Operativo de Monitoreo se publica como espacio físico (su sede es información pública, decisión de Sebastián del 26/09/2026); la ubicación de sus cámaras, nunca.
 - Datos personales.
 - En las capas del IGN no se incluyen instalaciones militares, edificios de seguridad, instituciones penitenciarias ni puestos de control. Los cuarteles de bomberos (voluntarios o no) y Defensa Civil **sí se publican**: son capacidad de respuesta, no infraestructura de seguridad (decisión de Sebastián, 26/09/2026, quien además confirmó que Defensa Civil no comparte ubicación con infraestructura excluida). En las estaciones de servicio se descartan los nombres, porque identifican a sus titulares.
 - Cómo se aplica: las consultas a OpenStreetMap restan `man_made=surveillance`, `amenity=police`, `surveillance=*` y `surveillance:type=*`; el script de OSM vuelve a descartar esos elementos al procesar; `scripts/verificar.py` revisa tanto la respuesta cruda como el archivo publicado, y si encontrara alguno, la capa no se publica. De cada elemento solo se conservan etiquetas descriptivas (nombre, tipo, operador, referencia), nunca teléfonos, correos ni otros datos de contacto.
@@ -331,6 +331,7 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Expuestos: establecimientos de salud | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (22) |
 | Respuesta: cuarteles de bomberos | OpenStreetMap | Verificada, ODbL; completa según Sebastián | Publicada, apagada al inicio (2) |
 | Respuesta: Defensa Civil | OpenStreetMap (corregido el 26/09/2026) | Verificada, ODbL | Publicada, apagada al inicio (1) |
+| Respuesta: Centro Operativo de Monitoreo | OpenStreetMap | Verificada, ODbL; sin cámaras | Publicada, apagada al inicio (1) |
 
 ---
 
@@ -375,15 +376,16 @@ Criterios aplicados:
 
 ---
 
-## 9. Capacidad de respuesta: bomberos y Defensa Civil · **Verificada** · en uso
+## 9. Capacidad de respuesta: bomberos, Defensa Civil y Centro Operativo de Monitoreo · **Verificada** · en uso
 
-Decisión de Sebastián (26/09/2026): los cuarteles de bomberos, voluntarios o no, y Defensa Civil del municipio se publican.
+Decisiones de Sebastián (26/09/2026): se publican los cuarteles de bomberos, voluntarios o no, Defensa Civil y el Centro Operativo de Monitoreo como espacio físico, porque su sede es información pública. Sus cámaras no se publican nunca.
 
 | Campo | Detalle |
 |---|---|
-| Consulta | OpenStreetMap vía Overpass: `amenity=fire_station` y elementos con nombre "Defensa Civil", en la caja del límite y recortados por el polígono. Script: `scripts/descargar_osm.py` (se puede correr sola con `python3 scripts/descargar_osm.py respuesta`). |
-| Fecha de los datos | Base de OpenStreetMap al 2026-09-26T20:35:01Z (posterior a la corrección de Defensa Civil). |
+| Consulta | OpenStreetMap vía Overpass: `amenity=fire_station` y elementos con nombre "Defensa Civil" o "Centro Operativo de Monitoreo", en la caja del límite y recortados por el polígono. Script: `scripts/descargar_osm.py` (se puede correr sola con `python3 scripts/descargar_osm.py respuesta`). |
+| Fecha de los datos | Base de OpenStreetMap al 2026-09-26T23:42:00Z. |
 | Licencia | ODbL 1.0 (1.4). |
 | Bomberos | 2 cuarteles: "Estación de bomberos" (Necochea, `node/4090042291`) y "Bomberos Voluntarios de La Dulce" (`node/5871881594`). Coinciden con los dos del IGN (capa `estructuras_operativas_y_defensivas_090102`; el de Necochea declara como fuente de captura "OSM/Street View"). Del operador no se guarda nada: en el cuartel de Necochea figura un nombre que puede ser el de una persona. Según Sebastián (26/09/2026), son todos los cuarteles del partido. Archivo: `docs/datos/bomberos.geojson`. |
 | Defensa Civil | OSM tiene un punto "Defensa Civil" (`node/4092470096`, `office=government`, sobre calle 56, junto a la Municipalidad). Según el municipio, sus instalaciones están "sobre avenida 10, casi Pinolandia" (https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/, 17/09/2026), y Sebastián indicó una ubicación a unos 3 km del punto de OSM. Además, el punto de OSM está a unos 15 m del de la Municipalidad de Necochea en el IGN (`puntos_de_asentamientos_y_edificios_020101`), y Sebastián confirmó que marca el Palacio Municipal, donde Defensa Civil no funciona desde hace muchos años. El punto está desactualizado: el script lo descarta mientras siga a menos de 100 m de su posición actual, y vuelve a entrar solo si se corrige en OSM. Historial del nodo (API de OSM, consultada el 26/09/2026): creado el 02/04/2016 en calle 56 N° 2945; en la versión 7 (26/09/2026, 19:25 UTC) Sebastián cambió la dirección a "Calle 10" N° 4500, pero la posición sigue siendo la de 2016. La dirección sola no se convierte en coordenadas: sería interpolar sobre la cuadra, es decir, estimar. **Resuelto:** en la versión 8 (26/09/2026, 20:30 UTC) Sebastián movió el nodo 2.907 m, hasta calle 10 N° 4500, a partir de su conocimiento del lugar. Con la base de Overpass de las 20:35 UTC, Defensa Civil se publica (`docs/datos/defensa_civil.geojson`). La entrada de exclusión se mantiene en el script para que una respuesta vieja de Overpass no reintroduzca la posición del Palacio Municipal. La dirección oficial no tiene número, así que no se convierte en coordenadas (sería estimar). La ubicación que indicó Sebastián salió de Google Maps y no se usa: sus condiciones no permiten copiar esos datos. |
+| Centro Operativo de Monitoreo | `node/14220751253`, creado en OpenStreetMap el 26/09/2026 a las 23:40 UTC: nombre "Centro Operativo de Monitoreo", nombre oficial "Subsecretaría de Prevención y Monitoreo.", descripción "Multiagencia", dirección sobre avenida 58. No tiene etiqueta de tipo ni ninguna etiqueta de vigilancia o policía, así que los filtros de exclusión no lo afectan; la consulta lo busca por nombre. Archivo: `docs/datos/monitoreo.geojson`. |
 

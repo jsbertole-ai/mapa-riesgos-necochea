@@ -89,19 +89,21 @@
         return (ETIQUETAS_OSM[k] && ETIQUETAS_OSM[k][p[k]]) || k + "=" + p[k];
       }
     }
-    return "Elemento de OpenStreetMap";
+    return null;
   }
 
   function popupOsm(p) {
     const filas = [];
     if (p.industrial) filas.push(["Rubro (según OSM)", ETIQUETAS_OSM.industrial[p.industrial] || p.industrial]);
+    if (p.official_name) filas.push(["Nombre oficial", p.official_name]);
+    if (p.description) filas.push(["Descripción (según OSM)", p.description]);
     if (p.ref) filas.push(["Referencia", p.ref]);
     if (p.operator) filas.push(["Operador (según OSM)", p.operator]);
     if (p.content || p.product) filas.push(["Contenido (según OSM)", p.content || p.product]);
     if (p.intermittent === "yes") filas.push(["Curso", "Intermitente"]);
     return (
-      "<h3>" + esc(p.name || categoriaOsm(p)) + "</h3>" +
-      (p.name ? "<div>" + esc(categoriaOsm(p)) + "</div>" : "") +
+      "<h3>" + esc(p.name || categoriaOsm(p) || "Elemento de OpenStreetMap") + "</h3>" +
+      (p.name && categoriaOsm(p) ? "<div>" + esc(categoriaOsm(p)) + "</div>" : "") +
       (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
       '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
     );
