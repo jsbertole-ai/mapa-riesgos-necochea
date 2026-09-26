@@ -8,266 +8,266 @@
   },
   "datos/crudos/firms/modis_2000_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2000/modis_2000_Argentina.csv",
-    "descargado": "2026-09-26T17:15:56+00:00",
+    "descargado": "2026-09-26T18:51:09+00:00",
     "bytes_archivo_nacional": 583111,
     "sha256_archivo_nacional": "46e8a305afc510c74ba061c283db731bbfa0cb2d5cb169035618c290e4cd3718",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2001_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2001/modis_2001_Argentina.csv",
-    "descargado": "2026-09-26T17:15:57+00:00",
+    "descargado": "2026-09-26T18:51:09+00:00",
     "bytes_archivo_nacional": 2551003,
     "sha256_archivo_nacional": "2047af87f695fed3c318e9155a0755aa2fe443357dca4e47940a779d6912fa77",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2002_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2002/modis_2002_Argentina.csv",
-    "descargado": "2026-09-26T17:15:57+00:00",
+    "descargado": "2026-09-26T18:51:10+00:00",
     "bytes_archivo_nacional": 4797680,
     "sha256_archivo_nacional": "d5369096f3dc0f3114dfa251a0690db3104244b30e5def56db44becda68e4b23",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2003_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2003/modis_2003_Argentina.csv",
-    "descargado": "2026-09-26T17:15:59+00:00",
+    "descargado": "2026-09-26T18:51:11+00:00",
     "bytes_archivo_nacional": 9275846,
     "sha256_archivo_nacional": "98ef63553ccbab41cfd093654267dd66a00345c18a497c8c5ec0f8394fa361f1",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2004_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2004/modis_2004_Argentina.csv",
-    "descargado": "2026-09-26T17:15:59+00:00",
+    "descargado": "2026-09-26T18:51:12+00:00",
     "bytes_archivo_nacional": 7924650,
     "sha256_archivo_nacional": "aca0e9343579ccb152dbb9bd01625ec6414324f8c78bddeec0508067ac565862",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2005_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2005/modis_2005_Argentina.csv",
-    "descargado": "2026-09-26T17:16:00+00:00",
+    "descargado": "2026-09-26T18:51:13+00:00",
     "bytes_archivo_nacional": 5649257,
     "sha256_archivo_nacional": "2805b62fad32df221877704098633863c6e82a28830adaa279352ed91c4f1bf8",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2006_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2006/modis_2006_Argentina.csv",
-    "descargado": "2026-09-26T17:16:01+00:00",
+    "descargado": "2026-09-26T18:51:13+00:00",
     "bytes_archivo_nacional": 6705606,
     "sha256_archivo_nacional": "eca42247cd7ef2d0fde65605693e378722dac8274d46bf70c01e9bffccc13218",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2007_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2007/modis_2007_Argentina.csv",
-    "descargado": "2026-09-26T17:16:01+00:00",
+    "descargado": "2026-09-26T18:51:14+00:00",
     "bytes_archivo_nacional": 6192110,
     "sha256_archivo_nacional": "abdeb916b85147e82148ea8e3db76546c61e6d28f29079f0725f15bd850f8c88",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2008_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2008/modis_2008_Argentina.csv",
-    "descargado": "2026-09-26T17:16:02+00:00",
+    "descargado": "2026-09-26T18:51:15+00:00",
     "bytes_archivo_nacional": 8303607,
     "sha256_archivo_nacional": "a8ab1f53ddebafe7b792da3411ff0ebf29abbb9bf7946927c5f1dfccab358051",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2009_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2009/modis_2009_Argentina.csv",
-    "descargado": "2026-09-26T17:16:03+00:00",
+    "descargado": "2026-09-26T18:51:15+00:00",
     "bytes_archivo_nacional": 6514805,
     "sha256_archivo_nacional": "e1ecc9e75a1b110923eac84a3c7b454a1c4213cf5e840cf0d657b45057190819",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2010_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2010/modis_2010_Argentina.csv",
-    "descargado": "2026-09-26T17:16:03+00:00",
+    "descargado": "2026-09-26T18:51:16+00:00",
     "bytes_archivo_nacional": 4970212,
     "sha256_archivo_nacional": "57dcc45ca47f899d1773ad1b89a49effddb4da08de0811e043202ac720f3423b",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2011_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2011/modis_2011_Argentina.csv",
-    "descargado": "2026-09-26T17:16:04+00:00",
+    "descargado": "2026-09-26T18:51:17+00:00",
     "bytes_archivo_nacional": 6064259,
     "sha256_archivo_nacional": "f900a5efefd2b1ea9680cc2eb4fdcf728ff841ceedae2308a832f0960bbe83d8",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2012_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2012/modis_2012_Argentina.csv",
-    "descargado": "2026-09-26T17:16:05+00:00",
+    "descargado": "2026-09-26T18:51:17+00:00",
     "bytes_archivo_nacional": 4903703,
     "sha256_archivo_nacional": "d2d0c9a8af8aedebfc6dddbd813072be81e879291ba70990d931e91c1195a5f3",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2013_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2013/modis_2013_Argentina.csv",
-    "descargado": "2026-09-26T17:16:05+00:00",
+    "descargado": "2026-09-26T18:51:18+00:00",
     "bytes_archivo_nacional": 5280563,
     "sha256_archivo_nacional": "ce5650fc3939a750ea5c4ce1a00a0b8f76878743bc0fe6818154a3805b90df0c",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2014_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2014/modis_2014_Argentina.csv",
-    "descargado": "2026-09-26T17:16:06+00:00",
+    "descargado": "2026-09-26T18:51:18+00:00",
     "bytes_archivo_nacional": 2921271,
     "sha256_archivo_nacional": "2ae44f8ccee2d7206a32b4088d4fc5b799c7896b30226939d8405e64655d16cf",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2015_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2015/modis_2015_Argentina.csv",
-    "descargado": "2026-09-26T17:16:06+00:00",
+    "descargado": "2026-09-26T18:51:19+00:00",
     "bytes_archivo_nacional": 3572980,
     "sha256_archivo_nacional": "cc3f70d1834553afa533ada41dbda6b5c94c2827fd00b78b150c52140171f320",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2016_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2016/modis_2016_Argentina.csv",
-    "descargado": "2026-09-26T17:16:07+00:00",
+    "descargado": "2026-09-26T18:51:20+00:00",
     "bytes_archivo_nacional": 4397743,
     "sha256_archivo_nacional": "3fffbd2eeb8a1888d8770ea6fac05a608bb3a51cf128126659797d256cf9a580",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2017_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2017/modis_2017_Argentina.csv",
-    "descargado": "2026-09-26T17:16:07+00:00",
+    "descargado": "2026-09-26T18:51:20+00:00",
     "bytes_archivo_nacional": 4788746,
     "sha256_archivo_nacional": "5240365806bb8161b9afa5421c5020f492c8602973ff1db3d84726f8341375d0",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2018_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2018/modis_2018_Argentina.csv",
-    "descargado": "2026-09-26T17:16:08+00:00",
+    "descargado": "2026-09-26T18:51:21+00:00",
     "bytes_archivo_nacional": 4443653,
     "sha256_archivo_nacional": "d0dd7be6b8b323854d7540499c6089937d086e113d98407b4901967a52ab45ff",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2019_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2019/modis_2019_Argentina.csv",
-    "descargado": "2026-09-26T17:16:08+00:00",
+    "descargado": "2026-09-26T18:51:21+00:00",
     "bytes_archivo_nacional": 4043829,
     "sha256_archivo_nacional": "bcb2bf07943e312f6d61ccd69008a40a09e22216ede34867d59ce88dc56d11d2",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2020_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2020/modis_2020_Argentina.csv",
-    "descargado": "2026-09-26T17:16:09+00:00",
+    "descargado": "2026-09-26T18:51:22+00:00",
     "bytes_archivo_nacional": 9972297,
     "sha256_archivo_nacional": "59d485a2c6a4acc088d90c481d71d34901d1e2b3a5a16d57689865c76aa3a1cf",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2021_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2021/modis_2021_Argentina.csv",
-    "descargado": "2026-09-26T17:16:10+00:00",
+    "descargado": "2026-09-26T18:51:23+00:00",
     "bytes_archivo_nacional": 4566299,
     "sha256_archivo_nacional": "04cc5b10dfacea4775c1b8bc0a9d1fa7721a21a84c3d396dfca0ac0608d1d857",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2022_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2022/modis_2022_Argentina.csv",
-    "descargado": "2026-09-26T17:16:11+00:00",
+    "descargado": "2026-09-26T18:51:23+00:00",
     "bytes_archivo_nacional": 6231134,
     "sha256_archivo_nacional": "6c5ad252fda14943060fd37f04358bd482b6f107940981cdb1d6bd9be63c4627",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2023_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2023/modis_2023_Argentina.csv",
-    "descargado": "2026-09-26T17:16:11+00:00",
+    "descargado": "2026-09-26T18:51:24+00:00",
     "bytes_archivo_nacional": 3898226,
     "sha256_archivo_nacional": "45152ac1c0569bfd4e0d77127b4a489ea96c1f49a2137536992118dc4440f47f",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/modis_2024_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/modis/2024/modis_2024_Argentina.csv",
-    "descargado": "2026-09-26T17:16:12+00:00",
+    "descargado": "2026-09-26T18:51:24+00:00",
     "bytes_archivo_nacional": 4043604,
     "sha256_archivo_nacional": "3bdedb8b223b7e3cf472108101ab64e4cefd4a2e41d11d9895d237c1c330c360",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2012_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2012/viirs-snpp_2012_Argentina.csv",
-    "descargado": "2026-09-26T17:16:13+00:00",
+    "descargado": "2026-09-26T18:51:26+00:00",
     "bytes_archivo_nacional": 15235582,
     "sha256_archivo_nacional": "d685afc4b16b4fd654d504c1ce103be4494e64a07e522ca0d0ece68671e0707d",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2013_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2013/viirs-snpp_2013_Argentina.csv",
-    "descargado": "2026-09-26T17:16:15+00:00",
+    "descargado": "2026-09-26T18:51:27+00:00",
     "bytes_archivo_nacional": 19061532,
     "sha256_archivo_nacional": "a45be3200412b4bbd7e6f78db57a1f4c2f81b7c55a2d0db1aeefd797a93dad68",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2014_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2014/viirs-snpp_2014_Argentina.csv",
-    "descargado": "2026-09-26T17:16:16+00:00",
+    "descargado": "2026-09-26T18:51:28+00:00",
     "bytes_archivo_nacional": 10138373,
     "sha256_archivo_nacional": "9caaa6cf0e690cad118511dfef83b50e2c73ddeeb1c3294960968f14488fdba3",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2015_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2015/viirs-snpp_2015_Argentina.csv",
-    "descargado": "2026-09-26T17:16:17+00:00",
+    "descargado": "2026-09-26T18:51:29+00:00",
     "bytes_archivo_nacional": 12124867,
     "sha256_archivo_nacional": "ba4514b7188785c6fb805a3263115ae6e704a0edaaa2f7960c2427dd94902a68",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2016_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2016/viirs-snpp_2016_Argentina.csv",
-    "descargado": "2026-09-26T17:16:18+00:00",
+    "descargado": "2026-09-26T18:51:30+00:00",
     "bytes_archivo_nacional": 14556663,
     "sha256_archivo_nacional": "85c3d5f233762ba3f6b26d956d3b48590292e619fe0bce57cc514ff62a417515",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2017_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2017/viirs-snpp_2017_Argentina.csv",
-    "descargado": "2026-09-26T17:16:19+00:00",
+    "descargado": "2026-09-26T18:51:31+00:00",
     "bytes_archivo_nacional": 16182697,
     "sha256_archivo_nacional": "192ce79b159d9c0110ea97916ea339571301b3f12108ec7784ff70a599b03cfc",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2018_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2018/viirs-snpp_2018_Argentina.csv",
-    "descargado": "2026-09-26T17:16:20+00:00",
+    "descargado": "2026-09-26T18:51:32+00:00",
     "bytes_archivo_nacional": 14836152,
     "sha256_archivo_nacional": "9c236f96a58d65f11c7364d89e3c705a6812649aaf9f73080078ab0b76294e9e",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2019_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2019/viirs-snpp_2019_Argentina.csv",
-    "descargado": "2026-09-26T17:16:21+00:00",
+    "descargado": "2026-09-26T18:51:33+00:00",
     "bytes_archivo_nacional": 12976401,
     "sha256_archivo_nacional": "b32417ae0437c0de9d5cca73c1214921fcd03e0575869bea6466d8056de9b26a",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2020_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2020/viirs-snpp_2020_Argentina.csv",
-    "descargado": "2026-09-26T17:16:25+00:00",
+    "descargado": "2026-09-26T18:51:35+00:00",
     "bytes_archivo_nacional": 35993088,
     "sha256_archivo_nacional": "48ca3db0721d41aa6f0457fc649ef5bf69141b13da964dac73ee1b708cf466f4",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2021_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2021/viirs-snpp_2021_Argentina.csv",
-    "descargado": "2026-09-26T17:16:27+00:00",
+    "descargado": "2026-09-26T18:51:36+00:00",
     "bytes_archivo_nacional": 15895377,
     "sha256_archivo_nacional": "915bcb6794ab0c11663d9a3c71f4d9ff53bd5700d00ed4deda05ee101938a37c",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2022_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2022/viirs-snpp_2022_Argentina.csv",
-    "descargado": "2026-09-26T17:16:29+00:00",
+    "descargado": "2026-09-26T18:51:38+00:00",
     "bytes_archivo_nacional": 25114506,
     "sha256_archivo_nacional": "c441a07213b84debd04623dde97cc38ac7ebc7286c864f236a0140a6ede7911c",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2023_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2023/viirs-snpp_2023_Argentina.csv",
-    "descargado": "2026-09-26T17:16:30+00:00",
+    "descargado": "2026-09-26T18:51:39+00:00",
     "bytes_archivo_nacional": 13782846,
     "sha256_archivo_nacional": "ca895e71b8e5d878e0c971e643dacb8a018893c237d0ff567c41c921081c1eac",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
   },
   "datos/crudos/firms/viirs-snpp_2024_Argentina_caja.csv": {
     "url": "https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2024/viirs-snpp_2024_Argentina.csv",
-    "descargado": "2026-09-26T17:16:31+00:00",
+    "descargado": "2026-09-26T18:51:40+00:00",
     "bytes_archivo_nacional": 12276220,
     "sha256_archivo_nacional": "27d3c8e6d27b448e101b127decd4c721a20f664298a9475d1698104aa3dd8683",
     "nota": "Se guardan solo las filas dentro de la caja envolvente del partido."
@@ -285,94 +285,297 @@
     "sha256": "8f6f209ea217d76708a4ba1740f8e37698f8bc69ca53bc9f384792bc6f9ccac0"
   },
   "datos/crudos/ign/lineas_de_transporte_ferroviario_AN010.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_transporte_ferroviario_AN010&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:36:36+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_transporte_ferroviario_AN010&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:39+00:00",
     "last_modified": null,
     "bytes": 27479,
-    "sha256": "5a36bcd3e8cb48ad7f3c1ea84c611772645b701c3217e7a4479bdbdd2ba66849"
+    "sha256": "842ca3bb89a6c278c1256e9c595d94d75388877dc72467d9cb571c1fc3903e9a"
   },
   "datos/crudos/ign/vial_nacional.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Avial_nacional&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:36:38+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Avial_nacional&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:41+00:00",
     "last_modified": null,
     "bytes": 13009,
-    "sha256": "816255f064984cdbee25d3bebcdbff2c206c022e09033eeaaf4f815cfa582cab"
+    "sha256": "c7e2b9987f811a33142cf7189799b7a9d9c89661842dc47996142a3aa3927e7a"
   },
   "datos/crudos/ign/vial_provincial.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Avial_provincial&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:36:39+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Avial_provincial&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:43+00:00",
     "last_modified": null,
     "bytes": 81930,
-    "sha256": "fd30243f5866d5b00db0500356d52d3c4a5d18b028a3ec935c2dd4603989b2de"
+    "sha256": "d0ed2949f85e297416dfcec165747eb267a3be98b2cdc428b51ad08e2a7af597"
   },
   "datos/crudos/ign/lineas_de_aguas_continentales_perenne.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_perenne&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:37:50+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_perenne&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:50+00:00",
     "last_modified": null,
     "bytes": 278146,
-    "sha256": "78e7e6bcff0baa56eb925124f42a5306d14cf66ffdea816a47de22e47e285206"
+    "sha256": "600b1a7d0087ab90678b6a5af2d6fd50f1b5a249d13fdc764d264509dcfe60eb"
   },
   "datos/crudos/ign/lineas_de_aguas_continentales_intermitentes.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_intermitentes&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:37:52+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_intermitentes&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:52+00:00",
     "last_modified": null,
-    "bytes": 309497,
-    "sha256": "c4214a3e64c64fd7e6cbe228a12a74caccd9f40f6567ededbcb95a2b52aa5f00"
+    "bytes": 309694,
+    "sha256": "843a0e1d87c6f457eb36665cb7f4ffbf290c0a7caf0373caf3ae285194692035"
   },
   "datos/crudos/ign/lineas_de_aguas_continentales_BH020.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_BH020&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:37:53+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_BH020&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:50:06+00:00",
     "last_modified": null,
     "bytes": 147,
-    "sha256": "8b42516f808a1d3112af6af5471ea19c3c13734e4d9b68ca607501d85e1661d6"
+    "sha256": "167793ed1dc6dd5bbded9b68466724febf096ddc0da3038b6082ceeca0798a4d"
   },
   "datos/crudos/ign/lineas_de_aguas_continentales_BH030.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_BH030&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:37:54+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_aguas_continentales_BH030&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:50:07+00:00",
     "last_modified": null,
     "bytes": 15399,
-    "sha256": "d55bfca63f90201e8f7f86e5a4c3b1d632d89d0cd35efc418345311abdca603a"
+    "sha256": "54fc6cc0afe9c8ee04e2c05df584afc43eab231c6b89a626ad31b2e9b091832b"
   },
   "datos/crudos/ign/areas_de_aguas_continentales_perenne.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_perenne&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:37:56+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_perenne&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:50:09+00:00",
     "last_modified": null,
     "bytes": 270522,
-    "sha256": "29178eb165637ad89955d94a5c60f2881f739aafe035b8dcbc2690a5fd3dbdbf"
+    "sha256": "feb21766695ed6edcea2150f86eef50a70a17c565924366b995e4895ee61b72d"
   },
   "datos/crudos/ign/areas_de_aguas_continentales_intermitente.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_intermitente&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:37:57+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_intermitente&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:50:10+00:00",
     "last_modified": null,
     "bytes": 147,
-    "sha256": "5ed49a79de95fb8f6f4d081a87fb851b9a2a9ce45582fbde75ebd2dea6b65412"
+    "sha256": "a2caf16c04842462a8ce68714722deb8abb1015486159c0c08194d729b97eee0"
   },
   "datos/crudos/ign/areas_de_aguas_continentales_BH020.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_BH020&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:37:57+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_BH020&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:50:11+00:00",
     "last_modified": null,
     "bytes": 147,
-    "sha256": "ebfb22fb446f24c2fb16768e4abf848d3d0f4ee02e8af7dfb27b537053d1a328"
+    "sha256": "6fd7b7ac07bb9359531bac87733578d9b3b8fc07849014127faaca925c5cd9dc"
   },
   "datos/crudos/ign/areas_de_aguas_continentales_BH140.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_BH140&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:38:00+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_BH140&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:50:26+00:00",
     "last_modified": null,
     "bytes": 286043,
-    "sha256": "4cd0fa53374345c7f9b91fccb9deec72b8b5df494f853dca5d65b595a5ab0cdb"
+    "sha256": "025f4434b850c7acb8b66b607ea945dff3b254519948cdeee37a36d7e03002ae"
   },
   "datos/crudos/ign/areas_de_aguas_continentales_BH130.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_BH130&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:38:01+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_aguas_continentales_BH130&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:50:26+00:00",
     "last_modified": null,
     "bytes": 147,
-    "sha256": "344f136418723b6e9579893f65db6cbf694d41adde393b80024779f3f33a6f0a"
+    "sha256": "76865864b8923e7596953e4b7c4170814157c0e7b5f46530a2d8ede33a518362"
   },
   "datos/crudos/ign/lineas_de_geomorfologia_CA010.geojson": {
-    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_geomorfologia_CA010&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.736675%2C-59.67703%2C-37.616925%2C-58.619452%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-26T18:37:47+00:00",
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_geomorfologia_CA010&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:47+00:00",
     "last_modified": null,
     "bytes": 2369481,
-    "sha256": "4b3ae5f6b9efebb1093f79258816339d1d662def93935bb4d3c10fdf02561f9f"
+    "sha256": "ff7c8a508d96b6ddfb4c6f37fd5796762fadd841cee29e203ba39066f4daba62"
+  },
+  "datos/crudos/ign/departamento_06581.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Adepartamento&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=in1%3D%2706581%27",
+    "descargado": "2026-09-26T18:48:52+00:00",
+    "last_modified": null,
+    "bytes": 875884,
+    "sha256": "ff0455b433e63e3dec7e2cef2df7cfad9bad923d45f733808b0c8942b4f9474a"
+  },
+  "datos/crudos/ign/localidad_bahra.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alocalidad_bahra&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:11+00:00",
+    "last_modified": null,
+    "bytes": 9102,
+    "sha256": "7ea09e5f6e6436e79a462dda8b8881ea2ad02c9e67c474796b60e6916d092e44"
+  },
+  "datos/crudos/ign/areas_de_asentamientos_y_edificios_020105.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_asentamientos_y_edificios_020105&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:12+00:00",
+    "last_modified": null,
+    "bytes": 166500,
+    "sha256": "2fc46d4eb2d61eca5c271314e588a784641e07aec737d57e585dddcf37ab5706"
+  },
+  "datos/crudos/ign/vegetacion_hidrofila_ED020.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Avegetacion_hidrofila_ED020&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:15+00:00",
+    "last_modified": null,
+    "bytes": 1421347,
+    "sha256": "f22b24ae5e56ca2835adc8c47bb46497f708cc0e2b0260159c8f8552c5e05061"
+  },
+  "datos/crudos/ign/puntos_de_cruces_y_enlaces_AQ040.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_cruces_y_enlaces_AQ040&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:17+00:00",
+    "last_modified": null,
+    "bytes": 14607,
+    "sha256": "be2be54a2fb7b6fff30e637d076923695207c4c6493bd02dd4b639c3be0636b7"
+  },
+  "datos/crudos/ign/puntos_de_cruces_y_enlaces_BH070.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_cruces_y_enlaces_BH070&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:18+00:00",
+    "last_modified": null,
+    "bytes": 1199,
+    "sha256": "04c3d37cd1cec174a7a9757c0cdf3130dcdd416ba543313e60564a912d6f7d86"
+  },
+  "datos/crudos/ign/vegetacion_arborea_060301.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Avegetacion_arborea_060301&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:19+00:00",
+    "last_modified": null,
+    "bytes": 95492,
+    "sha256": "bcc83b764520ef3a8b1f7cdc1077fb3ddebe391c9900b23046e1188a805ad6cd"
+  },
+  "datos/crudos/ign/vegetacion_arborea_EC015.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Avegetacion_arborea_EC015&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:20+00:00",
+    "last_modified": null,
+    "bytes": 7363,
+    "sha256": "bf693d85ed37e20419456f27d79de241d940b674a4ad5b90cf72fa99b2bf73e3"
+  },
+  "datos/crudos/ign/plantacion_permanente_KB025.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aplantacion_permanente_KB025&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:21+00:00",
+    "last_modified": null,
+    "bytes": 9699,
+    "sha256": "c0a9a855f6ebba262de1eb3021e7af5d580720369e4fcc8b2d1311b350439d5b"
+  },
+  "datos/crudos/ign/lineas_de_estructura_asociada_ducto_subterraneo.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_estructura_asociada_ducto_subterraneo&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:22+00:00",
+    "last_modified": null,
+    "bytes": 10927,
+    "sha256": "6186a09a68201e052a0688807f38e8d36906365dbf2be66a9c6674515f1d9c0a"
+  },
+  "datos/crudos/ign/lineas_de_energia_AT030.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_energia_AT030&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:22+00:00",
+    "last_modified": null,
+    "bytes": 10788,
+    "sha256": "3d3cbdc83bb29542b8638be3ac3bce2b90e0dcc8024ca4c076d6a64ce3d3408f"
+  },
+  "datos/crudos/ign/puntos_de_energia_AD010.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_energia_AD010&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:23+00:00",
+    "last_modified": null,
+    "bytes": 1115,
+    "sha256": "3b15f93890872bfc8adc1155e04f15366a06006f459786db28dede5e8b36fa9d"
+  },
+  "datos/crudos/ign/puntos_de_energia_AD030.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_energia_AD030&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:25+00:00",
+    "last_modified": null,
+    "bytes": 1585,
+    "sha256": "7ba240b4b84504c8f6c031fd5a32d2cf302ca6f978d0952d6659c42675bd8b47"
+  },
+  "datos/crudos/ign/areas_de_fabricacion_y_procesamiento_AC070.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_fabricacion_y_procesamiento_AC070&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:25+00:00",
+    "last_modified": null,
+    "bytes": 2115,
+    "sha256": "90b5416af718bb1a770954fad4484019ab2bab59fc7cb3ce06267fece345fce0"
+  },
+  "datos/crudos/ign/puntos_de_fabricacion_y_procesamiento_AC000.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_fabricacion_y_procesamiento_AC000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:26+00:00",
+    "last_modified": null,
+    "bytes": 1998,
+    "sha256": "14e5d6a472095af1b3932767c8f3d196db4e117288bf25e5f937d9ecf5e6c83f"
+  },
+  "datos/crudos/ign/infraestructura_de_transporte_AQ170.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Ainfraestructura_de_transporte_AQ170&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:27+00:00",
+    "last_modified": null,
+    "bytes": 15999,
+    "sha256": "c5fcebd51b1b0775fd9abd14a21c34b67296f57fe5e7f3a163537bb468777d46"
+  },
+  "datos/crudos/ign/areas_de_gestion_de_residuos_AB000.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_gestion_de_residuos_AB000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:28+00:00",
+    "last_modified": null,
+    "bytes": 2257,
+    "sha256": "e5f88ed69830cbc5886de6b60e997bb7f1b8f4ee246c350f8988282c6c5dadf0"
+  },
+  "datos/crudos/ign/areas_de_fabricacion_y_procesamiento_AC507.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aareas_de_fabricacion_y_procesamiento_AC507&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:29+00:00",
+    "last_modified": null,
+    "bytes": 2082,
+    "sha256": "d9ca0d5c1562c832840a7f46c4138fc33b77c25a476be7848df55f2498b1494a"
+  },
+  "datos/crudos/ign/puntos_de_fabricacion_y_procesamiento_AC507.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_fabricacion_y_procesamiento_AC507&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:30+00:00",
+    "last_modified": null,
+    "bytes": 1533,
+    "sha256": "57e0a8b2f3e8d905d258c9edb6ec2883a77e75da572073709a21826273b71031"
+  },
+  "datos/crudos/ign/puntos_de_puertos_y_muelles_BB005.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_puertos_y_muelles_BB005&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:30+00:00",
+    "last_modified": null,
+    "bytes": 649,
+    "sha256": "9d348e69de1e11dbf8fac613f6cdba9a6730a78ff40ed56b8f4b63fbc812972a"
+  },
+  "datos/crudos/ign/lineas_de_puertos_y_muelles_BB041.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alineas_de_puertos_y_muelles_BB041&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:31+00:00",
+    "last_modified": null,
+    "bytes": 1119,
+    "sha256": "b19c8b07d74ffadeca448027c127cb90c200f69905357ab5bd7de4cc2d29bcf9"
+  },
+  "datos/crudos/ign/puntos_de_puertos_y_muelles_BB041.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_puertos_y_muelles_BB041&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:32+00:00",
+    "last_modified": null,
+    "bytes": 947,
+    "sha256": "ecc2643e4f7120735bf4d6378aa770b1691e05eb27cbd693fb7cca39fb730d9e"
+  },
+  "datos/crudos/ign/ayuda_a_la_navegacion_BC050.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aayuda_a_la_navegacion_BC050&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:33+00:00",
+    "last_modified": null,
+    "bytes": 622,
+    "sha256": "7ca4cbfb75f41dbc9488320f0808bb4676565fbb4986bd85985918c4c27a0abf"
+  },
+  "datos/crudos/ign/ayuda_a_la_navegacion_BC101.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aayuda_a_la_navegacion_BC101&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:34+00:00",
+    "last_modified": null,
+    "bytes": 991,
+    "sha256": "3d43193578d0120e4905080cd5357534034117baebe4c9b55ede89bb5b268f4e"
+  },
+  "datos/crudos/ign/mareas_y_corrientes_BG020.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Amareas_y_corrientes_BG020&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:35+00:00",
+    "last_modified": null,
+    "bytes": 627,
+    "sha256": "9333602d5fe177dea073e37fd4f6bfecdf4c265b1b6592ef5f68c068e72e9df1"
+  },
+  "datos/crudos/ign/puntos_de_ciencia_y_educacion_020601.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_ciencia_y_educacion_020601&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:37+00:00",
+    "last_modified": null,
+    "bytes": 94381,
+    "sha256": "8e9df90081173a0f8a0ae82daa2a5ae90a8b8b3fb349438004c8e85ca1066dca"
+  },
+  "datos/crudos/ign/puntos_de_ciencia_y_educacion_020602.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_ciencia_y_educacion_020602&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:37+00:00",
+    "last_modified": null,
+    "bytes": 1681,
+    "sha256": "8fcddc6fe85523e03beaa866fcbaf5bcb53e9efe91a2b72cfb1c6f8cc84ae861"
+  },
+  "datos/crudos/ign/salud_020801.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Asalud_020801&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:38+00:00",
+    "last_modified": null,
+    "bytes": 11887,
+    "sha256": "1fd68fe64de2dd0281276e43355a506a877fa1a45b9848baf5de6c5cbdb7cbe6"
+  },
+  "datos/crudos/ign/puntos_de_transporte_ferroviario_AN070.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Apuntos_de_transporte_ferroviario_AN070&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-26T18:49:40+00:00",
+    "last_modified": null,
+    "bytes": 8254,
+    "sha256": "28294434773f3ef307af25f527f7a2c4490e7b4bb736e2ccae9ef58ede72da7f"
   }
 }

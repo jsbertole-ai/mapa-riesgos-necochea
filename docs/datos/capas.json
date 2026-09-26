@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-26T18:42:20+00:00",
+  "generado": "2026-09-26T18:56:22+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -16,6 +16,10 @@
     {
       "id": "portuaria",
       "nombre": "Actividad portuaria e industrial"
+    },
+    {
+      "id": "expuestos",
+      "nombre": "Elementos expuestos"
     }
   ],
   "capas": [
@@ -31,25 +35,58 @@
         "trazo": "6 4"
       },
       "activa_al_inicio": true,
-      "organismo": "Servicio de Normalización de Datos Geográficos de Argentina (Georef), datos.gob.ar; geometría del Instituto Geográfico Nacional (IGN)",
-      "url_fuente": "https://datosgobar.github.io/georef-ar-api/download/",
-      "url_datos": "https://apis.datos.gob.ar/georef/api/departamentos.geojson",
-      "licencia": "CC BY 4.0",
-      "url_licencia": "https://datosgobar.github.io/georef-ar-api/terms/",
-      "cita": "Georef, Servicio de Normalización de Datos Geográficos de Argentina (datos.gob.ar), capa de departamentos; geometría del IGN. CC BY 4.0.",
-      "formato": "GeoJSON",
-      "que_representa": "El límite administrativo del partido de Necochea (departamento 06581 de la provincia de Buenos Aires), tal como lo publica Georef con geometría del IGN.",
-      "que_no_representa": "No es un límite catastral ni de precisión: sirve para ubicarse y para recortar las demás capas.",
-      "limitaciones": "La geometría viene muy generalizada (un polígono de 57 vértices): la línea de costa y los bordes con los partidos vecinos pueden correrse cientos de metros respecto del terreno. Georef no informa la fecha de la capa de origen del IGN.",
+      "organismo": "Instituto Geográfico Nacional (IGN), capa \"Departamento\" de su servicio WFS; geometría de ARBA (Gerencia de Servicios Catastrales), según su fuente de captura",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (capa ign:departamento, filtrada por el código 06581)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: departamento, Partido de Necochea (código 06581); fuente de captura: ARBA, Gerencia de Servicios Catastrales.",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "que_representa": "El límite administrativo del partido de Necochea (código 06581) según el IGN, con geometría de origen catastral (ARBA).",
+      "que_no_representa": "No reemplaza a una mensura: sirve para ubicarse y para recortar las demás capas.",
+      "limitaciones": "Geometría detallada (32.136 vértices). Reemplazó el 26/09/2026 a la versión generalizada de Georef (57 vértices); el cambio movió la asignación al partido de algunos elementos cercanos al borde (por ejemplo, 4 focos MODIS menos y 1 VIIRS más). El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 1,
-      "fecha_datos": "Archivo publicado el Wed, 19 Aug 2026 15:02:17 GMT (según el servidor); fecha de la geometría del IGN no informada.",
-      "procesado": "2026-09-26T18:42:18+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:48:52+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
           "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://datosgobar.github.io/georef-ar-api/terms/ (leída el 2026-09-26)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "localidades",
+      "grupo": "referencia",
+      "nombre": "Localidades (IGN)",
+      "archivo": "localidades.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#1a1a1a",
+        "radio": 5
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: localidades (BAHRA).",
+      "que_representa": "Las localidades del partido (Necochea-Quequén, Claraz, Energía, Juan N. Fernández, Nicanor Olivera y Ramón Santamarina) según la capa de localidades BAHRA del IGN.",
+      "que_no_representa": "No indica cantidad de población.",
+      "limitaciones": "Cada localidad es un punto; su extensión está en la capa de planta urbana. El IGN no informa la fecha.",
+      "estado": "verificada",
+      "elementos": 6,
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:53:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "6 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
         ]
       }
     },
@@ -87,13 +124,13 @@
       "que_no_representa": "No indica zonas inundables ni niveles de peligrosidad. Es una capa de referencia para leer la amenaza, no la amenaza.",
       "limitaciones": "Mucho menos detallada que la de OpenStreetMap: no incluye la mayoría de los cuerpos de agua chicos ni la línea de costa. El IGN no informa la escala ni la fecha de la capa. Un curso que cruza el límite se ve completo.",
       "estado": "verificada",
-      "elementos": 129,
+      "elementos": 138,
       "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-26.",
-      "procesado": "2026-09-26T18:42:19+00:00",
+      "procesado": "2026-09-26T18:53:31+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
-          "129 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "138 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
         ]
       }
@@ -120,13 +157,13 @@
       "que_no_representa": "No indica zonas inundables ni niveles de peligrosidad. Es una capa de referencia para leer la amenaza, no la amenaza.",
       "limitaciones": "Carga voluntaria sin control oficial: la completitud en zona rural es desigual. Un curso ausente en el mapa puede existir en el terreno.",
       "estado": "verificada",
-      "elementos": 2290,
+      "elementos": 2279,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:21:54Z (UTC).",
-      "procesado": "2026-09-26T18:42:19+00:00",
+      "procesado": "2026-09-26T18:55:54+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
-          "2290 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "2279 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-26)."
         ]
@@ -152,15 +189,81 @@
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: curvas de nivel (fuentes de captura: Atlas 1:500.000, 1.ª edición, y SIG 1:250.000).",
       "que_representa": "Líneas que unen puntos de igual altura sobre el nivel del mar (en la zona, cotas de 10 a 300 m). Ayudan a leer la forma del relieve: por dónde escurre el agua y dónde puede acumularse.",
       "que_no_representa": "No es un mapa de zonas inundables: el relieve no dice cuánta agua llega ni con qué frecuencia.",
-      "limitaciones": "Según su campo de fuente de captura, provienen de cartografía a escala 1:500.000 y 1:250.000: sirven para ver el relieve general, no para decidir si una calle o un lote se inunda. Los intervalos entre curvas no son regulares. Una curva que cruza el límite se ve completa. En 95 curvas el código de método de obtención es 6, que no figura en la documentación de la capa.",
+      "limitaciones": "Según su campo de fuente de captura, provienen de cartografía a escala 1:500.000 y 1:250.000: sirven para ver el relieve general, no para decidir si una calle o un lote se inunda. Los intervalos entre curvas no son regulares. Una curva que cruza el límite se ve completa. En 93 curvas el código de método de obtención es 6, que no figura en la documentación de la capa.",
       "estado": "verificada",
-      "elementos": 231,
+      "elementos": 229,
       "fecha_datos": "El servicio del IGN no informa la fecha de esta capa; la documentación que republica la provincia es del 24/10/2021. Consulta al servicio: 2026-09-26.",
-      "procesado": "2026-09-26T18:42:19+00:00",
+      "procesado": "2026-09-26T18:53:30+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
-          "231 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "229 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "vegetacion_hidrofila",
+      "grupo": "inundaciones",
+      "nombre": "Pajonales, juncales y totorales (IGN)",
+      "archivo": "vegetacion_hidrofila.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#2f7f6f",
+        "relleno": "#9fd3c3"
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: vegetación hidrófila (pajonal, juncal, totoral).",
+      "que_representa": "Áreas cubiertas por vegetación de suelos húmedos o anegados (pajonales, juncales y totorales). Es un indicio de terrenos bajos que retienen agua.",
+      "que_no_representa": "No es un mapa de zonas inundables ni dice cada cuánto se anegan.",
+      "limitaciones": "Cartografía de escala regional. El IGN no informa la fecha.",
+      "estado": "verificada",
+      "elementos": 40,
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:53:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "40 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "puentes_vados",
+      "grupo": "inundaciones",
+      "nombre": "Puentes y vados (IGN)",
+      "archivo": "puentes_vados.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#1f4e79",
+        "radio": 4
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: puentes y vados.",
+      "que_representa": "Puentes (14) y vados (2): puntos donde caminos y vías cruzan cursos de agua.",
+      "que_no_representa": "No indica su estado ni si se cortan con las crecidas.",
+      "limitaciones": "Registro posiblemente incompleto (inferido: son pocos frente a los cruces entre caminos y cursos de agua del partido). El IGN no informa la fecha.",
+      "estado": "verificada",
+      "elementos": 16,
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:53:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "16 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
         ]
       }
@@ -188,22 +291,22 @@
       "que_no_representa": "Un foco de calor no es un incendio confirmado ni mide la superficie quemada. Incluye quemas agrícolas, fuentes industriales y falsos positivos.",
       "limitaciones": "Resolución de 1 km y dos pasadas diarias por satélite: se pierden fuegos chicos, breves o tapados por nubes. El aviso legal de FIRMS desaconseja usar estos datos para decisiones tácticas o para informar condiciones a escala local. FIRMS avisa que faltan datos MODIS en partes de 2001, 2002, 2007 y 2009. FIRMS todavía no publicó el resumen anual de 2025 (la descarga del 26/09/2026 devolvió 404), así que la serie termina en 2024. La serie mezcla colecciones según el año, tal como la publica FIRMS: el campo version vale 6.2 (2000 a 2017), 6.03 (2018 a 2022) y 61.03 (2023 y 2024). Según la FAQ de FIRMS, la Colección 6.1 no cambió el algoritmo de detección, solo la calibración.",
       "estado": "verificada",
-      "elementos": 658,
+      "elementos": 654,
       "fecha_datos": "2000-11-16 a 2024-11-12",
-      "procesado": "2026-09-26T18:42:18+00:00",
+      "procesado": "2026-09-26T18:51:40+00:00",
       "focos_por_anio": {
         "2000": 3,
         "2001": 28,
         "2002": 37,
-        "2003": 74,
-        "2004": 85,
+        "2003": 73,
+        "2004": 84,
         "2005": 65,
         "2006": 47,
         "2007": 37,
-        "2008": 10,
+        "2008": 9,
         "2009": 24,
         "2010": 10,
-        "2011": 22,
+        "2011": 21,
         "2012": 19,
         "2013": 14,
         "2014": 20,
@@ -219,13 +322,13 @@
         "2024": 17
       },
       "focos_por_tipo": {
-        "0": 641,
+        "0": 637,
         "2": 17
       },
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
-          "658 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "654 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-09-26)."
         ]
       }
@@ -253,9 +356,9 @@
       "que_no_representa": "Un foco de calor no es un incendio confirmado ni mide la superficie quemada. MODIS y VIIRS pueden detectar el mismo fuego: no hay que sumar las dos capas.",
       "limitaciones": "Detecta fuegos más chicos que MODIS, pero sigue dependiendo de la hora de paso y de la nubosidad. El aviso legal de FIRMS desaconseja usar estos datos para decisiones tácticas o para informar condiciones a escala local. FIRMS todavía no publicó el resumen anual de 2025 (la descarga del 26/09/2026 devolvió 404), así que la serie termina en 2024.",
       "estado": "verificada",
-      "elementos": 600,
+      "elementos": 601,
       "fecha_datos": "2012-02-10 a 2024-12-20",
-      "procesado": "2026-09-26T18:42:18+00:00",
+      "procesado": "2026-09-26T18:51:40+00:00",
       "focos_por_anio": {
         "2012": 41,
         "2013": 30,
@@ -264,7 +367,7 @@
         "2016": 55,
         "2017": 45,
         "2018": 56,
-        "2019": 42,
+        "2019": 43,
         "2020": 55,
         "2021": 44,
         "2022": 56,
@@ -272,13 +375,46 @@
         "2024": 31
       },
       "focos_por_tipo": {
-        "0": 600
+        "0": 601
       },
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
-          "600 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "601 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "forestaciones",
+      "grupo": "incendios",
+      "nombre": "Forestaciones y bosques (IGN)",
+      "archivo": "forestaciones.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#2f6b2f",
+        "relleno": "#8fbf7f"
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: bosque artificial, bosque y plantación permanente.",
+      "que_representa": "Forestaciones (36), bosques (7) y plantaciones permanentes (4). Sirven para leer la amenaza de incendio junto con los focos de calor: son vegetación leñosa, un combustible distinto del pastizal.",
+      "que_no_representa": "No indica especie, estado ni carga de combustible.",
+      "limitaciones": "Escala regional: las forestaciones chicas pueden faltar. El IGN no informa la fecha.",
+      "estado": "verificada",
+      "elementos": 47,
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:53:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "47 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
         ]
       }
     },
@@ -315,15 +451,117 @@
       "que_no_representa": "Muestra dónde están las instalaciones, no cuánto riesgo generan: no hay datos abiertos de sustancias, volúmenes ni planes de contingencia.",
       "limitaciones": "Carga voluntaria sin control oficial. Excluye de forma explícita cámaras de vigilancia e infraestructura de seguridad.",
       "estado": "verificada",
-      "elementos": 646,
+      "elementos": 643,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:24:01Z (UTC).",
-      "procesado": "2026-09-26T18:42:19+00:00",
+      "procesado": "2026-09-26T18:55:54+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
-          "646 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "643 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "puerto_navegacion",
+      "grupo": "portuaria",
+      "nombre": "Puerto y navegación (IGN)",
+      "archivo": "puerto_navegacion.geojson",
+      "geometria": "mixta",
+      "estilo": {
+        "color": "#0b4f6c",
+        "radio": 5,
+        "grosor": 3
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: puerto, rompeolas, faro, balizas y mareógrafo (fuente de captura: IGN, Servicio de Hidrografía Naval y Ministerio de Transporte).",
+      "que_representa": "Puerto Quequén, sus rompeolas, el faro Quequén, las balizas de las escolleras norte y sur, y el mareógrafo de la estación Quequén.",
+      "que_no_representa": "No incluye cartografía náutica ni mediciones de marea.",
+      "limitaciones": "El IGN no informa la fecha.",
+      "estado": "verificada",
+      "elementos": 9,
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:53:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "9 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "energia",
+      "grupo": "portuaria",
+      "nombre": "Energía (IGN)",
+      "archivo": "energia.geojson",
+      "geometria": "mixta",
+      "estilo": {
+        "color": "#c79a00",
+        "radio": 6,
+        "grosor": 2
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: líneas de transmisión eléctrica, centrales eléctricas y plantas transformadoras (fuente de captura: IGN y Secretaría de Energía).",
+      "que_representa": "Líneas de transmisión eléctrica (7), la Central Térmica Necochea y el Parque Eólico Necochea, y las estaciones transformadoras Necochea y Quequén.",
+      "que_no_representa": "No indica tensión, potencia ni estado: el IGN los codifica sin publicar el significado de los códigos.",
+      "limitaciones": "Una línea que cruza el límite se ve completa. El IGN tiene además un ducto en la zona (General San Martín), pero cae fuera del partido. El IGN no informa la fecha.",
+      "estado": "verificada",
+      "elementos": 11,
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:53:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "11 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "industria_residuos",
+      "grupo": "portuaria",
+      "nombre": "Industria, combustibles y residuos (IGN)",
+      "archivo": "industria_residuos.geojson",
+      "geometria": "mixta",
+      "estilo": {
+        "color": "#8c2d04",
+        "relleno": "#e6a98f",
+        "radio": 4
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: fábricas y áreas de fabricación, estaciones de servicio, vertederos y plantas de tratamiento de efluentes cloacales.",
+      "que_representa": "Fábricas y el Sector Industrial Planificado, estaciones de servicio (22), el basural municipal y las plantas depuradoras de líquidos cloacales de Necochea y Quequén.",
+      "que_no_representa": "No informa sustancias, volúmenes ni planes de contingencia.",
+      "limitaciones": "En las estaciones de servicio se descartan los nombres, porque identifican al titular (regla de datos personales). El IGN no informa la fecha.",
+      "estado": "verificada",
+      "elementos": 31,
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:53:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "31 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
         ]
       }
     },
@@ -338,24 +576,24 @@
       "grupo": "portuaria",
       "nombre": "Ferrocarril (IGN)",
       "archivo": "ferrocarril.geojson",
-      "geometria": "linea",
+      "geometria": "mixta",
       "estilo": {
         "color": "#222222",
         "bicolor": true
       },
       "activa_al_inicio": true,
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: ferrocarril (fuente de captura: IGN, Ministerio de Transporte de la Nación y Ferrosur).",
-      "que_representa": "Los ramales del Ferrocarril General Roca que atraviesan el partido (R18, R21, R23, R25 y R27), según la cartografía oficial del IGN.",
+      "que_representa": "Los ramales del Ferrocarril General Roca que atraviesan el partido (R18, R21, R23, R25 y R27) y sus estaciones (8), según la cartografía oficial del IGN.",
       "que_no_representa": "No indica si el ramal está en servicio ni qué carga transporta: el IGN no publica ese dato en la capa.",
       "limitaciones": "Un ramal que cruza el límite se ve completo, también fuera del partido. El IGN no informa la escala ni la fecha de la capa.",
       "estado": "verificada",
-      "elementos": 6,
+      "elementos": 14,
       "fecha_datos": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-26.",
-      "procesado": "2026-09-26T18:42:19+00:00",
+      "procesado": "2026-09-26T18:53:30+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
-          "6 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "14 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
         ]
       }
@@ -382,13 +620,13 @@
       "que_no_representa": "No es un mapa de rutas de camiones ni de transporte de cargas peligrosas. Los caminos rurales (red terciaria) no se incluyen.",
       "limitaciones": "Un tramo que cruza el límite se ve completo. La red terciaria del IGN (797 tramos en la caja envolvente del partido) queda afuera para que el mapa se pueda leer.",
       "estado": "verificada",
-      "elementos": 21,
+      "elementos": 19,
       "fecha_datos": "Metadato del IGN creado el 24/10/2021, con actualización mensual declarada (https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf); el servicio no informa la fecha de la versión consultada. Consulta al servicio: 2026-09-26.",
-      "procesado": "2026-09-26T18:42:19+00:00",
+      "procesado": "2026-09-26T18:53:30+00:00",
       "verificacion": {
         "fecha": "2026-09-26",
         "controles": [
-          "21 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "19 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
         ]
       }
@@ -403,6 +641,105 @@
       "que_representa": "Sería la zonificación oficial de usos del suelo, incluidas las zonas industriales.",
       "que_no_representa": "Los polígonos industriales de OpenStreetMap no la reemplazan.",
       "estado": "sin_fuente"
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "planta_urbana",
+      "grupo": "expuestos",
+      "nombre": "Planta urbana (IGN)",
+      "archivo": "planta_urbana.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#6e6e6e",
+        "relleno": "#bdbdbd"
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: planta urbana (fuente de captura: IGN e INDEC).",
+      "que_representa": "El área urbanizada de cada localidad del partido.",
+      "que_no_representa": "No distingue densidad, tipo de construcción ni población.",
+      "limitaciones": "Delimitación de escala regional: puede no reflejar el crecimiento urbano reciente. El IGN no informa la fecha.",
+      "estado": "verificada",
+      "elementos": 7,
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:53:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "7 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "educacion",
+      "grupo": "expuestos",
+      "nombre": "Establecimientos educativos (IGN)",
+      "archivo": "educacion.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#1b7837",
+        "radio": 4
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: establecimientos educativos y universidades (fuente de captura: Mapa Educativo Nacional, entre otras).",
+      "que_representa": "Escuelas e institutos (137) y sedes universitarias (3): lugares donde se concentra población que en una emergencia requiere atención.",
+      "que_no_representa": "No informa matrícula ni horarios.",
+      "limitaciones": "Puede haber establecimientos cerrados o nuevos que no figuren. El IGN no informa la fecha.",
+      "estado": "verificada",
+      "elementos": 140,
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:53:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "140 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado al partido; coordenadas redondeadas a 5 decimales",
+      "id": "salud",
+      "grupo": "expuestos",
+      "nombre": "Establecimientos de salud (IGN)",
+      "archivo": "salud.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#c51b7d",
+        "radio": 5
+      },
+      "activa_al_inicio": false,
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: edificios de salud (fuente de captura: IGN y SISA).",
+      "que_representa": "Hospitales, salas y centros de salud (22): infraestructura que en una emergencia tiene que seguir funcionando.",
+      "que_no_representa": "No informa camas, servicios ni capacidad.",
+      "limitaciones": "Puede haber establecimientos cerrados o nuevos que no figuren. El IGN no informa la fecha.",
+      "estado": "verificada",
+      "elementos": 22,
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
+      "procesado": "2026-09-26T18:53:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-26",
+        "controles": [
+          "22 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
+        ]
+      }
     }
   ]
 }

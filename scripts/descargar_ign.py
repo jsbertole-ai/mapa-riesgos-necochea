@@ -26,8 +26,56 @@ DECIMALES = 5
 
 # Capa del mapa -> capas del WFS que la forman, con la etiqueta que se muestra.
 CAPAS = {
+    "localidades": {
+        "localidad_bahra": "Localidad",
+    },
+    "planta_urbana": {
+        "areas_de_asentamientos_y_edificios_020105": "Planta urbana",
+    },
+    "vegetacion_hidrofila": {
+        "vegetacion_hidrofila_ED020": "Pajonal, juncal, totoral",
+    },
+    "puentes_vados": {
+        "puntos_de_cruces_y_enlaces_AQ040": "Puente",
+        "puntos_de_cruces_y_enlaces_BH070": "Vado",
+    },
+    "forestaciones": {
+        "vegetacion_arborea_060301": "Bosque artificial (forestación)",
+        "vegetacion_arborea_EC015": "Bosque",
+        "plantacion_permanente_KB025": "Plantación permanente",
+    },
+    "energia": {
+        "lineas_de_estructura_asociada_ducto_subterraneo": "Ducto",
+        "lineas_de_energia_AT030": "Línea de transmisión eléctrica",
+        "puntos_de_energia_AD010": "Central eléctrica",
+        "puntos_de_energia_AD030": "Planta transformadora",
+    },
+    "industria_residuos": {
+        "areas_de_fabricacion_y_procesamiento_AC070": "Área de fabricación y procesamiento",
+        "puntos_de_fabricacion_y_procesamiento_AC000": "Fábrica",
+        "infraestructura_de_transporte_AQ170": "Estación de servicio",
+        "areas_de_gestion_de_residuos_AB000": "Vertedero, basurero",
+        "areas_de_fabricacion_y_procesamiento_AC507": "Planta de tratamiento de efluentes cloacales",
+        "puntos_de_fabricacion_y_procesamiento_AC507": "Planta de tratamiento de efluentes cloacales",
+    },
+    "puerto_navegacion": {
+        "puntos_de_puertos_y_muelles_BB005": "Puerto",
+        "lineas_de_puertos_y_muelles_BB041": "Rompeolas",
+        "puntos_de_puertos_y_muelles_BB041": "Rompeolas",
+        "ayuda_a_la_navegacion_BC050": "Faro",
+        "ayuda_a_la_navegacion_BC101": "Baliza",
+        "mareas_y_corrientes_BG020": "Mareógrafo",
+    },
+    "educacion": {
+        "puntos_de_ciencia_y_educacion_020601": "Establecimiento educativo",
+        "puntos_de_ciencia_y_educacion_020602": "Universidad",
+    },
+    "salud": {
+        "salud_020801": "Edificio de salud",
+    },
     "ferrocarril": {
         "lineas_de_transporte_ferroviario_AN010": "Ferrocarril",
+        "puntos_de_transporte_ferroviario_AN070": "Estación de ferrocarril",
     },
     "red_vial": {
         "vial_nacional": "Ruta nacional",
@@ -49,8 +97,12 @@ CAPAS = {
     },
 }
 
-# Atributos del IGN que se conservan (el resto son códigos internos).
-ATRIBUTOS = ("fna", "gna", "nam", "rtn", "typ", "rst", "hct", "crv", "mo2", "fdc", "sag")
+# Atributos del IGN que se conservan (el resto son códigos internos sin dominio documentado).
+ATRIBUTOS = ("fna", "gna", "nam", "tipo_asent", "rtn", "typ", "rst", "hct", "crv", "mo2", "fdc", "sag")
+
+# Capas cuyo nombre identifica a una persona: se descarta (regla de datos personales).
+# En las estaciones de servicio el nombre es el del titular, por ejemplo "Apellido Nombre (Marca)".
+SIN_NOMBRES = {"infraestructura_de_transporte_AQ170"}
 
 
 def redondear(c):
@@ -96,6 +148,9 @@ def main():
                 if not geom or not any(punto_en_geometria(x, y, limite, caja) for x, y, *_ in vertices(geom)):
                     continue
                 props = {k: v for k, v in (f.get("properties") or {}).items() if k in ATRIBUTOS and v not in (None, "")}
+                if capa_wfs in SIN_NOMBRES:
+                    for k in ("fna", "gna", "nam"):
+                        props.pop(k, None)
                 props["tipo"] = etiqueta
                 props["ign"] = f.get("id")
                 features.append({"type": "Feature", "properties": props,

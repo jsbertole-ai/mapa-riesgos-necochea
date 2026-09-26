@@ -1,7 +1,7 @@
 # Relevamiento de fuentes de datos abiertos
 
 Mapa interactivo de riesgos del partido de Necochea (provincia de Buenos Aires, Argentina).
-Fase 1 (relevamiento con buscador): 26/09/2026. Fase 2 (descarga y verificación con los scripts de `/scripts`): 26/09/2026.
+Fase 1 (relevamiento con buscador): 26/09/2026. Fase 2 (descarga y verificación con los scripts de `/scripts`): 26/09/2026. Desde el cambio al límite del IGN (0.2), todas las capas se recortan con él.
 
 ## Cómo leer este documento
 
@@ -28,7 +28,7 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 
 ## 0. Referencia: límite del partido de Necochea
 
-### 0.1 Georef (Servicio de Normalización de Datos Geográficos de Argentina) · **Verificada** · en uso
+### 0.1 Georef (Servicio de Normalización de Datos Geográficos de Argentina) · **Verificada** · alternativa (reemplazada por el IGN)
 
 | Campo | Detalle |
 |---|---|
@@ -41,9 +41,9 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 | Huella | SHA-256 `31afdfe5983b6d7648eba1eafc7a5a8fe3c591abdca4b17c311c08c75d361e92`, 1.193.417 bytes. Dos descargas separadas dieron la misma huella. |
 | Limitaciones | Geometría muy generalizada: el partido es un Polygon de **57 vértices**, con caja envolvente de longitud -59,67703 a -58,619452 y latitud -38,736675 a -37,616925. La costa y los bordes con los partidos vecinos son aproximados. Límite administrativo, no catastral. |
 | Corrección a la Fase 1 | La consulta por API propuesta en la Fase 1 (`/georef/api/departamentos?provincia=06&nombre=necochea&formato=geojson`) **no sirve para el límite**: aun con `campos=completo`, devuelve solo el centroide (Point, -59,1673869; -38,2554110). El polígono está únicamente en el archivo de descarga completo. |
-| Archivo publicado | `docs/datos/limite.geojson`. Script: `scripts/descargar_limite.py`. |
+| Uso | Fue el límite del mapa hasta el 26/09/2026. Lo reemplazó el del IGN (0.2), que tiene 32.136 vértices frente a estos 57. |
 
-### 0.2 IGN: términos y condiciones, servicio WFS y capa "Departamentos" · **Licencia comprobada**
+### 0.2 IGN: términos y condiciones, servicio WFS y capa "Departamento" · **Verificada** · en uso (límite del partido)
 
 | Campo | Detalle |
 |---|---|
@@ -52,9 +52,10 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 | Lectura práctica | Compatible con un sitio público, gratuito y sin fines comerciales, siempre que se cite la fuente con esa fórmula, se conserven los metadatos y se mencione la fecha de los datos originales. Cuando el IGN no informa esa fecha, la ficha de la capa lo dice. |
 | Servicio | WFS https://wms.ign.gob.ar/geoserver/wfs: 192 capas en el espacio `ign`, con salida GeoJSON. El botón "Descargar capa" de https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG llama a ese mismo servicio (comprobado en el código de la página), así que bajar por el WFS es descargar del sitio del IGN y rigen los términos de arriba. |
 | Metadatos | Para ferrocarril, corrientes y espejos de agua, el enlace "Descargar metadato" está comentado en el código de la página y el archivo al que apunta (`ejemplo.pdf`) devuelve 404. La red vial provincial sí tiene metadato: https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf (creado el 24/10/2021, "Frecuencia de actualización: mensualmente"). |
-| Capa "Departamentos" | No se revisó todavía en el WFS. El límite sigue saliendo de Georef (0.1), que usa la geometría del IGN con licencia CC BY 4.0. Queda pendiente comparar el detalle del IGN con los 57 vértices de Georef (sección 5). |
+| Capa "Departamento" (límite en uso) | `ign:departamento` filtrada por el código `06581`: un MultiPolygon de una parte, con 32.136 vértices. Fuente de captura: "ARBA - Gerencia de Servicios Catastrales". Área aproximada, calculada con una proyección local: 4.546 km² (la versión de Georef da 4.556 km²). Fecha no informada. Archivo: `docs/datos/limite.geojson` (0,7 MB). Script: `scripts/descargar_limite.py`. |
+| Efecto del cambio | Con el límite detallado, 4 focos MODIS quedaron fuera y 1 VIIRS entró; la hidrografía oficial pasó de 129 a 138 elementos, las rutas de 21 a 19 tramos y las curvas de nivel de 231 a 229. Las capas de OpenStreetMap se reprocesaron con el mismo límite: hidrografía de 2.290 a 2.279 elementos e instalaciones de 646 a 643 (1.4 y 3.1). |
 
-**Decisión:** el mapa usa Georef (0.1) por tener licencia explícita comprobada, y cita al IGN como origen de la geometría.
+**Decisión (26/09/2026):** el mapa usa el límite del IGN (0.2), de origen catastral y con licencia comprobada. Georef (0.1) queda como alternativa documentada.
 
 ---
 
@@ -118,8 +119,8 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 | Licencia | Términos y Condiciones del IGN (0.2). Cita: "FUENTE: Instituto Geográfico Nacional de la República Argentina". |
 | Formato | GeoJSON del WFS, pedido con la caja del límite y recortado por el polígono (entra todo elemento con algún vértice dentro); coordenadas redondeadas a 5 decimales; se conservan nombre, tipo, fuente de captura y autoridad. |
 | Fecha de los datos | **No informada**: el IGN no publicó metadatos de estas capas (0.2). Consulta al servicio: 26/09/2026. |
-| Resultado | 129 elementos: 30 corrientes de agua perennes, 49 intermitentes, 6 acequias o zanjas, 43 espejos de agua perennes y 1 corriente de agua como área. Con nombre: río Quequén Grande, arroyos Quequén Chico, Calenqueyú, Diamante, Dulce, El Pescado Castigado, La Reserva, Mendoza, Quelacinta y de Zavala, y lagunas La Dulce Grande, La Salada, Tupungato y del Carrizal, entre otros. |
-| Limitaciones | Mucho menos detallada que la de OpenStreetMap (129 elementos frente a 2.290): no trae la mayoría de los cuerpos de agua chicos ni la línea de costa. El IGN no informa escala ni fecha. Representa dónde corre el agua, **no** dónde se inunda. |
+| Resultado | 138 elementos: 34 corrientes de agua perennes, 54 intermitentes, 6 acequias o zanjas, 43 espejos de agua perennes y 1 corriente de agua como área. Con nombre: río Quequén Grande, arroyos Quequén Chico, Calenqueyú, Diamante, Dulce, El Pescado Castigado, El Puente, La Reserva, Mendoza, Quelacinta, de Zavala y de las Ovejas, y lagunas La Dulce Grande, La Salada, Tupungato y del Carrizal, entre otros. |
+| Limitaciones | Mucho menos detallada que la de OpenStreetMap (138 elementos frente a 2.279): no trae la mayoría de los cuerpos de agua chicos ni la línea de costa. El IGN no informa escala ni fecha. Representa dónde corre el agua, **no** dónde se inunda. |
 | Archivo publicado | `docs/datos/hidrografia_ign.geojson`. Script: `scripts/descargar_ign.py`. |
 
 ### 1.4 Hidrografía detallada: OpenStreetMap · **Verificada** · complementaria
@@ -132,7 +133,8 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 | Licencia | Open Database License (ODbL) 1.0. Texto en https://www.openstreetmap.org/copyright, leído el 26/09/2026: "OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL) by the OpenStreetMap Foundation (OSMF)." Obliga a citar "© colaboradores de OpenStreetMap" y a publicar los derivados bajo ODbL. |
 | Formato | Respuesta JSON de Overpass convertida a GeoJSON; coordenadas redondeadas a 5 decimales (alrededor de 1 m); solo se conservan las etiquetas que describen el elemento. |
 | Fecha de los datos | Base de OpenStreetMap al 2026-09-26T17:21:54Z (campo `timestamp_osm_base` de la respuesta). |
-| Resultado | 2.290 elementos: 1.932 cuerpos de agua, 122 arroyos, 91 canales, 67 zanjas, 43 desagües, 19 tramos de río y 16 tramos de línea de costa. Otros 2.326 elementos de la caja quedaron fuera del partido. |
+| Resultado | 2.279 elementos con el límite del IGN (2.290 con el de Georef): 1.921 cuerpos de agua, 124 arroyos, 88 canales, 67 zanjas, 43 desagües, 19 tramos de río y 17 tramos de línea de costa. Otros 2.337 elementos de la caja quedaron fuera del partido. |
+| Caja de la consulta | La consulta a Overpass se hizo con la caja del límite de Georef; la del IGN se extiende unos 19 m más al norte. Un nuevo intento de consulta (26/09/2026, tarde) fue cortado por Overpass, así que la base sigue siendo la de las 17:21 UTC. La diferencia de caja solo podría dejar afuera algún elemento contenido por completo en esa franja. |
 | Limitaciones | Carga voluntaria, sin control oficial: la completitud en zona rural es desigual. Un río que cruza el límite se ve completo, incluso fuera del partido. |
 | Archivo publicado | `docs/datos/hidrografia.geojson` (2,2 MB). |
 | Decisión (26/09/2026) | Sebastián eligió la hidrografía oficial (1.3). Como la oficial resultó mucho menos detallada, esta capa queda como complementaria, apagada al abrir el mapa, hasta que Sebastián decida si se mantiene o se retira. |
@@ -171,8 +173,8 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 | Licencia | Términos y Condiciones del IGN (0.2). |
 | Formato | GeoJSON del WFS, recortado como las demás capas del IGN. |
 | Fecha de los datos | **No informada** por el servicio; la documentación que republica la provincia es del 24/10/2021 (1.7). |
-| Resultado | 231 curvas con algún vértice dentro del partido (551 en la caja envolvente), con cotas de 10 a 300 m. Según el campo de fuente de captura, 136 vienen del "Atlas 500k 1° Ediciónl" (así, con esa errata) y 95 del "SIG 250 mil". |
-| Limitaciones | Escala 1:500.000 y 1:250.000 según su fuente de captura: sirven para leer el relieve general, **no** para decidir si una calle o un lote se inunda. Los intervalos no son regulares (cada 10 m hasta 150 m y después 200, 250 y 300 m). En 95 curvas el método de obtención tiene código 6, que no figura en la documentación de la capa. Una curva que cruza el límite se ve completa. |
+| Resultado | 229 curvas con algún vértice dentro del partido (551 en la caja envolvente), con cotas de 10 a 300 m. Según el campo de fuente de captura, 136 vienen del "Atlas 500k 1° Ediciónl" (así, con esa errata) y 93 del "SIG 250 mil". |
+| Limitaciones | Escala 1:500.000 y 1:250.000 según su fuente de captura: sirven para leer el relieve general, **no** para decidir si una calle o un lote se inunda. Los intervalos no son regulares (cada 10 m hasta 150 m y después 200, 250 y 300 m). En 93 curvas el método de obtención tiene código 6, que no figura en la documentación de la capa. Una curva que cruza el límite se ve completa. |
 | Archivo publicado | `docs/datos/curvas_nivel.geojson` (0,97 MB). |
 
 **Estado de la amenaza "Inundaciones":** la referencia (hidrografía oficial del IGN, hidrografía detallada de OSM y curvas de nivel) está verificada, pero **no hay un mapa oficial de peligrosidad hídrica para el partido**: la ADA todavía no elaboró la carta de riesgo hídrico de la cuenca del Quequén Grande (1.1). La capa de amenaza sigue **"pendiente de fuente"** hasta que se publique.
@@ -194,7 +196,7 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 | Formato | CSV. Campos MODIS: latitude, longitude, brightness, scan, track, acq_date, acq_time, satellite, instrument, confidence (0 a 100), version, bright_t31, frp, daynight, type. VIIRS: igual, con bright_ti4 y bright_ti5, y confidence en l, n o h (baja, nominal, alta). Coordenadas en WGS84. |
 | Versión | MODIS mezcla colecciones según el año: el campo `version` vale 6.2 (2000 a 2017), 6.03 (2018 a 2022) y 61.03 (2023 y 2024). **Inferido:** 6.x es la Colección 6 y 61.x la 6.1. La FAQ de FIRMS (https://www.earthdata.nasa.gov/data/tools/firms/faq) dice que la 6.1 no cambió el algoritmo de detección, solo la calibración. VIIRS: `version` 2 en toda la serie. |
 | Campo `type` | Según https://www.earthdata.nasa.gov/data/tools/firms/active-fire-data-attributes-modis-viirs: "0 = presumed vegetation fire 1 = active volcano 2 = other static land source 3 = offshore". No se filtra: se muestra en el mapa. |
-| Resultado en el partido | **MODIS: 658 focos** del 16/11/2000 al 12/11/2024 (641 de tipo 0 y 17 de tipo 2; 49 con confianza menor al 30 %). **VIIRS: 600 focos** del 10/02/2012 al 20/12/2024, todos de tipo 0 (494 de confianza nominal, 70 baja y 36 alta). Los focos por año quedan en `docs/datos/capas.json` y en la Metodología. |
+| Resultado en el partido | **MODIS: 654 focos** del 16/11/2000 al 12/11/2024 (637 de tipo 0 y 17 de tipo 2; 49 con confianza menor al 30 %). **VIIRS: 601 focos** del 10/02/2012 al 20/12/2024, todos de tipo 0 (495 de confianza nominal, 70 baja y 36 alta). Recortados con el límite del IGN (0.2); con el de Georef eran 658 y 600. Los focos por año quedan en `docs/datos/capas.json` y en la Metodología. |
 | Controles hechos | Los 17 focos MODIS de tipo 2 (entre el 31/10/2018 y el 12/11/2024) están cerca del puerto: la mitad, a menos de 3,4 km del nodo "Puerto Quequén" de OSM. Con píxeles de 1 km no se atribuyen a ninguna instalación. En la caja del partido, VIIRS registró además 612 detecciones de tipo 2 concentradas en un punto (alrededor de -59,39; -37,68), **fuera del límite**, que el recorte excluye. En ese mismo punto OSM tiene un desvío ferroviario de Ferro Sur Roca con `usage=industrial` (comprobado); que se trate de una planta industrial es inferencia. |
 | Huellas | SHA-256 de cada CSV nacional en `datos/registro_descargas.json`. Del archivo nacional se guardan solo las filas de la caja del partido. |
 | Limitaciones | Un foco de calor es una **anomalía térmica detectada por satélite**, no un incendio confirmado: incluye quemas agrícolas, fuentes industriales y falsos positivos. No mide superficie quemada. La resolución (alrededor de 1 km en MODIS y 375 m en VIIRS), la hora de paso y la nubosidad provocan omisiones. MODIS y VIIRS pueden detectar el mismo fuego: las capas no se suman. |
@@ -231,7 +233,7 @@ No se encontró un producto abierto del INTA con superficie quemada para el sude
 | Qué se consulta | `landuse=industrial`, `landuse=port`, `industrial=port`, `harbour=*`, `man_made=silo`, `man_made=storage_tank`, `man_made=pier` y `man_made=breakwater`, en la caja del límite y recortado por el polígono. Consulta exacta en `datos/crudos/osm/portuaria.overpassql`. |
 | Licencia, URL y formato | Igual que 1.4 (ODbL 1.0, misma lectura de la página de licencia). |
 | Fecha de los datos | Base de OpenStreetMap al 2026-09-26T17:24:01Z. |
-| Resultado: instalaciones | 646 elementos (`docs/datos/portuaria_instalaciones.geojson`): 575 silos (462 puntos y 113 polígonos), 40 tanques de almacenamiento, 16 zonas industriales (dos con rubro: `industrial=agriculture` e `industrial=gas`), 13 muelles, 1 escollera ("Escollera Norte") y 1 nodo `harbour=yes` ("Puerto Quequén"). **No hay ningún elemento `landuse=port` ni `industrial=port` dentro del partido.** |
+| Resultado: instalaciones | 643 elementos con el límite del IGN (646 con el de Georef) en `docs/datos/portuaria_instalaciones.geojson`: 572 silos (459 puntos y 113 polígonos), 40 tanques de almacenamiento, 16 zonas industriales (dos con rubro: `industrial=agriculture` e `industrial=gas`), 13 muelles, 1 escollera ("Escollera Norte") y 1 nodo `harbour=yes` ("Puerto Quequén"). **No hay ningún elemento `landuse=port` ni `industrial=port` dentro del partido.** La consulta usó la caja de Georef (ver 1.4). |
 | Transporte (retirado) | Hasta el 26/09/2026 esta consulta traía también rutas y ferrocarril. En la base de OSM de ese día no había ninguna vía `railway=rail` dentro del partido (las 12 de la caja estaban en partidos vecinos) y las rutas eran 66 tramos troncales y primarios. Ferrocarril y rutas salen ahora del IGN (3.4). |
 | Exclusiones | La consulta resta `man_made=surveillance`, `amenity=police`, `surveillance=*` y `surveillance:type=*`; el script vuelve a filtrar al procesar. Las respuestas crudas no trajeron ningún elemento excluido. |
 | Limitaciones | Completitud desconocida y carga voluntaria. Los accesos de camiones no están etiquetados y **no se deducen**. La capa muestra **dónde están** las instalaciones, **no cuánto riesgo generan**: no hay datos abiertos sobre sustancias, volúmenes ni planes de contingencia. |
@@ -261,8 +263,8 @@ No se encontró un producto abierto del INTA con superficie quemada para el sude
 | Capas del WFS | `ign:lineas_de_transporte_ferroviario_AN010` (ferrocarril), `ign:vial_nacional` y `ign:vial_provincial`. La red terciaria (`ign:vial_terciaria`, 797 tramos en la caja envolvente) queda afuera para que el mapa se pueda leer. |
 | Licencia | Términos y Condiciones del IGN (0.2). |
 | Fecha de los datos | Ferrocarril: **no informada** (sin metadatos, 0.2). Red vial: metadato creado el 24/10/2021, con actualización mensual declarada; el servicio no informa la fecha de la versión consultada. Consulta: 26/09/2026. |
-| Resultado: ferrocarril | 6 tramos con algún vértice dentro del partido: ramales R18, R21, R23, R25 y R27 del Ferrocarril General Roca. Fuente de captura: "IGN/Ministerio de Transporte de la Nación", con "/Ferrosur" en tres tramos. Cubre el hueco de OSM (3.1). |
-| Resultado: rutas | 21 tramos: 8 de rutas nacionales y 13 de rutas provinciales (números 228, 227, 88, 80, 85, 30, 72 y 86), 18 pavimentados, 1 consolidado y 2 de tierra. Fuente de captura: Dirección Nacional de Vialidad y "DVP Buenos Aires". Los códigos se traducen con los dominios de la documentación de la capa (1.7). |
+| Resultado: ferrocarril | 6 tramos con algún vértice dentro del partido (ramales R18, R21, R23, R25 y R27 del Ferrocarril General Roca) y 8 estaciones: Claraz, Energía, Juan N. Fernández, La Dulce, La Negra, Quequén, Ramón Santamarina y San José. Fuente de captura: "IGN/Ministerio de Transporte de la Nación", con "/Ferrosur" en tres tramos. Cubre el hueco de OSM (3.1). |
+| Resultado: rutas | 19 tramos: 6 de rutas nacionales y 13 de rutas provinciales (números 227, 228, 30, 72, 80, 85, 86 y 88); 16 pavimentados, 1 consolidado y 2 de tierra. Fuente de captura: Dirección Nacional de Vialidad y "DVP Buenos Aires". Los códigos se traducen con los dominios de la documentación de la capa (1.7). |
 | Qué no representa | No indica si el ramal está en servicio ni qué transporta; no es un mapa de rutas de camiones ni de cargas peligrosas. |
 | Archivos publicados | `docs/datos/ferrocarril.geojson` y `docs/datos/red_vial.geojson`. |
 
@@ -276,6 +278,7 @@ El catálogo provincial también publica "Unidades Penitenciarias" (IDEBA): **qu
 
 - Cámaras de videovigilancia y cualquier infraestructura de seguridad (comisarías, centros de monitoreo, etcétera).
 - Datos personales.
+- En las capas del IGN no se incluyen instalaciones militares, edificios de seguridad, instituciones penitenciarias ni puestos de control. Los cuarteles de bomberos quedan en suspenso hasta que Sebastián decida (sección 8). En las estaciones de servicio se descartan los nombres, porque identifican a sus titulares.
 - Cómo se aplica: las consultas a OpenStreetMap restan `man_made=surveillance`, `amenity=police`, `surveillance=*` y `surveillance:type=*`; el script de OSM vuelve a descartar esos elementos al procesar; `scripts/verificar.py` revisa tanto la respuesta cruda como el archivo publicado, y si encontrara alguno, la capa no se publica. De cada elemento solo se conservan etiquetas descriptivas (nombre, tipo, operador, referencia), nunca teléfonos, correos ni otros datos de contacto.
 
 ---
@@ -288,12 +291,13 @@ Pendientes:
 
 1. **Hidrografía de OSM (1.4):** decidir si queda como capa complementaria o se retira.
 2. **Indicadores del partido del IGN (sección 7):** decidir si se usan y, antes, conseguir su documentación (período de DesInventar, significado de los códigos, escala del IVSD).
-3. **Límite con más detalle (0.2):** revisar la capa de departamentos del WFS del IGN y compararla con los 57 vértices de Georef.
+3. **Cuarteles de bomberos (sección 8):** el IGN los publica; decidir si entran o si quedan dentro de la exclusión de infraestructura de seguridad.
 4. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
 6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
-7. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
-8. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
+7. **Información naval (Armada Argentina):** siguiente etapa, pedida por Sebastián.
+8. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
+9. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
 
 Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `datos/crudos/` para procesarlo con `python3 scripts/actualizar.py --offline` (instrucciones en el README).
 
@@ -303,18 +307,28 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 
 | Capa | Fuente | Estado | En el mapa |
 |---|---|---|---|
-| Límite del partido | Georef (geometría del IGN) | Verificada, CC BY 4.0; archivo del 19/08/2026 | Publicada |
+| Límite del partido | IGN (WFS), de origen catastral (ARBA) | Verificada, términos del IGN; fecha no informada | Publicada (32.136 vértices) |
+| Localidades | IGN (WFS, BAHRA) | Verificada, términos del IGN | Publicada, apagada al inicio (6) |
 | Inundaciones: peligrosidad | ADA | Sin fuente: la carta de riesgo hídrico del Quequén Grande no está hecha (confirmado a mano) | Pendiente de fuente |
-| Inundaciones: hidrografía oficial | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada (129 elementos) |
-| Inundaciones: hidrografía detallada | OpenStreetMap | Verificada, ODbL; base del 26/09/2026 | Publicada, apagada al inicio (2.290 elementos) |
-| Inundaciones: curvas de nivel | IGN (WFS) | Verificada, términos del IGN; escala 1:500.000 y 1:250.000 | Publicada, apagada al inicio (231 curvas) |
-| Incendios: focos de calor MODIS | NASA FIRMS | Verificada, CC0 con cita; 2000 a 2024 | Publicada (658 focos) |
-| Incendios: focos de calor VIIRS S-NPP | NASA FIRMS | Verificada, CC0 con cita; 2012 a 2024 | Publicada (600 focos) |
+| Inundaciones: hidrografía oficial | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada (138 elementos) |
+| Inundaciones: hidrografía detallada | OpenStreetMap | Verificada, ODbL; base del 26/09/2026 | Publicada, apagada al inicio (2.279 elementos) |
+| Inundaciones: curvas de nivel | IGN (WFS) | Verificada, términos del IGN; escala 1:500.000 y 1:250.000 | Publicada, apagada al inicio (229 curvas) |
+| Inundaciones: pajonales, juncales y totorales | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (40) |
+| Inundaciones: puentes y vados | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (16) |
+| Incendios: focos de calor MODIS | NASA FIRMS | Verificada, CC0 con cita; 2000 a 2024 | Publicada (654 focos) |
+| Incendios: focos de calor VIIRS S-NPP | NASA FIRMS | Verificada, CC0 con cita; 2012 a 2024 | Publicada (601 focos) |
+| Incendios: forestaciones y bosques | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (47) |
 | Incendios: superficie quemada | Ninguna | Sin fuente | Pendiente de fuente |
-| Portuaria e industrial: instalaciones | OpenStreetMap | Verificada, ODbL; base del 26/09/2026 | Publicada (646 elementos) |
-| Portuaria e industrial: ferrocarril | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada (6 tramos) |
-| Portuaria e industrial: rutas nacionales y provinciales | IGN (WFS) | Verificada, términos del IGN; metadato de 2021, actualización mensual declarada | Publicada, apagada al inicio (21 tramos) |
+| Portuaria e industrial: instalaciones | OpenStreetMap | Verificada, ODbL; base del 26/09/2026 | Publicada (643 elementos) |
+| Portuaria e industrial: puerto y navegación | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (9) |
+| Portuaria e industrial: energía | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (11) |
+| Portuaria e industrial: industria, combustibles y residuos | IGN (WFS) | Verificada, términos del IGN; sin nombres de titulares | Publicada, apagada al inicio (31) |
+| Portuaria e industrial: ferrocarril | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada (6 tramos y 8 estaciones) |
+| Portuaria e industrial: rutas nacionales y provinciales | IGN (WFS) | Verificada, términos del IGN; metadato de 2021, actualización mensual declarada | Publicada, apagada al inicio (19 tramos) |
 | Portuaria e industrial: zonificación | Municipio | Sin fuente geográfica | Pendiente de fuente |
+| Expuestos: planta urbana | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (7) |
+| Expuestos: establecimientos educativos | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (140) |
+| Expuestos: establecimientos de salud | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (22) |
 
 ---
 
@@ -332,3 +346,31 @@ El WFS del IGN tiene un espacio `ign_riesgo` con 66 capas (https://wms.ign.gob.a
 | `mayds_sup_afectada_2022` | Provincia de Buenos Aires: 142 ha afectadas por incendios en 2022 (MAyDS y SNMF). | Provincia | No distingue partidos. |
 
 Licencia: términos del IGN (0.2); cada fuente primaria (DesInventar, SINAGIR, INDEC y otras) puede tener condiciones propias, a revisar. **No se publica ninguno** hasta tener la documentación. Los de escala de partido (DesInventar e IVSD) son candidatos para una ficha del partido en la Metodología; los regionales y provinciales, a lo sumo, para contexto.
+
+---
+
+## 8. Capas adicionales del IGN (26/09/2026) · **Verificadas** · en uso
+
+Del inventario de las 192 capas del WFS del IGN se sumaron las que aportan a las tres amenazas o a los elementos expuestos. Todas: licencia según los términos del IGN (0.2), fecha no informada, formato GeoJSON del WFS recortado con el límite del partido (entra todo elemento con algún vértice dentro) y script `scripts/descargar_ign.py`.
+
+| Capa del mapa | Capas del WFS | En el partido (en la caja) | Qué representa y qué no |
+|---|---|---|---|
+| Localidades | `localidad_bahra` | 6 (15) | Necochea-Quequén, Claraz, Energía, Juan N. Fernández, Nicanor Olivera y Ramón Santamarina. No indica población. |
+| Pajonales, juncales y totorales | `vegetacion_hidrofila_ED020` | 40 (107) | Vegetación de suelos húmedos o anegados: indicio de terrenos bajos que retienen agua. No es un mapa de zonas inundables. |
+| Puentes y vados | `puntos_de_cruces_y_enlaces_AQ040` y `_BH070` | 16 (40) | 14 puentes y 2 vados. Registro posiblemente incompleto (inferido). No indica su estado. |
+| Forestaciones y bosques | `vegetacion_arborea_060301`, `_EC015` y `plantacion_permanente_KB025` | 47 (76) | 36 forestaciones, 7 bosques y 4 plantaciones: vegetación leñosa, combustible distinto del pastizal. No indica especie ni carga de combustible. |
+| Puerto y navegación | `puntos_de_puertos_y_muelles_BB005`, rompeolas (`_BB041`), `ayuda_a_la_navegacion_BC050` y `_BC101`, `mareas_y_corrientes_BG020` | 9 (9) | Puerto Quequén, 4 rompeolas, faro Quequén, balizas de las escolleras norte y sur, y el mareógrafo de la estación Quequén (fuente de captura: IGN y Servicio de Hidrografía Naval). |
+| Energía | `lineas_de_energia_AT030`, `puntos_de_energia_AD010` y `_AD030` (y `lineas_de_estructura_asociada_ducto_subterraneo`) | 11 (15) | 7 líneas de transmisión eléctrica, la Central Térmica Necochea, el Parque Eólico Necochea y las estaciones transformadoras Necochea y Quequén. El ducto General San Martín está en la caja pero fuera del partido. No indica tensión ni potencia (códigos sin dominio publicado). |
+| Industria, combustibles y residuos | `areas_de_fabricacion_y_procesamiento_AC070` y `_AC507`, `puntos_de_fabricacion_y_procesamiento_AC000` y `_AC507`, `infraestructura_de_transporte_AQ170`, `areas_de_gestion_de_residuos_AB000` | 31 (53) | 3 fábricas, el Sector Industrial Planificado, 22 estaciones de servicio, el basural municipal y 4 elementos de las plantas depuradoras de Necochea y Quequén. No informa sustancias ni volúmenes. |
+| Estaciones de ferrocarril | `puntos_de_transporte_ferroviario_AN070` | 8 (20) | Se suman a la capa de ferrocarril (3.4). |
+| Planta urbana | `areas_de_asentamientos_y_edificios_020105` | 7 (16) | Área urbanizada de cada localidad (fuente de captura: IGN e INDEC). No distingue densidad ni población. |
+| Establecimientos educativos | `puntos_de_ciencia_y_educacion_020601` y `_020602` | 140 (227) | 137 escuelas e institutos y 3 sedes universitarias (fuente de captura: Mapa Educativo Nacional, entre otras). No informa matrícula. |
+| Establecimientos de salud | `salud_020801` | 22 (32) | Hospitales, salas y centros de salud (fuente de captura: SISA). No informa capacidad. |
+
+Criterios aplicados:
+
+- **Datos personales:** en las estaciones de servicio el nombre es el del titular (por ejemplo, "Apellido Nombre (Marca)"), así que se descarta. Los nombres de escuelas y centros de salud son de instituciones y se conservan.
+- **Exclusiones:** no se incluyen `instalacion_militar_SU001`, `estructuras_operativas_y_defensivas_FA517` (edificio de seguridad), `_090101` (institución penitenciaria) ni `controles_AH070` (puesto de control). Tampoco `_090102` (cuartel de bomberos), hasta que Sebastián decida si entra (sección 5).
+- **Sin datos en el partido:** barriales, salinas, sedimento fluvial, playas de arena, canales, alcantarillas, diques, embalses rurales, tanques de combustible, rellenos sanitarios y canteras dieron cero elementos en la caja.
+- **No incluidas por ahora:** médanos (4 en la caja), arenales (3) y accidentes costeros (2), para la etapa costera y naval; aeródromos (11) y puntos acotados (119), por no aportar a las tres amenazas.
+

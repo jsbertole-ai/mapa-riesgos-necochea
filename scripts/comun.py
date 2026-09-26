@@ -141,11 +141,58 @@ def _en_anillo(x, y, anillo):
     return dentro
 
 
+class _AnilloIndexado:
+    """Anillo con sus bordes repartidos en franjas horizontales.
+
+    Para decidir si un punto está adentro solo hacen falta los bordes que cruzan
+    su latitud; con un límite de decenas de miles de vértices, esto evita
+    recorrer todo el borde para cada punto. El resultado es idéntico a _en_anillo.
+    """
+
+    def __init__(self, anillo):
+        bordes = []
+        j = len(anillo) - 1
+        for i in range(len(anillo)):
+            bordes.append((anillo[i][0], anillo[i][1], anillo[j][0], anillo[j][1]))
+            j = i
+        ys = [p[1] for p in anillo]
+        self.ymin, self.ymax = min(ys), max(ys)
+        self.n = max(1, len(bordes) // 8)
+        self.alto = (self.ymax - self.ymin) / self.n or 1.0
+        self.franjas = [[] for _ in range(self.n)]
+        for b in bordes:
+            lo, hi = min(b[1], b[3]), max(b[1], b[3])
+            for k in range(self._franja(lo), self._franja(hi) + 1):
+                self.franjas[k].append(b)
+
+    def _franja(self, y):
+        return min(self.n - 1, max(0, int((y - self.ymin) / self.alto)))
+
+    def contiene(self, x, y):
+        if y < self.ymin or y > self.ymax:
+            return False
+        dentro = False
+        for xi, yi, xj, yj in self.franjas[self._franja(y)]:
+            if (yi > y) != (yj > y) and x < (xj - xi) * (y - yi) / (yj - yi) + xi:
+                dentro = not dentro
+        return dentro
+
+
+_INDICES = {}
+
+
+def _indice(geometria):
+    clave = id(geometria)
+    if clave not in _INDICES:
+        _INDICES[clave] = (geometria, [[_AnilloIndexado(r) for r in pol] for pol in poligonos(geometria)])
+    return _INDICES[clave][1]
+
+
 def punto_en_geometria(x, y, geometria, caja=None):
     if caja and not (caja[0] <= x <= caja[2] and caja[1] <= y <= caja[3]):
         return False
-    for poligono in poligonos(geometria):
-        if _en_anillo(x, y, poligono[0]) and not any(_en_anillo(x, y, h) for h in poligono[1:]):
+    for poligono in _indice(geometria):
+        if poligono[0].contiene(x, y) and not any(h.contiene(x, y) for h in poligono[1:]):
             return True
     return False
 

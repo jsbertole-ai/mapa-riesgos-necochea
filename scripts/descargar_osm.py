@@ -205,9 +205,10 @@ def main():
                 descargar(f"{OVERPASS}?{urllib.parse.urlencode({'data': consulta})}", ruta)
                 time.sleep(60)
             except ErrorRed as e:
-                aviso(f"{e}\nSin conexión con Overpass: la capa {nombre} queda pendiente de fuente.")
+                # Si hay una respuesta anterior guardada, se reprocesa (por ejemplo, con un límite nuevo)
+                # y se avisa que la base de OSM es la de esa descarga.
+                aviso(f"{e}\nSin conexión con Overpass: se reprocesa la respuesta anterior de {nombre}, si existe.")
                 resultado = 1
-                continue
         if not ruta.exists():
             aviso(f"No existe {ruta}; la capa {nombre} queda pendiente de fuente.")
             resultado = 1

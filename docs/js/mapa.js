@@ -33,7 +33,12 @@
   const JURISDICCION_IGN = { 1: "Ruta nacional", 2: "Ruta provincial", 4: "Camino terciario", 5: "Camino vecinal" };
   const SUPERFICIE_IGN = { 1: "Pavimentado", 2: "Consolidado", 3: "Tierra" };
   const METODO_CURVAS_IGN = { 1: "Por restitución", 2: "Por modelo digital de elevaciones", 3: "Por plancheta", 4: "Por fotogrametría" };
-  const CAPAS_IGN = ["hidrografia_ign", "ferrocarril", "red_vial", "curvas_nivel"];
+  const ATRIBUCION_IGN = 'FUENTE: <a href="https://www.ign.gob.ar/">Instituto Geográfico Nacional de la República Argentina</a>';
+
+  // Las capas del IGN se reconocen por su cita, que la licencia del IGN obliga a incluir.
+  function esIgn(capa) {
+    return (capa.cita || "").indexOf("Instituto Geográfico Nacional") >= 0;
+  }
   const CITA_IGN = "FUENTE: Instituto Geográfico Nacional de la República Argentina";
 
   const estado = { capas: {}, datos: {}, capasLeaflet: {}, anios: null };
@@ -103,6 +108,7 @@
   function popupIgn(p) {
     const filas = [];
     if (p.fna && p.tipo) filas.push(["Tipo", p.tipo]);
+    if (p.tipo_asent) filas.push(["Tipo de asentamiento", p.tipo_asent]);
     if (p.hct !== undefined) filas.push(["Jurisdicción", JURISDICCION_IGN[p.hct] || "s/d"]);
     if (p.rtn) filas.push(["Número", p.rtn]);
     if (p.rst !== undefined) filas.push(["Superficie", SUPERFICIE_IGN[p.rst] || "s/d"]);
@@ -171,22 +177,26 @@
   function crearCapaLeaflet(capa, datos) {
     const e = capa.estilo || {};
     if (e.bicolor) {
-      // Simbología de vía férrea: línea negra de base (la que recibe los clics) con trazos blancos encima.
+      // Simbología de vía férrea: línea negra de base (la que recibe los clics) con trazos blancos encima;
+      // las estaciones, como círculos blancos con borde negro.
+      const esLinea = function (f) { return f.geometry.type !== "Point" && f.geometry.type !== "MultiPoint"; };
       const base = L.geoJSON(datos, {
         style: { color: e.color, weight: 5, pane: "lineas" },
-        attribution: 'FUENTE: <a href="https://www.ign.gob.ar/">Instituto Geográfico Nacional de la República Argentina</a>',
+        attribution: ATRIBUCION_IGN,
+        pointToLayer: function (f, latlng) {
+          return L.circleMarker(latlng, { pane: "puntos", radius: 4, color: e.color, weight: 2, fillColor: "#ffffff", fillOpacity: 1 });
+        },
         onEachFeature: function (f, l) { l.bindPopup(function () { return popupIgn(f.properties); }); },
       });
-      const trazos = L.geoJSON(datos, { style: { color: "#ffffff", weight: 2.5, dashArray: "7 7", pane: "lineas" }, interactive: false });
+      const trazos = L.geoJSON(datos, { filter: esLinea, style: { color: "#ffffff", weight: 2.5, dashArray: "7 7", pane: "lineas" }, interactive: false });
       return L.featureGroup([base, trazos]);
     }
     return L.geoJSON(datos, {
       style: estiloDe(capa),
       filter: filtroAnios(capa),
       interactive: capa.id !== "limite",
-      attribution: capa.id === "limite" ? "Límite: Georef / IGN (CC BY 4.0)"
-        : capa.id.startsWith("incendios_") ? 'Focos de calor: <a href="https://firms.modaps.eosdis.nasa.gov/">NASA FIRMS</a>'
-        : CAPAS_IGN.indexOf(capa.id) >= 0 ? 'FUENTE: <a href="https://www.ign.gob.ar/">Instituto Geográfico Nacional de la República Argentina</a>'
+      attribution: capa.id.startsWith("incendios_") ? 'Focos de calor: <a href="https://firms.modaps.eosdis.nasa.gov/">NASA FIRMS</a>'
+        : esIgn(capa) ? ATRIBUCION_IGN
         : null,
       pointToLayer: function (f, latlng) {
         return L.circleMarker(latlng, {
@@ -202,7 +212,7 @@
         if (capa.id === "limite") return;
         l.bindPopup(function () {
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
-          if (CAPAS_IGN.indexOf(capa.id) >= 0) return popupIgn(f.properties);
+          if (esIgn(capa)) return popupIgn(f.properties);
           return popupOsm(f.properties);
         });
       },
