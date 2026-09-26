@@ -1,6 +1,6 @@
 {
   "limite": {
-    "procesado": "2026-09-26T17:35:52+00:00",
+    "procesado": "2026-09-26T18:05:39+00:00",
     "archivo_crudo": "departamentos.geojson",
     "sha256_crudo": "31afdfe5983b6d7648eba1eafc7a5a8fe3c591abdca4b17c311c08c75d361e92",
     "elementos": 1,
@@ -24,7 +24,7 @@
     }
   },
   "incendios_modis": {
-    "procesado": "2026-09-26T17:35:52+00:00",
+    "procesado": "2026-09-26T18:05:39+00:00",
     "archivo_crudo": "firms/modis_*_Argentina_caja.csv",
     "elementos": 658,
     "fecha_datos": "2000-11-16 a 2024-11-12",
@@ -93,7 +93,7 @@
     ]
   },
   "incendios_viirs": {
-    "procesado": "2026-09-26T17:35:52+00:00",
+    "procesado": "2026-09-26T18:05:39+00:00",
     "archivo_crudo": "firms/viirs-snpp_*_Argentina_caja.csv",
     "elementos": 600,
     "fecha_datos": "2012-02-10 a 2024-12-20",
@@ -135,7 +135,7 @@
     ]
   },
   "hidrografia": {
-    "procesado": "2026-09-26T17:35:53+00:00",
+    "procesado": "2026-09-26T18:05:40+00:00",
     "archivo_crudo": "osm/hidrografia.json",
     "sha256_crudo": "b41f3669bac79d533bcc2f0b509650877300642a873d952c5101bf5d7fd9491b",
     "elementos": 2290,
@@ -147,7 +147,7 @@
     }
   },
   "portuaria_instalaciones": {
-    "procesado": "2026-09-26T17:35:53+00:00",
+    "procesado": "2026-09-26T18:05:40+00:00",
     "archivo_crudo": "osm/portuaria.json",
     "sha256_crudo": "8f6f209ea217d76708a4ba1740f8e37698f8bc69ca53bc9f384792bc6f9ccac0",
     "elementos": 646,
@@ -159,7 +159,7 @@
     }
   },
   "portuaria_transporte": {
-    "procesado": "2026-09-26T17:35:53+00:00",
+    "procesado": "2026-09-26T18:05:40+00:00",
     "archivo_crudo": "osm/portuaria.json",
     "sha256_crudo": "8f6f209ea217d76708a4ba1740f8e37698f8bc69ca53bc9f384792bc6f9ccac0",
     "elementos": 66,

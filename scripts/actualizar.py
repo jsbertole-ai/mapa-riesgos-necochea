@@ -3,8 +3,8 @@
 Uso:  python3 scripts/actualizar.py            (descarga todo y verifica)
       python3 scripts/actualizar.py --offline  (reprocesa lo que ya está en datos/crudos/)
 
-Orden: límite (hace falta para recortar lo demás), FIRMS, OpenStreetMap y
-verificación. Un paso que falla no frena los siguientes: la capa afectada
+Orden: límite (hace falta para recortar lo demás), FIRMS, OpenStreetMap, capas
+del IGN del catálogo de la provincia y verificación. Un paso que falla no frena los siguientes: la capa afectada
 queda "pendiente de fuente" y verificar.py lo anota.
 """
 
@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
-PASOS = ["descargar_limite.py", "descargar_firms.py", "descargar_osm.py", "verificar.py"]
+PASOS = ["descargar_limite.py", "descargar_firms.py", "descargar_osm.py", "procesar_catalogo_gba.py", "verificar.py"]
 
 
 def main():

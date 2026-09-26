@@ -6,6 +6,7 @@ scripts corran en cualquier máquina sin instalar nada.
 
 import datetime as dt
 import hashlib
+import http.client
 import json
 import pathlib
 import ssl
@@ -60,9 +61,10 @@ def descargar(url, destino=None, datos=None, timeout=180, reintentos=5):
             break
         except urllib.error.HTTPError as e:
             raise ErrorRed(f"{url} respondió {e.code} {e.reason}") from e
-        except (urllib.error.URLError, OSError) as e:
+        except (urllib.error.URLError, OSError, http.client.HTTPException) as e:
+            # HTTPException incluye IncompleteRead: el servidor cortó la transferencia a mitad de camino.
             if intento == reintentos:
-                raise ErrorRed(f"No se pudo conectar con {url[:90]}: {e}") from e
+                raise ErrorRed(f"Falló la conexión o la transferencia con {url[:90]}: {e}") from e
             espera = 2 ** (intento + 1)
             corta = url if len(url) < 90 else url[:87] + "..."
             aviso(f"  Conexión cortada con {corta} ({e}); reintento en {espera} s")
