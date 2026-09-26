@@ -20,6 +20,7 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 - **Fase 1 y comienzo de la Fase 2:** el proxy del entorno rechazaba por política (403 al abrir el túnel) todos los dominios de datos. Se probaron doce: los ocho de la sección 5 de la Fase 1 más datosgobar.github.io, download.geofabrik.de, tile.openstreetmap.org y overpass.kumi.systems.
 - **Después del ajuste del "Network access" hecho por Sebastián:** el proxy dejó de rechazar conexiones. Responden apis.datos.gob.ar e infra.datos.gob.ar (la raíz de ambos devuelve 403 del propio servidor, pero la API y las descargas funcionan), datosgobar.github.io, www.ign.gob.ar, firms.modaps.eosdis.nasa.gov, ideba.gba.gob.ar, www.openstreetmap.org, tile.openstreetmap.org, www.earthdata.nasa.gov, operations.osmfoundation.org, docs.github.com, www.geofabrik.de y overpass-turbo.eu.
 - **Cortan la conexión desde el entorno:** ada.gba.gov.ar, riesgohidrico.ada.gba.gov.ar y download.geofabrik.de, siempre; overpass-api.de, de forma intermitente (pasó con pedidos GET espaciados y reintentos). El túnel se abre y el corte llega después del saludo TLS, así que no es el filtro del entorno. Sebastián comprobó el mismo día que ada.gba.gov.ar, www.geofabrik.de y overpass-turbo.eu abren desde su conexión. **Inferido:** esos servidores (o sus redes) rechazan conexiones que llegan desde la nube.
+- **Corta las descargas:** catalogo.datos.gba.gob.ar (catálogo de datos abiertos de la provincia) responde, pero corta en 31.610 bytes cualquier archivo más grande (probado con un ZIP y un PDF, en HTTP/1.1 y HTTP/2, varias veces), sin fallas registradas en el proxy; un CSV de 5 KB llegó completo. gis.ada.gba.gov.ar (visor de la ADA) responde.
 
 ---
 
@@ -51,6 +52,7 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 | Fecha / cobertura | A confirmar al descargar. Nacional. |
 | Limitaciones | Igual que Georef. |
 | Por qué importa | Si el IGN publica la misma capa con más detalle y licencia explícita, mejoraría la costa y los bordes del límite de Georef (57 vértices). |
+| Republicación provincial | El catálogo de datos abiertos de la provincia republica capas del IGN (ferrocarril, red vial, curvas de nivel, cursos y cuerpos de agua) con licencia CC BY 4.0 (comprobado en sus metadatos, 26/09/2026; ver 1.7, 1.8 y 3.4). La licencia propia del IGN sigue en revisión. |
 
 **Decisión:** el mapa usa Georef (0.1) por tener licencia explícita comprobada, y cita al IGN como origen de la geometría.
 
@@ -81,7 +83,7 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 | Licencia | No encontrada. |
 | Decisión | No se usa: sin servicio abierto ni licencia no se puede redistribuir, y extraer la capa de una aplicación interna sería un rodeo. Entraría como referencia si la ADA o IDEBA la publican por WFS o descarga con licencia. **Adivinando:** "ssrh" puede aludir a la Subsecretaría de Recursos Hídricos (provincial o nacional); si fuera la delimitación nacional de cuencas, podría estar publicada como dato abierto en otro sitio. |
 
-### 1.1 ter ADA, red hidrométrica y freatímetros · **Identificada, sin descargar ni licencia** · no se usa
+### 1.1 ter ADA, red hidrométrica y freatímetros · **Identificada, sin licencia** · no se usa
 
 | Campo | Detalle |
 |---|---|
@@ -89,10 +91,10 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 | URLs | Documento: https://ada.gba.gov.ar/wp-content/uploads/2025/03/capa-estaciones-hidrometricas-y-freatimetricas.pdf · visor, estaciones hidrométricas: https://gis.ada.gba.gov.ar/gis/?l=red_hidrometrica · visor, freatímetros: https://gis.ada.gba.gov.ar/gis/?l=freatimetros (las encontró Sebastián el 26/09/2026) |
 | Qué representa | La red con la que la ADA mide el nivel de los ríos (estaciones hidrométricas) y el de la napa freática (freatímetros). Para un mapa de riesgos es **capacidad de monitoreo** de la amenaza: dónde se mide. La napa importa para leer los anegamientos en la llanura. |
 | Qué no representa | No es un mapa de amenaza ni de zonas inundables. Que haya una estación no implica que exista un sistema de alerta para esa zona. |
-| Acceso desde el entorno | El PDF no se pudo bajar: ada.gba.gov.ar corta la conexión desde la nube (26/09/2026). Los visores son la misma aplicación interna que el de cuencas (1.1 bis): no exponen un servicio abierto de la capa. |
-| Licencia / fecha / formato | No confirmados. La fecha de publicación del PDF que surge de su ruta (marzo de 2025) es inferida, no leída. |
-| Para que sea capa | Hacen falta coordenadas en formato reutilizable (por ejemplo, una tabla del PDF) **y** licencia explícita de la ADA. Sin licencia, se cita y se enlaza en la Metodología pero no se redistribuye (misma regla que 1.5). El camino limpio es pedirle a la ADA los datos y el permiso de uso. |
-| Acción manual | Sebastián descarga el PDF y cuenta qué trae (tabla con coordenadas, fecha, notas de uso). **No subirlo al repositorio público**: sería redistribuirlo sin licencia. |
+| Qué dice el documento de la ADA | Sebastián aportó una copia del PDF (2 páginas; metadatos: creado el 17/03/2025). Comprobado en su texto: la capa se abre directo con las URLs del visor; las estaciones se consultan con las herramientas Información o Selección y los resultados "se pueden descargar en formato Excel"; las mediciones (aforos, limnigrafías, niveles de escala y profundidad de agua subterránea) también se exportan a Excel; y con la opción "Descargar capa" del menú contextual "se podrá obtener en formato 'shapefile' (shp) las ubicaciones de las estaciones hidrométricas o freatimétricas". **No menciona licencia ni condiciones de uso.** |
+| Acceso desde el entorno y licencia | ada.gba.gov.ar corta la conexión desde la nube; el visor responde, pero la descarga funciona dentro de la sesión del visor. La capa no figura en el catálogo de datos abiertos de la provincia (búsquedas del 26/09/2026 por "hidrometric", "freatimetr", "estaciones hidrom" y "autoridad del agua": cero resultados). Licencia: no encontrada. |
+| Para que sea capa | La descarga en shapefile existe; falta la licencia explícita de la ADA. Sin licencia, se enlaza en la Metodología (la URL de acceso directo la publica la propia ADA) pero no se redistribuye (misma regla que 1.5). |
+| Acción manual | Si se quiere como capa: pedirle a la ADA el permiso de uso o la licencia de la capa. La copia del PDF no se sube al repositorio. |
 
 Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comité de Cuenca Hídrica del Río Quequén Grande se creó el 05/07/2002 por Resolución 004/02 e integra a Necochea, Lobería, Tandil, Adolfo Gonzales Chaves, Benito Juárez y San Cayetano (https://ada.gba.gov.ar/listado-de-los-comites-de-cuencas/).
 
@@ -117,7 +119,7 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 | Formato | SHP, KML, GeoJSON; WMS y WFS. |
 | Fecha / cobertura | A confirmar. Nacional. |
 | Limitaciones | Representa dónde corre el agua, **no** dónde se inunda. Sirve de referencia, no de amenaza. |
-| Fase 2 | No se descargó: la capa de referencia hidrográfica sale de OpenStreetMap (1.4), que tiene licencia comprobada. |
+| Fase 2 | No se descargó del IGN. La misma información está republicada con CC BY 4.0 en el catálogo de la provincia (1.7). |
 
 ### 1.4 Hidrografía: OpenStreetMap · **Verificada** · en uso
 
@@ -146,8 +148,34 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 ### 1.6 Otras referencias encontradas (no son capas)
 
 - Oficina de Riesgo Agropecuario, mapas de déficit y exceso hídrico: http://www.ora.gob.ar/riesgo_mapas.php (imágenes de monitoreo agroclimático; sirven para la Metodología, no como capa vectorial).
-- ADA, informes de coyuntura del 23/09/2026 (los encontró Sebastián; desde el entorno no se pudieron abrir, así que la descripción sale del nombre del archivo y es inferida): precipitación estimada por satélite con el producto PERSIANN, https://ada.gba.gov.ar/wp-content/uploads/2026/09/Presentacion_Precipitacion-Persiann-PBA-23-09-2026.pdf, y estado de humedad del suelo en la provincia, https://ada.gba.gov.ar/wp-content/uploads/2026/09/Presentacion_Estado_HumedadPBA-23-09-2026.pdf. Son fotos de la situación de una semana, en PDF y sin licencia a la vista: sirven para un apartado de la Metodología sobre dónde seguir la situación actual (con enlace), no como capa. Falta saber desde qué página de la ADA se publican, para enlazar esa y no archivos fechados.
+- Subsecretaría de Recursos Hídricos de la provincia, informes "Estado hídrico" del 23/09/2026 (Sebastián aportó copias; comprobado en su texto): humedad del suelo a partir de imágenes SMAP de la NASA procesadas en Google Earth Engine (humedad superficial de 0 a 5 cm, resolución de 9 km aproximadamente, promedio de los 7 días anteriores, con una clasificación de "riesgo por saturación de humedad del suelo"), https://ada.gba.gov.ar/wp-content/uploads/2026/09/Presentacion_Estado_HumedadPBA-23-09-2026.pdf; y precipitación estimada con PERSIANN PDIR-Now (4 km, desarrollado por el CHRS de la Universidad de California, Irvine; disponible en https://irain.eng.uci.edu) para el período del 17/09 al 23/09/2026, https://ada.gba.gov.ar/wp-content/uploads/2026/09/Presentacion_Precipitacion-Persiann-PBA-23-09-2026.pdf. Son informes de coyuntura en PDF, sin licencia a la vista: van a la Metodología como enlace, no como capa. Falta saber desde qué página de la ADA se publican, para enlazar esa y no archivos fechados.
+- Mapas de disponibilidad estimada de recurso hídrico superficial y de uso de los acuíferos libre, pampeano y puelche (imágenes aportadas por Sebastián, sin fuente ni fecha a la vista): clasifican la disponibilidad del recurso en buena, condicionada o restringida. Miden disponibilidad para usos, no amenaza; como imágenes no se pueden convertir en capa sin digitalizar a ojo. **Inferido:** la disponibilidad restringida del acuífero libre en la franja costera de Necochea habla de salinización y abastecimiento, fuera de las tres amenazas del proyecto.
 - Artículo académico sobre un modelo de anegamiento en el sudeste bonaerense, *GeoFocus*: https://www.geofocus.org/index.php/geofocus/article/view/262 (bibliografía; no es un dato abierto descargable, a confirmar).
+
+### 1.7 IGN vía catálogo de datos abiertos de la provincia: cursos y cuerpos de agua · **Identificada, CC BY 4.0** · pendiente de descarga manual
+
+| Campo | Detalle |
+|---|---|
+| Organismo | Instituto Geográfico Nacional (autor, según los metadatos); publica IDEBA en el catálogo de datos abiertos de la provincia de Buenos Aires |
+| URLs | https://catalogo.datos.gba.gob.ar/dataset/cursos-agua · https://catalogo.datos.gba.gob.ar/dataset/cuerpos-agua |
+| Licencia | Creative Commons Attribution 4.0 (https://creativecommons.org/licenses/by/4.0/), según los metadatos del catálogo (API CKAN, 26/09/2026). |
+| Formato | Shapefile comprimido: `cursos-agua-pba.zip` (17.472.854 bytes) y `cuerpos-agua-pba.zip` (23.348.775 bytes). |
+| Fecha | Recursos modificados el 10/06/2026 y metadatos el 19/08/2026, según el catálogo. La fecha de la información de origen del IGN no figura en los metadatos; puede estar en la documentación. |
+| Cobertura | Provincia de Buenos Aires. |
+| Por qué importa | Hidrografía oficial con licencia explícita, del mismo organismo que el límite del partido. Podría reemplazar a la de OpenStreetMap (1.4) como referencia. |
+| Estado | No se pudo bajar desde el entorno (el servidor corta en 31.610 bytes). Descarga manual pendiente (sección 5). |
+
+### 1.8 IGN vía catálogo de datos abiertos de la provincia: curvas de nivel · **Identificada, CC BY 4.0** · pendiente de descarga manual
+
+| Campo | Detalle |
+|---|---|
+| Organismo | Instituto Geográfico Nacional (autor); publica el Ministerio de Infraestructura y Servicios Públicos de la provincia |
+| URL | https://catalogo.datos.gba.gob.ar/dataset/curvas-nivel |
+| Licencia | Creative Commons Attribution 4.0, según los metadatos del catálogo (26/09/2026). |
+| Formato | Shapefile comprimido: `curvas-nivel-pba.zip` (20.249.791 bytes), más un PDF de documentación. |
+| Fecha | Recurso modificado el 10/06/2026 según el catálogo; fecha de origen a confirmar en la documentación. |
+| Qué representaría | La topografía: ayuda a leer por dónde escurre y dónde puede acumularse el agua. **No** es un mapa de zonas inundables. |
+| Estado | Descarga manual pendiente (sección 5). |
 
 **Estado de la amenaza "Inundaciones":** la referencia (hidrografía y costa) está verificada, pero **no hay un mapa oficial de peligrosidad hídrica para el partido**: la ADA todavía no elaboró la carta de riesgo hídrico de la cuenca del Quequén Grande (1.1). La capa de amenaza sigue **"pendiente de fuente"** hasta que se publique.
 
@@ -228,6 +256,19 @@ No se encontró un producto abierto del INTA con superficie quemada para el sude
 | Limitaciones | No se encontró la zonificación como dato geográfico abierto. Sin archivo oficial, **no se digitaliza a ojo desde un plano**. |
 | Acción manual | Consultar al municipio si publica la zonificación en SHP o GeoJSON, y con qué licencia. |
 
+### 3.4 IGN vía catálogo de datos abiertos de la provincia: sistema ferroviario y red vial · **Identificada, CC BY 4.0** · pendiente de descarga manual
+
+| Campo | Detalle |
+|---|---|
+| Organismo | Instituto Geográfico Nacional (autor, Dirección de Información Geoespacial); publica el Ministerio de Infraestructura y Servicios Públicos de la provincia |
+| URLs | https://catalogo.datos.gba.gob.ar/dataset/ferroviario · https://catalogo.datos.gba.gob.ar/dataset/red-vial |
+| Licencia | Creative Commons Attribution 4.0, según los metadatos del catálogo (26/09/2026). |
+| Formato | Shapefile comprimido: `lineas-ferrocarril.zip` (579.638 bytes; el servidor declara `Last-Modified` del 05/08/2026) y `red-vial-provincial.zip` (2.229.570 bytes), cada uno con un PDF de documentación. |
+| Por qué importa | OpenStreetMap no tiene ninguna vía `railway=rail` dentro del partido (3.1). Esta capa oficial puede cubrir ese hueco; la red vial oficial permitiría contrastar la de OSM. |
+| Estado | No se pudo bajar desde el entorno (el servidor corta en 31.610 bytes). Descarga manual pendiente (sección 5). |
+
+El mismo catálogo publica "Unidades Penitenciarias" (IDEBA): **queda excluida** por la regla de infraestructura de seguridad. También publica los centros de almacenamiento transitorio de envases de fitosanitarios (Ministerio de Ambiente, CC BY 4.0): **no se usa**, porque el CSV no trae coordenadas (solo direcciones) e incluye nombres, teléfonos y correos de personas.
+
 **Estado de la amenaza "Portuaria e industrial":** capas publicadas con OpenStreetMap. Muestran dónde están las instalaciones y la red vial principal, no cuánto riesgo generan. La zonificación sigue **"pendiente de fuente"**.
 
 ---
@@ -246,12 +287,13 @@ No se encontró un producto abierto del INTA con superficie quemada para el sude
 
 Pendientes a mano:
 
-1. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
-2. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** bajar el PDF desde una conexión propia, anotar qué trae (coordenadas, fecha, notas de uso) y, si se quiere como capa, pedirle a la ADA los datos y el permiso de uso. No subir el PDF al repositorio.
-3. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA (1.1 bis y 1.1 ter).
-4. **Ferrocarril en OSM (3.1):** revisar en https://www.openstreetmap.org con qué etiqueta está el ramal a Quequén.
-5. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
-6. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
+1. **Descargas manuales del catálogo provincial (1.7, 1.8 y 3.4):** desde una conexión propia, bajar el ZIP y el PDF de documentación de https://catalogo.datos.gba.gob.ar/dataset/ferroviario, /curvas-nivel, /cursos-agua, /cuerpos-agua y /red-vial, y pasarlos a la sesión. Son CC BY 4.0: se pueden publicar.
+2. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
+3. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** el PDF ya se revisó (la capa se descarga en shapefile desde el visor, sin licencia). Si se quiere como capa, pedirle a la ADA el permiso de uso.
+4. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA (1.1 bis y 1.1 ter).
+5. **Ferrocarril en OSM (3.1):** revisar en https://www.openstreetmap.org con qué etiqueta está el ramal a Quequén.
+6. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
+7. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
 
 Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `datos/crudos/` para procesarlo con `python3 scripts/actualizar.py --offline` (instrucciones en el README).
 
@@ -270,3 +312,6 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Portuaria e industrial: instalaciones | OpenStreetMap | Verificada, ODbL; base del 26/09/2026 | Publicada (646 elementos) |
 | Portuaria e industrial: rutas y ferrocarril | OpenStreetMap | Verificada, ODbL; sin vías férreas en el partido | Publicada (66 tramos) |
 | Portuaria e industrial: zonificación | Municipio | Sin fuente geográfica | Pendiente de fuente |
+| Propuesta: ferrocarril oficial | IGN vía catálogo provincial | Identificada, CC BY 4.0 | Pendiente de descarga manual |
+| Propuesta: curvas de nivel | IGN vía catálogo provincial | Identificada, CC BY 4.0 | Pendiente de descarga manual |
+| Propuesta: hidrografía oficial | IGN vía catálogo provincial | Identificada, CC BY 4.0 | Pendiente de descarga manual y de decisión (reemplazar o complementar a OSM) |
