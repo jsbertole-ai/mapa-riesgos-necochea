@@ -546,7 +546,7 @@
       "archivo": null,
       "organismo": "Municipalidad de Necochea; OpenStreetMap para la ubicación",
       "url_fuente": "https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/",
-      "motivo_pendiente": "Según el municipio (noticia del 17/09/2026), las instalaciones de Defensa Civil están \"sobre avenida 10, casi Pinolandia\". El punto que tiene OpenStreetMap está sobre calle 56, así que está desactualizado y no se publica. La dirección oficial no tiene número: convertirla en coordenadas sería estimar. Entra cuando se corrija el punto en OpenStreetMap.",
+      "motivo_pendiente": "Según el municipio (noticia del 17/09/2026), las instalaciones de Defensa Civil están \"sobre avenida 10, casi Pinolandia\". El punto que tiene OpenStreetMap marca el Palacio Municipal (está a unos 15 m del punto de la Municipalidad en el IGN), donde Defensa Civil no funciona desde hace muchos años, según confirmó Juan Sebastián Bértole: no se publica. La dirección oficial no tiene número y convertirla en coordenadas sería estimar. Entra cuando el punto se corrija en OpenStreetMap.",
       "que_representa": "Sería la sede de Defensa Civil del municipio.",
       "que_no_representa": "No reemplaza los canales oficiales de emergencia."
     }
