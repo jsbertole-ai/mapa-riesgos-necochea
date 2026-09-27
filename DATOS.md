@@ -296,7 +296,7 @@ Pendientes:
 4. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
 6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
-7. **Información naval (sección 11): relevada, sin fuente reutilizable.** Pedir por escrito al Servicio de Hidrografía Naval (shn@hidro.gov.ar; mareas y alertas: pronomarea@hidro.gov.ar; informes: ceado@hidro.gov.ar): (a) bajo qué licencia están los conjuntos de "Datos Abiertos" y las capas WFS de batimetría y línea de costa; (b) si autorizan enlazar sus páginas; (c) si existe una serie de alturas del mareógrafo de Quequén y en qué condiciones se entrega; (d) si sus avisos de crecida de la costa atlántica aplican a Necochea. Sin respuesta, queda el pedido de acceso a la información pública (Ley 27.275) al Ministerio de Defensa.
+7. **Información naval (sección 11): pedidos enviados el 27/09/2026, sin respuesta todavía.** Sebastián envió tres correos al Servicio de Hidrografía Naval (ver 11.2). Si no hay respuesta, queda el pedido de acceso a la información pública (Ley 27.275) al Ministerio de Defensa; sus plazos se verifican antes de presentarlo.
 7 bis. **Archivo de alertas del SMN (12.1):** se activa al mergear en `main` (las tareas programadas de GitHub solo corren en la rama principal). Después, revisar en la pestaña Actions que la primera corrida termine bien y que el commit automático llegue a Pages.
 8. **Prefectura Naval (11.1):** Sebastián revisó https://www.argentina.gob.ar/prefecturanaval sin encontrar datos de interés; el recorrido del 27/09/2026 (60 páginas y la Memoria Anual 2025) tampoco: solo totales nacionales. Por decisión de Sebastián (27/09/2026) su sede se publica en la capa de respuesta, por su función de salvamento; falta traerla de OpenStreetMap cuando Overpass responda (`python3 scripts/descargar_osm.py respuesta`).
 9. **SMN (sección 12):** revisar a mano la licencia en https://www.smn.gob.ar/descarga-de-datos (Cloudflare bloquea al entorno) y decidir si se arma un archivo propio de las alertas del SMN que alcanzan al partido.
@@ -454,6 +454,18 @@ Relevamiento del 27/09/2026, por HTTPS, desde el entorno. Los "datos de la Armad
 | datos.gob.ar, organización SHN | https://datos.gob.ar/api/3/action/organization_show?id=servicio-de-hidrografia-naval | 0 conjuntos al 27/09/2026. | Volver a mirar en cada actualización. |
 
 Sin comprobar: si el SHN considera que sus avisos valen también para Necochea (el texto habla de "la población costera de la Provincia de Buenos Aires (costa atlántica)", pero el área termina en Mar del Plata); el huso horario del CSV de alturas; la Prefectura Naval Argentina, que no se relevó.
+
+### 11.2 Pedidos al SHN (enviados el 27/09/2026)
+
+Enviados por Sebastián desde su correo, firmados como estudiante de la Licenciatura en Gestión de Riesgos y Siniestralidad del Instituto Universitario Vucetich. Las direcciones figuran en el sitio del SHN; la del CEADO, en https://ceado.shn.gob.ar/explorar-datos/20/ (ofuscada por Cloudflare y decodificada el 27/09/2026).
+
+| Destinatario | Asunto | Qué se pidió | Estado |
+|---|---|---|---|
+| shn@hidro.gov.ar | Consulta sobre la licencia de uso de datos del SHN para un mapa de riesgos de Necochea | (a) Licencia de los conjuntos de "Datos Abiertos" y de las capas WFS (curvas batimétricas y línea de costa frente a Necochea); si autorizan reutilizarlas con cita, por ejemplo bajo CC BY 4.0. (b) Si autorizan enlaces simples, sin incrustar, a páginas del SHN. | Sin respuesta |
+| pronomarea@hidro.gov.ar | Consulta sobre el mareógrafo de Puerto Quequén y la cobertura de los avisos de crecida | (a) Si existe una serie de alturas del mareógrafo "Quequén" (Sitio 2 del Puerto Quequén) y en qué condiciones se entrega. (b) Si los avisos de crecida, cuya área es "Franja Costera de la Costa Atlántica Bonaerense desde la ciudad de Mar del Plata hasta San Clemente del Tuyú", comprenden la costa de Necochea y Quequén, o si otro producto la cubre. | Sin respuesta |
+| ceado@hidro.gov.ar | Solicitud de informes técnicos sobre Puerto Quequén | Copia y condiciones de uso de "Mediciones de parámetros oceanográficos en puerto Quequén, provincia de Buenos Aires, 2005" y "Niveles extremos de marea observados en la provincia de Buenos Aires, 1994". | Sin respuesta |
+
+Cuando llegue una respuesta, anotar acá la fecha y lo que autoriza. Hasta entonces, ningún dato del SHN se usa en el mapa.
 
 ### 11.1 Prefectura Naval Argentina (27/09/2026)
 
