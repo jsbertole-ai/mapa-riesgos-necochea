@@ -59,7 +59,7 @@ Eso corre, en orden:
 
 1. `descargar_limite.py`: pide al servicio WFS del IGN el límite del partido de Necochea (código 06581), de origen catastral. Sin límite no se puede recortar nada, así que si falla, se corta ahí.
 2. `descargar_firms.py`: baja los resúmenes anuales de focos de calor de NASA FIRMS para la Argentina (MODIS desde 2000, VIIRS S-NPP desde 2012), guarda solo lo que cae en la zona y recorta por el partido. Los años que FIRMS todavía no publicó responden 404 y se saltean.
-3. `descargar_osm.py`: consulta OpenStreetMap por la API Overpass (hidrografía detallada e instalaciones portuarias e industriales), descarta vigilancia y policía, y recorta por el partido.
+3. `descargar_osm.py`: consulta OpenStreetMap por la API Overpass (hidrografía detallada, instalaciones portuarias e industriales, torres y postes eléctricos, y organismos de respuesta), descarta vigilancia y policía, y recorta por el partido.
 4. `descargar_ign.py`: pide al servicio WFS del Instituto Geográfico Nacional, solo para la zona del partido, catorce capas (hidrografía, curvas de nivel, vegetación hidrófila, puentes, forestaciones, puerto, energía, industria, ferrocarril, rutas, localidades, planta urbana, escuelas y salud) y las recorta por el partido. Es el mismo servicio que usa el botón "Descargar capa" del sitio del IGN.
 4 bis. `armar_respuesta.py`: une en la capa "Organismos de respuesta" la policía, la Prefectura y los bomberos del IGN con los organismos de OpenStreetMap (Defensa Civil, COM, guardavidas, guardaparques, Cruz Roja), y arma "Lugares de refugio" con la lista de `datos/refugios.json` y la API de OpenStreetMap.
 4 ter. `descargar_energia.py`: líneas de media tensión de la Secretaría de Energía (CC BY 4.0). Su servidor solo sirve por HTTP; si la descarga falla, usa el ZIP bajado a mano en `datos/crudos/energia/` (la URL está en el script).
@@ -70,7 +70,7 @@ Eso corre, en orden:
 Después de actualizar:
 
 - Revisá lo que cambió (`git diff --stat`) y anotá en `DATOS.md` la nueva fecha de los datos.
-- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v11` a `mapa-riesgos-v12`), así los celulares con la aplicación instalada descartan la copia vieja.
+- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v12` a `mapa-riesgos-v13`), así los celulares con la aplicación instalada descartan la copia vieja.
 - Subí los cambios a `main`.
 
 ### Si un sitio no deja descargar

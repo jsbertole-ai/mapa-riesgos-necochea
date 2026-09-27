@@ -451,7 +451,17 @@ Decisión de Sebastián (27/09/2026): el proyecto arma su propio registro de eve
 | Licencia | CC BY 4.0: `"license_id": "CC-BY-4.0"` en https://datos.gob.ar/api/3/action/package_show?id=redes-de-distribucion-electrica-del-consejo-federal (leído el 27/09/2026). |
 | Formato | Shapefile de líneas, WGS 84; 225.185 tramos en la provincia. |
 | Cobertura en el partido | 5.502 tramos (5.500 de 13,2 kV y 2 de 33 kV), alrededor de 1.850 km: las seis localidades y la zona rural. |
+| Tendido | Desde el 27/09/2026 el mapa distingue el tendido aéreo (línea llena, 4.236 tramos) del subterráneo (punteada, 1.266 tramos), según el campo TIPO de la fuente. El tendido aéreo es el expuesto a caídas de postes y cables en temporales (pedido de Sebastián). |
 | Limitaciones | Foto de 2022. El campo de cooperativa está vacío en casi todos los tramos del partido (inferido, sin confirmar: la red de Necochea y Quequén sería la de la Usina Popular Cooperativa). No incluye alta ni baja tensión. |
+
+### 10 ter. Torres y postes de líneas eléctricas (OpenStreetMap) · **Verificada** · en uso
+
+| Campo | Detalle |
+|---|---|
+| Fuente | OpenStreetMap vía Overpass, consulta "torres" de `scripts/descargar_osm.py` (líneas `power=line/minor_line/cable` y nodos `power=tower/pole`). ODbL 1.0. |
+| Primera versión | Como Overpass corta desde el entorno, se usa la respuesta de Overpass que obtuvo el agente de energía el 27/09/2026 (base OSM de las 00:04 UTC), con una consulta más amplia que incluye estas mismas líneas y nodos (guardada en `datos/crudos/osm/torres_origen.overpassql`). La consulta propia la reemplaza cuando Overpass responda. |
+| Cobertura en el partido | 1.475: 707 torres de 132 kV, 64 de 500 kV, 703 postes de la línea de 33 kV y 1 poste sin tensión informada. |
+| Limitación principal | En OpenStreetMap no están cargados los postes de la red de 13,2 kV (la urbana y rural), ni los de telefonía o alumbrado: la capa no sirve para saber dónde hay postes en las ciudades. Para eso está el tendido aéreo de la capa de media tensión (10 bis). |
 
 ## 11. Información naval (Servicio de Hidrografía Naval) · **Identificada, sin licencia de reutilización** · no se usa como capa
 

@@ -97,7 +97,7 @@ def main():
         dbf = z.read(next(n for n in nombres if n.endswith(".dbf")))
 
     limite, caja = cargar_limite()
-    features, total, por_tension = [], 0, {}
+    features, total, por_tension, por_tipo = [], 0, {}, {}
     for fila, registro in zip(leer_dbf(dbf), leer_shp(shp)):
         total += 1
         if registro is None:
@@ -117,6 +117,8 @@ def main():
         }
         props = {k: v for k, v in props.items() if v is not None}
         por_tension[props.get("tension_kv")] = por_tension.get(props.get("tension_kv"), 0) + 1
+        tendido = "Subterránea" if (props.get("tipo") or "").startswith("Subterr") else "Aérea"
+        por_tipo[tendido] = por_tipo.get(tendido, 0) + 1
         features.append({"type": "Feature", "properties": props, "geometry": {
             "type": "MultiLineString",
             "coordinates": [[[round(x, DECIMALES), round(y, DECIMALES)] for x, y in parte] for parte in partes]}})
@@ -128,6 +130,7 @@ def main():
         "elementos": len(features),
         "tramos_en_la_provincia": total,
         "tramos_por_tension_kv": {str(k): v for k, v in por_tension.items()},
+        "por_tipo": por_tipo,
         "fecha_datos": None,
     })
     print(f"Media tensión: {len(features)} tramos en el partido (de {total} en la provincia); por tensión {por_tension}.")

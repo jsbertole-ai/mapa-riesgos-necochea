@@ -534,7 +534,7 @@
     "fecha_datos": null
   },
   "media_tension": {
-    "procesado": "2026-09-27T01:06:18+00:00",
+    "procesado": "2026-09-27T15:12:34+00:00",
     "archivo_crudo": "energia/-buenos-aires-alta-tensin-media-tensin-lneas.zip",
     "sha256_crudo": "4674d971f0d3765867acdf1d90e3d4bcee700747689dc658c457fe4b5d4f6e9e",
     "elementos": 5502,
@@ -542,6 +542,10 @@
     "tramos_por_tension_kv": {
       "13.2": 5500,
       "33.0": 2
+    },
+    "por_tipo": {
+      "Aérea": 4236,
+      "Subterránea": 1266
     },
     "fecha_datos": null
   },
@@ -583,5 +587,17 @@
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "fecha_datos": "2026-07-30"
+  },
+  "torres_postes": {
+    "procesado": "2026-09-27T15:12:29+00:00",
+    "archivo_crudo": "osm/torres.json",
+    "sha256_crudo": "d80d1ed8820b51044964a2cc53f94ff747c9f163027c7d4a468e5a687abb9573",
+    "elementos": 1475,
+    "fecha_datos": "2026-09-27T00:04:15Z",
+    "descartes_de_la_consulta": {
+      "excluidos": 0,
+      "fuera_del_partido": 0,
+      "geometria_incompleta": 0
+    }
   }
 }

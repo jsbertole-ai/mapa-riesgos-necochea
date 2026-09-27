@@ -175,6 +175,14 @@
     );
   }
 
+  function popupTorre(p) {
+    const kv = (p.tension_kv || []).map(function (v) { return String(v).replace(".", ",") + " kV"; }).join(" y ");
+    return (
+      "<h3>" + (p.power === "tower" ? "Torre" : "Poste") + " de línea eléctrica" + (kv ? ", " + esc(kv) : "") + "</h3>" +
+      '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
+    );
+  }
+
   // Media tensión (Secretaría de Energía): tensión y tipo de cada tramo.
   function popupMediaTension(p) {
     const filas = [];
@@ -269,7 +277,8 @@
       return {
         color: e.color,
         weight: capa.id === "limite" ? 2.5 : e.grosor || (esArea ? 1 : 1.8),
-        dashArray: e.trazo || null,
+        // Media tensión: tendido aéreo con línea llena, subterráneo con línea punteada.
+        dashArray: (e.lineas && feature.properties.tipo && (feature.properties.tipo.indexOf("Subterr") === 0 ? e.lineas["Subterránea"] : e.lineas["Aérea"])) || e.trazo || null,
         fill: esArea && e.relleno !== false,
         fillColor: e.relleno || e.color,
         fillOpacity: 0.45,
@@ -333,6 +342,7 @@
           if (capa.id === "organismos") return popupOrganismo(f.properties);
           if (capa.id === "refugios") return popupRefugio(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
+          if (capa.id === "torres_postes") return popupTorre(f.properties);
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
           if (esIgn(capa)) return popupIgn(f.properties);
           return popupOsm(f.properties);
@@ -429,10 +439,15 @@
     const cuenta = verificada && capa.id !== "limite" ? '<span class="capa-cuenta">' + numero(capa.elementos) + (capa.elementos === 1 ? " elemento" : " elementos") + "</span>" : "";
     // Leyenda por organismo, con la cantidad de cada uno (0 = todavía sin cargar).
     const colores = (capa.estilo || {}).colores;
-    const leyenda = verificada && colores
-      ? '<ul class="leyenda-tipos">' + Object.keys(colores).map(function (k) {
+    const lineas = (capa.estilo || {}).lineas;
+    const leyenda = !verificada ? ""
+      : colores ? '<ul class="leyenda-tipos">' + Object.keys(colores).map(function (k) {
           const n = (capa.por_organismo || {})[k] || 0;
           return '<li><span class="punto-leyenda" style="background:' + esc(colores[k]) + '"></span>' + esc(k) + " (" + numero(n) + ")</li>";
+        }).join("") + "</ul>"
+      : lineas ? '<ul class="leyenda-tipos">' + Object.keys(lineas).map(function (k) {
+          const n = (capa.por_tipo || {})[k] || 0;
+          return '<li><span class="linea-leyenda' + (lineas[k] ? " punteada" : "") + '" style="border-color:' + esc(capa.estilo.color) + '"></span>' + esc(k) + " (" + numero(n) + ")</li>";
         }).join("") + "</ul>"
       : "";
     div.innerHTML =

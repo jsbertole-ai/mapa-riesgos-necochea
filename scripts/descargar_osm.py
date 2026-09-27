@@ -46,6 +46,11 @@ CONSULTAS = {
   nwr["harbour"]({caja});
   nwr["man_made"~"^(silo|storage_tank|pier|breakwater)$"]({caja});
 """,
+    # Torres y postes de las líneas eléctricas; las líneas se piden para saber la tensión de cada poste.
+    "torres": """
+  way["power"~"^(line|minor_line|cable)$"]({caja});
+  node["power"~"^(tower|pole)$"]({caja});
+""",
     "respuesta": """
   nwr["amenity"="fire_station"]({caja});
   nwr["amenity"="police"]({caja});
@@ -96,6 +101,30 @@ def capa_portuaria(tags):
         if not any(k in tags for k in ("landuse", "industrial", "harbour", "man_made")):
             return None
     return "portuaria_instalaciones"
+
+
+def procesar_torres(datos, limite, caja):
+    """Torres y postes eléctricos, con la tensión de la línea a la que pertenecen (si se conoce)."""
+    tension = {}
+    for el in datos.get("elements", []):
+        t = el.get("tags") or {}
+        if el["type"] == "way" and t.get("power") in ("line", "minor_line", "cable") and t.get("voltage"):
+            kv = [round(int(v) / 1000, 1) for v in t["voltage"].split(";") if v.strip().isdigit()]
+            for n in el.get("nodes", []):
+                tension.setdefault(n, set()).update(kv)
+    features = []
+    for el in datos.get("elements", []):
+        t = el.get("tags") or {}
+        if el["type"] != "node" or t.get("power") not in ("tower", "pole") or excluido(t):
+            continue
+        if not punto_en_geometria(el["lon"], el["lat"], limite, caja):
+            continue
+        props = {"power": t["power"], "osm": f"node/{el['id']}"}
+        if tension.get(el["id"]):
+            props["tension_kv"] = sorted(tension[el["id"]])
+        features.append({"type": "Feature", "properties": props, "geometry": {
+            "type": "Point", "coordinates": [round(el["lon"], DECIMALES), round(el["lat"], DECIMALES)]}})
+    return {"torres_postes": features}
 
 
 def organismo_osm(tags):
@@ -224,6 +253,8 @@ def procesar(nombre, crudo, limite, caja):
     fecha_osm = (datos.get("osm3s") or {}).get("timestamp_osm_base")
     salidas = {}
     descartes = {"excluidos": 0, "fuera_del_partido": 0, "geometria_incompleta": 0}
+    if nombre == "torres":
+        return procesar_torres(datos, limite, caja), descartes, fecha_osm
     for el in datos.get("elements", []):
         tags = el.get("tags") or {}
         if excluido(tags):

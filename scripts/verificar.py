@@ -157,6 +157,8 @@ def main():
         c["procesado"] = proc.get("procesado")
         if proc.get("por_organismo") is not None:
             c["por_organismo"] = proc["por_organismo"]
+        if proc.get("por_tipo") is not None:
+            c["por_tipo"] = proc["por_tipo"]
         if capa["id"].startswith("incendios_"):
             c["focos_por_anio"] = proc.get("focos_por_anio")
             c["focos_por_tipo"] = proc.get("focos_por_tipo")
