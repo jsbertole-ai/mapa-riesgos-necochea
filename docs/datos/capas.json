@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-27T01:28:58+00:00",
+  "generado": "2026-09-27T03:22:32+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -881,6 +881,108 @@
         "controles": [
           "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
+        ]
+      }
+    },
+    {
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
+      "id": "guardavidas",
+      "grupo": "respuesta",
+      "nombre": "Guardavidas (OpenStreetMap)",
+      "archivo": "guardavidas.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#e8a000",
+        "radio": 6
+      },
+      "activa_al_inicio": false,
+      "motivo_pendiente": "Los puestos de guardavidas y la Jefatura de Guardavidas y Operativo en Playas todavía no están en OpenStreetMap. Juan Sebastián Bértole los va a cargar a partir de su conocimiento del lugar (emergency=lifeguard).",
+      "que_representa": "Los puestos de guardavidas de las playas y del río y la Jefatura de Guardavidas y Operativo en Playas (Secretaría de Gobierno), según OpenStreetMap.",
+      "que_no_representa": "Que figure un puesto no quiere decir que haya guardavidas cualquier día del año: el servicio funciona en temporada de verano, con horarios que fija el municipio cada año. No incluye datos de las personas que trabajan en el servicio.",
+      "limitaciones": "Los puestos que se arman solo en verano llevan seasonal=summer en OpenStreetMap. Fuera de temporada no hay cobertura de guardavidas en el partido.",
+      "estado": "pendiente",
+      "elementos": 0,
+      "fecha_datos": null,
+      "procesado": null,
+      "verificacion": {
+        "fecha": "2026-09-27",
+        "controles": [
+          "Todavía no están cargados en OpenStreetMap.",
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
+        ]
+      }
+    },
+    {
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
+      "id": "guardaparques",
+      "grupo": "respuesta",
+      "nombre": "Guardaparques (OpenStreetMap)",
+      "archivo": "guardaparques.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#5c7f2a",
+        "radio": 6
+      },
+      "activa_al_inicio": false,
+      "motivo_pendiente": "La base de guardaparques todavía no está en OpenStreetMap (amenity=ranger_station).",
+      "que_representa": "Las bases de guardaparques del partido, según OpenStreetMap.",
+      "que_no_representa": "No indica el área que recorre cada base ni la dotación.",
+      "limitaciones": "Depende de lo cargado en OpenStreetMap.",
+      "estado": "pendiente",
+      "elementos": 0,
+      "fecha_datos": null,
+      "procesado": null,
+      "verificacion": {
+        "fecha": "2026-09-27",
+        "controles": [
+          "Todavía no están cargados en OpenStreetMap.",
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
+        ]
+      }
+    },
+    {
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
+      "id": "prefectura",
+      "grupo": "respuesta",
+      "nombre": "Prefectura Naval (OpenStreetMap)",
+      "archivo": "prefectura.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#0b3d91",
+        "radio": 7
+      },
+      "activa_al_inicio": false,
+      "motivo_pendiente": "La Prefectura Naval Quequén está en OpenStreetMap (way/698430678), pero todavía no se pudo traer: el servidor Overpass viene cortando las consultas.",
+      "que_representa": "La sede de la Prefectura Naval Quequén, que se publica por su función de salvamento en el puerto, la costa y las playas (decisión de Juan Sebastián Bértole, 27/09/2026).",
+      "que_no_representa": "No representa su jurisdicción ni sus medios. Las comisarías y cualquier cámara de vigilancia siguen excluidas.",
+      "limitaciones": "En OpenStreetMap está etiquetada como amenity=police; se publica como excepción, reconocida por su nombre u operador (Prefectura), y sin esa etiqueta.",
+      "estado": "pendiente",
+      "elementos": 0,
+      "fecha_datos": null,
+      "procesado": null,
+      "verificacion": {
+        "fecha": "2026-09-27",
+        "controles": [
+          "Pendiente de la consulta a OpenStreetMap.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
         ]
       }

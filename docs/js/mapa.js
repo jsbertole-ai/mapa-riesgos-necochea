@@ -18,10 +18,12 @@
     railway: { rail: "Vía férrea" },
     highway: { trunk: "Ruta troncal", primary: "Ruta primaria" },
     hgv: { designated: "Vía designada para camiones" },
-    amenity: { fire_station: "Cuartel de bomberos" },
-    office: { government: "Oficina pública" },
+    amenity: { fire_station: "Cuartel de bomberos", ranger_station: "Base de guardaparques" },
+    office: { government: "Oficina pública", lifeguard: "Oficina de guardavidas" },
+    emergency: { lifeguard: "Guardavidas" },
   };
-  const ORDEN_CLAVES = ["waterway", "natural", "man_made", "harbour", "landuse", "industrial", "railway", "highway", "hgv", "amenity", "office"];
+  const ORDEN_CLAVES = ["waterway", "natural", "man_made", "harbour", "landuse", "industrial", "railway", "highway", "hgv", "emergency", "amenity", "office"];
+  const TIPO_GUARDAVIDAS = { base: "Base de guardavidas", tower: "Puesto de guardavidas" };
 
   const TIPOS_FIRMS = {
     0: "Presunto incendio de vegetación",
@@ -130,6 +132,8 @@
     if (p.operator) filas.push(["Operador (según OSM)", p.operator]);
     if (p.content || p.product) filas.push(["Contenido (según OSM)", p.content || p.product]);
     if (p.intermittent === "yes") filas.push(["Curso", "Intermitente"]);
+    if (p.lifeguard && TIPO_GUARDAVIDAS[p.lifeguard]) filas.push(["Tipo", TIPO_GUARDAVIDAS[p.lifeguard]]);
+    if (p.seasonal === "summer") filas.push(["Temporada", "Funciona en verano"]);
     return (
       "<h3>" + esc(p.name || categoriaOsm(p) || "Elemento de OpenStreetMap") + "</h3>" +
       (p.name && categoriaOsm(p) ? "<div>" + esc(categoriaOsm(p)) + "</div>" : "") +

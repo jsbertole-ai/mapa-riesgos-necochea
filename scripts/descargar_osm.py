@@ -59,6 +59,9 @@ CONSULTAS = {
   nwr["amenity"="fire_station"]({caja});
   nwr["name"~"Defensa Civil",i]({caja});
   nwr["name"~"Centro Operativo de Monitoreo",i]({caja});
+  nwr["emergency"="lifeguard"]({caja});
+  nwr["office"="lifeguard"]({caja});
+  nwr["amenity"="ranger_station"]({caja});
   nwr["name"~"prefectura",i][!"highway"]({caja});
   nwr["operator"~"prefectura",i][!"highway"]({caja});
 """,
@@ -85,7 +88,8 @@ def en_revision(el, geom):
 
 # En la capa de respuesta solo se conserva qué es y su nombre: el operador de un cuartel
 # puede ser el nombre de una persona.
-TAGS_RESPUESTA = {"name", "official_name", "description", "amenity", "office", "government", "emergency"}
+TAGS_RESPUESTA = {"name", "official_name", "description", "amenity", "office", "government", "emergency", "lifeguard",
+                  "seasonal"}
 
 TAGS_CONSERVADAS = {
     "name", "waterway", "natural", "water", "intermittent", "landuse", "industrial", "harbour",
@@ -226,6 +230,10 @@ def procesar(nombre, crudo, limite, caja):
             nombre_el = tags.get("name", "").lower()
             if tags.get("amenity") == "fire_station":
                 capa = "bomberos"
+            elif tags.get("emergency") == "lifeguard" or tags.get("office") == "lifeguard":
+                capa = "guardavidas"
+            elif tags.get("amenity") == "ranger_station":
+                capa = "guardaparques"
             elif "defensa civil" in nombre_el:
                 capa = "defensa_civil"
             elif "monitoreo" in nombre_el:
