@@ -531,7 +531,7 @@ Idea de Sebastián (27/09/2026): además de los organismos de respuesta, el mapa
 - Archivo: https://archivo.infraestructura.gob.ar/dataset/ssisu/20231205_info_publica.geojson (9,4 MB, descargado el 27/09/2026; corte del 05/12/2023 según el nombre del archivo). También en CSV y GPKG.
 - En el partido (campo `departamento` = "Necochea"): 9 barrios con polígono. Necochea: Los Malvones (154 familias aproximadas), Los Álamos (88), La Terminal (55), San Martín (55), Los Carritos (44), Tiro Federal (22), 88 Entre 47 y 49 (20) y Puerto (11). Quequén: Estación Quequén (11).
 - Campos útiles para riesgo: cantidad aproximada de viviendas y familias, década de creación, energía eléctrica, efluentes cloacales, agua corriente, cocina, calefacción y título de propiedad. Son datos del barrio, no de personas.
-- Limitación: el registro solo incluye barrios con al menos 8 familias agrupadas o contiguas en situación de informalidad; no cubre la vulnerabilidad dispersa ni a las personas en situación de calle.
+- Limitación: registra barrios, no personas; no cubre la vulnerabilidad dispersa ni a las personas en situación de calle. El criterio de inclusión (cantidad mínima de familias, informalidad dominial y acceso a servicios) no figura en los archivos descargados: el archivo de referencias solo define las clases "Asentamiento", "Villa" y "Conjunto habitacional unifamiliar" (este último, "que no cuentan con regularidad dominial ni acceso formal a 2 de 3 servicios básicos"). Confirmar el criterio en la normativa del registro antes de publicar la capa.
 
 ### 13.3 Otras fuentes revisadas el 27/09/2026
 
