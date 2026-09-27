@@ -6,12 +6,15 @@ Uso:  python3 scripts/armar_respuesta.py            (consulta el IGN y la API de
 Organismos de respuesta: una sola capa con todos los cuerpos que intervienen en la gestión del
 riesgo (decisión de Sebastián, 27/09/2026), cada uno con su color. Fuentes, en orden de prioridad
 (si dos fuentes traen el mismo organismo a menos de 200 m, o con el mismo nombre, queda la primera):
-  - Elementos de OpenStreetMap fijados por Sebastián en datos/organismos_osm.json (por ejemplo, la
-    Prefectura Naval Quequén), traídos de la API de OSM.
   - Ministerio de Seguridad de la Provincia de Buenos Aires, conjunto "Comisarías" de Datos
-    Abiertos PBA (CC BY 4.0): las dependencias del partido que traen coordenadas.
-  - IGN (WFS, términos del IGN): policía, Prefectura Naval y bomberos, de las capas
-    estructuras_operativas_y_defensivas_FA517 y _090102.
+    Abiertos PBA (CC BY 4.0): la Provincia es la autoridad sobre sus comisarías (Sebastián,
+    27/09/2026). Se usan las que traen coordenadas.
+  - IGN (WFS, términos del IGN): policía (lo que la Provincia no ubica, y la Policía Federal),
+    Prefectura Naval y bomberos, de las capas estructuras_operativas_y_defensivas_FA517 y _090102.
+    Sebastián revisó sus posiciones en el visor del IGN y las confirmó (27/09/2026); OpenStreetMap,
+    en cambio, ubica mal la PFA.
+  - Elementos de OpenStreetMap fijados por Sebastián en datos/organismos_osm.json, traídos de la
+    API de OSM (quedan de respaldo si el IGN deja de publicar ese organismo).
   - OpenStreetMap (consulta "respuesta" de descargar_osm.py, ODbL): Defensa Civil, Centro
     Operativo de Monitoreo, guardavidas, guardaparques, Cruz Roja, y policía, Prefectura o
     bomberos que el IGN no tenga. Un elemento de OSM a menos de 200 m de uno del IGN del mismo
@@ -256,7 +259,7 @@ def main():
     fijados = organismos_fijados(offline, limite, caja)
     pba, huella_pba, pba_sin_coordenadas = comisarias_pba(offline, limite, caja)
     osm, huella_osm, fecha_osm, descartes = organismos_osm(limite, caja)
-    unidos, duplicados = unir(fijados, pba, ign, osm)
+    unidos, duplicados = unir(pba, ign, fijados, osm)
     features = sorted(unidos, key=lambda f: (f["properties"]["organismo"], f["properties"].get("nombre") or ""))
     por_fuente = {}
     for f in features:
