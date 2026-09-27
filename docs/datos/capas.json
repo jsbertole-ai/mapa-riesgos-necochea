@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-27T01:28:58+00:00",
+  "generado": "2026-09-27T15:13:01+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -172,7 +172,7 @@
         "fecha": "2026-09-27",
         "controles": [
           "2279 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
+          "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
         ]
       }
@@ -466,7 +466,7 @@
         "fecha": "2026-09-27",
         "controles": [
           "643 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
+          "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
         ]
       }
@@ -555,21 +555,63 @@
       "geometria": "linea",
       "estilo": {
         "color": "#d9822b",
-        "grosor": 1
+        "grosor": 1.2,
+        "lineas": {
+          "Aérea": "",
+          "Subterránea": "3 4"
+        }
       },
       "activa_al_inicio": false,
-      "que_representa": "La red de distribución eléctrica de media tensión de las cooperativas bonaerenses dentro del partido: 5.500 tramos de 13,2 kV y 2 de 33 kV, aéreos o subterráneos, en las seis localidades y en la zona rural.",
-      "que_no_representa": "No incluye la alta tensión (132 y 500 kV), que está en la capa de energía del IGN, ni la baja tensión domiciliaria. No indica el estado de las líneas ni su carga.",
-      "limitaciones": "Es una foto de 2022: tramos nuevos o retirados después no aparecen. El campo de cooperativa está vacío en casi todos los tramos del partido, así que el mapa no atribuye el operador. En la capa del IGN no hay líneas de media tensión, y en OpenStreetMap solo figuran algunas de 33 kV.",
+      "que_representa": "La red de distribución eléctrica de media tensión de las cooperativas bonaerenses dentro del partido: 5.500 tramos de 13,2 kV y 2 de 33 kV, en las seis localidades y en la zona rural. Línea llena: tendido aéreo, sobre postes; punteada: subterráneo.",
+      "que_no_representa": "No incluye la alta tensión (132 y 500 kV), que está en la capa de energía del IGN, ni la baja tensión domiciliaria. No indica el estado de las líneas ni su carga, ni la ubicación de cada poste.",
+      "limitaciones": "Es una foto de 2022: tramos nuevos o retirados después no aparecen. El campo de cooperativa está vacío en casi todos los tramos del partido, así que el mapa no atribuye el operador. En la capa del IGN no hay líneas de media tensión, y en OpenStreetMap solo figuran algunas de 33 kV. El tendido aéreo es el expuesto a caídas de postes y cables en temporales (las notas del municipio sobre temporales las registran con frecuencia); la fuente no ubica los postes uno por uno.",
       "estado": "verificada",
       "elementos": 5502,
       "fecha_datos": "Recurso actualizado el 30/05/2022 según datos.gob.ar; la fuente no informa la fecha del relevamiento. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:06:18+00:00",
+      "procesado": "2026-09-27T15:12:34+00:00",
+      "por_tipo": {
+        "Aérea": 4236,
+        "Subterránea": 1266
+      },
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
           "5502 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=redes-de-distribucion-electrica-del-consejo-federal (leída el 2026-09-27)."
+        ]
+      }
+    },
+    {
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass (consulta \"torres\" de scripts/descargar_osm.py)",
+      "id": "torres_postes",
+      "grupo": "portuaria",
+      "nombre": "Torres y postes de líneas de transporte (OpenStreetMap)",
+      "archivo": "torres_postes.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#5a5a5a",
+        "radio": 2.5
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Las torres y los postes cargados en OpenStreetMap: torres de las líneas de 132 y 500 kV y postes de la línea de 33 kV, con la tensión de la línea a la que pertenecen.",
+      "que_no_representa": "No incluye los postes de la red urbana y rural de 13,2 kV, ni los de telefonía o alumbrado: en OpenStreetMap no están cargados. Que una zona no tenga postes en esta capa no quiere decir que no los haya. Para ver dónde el tendido de media tensión es aéreo, está la capa de media tensión.",
+      "limitaciones": "Depende de lo cargado por voluntarios en OpenStreetMap. La primera versión sale de una respuesta de Overpass del 27/09/2026 (00:04 UTC) obtenida con una consulta de energía más amplia; la consulta propia la reemplaza cuando Overpass responda.",
+      "estado": "verificada",
+      "elementos": 1475,
+      "fecha_datos": "Base de OpenStreetMap al 2026-09-27T00:04:15Z (UTC).",
+      "procesado": "2026-09-27T15:12:29+00:00",
+      "verificacion": {
+        "fecha": "2026-09-27",
+        "controles": [
+          "1475 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "La respuesta cruda de Overpass no trae elementos de vigilancia.",
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
         ]
       }
     },
@@ -784,103 +826,87 @@
       }
     },
     {
-      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "organismo": "Ministerio de Seguridad de la Provincia de Buenos Aires, Instituto Geográfico Nacional (WFS) y OpenStreetMap (colaboradores)",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://catalogo.datos.gba.gob.ar/es_AR/dataset/comisarias ; https://wms.ign.gob.ar/geoserver/wfs (estructuras_operativas_y_defensivas_FA517 y _090102) ; https://overpass-api.de/api/interpreter y https://api.openstreetmap.org/api/0.6/",
+      "licencia": "Términos y Condiciones del IGN; CC BY 4.0 (Provincia de Buenos Aires); ODbL 1.0 para lo que proviene de OpenStreetMap",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "cita": "Ministerio de Seguridad de la Provincia de Buenos Aires, \"Comisarías\" (Datos Abiertos PBA, CC BY 4.0). FUENTE: Instituto Geográfico Nacional de la República Argentina (Comisaría Necochea 1ª, Comisaría de la Mujer y la Familia, Policía Federal, Prefectura Naval y bomberos). © colaboradores de OpenStreetMap, ODbL (Defensa Civil, Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja).",
+      "formato": "GeoJSON armado por scripts/armar_respuesta.py a partir del CSV de la Provincia, el WFS del IGN y OpenStreetMap",
+      "id": "organismos",
+      "grupo": "respuesta",
+      "nombre": "Organismos de respuesta",
+      "archivo": "organismos.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#4d4d4d",
+        "radio": 6,
+        "colores": {
+          "Policía": "#253494",
+          "Bomberos": "#d62728",
+          "Prefectura Naval": "#1d91c0",
+          "Defensa Civil": "#ff7f0e",
+          "Centro Operativo de Monitoreo": "#6a3d9a",
+          "Guardavidas": "#e8b400",
+          "Guardaparques": "#33a02c",
+          "Cruz Roja": "#e7298a"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Los cuerpos que intervienen en la gestión del riesgo y los siniestros en el partido, cada uno con su color: policía, Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja. Según el municipio, estos organismos trabajan en conjunto ante los temporales (por ejemplo, https://necochea.gov.ar/arboles-y-postes-caidos-techos-volados-y-cuatro-auto-evacuados-por-los-fuertes-vientos/, 26/08/2021).",
+      "que_no_representa": "No indica dotación, equipamiento, horarios ni área de cobertura. Los guardavidas funcionan solo en temporada de verano. No incluye cámaras de videovigilancia ni datos de las personas que trabajan en cada organismo.",
+      "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por Juan Sebastián Bértole en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. Guardavidas, guardaparques y Cruz Roja aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central.",
+      "estado": "verificada",
+      "elementos": 12,
+      "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
+      "procesado": "2026-09-27T15:10:07+00:00",
+      "por_organismo": {
+        "Bomberos": 3,
+        "Centro Operativo de Monitoreo": 1,
+        "Defensa Civil": 1,
+        "Policía": 6,
+        "Prefectura Naval": 1
+      },
+      "verificacion": {
+        "fecha": "2026-09-27",
+        "controles": [
+          "12 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "La respuesta cruda de Overpass no trae elementos de vigilancia.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27).",
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27).",
+          "Licencia confirmada en https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias (leída el 2026-09-27)."
+        ]
+      }
+    },
+    {
+      "organismo": "OpenStreetMap (colaboradores), vía su API; selección de Juan Sebastián Bértole",
       "url_fuente": "https://www.openstreetmap.org/",
-      "url_datos": "https://overpass-api.de/api/interpreter",
+      "url_datos": "https://api.openstreetmap.org/api/0.6/",
       "licencia": "ODbL 1.0",
       "url_licencia": "https://www.openstreetmap.org/copyright",
       "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
-      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
-      "id": "bomberos",
+      "formato": "GeoJSON armado por scripts/armar_respuesta.py a partir de la API de OpenStreetMap",
+      "id": "refugios",
       "grupo": "respuesta",
-      "nombre": "Cuarteles de bomberos (OpenStreetMap)",
-      "archivo": "bomberos.geojson",
+      "nombre": "Lugares de refugio",
+      "archivo": "refugios.geojson",
       "geometria": "punto",
       "estilo": {
-        "color": "#d62728",
-        "radio": 6
+        "color": "#8c510a",
+        "radio": 7
       },
       "activa_al_inicio": false,
-      "que_representa": "Los cuarteles de bomberos del partido, según OpenStreetMap (amenity=fire_station): el de Necochea y los Bomberos Voluntarios de La Dulce. Coinciden con los dos que publica el IGN, y según Juan Sebastián Bértole (26/09/2026) no hay otros en el partido.",
-      "que_no_representa": "No indica dotación, equipamiento ni área de cobertura.",
-      "limitaciones": "Si se abre un cuartel nuevo, aparece en el mapa cuando se cargue en OpenStreetMap y se actualicen los datos. Del operador de cada cuartel no se guarda nada, porque puede ser el nombre de una persona.",
+      "que_representa": "Lugares que pueden funcionar como refugio ante una emergencia: el Polideportivo Municipal \"Edgardo Hugo Yelpo\" y la Parroquia Nuestra Señora de la Medalla Milagrosa, indicados por Juan Sebastián Bértole.",
+      "que_no_representa": "No es una lista oficial de centros de evacuación ni indica capacidad. Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
+      "limitaciones": "La lista está en datos/refugios.json; el nombre y la ubicación salen de OpenStreetMap. Se muestra el punto central de cada edificio.",
       "estado": "verificada",
       "elementos": 2,
-      "fecha_datos": "Base de OpenStreetMap al 2026-09-26T23:42:00Z (UTC).",
-      "procesado": "2026-09-27T01:04:40+00:00",
+      "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
+      "procesado": "2026-09-27T15:10:08+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
           "2 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
-          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
-        ]
-      }
-    },
-    {
-      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
-      "url_fuente": "https://www.openstreetmap.org/",
-      "url_datos": "https://overpass-api.de/api/interpreter",
-      "licencia": "ODbL 1.0",
-      "url_licencia": "https://www.openstreetmap.org/copyright",
-      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
-      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
-      "id": "defensa_civil",
-      "grupo": "respuesta",
-      "nombre": "Defensa Civil (OpenStreetMap)",
-      "archivo": "defensa_civil.geojson",
-      "geometria": "punto",
-      "estilo": {
-        "color": "#17becf",
-        "radio": 7
-      },
-      "activa_al_inicio": false,
-      "que_representa": "La sede de Defensa Civil del municipio, sobre calle 10 (según el municipio, \"sobre avenida 10, casi Pinolandia\").",
-      "que_no_representa": "No reemplaza los canales oficiales de emergencia.",
-      "limitaciones": "El punto de OpenStreetMap estuvo hasta el 26/09/2026 en el Palacio Municipal, donde Defensa Civil no funciona desde hace años; ese día Juan Sebastián Bértole lo corrigió a partir de su conocimiento del lugar.",
-      "estado": "verificada",
-      "elementos": 1,
-      "fecha_datos": "Base de OpenStreetMap al 2026-09-26T23:42:00Z (UTC).",
-      "procesado": "2026-09-27T01:04:40+00:00",
-      "verificacion": {
-        "fecha": "2026-09-27",
-        "controles": [
-          "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
-          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
-        ]
-      }
-    },
-    {
-      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
-      "url_fuente": "https://www.openstreetmap.org/",
-      "url_datos": "https://overpass-api.de/api/interpreter",
-      "licencia": "ODbL 1.0",
-      "url_licencia": "https://www.openstreetmap.org/copyright",
-      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
-      "formato": "GeoJSON derivado de la respuesta JSON de Overpass",
-      "id": "monitoreo",
-      "grupo": "respuesta",
-      "nombre": "Centro Operativo de Monitoreo (OpenStreetMap)",
-      "archivo": "monitoreo.geojson",
-      "geometria": "punto",
-      "estilo": {
-        "color": "#393b79",
-        "radio": 7
-      },
-      "activa_al_inicio": false,
-      "que_representa": "La sede del Centro Operativo de Monitoreo del municipio (nombre oficial cargado en OpenStreetMap: \"Subsecretaría de Prevención y Monitoreo.\"), un espacio multiagencia de coordinación.",
-      "que_no_representa": "No incluye, ni va a incluir, la ubicación de las cámaras de videovigilancia: esa exclusión se mantiene.",
-      "limitaciones": "El punto está cargado en OpenStreetMap solo con nombre, descripción y dirección, sin etiqueta de tipo: la consulta lo encuentra por su nombre.",
-      "estado": "verificada",
-      "elementos": 1,
-      "fecha_datos": "Base de OpenStreetMap al 2026-09-26T23:42:00Z (UTC).",
-      "procesado": "2026-09-27T01:04:40+00:00",
-      "verificacion": {
-        "fecha": "2026-09-27",
-        "controles": [
-          "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
         ]
       }

@@ -1,0 +1,15 @@
+{
+  "_nota": "Lugares de refugio indicados por Juan Sebastián Bértole (27/09/2026). La geometría y el nombre se toman de OpenStreetMap por su identificador; acá solo se registra cuáles son y por qué.",
+  "refugios": [
+    {
+      "osm": "way/326255242",
+      "tipo": "Polideportivo",
+      "fuente": "Indicado por Juan Sebastián Bértole como lugar de refugio (27/09/2026)."
+    },
+    {
+      "osm": "way/1272959264",
+      "tipo": "Parroquia",
+      "fuente": "Indicado por Juan Sebastián Bértole como lugar de refugio (27/09/2026)."
+    }
+  ]
+}

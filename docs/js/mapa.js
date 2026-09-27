@@ -18,10 +18,12 @@
     railway: { rail: "Vía férrea" },
     highway: { trunk: "Ruta troncal", primary: "Ruta primaria" },
     hgv: { designated: "Vía designada para camiones" },
-    amenity: { fire_station: "Cuartel de bomberos" },
-    office: { government: "Oficina pública" },
+    amenity: { fire_station: "Cuartel de bomberos", ranger_station: "Base de guardaparques" },
+    office: { government: "Oficina pública", lifeguard: "Oficina de guardavidas" },
+    emergency: { lifeguard: "Guardavidas" },
   };
-  const ORDEN_CLAVES = ["waterway", "natural", "man_made", "harbour", "landuse", "industrial", "railway", "highway", "hgv", "amenity", "office"];
+  const ORDEN_CLAVES = ["waterway", "natural", "man_made", "harbour", "landuse", "industrial", "railway", "highway", "hgv", "emergency", "amenity", "office"];
+  const TIPO_GUARDAVIDAS = { base: "Base de guardavidas", tower: "Puesto de guardavidas" };
 
   const TIPOS_FIRMS = {
     0: "Presunto incendio de vegetación",
@@ -130,10 +132,53 @@
     if (p.operator) filas.push(["Operador (según OSM)", p.operator]);
     if (p.content || p.product) filas.push(["Contenido (según OSM)", p.content || p.product]);
     if (p.intermittent === "yes") filas.push(["Curso", "Intermitente"]);
+    if (p.lifeguard && TIPO_GUARDAVIDAS[p.lifeguard]) filas.push(["Tipo", TIPO_GUARDAVIDAS[p.lifeguard]]);
+    if (p.seasonal === "summer") filas.push(["Temporada", "Funciona en verano"]);
     return (
       "<h3>" + esc(p.name || categoriaOsm(p) || "Elemento de OpenStreetMap") + "</h3>" +
       (p.name && categoriaOsm(p) ? "<div>" + esc(categoriaOsm(p)) + "</div>" : "") +
       (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
+      '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
+    );
+  }
+
+  function notaFuente(p) {
+    if (p.fuente === "Provincia de Buenos Aires") {
+      return '<p class="nota">Fuente: ' + enlace("https://catalogo.datos.gba.gob.ar/es_AR/dataset/comisarias", "Ministerio de Seguridad de la Provincia de Buenos Aires, Comisarías") + " (CC BY 4.0).</p>";
+    }
+    return p.fuente === "IGN"
+      ? '<p class="nota">' + esc(CITA_IGN) + (p.fuente_captura ? " Fuente de captura: " + esc(p.fuente_captura) + "." : "") + "</p>"
+      : '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.ref, "OpenStreetMap, " + p.ref) + " (ODbL).</p>";
+  }
+
+  // Organismos de respuesta: IGN (policía, Prefectura, bomberos) y OpenStreetMap (el resto).
+  function popupOrganismo(p) {
+    const filas = [["Organismo", p.organismo]];
+    if (p.official_name) filas.push(["Nombre oficial", p.official_name]);
+    if (p.description) filas.push(["Descripción (según OSM)", p.description]);
+    if (p.lifeguard && TIPO_GUARDAVIDAS[p.lifeguard]) filas.push(["Tipo", TIPO_GUARDAVIDAS[p.lifeguard]]);
+    if (p.seasonal === "summer") filas.push(["Temporada", "Funciona en verano"]);
+    if (p.localidad) filas.push(["Localidad", p.localidad]);
+    return (
+      "<h3>" + esc(p.nombre || p.organismo) + "</h3>" +
+      "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
+      notaFuente(p)
+    );
+  }
+
+  function popupRefugio(p) {
+    return (
+      "<h3>" + esc(p.nombre || p.tipo) + "</h3>" +
+      "<div>Lugar de refugio (" + esc(p.tipo.toLowerCase()) + ")</div>" +
+      '<p class="nota">' + esc(p.fuente) + " No es una lista oficial: ante una emergencia, el lugar de evacuación lo indica Defensa Civil.</p>" +
+      notaFuente({ fuente: "OpenStreetMap", ref: p.ref })
+    );
+  }
+
+  function popupTorre(p) {
+    const kv = (p.tension_kv || []).map(function (v) { return String(v).replace(".", ",") + " kV"; }).join(" y ");
+    return (
+      "<h3>" + (p.power === "tower" ? "Torre" : "Poste") + " de línea eléctrica" + (kv ? ", " + esc(kv) : "") + "</h3>" +
       '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
     );
   }
@@ -232,7 +277,8 @@
       return {
         color: e.color,
         weight: capa.id === "limite" ? 2.5 : e.grosor || (esArea ? 1 : 1.8),
-        dashArray: e.trazo || null,
+        // Media tensión: tendido aéreo con línea llena, subterráneo con línea punteada.
+        dashArray: (e.lineas && feature.properties.tipo && (feature.properties.tipo.indexOf("Subterr") === 0 ? e.lineas["Subterránea"] : e.lineas["Aérea"])) || e.trazo || null,
         fill: esArea && e.relleno !== false,
         fillColor: e.relleno || e.color,
         fillOpacity: 0.45,
@@ -284,7 +330,8 @@
           radius: (e.radio || 4) + (n > 1 ? Math.min(8, Math.sqrt(n) * 2) : 0),
           color: "#ffffff",
           weight: 1,
-          fillColor: e.color,
+          // Organismos de respuesta: un color por organismo.
+          fillColor: (e.colores && e.colores[f.properties.organismo]) || e.color,
           fillOpacity: 0.85,
         });
       },
@@ -292,7 +339,10 @@
         if (capa.id === "limite") return;
         l.bindPopup(function () {
           if (capa.id === "inventario_local") return popupInventario(f.properties);
+          if (capa.id === "organismos") return popupOrganismo(f.properties);
+          if (capa.id === "refugios") return popupRefugio(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
+          if (capa.id === "torres_postes") return popupTorre(f.properties);
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
           if (esIgn(capa)) return popupIgn(f.properties);
           return popupOsm(f.properties);
@@ -387,6 +437,19 @@
     const verificada = capa.estado === "verificada";
     div.className = "capa" + (verificada ? "" : " pendiente");
     const cuenta = verificada && capa.id !== "limite" ? '<span class="capa-cuenta">' + numero(capa.elementos) + (capa.elementos === 1 ? " elemento" : " elementos") + "</span>" : "";
+    // Leyenda por organismo, con la cantidad de cada uno (0 = todavía sin cargar).
+    const colores = (capa.estilo || {}).colores;
+    const lineas = (capa.estilo || {}).lineas;
+    const leyenda = !verificada ? ""
+      : colores ? '<ul class="leyenda-tipos">' + Object.keys(colores).map(function (k) {
+          const n = (capa.por_organismo || {})[k] || 0;
+          return '<li><span class="punto-leyenda" style="background:' + esc(colores[k]) + '"></span>' + esc(k) + " (" + numero(n) + ")</li>";
+        }).join("") + "</ul>"
+      : lineas ? '<ul class="leyenda-tipos">' + Object.keys(lineas).map(function (k) {
+          const n = (capa.por_tipo || {})[k] || 0;
+          return '<li><span class="linea-leyenda' + (lineas[k] ? " punteada" : "") + '" style="border-color:' + esc(capa.estilo.color) + '"></span>' + esc(k) + " (" + numero(n) + ")</li>";
+        }).join("") + "</ul>"
+      : "";
     div.innerHTML =
       '<div class="capa-fila">' +
       (verificada
@@ -394,7 +457,7 @@
           muestraDe(capa) + '<span><span class="capa-nombre">' + esc(capa.nombre) + "</span><br>" + cuenta + "</span></label>"
         : "<label>" + muestraDe(capa) + '<span><span class="capa-nombre">' + esc(capa.nombre) + '</span><br><span class="etiqueta-pendiente">pendiente de fuente</span></span></label>') +
       '<button type="button" class="capa-info" aria-expanded="false" aria-controls="ficha-' + esc(capa.id) + '">Fuente</button>' +
-      "</div>" +
+      "</div>" + leyenda +
       '<div class="ficha" id="ficha-' + esc(capa.id) + '" hidden>' + fichaDe(capa) + "</div>";
 
     const boton = div.querySelector(".capa-info");
