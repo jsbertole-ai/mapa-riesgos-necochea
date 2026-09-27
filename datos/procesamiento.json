@@ -534,7 +534,7 @@
     "fecha_datos": null
   },
   "bomberos": {
-    "procesado": "2026-09-26T23:47:50+00:00",
+    "procesado": "2026-09-27T01:04:40+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "elementos": 2,
@@ -546,7 +546,7 @@
     }
   },
   "defensa_civil": {
-    "procesado": "2026-09-26T23:47:50+00:00",
+    "procesado": "2026-09-27T01:04:40+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "elementos": 1,
@@ -558,7 +558,7 @@
     }
   },
   "monitoreo": {
-    "procesado": "2026-09-26T23:47:50+00:00",
+    "procesado": "2026-09-27T01:04:40+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "elementos": 1,
@@ -568,5 +568,17 @@
       "fuera_del_partido": 2,
       "geometria_incompleta": 0
     }
+  },
+  "media_tension": {
+    "procesado": "2026-09-27T01:06:18+00:00",
+    "archivo_crudo": "energia/-buenos-aires-alta-tensin-media-tensin-lneas.zip",
+    "sha256_crudo": "4674d971f0d3765867acdf1d90e3d4bcee700747689dc658c457fe4b5d4f6e9e",
+    "elementos": 5502,
+    "tramos_en_la_provincia": 225185,
+    "tramos_por_tension_kv": {
+      "13.2": 5500,
+      "33.0": 2
+    },
+    "fecha_datos": null
   }
 }

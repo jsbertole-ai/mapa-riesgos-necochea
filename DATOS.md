@@ -296,7 +296,7 @@ Pendientes:
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
 6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
 7. **Información naval (sección 11): relevada, sin fuente reutilizable.** Pedir por escrito al Servicio de Hidrografía Naval (shn@hidro.gov.ar; mareas y alertas: pronomarea@hidro.gov.ar; informes: ceado@hidro.gov.ar): (a) bajo qué licencia están los conjuntos de "Datos Abiertos" y las capas WFS de batimetría y línea de costa; (b) si autorizan enlazar sus páginas; (c) si existe una serie de alturas del mareógrafo de Quequén y en qué condiciones se entrega; (d) si sus avisos de crecida de la costa atlántica aplican a Necochea. Sin respuesta, queda el pedido de acceso a la información pública (Ley 27.275) al Ministerio de Defensa.
-8. **Prefectura Naval (11.1):** revisar a mano https://www.prefecturanaval.gob.ar/ (504 desde el entorno).
+8. **Prefectura Naval (11.1):** Sebastián revisó https://www.argentina.gob.ar/prefecturanaval sin encontrar datos de interés; el recorrido del 27/09/2026 (60 páginas y la Memoria Anual 2025) tampoco: solo totales nacionales. Por decisión de Sebastián (27/09/2026) su sede se publica en la capa de respuesta, por su función de salvamento; falta traerla de OpenStreetMap cuando Overpass responda (`python3 scripts/descargar_osm.py respuesta`).
 9. **SMN (sección 12):** revisar a mano la licencia en https://www.smn.gob.ar/descarga-de-datos (Cloudflare bloquea al entorno) y decidir si se arma un archivo propio de las alertas del SMN que alcanzan al partido.
 10. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
 11. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
@@ -411,6 +411,19 @@ Decisión de Sebastián (27/09/2026): el proyecto arma su propio registro de eve
 | Formulario y procesamiento | `scripts/generar_formulario.py` arma el XLSForm (`datos/inventario/formulario_inventario.xlsx`, convertido sin errores con pyxform, el mismo motor que usa KoboToolbox). `scripts/procesar_inventario.py` publica solo los aprobados que pasan los controles (campos, listas, fechas, enlace, cantidades, rastros de datos personales, punto dentro del partido, duplicados). Los registros sin punto se agrupan en el punto de su localidad (IGN). El título de la nota y el usuario de Kobo nunca se publican. |
 | Estado | Formulario listo para subir a Kobo; todavía no hay registros aprobados, así que la capa figura como "pendiente". |
 
+## 10 bis. Líneas de media tensión (Secretaría de Energía) · **Verificada** · en uso
+
+| Campo | Detalle |
+|---|---|
+| Organismo | Secretaría de Energía de la Nación, con datos del Consejo Federal de la Energía Eléctrica (CFEE). |
+| Conjunto | "Redes de distribución eléctrica del Consejo Federal", https://datos.gob.ar/dataset/redes-de-distribucion-electrica-del-consejo-federal. Recurso "Redes de distribución eléctrica de BUENOS AIRES (solo cooperativas) - CFEE - Líneas Media y Alta Tensión". |
+| URL de descarga | http://datos.energia.gob.ar/dataset/ff99e7be-7bab-4617-9588-9a74ae046a40/resource/be371445-5d0a-4ad7-8346-f1cdfb89c66f/download/-buenos-aires-alta-tensin-media-tensin-lneas.zip (solo HTTP: el entorno no la alcanza; Sebastián la bajó a mano el 27/09/2026; SHA-256 4674d971f0d37658…). |
+| Fecha | Recurso modificado el 30/05/2022 según datos.gob.ar; la fuente no informa la fecha del relevamiento. |
+| Licencia | CC BY 4.0: `"license_id": "CC-BY-4.0"` en https://datos.gob.ar/api/3/action/package_show?id=redes-de-distribucion-electrica-del-consejo-federal (leído el 27/09/2026). |
+| Formato | Shapefile de líneas, WGS 84; 225.185 tramos en la provincia. |
+| Cobertura en el partido | 5.502 tramos (5.500 de 13,2 kV y 2 de 33 kV), alrededor de 1.850 km: las seis localidades y la zona rural. |
+| Limitaciones | Foto de 2022. El campo de cooperativa está vacío en casi todos los tramos del partido (inferido, sin confirmar: la red de Necochea y Quequén sería la de la Usina Popular Cooperativa). No incluye alta ni baja tensión. |
+
 ## 11. Información naval (Servicio de Hidrografía Naval) · **Identificada, sin licencia de reutilización** · no se usa como capa
 
 Relevamiento del 27/09/2026, por HTTPS, desde el entorno. Los "datos de la Armada" están en el sitio del Servicio de Hidrografía Naval (SHN), https://www.hidro.gov.ar, que según su página institucional "tiene dependencia orgánica de la Subsecretaría de Investigación Científica y Política Industrial para la Defensa del Ministerio de Defensa". Los sitios de la Armada no publican datos.
@@ -445,6 +458,7 @@ Comprobado en https://www.argentina.gob.ar/prefecturanaval/ambitos-actuacion-des
 
 Relevamiento del 27/09/2026, por HTTPS, desde el entorno.
 
+- **Licencia general del SMN (comprobada):** "Términos y condiciones de uso" (PDF "SMN_PAD_legales.pdf", año 2018, provisto por Sebastián el 27/09/2026 desde smn.gob.ar): "El SMN licencia todos sus contenidos bajo la licencia Creative Commons Atribución 2.5 Argentina, cuyo texto legal puede encontrarse en http://creativecommons.org/licenses/by/2.5/ar/legalcode." El canal de alertas declara CC BY 4.0 (abajo). Las dos permiten reutilizar citando al SMN.
 - **www.smn.gob.ar no responde al entorno:** Cloudflare devuelve "Sorry, you have been blocked" (403) en la portada, en https://www.smn.gob.ar/descarga-de-datos y en los términos. Sin rodeos: Sebastián tiene que revisar a mano en esas páginas la licencia de los datos descargables.
 - **Alertas en formato CAP 1.2:** https://ssl.smn.gob.ar/CAP/AR.php. El canal declara textualmente: "Copyright 2025 SMN | Derechos de autor, Servicio Meteorologico Nacional (SMN). Licencia CC BY 4.0." Cada alerta trae evento, severidad, certeza, vigencia (onset y expires), descripción, instrucciones y el polígono del área. Comprobado: el 27/09/2026 a las 00:48 UTC había 49 alertas vigentes, y 3 de ellas (lluvias, del 29/09 de 9 a 15 h, "precipitación acumulada entre 30 y 50 mm") abarcaban el partido. A diferencia de las del SHN (sección 11), las alertas del SMN sí cubren Necochea. Limitaciones: el canal solo muestra las vigentes (no hay archivo histórico en él) y no envía encabezados CORS, así que el sitio no lo puede leer desde el navegador.
 - **Datos de estaciones** (datos.gob.ar, organización "servicio-meteorologico-nacional", 7 conjuntos: estaciones, datos horarios, temperaturas extremas, registro de 365 días, radiación solar, tiempo presente y pronóstico a 5 días; descarga en https://ssl.smn.gob.ar/dpd/zipopendata.php?dato=...): el campo de licencia está vacío en los 7 ("isopen": false). Además, **ninguna estación del SMN está en el partido**: las más cercanas son Mar del Plata Aero (124 km del centro de Necochea), Benito Juárez Aero (131 km) y Tres Arroyos (136 km), según el listado de estaciones (https://ssl.smn.gob.ar/dpd/zipopendata.php?dato=estaciones). Sus series describen otros lugares, no el partido. El pronóstico a 5 días bajó vacío (0 bytes) el 27/09/2026.

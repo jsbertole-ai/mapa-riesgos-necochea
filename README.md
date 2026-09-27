@@ -60,6 +60,7 @@ Eso corre, en orden:
 2. `descargar_firms.py`: baja los resúmenes anuales de focos de calor de NASA FIRMS para la Argentina (MODIS desde 2000, VIIRS S-NPP desde 2012), guarda solo lo que cae en la zona y recorta por el partido. Los años que FIRMS todavía no publicó responden 404 y se saltean.
 3. `descargar_osm.py`: consulta OpenStreetMap por la API Overpass (hidrografía detallada e instalaciones portuarias e industriales), descarta vigilancia y policía, y recorta por el partido.
 4. `descargar_ign.py`: pide al servicio WFS del Instituto Geográfico Nacional, solo para la zona del partido, catorce capas (hidrografía, curvas de nivel, vegetación hidrófila, puentes, forestaciones, puerto, energía, industria, ferrocarril, rutas, localidades, planta urbana, escuelas y salud) y las recorta por el partido. Es el mismo servicio que usa el botón "Descargar capa" del sitio del IGN.
+4 bis. `descargar_energia.py`: líneas de media tensión de la Secretaría de Energía (CC BY 4.0). Su servidor solo sirve por HTTP; si la descarga falla, usa el ZIP bajado a mano en `datos/crudos/energia/` (la URL está en el script).
 5. `descargar_indicadores.py`: indicadores del IGN para el partido (eventos registrados en DesInventar entre 1970 y 2015, índice de vulnerabilidad social frente a desastres y niveles regionales del SINAGIR), que la Metodología muestra en "El partido en las estadísticas nacionales".
 6. `procesar_inventario.py`: toma la exportación más reciente de KoboToolbox que haya en `datos/crudos/inventario/` y publica solo los registros aprobados que pasan los controles (ver "Inventario local"). Si no hay exportación, no hace nada.
 7. `verificar.py`: controla cada capa (archivo válido, dentro del partido, sin etiquetas excluidas y con la licencia confirmada en la página de la fuente) y genera `docs/datos/capas.json`. Una capa que no pasa los controles se publica como "pendiente de fuente".
@@ -67,7 +68,7 @@ Eso corre, en orden:
 Después de actualizar:
 
 - Revisá lo que cambió (`git diff --stat`) y anotá en `DATOS.md` la nueva fecha de los datos.
-- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v2` a `mapa-riesgos-v3`), así los celulares con la aplicación instalada descartan la copia vieja.
+- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v3` a `mapa-riesgos-v4`), así los celulares con la aplicación instalada descartan la copia vieja.
 - Subí los cambios a `main`.
 
 ### Si un sitio no deja descargar

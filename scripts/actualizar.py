@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
-PASOS = ["descargar_limite.py", "descargar_firms.py", "descargar_osm.py", "descargar_ign.py", "descargar_indicadores.py",
+PASOS = ["descargar_limite.py", "descargar_firms.py", "descargar_osm.py", "descargar_ign.py", "descargar_energia.py", "descargar_indicadores.py",
          "procesar_inventario.py", "verificar.py"]
 
 

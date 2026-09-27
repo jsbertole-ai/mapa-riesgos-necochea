@@ -10,7 +10,8 @@ elemento con al menos un vértice dentro del partido.
 
 Exclusiones (DATOS.md, sección 4): se descartan en la consulta y otra vez al
 procesar los elementos con man_made=surveillance, amenity=police o claves de
-vigilancia. Además solo se conservan las etiquetas de la lista TAGS_CONSERVADAS,
+vigilancia. Única excepción: la Prefectura Naval Argentina, que se publica por su
+función de salvamento (ver comun.excluido_osm). Además solo se conservan las etiquetas de la lista TAGS_CONSERVADAS,
 para no arrastrar teléfonos, correos ni otros datos de contacto.
 
 Licencia: ODbL 1.0. Los archivos resultantes son una base derivada de
@@ -22,15 +23,22 @@ import sys
 import time
 import urllib.parse
 
-from comun import (CLAVES_EXCLUIDAS_OSM, CRUDOS, EXCLUSIONES_OSM, SITIO_DATOS, ErrorRed,
-                   anotar_procesamiento, aviso, cargar_limite, coleccion, descargar, escribir_json,
+from comun import (CRUDOS, SITIO_DATOS, ErrorRed, anotar_procesamiento, es_prefectura, excluido_osm, aviso, cargar_limite, coleccion, descargar, escribir_json,
                    punto_en_geometria, sha256)
 
 OVERPASS = "https://overpass-api.de/api/interpreter"
 
+# La policía se excluye salvo la Prefectura Naval (salvamento; decisión de Sebastián, 27/09/2026).
+POLICIA_EN_CONSULTA = """
+(nwr["amenity"="police"]({caja});) -> .policia;
+(nwr.policia["name"~"prefectura",i]; nwr.policia["official_name"~"prefectura",i];
+ nwr.policia["operator"~"prefectura",i];) -> .prefectura;
+(.policia; - .prefectura;) -> .policia_excluida;
+"""
+
 EXCLUIR_EN_CONSULTA = """
   nwr["man_made"="surveillance"]({caja});
-  nwr["amenity"="police"]({caja});
+  .policia_excluida;
   nwr["surveillance"]({caja});
   nwr["surveillance:type"]({caja});
 """
@@ -51,6 +59,8 @@ CONSULTAS = {
   nwr["amenity"="fire_station"]({caja});
   nwr["name"~"Defensa Civil",i]({caja});
   nwr["name"~"Centro Operativo de Monitoreo",i]({caja});
+  nwr["name"~"prefectura",i][!"highway"]({caja});
+  nwr["operator"~"prefectura",i][!"highway"]({caja});
 """,
 }
 
@@ -96,14 +106,13 @@ def armar_consulta(cuerpo, caja):
     c = f"{s},{o},{n},{e}"
     return (f"[out:json][timeout:180];\n"
             f"(\n{cuerpo.format(caja=c)}) -> .todo;\n"
+            f"{POLICIA_EN_CONSULTA.format(caja=c)}"
             f"(\n{EXCLUIR_EN_CONSULTA.format(caja=c)}) -> .excluido;\n"
             f"(.todo; - .excluido;);\nout body geom;\n")
 
 
 def excluido(tags):
-    if any(tags.get(k) == v for k, v in EXCLUSIONES_OSM):
-        return True
-    return any(k in tags for k in CLAVES_EXCLUIDAS_OSM)
+    return excluido_osm(tags)
 
 
 def es_area(tags):
@@ -221,6 +230,10 @@ def procesar(nombre, crudo, limite, caja):
                 capa = "defensa_civil"
             elif "monitoreo" in nombre_el:
                 capa = "monitoreo"
+            elif es_prefectura(tags) and "highway" not in tags:
+                # No se publica la etiqueta de policía: se muestra como lo que es, Prefectura Naval.
+                props.pop("amenity", None)
+                capa = "prefectura"
             else:
                 continue
         else:

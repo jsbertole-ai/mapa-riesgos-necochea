@@ -53,11 +53,37 @@
     attribution: '© <a href="https://www.openstreetmap.org/copyright">colaboradores de OpenStreetMap</a> (ODbL)',
   }).addTo(mapa);
 
-  // Capas de dibujo: polígonos abajo, puntos arriba, límite encima de todo y sin clics.
-  [["poligonos", 410], ["lineas", 420], ["puntos", 430], ["limite", 440]].forEach(function (p) {
+  // Todas las capas se dibujan en un solo lienzo: con un lienzo por capa de dibujo, el de arriba se queda
+  // con los clics y las líneas y polígonos de abajo no responden. El orden (polígonos abajo, líneas en el
+  // medio, puntos arriba) lo mantiene ordenarDibujo(). El límite va aparte, encima de todo y sin clics.
+  // La tolerancia de 6 px permite tocar líneas finas (media tensión, arroyos) en el celular.
+  [["dibujo", 420], ["limite", 440]].forEach(function (p) {
     mapa.createPane(p[0]).style.zIndex = p[1];
   });
   mapa.getPane("limite").style.pointerEvents = "none";
+  const LIENZOS = {
+    dibujo: L.canvas({ pane: "dibujo", tolerance: 6 }),
+    limite: L.canvas({ pane: "limite" }),
+  };
+  function lienzo(pane) {
+    return pane === "limite" ? LIENZOS.limite : LIENZOS.dibujo;
+  }
+
+  function cadaTrazo(capa, fn) {
+    if (capa.eachLayer) capa.eachLayer(function (l) { cadaTrazo(l, fn); });
+    else if (capa.bringToFront) fn(capa);
+  }
+
+  function ordenarDibujo() {
+    const capas = Object.values(estado.capasLeaflet).filter(function (c) { return mapa.hasLayer(c); });
+    [L.Polyline, L.CircleMarker].forEach(function (clase) {
+      capas.forEach(function (c) {
+        cadaTrazo(c, function (l) {
+          if (l instanceof clase && !(clase === L.Polyline && l instanceof L.Polygon)) l.bringToFront();
+        });
+      });
+    });
+  }
 
   function esc(v) {
     return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) {
@@ -106,6 +132,20 @@
       (p.name && categoriaOsm(p) ? "<div>" + esc(categoriaOsm(p)) + "</div>" : "") +
       (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
       '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
+    );
+  }
+
+  // Media tensión (Secretaría de Energía): tensión y tipo de cada tramo.
+  function popupMediaTension(p) {
+    const filas = [];
+    if (p.tipo) filas.push(["Tendido", p.tipo]);
+    if (p.clase) filas.push(["Clase", p.clase]);
+    if (p.funcion) filas.push(["Función", p.funcion]);
+    if (p.cooperativa) filas.push(["Cooperativa", p.cooperativa]);
+    return (
+      "<h3>Línea de media tensión" + (p.tension_kv ? ", " + esc(String(p.tension_kv).replace(".", ",")) + " kV" : "") + "</h3>" +
+      (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
+      '<p class="nota">Fuente: Secretaría de Energía de la Nación (CFEE), datos de 2022. CC BY 4.0.</p>'
     );
   }
 
@@ -191,7 +231,8 @@
         fill: esArea && e.relleno !== false,
         fillColor: e.relleno || e.color,
         fillOpacity: 0.45,
-        pane: capa.id === "limite" ? "limite" : esArea ? "poligonos" : "lineas",
+        pane: capa.id === "limite" ? "limite" : "dibujo",
+        renderer: lienzo(capa.id === "limite" ? "limite" : "dibujo"),
       };
     };
   }
@@ -212,14 +253,14 @@
       // las estaciones, como círculos blancos con borde negro.
       const esLinea = function (f) { return f.geometry.type !== "Point" && f.geometry.type !== "MultiPoint"; };
       const base = L.geoJSON(datos, {
-        style: { color: e.color, weight: 5, pane: "lineas" },
+        style: { color: e.color, weight: 5, pane: "dibujo", renderer: lienzo("dibujo") },
         attribution: ATRIBUCION_IGN,
         pointToLayer: function (f, latlng) {
-          return L.circleMarker(latlng, { pane: "puntos", radius: 4, color: e.color, weight: 2, fillColor: "#ffffff", fillOpacity: 1 });
+          return L.circleMarker(latlng, { pane: "dibujo", renderer: lienzo("dibujo"), radius: 4, color: e.color, weight: 2, fillColor: "#ffffff", fillOpacity: 1 });
         },
         onEachFeature: function (f, l) { l.bindPopup(function () { return popupIgn(f.properties); }); },
       });
-      const trazos = L.geoJSON(datos, { filter: esLinea, style: { color: "#ffffff", weight: 2.5, dashArray: "7 7", pane: "lineas" }, interactive: false });
+      const trazos = L.geoJSON(datos, { filter: esLinea, style: { color: "#ffffff", weight: 2.5, dashArray: "7 7", pane: "dibujo", renderer: lienzo("dibujo") }, interactive: false });
       return L.featureGroup([base, trazos]);
     }
     return L.geoJSON(datos, {
@@ -228,11 +269,12 @@
       interactive: capa.id !== "limite",
       attribution: capa.id.startsWith("incendios_") ? 'Focos de calor: <a href="https://firms.modaps.eosdis.nasa.gov/">NASA FIRMS</a>'
         : esIgn(capa) ? ATRIBUCION_IGN
+        : capa.id === "media_tension" ? 'Media tensión: <a href="https://datos.gob.ar/dataset/redes-de-distribucion-electrica-del-consejo-federal">Secretaría de Energía</a> (CC BY 4.0)'
         : null,
       pointToLayer: function (f, latlng) {
         const n = f.properties.registros ? f.properties.registros.length : 1;
         return L.circleMarker(latlng, {
-          pane: "puntos",
+          pane: "dibujo", renderer: lienzo("dibujo"),
           // En el inventario, los marcadores por localidad crecen con la cantidad de registros.
           radius: (e.radio || 4) + (n > 1 ? Math.min(8, Math.sqrt(n) * 2) : 0),
           color: "#ffffff",
@@ -245,6 +287,7 @@
         if (capa.id === "limite") return;
         l.bindPopup(function () {
           if (capa.id === "inventario_local") return popupInventario(f.properties);
+          if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
           if (esIgn(capa)) return popupIgn(f.properties);
           return popupOsm(f.properties);
@@ -275,6 +318,7 @@
     if (actual) mapa.removeLayer(actual);
     const nueva = crearCapaLeaflet(capa, datos).addTo(mapa);
     estado.capasLeaflet[capa.id] = nueva;
+    ordenarDibujo();
     if (capa.id === "limite" && !estado.encuadrado) {
       mapa.fitBounds(nueva.getBounds(), { padding: [16, 16] });
       estado.encuadrado = true;
@@ -337,7 +381,7 @@
     const div = document.createElement("div");
     const verificada = capa.estado === "verificada";
     div.className = "capa" + (verificada ? "" : " pendiente");
-    const cuenta = verificada && capa.id !== "limite" ? '<span class="capa-cuenta">' + numero(capa.elementos) + " elementos</span>" : "";
+    const cuenta = verificada && capa.id !== "limite" ? '<span class="capa-cuenta">' + numero(capa.elementos) + (capa.elementos === 1 ? " elemento" : " elementos") + "</span>" : "";
     div.innerHTML =
       '<div class="capa-fila">' +
       (verificada

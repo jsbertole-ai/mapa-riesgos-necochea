@@ -19,8 +19,8 @@ import json
 import re
 import sys
 
-from comun import (CLAVES_EXCLUIDAS_OSM, CRUDOS, EXCLUSIONES_OSM, FUENTES, PROCESAMIENTO, RAIZ, REGISTRO,
-                   SITIO_DATOS, ErrorRed, ahora, aviso, descargar, escribir_json, hoy, leer_json, vertices)
+from comun import (CRUDOS, FUENTES, PROCESAMIENTO, RAIZ, REGISTRO,
+                   SITIO_DATOS, ErrorRed, ahora, aviso, descargar, escribir_json, excluido_osm, hoy, leer_json, vertices)
 
 LICENCIAS = RAIZ / "datos" / "licencias_verificadas.json"
 
@@ -35,7 +35,9 @@ def texto_plano(contenido):
 def verificar_licencia(capa, offline, cache):
     if capa.get("licencia_propia"):
         return True, capa["licencia_propia"]
-    url, frase = capa.get("url_licencia"), capa.get("frase_licencia")
+    # Si la licencia está declarada en otro lugar (por ejemplo, la API de datos.gob.ar), se controla ahí;
+    # url_licencia sigue siendo el texto de la licencia que ve el público.
+    url, frase = capa.get("url_declaracion_licencia") or capa.get("url_licencia"), capa.get("frase_licencia")
     if not url or not frase:
         return False, "Sin URL o frase de licencia en fuentes.json."
     if not offline:
@@ -59,7 +61,7 @@ def verificar_licencia(capa, offline, cache):
 
 
 def excluido(tags):
-    return any(tags.get(k) == v for k, v in EXCLUSIONES_OSM) or any(k in tags for k in CLAVES_EXCLUIDAS_OSM)
+    return excluido_osm(tags)
 
 
 def verificar_archivo(capa, caja):
