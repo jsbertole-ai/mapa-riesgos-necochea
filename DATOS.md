@@ -315,6 +315,7 @@ Pendientes:
 9. **SMN (sección 12):** revisar a mano la licencia en https://www.smn.gob.ar/descarga-de-datos (Cloudflare bloquea al entorno) y decidir si se arma un archivo propio de las alertas del SMN que alcanzan al partido.
 10. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
 11. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
+13. **Visor provincial de estaciones meteorológicas (sección 14):** localizar la URL, ver si publica datos abiertos y con qué licencia.
 12. **Red de asistencia (sección 13):** bajar a mano los puntos de Cáritas del partido desde Mapa Poblaciones y revisar la página de la DGCyE; ver 13.1 y 13.3.
 
 Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `datos/crudos/` para procesarlo con `python3 scripts/actualizar.py --offline` (instrucciones en el README).
@@ -552,3 +553,11 @@ Idea de Sebastián (27/09/2026): además de los organismos de respuesta, el mapa
 - DGCyE, centros socioeducativos y comunitarios: https://abc.gob.ar/secretarias/areas/subsecretaria-de-educacion/politicas-socioeducativas/centros-socioeducativos-y-comunitarios-0. El servidor usa una clave Diffie-Hellman demasiado corta y el entorno rechaza la conexión ("dh key too small"); no se baja la seguridad. Sebastián la revisa a mano.
 - Hogar de Cristo, centros barriales: https://hogardecristo.org.ar/centro-barrial/. La página explica qué es un centro barrial, pero no publica una lista ni un mapa de ubicaciones; Necochea no aparece.
 - Cruz Roja Argentina, filiales: ver la sección 9.
+
+## 14. Contexto: El Niño 2026-27 (relevamiento del 27/09/2026) · **Contexto, no capa**
+
+- **Estado del fenómeno (comprobado):** el Climate Prediction Center de la NOAA, en su discusión diagnóstica del 10/09/2026 (https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml), mantiene el estado "El Niño Advisory": "El Niño is strengthening, with a greater than 90% chance of a very strong event during the Northern Hemisphere fall and winter 2026-27", y para octubre-diciembre de 2026 da "a 75% chance of a historic event that would exceed the strength of previous El Niño events dating back to 1950". Próxima discusión: 08/10/2026.
+- **Relación con las inundaciones (comprobado en el plan nacional):** el Plan Nacional para la Reducción del Riesgo de Desastres 2025-2029 (aprobado por la Resolución 334/2026) dice que "las inundaciones regionales que afectan a la Argentina están principalmente vinculadas a la fase cálida del fenómeno 'El Niño-Oscilación Sur'" (p. 20). El plan no trae datos específicos del sudeste bonaerense ni de la cuenca del Quequén.
+- **Respuesta provincial (comprobado en el sitio del municipio):** nota del 27/08/2026 (https://necochea.gov.ar/el-intendente-rojas-fue-parte-de-la-presentacion-del-plan-de-prevencion-y-mitigacion-del-nino-junto-a-kicillof/): la Provincia presentó el plan de "Políticas de Prevención y Mitigación del fenómeno del Súper Niño", creó una mesa interministerial (con la ADA, entre otros) y, según el ministro de Infraestructura, "un visor provincial de estaciones meteorológicas". El intendente de Necochea estuvo presente. La nota no detalla obras ni planes para Necochea.
+- **Plan municipal de gestión integral del riesgo:** la Resolución 367/2021 del Ministerio de Seguridad provincial aprueba los "Lineamientos para la Elaboración del Plan de Gestión Integral del Riesgo" para los municipios (https://normas.gba.gob.ar/ar-b/resolucion/2021/367/233391). En el sitio del municipio no se encontró un plan de Necochea publicado (búsquedas del 27/09/2026: "plan de gestión integral del riesgo", "gestión integral del riesgo", "plan de contingencia", "mapa de riesgo"). No encontrarlo publicado no prueba que no exista.
+
