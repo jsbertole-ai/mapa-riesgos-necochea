@@ -6,7 +6,7 @@ Uso:  python3 scripts/verificar.py            (vuelve a leer las páginas de lic
 Una capa queda "verificada" solo si pasa todos los controles:
   1. el archivo existe, es GeoJSON válido y tiene elementos;
   2. todos los elementos tocan el partido (al menos un vértice dentro de su caja);
-  3. ningún elemento lleva etiquetas excluidas (vigilancia, policía), ni en el
+  3. ningún elemento lleva etiquetas excluidas (vigilancia), ni en el
      archivo publicado ni en la respuesta cruda de OpenStreetMap;
   4. la página de licencia de la fuente contiene la frase esperada (fuentes.json).
      En el inventario local, que es fuente propia, la licencia no se lee de una página:
@@ -95,7 +95,7 @@ def verificar_crudo_osm(proc):
     n = sum(excluido(e.get("tags") or {}) for e in datos.get("elements", []))
     if n:
         return False, f"La respuesta cruda de Overpass trae {n} elementos excluidos (la consulta no los filtró)."
-    return True, "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía."
+    return True, "La respuesta cruda de Overpass no trae elementos de vigilancia."
 
 
 def fecha_de_datos(capa, proc, registro):
@@ -126,6 +126,8 @@ def main():
         c.pop("frase_licencia", None)
         c.pop("fecha_datos_fija", None)
         c.pop("licencia_propia", None)
+        c.pop("licencias_extra", None)
+        c.pop("crudo_osm", None)
         c.pop("mensaje_sin_archivo", None)
         if not capa.get("archivo"):
             c["estado"] = "sin_fuente"
@@ -140,9 +142,12 @@ def main():
             ok, msj, n = verificar_archivo(capa, caja)
             controles.append((ok, msj))
         proc = procesamiento.get(capa["id"], {})
-        if capa["licencia"].startswith("ODbL") and proc:
+        if (capa["licencia"].startswith("ODbL") or capa.get("crudo_osm")) and proc and proc.get("sha256_crudo"):
             controles.append(verificar_crudo_osm(proc))
         controles.append(verificar_licencia(capa, offline, cache))
+        # Capas con más de una fuente (por ejemplo, IGN y OpenStreetMap): se confirma cada licencia.
+        for extra in capa.get("licencias_extra", []):
+            controles.append(verificar_licencia(extra, offline, cache))
         verificada = all(ok for ok, _ in controles)
         c["estado"] = "verificada" if verificada else "pendiente"
         if verificada:
@@ -150,6 +155,8 @@ def main():
         c["elementos"] = n
         c["fecha_datos"] = fecha_de_datos(capa, proc, registro) if proc else None
         c["procesado"] = proc.get("procesado")
+        if proc.get("por_organismo") is not None:
+            c["por_organismo"] = proc["por_organismo"]
         if capa["id"].startswith("incendios_"):
             c["focos_por_anio"] = proc.get("focos_por_anio")
             c["focos_por_tipo"] = proc.get("focos_por_tipo")

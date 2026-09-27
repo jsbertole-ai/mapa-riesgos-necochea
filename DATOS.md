@@ -276,11 +276,11 @@ El catálogo provincial también publica "Unidades Penitenciarias" (IDEBA): **qu
 
 ## 4. Exclusiones (no se incluyen en ninguna capa)
 
-- Cámaras de videovigilancia y comisarías. El Centro Operativo de Monitoreo se publica como espacio físico (su sede es información pública, decisión de Sebastián del 26/09/2026); la ubicación de sus cámaras, nunca.
-- Excepción a la exclusión de `amenity=police`: la Prefectura Naval Argentina se publica por su función de salvamento (decisión de Sebastián, 27/09/2026). Se reconoce por "prefectura" en el nombre, el nombre oficial o el operador (`comun.excluido_osm`); sus cámaras, si las hubiera, siguen excluidas. En OSM es `way/698430678`, "Prefectura Naval Quequén" (encontrada con Nominatim el 27/09/2026); falta traerla con Overpass.
+- Cámaras de videovigilancia, en ninguna capa y de ningún organismo. El Centro Operativo de Monitoreo se publica como espacio físico (su sede es información pública, decisión de Sebastián del 26/09/2026); la ubicación de sus cámaras, nunca.
+- **Cambio del 27/09/2026 (decisión de Sebastián):** las comisarías dejan de excluirse. Todos los cuerpos que participan en la gestión del riesgo se publican juntos en la capa "Organismos de respuesta" (sección 9): sin saber dónde están, no hay gestión del riesgo posible, y la policía suele ser el primer contacto. Hasta ese día se excluían `amenity=police` y los edificios de seguridad del IGN; la Prefectura había entrado un rato antes como excepción por salvamento.
 - Datos personales.
-- En las capas del IGN no se incluyen instalaciones militares, edificios de seguridad, instituciones penitenciarias ni puestos de control. Los cuarteles de bomberos (voluntarios o no) y Defensa Civil **sí se publican**: son capacidad de respuesta, no infraestructura de seguridad (decisión de Sebastián, 26/09/2026, quien además confirmó que Defensa Civil no comparte ubicación con infraestructura excluida). En las estaciones de servicio se descartan los nombres, porque identifican a sus titulares.
-- Cómo se aplica: las consultas a OpenStreetMap restan `man_made=surveillance`, `amenity=police` (salvo la Prefectura), `surveillance=*` y `surveillance:type=*`; el script de OSM vuelve a descartar esos elementos al procesar; `scripts/verificar.py` revisa tanto la respuesta cruda como el archivo publicado, y si encontrara alguno, la capa no se publica. De cada elemento solo se conservan etiquetas descriptivas (nombre, tipo, operador, referencia), nunca teléfonos, correos ni otros datos de contacto.
+- En las capas del IGN no se incluyen instalaciones militares, instituciones penitenciarias ni puestos de control. Las estructuras operativas de policía, Prefectura y bomberos sí (sección 9). En las estaciones de servicio se descartan los nombres, porque identifican a sus titulares.
+- Cómo se aplica: las consultas a OpenStreetMap restan `man_made=surveillance`, `surveillance=*` y `surveillance:type=*`; el script de OSM vuelve a descartar esos elementos al procesar (regla única en `comun.excluido_osm`); `scripts/verificar.py` revisa tanto la respuesta cruda como el archivo publicado, y si encontrara alguno, la capa no se publica. De cada elemento solo se conservan etiquetas descriptivas (nombre, tipo, referencia), nunca teléfonos, correos, operadores que puedan ser personas ni otros datos de contacto.
 
 ---
 
@@ -380,7 +380,18 @@ Criterios aplicados:
 
 ---
 
-## 9. Capacidad de respuesta: bomberos, Defensa Civil y Centro Operativo de Monitoreo · **Verificada** · en uso
+## 9. Capacidad de respuesta: organismos de respuesta y lugares de refugio · **Verificada** · en uso
+
+Desde el 27/09/2026 hay dos capas (decisión de Sebastián): **"Organismos de respuesta"**, con todos los cuerpos que intervienen en la gestión del riesgo y los siniestros, cada uno con su color, y **"Lugares de refugio"**. Las arma `scripts/armar_respuesta.py`. Respaldo de la idea en una fuente oficial: ante el temporal del 26/08/2021, el director de Defensa Civil destacó "el notable despliegue en conjunto" con "Bomberos de Necochea y Quequén, Guardaparques, personal de la Usina Popular Cooperativa, móviles de policía de comando y [...] voluntariado de la filial local de Cruz Roja Argentina" (https://necochea.gov.ar/arboles-y-postes-caidos-techos-volados-y-cuatro-auto-evacuados-por-los-fuertes-vientos/).
+
+| Campo | Detalle |
+|---|---|
+| Organismos: IGN | WFS del IGN, capas `estructuras_operativas_y_defensivas_FA517` y `_090102` (términos del IGN, sección 8). En el partido, al 27/09/2026: Comisarías Necochea 1ª, 2ª y 3ª, Comisaría de la Mujer y la Familia Necochea, Subcomisaría J. N. Fernández, Policía Federal Argentina Delegación Necochea, Prefectura Naval Argentina Prefectura Quequén, Cuartel de Bomberos Necochea y Bomberos Voluntarios de La Dulce. El IGN no informa la fecha. Que estén todas las dependencias policiales del partido no está comprobado. |
+| Organismos: OpenStreetMap | Consulta "respuesta" (Overpass, ODbL): Defensa Civil, Centro Operativo de Monitoreo, guardavidas (`emergency=lifeguard`, `office=lifeguard`), guardaparques (`amenity=ranger_station`), Cruz Roja (por nombre), y policía, Prefectura o bomberos. Un elemento de OSM del mismo organismo a menos de 200 m de uno del IGN se descarta (con la respuesta del 26/09/2026, los dos cuarteles de bomberos). Al 27/09/2026 no hay en OSM ni guardavidas, ni guardaparques, ni Cruz Roja (Nominatim no encuentra "Cruz Roja" en el partido). |
+| Lugares de refugio | Lista en `datos/refugios.json`, indicada por Sebastián (27/09/2026): Polideportivo Municipal "Edgardo Hugo Yelpo" (`way/326255242`) y Parroquia Nuestra Señora de la Medalla Milagrosa (`way/1272959264`). Nombre y ubicación, de la API de OpenStreetMap (`api.openstreetmap.org`, que responde aunque Overpass corte). En el sitio del municipio no se encontró una nota que los designe como centros de evacuación (búsqueda del 27/09/2026): la capa aclara que no es una lista oficial. |
+| Símbolos | Los predios y edificios se publican como su punto central (centroide), para que cada organismo tenga un solo símbolo. |
+
+Registro anterior (26 y 27/09/2026), cuando cada organismo tenía su capa:
 
 Decisiones de Sebastián (26/09/2026): se publican los cuarteles de bomberos, voluntarios o no, Defensa Civil y el Centro Operativo de Monitoreo como espacio físico, porque su sede es información pública. Sus cámaras no se publican nunca.
 
@@ -394,7 +405,7 @@ Decisiones de Sebastián (26/09/2026): se publican los cuarteles de bomberos, vo
 | Centro Operativo de Monitoreo | `node/14220751253`, creado en OpenStreetMap el 26/09/2026 a las 23:40 UTC: nombre "Centro Operativo de Monitoreo", nombre oficial "Subsecretaría de Prevención y Monitoreo.", descripción "Multiagencia", dirección sobre avenida 58. No tiene etiqueta de tipo ni ninguna etiqueta de vigilancia o policía, así que los filtros de exclusión no lo afectan; la consulta lo busca por nombre. Archivo: `docs/datos/monitoreo.geojson`. |
 | Guardavidas | Capa preparada el 27/09/2026, pendiente de datos: OSM no tiene ningún elemento de guardavidas en el partido (consulta del agente, 27/09/2026). Sebastián los va a cargar por conocimiento local: puestos con `emergency=lifeguard` + `lifeguard=tower`, y la Jefatura de Guardavidas y Operativo en Playas (nombre oficial según el municipio, Secretaría de Gobierno) con `lifeguard=base` u `office=lifeguard`; todos con `seasonal=summer`, porque funcionan solo en verano, incluida la Jefatura. Etiquetas según la wiki de OSM (Tag:emergency=lifeguard, Key:lifeguard, Key:seasonal, leídas el 27/09/2026). Lista de puestos publicada por el municipio: https://necochea.gov.ar/se-amplio-el-servicio-de-guardavidas-con-mas-puestos-en-playa-y-sectores-del-rio/ (02/12/2025). No se cargan ni se publican datos de las personas que trabajan en el servicio. |
 | Guardaparques | Capa preparada el 27/09/2026, pendiente de datos: OSM no tiene `amenity=ranger_station` en el partido. Se cargaría por conocimiento local. |
-| Prefectura Naval | Capa preparada el 27/09/2026 con la excepción de `amenity=police` (sección 4); pendiente de que Overpass responda para traer `way/698430678`. |
+| Prefectura Naval | Desde el 27/09/2026 sale del IGN (`estructuras_operativas_y_defensivas_FA517.6076`). En OSM figura como `way/698430678`, "Prefectura Naval Quequén". |
 
 ---
 

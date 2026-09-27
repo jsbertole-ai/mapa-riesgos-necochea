@@ -584,5 +584,33 @@
     "last_modified": null,
     "bytes": 2489,
     "sha256": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6"
+  },
+  "datos/crudos/ign/estructuras_operativas_y_defensivas_FA517.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aestructuras_operativas_y_defensivas_FA517&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-27T14:22:34+00:00",
+    "last_modified": null,
+    "bytes": 4778,
+    "sha256": "871183300748acb1fd322dc91a9cb64c6ece8e3fdce9771950649a4203e20a37"
+  },
+  "datos/crudos/ign/estructuras_operativas_y_defensivas_090102.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aestructuras_operativas_y_defensivas_090102&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
+    "descargado": "2026-09-27T14:22:36+00:00",
+    "last_modified": null,
+    "bytes": 2014,
+    "sha256": "f29eb3c3dcb32f7d0fcb94f93ab73bf0ff8778d4e173f381cee065539bae463a"
+  },
+  "datos/crudos/osm/refugios/way_326255242.json": {
+    "url": "https://api.openstreetmap.org/api/0.6/way/326255242/full.json",
+    "descargado": "2026-09-27T14:22:37+00:00",
+    "last_modified": null,
+    "bytes": 1418,
+    "sha256": "f57a1d1254fcc45c4eb255e3b23b1e67f6f3e77f363d6ca2b18fb0516a16cef5"
+  },
+  "datos/crudos/osm/refugios/way_1272959264.json": {
+    "url": "https://api.openstreetmap.org/api/0.6/way/1272959264/full.json",
+    "descargado": "2026-09-27T14:22:37+00:00",
+    "last_modified": null,
+    "bytes": 5139,
+    "sha256": "d7ce25aa42d6e3bcc85b04fe8afcbb6bc30ded1a65fc9221953a5f4583d3c8aa"
   }
 }

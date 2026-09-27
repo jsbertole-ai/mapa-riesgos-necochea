@@ -9,9 +9,9 @@ la caja envolvente del límite y después recorta por el polígono: queda todo
 elemento con al menos un vértice dentro del partido.
 
 Exclusiones (DATOS.md, sección 4): se descartan en la consulta y otra vez al
-procesar los elementos con man_made=surveillance, amenity=police o claves de
-vigilancia. Única excepción: la Prefectura Naval Argentina, que se publica por su
-función de salvamento (ver comun.excluido_osm). Además solo se conservan las etiquetas de la lista TAGS_CONSERVADAS,
+procesar los elementos con man_made=surveillance o claves de
+vigilancia (ver comun.excluido_osm). Las comisarías y los demás cuerpos de respuesta
+sí se publican. Además solo se conservan las etiquetas de la lista TAGS_CONSERVADAS,
 para no arrastrar teléfonos, correos ni otros datos de contacto.
 
 Licencia: ODbL 1.0. Los archivos resultantes son una base derivada de
@@ -28,17 +28,8 @@ from comun import (CRUDOS, SITIO_DATOS, ErrorRed, anotar_procesamiento, es_prefe
 
 OVERPASS = "https://overpass-api.de/api/interpreter"
 
-# La policía se excluye salvo la Prefectura Naval (salvamento; decisión de Sebastián, 27/09/2026).
-POLICIA_EN_CONSULTA = """
-(nwr["amenity"="police"]({caja});) -> .policia;
-(nwr.policia["name"~"prefectura",i]; nwr.policia["official_name"~"prefectura",i];
- nwr.policia["operator"~"prefectura",i];) -> .prefectura;
-(.policia; - .prefectura;) -> .policia_excluida;
-"""
-
 EXCLUIR_EN_CONSULTA = """
   nwr["man_made"="surveillance"]({caja});
-  .policia_excluida;
   nwr["surveillance"]({caja});
   nwr["surveillance:type"]({caja});
 """
@@ -57,6 +48,8 @@ CONSULTAS = {
 """,
     "respuesta": """
   nwr["amenity"="fire_station"]({caja});
+  nwr["amenity"="police"]({caja});
+  nwr["name"~"Cruz Roja",i][!"highway"]({caja});
   nwr["name"~"Defensa Civil",i]({caja});
   nwr["name"~"Centro Operativo de Monitoreo",i]({caja});
   nwr["emergency"="lifeguard"]({caja});
@@ -105,12 +98,35 @@ def capa_portuaria(tags):
     return "portuaria_instalaciones"
 
 
+def organismo_osm(tags):
+    """Organismo de respuesta al que corresponde un elemento de OSM (capa "Organismos de respuesta")."""
+    if "highway" in tags:
+        return None
+    nombre = " ".join(tags.get(k, "") for k in ("name", "official_name")).lower()
+    if es_prefectura(tags):
+        return "Prefectura Naval"
+    if tags.get("amenity") == "fire_station":
+        return "Bomberos"
+    if tags.get("amenity") == "police":
+        return "Policía"
+    if tags.get("emergency") == "lifeguard" or tags.get("office") == "lifeguard":
+        return "Guardavidas"
+    if tags.get("amenity") == "ranger_station":
+        return "Guardaparques"
+    if "cruz roja" in nombre:
+        return "Cruz Roja"
+    if "defensa civil" in nombre:
+        return "Defensa Civil"
+    if "centro operativo de monitoreo" in nombre:
+        return "Centro Operativo de Monitoreo"
+    return None
+
+
 def armar_consulta(cuerpo, caja):
     s, o, n, e = caja[1], caja[0], caja[3], caja[2]
     c = f"{s},{o},{n},{e}"
     return (f"[out:json][timeout:180];\n"
             f"(\n{cuerpo.format(caja=c)}) -> .todo;\n"
-            f"{POLICIA_EN_CONSULTA.format(caja=c)}"
             f"(\n{EXCLUIR_EN_CONSULTA.format(caja=c)}) -> .excluido;\n"
             f"(.todo; - .excluido;);\nout body geom;\n")
 
@@ -227,23 +243,11 @@ def procesar(nombre, crudo, limite, caja):
         props = {k: v for k, v in tags.items() if k in permitidas}
         props["osm"] = f"{el['type']}/{el['id']}"
         if nombre == "respuesta":
-            nombre_el = tags.get("name", "").lower()
-            if tags.get("amenity") == "fire_station":
-                capa = "bomberos"
-            elif tags.get("emergency") == "lifeguard" or tags.get("office") == "lifeguard":
-                capa = "guardavidas"
-            elif tags.get("amenity") == "ranger_station":
-                capa = "guardaparques"
-            elif "defensa civil" in nombre_el:
-                capa = "defensa_civil"
-            elif "monitoreo" in nombre_el:
-                capa = "monitoreo"
-            elif es_prefectura(tags) and "highway" not in tags:
-                # No se publica la etiqueta de policía: se muestra como lo que es, Prefectura Naval.
-                props.pop("amenity", None)
-                capa = "prefectura"
-            else:
+            organismo = organismo_osm(tags)
+            if organismo is None:
                 continue
+            props["organismo"] = organismo
+            capa = "organismos"
         else:
             capa = nombre if nombre == "hidrografia" else capa_portuaria(tags)
         if capa is None:
@@ -281,6 +285,10 @@ def main():
         if not ruta.exists():
             aviso(f"No existe {ruta}; la capa {nombre} queda pendiente de fuente.")
             resultado = 1
+            continue
+        if nombre == "respuesta":
+            # Esta consulta no se publica sola: la une con el IGN scripts/armar_respuesta.py.
+            print("respuesta: descargada; la capa la arma scripts/armar_respuesta.py.")
             continue
         crudo = ruta.read_bytes()
         salidas, descartes, fecha_osm = procesar(nombre, crudo, limite, caja)

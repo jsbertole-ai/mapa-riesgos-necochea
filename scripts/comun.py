@@ -29,7 +29,6 @@ EXCLUSIONES_OSM = {
     ("amenity", "police"),
 }
 # Claves cuya sola presencia excluye el elemento (cámaras, sistemas de vigilancia).
-CLAVES_EXCLUIDAS_OSM = ("surveillance", "surveillance:type", "camera:type", "police")
 # Claves de vigilancia: excluyen siempre, sin excepción.
 CLAVES_VIGILANCIA_OSM = ("surveillance", "surveillance:type", "camera:type")
 
@@ -42,15 +41,11 @@ def es_prefectura(tags):
 def excluido_osm(tags):
     """Regla única de exclusión para consultas, procesamiento y verificación (DATOS.md, sección 4).
 
-    Excepción: la Prefectura Naval Argentina se publica por su función de salvamento aunque en
-    OpenStreetMap esté etiquetada como policía (decisión de Sebastián, 27/09/2026). La vigilancia
-    (cámaras, man_made=surveillance) no tiene excepción.
+    Solo se excluye la vigilancia: cámaras (man_made=surveillance) y claves de vigilancia. Las
+    comisarías, la Prefectura y los demás cuerpos de respuesta sí se publican (decisión de
+    Sebastián, 27/09/2026: sin saber dónde están, no hay gestión del riesgo posible).
     """
-    if tags.get("man_made") == "surveillance" or any(k in tags for k in CLAVES_VIGILANCIA_OSM):
-        return True
-    if tags.get("amenity") == "police" or "police" in tags:
-        return not es_prefectura(tags)
-    return False
+    return tags.get("man_made") == "surveillance" or any(k in tags for k in CLAVES_VIGILANCIA_OSM)
 
 
 def hoy():
