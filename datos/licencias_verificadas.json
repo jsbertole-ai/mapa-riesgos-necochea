@@ -6,31 +6,31 @@
     "fragmento": "ETL ETL Inicio Datos Instalación y Ejecución Condiciones de uso ¶ Legales ¶ Los datos del Servicio de Normalización de Datos Geográficos de Argentina se disponibilizan bajo la licencia Creative Commons Attribution 4.0 y pueden ser usados para cualquier fin, incluyendo fines comerciales. Técnicas ¶ La API del servicio de normalización se encuentra en estado alpha de desarrollo y las cuotas de uso abierto sin autenticación no están definidas. A medida que el servic"
   },
   "https://www.openstreetmap.org/copyright": {
-    "leido": "2026-09-27T15:34:50+00:00",
+    "leido": "2026-09-27T15:37:19+00:00",
     "frase": "Open Data Commons Open Database License",
     "encontrada": true,
     "fragmento": "ty . Support the project by joining the OSM Foundation and making a donation . OpenStreetMap licensing OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL) by the OpenStreetMap Foundation (OSMF). In summary: You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result on"
   },
   "https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy": {
-    "leido": "2026-09-27T15:34:29+00:00",
+    "leido": "2026-09-27T15:37:06+00:00",
     "frase": "data provided from a NASA-led mission are licensed as Creative Commons Zero (CC0)",
     "encontrada": true,
     "fragmento": "as such and the use of that data shall be in accordance with the designated license. Unless the content is marked with a use restriction or license, data provided from a NASA-led mission are licensed as Creative Commons Zero (CC0). While there are no restrictions on the use of these data, data users are very strongly urged to cite the data used in their work products. NASA occasionally uses copyrighted material by permission on its website. NASA's use does not convey any righ"
   },
   "https://www.ign.gob.ar/descargas/tyc1.html": {
-    "leido": "2026-09-27T15:34:47+00:00",
+    "leido": "2026-09-27T15:37:17+00:00",
     "frase": "Los datos descargados deben compartirse de manera libre y gratuita",
     "encontrada": true,
     "fragmento": "lización o reutilización. 4. En el caso de que se generen productos derivados, deberá además mencionarse la fecha de los datos originales del IGN. 5. Los datos descargados deben compartirse de manera libre y gratuita. 6. Se permite su uso comercial únicamente en el caso de obras derivadas en que la información sea utilizada como insumo para generar un nuevo producto. La reutilización puede incluir la copia, difusión, modificación, adaptación, extracción, reorden"
   },
   "https://datos.gob.ar/api/3/action/package_show?id=redes-de-distribucion-electrica-del-consejo-federal": {
-    "leido": "2026-09-27T15:34:40+00:00",
+    "leido": "2026-09-27T15:37:10+00:00",
     "frase": "\"license_id\": \"CC-BY-4.0\"",
     "encontrada": true,
     "fragmento": "rio/temas-datos-gob-ar/SuperTheme/ENER\"], \"dataset_theme\": [\"Tema espec\\u00edfico 1\"], \"id\": \"884d79ee-4135-5177-b286-3e756838f4b0\", \"isopen\": false, \"license_id\": \"CC-BY-4.0\", \"license_title\": \"CC-BY-4.0\", \"maintainer\": \"\", \"maintainer_email\": \"\", \"metadata_created\": \"2026-08-03T17:23:13.234207\", \"metadata_modified\": \"2026-08-03T17:23:13.234211\", \"name\": \"redes-de-distribucion-electrica-del-consejo-federal\", \"notes\": \"Re"
   },
   "https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias": {
-    "leido": "2026-09-27T15:34:49+00:00",
+    "leido": "2026-09-27T15:37:19+00:00",
     "frase": "\"license_id\": \"CC-BY-4.0\"",
     "encontrada": true,
     "fragmento": "8a-4444-bbbe-5dc39479aa4a\", \"datastore_active\": true, \"id\": \"8d31bb16-3489-4ede-9e63-072f7f17383d\", \"size\": 54713, \"icon_url\": \"\", \"state\": \"active\", \"license_id\": \"CC-BY-4.0\", \"accessURL\": \"\", \"hash\": \"\", \"description\": \"Comisar\\u00edas georreferenciadas que contienen los campos: municipio, dependencia, tel\\u00e9fono, direcci\\u00f3n, latitud y longitud. \\r\\nActualizaci\\u00f3n: junio 2026. \", \"format\": \"CSV\", \"fileName\":"

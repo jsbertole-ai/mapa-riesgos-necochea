@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-27T15:34:50+00:00",
+  "generado": "2026-09-27T15:37:19+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -859,7 +859,7 @@
       "estado": "verificada",
       "elementos": 12,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-09-27T15:34:19+00:00",
+      "procesado": "2026-09-27T15:36:57+00:00",
       "por_organismo": {
         "Bomberos": 3,
         "Centro Operativo de Monitoreo": 1,
@@ -907,10 +907,10 @@
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-09-27T15:34:19+00:00",
+      "procesado": "2026-09-27T15:36:57+00:00",
       "por_tipo": {
-        "Evacuación ante catástrofes": 1,
-        "Personas en situación de calle": 1
+        "Personas en situación de calle": 1,
+        "Evacuación ante catástrofes": 1
       },
       "verificacion": {
         "fecha": "2026-09-27",

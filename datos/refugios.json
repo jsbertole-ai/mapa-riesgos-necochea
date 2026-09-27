@@ -10,8 +10,13 @@
     {
       "osm": "way/1272959264",
       "tipo": "Parroquia",
-      "fuente": "Refugio para personas en situación de calle, según Juan Sebastián Bértole (27/09/2026). No depende de Defensa Civil ni es un lugar de evacuación. No se encontró un documento público que lo informe.",
-      "uso": "Personas en situación de calle"
+      "fuente": "Indicada por Juan Sebastián Bértole (27/09/2026). Asiste a personas en situación de calle con el comedor \"Esperanza y Gozo\" (cena caliente), bolsones de alimentos y ropero comunitario (Ecos Diarios; Necochea Digital, 02/07/2026). En el invierno de 2026 sumó lugares para pasar la noche, aunque el párroco aclaró: \"No tenemos algo oficial donde se pueda cobijar a estas personas\" (Ecos Diarios, 26/07/2026). No depende de Defensa Civil ni es un lugar de evacuación.",
+      "uso": "Personas en situación de calle",
+      "referencias": [
+        "https://elecos.com.ar/la-demanda-en-comedores-comunitarios-es-cada-vez-mayor",
+        "https://necocheadigital.com/nota/118910/el-padre-alejandro-martinez-advierte-que-la-pobreza-no-es-solo-hambre-y-que-el-invierno-deja-al-descubierto-las-heridas-sociales-de-necochea/",
+        "https://www.facebook.com/EcosDiarios/videos/634776802968520/"
+      ]
     }
   ]
 }
