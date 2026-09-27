@@ -296,8 +296,9 @@ Pendientes:
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
 6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
 7. **Información naval (sección 11): relevada, sin fuente reutilizable.** Pedir por escrito al Servicio de Hidrografía Naval (shn@hidro.gov.ar; mareas y alertas: pronomarea@hidro.gov.ar; informes: ceado@hidro.gov.ar): (a) bajo qué licencia están los conjuntos de "Datos Abiertos" y las capas WFS de batimetría y línea de costa; (b) si autorizan enlazar sus páginas; (c) si existe una serie de alturas del mareógrafo de Quequén y en qué condiciones se entrega; (d) si sus avisos de crecida de la costa atlántica aplican a Necochea. Sin respuesta, queda el pedido de acceso a la información pública (Ley 27.275) al Ministerio de Defensa.
-8. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
-9. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
+8. **SMN (sección 12):** revisar a mano la licencia en https://www.smn.gob.ar/descarga-de-datos (Cloudflare bloquea al entorno) y decidir si se arma un archivo propio de las alertas del SMN que alcanzan al partido.
+9. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
+10. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
 
 Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `datos/crudos/` para procesarlo con `python3 scripts/actualizar.py --offline` (instrucciones en el README).
 
@@ -411,6 +412,14 @@ Relevamiento del 27/09/2026, por HTTPS, desde el entorno. Los "datos de la Armad
 | datos.gob.ar, organización SHN | https://datos.gob.ar/api/3/action/organization_show?id=servicio-de-hidrografia-naval | 0 conjuntos al 27/09/2026. | Volver a mirar en cada actualización. |
 
 Sin comprobar: si el SHN considera que sus avisos valen también para Necochea (el texto habla de "la población costera de la Provincia de Buenos Aires (costa atlántica)", pero el área termina en Mar del Plata); el huso horario del CSV de alturas; la Prefectura Naval Argentina, que no se relevó.
+
+## 12. Servicio Meteorológico Nacional (SMN) · **Alertas: licencia verificada; datos de estaciones: sin licencia declarada** · todavía no se usa
+
+Relevamiento del 27/09/2026, por HTTPS, desde el entorno.
+
+- **www.smn.gob.ar no responde al entorno:** Cloudflare devuelve "Sorry, you have been blocked" (403) en la portada, en https://www.smn.gob.ar/descarga-de-datos y en los términos. Sin rodeos: Sebastián tiene que revisar a mano en esas páginas la licencia de los datos descargables.
+- **Alertas en formato CAP 1.2:** https://ssl.smn.gob.ar/CAP/AR.php. El canal declara textualmente: "Copyright 2025 SMN | Derechos de autor, Servicio Meteorologico Nacional (SMN). Licencia CC BY 4.0." Cada alerta trae evento, severidad, certeza, vigencia (onset y expires), descripción, instrucciones y el polígono del área. Comprobado: el 27/09/2026 a las 00:48 UTC había 49 alertas vigentes, y 3 de ellas (lluvias, del 29/09 de 9 a 15 h, "precipitación acumulada entre 30 y 50 mm") abarcaban el partido. A diferencia de las del SHN (sección 11), las alertas del SMN sí cubren Necochea. Limitaciones: el canal solo muestra las vigentes (no hay archivo histórico en él) y no envía encabezados CORS, así que el sitio no lo puede leer desde el navegador.
+- **Datos de estaciones** (datos.gob.ar, organización "servicio-meteorologico-nacional", 7 conjuntos: estaciones, datos horarios, temperaturas extremas, registro de 365 días, radiación solar, tiempo presente y pronóstico a 5 días; descarga en https://ssl.smn.gob.ar/dpd/zipopendata.php?dato=...): el campo de licencia está vacío en los 7 ("isopen": false). Además, **ninguna estación del SMN está en el partido**: las más cercanas son Mar del Plata Aero (124 km del centro de Necochea), Benito Juárez Aero (131 km) y Tres Arroyos (136 km), según el listado de estaciones (https://ssl.smn.gob.ar/dpd/zipopendata.php?dato=estaciones). Sus series describen otros lugares, no el partido. El pronóstico a 5 días bajó vacío (0 bytes) el 27/09/2026.
 
 ## 10. Inventario local de eventos y vulnerabilidades · **Fuente propia, en preparación**
 
