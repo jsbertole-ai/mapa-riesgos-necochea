@@ -587,52 +587,52 @@
   },
   "datos/crudos/ign/estructuras_operativas_y_defensivas_FA517.geojson": {
     "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aestructuras_operativas_y_defensivas_FA517&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-27T15:10:04+00:00",
+    "descargado": "2026-09-27T20:32:58+00:00",
     "last_modified": null,
     "bytes": 4778,
-    "sha256": "73bf0de550e055ecb36adeda7cf6d9e3abddc1abffe9b62aed002d78fd5ddd4c"
+    "sha256": "c1342b46790ecad29c779c439202ee89f1eb6c585bb7a4feefac84e1b45a4a50"
   },
   "datos/crudos/ign/estructuras_operativas_y_defensivas_090102.geojson": {
     "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aestructuras_operativas_y_defensivas_090102&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-09-27T15:10:05+00:00",
+    "descargado": "2026-09-27T20:32:59+00:00",
     "last_modified": null,
     "bytes": 2014,
-    "sha256": "f9b40da28894c5566adeba1c360c94044c5dc639ac21c92ed612333d4120d588"
+    "sha256": "55146735e3fbd7c959650d1e1f949f490e6117283ec05543dc4124b1e9a88fdd"
   },
   "datos/crudos/osm/refugios/way_326255242.json": {
     "url": "https://api.openstreetmap.org/api/0.6/way/326255242/full.json",
-    "descargado": "2026-09-27T15:10:08+00:00",
+    "descargado": "2026-09-27T20:33:03+00:00",
     "last_modified": null,
-    "bytes": 1419,
-    "sha256": "6378698ec2901bbe4328d185e50ab65f9def89716e90990e332cb4ed64876e09"
+    "bytes": 1418,
+    "sha256": "7d4f93eb310a617e0294965e6c11d84fd9f3f61fcbaed6738ad6a892f8118cfa"
   },
   "datos/crudos/osm/refugios/way_1272959264.json": {
     "url": "https://api.openstreetmap.org/api/0.6/way/1272959264/full.json",
-    "descargado": "2026-09-27T15:10:08+00:00",
+    "descargado": "2026-09-27T20:33:03+00:00",
     "last_modified": null,
-    "bytes": 5140,
-    "sha256": "c955e793b8e555b6bc82f58fe12b27306ffff4cb2b9e20cde0296601d0ecb8d1"
+    "bytes": 5139,
+    "sha256": "434886f4408ba28f3700ac172d1a796572fd998524a7c3fdc0ab3cb6c394df94"
   },
   "datos/crudos/pba/comisarias-pba-2026.csv": {
     "url": "https://catalogo.datos.gba.gob.ar/dataset/bf79faeb-cb8a-4444-bbbe-5dc39479aa4a/resource/8d31bb16-3489-4ede-9e63-072f7f17383d/download/comisarias-pba-2026.csv",
-    "descargado": "2026-09-27T15:10:07+00:00",
+    "descargado": "2026-09-27T20:33:01+00:00",
     "last_modified": "Tue, 02 Jun 2026 17:22:33 GMT",
     "bytes": 54713,
     "sha256": "e1ca926e4ade907a5433c1025778103adea2d924ff060617d8dcc58375b79728"
   },
   "datos/crudos/osm/organismos/way_698430678.json": {
     "url": "https://api.openstreetmap.org/api/0.6/way/698430678/full.json",
-    "descargado": "2026-09-27T15:10:06+00:00",
+    "descargado": "2026-09-27T20:32:59+00:00",
     "last_modified": null,
-    "bytes": 2200,
-    "sha256": "aa2c0438fb4f0a2cb78d0fe6cca75c3ad2e64507762e8754c1f7eb1c33cb4484"
+    "bytes": 2201,
+    "sha256": "457cb274f26d6b4e91f802fabcc5a8541cc4634ef11e8abe9fa6e292969941d6"
   },
   "datos/crudos/osm/organismos/node_14222511472.json": {
     "url": "https://api.openstreetmap.org/api/0.6/node/14222511472.json",
-    "descargado": "2026-09-27T15:10:06+00:00",
+    "descargado": "2026-09-27T20:33:00+00:00",
     "last_modified": null,
-    "bytes": 669,
-    "sha256": "614006406f17d06936e38ac92d1612b52cae040dd5b99c6d7375195321f76103"
+    "bytes": 670,
+    "sha256": "b7f05068bd66804f52957a1d8bfb628c3180d7956cbe7e0641e1412a8eea65fa"
   },
   "datos/crudos/renabap/20231205_info_publica.geojson": {
     "url": "https://archivo.infraestructura.gob.ar/dataset/ssisu/20231205_info_publica.geojson",
@@ -668,5 +668,12 @@
     "last_modified": null,
     "bytes": 45374,
     "sha256": "0dfed9e8246d0f8ee62e98ad086615011ae41ecc549e484c9c8b321fbd13c5ba"
+  },
+  "datos/crudos/pba/comisarias-mujer.csv": {
+    "url": "https://catalogo.datos.gba.gob.ar/dataset/41f3695c-02bf-4bee-9e70-346edbb8236c/resource/03f20b6c-e645-4c08-ba3b-4f0e9b555a65/download/comisarias-mujer.csv",
+    "descargado": "2026-09-27T20:33:02+00:00",
+    "last_modified": "Tue, 02 Jun 2026 17:20:30 GMT",
+    "bytes": 32483,
+    "sha256": "6a9ef1b58b000ed50fdbb8da60967346b0b04904c9e7e862bb1b45fef8879a55"
   }
 }

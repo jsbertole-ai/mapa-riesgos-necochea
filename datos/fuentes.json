@@ -635,6 +635,30 @@
       "fecha_datos_fija": "El IGN no informa la fecha de esta capa."
     },
     {
+      "organismo": "Colaboradores de OpenStreetMap (consulta Overpass); se revisó también el IGN",
+      "url_fuente": "https://www.openstreetmap.org/copyright",
+      "url_datos": "https://overpass-api.de/api/interpreter (consulta en datos/crudos/osm/antenas.overpassql)",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "frase_licencia": "Open Data Commons Open Database License",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "Puntos armados por scripts/descargar_osm.py (consulta \"antenas\"): man_made = mast, tower, antenna o communications_tower; las torres que no son de comunicaciones se descartan",
+      "id": "antenas",
+      "grupo": "expuestos",
+      "nombre": "Antenas y torres de comunicaciones",
+      "archivo": "antenas.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#6a51a3",
+        "radio": 4
+      },
+      "activa_al_inicio": false,
+      "mensaje_sin_archivo": "Pendiente de fuente: el IGN no registra antenas ni torres de telecomunicaciones en el partido y OpenStreetMap (Overpass) no respondió al consultarlo (27/09/2026). Se completa sola cuando Overpass responda.",
+      "que_representa": "Toda antena, mástil o torre de comunicaciones cargada en OpenStreetMap dentro del partido: telefonía móvil, radio, televisión, radioaficionados y comunicaciones de servicios. Son infraestructura crítica: de ellas dependen las comunicaciones durante un siniestro.",
+      "que_no_representa": "No indica a qué operador pertenece cada antena salvo que OSM lo diga, ni su potencia o cobertura. No incluye cámaras de videovigilancia.",
+      "limitaciones": "Depende de lo cargado en OpenStreetMap, que suele estar incompleto en antenas. Las repetidoras de radioaficionados autorizadas por ENACOM y los registros de estaciones de ENACOM no se pudieron descargar desde el entorno (DATOS.md, sección 15)."
+    },
+    {
       "organismo": "Subsecretaría de Integración Socio Urbana (Registro Nacional de Barrios Populares, RENABAP)",
       "url_fuente": "https://datos.gob.ar/dataset/registro-nacional-de-barrios-populares",
       "url_datos": "https://archivo.infraestructura.gob.ar/dataset/ssisu/20231205_info_publica.geojson",
@@ -674,10 +698,14 @@
         {
           "url_licencia": "https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias",
           "frase_licencia": "\"license_id\": \"CC-BY-4.0\""
+        },
+        {
+          "url_licencia": "https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias-de-la-mujer",
+          "frase_licencia": "\"license_id\": \"CC-BY-4.0\""
         }
       ],
       "crudo_osm": true,
-      "cita": "Ministerio de Seguridad de la Provincia de Buenos Aires, \"Comisarías\" (Datos Abiertos PBA, CC BY 4.0). FUENTE: Instituto Geográfico Nacional de la República Argentina (Comisaría Necochea 1ª, Comisaría de la Mujer y la Familia, Policía Federal, Prefectura Naval y bomberos). © colaboradores de OpenStreetMap, ODbL (Defensa Civil, Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja).",
+      "cita": "Ministerio de Seguridad de la Provincia de Buenos Aires, \"Comisarías\" y \"Comisarías de la Mujer\" (Datos Abiertos PBA, CC BY 4.0). FUENTE: Instituto Geográfico Nacional de la República Argentina (Comisaría Necochea 1ª, Policía Federal, Prefectura Naval y bomberos). © colaboradores de OpenStreetMap, ODbL (Defensa Civil, Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja).",
       "formato": "GeoJSON armado por scripts/armar_respuesta.py a partir del CSV de la Provincia, el WFS del IGN y OpenStreetMap",
       "id": "organismos",
       "grupo": "respuesta",
@@ -695,13 +723,14 @@
           "Centro Operativo de Monitoreo": "#6a3d9a",
           "Guardavidas": "#e8b400",
           "Guardaparques": "#33a02c",
-          "Cruz Roja": "#e7298a"
+          "Cruz Roja": "#e7298a",
+          "Radioaficionados": "#8c6d31"
         }
       },
       "activa_al_inicio": false,
-      "que_representa": "Los cuerpos que intervienen en la gestión del riesgo y los siniestros en el partido, cada uno con su color: policía, Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja. Según el municipio, estos organismos trabajan en conjunto ante los temporales (por ejemplo, https://necochea.gov.ar/arboles-y-postes-caidos-techos-volados-y-cuatro-auto-evacuados-por-los-fuertes-vientos/, 26/08/2021).",
+      "que_representa": "Los cuerpos que intervienen en la gestión del riesgo y los siniestros en el partido, cada uno con su color: policía (comisarías, subcomisarías y, cuando se carguen, el Comando de Patrullas, la Policía Rural y la Policía Vial), Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo, guardavidas, guardaparques, Cruz Roja y radioaficionados. Según el municipio, estos organismos trabajan en conjunto ante los temporales (por ejemplo, https://necochea.gov.ar/arboles-y-postes-caidos-techos-volados-y-cuatro-auto-evacuados-por-los-fuertes-vientos/, 26/08/2021). Los radioaficionados están porque la Provincia les asigna un papel en las comunicaciones de emergencia (Decreto 275/2021, Anexo II, acciones de la Dirección Provincial de Defensa Civil).",
       "que_no_representa": "No indica dotación, equipamiento, horarios ni área de cobertura. Los guardavidas funcionan solo en temporada de verano. No incluye cámaras de videovigilancia ni datos de las personas que trabajan en cada organismo.",
-      "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por Juan Sebastián Bértole en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. Guardavidas, guardaparques y Cruz Roja aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central."
+      "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por Juan Sebastián Bértole en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. La Provincia no publica en datos abiertos la ubicación del Comando de Patrullas, la Policía Rural ni la Policía Vial, y ninguna de las tres figura en el IGN ni en OpenStreetMap (búsqueda del 27/09/2026); lo mismo pasa con los radio clubes. Guardavidas, guardaparques, Cruz Roja, esas tres dependencias policiales y los radio clubes aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central."
     },
     {
       "organismo": "OpenStreetMap (colaboradores), vía su API; selección de Juan Sebastián Bértole",

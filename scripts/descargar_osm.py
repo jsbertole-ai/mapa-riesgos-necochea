@@ -2,7 +2,7 @@
 
 Uso:  python3 scripts/descargar_osm.py            (consulta Overpass y procesa)
       python3 scripts/descargar_osm.py --offline  (procesa lo ya guardado en datos/crudos/osm/)
-      python3 scripts/descargar_osm.py respuesta  (solo una consulta: hidrografia, portuaria o respuesta)
+      python3 scripts/descargar_osm.py respuesta  (solo una consulta: hidrografia, portuaria, torres, respuesta o antenas)
 
 Requiere el límite del partido (scripts/descargar_limite.py). La consulta usa
 la caja envolvente del límite y después recorta por el polígono: queda todo
@@ -19,12 +19,13 @@ OpenStreetMap y se publican bajo la misma licencia.
 """
 
 import json
+import re
 import sys
 import time
 import urllib.parse
 
 from comun import (CRUDOS, SITIO_DATOS, ErrorRed, anotar_procesamiento, es_prefectura, excluido_osm, aviso, cargar_limite, coleccion, descargar, escribir_json,
-                   punto_en_geometria, sha256)
+                   punto_en_geometria, sha256, vertices)
 
 OVERPASS = "https://overpass-api.de/api/interpreter"
 
@@ -62,6 +63,13 @@ CONSULTAS = {
   nwr["amenity"="ranger_station"]({caja});
   nwr["name"~"prefectura",i][!"highway"]({caja});
   nwr["operator"~"prefectura",i][!"highway"]({caja});
+  nwr["club"="amateur_radio"]({caja});
+  nwr["name"~"radio ?club",i][!"highway"]({caja});
+""",
+    # Antenas y torres de comunicaciones (telefonía, radio, televisión, radioaficionados). Pedido de
+    # Sebastián (27/09/2026): toda antena debe figurar, sea del Estado o privada.
+    "antenas": """
+  nwr["man_made"~"^(mast|tower|antenna|communications_tower)$"]({caja});
 """,
 }
 
@@ -87,7 +95,12 @@ def en_revision(el, geom):
 # En la capa de respuesta solo se conserva qué es y su nombre: el operador de un cuartel
 # puede ser el nombre de una persona.
 TAGS_RESPUESTA = {"name", "official_name", "description", "amenity", "office", "government", "emergency", "lifeguard",
-                  "seasonal"}
+                  "seasonal", "police", "club"}
+
+# Antenas: se descartan las torres que no son de comunicaciones (campanarios, miradores, iluminación, etc.).
+TORRES_NO_COMUNICACION = {"lighting", "bell_tower", "observation", "defensive", "minaret", "watchtower", "cooling",
+                          "pagoda", "lightning_protection", "transition", "anchor", "siren", "radar", "monitoring"}
+TAGS_ANTENAS = {"name", "man_made", "tower:type", "tower:construction", "operator", "height", "ele"}
 
 TAGS_CONSERVADAS = {
     "name", "waterway", "natural", "water", "intermittent", "landuse", "industrial", "harbour",
@@ -127,6 +140,36 @@ def procesar_torres(datos, limite, caja):
     return {"torres_postes": features}
 
 
+def procesar_antenas(datos, limite, caja):
+    """Antenas, mástiles y torres de comunicaciones como puntos (los edificios o predios, en su centro)."""
+    features, descartadas = [], 0
+    for el in datos.get("elements", []):
+        t = el.get("tags") or {}
+        if excluido(t):
+            continue
+        mm = t.get("man_made")
+        tipo = t.get("tower:type")
+        if mm == "tower" and tipo != "communication" and not any(k.startswith("communication:") for k in t):
+            descartadas += 1
+            continue
+        if tipo in TORRES_NO_COMUNICACION:
+            descartadas += 1
+            continue
+        geom = geometria(el, t)
+        if geom is None:
+            continue
+        xs = [c[0] for c in vertices(geom)]
+        ys = [c[1] for c in vertices(geom)]
+        x, y = sum(xs) / len(xs), sum(ys) / len(ys)
+        if not punto_en_geometria(x, y, limite, caja):
+            continue
+        props = {k: v for k, v in t.items() if k in TAGS_ANTENAS or k.startswith("communication:")}
+        props["osm"] = f"{el['type']}/{el['id']}"
+        features.append({"type": "Feature", "properties": props, "geometry": {
+            "type": "Point", "coordinates": [round(x, DECIMALES), round(y, DECIMALES)]}})
+    return {"antenas": features}
+
+
 def organismo_osm(tags):
     """Organismo de respuesta al que corresponde un elemento de OSM (capa "Organismos de respuesta")."""
     if "highway" in tags:
@@ -136,6 +179,8 @@ def organismo_osm(tags):
         return "Prefectura Naval"
     if tags.get("amenity") == "fire_station":
         return "Bomberos"
+    if tags.get("club") == "amateur_radio" or re.search(r"radio ?club", nombre):
+        return "Radioaficionados"
     if tags.get("amenity") == "police":
         return "Policía"
     if tags.get("emergency") == "lifeguard" or tags.get("office") == "lifeguard":
@@ -255,6 +300,8 @@ def procesar(nombre, crudo, limite, caja):
     descartes = {"excluidos": 0, "fuera_del_partido": 0, "geometria_incompleta": 0}
     if nombre == "torres":
         return procesar_torres(datos, limite, caja), descartes, fecha_osm
+    if nombre == "antenas":
+        return procesar_antenas(datos, limite, caja), descartes, fecha_osm
     for el in datos.get("elements", []):
         tags = el.get("tags") or {}
         if excluido(tags):

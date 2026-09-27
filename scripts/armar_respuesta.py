@@ -44,6 +44,10 @@ REFUGIOS = RAIZ / "datos" / "refugios.json"
 FIJADOS_OSM = RAIZ / "datos" / "organismos_osm.json"
 COMISARIAS_PBA = ("https://catalogo.datos.gba.gob.ar/dataset/bf79faeb-cb8a-4444-bbbe-5dc39479aa4a/resource/"
                   "8d31bb16-3489-4ede-9e63-072f7f17383d/download/comisarias-pba-2026.csv")
+# Comisarías de la Mujer de la Provincia (CC BY 4.0). La columna "coordinacion_datos" trae nombres de
+# funcionarias y el teléfono no hace falta: de cada fila se usan solo localidad, dirección y coordenadas.
+COMISARIAS_MUJER_PBA = ("https://catalogo.datos.gba.gob.ar/dataset/41f3695c-02bf-4bee-9e70-346edbb8236c/resource/"
+                        "03f20b6c-e645-4c08-ba3b-4f0e9b555a65/download/comisarias-mujer.csv")
 CODIGO_PBA = "6581"
 API_OSM = "https://api.openstreetmap.org/api/0.6"
 DISTANCIA_DUPLICADO_M = 200
@@ -145,14 +149,26 @@ def organismos_fijados(offline, limite, caja):
 
 
 def comisarias_pba(offline, limite, caja):
-    ruta = CRUDOS / "pba" / "comisarias-pba-2026.csv"
+    features, huellas, sin_coordenadas = [], {}, []
+    for nombre_archivo, url, de_la_mujer in (("comisarias-pba-2026.csv", COMISARIAS_PBA, False),
+                                             ("comisarias-mujer.csv", COMISARIAS_MUJER_PBA, True)):
+        f, h, s = leer_comisarias_pba(nombre_archivo, url, de_la_mujer, offline, limite, caja)
+        features += f
+        sin_coordenadas += s
+        if h:
+            huellas[nombre_archivo] = h
+    return features, huellas or None, sin_coordenadas
+
+
+def leer_comisarias_pba(nombre_archivo, url, de_la_mujer, offline, limite, caja):
+    ruta = CRUDOS / "pba" / nombre_archivo
     if not offline:
         try:
-            descargar(COMISARIAS_PBA, ruta, timeout=120)
+            descargar(url, ruta, timeout=120)
         except ErrorRed as e:
-            aviso(f"Comisarías PBA: {e}")
+            aviso(f"Comisarías PBA ({nombre_archivo}): {e}")
     if not ruta.exists():
-        aviso("Faltan las comisarías de la Provincia: se usan las del IGN.")
+        aviso(f"Falta {nombre_archivo} de la Provincia: se usan las del IGN.")
         return [], None, []
     crudo = ruta.read_bytes()
     texto = crudo.decode("utf-8-sig", errors="replace")
@@ -161,16 +177,17 @@ def comisarias_pba(offline, limite, caja):
     for fila in csv.DictReader(io.StringIO(texto), delimiter=separador):
         if fila.get("municipio_id") != CODIGO_PBA:
             continue
+        nombre = f"Comisaría de la Mujer y la Familia {fila.get('localidad')}" if de_la_mujer else fila.get("dependencia")
         try:
             x, y = float(fila["longitud"]), float(fila["latitud"])
         except (TypeError, ValueError):
             # Una dirección no se convierte en coordenadas (sería estimar): queda la del IGN, si la hay.
-            sin_coordenadas.append(fila.get("dependencia"))
+            sin_coordenadas.append(nombre)
             continue
         if not punto_en_geometria(x, y, limite, caja):
             continue
         features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
-            "organismo": "Policía", "nombre": fila.get("dependencia"), "fuente": "Provincia de Buenos Aires",
+            "organismo": "Policía", "nombre": nombre, "fuente": "Provincia de Buenos Aires",
             "localidad": fila.get("localidad")}})
     return features, sha256(crudo), sin_coordenadas
 

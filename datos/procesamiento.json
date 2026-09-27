@@ -550,14 +550,17 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-09-27T15:36:57+00:00",
+    "procesado": "2026-09-27T20:33:02+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
-      "estructuras_operativas_y_defensivas_FA517": "73bf0de550e055ecb36adeda7cf6d9e3abddc1abffe9b62aed002d78fd5ddd4c",
-      "estructuras_operativas_y_defensivas_090102": "f9b40da28894c5566adeba1c360c94044c5dc639ac21c92ed612333d4120d588"
+      "estructuras_operativas_y_defensivas_FA517": "c1342b46790ecad29c779c439202ee89f1eb6c585bb7a4feefac84e1b45a4a50",
+      "estructuras_operativas_y_defensivas_090102": "55146735e3fbd7c959650d1e1f949f490e6117283ec05543dc4124b1e9a88fdd"
     },
-    "sha256_comisarias_pba": "e1ca926e4ade907a5433c1025778103adea2d924ff060617d8dcc58375b79728",
+    "sha256_comisarias_pba": {
+      "comisarias-pba-2026.csv": "e1ca926e4ade907a5433c1025778103adea2d924ff060617d8dcc58375b79728",
+      "comisarias-mujer.csv": "6a9ef1b58b000ed50fdbb8da60967346b0b04904c9e7e862bb1b45fef8879a55"
+    },
     "pba_sin_coordenadas": [
       "Comisaría Necochea 1°"
     ],
@@ -571,10 +574,10 @@
     },
     "por_fuente": {
       "OpenStreetMap": 3,
-      "IGN": 6,
-      "Provincia de Buenos Aires": 3
+      "IGN": 5,
+      "Provincia de Buenos Aires": 4
     },
-    "descartados_por_duplicados": 6,
+    "descartados_por_duplicados": 7,
     "descartes_de_la_consulta": {
       "excluidos": 0,
       "fuera_del_partido": 2,
@@ -583,7 +586,7 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-09-27T15:36:57+00:00",
+    "procesado": "2026-09-27T20:33:03+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "por_tipo": {
