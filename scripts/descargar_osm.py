@@ -48,9 +48,14 @@ CONSULTAS = {
   nwr["man_made"~"^(silo|storage_tank|pier|breakwater)$"]({caja});
 """,
     # Torres y postes de las líneas eléctricas; las líneas se piden para saber la tensión de cada poste.
+    # También todo otro poste de la vía pública (pedido de Sebastián, 27/09/2026): postes de servicios,
+    # de telecomunicaciones y columnas de alumbrado.
     "torres": """
   way["power"~"^(line|minor_line|cable)$"]({caja});
   node["power"~"^(tower|pole)$"]({caja});
+  node["man_made"="utility_pole"]({caja});
+  node["telecom"="pole"]({caja});
+  node["highway"="street_lamp"]({caja});
 """,
     "respuesta": """
   nwr["amenity"="fire_station"]({caja});
@@ -125,19 +130,50 @@ def procesar_torres(datos, limite, caja):
             kv = [round(int(v) / 1000, 1) for v in t["voltage"].split(";") if v.strip().isdigit()]
             for n in el.get("nodes", []):
                 tension.setdefault(n, set()).update(kv)
-    features = []
+    features, postes = [], []
     for el in datos.get("elements", []):
         t = el.get("tags") or {}
-        if el["type"] != "node" or t.get("power") not in ("tower", "pole") or excluido(t):
+        if el["type"] != "node" or excluido(t):
             continue
         if not punto_en_geometria(el["lon"], el["lat"], limite, caja):
             continue
-        props = {"power": t["power"], "osm": f"node/{el['id']}"}
-        if tension.get(el["id"]):
-            props["tension_kv"] = sorted(tension[el["id"]])
-        features.append({"type": "Feature", "properties": props, "geometry": {
-            "type": "Point", "coordinates": [round(el["lon"], DECIMALES), round(el["lat"], DECIMALES)]}})
-    return {"torres_postes": features}
+        punto_osm = {"type": "Point", "coordinates": [round(el["lon"], DECIMALES), round(el["lat"], DECIMALES)]}
+        kv = sorted(tension.get(el["id"], []))
+        # Torres, y postes de líneas con tensión conocida: capa de torres y postes de líneas eléctricas.
+        if t.get("power") == "tower" or (t.get("power") == "pole" and kv and max(kv) >= 1):
+            props = {"power": t["power"], "osm": f"node/{el['id']}"}
+            if kv:
+                props["tension_kv"] = kv
+            features.append({"type": "Feature", "properties": props, "geometry": punto_osm})
+            continue
+        tipo = tipo_de_poste(t)
+        if tipo:
+            props = {"tipo": tipo, "osm": f"node/{el['id']}"}
+            for k in ("operator", "utility", "material", "height"):
+                if t.get(k):
+                    props[k] = t[k]
+            postes.append({"type": "Feature", "properties": props, "geometry": punto_osm})
+    return {"torres_postes": features, "postes_via_publica": postes}
+
+
+def tipo_de_poste(t):
+    """Tipo de poste de la vía pública según sus etiquetas de OSM (None si no es un poste)."""
+    usos = (t.get("utility") or "").split(";")
+    if t.get("power") == "pole":
+        return "Poste eléctrico de baja tensión o sin tensión informada"
+    if t.get("highway") == "street_lamp":
+        return "Columna de alumbrado público"
+    if t.get("telecom") == "pole" or (t.get("man_made") == "utility_pole" and usos == ["telecom"]):
+        return "Poste de telecomunicaciones"
+    if t.get("man_made") == "utility_pole":
+        if "power" in usos and "telecom" in usos:
+            return "Poste compartido (electricidad y telecomunicaciones)"
+        if "power" in usos:
+            return "Poste eléctrico de baja tensión o sin tensión informada"
+        if "street_lighting" in usos:
+            return "Columna de alumbrado público"
+        return "Poste de servicios (uso no informado)"
+    return None
 
 
 def procesar_antenas(datos, limite, caja):
@@ -334,6 +370,10 @@ def procesar(nombre, crudo, limite, caja):
     return salidas, descartes, fecha_osm
 
 
+def consulta_incluye(ruta, texto):
+    return ruta.exists() and texto in ruta.read_text(encoding="utf-8")
+
+
 def main():
     offline = "--offline" in sys.argv
     # Se pueden pedir consultas sueltas: python3 scripts/descargar_osm.py respuesta
@@ -370,12 +410,22 @@ def main():
             continue
         crudo = ruta.read_bytes()
         salidas, descartes, fecha_osm = procesar(nombre, crudo, limite, caja)
+        if nombre == "torres" and not consulta_incluye(carpeta / "torres.overpassql", "utility_pole"):
+            # La respuesta guardada es anterior a la consulta de postes de la vía pública: esa capa
+            # quedaría incompleta, así que no se escribe y queda pendiente hasta la próxima descarga.
+            aviso("postes_via_publica: la respuesta guardada no incluye los postes de la vía pública; queda pendiente.")
+            salidas.pop("postes_via_publica", None)
         for capa, features in salidas.items():
             escribir_json(SITIO_DATOS / f"{capa}.geojson", coleccion(features), compacto=True)
+            por_tipo = {}
+            for ft in features:
+                if "tipo" in ft["properties"]:
+                    por_tipo[ft["properties"]["tipo"]] = por_tipo.get(ft["properties"]["tipo"], 0) + 1
             anotar_procesamiento(capa, {
                 "archivo_crudo": f"osm/{ruta.name}",
                 "sha256_crudo": sha256(crudo),
                 "elementos": len(features),
+                **({"por_tipo": por_tipo} if por_tipo else {}),
                 "fecha_datos": fecha_osm,
                 "descartes_de_la_consulta": descartes,
             })

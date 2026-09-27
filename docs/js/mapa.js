@@ -198,6 +198,19 @@
     );
   }
 
+  // Postes de la vía pública (OpenStreetMap).
+  function popupPoste(p) {
+    const filas = [];
+    if (p.operator) filas.push(["Operador (según OSM)", p.operator]);
+    if (p.material) filas.push(["Material", p.material]);
+    if (p.height) filas.push(["Altura", p.height + " m"]);
+    return (
+      "<h3>" + esc(p.tipo) + "</h3>" +
+      (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
+      '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
+    );
+  }
+
   // Antenas y torres de comunicaciones (OpenStreetMap).
   function popupAntena(p) {
     const tipos = { mast: "Mástil", tower: "Torre", antenna: "Antena", communications_tower: "Torre de comunicaciones" };
@@ -404,6 +417,7 @@
           if (capa.id === "refugios") return popupRefugio(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
+          if (capa.id === "postes_via_publica") return popupPoste(f.properties);
           if (capa.id === "barrios_populares") return popupBarrio(f.properties);
           if (capa.id === "antenas") return popupAntena(f.properties);
           if (capa.id === "cuenca_quequen") return popupCuenca(f.properties);

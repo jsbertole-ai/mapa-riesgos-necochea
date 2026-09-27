@@ -596,10 +596,10 @@
     "fecha_datos": "2026-07-30"
   },
   "torres_postes": {
-    "procesado": "2026-09-27T15:12:29+00:00",
+    "procesado": "2026-09-27T20:37:58+00:00",
     "archivo_crudo": "osm/torres.json",
     "sha256_crudo": "d80d1ed8820b51044964a2cc53f94ff747c9f163027c7d4a468e5a687abb9573",
-    "elementos": 1475,
+    "elementos": 1474,
     "fecha_datos": "2026-09-27T00:04:15Z",
     "descartes_de_la_consulta": {
       "excluidos": 0,

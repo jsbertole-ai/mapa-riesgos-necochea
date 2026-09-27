@@ -71,6 +71,26 @@ a { color: var(--acento); }
 
 .cabecera nav { display: flex; gap: 4px; }
 
+/* Distintivo de sitio en construcción en la barra: visible también en el celular, donde el panel de capas
+   (con el cartel grande) queda oculto hasta tocar "Capas". */
+.obra-cabecera {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 6px;
+  border-radius: 12px;
+  background: #fff3bf;
+  color: #3d3200;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.obra-cabecera svg { width: 24px; height: 20px; }
+.obra-cabecera:hover { background: #ffe8a1; }
+.obra-cabecera:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
 .cabecera nav a, .cabecera button {
   color: #fff;
   text-decoration: none;
@@ -318,6 +338,8 @@ a { color: var(--acento); }
   :root { --cabecera: 48px; }
   .cabecera { padding: 0 8px 0 12px; gap: 4px; }
   .cabecera h1 { font-size: 16px; }
+  .obra-cabecera { padding: 3px 4px; }
+  .obra-cabecera .obra-texto { display: none; }
   .titulo-largo { display: none; }
   .titulo-corto { display: inline; }
   .cabecera nav a, .cabecera button { padding: 5px 6px; font-size: 13px; }
