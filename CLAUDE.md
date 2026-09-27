@@ -8,6 +8,7 @@ Mapa de riesgos del partido de Necochea (provincia de Buenos Aires, Argentina), 
 - Cada fuente se registra en `DATOS.md` con: organismo, URL exacta, fecha de los datos, licencia, formato, cobertura y limitaciones. Estado: verificada, identificada o sin fuente.
 - Si el entorno no deja descargar un sitio, no se buscan rodeos: se anota la URL en `DATOS.md` para que Sebastián la descargue a mano.
 - **Exclusiones:** ninguna ubicación de cámaras de videovigilancia ni datos personales. Filtrar de forma explícita `man_made=surveillance` y las claves de vigilancia en las consultas a OpenStreetMap (regla única en `comun.excluido_osm`). Los cuerpos que participan en la gestión del riesgo **sí se publican**, juntos, en la capa "Organismos de respuesta": policía, Prefectura Naval, bomberos (voluntarios o no), Defensa Civil, el Centro Operativo de Monitoreo (como espacio físico, nunca sus cámaras), guardavidas, guardaparques y Cruz Roja; los lugares de refugio van en su propia capa (decisiones de Sebastián, 26 y 27/09/2026: sin saber dónde están los cuerpos de respuesta no hay gestión del riesgo posible).
+- La base conceptual y metodológica está en `MARCO_CONCEPTUAL.md` (decisión de Sebastián, 27/09/2026). Cada cita se verifica contra el texto original, con su página; lo que es lectura propia se marca como "Para el mapa".
 - Todo el sitio y la documentación, en español rioplatense. Comillas clásicas, sin guiones largos.
 
 ## Plan
