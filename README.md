@@ -68,7 +68,7 @@ Eso corre, en orden:
 Después de actualizar:
 
 - Revisá lo que cambió (`git diff --stat`) y anotá en `DATOS.md` la nueva fecha de los datos.
-- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v3` a `mapa-riesgos-v4`), así los celulares con la aplicación instalada descartan la copia vieja.
+- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v4` a `mapa-riesgos-v5`), así los celulares con la aplicación instalada descartan la copia vieja.
 - Subí los cambios a `main`.
 
 ### Si un sitio no deja descargar
@@ -89,6 +89,10 @@ python3 scripts/actualizar.py --offline
   ```
 
 Overpass a veces corta la conexión cuando recibe muchos pedidos seguidos; el script reintenta con esperas crecientes y deja un minuto entre consultas.
+
+## Archivo de alertas del SMN
+
+`scripts/archivar_alertas_smn.py` guarda en `docs/datos/alertas_smn.json` las alertas y avisos del Servicio Meteorológico Nacional que alcanzan al partido. No forma parte de `actualizar.py`: lo corre cada hora la tarea de GitHub Actions `.github/workflows/alertas-smn.yml`, que hace un commit en `main` solo cuando entra una alerta nueva. Las tareas programadas de GitHub corren solo en la rama principal, así que se activa después de mergear. Se puede correr a mano desde la pestaña Actions ("Run workflow") o con `python3 scripts/archivar_alertas_smn.py`. Si un repositorio público pasa 60 días sin actividad, GitHub pausa las tareas programadas: se reactivan desde la misma pestaña.
 
 ## Inventario local (KoboToolbox)
 

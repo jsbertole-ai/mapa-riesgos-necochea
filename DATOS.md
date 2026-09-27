@@ -297,6 +297,7 @@ Pendientes:
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
 6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
 7. **Información naval (sección 11): relevada, sin fuente reutilizable.** Pedir por escrito al Servicio de Hidrografía Naval (shn@hidro.gov.ar; mareas y alertas: pronomarea@hidro.gov.ar; informes: ceado@hidro.gov.ar): (a) bajo qué licencia están los conjuntos de "Datos Abiertos" y las capas WFS de batimetría y línea de costa; (b) si autorizan enlazar sus páginas; (c) si existe una serie de alturas del mareógrafo de Quequén y en qué condiciones se entrega; (d) si sus avisos de crecida de la costa atlántica aplican a Necochea. Sin respuesta, queda el pedido de acceso a la información pública (Ley 27.275) al Ministerio de Defensa.
+7 bis. **Archivo de alertas del SMN (12.1):** se activa al mergear en `main` (las tareas programadas de GitHub solo corren en la rama principal). Después, revisar en la pestaña Actions que la primera corrida termine bien y que el commit automático llegue a Pages.
 8. **Prefectura Naval (11.1):** Sebastián revisó https://www.argentina.gob.ar/prefecturanaval sin encontrar datos de interés; el recorrido del 27/09/2026 (60 páginas y la Memoria Anual 2025) tampoco: solo totales nacionales. Por decisión de Sebastián (27/09/2026) su sede se publica en la capa de respuesta, por su función de salvamento; falta traerla de OpenStreetMap cuando Overpass responda (`python3 scripts/descargar_osm.py respuesta`).
 9. **SMN (sección 12):** revisar a mano la licencia en https://www.smn.gob.ar/descarga-de-datos (Cloudflare bloquea al entorno) y decidir si se arma un archivo propio de las alertas del SMN que alcanzan al partido.
 10. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
@@ -413,6 +414,13 @@ Decisión de Sebastián (27/09/2026): el proyecto arma su propio registro de eve
 | Formulario publicado | Desplegado por Sebastián el 27/09/2026 a las 01:21 UTC (proyecto `aD2nAa796eJ9xV2yCqiwXf`). Enlace público: https://ee.kobotoolbox.org/x/JsHKYrg5. Comprobado en la API de Kobo el mismo día: el formulario llegó completo (31 preguntas, 51 opciones) y el usuario anónimo tiene solo "Add submissions" y "View form"; los envíos no se leen sin sesión (404). |
 | Estado | Formulario abierto a envíos; todavía no hay registros aprobados, así que la capa figura como "pendiente". |
 
+### 12.1 Archivo propio de alertas del SMN (decisión de Sebastián, 27/09/2026)
+
+- `scripts/archivar_alertas_smn.py` lee https://ssl.smn.gob.ar/CAP/AR.php, baja cada alerta o aviso vigente y guarda en `docs/datos/alertas_smn.json` los que alcanzan al partido: algún vértice del límite (uno de cada diez) dentro del polígono de la alerta, o algún vértice del polígono dentro del partido. Anota las localidades del IGN que quedan dentro. Guarda la severidad del estándar CAP y el titular del SMN; no deduce colores (las alertas no los informan en ningún campo; los avisos a corto plazo los traen en el titular).
+- La tarea `.github/workflows/alertas-smn.yml` lo corre cada hora y hace un commit en `main` solo si entró una alerta nueva.
+- Primera corrida (27/09/2026, 48 mensajes vigentes en el país): 3 mensajes alcanzan al partido, todos de un mismo episodio de lluvias (29/09/2026 de 9 a 15 h, severidad "Moderate"), que suman las seis localidades.
+- Limitaciones: el archivo empieza el 27/09/2026; si una corrida falla, una alerta que dure menos de una hora se puede perder; los enlaces a los mensajes originales dejan de funcionar cuando el SMN los retira.
+
 ## 10 bis. Líneas de media tensión (Secretaría de Energía) · **Verificada** · en uso
 
 | Campo | Detalle |
@@ -456,7 +464,7 @@ Comprobado en https://www.argentina.gob.ar/prefecturanaval/ambitos-actuacion-des
 - El conjunto "Puertos" de la Secretaría de Transporte (https://datos.transporte.gob.ar/dataset/puertos, licencia "Other (Open)", relevamiento 2019) se sirve desde ide.transporte.gob.ar, cuyo certificado no valida desde el entorno; no se forzó. El puerto ya está en el mapa por el IGN y OpenStreetMap.
 - El conjunto de entrada y salida de buques de la Secretaría de Transporte (CC BY 4.0) es solo del Puerto Buenos Aires: no sirve para Quequén.
 
-## 12. Servicio Meteorológico Nacional (SMN) · **Alertas: licencia verificada; datos de estaciones: sin licencia declarada** · todavía no se usa
+## 12. Servicio Meteorológico Nacional (SMN) · **Alertas: verificadas, archivo propio desde el 27/09/2026** · datos de estaciones: no se usan
 
 Relevamiento del 27/09/2026, por HTTPS, desde el entorno.
 

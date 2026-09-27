@@ -295,3 +295,9 @@ a { color: var(--acento); }
 @media (prefers-reduced-motion: reduce) {
   .panel { transition: none; }
 }
+
+/* Archivo de alertas del SMN (Metodología) */
+.tabla-desplazable { overflow-x: auto; }
+.tabla-alertas { border-collapse: collapse; width: 100%; font-size: 14px; }
+.tabla-alertas th, .tabla-alertas td { border-bottom: 1px solid var(--borde); padding: 6px 8px; text-align: left; vertical-align: top; }
+.tabla-alertas th { font-weight: 600; }
