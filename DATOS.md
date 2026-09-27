@@ -295,7 +295,7 @@ Pendientes:
 4. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
 6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
-7. **Información naval (Armada Argentina):** siguiente etapa, pedida por Sebastián.
+7. **Información naval (sección 11): relevada, sin fuente reutilizable.** Pedir por escrito al Servicio de Hidrografía Naval (shn@hidro.gov.ar; mareas y alertas: pronomarea@hidro.gov.ar; informes: ceado@hidro.gov.ar): (a) bajo qué licencia están los conjuntos de "Datos Abiertos" y las capas WFS de batimetría y línea de costa; (b) si autorizan enlazar sus páginas; (c) si existe una serie de alturas del mareógrafo de Quequén y en qué condiciones se entrega; (d) si sus avisos de crecida de la costa atlántica aplican a Necochea. Sin respuesta, queda el pedido de acceso a la información pública (Ley 27.275) al Ministerio de Defensa.
 8. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
 9. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
 
@@ -390,6 +390,27 @@ Decisiones de Sebastián (26/09/2026): se publican los cuarteles de bomberos, vo
 | Centro Operativo de Monitoreo | `node/14220751253`, creado en OpenStreetMap el 26/09/2026 a las 23:40 UTC: nombre "Centro Operativo de Monitoreo", nombre oficial "Subsecretaría de Prevención y Monitoreo.", descripción "Multiagencia", dirección sobre avenida 58. No tiene etiqueta de tipo ni ninguna etiqueta de vigilancia o policía, así que los filtros de exclusión no lo afectan; la consulta lo busca por nombre. Archivo: `docs/datos/monitoreo.geojson`. |
 
 ---
+
+## 11. Información naval (Servicio de Hidrografía Naval) · **Identificada, sin licencia de reutilización** · no se usa como capa
+
+Relevamiento del 27/09/2026, por HTTPS, desde el entorno. Los "datos de la Armada" están en el sitio del Servicio de Hidrografía Naval (SHN), https://www.hidro.gov.ar, que según su página institucional "tiene dependencia orgánica de la Subsecretaría de Investigación Científica y Política Industrial para la Defensa del Ministerio de Defensa". Los sitios de la Armada no publican datos.
+
+**Condiciones de uso** (https://www.hidro.gov.ar/Institucional/Institucional.asp?op=6, apartado 6, leídas el 27/09/2026, citas textuales): "El Servicio de Hidrografía Naval retiene la propiedad de toda la información que suministra y el sólo hecho de copiar, vender, alquilar o distribuir copias o trabajos de cualquier clase de información a partir de este sitio, constituye un delito." y "A menos de contar con la autorización del Servicio de Hidrografía Naval, no se deberán establecer enlaces cuyo resultado sea la exhibición de una página o imagen del Servicio de Hidrografía Naval." El pie de todas las páginas, incluida "Datos Abiertos", dice "Todos los Derechos Reservados", y ninguna de sus fichas de metadatos declara licencia. Por eso no se descarga ni se redistribuye nada, y el sitio del mapa lo nombra sin enlazarlo hasta tener autorización.
+
+| Fuente | URL | Qué aporta a Necochea | Uso |
+|---|---|---|---|
+| Datos Abiertos del SHN | https://www.hidro.gov.ar/DA/DatosAbiertos.asp | 9 conjuntos en HTML, sin licencia. | Ninguno por ahora. |
+| Mareógrafo "Quequén" | https://www.hidro.gov.ar/Oceanografia/Mareografos.asp | Ficha: "Sitio 2 del Puerto Quequén", 38°34'31" S, 58°42'22" W. | Ya está en el mapa, desde el IGN (capa "Puerto y navegación"); las posiciones coinciden a 11,8 m. |
+| Alturas horarias | https://www.hidro.gov.ar/Oceanografia/AlturasHorarias.asp | 11 mareógrafos, últimos 10 días. **Quequén no está.** | Vacío de información, anotado en la Metodología. |
+| Tablas de marea de Puerto Quequén (H-610) | https://www.hidro.gov.ar/Oceanografia/Tmareas/Form_Tmareas.asp | Predicción astronómica 2022 a 2026 (no incluye el efecto del viento). | Solo con autorización. |
+| Avisos y alertas de crecida, costa atlántica | https://www.hidro.gov.ar/oceanografia/ServiciosAACB.asp?op=2 (CAP 1.2: https://www.hidro.gob.ar/cap/CapCosta.asp) | Área: "Franja Costera de la Costa Atlántica Bonaerense desde la ciudad de Mar del Plata hasta San Clemente del Tuyú". Comprobado: el polígono del CAP no llega al partido (su extremo oeste está en 57,66° O; el partido empieza cerca de 58,4° O). | **Necochea queda fuera**: anotado en la Metodología. |
+| Geoportal y GeoServer | https://geoportal.shn.gob.ar/ y https://wms.shn.gob.ar/geoserver/ows | En la zona: 46 curvas batimétricas, 6 tramos de línea de costa (solo conteo, sin bajar geometrías). | Capa posible (batimetría) solo con licencia por escrito. |
+| Cartas náuticas y celdas ENC (AR402520 "Rada Quequén", AR502530 "Puerto Quequén") | https://www.hidro.gov.ar/nautica/CartasNauticas.asp?op=7 | Productos a la venta para navegar; Decreto 7.633/72, art. 5, remite a la Ley 11.723. | No se usan. |
+| Informes del CEADO (Quequén 2005; niveles extremos 1994) | https://ceado.shn.gob.ar/explorar-datos/20/ | A pedido: ceado@hidro.gov.ar. | Bibliografía, si se obtienen. |
+| PSMSL, estación 223 "QUEQUEN" | https://psmsl.org/data/obtaining/stations/223.php | Nivel medio mensual 1918 a 1982; la ficha avisa que en 1968 el mareógrafo se movió unos 340 m. | Sin licencia declarada: solo mención. |
+| datos.gob.ar, organización SHN | https://datos.gob.ar/api/3/action/organization_show?id=servicio-de-hidrografia-naval | 0 conjuntos al 27/09/2026. | Volver a mirar en cada actualización. |
+
+Sin comprobar: si el SHN considera que sus avisos valen también para Necochea (el texto habla de "la población costera de la Provincia de Buenos Aires (costa atlántica)", pero el área termina en Mar del Plata); el huso horario del CSV de alturas; la Prefectura Naval Argentina, que no se relevó.
 
 ## 10. Inventario local de eventos y vulnerabilidades · **Fuente propia, en preparación**
 
