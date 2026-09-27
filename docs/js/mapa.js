@@ -267,6 +267,19 @@
     );
   }
 
+  // Cuenca del Quequén Grande (COHIFE): área y reparto aproximado entre partidos.
+  function popupCuenca(p) {
+    const partidos = Object.keys(p.partidos || {}).map(function (k) {
+      return "<tr><td>" + esc(k) + "</td><td>" + esc(String(p.partidos[k]).replace(".", ",")) + " %</td></tr>";
+    }).join("");
+    return (
+      "<h3>Cuenca del " + esc(p.nombre) + "</h3>" +
+      "<div>Unos " + numero(p.area_km2) + " km² en total. Parte aproximada en cada partido:</div>" +
+      (partidos ? "<table>" + partidos + "</table>" : "") +
+      '<p class="nota">Fuente: Secretaría de Energía de la Nación, Consejo Hídrico Federal (COHIFE), CC BY 4.0. El área y el reparto se calcularon sobre este polígono y son aproximados.</p>'
+    );
+  }
+
   function popupFirms(p, capa) {
     const hora = p.acq_time ? String(p.acq_time).padStart(4, "0") : "";
     const esViirs = capa.id === "incendios_viirs";
@@ -290,6 +303,12 @@
 
   // ---------- Capas ----------
 
+  function trazoDe(e, tipo) {
+    if (!e.lineas || !tipo) return null;
+    if (tipo in e.lineas) return e.lineas[tipo];
+    return tipo.indexOf("Subterr") === 0 ? e.lineas["Subterránea"] : e.lineas["Aérea"];
+  }
+
   function estiloDe(capa) {
     const e = capa.estilo || {};
     return function (feature) {
@@ -300,8 +319,9 @@
       return {
         color: e.color,
         weight: capa.id === "limite" ? 2.5 : e.grosor || (esArea ? 1 : 1.8),
-        // Media tensión: tendido aéreo con línea llena, subterráneo con línea punteada.
-        dashArray: (e.lineas && feature.properties.tipo && (feature.properties.tipo.indexOf("Subterr") === 0 ? e.lineas["Subterránea"] : e.lineas["Aérea"])) || e.trazo || null,
+        // Trazo por tipo (red hídrica de la cuenca: perenne, intermitente, zanja). En media tensión,
+        // los tipos que no están en la lista se agrupan en aéreo o subterráneo.
+        dashArray: trazoDe(e, feature.properties.tipo) || e.trazo || null,
         fill: esArea && e.relleno !== false,
         fillColor: e.relleno || e.color,
         fillOpacity: 0.45,
@@ -367,6 +387,7 @@
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
           if (capa.id === "barrios_populares") return popupBarrio(f.properties);
+          if (capa.id === "cuenca_quequen") return popupCuenca(f.properties);
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
           if (esIgn(capa)) return popupIgn(f.properties);
           return popupOsm(f.properties);
@@ -402,6 +423,8 @@
       mapa.fitBounds(nueva.getBounds(), { padding: [16, 16] });
       estado.encuadrado = true;
     }
+    // Capas que exceden el partido (la cuenca del Quequén): al activarlas, el mapa se aleja para mostrarlas enteras.
+    if ((capa.estilo || {}).encuadrar) mapa.fitBounds(nueva.getBounds(), { padding: [16, 16] });
   }
 
   function refrescarIncendios() {

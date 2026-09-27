@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-27T16:15:26+00:00",
+  "generado": "2026-09-27T19:25:44+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -113,6 +113,87 @@
       "que_representa": "Sería la zonificación oficial de la amenaza de inundación (categorías de peligrosidad).",
       "que_no_representa": "La hidrografía no la reemplaza: saber por dónde corre el agua no dice dónde se inunda.",
       "estado": "sin_fuente"
+    },
+    {
+      "organismo": "Secretaría de Energía de la Nación, con información compilada por el Consejo Hídrico Federal (COHIFE)",
+      "url_fuente": "https://datos.gob.ar/dataset/cuencas-hidricas-cohife",
+      "url_datos": "http://datos.energia.gob.ar/dataset/2c8b870a-7d6b-4ad0-ace0-86c4a9c9e3c0/resource/ace98ef1-e7a8-4d5d-8f44-2e85a2d824a4/download/cuencas-hdricas-cohife.zip",
+      "licencia": "CC BY 4.0",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "url_declaracion_licencia": "https://datos.gob.ar/api/3/action/package_show?id=cuencas-hidricas-cohife",
+      "cita": "Secretaría de Energía de la Nación, Consejo Hídrico Federal (COHIFE). Cuencas Hídricas - COHIFE. Datos Argentina, CC BY 4.0.",
+      "formato": "Shapefile nacional de cuencas (WGS 84); se toma el registro \"Río Quequén Grande\" con scripts/descargar_cuenca.py",
+      "id": "cuenca_quequen",
+      "grupo": "inundaciones",
+      "nombre": "Cuenca del río Quequén Grande, completa (COHIFE)",
+      "archivo": "cuenca_quequen.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#08519c",
+        "relleno": false,
+        "grosor": 2.5,
+        "trazo": "8 5",
+        "encuadrar": true
+      },
+      "activa_al_inicio": false,
+      "que_representa": "El límite de toda la cuenca del río Quequén Grande, que desemboca entre Necochea y Quequén: unos 9.800 km², de los que solo cerca de un cuarto está dentro del partido. El resto se reparte, aproximadamente, entre Benito Juárez (40 %), Lobería (22 %), Adolfo Gonzales Chaves (6 %), Tandil (5 %), San Cayetano (3 %) y Azul (1 %). Al activarla, el mapa se aleja para mostrarla entera. El agua que cae o se drena en cualquier punto de la cuenca termina pasando por la desembocadura, donde se concentra la población.",
+      "que_no_representa": "No indica zonas inundables ni cuánta agua llega. Tampoco muestra las obras de drenaje o canalización hechas en la cuenca: ninguna fuente abierta revisada las registra (ver la capa de red hídrica).",
+      "limitaciones": "Delimitación de escala nacional, con un trazado simplificado (555 vértices): sirve para ver el conjunto, no para decidir si un campo o una calle está adentro o afuera. El área y el reparto entre partidos son aproximados: se calcularon sobre este mismo polígono, con una grilla de 0,02 grados y los límites de Georef.",
+      "estado": "verificada",
+      "elementos": 1,
+      "fecha_datos": "Recurso publicado el 13/07/2023 según datos.gob.ar; la fuente no informa la fecha de la delimitación. Consulta al servicio: 2026-09-27.",
+      "procesado": "2026-09-27T19:23:02+00:00",
+      "verificacion": {
+        "fecha": "2026-09-27",
+        "controles": [
+          "1 elementos, todos dentro de la caja de la cuenca y sin etiquetas excluidas.",
+          "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=cuencas-hidricas-cohife (leída el 2026-09-27)."
+        ]
+      }
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja de la cuenca, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: corrientes de agua perennes e intermitentes, acequias y zanjas.",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado a la cuenca del Quequén Grande por scripts/descargar_cuenca.py; coordenadas redondeadas a 5 decimales",
+      "id": "red_hidrica_cuenca",
+      "grupo": "inundaciones",
+      "nombre": "Red hídrica de toda la cuenca (IGN)",
+      "archivo": "red_hidrica_cuenca.geojson",
+      "geometria": "linea",
+      "estilo": {
+        "color": "#2c7fb8",
+        "grosor": 1.4,
+        "encuadrar": true,
+        "lineas": {
+          "Corriente de agua perenne": "",
+          "Corriente de agua intermitente": "5 4",
+          "Acequia, zanja o zanjón": "1 3"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Los ríos y arroyos de toda la cuenca del Quequén Grande, aguas arriba del partido incluidas (Quequén Chico, Chapaleofú, Pescado Castigado, de los Huesos y otros), y las acequias, zanjas o zanjones que registra el IGN. Línea llena: curso permanente; rayada: intermitente; punteada: acequia, zanja o zanjón.",
+      "que_no_representa": "No incluye canales: el IGN no registra ninguno en la cuenca (su capa de canales devuelve cero elementos en toda la caja de la cuenca, consulta del 27/09/2026). Que no figuren no quiere decir que no existan: las obras de drenaje rural, autorizadas o no, no están en esta fuente. No indica caudales ni crecidas.",
+      "limitaciones": "Cartografía de escala regional, sin fecha informada. Las zanjas aparecen sin nombre ni función. Un tramo que cruza el límite de la cuenca se ve completo.",
+      "estado": "verificada",
+      "elementos": 329,
+      "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-27.",
+      "procesado": "2026-09-27T19:23:09+00:00",
+      "por_tipo": {
+        "Corriente de agua perenne": 91,
+        "Corriente de agua intermitente": 192,
+        "Acequia, zanja o zanjón": 46
+      },
+      "verificacion": {
+        "fecha": "2026-09-27",
+        "controles": [
+          "329 elementos, todos dentro de la caja de la cuenca y sin etiquetas excluidas.",
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+        ]
+      }
     },
     {
       "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",

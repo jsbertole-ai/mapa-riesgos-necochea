@@ -612,5 +612,64 @@
     "barrios_en_el_pais": 6467,
     "familias_aproximadas": 460,
     "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado."
+  },
+  "cuenca_quequen": {
+    "procesado": "2026-09-27T19:23:02+00:00",
+    "archivo_crudo": "cuencas/cuencas-hdricas-cohife.zip",
+    "sha256_crudo": "17ba455b3403c4dd9a8788c582968b593be6c6ac0a190c72ac8699aa90220c0f",
+    "elementos": 1,
+    "area_km2_aproximada": 9788,
+    "partidos_porcentaje_aproximado": {
+      "Benito Juárez": 39.5,
+      "Necochea": 23.9,
+      "Lobería": 22.0,
+      "Adolfo Gonzales Chaves": 5.9,
+      "Tandil": 4.7,
+      "San Cayetano": 2.8,
+      "Azul": 0.9
+    },
+    "caja_verificacion": [
+      -60.260565472999986,
+      -38.58268104199993,
+      -58.57978685099994,
+      -37.31725955099995
+    ],
+    "fecha_datos": null
+  },
+  "red_hidrica_cuenca": {
+    "procesado": "2026-09-27T19:23:09+00:00",
+    "archivo_crudo": "ign_cuenca/*.geojson",
+    "sha256_crudos": {
+      "lineas_de_aguas_continentales_perenne": "0941e60cbae91c3fcc27bf69534b52c77b5b6243dce2dec434d52e17ba71f645",
+      "lineas_de_aguas_continentales_intermitentes": "520d485b42f4a876cc7daf400d6cd43b1dc2b0239fd4f7c2d4e40cd42337b123",
+      "lineas_de_aguas_continentales_BH030": "0dfed9e8246d0f8ee62e98ad086615011ae41ecc549e484c9c8b321fbd13c5ba"
+    },
+    "elementos": 329,
+    "capas_wfs": {
+      "lineas_de_aguas_continentales_perenne": {
+        "en_la_caja": 186,
+        "en_la_cuenca": 91
+      },
+      "lineas_de_aguas_continentales_intermitentes": {
+        "en_la_caja": 392,
+        "en_la_cuenca": 192
+      },
+      "lineas_de_aguas_continentales_BH030": {
+        "en_la_caja": 48,
+        "en_la_cuenca": 46
+      }
+    },
+    "por_tipo": {
+      "Corriente de agua perenne": 91,
+      "Corriente de agua intermitente": 192,
+      "Acequia, zanja o zanjón": 46
+    },
+    "caja_verificacion": [
+      -60.260565472999986,
+      -38.58268104199993,
+      -58.57978685099994,
+      -37.31725955099995
+    ],
+    "fecha_datos": null
   }
 }

@@ -181,6 +181,19 @@ Contexto institucional verificado en el sitio de la ADA (vía buscador): el Comi
 
 ---
 
+### 1.9 Cuenca del río Quequén Grande completa (COHIFE) y su red hídrica (IGN) · **Verificadas** · en uso (desde el 27/09/2026)
+
+Pedido de Sebastián (27/09/2026): la cuenca tiene que ir entera aunque exceda el partido, porque la causa puede estar aguas arriba (lluvias, anegamientos, obras de drenaje) y el impacto se da en la desembocadura, donde están Necochea y Quequén con la mayor parte de la población y de lo construido. Las arma `scripts/descargar_cuenca.py` (paso de `actualizar.py`).
+
+| Campo | Detalle |
+|---|---|
+| Límite de la cuenca | Conjunto "Cuencas Hídricas - COHIFE" (https://datos.gob.ar/dataset/cuencas-hidricas-cohife), Secretaría de Energía de la Nación, "información compilada y publicada originalmente por el Consejo Hídrico Federal". Licencia declarada en la API de datos.gob.ar: `CC-BY-4.0`. Shapefile nacional (291 cuencas, WGS 84), recurso publicado el 13/07/2023: http://datos.energia.gob.ar/dataset/2c8b870a-7d6b-4ad0-ace0-86c4a9c9e3c0/resource/ace98ef1-e7a8-4d5d-8f44-2e85a2d824a4/download/cuencas-hdricas-cohife.zip (29,7 MB, descargado el 27/09/2026; el servidor solo sirve por HTTP, la integridad se registra con su huella SHA-256). Se toma el registro `CUENCA` = "Río Quequén Grande" (sistema "Interserrano Bonaerense", región "Atlántica Pampeana"). |
+| Qué dice el polígono | Unos 9.788 km² (calculado sobre el polígono, 555 vértices). Reparto aproximado por partido, contando puntos de una grilla de 0,02° y usando los límites de Georef: Benito Juárez 39,5 %, Necochea 23,9 %, Lobería 22,0 %, Adolfo Gonzales Chaves 5,9 %, Tandil 4,7 %, San Cayetano 2,8 %, Azul 0,9 %. Cerca de tres cuartos de la cuenca están fuera del partido. |
+| Red hídrica | WFS del IGN en la caja de la cuenca, recortado al polígono: 91 tramos de corrientes perennes, 192 intermitentes y 46 acequias, zanjas o zanjones (consulta del 27/09/2026). |
+| Canales | **Sin fuente.** La capa de canales del IGN (`lineas_de_aguas_continentales_BH020`) devuelve 0 elementos en toda la caja de la cuenca. La consulta a OpenStreetMap (`waterway` = canal, ditch o drain en la caja de la cuenca) no se pudo hacer: Overpass cortó la conexión (27/09/2026). Queda por repetir cuando Overpass responda; lo que haya en OSM dependerá de lo cargado por colaboradores. Las canalizaciones rurales de la cuenca, si se quieren mapear, necesitan otra fuente (la ADA, los municipios de la cuenca o un relevamiento propio). |
+| Limitaciones | Delimitación de escala nacional y trazado simplificado: no sirve para decidir si un lugar puntual está adentro o afuera. La fuente no informa la fecha de la delimitación ni el método. No es un mapa de peligrosidad. |
+| Verificación | `verificar.py` controla estas dos capas contra la caja de la cuenca (guardada en `datos/procesamiento.json` como `caja_verificacion`), no contra la del partido. |
+
 ## 2. Incendios de pastizal y rurales
 
 ### 2.1 NASA FIRMS, focos de calor MODIS y VIIRS · **Verificada** · en uso

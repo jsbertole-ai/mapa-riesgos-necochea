@@ -5,7 +5,8 @@ Uso:  python3 scripts/verificar.py            (vuelve a leer las páginas de lic
 
 Una capa queda "verificada" solo si pasa todos los controles:
   1. el archivo existe, es GeoJSON válido y tiene elementos;
-  2. todos los elementos tocan el partido (al menos un vértice dentro de su caja);
+  2. todos los elementos tocan el partido (al menos un vértice dentro de su caja); las capas de la
+     cuenca del Quequén, que lo exceden, se controlan contra la caja de la cuenca;
   3. ningún elemento lleva etiquetas excluidas (vigilancia), ni en el
      archivo publicado ni en la respuesta cruda de OpenStreetMap;
   4. la página de licencia de la fuente contiene la frase esperada (fuentes.json).
@@ -64,7 +65,7 @@ def excluido(tags):
     return excluido_osm(tags)
 
 
-def verificar_archivo(capa, caja):
+def verificar_archivo(capa, caja, ambito="partido"):
     ruta = SITIO_DATOS / capa["archivo"]
     if not ruta.exists():
         return False, capa.get("mensaje_sin_archivo", "No se descargó todavía."), 0
@@ -80,11 +81,12 @@ def verificar_archivo(capa, caja):
         if not any(caja[0] <= x <= caja[2] and caja[1] <= y <= caja[3] for x, y, *_ in vertices(f["geometry"])):
             fuera += 1
     if fuera:
-        return False, f"{fuera} elementos no tocan el partido.", len(features)
+        return False, f"{fuera} elementos no tocan la caja de{'l ' if ambito == 'partido' else ' la '}{ambito}.", len(features)
     prohibidos = sum(excluido(f.get("properties") or {}) for f in features)
     if prohibidos:
         return False, f"{prohibidos} elementos con etiquetas excluidas.", len(features)
-    return True, f"{len(features)} elementos, todos dentro de la caja del partido y sin etiquetas excluidas.", len(features)
+    return True, (f"{len(features)} elementos, todos dentro de la caja de{'l ' if ambito == 'partido' else ' la '}{ambito} "
+                  "y sin etiquetas excluidas."), len(features)
 
 
 def verificar_crudo_osm(proc):
@@ -139,7 +141,9 @@ def main():
             controles.append((False, "Falta el límite del partido para verificar la cobertura."))
             n = 0
         else:
-            ok, msj, n = verificar_archivo(capa, caja)
+            # Las capas de la cuenca del Quequén exceden el partido: se controlan contra la caja de la cuenca.
+            caja_propia = procesamiento.get(capa["id"], {}).get("caja_verificacion")
+            ok, msj, n = verificar_archivo(capa, caja_propia or caja, "cuenca" if caja_propia else "partido")
             controles.append((ok, msj))
         proc = procesamiento.get(capa["id"], {})
         if (capa["licencia"].startswith("ODbL") or capa.get("crudo_osm")) and proc and proc.get("sha256_crudo"):

@@ -640,5 +640,33 @@
     "last_modified": "Wed, 22 Oct 2025 14:24:00 GMT",
     "bytes": 9435792,
     "sha256": "69e2f325dd042d0bde50b007a4a2cd7194f8d63a93f81c5845737c294643e27a"
+  },
+  "datos/crudos/cuencas/cuencas-hdricas-cohife.zip": {
+    "url": "http://datos.energia.gob.ar/dataset/2c8b870a-7d6b-4ad0-ace0-86c4a9c9e3c0/resource/ace98ef1-e7a8-4d5d-8f44-2e85a2d824a4/download/cuencas-hdricas-cohife.zip",
+    "descargado": "2026-09-27T19:23:01+00:00",
+    "last_modified": "Thu, 13 Jul 2023 17:43:02 GMT",
+    "bytes": 29726559,
+    "sha256": "17ba455b3403c4dd9a8788c582968b593be6c6ac0a190c72ac8699aa90220c0f"
+  },
+  "datos/crudos/ign_cuenca/lineas_de_aguas_continentales_perenne.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?… (consulta abreviada; la completa la arma el script)",
+    "descargado": "2026-09-27T19:23:05+00:00",
+    "last_modified": null,
+    "bytes": 473677,
+    "sha256": "0941e60cbae91c3fcc27bf69534b52c77b5b6243dce2dec434d52e17ba71f645"
+  },
+  "datos/crudos/ign_cuenca/lineas_de_aguas_continentales_intermitentes.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?… (consulta abreviada; la completa la arma el script)",
+    "descargado": "2026-09-27T19:23:07+00:00",
+    "last_modified": null,
+    "bytes": 599431,
+    "sha256": "520d485b42f4a876cc7daf400d6cd43b1dc2b0239fd4f7c2d4e40cd42337b123"
+  },
+  "datos/crudos/ign_cuenca/lineas_de_aguas_continentales_BH030.geojson": {
+    "url": "https://wms.ign.gob.ar/geoserver/wfs?… (consulta abreviada; la completa la arma el script)",
+    "descargado": "2026-09-27T19:23:09+00:00",
+    "last_modified": null,
+    "bytes": 45374,
+    "sha256": "0dfed9e8246d0f8ee62e98ad086615011ae41ecc549e484c9c8b321fbd13c5ba"
   }
 }
