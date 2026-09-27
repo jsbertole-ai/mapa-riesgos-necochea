@@ -39,6 +39,7 @@
   // Líneas de energía (AT030): dominios del metadato del IGN.
   const TENSION_IGN = { 2: "Baja tensión (hasta 1 kV)", 3: "Media tensión (más de 1 kV y hasta 66 kV)", 6: "Alta tensión (más de 66 kV y hasta 220 kV)", 9: "Extra alta tensión (más de 220 kV y hasta 800 kV)", 17: "Ultra alta tensión (más de 800 kV)" };
   const ESTADO_IGN = { 2: "Abandonado", 4: "Desmantelado", 6: "Activo", 9: "En construcción" };
+  const COLOR_FUERA_DE_USO = "#8c8c8c";
   const METODO_CURVAS_IGN = { 1: "Por restitución", 2: "Por modelo digital de elevaciones", 3: "Por plancheta", 4: "Por fotogrametría" };
   const ATRIBUCION_IGN = 'FUENTE: <a href="https://www.ign.gob.ar/">Instituto Geográfico Nacional de la República Argentina</a>';
 
@@ -288,6 +289,8 @@
     if (p.mo2 !== undefined) filas.push(["Método", METODO_CURVAS_IGN[p.mo2] || "Código " + p.mo2 + " (no figura en la documentación)"]);
     if (p.ten !== undefined) filas.push(["Tensión", TENSION_IGN[p.ten] || "s/d"]);
     if (p.fun !== undefined) filas.push(["Estado", ESTADO_IGN[p.fun] || "s/d"]);
+    // En el catálogo del IGN, "Activo" quiere decir "capaz de funcionar completamente", no que haya servicio.
+    if (p.fun === 6 && /^(Ferrocarril|Estación de ferrocarril)$/.test(p.tipo)) filas.push(["Nota", "Según el IGN, capaz de funcionar; no quiere decir que circulen trenes"]);
     if (p.fdc) filas.push(["Fuente de captura", p.fdc]);
     const titulo = p.crv !== undefined ? "Curva de nivel: " + numero(p.crv) + " m"
       : p.fna || (p.hct !== undefined && p.rtn ? (JURISDICCION_IGN[p.hct] || "Ruta") + " " + p.rtn : p.tipo);
@@ -376,16 +379,22 @@
     if (e.bicolor) {
       // Simbología de vía férrea: línea negra de base (la que recibe los clics) con trazos blancos encima;
       // las estaciones, como círculos blancos con borde negro.
+      // Lo que el IGN marca como abandonado o desmantelado va en gris punteado, sin los trazos blancos.
       const esLinea = function (f) { return f.geometry.type !== "Point" && f.geometry.type !== "MultiPoint"; };
+      const activa = function (f) { return f.properties.fun === undefined || f.properties.fun === 6; };
       const base = L.geoJSON(datos, {
-        style: { color: e.color, weight: 5, pane: "dibujo", renderer: lienzo("dibujo") },
+        style: function (f) {
+          return activa(f)
+            ? { color: e.color, weight: 5, pane: "dibujo", renderer: lienzo("dibujo") }
+            : { color: COLOR_FUERA_DE_USO, weight: 3, dashArray: "2 6", pane: "dibujo", renderer: lienzo("dibujo") };
+        },
         attribution: ATRIBUCION_IGN,
         pointToLayer: function (f, latlng) {
-          return L.circleMarker(latlng, { pane: "dibujo", renderer: lienzo("dibujo"), radius: 4, color: e.color, weight: 2, fillColor: "#ffffff", fillOpacity: 1 });
+          return L.circleMarker(latlng, { pane: "dibujo", renderer: lienzo("dibujo"), radius: 4, color: activa(f) ? e.color : COLOR_FUERA_DE_USO, weight: 2, fillColor: "#ffffff", fillOpacity: 1 });
         },
         onEachFeature: function (f, l) { l.bindPopup(function () { return popupIgn(f.properties); }); },
       });
-      const trazos = L.geoJSON(datos, { filter: esLinea, style: { color: "#ffffff", weight: 2.5, dashArray: "7 7", pane: "dibujo", renderer: lienzo("dibujo") }, interactive: false });
+      const trazos = L.geoJSON(datos, { filter: function (f) { return esLinea(f) && activa(f); }, style: { color: "#ffffff", weight: 2.5, dashArray: "7 7", pane: "dibujo", renderer: lienzo("dibujo") }, interactive: false });
       return L.featureGroup([base, trazos]);
     }
     return L.geoJSON(datos, {
@@ -524,6 +533,15 @@
       : colores ? '<ul class="leyenda-tipos">' + Object.keys(colores).map(function (k) {
           const n = (capa.por_organismo || capa.por_tipo || {})[k] || 0;
           return '<li><span class="punto-leyenda" style="background:' + esc(colores[k]) + '"></span>' + esc(k) + " (" + numero(n) + ")</li>";
+        }).join("") + "</ul>"
+      : (capa.estilo || {}).bicolor && capa.por_tipo ? '<ul class="leyenda-tipos">' + Object.keys(capa.por_tipo).sort().map(function (k) {
+          const estacion = k.indexOf("Estación") === 0;
+          const enUso = / activa$/.test(k);
+          const muestra = estacion
+            ? '<span class="punto-leyenda estacion" style="border-color:' + (enUso ? "#222" : COLOR_FUERA_DE_USO) + '"></span>'
+            : enUso ? '<span class="muestra ferro"></span>'
+            : '<span class="linea-leyenda punteada" style="border-color:' + COLOR_FUERA_DE_USO + '"></span>';
+          return "<li>" + muestra + esc(k) + (enUso ? " según el IGN" : "") + " (" + numero(capa.por_tipo[k]) + ")</li>";
         }).join("") + "</ul>"
       : lineas ? '<ul class="leyenda-tipos">' + Object.keys(lineas).map(function (k) {
           const n = (capa.por_tipo || {})[k] || 0;

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-27T20:39:43+00:00",
+  "generado": "2026-09-27T21:31:21+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -59,8 +59,8 @@
       "limitaciones": "Geometría detallada (32.136 vértices). Reemplazó el 26/09/2026 a la versión generalizada de Georef (57 vértices); el cambio movió la asignación al partido de algunos elementos cercanos al borde (por ejemplo, 4 focos MODIS menos y 1 VIIRS más). El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 1,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
-      "procesado": "2026-09-26T19:00:43+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
+      "procesado": "2026-09-27T21:31:14+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -93,7 +93,7 @@
       "estado": "verificada",
       "elementos": 6,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -142,7 +142,7 @@
       "estado": "verificada",
       "elementos": 1,
       "fecha_datos": "Recurso publicado el 13/07/2023 según datos.gob.ar; la fuente no informa la fecha de la delimitación. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T19:23:02+00:00",
+      "procesado": "2026-09-27T21:31:18+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -181,7 +181,7 @@
       "estado": "verificada",
       "elementos": 329,
       "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T19:23:09+00:00",
+      "procesado": "2026-09-27T21:31:18+00:00",
       "por_tipo": {
         "Corriente de agua perenne": 91,
         "Corriente de agua intermitente": 192,
@@ -219,7 +219,7 @@
       "estado": "verificada",
       "elementos": 138,
       "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -252,7 +252,7 @@
       "estado": "verificada",
       "elementos": 2279,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:21:54Z (UTC).",
-      "procesado": "2026-09-26T19:00:43+00:00",
+      "procesado": "2026-09-27T21:31:15+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -286,7 +286,7 @@
       "estado": "verificada",
       "elementos": 229,
       "fecha_datos": "El servicio del IGN no informa la fecha de esta capa; la documentación que republica la provincia es del 24/10/2021. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -319,7 +319,7 @@
       "estado": "verificada",
       "elementos": 40,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -352,7 +352,7 @@
       "estado": "verificada",
       "elementos": 16,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -386,7 +386,7 @@
       "estado": "verificada",
       "elementos": 654,
       "fecha_datos": "2000-11-16 a 2024-11-12",
-      "procesado": "2026-09-26T19:00:43+00:00",
+      "procesado": "2026-09-27T21:31:14+00:00",
       "focos_por_anio": {
         "2000": 3,
         "2001": 28,
@@ -451,7 +451,7 @@
       "estado": "verificada",
       "elementos": 601,
       "fecha_datos": "2012-02-10 a 2024-12-20",
-      "procesado": "2026-09-26T19:00:43+00:00",
+      "procesado": "2026-09-27T21:31:14+00:00",
       "focos_por_anio": {
         "2012": 41,
         "2013": 30,
@@ -502,7 +502,7 @@
       "estado": "verificada",
       "elementos": 47,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -546,7 +546,7 @@
       "estado": "verificada",
       "elementos": 643,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:24:01Z (UTC).",
-      "procesado": "2026-09-26T19:00:43+00:00",
+      "procesado": "2026-09-27T21:31:15+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -581,7 +581,7 @@
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -615,7 +615,7 @@
       "estado": "verificada",
       "elementos": 11,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -653,7 +653,7 @@
       "estado": "verificada",
       "elementos": 5502,
       "fecha_datos": "Recurso actualizado el 30/05/2022 según datos.gob.ar; la fuente no informa la fecha del relevamiento. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T15:12:34+00:00",
+      "procesado": "2026-09-27T21:31:20+00:00",
       "por_tipo": {
         "Aérea": 4236,
         "Subterránea": 1266
@@ -690,7 +690,7 @@
       "estado": "verificada",
       "elementos": 1474,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-27T00:04:15Z (UTC).",
-      "procesado": "2026-09-27T20:37:58+00:00",
+      "procesado": "2026-09-27T21:31:15+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -766,7 +766,7 @@
       "estado": "verificada",
       "elementos": 31,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -793,13 +793,19 @@
       },
       "activa_al_inicio": true,
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: ferrocarril (fuente de captura: IGN, Ministerio de Transporte de la Nación y Ferrosur).",
-      "que_representa": "Los ramales del Ferrocarril General Roca que atraviesan el partido (R18, R21, R23, R25 y R27) y sus estaciones (8), según la cartografía oficial del IGN.",
-      "que_no_representa": "No indica si el ramal está en servicio ni qué carga transporta: el IGN no publica ese dato en la capa.",
-      "limitaciones": "Un ramal que cruza el límite se ve completo, también fuera del partido. El IGN no informa la escala ni la fecha de la capa.",
+      "que_representa": "Los ramales del Ferrocarril General Roca que atraviesan el partido (R18, R21, R23, R25 y R27) y sus estaciones, según la cartografía oficial del IGN, con el estado que el IGN asigna a cada tramo: activa, abandonada o desmantelada. Las vías abandonadas o desmanteladas van en gris punteado porque su traza (terraplenes, alcantarillas, restos de puentes) sigue en el terreno y puede interferir con el escurrimiento.",
+      "que_no_representa": "No indica si circulan trenes. En el catálogo del IGN, \"Activo\" significa \"La instalación es capaz de funcionar completamente\", no que haya servicio: el ramal R18 entre Quequén y Lobería y el R21 al puerto figuran activos, pero el tren de cargas a Quequén no opera desde 1998 (Fernández, 2026). El tramo del R18 que cruzaba el río hacia la estación Necochea figura desmantelado: el último tren partió de esa estación el 15/12/1968 y el viejo puente ferroviario se derrumbó en la inundación de abril de 1980 (Ecos Diarios, 14/12/2025).",
+      "limitaciones": "Un ramal que cruza el límite se ve completo, también fuera del partido. El IGN no informa la escala ni la fecha de la capa, así que el estado de cada tramo puede estar desactualizado. Todas las estaciones del partido figuran abandonadas. La fuente de captura dice \"Ferrosur\" en los tramos que eran de esa concesión; no se verificó quién los tiene hoy.",
       "estado": "verificada",
       "elementos": 14,
       "fecha_datos": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
+      "por_tipo": {
+        "Vía desmantelada": 2,
+        "Vía activa": 3,
+        "Vía abandonada": 1,
+        "Estación abandonada": 8
+      },
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -832,7 +838,7 @@
       "estado": "verificada",
       "elementos": 19,
       "fecha_datos": "Metadato del IGN creado el 24/10/2021, con actualización mensual declarada (https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf); el servicio no informa la fecha de la versión consultada. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -876,7 +882,7 @@
       "estado": "verificada",
       "elementos": 7,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -909,7 +915,7 @@
       "estado": "verificada",
       "elementos": 140,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -942,7 +948,7 @@
       "estado": "verificada",
       "elementos": 22,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T01:28:33+00:00",
+      "procesado": "2026-09-27T21:31:16+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -1009,7 +1015,7 @@
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T16:12:43+00:00",
+      "procesado": "2026-09-27T21:31:20+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -1053,7 +1059,7 @@
       "estado": "verificada",
       "elementos": 12,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-09-27T20:33:02+00:00",
+      "procesado": "2026-09-27T21:31:18+00:00",
       "por_organismo": {
         "Bomberos": 3,
         "Centro Operativo de Monitoreo": 1,
@@ -1102,10 +1108,10 @@
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-09-27T20:33:03+00:00",
+      "procesado": "2026-09-27T21:31:18+00:00",
       "por_tipo": {
-        "Personas en situación de calle": 1,
-        "Evacuación ante catástrofes": 1
+        "Evacuación ante catástrofes": 1,
+        "Personas en situación de calle": 1
       },
       "verificacion": {
         "fecha": "2026-09-27",
