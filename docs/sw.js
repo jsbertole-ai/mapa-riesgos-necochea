@@ -6,7 +6,7 @@
  * ni se guardan: la política de uso de OpenStreetMap prohíbe el uso sin
  * conexión y la descarga anticipada.
  */
-const CACHE = "mapa-riesgos-v1";
+const CACHE = "mapa-riesgos-v7";
 const BASE = [
   "./",
   "index.html",
@@ -16,6 +16,7 @@ const BASE = [
   "js/metodologia.js",
   "vendor/leaflet/leaflet.js",
   "vendor/leaflet/leaflet.css",
+  "vendor/josefin-sans/josefin-sans-latin-600-normal.woff2",
   "datos/capas.json",
   "datos/limite.geojson",
   "manifest.webmanifest",

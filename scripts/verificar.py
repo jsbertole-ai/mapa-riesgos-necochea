@@ -9,6 +9,8 @@ Una capa queda "verificada" solo si pasa todos los controles:
   3. ningún elemento lleva etiquetas excluidas (vigilancia, policía), ni en el
      archivo publicado ni en la respuesta cruda de OpenStreetMap;
   4. la página de licencia de la fuente contiene la frase esperada (fuentes.json).
+     En el inventario local, que es fuente propia, la licencia no se lee de una página:
+     la acepta cada colaborador en el formulario ("licencia_propia" en fuentes.json).
 Si falla uno, la capa se publica como "pendiente de fuente" y el motivo queda anotado.
 """
 
@@ -17,8 +19,8 @@ import json
 import re
 import sys
 
-from comun import (CLAVES_EXCLUIDAS_OSM, CRUDOS, EXCLUSIONES_OSM, FUENTES, PROCESAMIENTO, RAIZ, REGISTRO,
-                   SITIO_DATOS, ErrorRed, ahora, aviso, descargar, escribir_json, hoy, leer_json, vertices)
+from comun import (CRUDOS, FUENTES, PROCESAMIENTO, RAIZ, REGISTRO,
+                   SITIO_DATOS, ErrorRed, ahora, aviso, descargar, escribir_json, excluido_osm, hoy, leer_json, vertices)
 
 LICENCIAS = RAIZ / "datos" / "licencias_verificadas.json"
 
@@ -31,7 +33,11 @@ def texto_plano(contenido):
 
 
 def verificar_licencia(capa, offline, cache):
-    url, frase = capa.get("url_licencia"), capa.get("frase_licencia")
+    if capa.get("licencia_propia"):
+        return True, capa["licencia_propia"]
+    # Si la licencia está declarada en otro lugar (por ejemplo, la API de datos.gob.ar), se controla ahí;
+    # url_licencia sigue siendo el texto de la licencia que ve el público.
+    url, frase = capa.get("url_declaracion_licencia") or capa.get("url_licencia"), capa.get("frase_licencia")
     if not url or not frase:
         return False, "Sin URL o frase de licencia en fuentes.json."
     if not offline:
@@ -55,13 +61,13 @@ def verificar_licencia(capa, offline, cache):
 
 
 def excluido(tags):
-    return any(tags.get(k) == v for k, v in EXCLUSIONES_OSM) or any(k in tags for k in CLAVES_EXCLUIDAS_OSM)
+    return excluido_osm(tags)
 
 
 def verificar_archivo(capa, caja):
     ruta = SITIO_DATOS / capa["archivo"]
     if not ruta.exists():
-        return False, "No se descargó todavía.", 0
+        return False, capa.get("mensaje_sin_archivo", "No se descargó todavía."), 0
     try:
         fc = json.loads(ruta.read_text(encoding="utf-8"))
     except json.JSONDecodeError as e:
@@ -119,6 +125,8 @@ def main():
         c = dict(capa)
         c.pop("frase_licencia", None)
         c.pop("fecha_datos_fija", None)
+        c.pop("licencia_propia", None)
+        c.pop("mensaje_sin_archivo", None)
         if not capa.get("archivo"):
             c["estado"] = "sin_fuente"
             salida.append(c)
@@ -137,6 +145,8 @@ def main():
         controles.append(verificar_licencia(capa, offline, cache))
         verificada = all(ok for ok, _ in controles)
         c["estado"] = "verificada" if verificada else "pendiente"
+        if verificada:
+            c.pop("motivo_pendiente", None)
         c["elementos"] = n
         c["fecha_datos"] = fecha_de_datos(capa, proc, registro) if proc else None
         c["procesado"] = proc.get("procesado")

@@ -276,10 +276,11 @@ El catálogo provincial también publica "Unidades Penitenciarias" (IDEBA): **qu
 
 ## 4. Exclusiones (no se incluyen en ninguna capa)
 
-- Cámaras de videovigilancia y cualquier infraestructura de seguridad (comisarías, centros de monitoreo, etcétera).
+- Cámaras de videovigilancia y comisarías. El Centro Operativo de Monitoreo se publica como espacio físico (su sede es información pública, decisión de Sebastián del 26/09/2026); la ubicación de sus cámaras, nunca.
+- Excepción a la exclusión de `amenity=police`: la Prefectura Naval Argentina se publica por su función de salvamento (decisión de Sebastián, 27/09/2026). Se reconoce por "prefectura" en el nombre, el nombre oficial o el operador (`comun.excluido_osm`); sus cámaras, si las hubiera, siguen excluidas. En OSM es `way/698430678`, "Prefectura Naval Quequén" (encontrada con Nominatim el 27/09/2026); falta traerla con Overpass.
 - Datos personales.
-- En las capas del IGN no se incluyen instalaciones militares, edificios de seguridad, instituciones penitenciarias ni puestos de control. Los cuarteles de bomberos quedan en suspenso hasta que Sebastián decida (sección 8). En las estaciones de servicio se descartan los nombres, porque identifican a sus titulares.
-- Cómo se aplica: las consultas a OpenStreetMap restan `man_made=surveillance`, `amenity=police`, `surveillance=*` y `surveillance:type=*`; el script de OSM vuelve a descartar esos elementos al procesar; `scripts/verificar.py` revisa tanto la respuesta cruda como el archivo publicado, y si encontrara alguno, la capa no se publica. De cada elemento solo se conservan etiquetas descriptivas (nombre, tipo, operador, referencia), nunca teléfonos, correos ni otros datos de contacto.
+- En las capas del IGN no se incluyen instalaciones militares, edificios de seguridad, instituciones penitenciarias ni puestos de control. Los cuarteles de bomberos (voluntarios o no) y Defensa Civil **sí se publican**: son capacidad de respuesta, no infraestructura de seguridad (decisión de Sebastián, 26/09/2026, quien además confirmó que Defensa Civil no comparte ubicación con infraestructura excluida). En las estaciones de servicio se descartan los nombres, porque identifican a sus titulares.
+- Cómo se aplica: las consultas a OpenStreetMap restan `man_made=surveillance`, `amenity=police` (salvo la Prefectura), `surveillance=*` y `surveillance:type=*`; el script de OSM vuelve a descartar esos elementos al procesar; `scripts/verificar.py` revisa tanto la respuesta cruda como el archivo publicado, y si encontrara alguno, la capa no se publica. De cada elemento solo se conservan etiquetas descriptivas (nombre, tipo, operador, referencia), nunca teléfonos, correos ni otros datos de contacto.
 
 ---
 
@@ -291,13 +292,16 @@ Pendientes:
 
 1. **Hidrografía de OSM (1.4):** decidir si queda como capa complementaria o se retira.
 2. **Indicadores del partido del IGN (sección 7): hecho** para DesInventar hidrometeorológico, IVSD y SINAGIR. Pendiente: la escala y la metodología del IVSD (informe de consultoría no publicado) y la documentación de DesInventar físico-químico.
-3. **Cuarteles de bomberos (sección 8):** el IGN los publica; decidir si entran o si quedan dentro de la exclusión de infraestructura de seguridad.
+3. **Defensa Civil (sección 9): hecho.** Sebastián corrigió en OpenStreetMap el punto de Defensa Civil (a partir de su conocimiento del lugar o de las imágenes del editor de OSM, nunca copiando de Google Maps). Después, correr `python3 scripts/descargar_osm.py respuesta`.
 4. **ADA (1.1): hecho.** Sebastián revisó https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/ el 26/09/2026: la carta de la cuenca del Quequén Grande no está hecha. Volver a mirar esa página en cada actualización.
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
 6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
-7. **Información naval (Armada Argentina):** siguiente etapa, pedida por Sebastián.
-8. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
-9. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
+7. **Información naval (sección 11): relevada, sin fuente reutilizable.** Pedir por escrito al Servicio de Hidrografía Naval (shn@hidro.gov.ar; mareas y alertas: pronomarea@hidro.gov.ar; informes: ceado@hidro.gov.ar): (a) bajo qué licencia están los conjuntos de "Datos Abiertos" y las capas WFS de batimetría y línea de costa; (b) si autorizan enlazar sus páginas; (c) si existe una serie de alturas del mareógrafo de Quequén y en qué condiciones se entrega; (d) si sus avisos de crecida de la costa atlántica aplican a Necochea. Sin respuesta, queda el pedido de acceso a la información pública (Ley 27.275) al Ministerio de Defensa.
+7 bis. **Archivo de alertas del SMN (12.1):** se activa al mergear en `main` (las tareas programadas de GitHub solo corren en la rama principal). Después, revisar en la pestaña Actions que la primera corrida termine bien y que el commit automático llegue a Pages.
+8. **Prefectura Naval (11.1):** Sebastián revisó https://www.argentina.gob.ar/prefecturanaval sin encontrar datos de interés; el recorrido del 27/09/2026 (60 páginas y la Memoria Anual 2025) tampoco: solo totales nacionales. Por decisión de Sebastián (27/09/2026) su sede se publica en la capa de respuesta, por su función de salvamento; falta traerla de OpenStreetMap cuando Overpass responda (`python3 scripts/descargar_osm.py respuesta`).
+9. **SMN (sección 12):** revisar a mano la licencia en https://www.smn.gob.ar/descarga-de-datos (Cloudflare bloquea al entorno) y decidir si se arma un archivo propio de las alertas del SMN que alcanzan al partido.
+10. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
+11. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
 
 Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `datos/crudos/` para procesarlo con `python3 scripts/actualizar.py --offline` (instrucciones en el README).
 
@@ -329,6 +333,9 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Expuestos: planta urbana | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (7) |
 | Expuestos: establecimientos educativos | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (140) |
 | Expuestos: establecimientos de salud | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (22) |
+| Respuesta: cuarteles de bomberos | OpenStreetMap | Verificada, ODbL; completa según Sebastián | Publicada, apagada al inicio (2) |
+| Respuesta: Defensa Civil | OpenStreetMap (corregido el 26/09/2026) | Verificada, ODbL | Publicada, apagada al inicio (1) |
+| Respuesta: Centro Operativo de Monitoreo | OpenStreetMap | Verificada, ODbL; sin cámaras | Publicada, apagada al inicio (1) |
 
 ---
 
@@ -342,7 +349,7 @@ El WFS del IGN tiene un espacio `ign_riesgo` con 66 capas (https://wms.ign.gob.a
 | IVSD 2024 por departamento (`ivsd_2024_depto`) | 30. Entre 511 departamentos del país: de 11,6 a 75,5, mediana 41,8; 52 con valor menor. Entre 134 partidos de la provincia: de 11,6 a 46,4, mediana 32,7; 32 con valor menor. | Metadato https://www.ign.gob.ar/capas-sig/metadata/ivsd_2024_depto.pdf: índice sintético del Proyecto ARG19003 (Plan Nacional de Adaptación al Cambio Climático, MAyDS) con indicadores actualizados al Censo 2022, en dimensiones demográfica, vivienda, servicios y conectividad, salud, educación, trabajo, ingresos y familia. **No publica la escala ni la metodología** (remite a un informe de consultoría). Licencia: "Libre uso de la información, cumpliendo con la cita adecuada de acuerdo a los créditos". **Inferido:** un valor más alto indica más vulnerabilidad (en la provincia, los extremos bajos son Vicente López y San Isidro; los altos, José C. Paz y Presidente Perón). |
 | SINAGIR, niveles de exposición por región (`sinagir_amenazas_hidrometeorologicas_riesgo` y `_fisico_quimicas_riesgo`) | Región Centro: "Alto nivel de exposicion SINAGIR Centro" (hidrometeorológicas) y "Muy alto nivel de exposicion SINAGIR Centro" (físico-químicas). | Resumen del servicio: "sumatoria de niveles de exposición de amenazas ... por región, PNRRD". Escala regional: no distingue partidos. |
 
-No se usan: DesInventar físico-químico (`desinventar_fisico_quimico_riesgo`), porque no tiene metadato publicado y sus códigos (`des_incend`, `des_estruc`, `des_sobret`) y su período no están documentados; y la superficie afectada por incendios de 2022 (`mayds_sup_afectada_2022`), porque es provincial.
+No se usan: DesInventar físico-químico (`desinventar_fisico_quimico_riesgo`), porque no tiene metadato publicado y sus códigos (`des_incend`, `des_estruc`, `des_sobret`) y su período no están documentados. Inferido (27/09/2026), sin confirmación del IGN: los conteos coinciden con las fichas de la base argentina de DesInventar en Necochea, La Costa y General Pueyrredon, lo que sugiere `des_incend` = Incendio (FIRE), `des_estruc` = Colapso estructural (STRUCTURE) y `des_sobret` = Marejada (SURGE, no "sobretensión"); para Necochea darían 4 incendios, 5 colapsos estructurales y 1 marejada. Hasta que el IGN lo confirme, no se publica; y la superficie afectada por incendios de 2022 (`mayds_sup_afectada_2022`), porque es provincial.
 
 ---
 
@@ -357,7 +364,7 @@ Del inventario de las 192 capas del WFS del IGN se sumaron las que aportan a las
 | Puentes y vados | `puntos_de_cruces_y_enlaces_AQ040` y `_BH070` | 16 (40) | 14 puentes y 2 vados. Registro posiblemente incompleto (inferido). No indica su estado. |
 | Forestaciones y bosques | `vegetacion_arborea_060301`, `_EC015` y `plantacion_permanente_KB025` | 47 (76) | 36 forestaciones, 7 bosques y 4 plantaciones: vegetación leñosa, combustible distinto del pastizal. No indica especie ni carga de combustible. |
 | Puerto y navegación | `puntos_de_puertos_y_muelles_BB005`, rompeolas (`_BB041`), `ayuda_a_la_navegacion_BC050` y `_BC101`, `mareas_y_corrientes_BG020` | 9 (9) | Puerto Quequén, 4 rompeolas, faro Quequén, balizas de las escolleras norte y sur, y el mareógrafo de la estación Quequén (fuente de captura: IGN y Servicio de Hidrografía Naval). |
-| Energía | `lineas_de_energia_AT030`, `puntos_de_energia_AD010` y `_AD030` (y `lineas_de_estructura_asociada_ducto_subterraneo`) | 11 (15) | 7 líneas de transmisión eléctrica, la Central Térmica Necochea, el Parque Eólico Necochea y las estaciones transformadoras Necochea y Quequén. El ducto General San Martín está en la caja pero fuera del partido. No indica tensión ni potencia (códigos sin dominio publicado). |
+| Energía | `lineas_de_energia_AT030`, `puntos_de_energia_AD010` y `_AD030` (y `lineas_de_estructura_asociada_ducto_subterraneo`) | 11 (15) | 7 líneas de transmisión eléctrica, la Central Térmica Necochea, el Parque Eólico Necochea y las estaciones transformadoras Necochea y Quequén. El ducto General San Martín está en la caja pero fuera del partido. Tensión y estado de las líneas: el metadato de la capa (https://www.ign.gob.ar/capas-sig/metadata/lineas_de_energia_AT030.pdf, leído el 27/09/2026) publica el dominio de `ten` y `fun`; las 7 líneas tienen `ten=6` ("Alta Tensión", más de 66 kV y hasta 220 kV) y `fun=6` ("Activo"). Corrige lo que decía esta fila hasta el 27/09/2026 ("códigos sin dominio publicado"). No indica potencia. |
 | Industria, combustibles y residuos | `areas_de_fabricacion_y_procesamiento_AC070` y `_AC507`, `puntos_de_fabricacion_y_procesamiento_AC000` y `_AC507`, `infraestructura_de_transporte_AQ170`, `areas_de_gestion_de_residuos_AB000` | 31 (53) | 3 fábricas, el Sector Industrial Planificado, 22 estaciones de servicio, el basural municipal y 4 elementos de las plantas depuradoras de Necochea y Quequén. No informa sustancias ni volúmenes. |
 | Estaciones de ferrocarril | `puntos_de_transporte_ferroviario_AN070` | 8 (20) | Se suman a la capa de ferrocarril (3.4). |
 | Planta urbana | `areas_de_asentamientos_y_edificios_020105` | 7 (16) | Área urbanizada de cada localidad (fuente de captura: IGN e INDEC). No distingue densidad ni población. |
@@ -367,7 +374,101 @@ Del inventario de las 192 capas del WFS del IGN se sumaron las que aportan a las
 Criterios aplicados:
 
 - **Datos personales:** en las estaciones de servicio el nombre es el del titular (por ejemplo, "Apellido Nombre (Marca)"), así que se descarta. Los nombres de escuelas y centros de salud son de instituciones y se conservan.
-- **Exclusiones:** no se incluyen `instalacion_militar_SU001`, `estructuras_operativas_y_defensivas_FA517` (edificio de seguridad), `_090101` (institución penitenciaria) ni `controles_AH070` (puesto de control). Tampoco `_090102` (cuartel de bomberos), hasta que Sebastián decida si entra (sección 5).
+- **Exclusiones:** no se incluyen `instalacion_militar_SU001`, `estructuras_operativas_y_defensivas_FA517` (edificio de seguridad), `_090101` (institución penitenciaria) ni `controles_AH070` (puesto de control). Los cuarteles de bomberos del IGN (`_090102`, 2 en el partido) no se usan porque son los mismos dos de OpenStreetMap; la capa sale de OSM (sección 9).
 - **Sin datos en el partido:** barriales, salinas, sedimento fluvial, playas de arena, canales, alcantarillas, diques, embalses rurales, tanques de combustible, rellenos sanitarios y canteras dieron cero elementos en la caja.
 - **No incluidas por ahora:** médanos (4 en la caja), arenales (3) y accidentes costeros (2), para la etapa costera y naval; aeródromos (11) y puntos acotados (119), por no aportar a las tres amenazas.
 
+---
+
+## 9. Capacidad de respuesta: bomberos, Defensa Civil y Centro Operativo de Monitoreo · **Verificada** · en uso
+
+Decisiones de Sebastián (26/09/2026): se publican los cuarteles de bomberos, voluntarios o no, Defensa Civil y el Centro Operativo de Monitoreo como espacio físico, porque su sede es información pública. Sus cámaras no se publican nunca.
+
+| Campo | Detalle |
+|---|---|
+| Consulta | OpenStreetMap vía Overpass: `amenity=fire_station` y elementos con nombre "Defensa Civil" o "Centro Operativo de Monitoreo", en la caja del límite y recortados por el polígono. Script: `scripts/descargar_osm.py` (se puede correr sola con `python3 scripts/descargar_osm.py respuesta`). |
+| Fecha de los datos | Base de OpenStreetMap al 2026-09-26T23:42:00Z. |
+| Licencia | ODbL 1.0 (1.4). |
+| Bomberos | 2 cuarteles: "Estación de bomberos" (Necochea, `node/4090042291`) y "Bomberos Voluntarios de La Dulce" (`node/5871881594`). Coinciden con los dos del IGN (capa `estructuras_operativas_y_defensivas_090102`; el de Necochea declara como fuente de captura "OSM/Street View"). Del operador no se guarda nada: en el cuartel de Necochea figura un nombre que puede ser el de una persona. Según Sebastián (26/09/2026), son todos los cuarteles del partido. Archivo: `docs/datos/bomberos.geojson`. |
+| Defensa Civil | OSM tiene un punto "Defensa Civil" (`node/4092470096`, `office=government`, sobre calle 56, junto a la Municipalidad). Según el municipio, sus instalaciones están "sobre avenida 10, casi Pinolandia" (https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/, 17/09/2026), y Sebastián indicó una ubicación a unos 3 km del punto de OSM. Además, el punto de OSM está a unos 15 m del de la Municipalidad de Necochea en el IGN (`puntos_de_asentamientos_y_edificios_020101`), y Sebastián confirmó que marca el Palacio Municipal, donde Defensa Civil no funciona desde hace muchos años. El punto está desactualizado: el script lo descarta mientras siga a menos de 100 m de su posición actual, y vuelve a entrar solo si se corrige en OSM. Historial del nodo (API de OSM, consultada el 26/09/2026): creado el 02/04/2016 en calle 56 N° 2945; en la versión 7 (26/09/2026, 19:25 UTC) Sebastián cambió la dirección a "Calle 10" N° 4500, pero la posición sigue siendo la de 2016. La dirección sola no se convierte en coordenadas: sería interpolar sobre la cuadra, es decir, estimar. **Resuelto:** en la versión 8 (26/09/2026, 20:30 UTC) Sebastián movió el nodo 2.907 m, hasta calle 10 N° 4500, a partir de su conocimiento del lugar. Con la base de Overpass de las 20:35 UTC, Defensa Civil se publica (`docs/datos/defensa_civil.geojson`). La entrada de exclusión se mantiene en el script para que una respuesta vieja de Overpass no reintroduzca la posición del Palacio Municipal. La dirección oficial no tiene número, así que no se convierte en coordenadas (sería estimar). La ubicación que indicó Sebastián salió de Google Maps y no se usa: sus condiciones no permiten copiar esos datos. |
+| Centro Operativo de Monitoreo | `node/14220751253`, creado en OpenStreetMap el 26/09/2026 a las 23:40 UTC: nombre "Centro Operativo de Monitoreo", nombre oficial "Subsecretaría de Prevención y Monitoreo.", descripción "Multiagencia", dirección sobre avenida 58. No tiene etiqueta de tipo ni ninguna etiqueta de vigilancia o policía, así que los filtros de exclusión no lo afectan; la consulta lo busca por nombre. Archivo: `docs/datos/monitoreo.geojson`. |
+
+---
+
+## 10. Inventario local de eventos y vulnerabilidades · **Fuente propia, formulario abierto**
+
+Decisión de Sebastián (27/09/2026): el proyecto arma su propio registro de eventos adversos y vulnerabilidades a partir de notas de medios locales, al estilo DesInventar, con carga de varios colaboradores.
+
+| Campo | Detalle |
+|---|---|
+| Autoría | "Inventario local de eventos y vulnerabilidades del partido de Necochea", Juan Sebastián Bértole y colaboradores. |
+| Licencia | Creative Commons Atribución 4.0 (CC BY 4.0). El formulario pide a quien carga que acepte esa licencia. |
+| Herramienta de carga | KoboToolbox (https://kf.kobotoolbox.org, cuenta de Sebastián, plan gratuito según él). Comprobado en su documentación (https://support.kobotoolbox.org/viewing_validating_data.html, 26/09/2026): cada envío tiene estado de validación "Approved", "Not approved" u "On hold", y el formulario web puede aceptar envíos "without a username and password". |
+| Exportación de Kobo | Comprobado en el código de KoboToolbox (repositorios kpi y formpack, leídos el 27/09/2026) y en su documentación (https://support.kobotoolbox.org/export_download.html): la columna es `_validation_status`; con "XML values and headers" vale `validation_status_approved`, y con etiquetas, `Approved` (fijo en inglés, sin traducción). El CSV usa punto y coma. El geopoint sale como "lat lon alt precisión" más columnas `_<nombre>_latitude` y `_<nombre>_longitude`. Sin probar todavía con una exportación real. |
+| Datos de quien carga | En un formulario sin usuario, `_submitted_by` queda vacío y el formulario no pide datos personales. Comprobado en el código (kobo/apps/audit_log/models.py): el historial del proyecto guarda la IP y el navegador de cada envío, con una retención por defecto de 744 días (el valor real del servidor no se pudo comprobar). Ese historial no se exporta ni se publica, y el formulario lo avisa. |
+| Revisión | Nada se publica sin estado "Approved". Sebastián verifica la nota de origen y que no haya datos personales; el script vuelve a validar al procesar la exportación. |
+| Reglas | Nota enlazada obligatoria; sin nombres de personas ni domicilios particulares; ubicación por localidad o barrio, con punto exacto solo para lugares públicos que la nota nombre; una dirección no se convierte en coordenadas; no se copia el texto de las notas. |
+| Clasificación | Tipos de evento y efectos de la "Guía Metodológica" de DesInventar, versión 8.1.9 (2009), en castellano: https://www.desinventar.org/docs/DesInventar-GuiaMetodologica-2.pdf (SHA-256 389e772f…, pp. 9 a 14 y 20 a 24). Se eligieron 21 tipos más "Otro", pertinentes para el partido; el valor interno es el código de la base argentina de DesInventar Sendai (https://www.desinventar.net/DesInventar/main.jsp?countrycode=arg&lang=ES), que usa el nombre en castellano con el código en inglés. Dos decisiones: (1) Incendio y Explosión siguen la definición castellana, que incluye causas humanas y tecnológicas (la versión Sendai en inglés los limita a los inducidos por fenómenos naturales); (2) la guía pide convertir familias a personas "según indicadores disponibles", pero eso sería estimar: las cifras por familias van en "Observaciones de efectos". "Afectados" tiene el sentido de la guía de 2009 (efectos indirectos), no el de "directly affected" de Sendai. La lista de vulnerabilidades es propia del proyecto. Todo en `datos/inventario/formulario.json`. |
+| Exportaciones crudas | Van a `datos/crudos/inventario/`, que no se sube al repositorio: pueden contener envíos no aprobados. |
+| Formulario y procesamiento | `scripts/generar_formulario.py` arma el XLSForm (`datos/inventario/formulario_inventario.xlsx`, convertido sin errores con pyxform, el mismo motor que usa KoboToolbox). `scripts/procesar_inventario.py` publica solo los aprobados que pasan los controles (campos, listas, fechas, enlace, cantidades, rastros de datos personales, punto dentro del partido, duplicados). Los registros sin punto se agrupan en el punto de su localidad (IGN). El título de la nota y el usuario de Kobo nunca se publican. |
+| Formulario publicado | Desplegado por Sebastián el 27/09/2026 a las 01:21 UTC (proyecto `aD2nAa796eJ9xV2yCqiwXf`). Enlace público: https://ee.kobotoolbox.org/x/JsHKYrg5. Comprobado en la API de Kobo el mismo día: el formulario llegó completo (31 preguntas, 51 opciones) y el usuario anónimo tiene solo "Add submissions" y "View form"; los envíos no se leen sin sesión (404). |
+| Estado | Formulario abierto a envíos; todavía no hay registros aprobados, así que la capa figura como "pendiente". |
+
+### 12.1 Archivo propio de alertas del SMN (decisión de Sebastián, 27/09/2026)
+
+- `scripts/archivar_alertas_smn.py` lee https://ssl.smn.gob.ar/CAP/AR.php, baja cada alerta o aviso vigente y guarda en `docs/datos/alertas_smn.json` los que alcanzan al partido: algún vértice del límite (uno de cada diez) dentro del polígono de la alerta, o algún vértice del polígono dentro del partido. Anota las localidades del IGN que quedan dentro. Guarda la severidad del estándar CAP y el titular del SMN; no deduce colores (las alertas no los informan en ningún campo; los avisos a corto plazo los traen en el titular).
+- La tarea `.github/workflows/alertas-smn.yml` lo corre cada hora y hace un commit en `main` solo si entró una alerta nueva.
+- Primera corrida (27/09/2026, 48 mensajes vigentes en el país): 3 mensajes alcanzan al partido, todos de un mismo episodio de lluvias (29/09/2026 de 9 a 15 h, severidad "Moderate"), que suman las seis localidades.
+- Limitaciones: el archivo empieza el 27/09/2026; si una corrida falla, una alerta que dure menos de una hora se puede perder; los enlaces a los mensajes originales dejan de funcionar cuando el SMN los retira.
+
+## 10 bis. Líneas de media tensión (Secretaría de Energía) · **Verificada** · en uso
+
+| Campo | Detalle |
+|---|---|
+| Organismo | Secretaría de Energía de la Nación, con datos del Consejo Federal de la Energía Eléctrica (CFEE). |
+| Conjunto | "Redes de distribución eléctrica del Consejo Federal", https://datos.gob.ar/dataset/redes-de-distribucion-electrica-del-consejo-federal. Recurso "Redes de distribución eléctrica de BUENOS AIRES (solo cooperativas) - CFEE - Líneas Media y Alta Tensión". |
+| URL de descarga | http://datos.energia.gob.ar/dataset/ff99e7be-7bab-4617-9588-9a74ae046a40/resource/be371445-5d0a-4ad7-8346-f1cdfb89c66f/download/-buenos-aires-alta-tensin-media-tensin-lneas.zip (solo HTTP: el entorno no la alcanza; Sebastián la bajó a mano el 27/09/2026; SHA-256 4674d971f0d37658…). |
+| Fecha | Recurso modificado el 30/05/2022 según datos.gob.ar; la fuente no informa la fecha del relevamiento. |
+| Licencia | CC BY 4.0: `"license_id": "CC-BY-4.0"` en https://datos.gob.ar/api/3/action/package_show?id=redes-de-distribucion-electrica-del-consejo-federal (leído el 27/09/2026). |
+| Formato | Shapefile de líneas, WGS 84; 225.185 tramos en la provincia. |
+| Cobertura en el partido | 5.502 tramos (5.500 de 13,2 kV y 2 de 33 kV), alrededor de 1.850 km: las seis localidades y la zona rural. |
+| Limitaciones | Foto de 2022. El campo de cooperativa está vacío en casi todos los tramos del partido (inferido, sin confirmar: la red de Necochea y Quequén sería la de la Usina Popular Cooperativa). No incluye alta ni baja tensión. |
+
+## 11. Información naval (Servicio de Hidrografía Naval) · **Identificada, sin licencia de reutilización** · no se usa como capa
+
+Relevamiento del 27/09/2026, por HTTPS, desde el entorno. Los "datos de la Armada" están en el sitio del Servicio de Hidrografía Naval (SHN), https://www.hidro.gov.ar, que según su página institucional "tiene dependencia orgánica de la Subsecretaría de Investigación Científica y Política Industrial para la Defensa del Ministerio de Defensa". Los sitios de la Armada no publican datos.
+
+**Condiciones de uso** (https://www.hidro.gov.ar/Institucional/Institucional.asp?op=6, apartado 6, leídas el 27/09/2026, citas textuales): "El Servicio de Hidrografía Naval retiene la propiedad de toda la información que suministra y el sólo hecho de copiar, vender, alquilar o distribuir copias o trabajos de cualquier clase de información a partir de este sitio, constituye un delito." y "A menos de contar con la autorización del Servicio de Hidrografía Naval, no se deberán establecer enlaces cuyo resultado sea la exhibición de una página o imagen del Servicio de Hidrografía Naval." El pie de todas las páginas, incluida "Datos Abiertos", dice "Todos los Derechos Reservados", y ninguna de sus fichas de metadatos declara licencia. Por eso no se descarga ni se redistribuye nada, y el sitio del mapa lo nombra sin enlazarlo hasta tener autorización.
+
+| Fuente | URL | Qué aporta a Necochea | Uso |
+|---|---|---|---|
+| Datos Abiertos del SHN | https://www.hidro.gov.ar/DA/DatosAbiertos.asp | 9 conjuntos en HTML, sin licencia. | Ninguno por ahora. |
+| Mareógrafo "Quequén" | https://www.hidro.gov.ar/Oceanografia/Mareografos.asp | Ficha: "Sitio 2 del Puerto Quequén", 38°34'31" S, 58°42'22" W. | Ya está en el mapa, desde el IGN (capa "Puerto y navegación"); las posiciones coinciden a 11,8 m. |
+| Alturas horarias | https://www.hidro.gov.ar/Oceanografia/AlturasHorarias.asp | 11 mareógrafos, últimos 10 días. **Quequén no está.** | Vacío de información, anotado en la Metodología. |
+| Tablas de marea de Puerto Quequén (H-610) | https://www.hidro.gov.ar/Oceanografia/Tmareas/Form_Tmareas.asp | Predicción astronómica 2022 a 2026 (no incluye el efecto del viento). | Solo con autorización. |
+| Avisos y alertas de crecida, costa atlántica | https://www.hidro.gov.ar/oceanografia/ServiciosAACB.asp?op=2 (CAP 1.2: https://www.hidro.gob.ar/cap/CapCosta.asp) | Área: "Franja Costera de la Costa Atlántica Bonaerense desde la ciudad de Mar del Plata hasta San Clemente del Tuyú". Comprobado: el polígono del CAP no llega al partido (su extremo oeste está en 57,66° O; el partido empieza cerca de 58,4° O). | **Necochea queda fuera**: anotado en la Metodología. |
+| Geoportal y GeoServer | https://geoportal.shn.gob.ar/ y https://wms.shn.gob.ar/geoserver/ows | En la zona: 46 curvas batimétricas, 6 tramos de línea de costa (solo conteo, sin bajar geometrías). | Capa posible (batimetría) solo con licencia por escrito. |
+| Cartas náuticas y celdas ENC (AR402520 "Rada Quequén", AR502530 "Puerto Quequén") | https://www.hidro.gov.ar/nautica/CartasNauticas.asp?op=7 | Productos a la venta para navegar; Decreto 7.633/72, art. 5, remite a la Ley 11.723. | No se usan. |
+| Informes del CEADO (Quequén 2005; niveles extremos 1994) | https://ceado.shn.gob.ar/explorar-datos/20/ | A pedido: ceado@hidro.gov.ar. | Bibliografía, si se obtienen. |
+| PSMSL, estación 223 "QUEQUEN" | https://psmsl.org/data/obtaining/stations/223.php | Nivel medio mensual 1918 a 1982; la ficha avisa que en 1968 el mareógrafo se movió unos 340 m. | Sin licencia declarada: solo mención. |
+| datos.gob.ar, organización SHN | https://datos.gob.ar/api/3/action/organization_show?id=servicio-de-hidrografia-naval | 0 conjuntos al 27/09/2026. | Volver a mirar en cada actualización. |
+
+Sin comprobar: si el SHN considera que sus avisos valen también para Necochea (el texto habla de "la población costera de la Provincia de Buenos Aires (costa atlántica)", pero el área termina en Mar del Plata); el huso horario del CSV de alturas; la Prefectura Naval Argentina, que no se relevó.
+
+### 11.1 Prefectura Naval Argentina (27/09/2026)
+
+Comprobado en https://www.argentina.gob.ar/prefecturanaval/ambitos-actuacion-despliegue-geografico: la Prefectura Quequén integra la Prefectura de Zona Mar Argentino Norte ("las Prefecturas de Mar del Plata, Quequén, Bahía Blanca, ..."), y la Prefectura actúa, entre otros ámbitos, "en las costas y playas marítimas y fluviales". Es la autoridad de la navegación en el puerto y la costa del partido.
+
+- datos.gob.ar no tiene ninguna organización ni conjunto de la Prefectura (búsquedas "prefectura", "naufragio", "salvamento", "Quequén": 0 resultados).
+- https://www.prefecturanaval.gob.ar/ devuelve 504 al entorno; https://prefecturanaval.gob.ar/ (sin www) es el acceso al correo institucional, no un sitio de datos. Sin rodeos: Sebastián revisa a mano si el sitio publica, para Quequén, el estado del puerto (cierres por mal tiempo), avisos a los navegantes o partes meteorológicos, y bajo qué condiciones de uso.
+- El conjunto "Puertos" de la Secretaría de Transporte (https://datos.transporte.gob.ar/dataset/puertos, licencia "Other (Open)", relevamiento 2019) se sirve desde ide.transporte.gob.ar, cuyo certificado no valida desde el entorno; no se forzó. El puerto ya está en el mapa por el IGN y OpenStreetMap.
+- El conjunto de entrada y salida de buques de la Secretaría de Transporte (CC BY 4.0) es solo del Puerto Buenos Aires: no sirve para Quequén.
+
+## 12. Servicio Meteorológico Nacional (SMN) · **Alertas: verificadas, archivo propio desde el 27/09/2026** · datos de estaciones: no se usan
+
+Relevamiento del 27/09/2026, por HTTPS, desde el entorno.
+
+- **Licencia general del SMN (comprobada):** "Términos y condiciones de uso" (PDF "SMN_PAD_legales.pdf", año 2018, provisto por Sebastián el 27/09/2026 desde smn.gob.ar): "El SMN licencia todos sus contenidos bajo la licencia Creative Commons Atribución 2.5 Argentina, cuyo texto legal puede encontrarse en http://creativecommons.org/licenses/by/2.5/ar/legalcode." El canal de alertas declara CC BY 4.0 (abajo). Las dos permiten reutilizar citando al SMN.
+- **www.smn.gob.ar no responde al entorno:** Cloudflare devuelve "Sorry, you have been blocked" (403) en la portada, en https://www.smn.gob.ar/descarga-de-datos y en los términos. Sin rodeos: Sebastián tiene que revisar a mano en esas páginas la licencia de los datos descargables.
+- **Alertas en formato CAP 1.2:** https://ssl.smn.gob.ar/CAP/AR.php. El canal declara textualmente: "Copyright 2025 SMN | Derechos de autor, Servicio Meteorologico Nacional (SMN). Licencia CC BY 4.0." Cada alerta trae evento, severidad, certeza, vigencia (onset y expires), descripción, instrucciones y el polígono del área. Comprobado: el 27/09/2026 a las 00:48 UTC había 49 alertas vigentes, y 3 de ellas (lluvias, del 29/09 de 9 a 15 h, "precipitación acumulada entre 30 y 50 mm") abarcaban el partido. A diferencia de las del SHN (sección 11), las alertas del SMN sí cubren Necochea. Limitaciones: el canal solo muestra las vigentes (no hay archivo histórico en él) y no envía encabezados CORS, así que el sitio no lo puede leer desde el navegador.
+- **Datos de estaciones** (datos.gob.ar, organización "servicio-meteorologico-nacional", 7 conjuntos: estaciones, datos horarios, temperaturas extremas, registro de 365 días, radiación solar, tiempo presente y pronóstico a 5 días; descarga en https://ssl.smn.gob.ar/dpd/zipopendata.php?dato=...): el campo de licencia está vacío en los 7 ("isopen": false). Además, **ninguna estación del SMN está en el partido**: las más cercanas son Mar del Plata Aero (124 km del centro de Necochea), Benito Juárez Aero (131 km) y Tres Arroyos (136 km), según el listado de estaciones (https://ssl.smn.gob.ar/dpd/zipopendata.php?dato=estaciones). Sus series describen otros lugares, no el partido. El pronóstico a 5 días bajó vacío (0 bytes) el 27/09/2026.

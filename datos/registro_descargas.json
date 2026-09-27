@@ -577,5 +577,12 @@
     "last_modified": null,
     "bytes": 8254,
     "sha256": "28294434773f3ef307af25f527f7a2c4490e7b4bb736e2ccae9ef58ede72da7f"
+  },
+  "datos/crudos/osm/respuesta.json": {
+    "url": "https://overpass-api.de/api/interpreter?… (consulta abreviada; la completa la arma el script)",
+    "descargado": "2026-09-26T23:46:50+00:00",
+    "last_modified": null,
+    "bytes": 2489,
+    "sha256": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6"
   }
 }

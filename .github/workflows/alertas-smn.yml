@@ -1,0 +1,39 @@
+# Archivo de alertas del SMN que alcanzan al partido (scripts/archivar_alertas_smn.py).
+# Corre una vez por hora y hace un commit en main solo si entró una alerta nueva.
+# Las tareas programadas de GitHub corren únicamente en la rama principal.
+name: Archivo de alertas del SMN
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: alertas-smn
+  cancel-in-progress: false
+
+jobs:
+  archivar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Leer el canal del SMN
+        run: python3 scripts/archivar_alertas_smn.py
+
+      - name: Guardar si hubo alertas nuevas
+        run: |
+          if git diff --quiet -- docs/datos/alertas_smn.json; then
+            echo "Sin alertas nuevas para el partido."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/datos/alertas_smn.json
+          git commit -m "Alertas del SMN: archivo actualizado"
+          git pull --rebase origin main
+          git push origin HEAD:main

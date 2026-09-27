@@ -2,6 +2,7 @@
 
 Uso:  python3 scripts/descargar_osm.py            (consulta Overpass y procesa)
       python3 scripts/descargar_osm.py --offline  (procesa lo ya guardado en datos/crudos/osm/)
+      python3 scripts/descargar_osm.py respuesta  (solo una consulta: hidrografia, portuaria o respuesta)
 
 Requiere el límite del partido (scripts/descargar_limite.py). La consulta usa
 la caja envolvente del límite y después recorta por el polígono: queda todo
@@ -9,7 +10,8 @@ elemento con al menos un vértice dentro del partido.
 
 Exclusiones (DATOS.md, sección 4): se descartan en la consulta y otra vez al
 procesar los elementos con man_made=surveillance, amenity=police o claves de
-vigilancia. Además solo se conservan las etiquetas de la lista TAGS_CONSERVADAS,
+vigilancia. Única excepción: la Prefectura Naval Argentina, que se publica por su
+función de salvamento (ver comun.excluido_osm). Además solo se conservan las etiquetas de la lista TAGS_CONSERVADAS,
 para no arrastrar teléfonos, correos ni otros datos de contacto.
 
 Licencia: ODbL 1.0. Los archivos resultantes son una base derivada de
@@ -21,15 +23,22 @@ import sys
 import time
 import urllib.parse
 
-from comun import (CLAVES_EXCLUIDAS_OSM, CRUDOS, EXCLUSIONES_OSM, SITIO_DATOS, ErrorRed,
-                   anotar_procesamiento, aviso, cargar_limite, coleccion, descargar, escribir_json,
+from comun import (CRUDOS, SITIO_DATOS, ErrorRed, anotar_procesamiento, es_prefectura, excluido_osm, aviso, cargar_limite, coleccion, descargar, escribir_json,
                    punto_en_geometria, sha256)
 
 OVERPASS = "https://overpass-api.de/api/interpreter"
 
+# La policía se excluye salvo la Prefectura Naval (salvamento; decisión de Sebastián, 27/09/2026).
+POLICIA_EN_CONSULTA = """
+(nwr["amenity"="police"]({caja});) -> .policia;
+(nwr.policia["name"~"prefectura",i]; nwr.policia["official_name"~"prefectura",i];
+ nwr.policia["operator"~"prefectura",i];) -> .prefectura;
+(.policia; - .prefectura;) -> .policia_excluida;
+"""
+
 EXCLUIR_EN_CONSULTA = """
   nwr["man_made"="surveillance"]({caja});
-  nwr["amenity"="police"]({caja});
+  .policia_excluida;
   nwr["surveillance"]({caja});
   nwr["surveillance:type"]({caja});
 """
@@ -46,7 +55,37 @@ CONSULTAS = {
   nwr["harbour"]({caja});
   nwr["man_made"~"^(silo|storage_tank|pier|breakwater)$"]({caja});
 """,
+    "respuesta": """
+  nwr["amenity"="fire_station"]({caja});
+  nwr["name"~"Defensa Civil",i]({caja});
+  nwr["name"~"Centro Operativo de Monitoreo",i]({caja});
+  nwr["name"~"prefectura",i][!"highway"]({caja});
+  nwr["operator"~"prefectura",i][!"highway"]({caja});
+""",
 }
+
+# Elementos con ubicación en duda: se descartan mientras sigan en la posición registrada acá.
+# Si alguien los corrige en OSM (los mueve más de 100 m), vuelven a entrar solos.
+EN_REVISION = {
+    # Defensa Civil figuraba en el Palacio Municipal (calle 56), donde no funciona desde hace años; según el
+    # municipio está "sobre avenida 10, casi Pinolandia". Sebastián movió el nodo en OSM (versión 8,
+    # 26/09/2026). La entrada se mantiene para que una respuesta vieja de Overpass no reintroduzca la
+    # posición del Palacio: el nodo movido está a casi 3 km y ya no la cumple.
+    "node/4092470096": (-58.7387, -38.5560),
+}
+
+
+def en_revision(el, geom):
+    registro = EN_REVISION.get(f"{el['type']}/{el['id']}")
+    if not registro or geom["type"] != "Point":
+        return False
+    x, y = geom["coordinates"]
+    return abs(x - registro[0]) * 87 < 0.1 and abs(y - registro[1]) * 111 < 0.1  # 100 m, en km por grado
+
+
+# En la capa de respuesta solo se conserva qué es y su nombre: el operador de un cuartel
+# puede ser el nombre de una persona.
+TAGS_RESPUESTA = {"name", "official_name", "description", "amenity", "office", "government", "emergency"}
 
 TAGS_CONSERVADAS = {
     "name", "waterway", "natural", "water", "intermittent", "landuse", "industrial", "harbour",
@@ -67,14 +106,13 @@ def armar_consulta(cuerpo, caja):
     c = f"{s},{o},{n},{e}"
     return (f"[out:json][timeout:180];\n"
             f"(\n{cuerpo.format(caja=c)}) -> .todo;\n"
+            f"{POLICIA_EN_CONSULTA.format(caja=c)}"
             f"(\n{EXCLUIR_EN_CONSULTA.format(caja=c)}) -> .excluido;\n"
             f"(.todo; - .excluido;);\nout body geom;\n")
 
 
 def excluido(tags):
-    if any(tags.get(k) == v for k, v in EXCLUSIONES_OSM):
-        return True
-    return any(k in tags for k in CLAVES_EXCLUIDAS_OSM)
+    return excluido_osm(tags)
 
 
 def es_area(tags):
@@ -178,9 +216,28 @@ def procesar(nombre, crudo, limite, caja):
         if not algun_vertice_dentro(geom, limite, caja):
             descartes["fuera_del_partido"] += 1
             continue
-        props = {k: v for k, v in tags.items() if k in TAGS_CONSERVADAS}
+        if en_revision(el, geom):
+            descartes["en_revision"] = descartes.get("en_revision", 0) + 1
+            continue
+        permitidas = TAGS_RESPUESTA if nombre == "respuesta" else TAGS_CONSERVADAS
+        props = {k: v for k, v in tags.items() if k in permitidas}
         props["osm"] = f"{el['type']}/{el['id']}"
-        capa = "hidrografia" if nombre == "hidrografia" else capa_portuaria(tags)
+        if nombre == "respuesta":
+            nombre_el = tags.get("name", "").lower()
+            if tags.get("amenity") == "fire_station":
+                capa = "bomberos"
+            elif "defensa civil" in nombre_el:
+                capa = "defensa_civil"
+            elif "monitoreo" in nombre_el:
+                capa = "monitoreo"
+            elif es_prefectura(tags) and "highway" not in tags:
+                # No se publica la etiqueta de policía: se muestra como lo que es, Prefectura Naval.
+                props.pop("amenity", None)
+                capa = "prefectura"
+            else:
+                continue
+        else:
+            capa = nombre if nombre == "hidrografia" else capa_portuaria(tags)
         if capa is None:
             continue
         salidas.setdefault(capa, []).append({"type": "Feature", "properties": props, "geometry": geom})
@@ -189,10 +246,14 @@ def procesar(nombre, crudo, limite, caja):
 
 def main():
     offline = "--offline" in sys.argv
+    # Se pueden pedir consultas sueltas: python3 scripts/descargar_osm.py respuesta
+    pedidas = [a for a in sys.argv[1:] if not a.startswith("--")] or list(CONSULTAS)
     limite, caja = cargar_limite()
     carpeta = CRUDOS / "osm"
     resultado = 0
     for nombre, cuerpo in CONSULTAS.items():
+        if nombre not in pedidas:
+            continue
         ruta = carpeta / f"{nombre}.json"
         if not offline:
             consulta = armar_consulta(cuerpo, caja)

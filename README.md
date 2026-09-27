@@ -13,7 +13,9 @@ Una vez publicado, el sitio queda en https://jsbertole-ai.github.io/mapa-riesgos
 | `docs/` | El sitio completo: `index.html` (mapa), `metodologia.html`, estilos, código, íconos, manifiesto y service worker. |
 | `docs/datos/` | Las capas ya procesadas (GeoJSON) y `capas.json`, el registro que lee el sitio con fuente, fecha, licencia y estado de cada capa. |
 | `docs/vendor/leaflet/` | Leaflet 1.9.4 (licencia BSD de 2 cláusulas), copiado desde npm. |
+| `docs/vendor/josefin-sans/` | Tipografía del título, Josefin Sans SemiBold (The Josefin Sans Project Authors, licencia SIL OFL 1.1), copiada del paquete npm `@fontsource/josefin-sans`. |
 | `scripts/` | Scripts en Python para descargar, recortar y verificar los datos. Solo usan la biblioteca estándar. |
+| `datos/inventario/` | Formulario del inventario local: `formulario.json` (listas de tipos de evento, efectos, localidades y servicios) y `formulario_inventario.xlsx`, generado a partir de él para subir a KoboToolbox. |
 | `datos/fuentes.json` | Datos fijos de cada capa: organismo, URL, licencia, qué representa y qué no. |
 | `datos/*.json` | Constancias de la última actualización: descargas con huella SHA-256, resultados del procesamiento y lecturas de las páginas de licencia. |
 | `DATOS.md` | Registro completo de fuentes, verificadas, identificadas y descartadas. |
@@ -59,13 +61,15 @@ Eso corre, en orden:
 2. `descargar_firms.py`: baja los resúmenes anuales de focos de calor de NASA FIRMS para la Argentina (MODIS desde 2000, VIIRS S-NPP desde 2012), guarda solo lo que cae en la zona y recorta por el partido. Los años que FIRMS todavía no publicó responden 404 y se saltean.
 3. `descargar_osm.py`: consulta OpenStreetMap por la API Overpass (hidrografía detallada e instalaciones portuarias e industriales), descarta vigilancia y policía, y recorta por el partido.
 4. `descargar_ign.py`: pide al servicio WFS del Instituto Geográfico Nacional, solo para la zona del partido, catorce capas (hidrografía, curvas de nivel, vegetación hidrófila, puentes, forestaciones, puerto, energía, industria, ferrocarril, rutas, localidades, planta urbana, escuelas y salud) y las recorta por el partido. Es el mismo servicio que usa el botón "Descargar capa" del sitio del IGN.
+4 bis. `descargar_energia.py`: líneas de media tensión de la Secretaría de Energía (CC BY 4.0). Su servidor solo sirve por HTTP; si la descarga falla, usa el ZIP bajado a mano en `datos/crudos/energia/` (la URL está en el script).
 5. `descargar_indicadores.py`: indicadores del IGN para el partido (eventos registrados en DesInventar entre 1970 y 2015, índice de vulnerabilidad social frente a desastres y niveles regionales del SINAGIR), que la Metodología muestra en "El partido en las estadísticas nacionales".
-6. `verificar.py`: controla cada capa (archivo válido, dentro del partido, sin etiquetas excluidas y con la licencia confirmada en la página de la fuente) y genera `docs/datos/capas.json`. Una capa que no pasa los controles se publica como "pendiente de fuente".
+6. `procesar_inventario.py`: toma la exportación más reciente de KoboToolbox que haya en `datos/crudos/inventario/` y publica solo los registros aprobados que pasan los controles (ver "Inventario local"). Si no hay exportación, no hace nada.
+7. `verificar.py`: controla cada capa (archivo válido, dentro del partido, sin etiquetas excluidas y con la licencia confirmada en la página de la fuente) y genera `docs/datos/capas.json`. Una capa que no pasa los controles se publica como "pendiente de fuente".
 
 Después de actualizar:
 
 - Revisá lo que cambió (`git diff --stat`) y anotá en `DATOS.md` la nueva fecha de los datos.
-- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v1` a `mapa-riesgos-v2`), así los celulares con la aplicación instalada descartan la copia vieja.
+- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v7` a `mapa-riesgos-v8`), así los celulares con la aplicación instalada descartan la copia vieja.
 - Subí los cambios a `main`.
 
 ### Si un sitio no deja descargar
@@ -86,6 +90,30 @@ python3 scripts/actualizar.py --offline
   ```
 
 Overpass a veces corta la conexión cuando recibe muchos pedidos seguidos; el script reintenta con esperas crecientes y deja un minuto entre consultas.
+
+## Archivo de alertas del SMN
+
+`scripts/archivar_alertas_smn.py` guarda en `docs/datos/alertas_smn.json` las alertas y avisos del Servicio Meteorológico Nacional que alcanzan al partido. No forma parte de `actualizar.py`: lo corre cada hora la tarea de GitHub Actions `.github/workflows/alertas-smn.yml`, que hace un commit en `main` solo cuando entra una alerta nueva. Las tareas programadas de GitHub corren solo en la rama principal, así que se activa después de mergear. Se puede correr a mano desde la pestaña Actions ("Run workflow") o con `python3 scripts/archivar_alertas_smn.py`. Si un repositorio público pasa 60 días sin actividad, GitHub pausa las tareas programadas: se reactivan desde la misma pestaña.
+
+## Inventario local (KoboToolbox)
+
+Los registros de eventos y vulnerabilidades se cargan con un formulario de KoboToolbox y se publican solo después de revisarlos.
+
+**Preparar el formulario (una vez, o cada vez que cambie `formulario.json`):**
+
+1. `python3 scripts/generar_formulario.py` escribe `datos/inventario/formulario_inventario.xlsx`.
+2. En https://kf.kobotoolbox.org: NEW, "Upload an XLSForm", elegir ese archivo y desplegar (DEPLOY). Si el proyecto ya existe, se reemplaza el formulario desde FORM y se vuelve a desplegar.
+3. En FORM, dentro de "Collect data", activar "Allow submissions to this form without a username and password" y copiar el enlace del formulario web.
+4. Pegar ese enlace como `url_formulario` en la capa `inventario_local` de `datos/fuentes.json` y correr `python3 scripts/verificar.py`: el mapa y la Metodología muestran entonces el enlace "Sumar un registro".
+5. No activar "Anyone can view submissions made to this form": expondría también los envíos no aprobados.
+
+**Revisar y publicar:**
+
+1. En DATA, abrir cada envío, controlar la nota de origen y que no haya datos personales, y marcarlo "Approved" (o "Not Approved").
+2. Exportar en DOWNLOADS: tipo CSV, "XML values and headers". Guardar el archivo en `datos/crudos/inventario/` (esa carpeta no se sube al repositorio, porque tiene envíos sin revisar y el título de cada nota).
+3. `python3 scripts/procesar_inventario.py` y después `python3 scripts/verificar.py`. El primero avisa en pantalla qué registros aprobados no se publicaron y por qué (dato personal posible, punto fuera del partido, duplicado, campo inválido); se corrigen en Kobo y se vuelve a exportar.
+
+El control de datos personales es automático solo para correos, teléfonos, DNI y domicilios con número de puerta; los nombres de personas se revisan al aprobar. KoboToolbox guarda en su historial interno la dirección IP de cada envío: ese historial no se exporta ni se publica.
 
 ## Reglas del proyecto
 

@@ -18,6 +18,9 @@
       <a href="./">Mapa</a>
       <a href="metodologia.html" aria-current="page">Metodología</a>
     </nav>
+    <!-- Formulario del inventario local (KoboToolbox); el mismo enlace está en datos/fuentes.json (url_formulario). -->
+    <a class="boton-colaborar" href="https://ee.kobotoolbox.org/x/JsHKYrg5" target="_blank" rel="noopener"
+       title="Formulario para sumar un evento adverso o una vulnerabilidad que haya informado un medio. Se publica después de revisarlo."><span class="largo">Agregar un evento</span><span class="corto">Agregar</span></a>
   </header>
 
   <main class="documento">
@@ -56,6 +59,19 @@
     <p>Además de las capas, el Instituto Geográfico Nacional publica indicadores de riesgo por partido. No se dibujan en el mapa porque son un solo valor para todo el partido (o para toda la región), pero ayudan a ubicar a Necochea en contexto.</p>
     <div id="ficha-partido"><p>Cargando…</p></div>
 
+    <h2 id="inventario">Inventario local de eventos y vulnerabilidades</h2>
+    <p>Además de reutilizar datos de otros organismos, el proyecto arma su propio registro: eventos adversos ocurridos en el partido y vulnerabilidades observadas, tal como los reportaron los medios locales. Sigue la lógica de la base DesInventar, que desde 1970 registra desastres a partir de fuentes periodísticas y oficiales, para que los datos locales se puedan comparar con los de esa base.</p>
+    <p>Pueden cargar registros varias personas, mediante un <a href="https://ee.kobotoolbox.org/x/JsHKYrg5" rel="noopener">formulario de KoboToolbox</a> que no pide cuenta ni datos personales. Ninguno se publica sin una revisión previa, con estas reglas:</p>
+    <ul>
+      <li><strong>Sin nota, no hay registro.</strong> Cada evento o vulnerabilidad lleva el medio, el título, la fecha y el enlace a la nota que lo informa.</li>
+      <li><strong>Sin datos personales.</strong> Ni nombres de personas ni domicilios particulares. Las vulnerabilidades se registran en espacios públicos o por barrio, nunca por vivienda.</li>
+      <li><strong>Ubicación prudente.</strong> Como en DesInventar, la unidad es la localidad o el barrio. Solo se marca un punto exacto cuando la nota nombra un lugar público concreto (una esquina, un puente, una escuela). Una dirección no se convierte en coordenadas.</li>
+      <li><strong>Sin copiar las notas.</strong> Se registran datos y el enlace, no el texto.</li>
+    </ul>
+    <p>La clasificación sigue la <a href="https://www.desinventar.org/docs/DesInventar-GuiaMetodologica-2.pdf">Guía Metodológica de DesInventar</a> (versión 8.1.9, 2009), en castellano, con sus tipos de evento y sus variables de efectos. Tres aclaraciones. Los incendios y las explosiones incluyen los de origen humano o tecnológico, como en esa guía (la versión internacional en inglés los limita a los inducidos por fenómenos naturales). "Afectados" son las personas con efectos indirectos, como cortes de servicios o aislamiento; los que sufrieron daño directo son "damnificados". Y cuando una nota informa familias en lugar de personas, la cifra se anota tal cual en las observaciones: la guía propone convertirla a personas, pero eso sería estimar. Un efecto sin cifra significa que la nota no la dio, no que fue cero.</p>
+    <p>Cuando un registro no marca un punto propio, el mapa lo muestra en el punto de su localidad, junto con los demás de la misma localidad: ese punto no es el lugar del evento.</p>
+    <p>Los registros aprobados se publican con licencia <a href="https://creativecommons.org/licenses/by/4.0/deed.es">Creative Commons Atribución 4.0</a>, citando "Inventario local de eventos y vulnerabilidades del partido de Necochea". No es un registro oficial ni completo: refleja lo que publicaron los medios y lo que cargaron los colaboradores.</p>
+
     <h2>Capas, fuentes y limitaciones</h2>
     <p>Esta sección se genera a partir del mismo registro que usa el mapa (<code>datos/capas.json</code>), así que siempre muestra el estado de la última verificación.</p>
     <div id="fichas"><p>Cargando…</p></div>
@@ -69,10 +85,16 @@
       <li><strong>Índice de peligro de incendio</strong>, Servicio Meteorológico Nacional: <a href="https://www.smn.gob.ar/indices_peligro_fuego">smn.gob.ar/indices_peligro_fuego</a>. Es un índice meteorológico diario, no un registro de incendios.</li>
       <li><strong>Focos de calor en tiempo casi real</strong>, NASA FIRMS: <a href="https://firms.modaps.eosdis.nasa.gov/map/">firms.modaps.eosdis.nasa.gov/map</a>. Valen las mismas advertencias que para las capas de este mapa: un foco de calor no es un incendio confirmado.</li>
     </ul>
+    <p><strong>Un vacío en el mar.</strong> El Servicio de Hidrografía Naval emite avisos y alertas de crecida para la costa atlántica bonaerense, pero su área va de Mar del Plata a San Clemente del Tuyú: la costa de Necochea queda afuera. Tampoco publica las lecturas del mareógrafo de Puerto Quequén, que sí figura en su red. Ante una sudestada, entonces, ningún aviso del SHN sobre el nivel del mar alcanza al partido (consultado el 27/09/2026 en el sitio del SHN, hidro.gov.ar; no se enlaza porque sus condiciones de uso piden autorización para hacerlo).</p>
     <p>Ante una emergencia, las indicaciones que valen son las de Defensa Civil y los canales oficiales del municipio.</p>
 
+    <h2 id="alertas">Alertas del SMN que alcanzaron al partido</h2>
+    <p>El Servicio Meteorológico Nacional publica sus alertas y avisos en un canal abierto (formato CAP, licencia CC BY 4.0), pero ese canal solo muestra lo vigente: no guarda historia. Por eso el proyecto arma su propio archivo, que se actualiza solo una vez por hora y registra cada alerta o aviso cuya zona toca el partido. Empieza el día en que se encendió: no hay registros anteriores.</p>
+    <p>El SMN emite una misma alerta como varios mensajes, uno por zona; acá se agrupan los que comparten evento y vigencia. La severidad es la del estándar CAP (menor, moderada, severa, extrema), tal como la informa el SMN; no se traduce a colores. Que una alerta haya alcanzado al partido no significa que el fenómeno haya ocurrido ni que haya causado daños: para eso está el inventario local.</p>
+    <div id="alertas-smn"><p>Cargando…</p></div>
+
     <h2>Exclusiones</h2>
-    <p>El mapa no incluye, en ninguna capa, la ubicación de cámaras de videovigilancia ni de infraestructura de seguridad (comisarías, centros de monitoreo y similares), ni datos personales. En las consultas a OpenStreetMap se descartan de forma explícita los elementos etiquetados como <code>man_made=surveillance</code>, <code>amenity=police</code> o con claves de vigilancia, primero en la consulta y otra vez al procesar. De cada elemento se conservan solo las etiquetas que describen qué es (nombre, tipo, operador), no teléfonos, correos ni otros datos de contacto. De las capas del Instituto Geográfico Nacional quedan afuera las instalaciones militares, los edificios de seguridad, las instituciones penitenciarias y los puestos de control; y en las estaciones de servicio se descartan los nombres, que identifican a sus titulares.</p>
+    <p>El mapa no incluye, en ninguna capa, la ubicación de cámaras de videovigilancia ni de comisarías, ni datos personales. El Centro Operativo de Monitoreo sí figura como espacio físico, porque su sede es información pública; sus cámaras, no. En las consultas a OpenStreetMap se descartan de forma explícita los elementos etiquetados como <code>man_made=surveillance</code>, <code>amenity=police</code> o con claves de vigilancia, primero en la consulta y otra vez al procesar. De cada elemento se conservan solo las etiquetas que describen qué es (nombre, tipo, operador), no teléfonos, correos ni otros datos de contacto. De las capas del Instituto Geográfico Nacional quedan afuera las instalaciones militares, los edificios de seguridad, las instituciones penitenciarias y los puestos de control; y en las estaciones de servicio se descartan los nombres, que identifican a sus titulares. Los cuarteles de bomberos y Defensa Civil sí se muestran: son capacidad de respuesta ante una emergencia, no infraestructura de seguridad.</p>
 
     <h2>Uso sin conexión</h2>
     <p>El sitio se puede instalar como aplicación en el celular o la computadora. Una vez abierto con conexión, las páginas y las capas que ya se vieron quedan guardadas y se pueden consultar sin red. <strong>El mapa de fondo necesita conexión:</strong> la política de uso de las teselas de OpenStreetMap prohíbe guardarlas para uso sin conexión, así que sin red las capas se ven sobre un fondo liso.</p>
@@ -86,7 +108,7 @@
     </ul>
 
     <h2>Autoría</h2>
-    <p>Proyecto de Juan Sebastián Bértole, estudiante de la Licenciatura en Gestión de Riesgos y Siniestralidad del Instituto Universitario Vucetich. El registro completo de fuentes, con las que se descartaron y por qué, está en <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea/blob/main/DATOS.md">DATOS.md</a>.</p>
+    <p>Proyecto de Juan Sebastián Bértole, estudiante de la <a href="https://iuv.edu.ar/lic-gestion.html" rel="noopener">Licenciatura en Gestión de Riesgos y Siniestralidad</a> del Instituto Universitario Vucetich. El registro completo de fuentes, con las que se descartaron y por qué, está en <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea/blob/main/DATOS.md">DATOS.md</a>.</p>
   </main>
 
   <script src="js/metodologia.js"></script>

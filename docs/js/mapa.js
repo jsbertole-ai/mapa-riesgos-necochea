@@ -18,8 +18,10 @@
     railway: { rail: "Vía férrea" },
     highway: { trunk: "Ruta troncal", primary: "Ruta primaria" },
     hgv: { designated: "Vía designada para camiones" },
+    amenity: { fire_station: "Cuartel de bomberos" },
+    office: { government: "Oficina pública" },
   };
-  const ORDEN_CLAVES = ["waterway", "natural", "man_made", "harbour", "landuse", "industrial", "railway", "highway", "hgv"];
+  const ORDEN_CLAVES = ["waterway", "natural", "man_made", "harbour", "landuse", "industrial", "railway", "highway", "hgv", "amenity", "office"];
 
   const TIPOS_FIRMS = {
     0: "Presunto incendio de vegetación",
@@ -32,6 +34,9 @@
   // Dominios de la red vial del IGN, según la documentación de la capa.
   const JURISDICCION_IGN = { 1: "Ruta nacional", 2: "Ruta provincial", 4: "Camino terciario", 5: "Camino vecinal" };
   const SUPERFICIE_IGN = { 1: "Pavimentado", 2: "Consolidado", 3: "Tierra" };
+  // Líneas de energía (AT030): dominios del metadato del IGN.
+  const TENSION_IGN = { 2: "Baja tensión (hasta 1 kV)", 3: "Media tensión (más de 1 kV y hasta 66 kV)", 6: "Alta tensión (más de 66 kV y hasta 220 kV)", 9: "Extra alta tensión (más de 220 kV y hasta 800 kV)", 17: "Ultra alta tensión (más de 800 kV)" };
+  const ESTADO_IGN = { 2: "Abandonado", 4: "Desmantelado", 6: "Activo", 9: "En construcción" };
   const METODO_CURVAS_IGN = { 1: "Por restitución", 2: "Por modelo digital de elevaciones", 3: "Por plancheta", 4: "Por fotogrametría" };
   const ATRIBUCION_IGN = 'FUENTE: <a href="https://www.ign.gob.ar/">Instituto Geográfico Nacional de la República Argentina</a>';
 
@@ -51,11 +56,37 @@
     attribution: '© <a href="https://www.openstreetmap.org/copyright">colaboradores de OpenStreetMap</a> (ODbL)',
   }).addTo(mapa);
 
-  // Capas de dibujo: polígonos abajo, puntos arriba, límite encima de todo y sin clics.
-  [["poligonos", 410], ["lineas", 420], ["puntos", 430], ["limite", 440]].forEach(function (p) {
+  // Todas las capas se dibujan en un solo lienzo: con un lienzo por capa de dibujo, el de arriba se queda
+  // con los clics y las líneas y polígonos de abajo no responden. El orden (polígonos abajo, líneas en el
+  // medio, puntos arriba) lo mantiene ordenarDibujo(). El límite va aparte, encima de todo y sin clics.
+  // La tolerancia de 6 px permite tocar líneas finas (media tensión, arroyos) en el celular.
+  [["dibujo", 420], ["limite", 440]].forEach(function (p) {
     mapa.createPane(p[0]).style.zIndex = p[1];
   });
   mapa.getPane("limite").style.pointerEvents = "none";
+  const LIENZOS = {
+    dibujo: L.canvas({ pane: "dibujo", tolerance: 6 }),
+    limite: L.canvas({ pane: "limite" }),
+  };
+  function lienzo(pane) {
+    return pane === "limite" ? LIENZOS.limite : LIENZOS.dibujo;
+  }
+
+  function cadaTrazo(capa, fn) {
+    if (capa.eachLayer) capa.eachLayer(function (l) { cadaTrazo(l, fn); });
+    else if (capa.bringToFront) fn(capa);
+  }
+
+  function ordenarDibujo() {
+    const capas = Object.values(estado.capasLeaflet).filter(function (c) { return mapa.hasLayer(c); });
+    [L.Polyline, L.CircleMarker].forEach(function (clase) {
+      capas.forEach(function (c) {
+        cadaTrazo(c, function (l) {
+          if (l instanceof clase && !(clase === L.Polyline && l instanceof L.Polygon)) l.bringToFront();
+        });
+      });
+    });
+  }
 
   function esc(v) {
     return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) {
@@ -87,21 +118,64 @@
         return (ETIQUETAS_OSM[k] && ETIQUETAS_OSM[k][p[k]]) || k + "=" + p[k];
       }
     }
-    return "Elemento de OpenStreetMap";
+    return null;
   }
 
   function popupOsm(p) {
     const filas = [];
     if (p.industrial) filas.push(["Rubro (según OSM)", ETIQUETAS_OSM.industrial[p.industrial] || p.industrial]);
+    if (p.official_name) filas.push(["Nombre oficial", p.official_name]);
+    if (p.description) filas.push(["Descripción (según OSM)", p.description]);
     if (p.ref) filas.push(["Referencia", p.ref]);
     if (p.operator) filas.push(["Operador (según OSM)", p.operator]);
     if (p.content || p.product) filas.push(["Contenido (según OSM)", p.content || p.product]);
     if (p.intermittent === "yes") filas.push(["Curso", "Intermitente"]);
     return (
-      "<h3>" + esc(p.name || categoriaOsm(p)) + "</h3>" +
-      (p.name ? "<div>" + esc(categoriaOsm(p)) + "</div>" : "") +
+      "<h3>" + esc(p.name || categoriaOsm(p) || "Elemento de OpenStreetMap") + "</h3>" +
+      (p.name && categoriaOsm(p) ? "<div>" + esc(categoriaOsm(p)) + "</div>" : "") +
       (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
       '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
+    );
+  }
+
+  // Media tensión (Secretaría de Energía): tensión y tipo de cada tramo.
+  function popupMediaTension(p) {
+    const filas = [];
+    if (p.tipo) filas.push(["Tendido", p.tipo]);
+    if (p.clase) filas.push(["Clase", p.clase]);
+    if (p.funcion) filas.push(["Función", p.funcion]);
+    if (p.cooperativa) filas.push(["Cooperativa", p.cooperativa]);
+    return (
+      "<h3>Línea de media tensión" + (p.tension_kv ? ", " + esc(String(p.tension_kv).replace(".", ",")) + " kV" : "") + "</h3>" +
+      (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
+      '<p class="nota">Fuente: Secretaría de Energía de la Nación (CFEE), datos de 2022. CC BY 4.0.</p>'
+    );
+  }
+
+  // Inventario local: cada marcador trae uno o varios registros (los ubicados por localidad van juntos).
+  function popupInventario(p) {
+    const registros = p.registros.slice().reverse();
+    const titulo = p.ubicacion === "localidad"
+      ? registros.length + (registros.length === 1 ? " registro en " : " registros en ") + p.localidad
+      : registros[0].tipo;
+    return (
+      "<h3>" + esc(titulo) + "</h3>" +
+      (p.ubicacion === "localidad" ? '<p class="nota">' + (registros.length === 1 ? "Ubicado" : "Ubicados") + ' en el punto de la localidad (IGN): no marca el lugar del evento.</p>' : "") +
+      registros.map(function (r) {
+        const efectos = Object.keys(r.efectos || {}).map(function (k) { return k + ": " + numero(r.efectos[k]); });
+        return (
+          '<div class="registro">' +
+          "<strong>" + esc(fecha(r.fecha)) + ". " + esc(r.tipo) + "</strong>" +
+          (r.lugar ? " (" + esc(r.lugar) + ")" : "") +
+          "<div>" + esc(r.descripcion) + "</div>" +
+          (efectos.length ? "<div>" + esc(efectos.join(" · ")) + "</div>" : "") +
+          (r.observaciones_efectos ? "<div>Observaciones: " + esc(r.observaciones_efectos) + "</div>" : "") +
+          (r.servicios && r.servicios.length ? "<div>Servicios afectados: " + esc(r.servicios.join(", ")) + "</div>" : "") +
+          '<div class="nota">Fuente: ' + enlace(r.fuente_url, r.fuente_medio + ", " + fecha(r.fuente_fecha)) + "</div>" +
+          "</div>"
+        );
+      }).join("") +
+      '<p class="nota">Inventario local (CC BY 4.0). Registros tomados de medios y revisados antes de publicarse; no es un registro oficial.</p>'
     );
   }
 
@@ -113,6 +187,8 @@
     if (p.rtn) filas.push(["Número", p.rtn]);
     if (p.rst !== undefined) filas.push(["Superficie", SUPERFICIE_IGN[p.rst] || "s/d"]);
     if (p.mo2 !== undefined) filas.push(["Método", METODO_CURVAS_IGN[p.mo2] || "Código " + p.mo2 + " (no figura en la documentación)"]);
+    if (p.ten !== undefined) filas.push(["Tensión", TENSION_IGN[p.ten] || "s/d"]);
+    if (p.fun !== undefined) filas.push(["Estado", ESTADO_IGN[p.fun] || "s/d"]);
     if (p.fdc) filas.push(["Fuente de captura", p.fdc]);
     const titulo = p.crv !== undefined ? "Curva de nivel: " + numero(p.crv) + " m"
       : p.fna || (p.hct !== undefined && p.rtn ? (JURISDICCION_IGN[p.hct] || "Ruta") + " " + p.rtn : p.tipo);
@@ -160,7 +236,8 @@
         fill: esArea && e.relleno !== false,
         fillColor: e.relleno || e.color,
         fillOpacity: 0.45,
-        pane: capa.id === "limite" ? "limite" : esArea ? "poligonos" : "lineas",
+        pane: capa.id === "limite" ? "limite" : "dibujo",
+        renderer: lienzo(capa.id === "limite" ? "limite" : "dibujo"),
       };
     };
   }
@@ -181,14 +258,14 @@
       // las estaciones, como círculos blancos con borde negro.
       const esLinea = function (f) { return f.geometry.type !== "Point" && f.geometry.type !== "MultiPoint"; };
       const base = L.geoJSON(datos, {
-        style: { color: e.color, weight: 5, pane: "lineas" },
+        style: { color: e.color, weight: 5, pane: "dibujo", renderer: lienzo("dibujo") },
         attribution: ATRIBUCION_IGN,
         pointToLayer: function (f, latlng) {
-          return L.circleMarker(latlng, { pane: "puntos", radius: 4, color: e.color, weight: 2, fillColor: "#ffffff", fillOpacity: 1 });
+          return L.circleMarker(latlng, { pane: "dibujo", renderer: lienzo("dibujo"), radius: 4, color: e.color, weight: 2, fillColor: "#ffffff", fillOpacity: 1 });
         },
         onEachFeature: function (f, l) { l.bindPopup(function () { return popupIgn(f.properties); }); },
       });
-      const trazos = L.geoJSON(datos, { filter: esLinea, style: { color: "#ffffff", weight: 2.5, dashArray: "7 7", pane: "lineas" }, interactive: false });
+      const trazos = L.geoJSON(datos, { filter: esLinea, style: { color: "#ffffff", weight: 2.5, dashArray: "7 7", pane: "dibujo", renderer: lienzo("dibujo") }, interactive: false });
       return L.featureGroup([base, trazos]);
     }
     return L.geoJSON(datos, {
@@ -197,11 +274,14 @@
       interactive: capa.id !== "limite",
       attribution: capa.id.startsWith("incendios_") ? 'Focos de calor: <a href="https://firms.modaps.eosdis.nasa.gov/">NASA FIRMS</a>'
         : esIgn(capa) ? ATRIBUCION_IGN
+        : capa.id === "media_tension" ? 'Media tensión: <a href="https://datos.gob.ar/dataset/redes-de-distribucion-electrica-del-consejo-federal">Secretaría de Energía</a> (CC BY 4.0)'
         : null,
       pointToLayer: function (f, latlng) {
+        const n = f.properties.registros ? f.properties.registros.length : 1;
         return L.circleMarker(latlng, {
-          pane: "puntos",
-          radius: e.radio || 4,
+          pane: "dibujo", renderer: lienzo("dibujo"),
+          // En el inventario, los marcadores por localidad crecen con la cantidad de registros.
+          radius: (e.radio || 4) + (n > 1 ? Math.min(8, Math.sqrt(n) * 2) : 0),
           color: "#ffffff",
           weight: 1,
           fillColor: e.color,
@@ -211,10 +291,12 @@
       onEachFeature: function (f, l) {
         if (capa.id === "limite") return;
         l.bindPopup(function () {
+          if (capa.id === "inventario_local") return popupInventario(f.properties);
+          if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
           if (esIgn(capa)) return popupIgn(f.properties);
           return popupOsm(f.properties);
-        });
+        }, { maxHeight: 320 });
       },
     });
   }
@@ -241,6 +323,7 @@
     if (actual) mapa.removeLayer(actual);
     const nueva = crearCapaLeaflet(capa, datos).addTo(mapa);
     estado.capasLeaflet[capa.id] = nueva;
+    ordenarDibujo();
     if (capa.id === "limite" && !estado.encuadrado) {
       mapa.fitBounds(nueva.getBounds(), { padding: [16, 16] });
       estado.encuadrado = true;
@@ -264,6 +347,13 @@
     return '<span class="muestra ' + clase + discontinua + '" style="color:' + esc(e.color || "#888") + ";" + fondo + '"></span>';
   }
 
+  // Enlace al formulario de carga (solo el inventario local lo tiene, y solo cuando está publicado en Kobo).
+  function colaborar(capa) {
+    return capa.url_formulario
+      ? "<dt>Colaborar</dt><dd>" + enlace(capa.url_formulario, "Sumar un registro") + ". Se publica después de revisar la nota de origen.</dd>"
+      : "";
+  }
+
   function fichaDe(capa) {
     if (capa.estado !== "verificada") {
       return (
@@ -272,6 +362,7 @@
         (capa.verificacion ? "<dt>Controles</dt><dd>" + capa.verificacion.controles.map(esc).join("<br>") + "</dd>" : "") +
         (capa.que_representa ? "<dt>Qué representaría</dt><dd>" + esc(capa.que_representa) + "</dd>" : "") +
         (capa.url_fuente ? "<dt>Fuente a revisar</dt><dd>" + enlace(capa.url_fuente) + "</dd>" : "") +
+        colaborar(capa) +
         "</dl>"
       );
     }
@@ -279,13 +370,14 @@
       "<dl>" +
       "<dt>Qué representa</dt><dd>" + esc(capa.que_representa) + "</dd>" +
       "<dt>Qué no representa</dt><dd>" + esc(capa.que_no_representa) + "</dd>" +
-      "<dt>Fuente</dt><dd>" + esc(capa.organismo) + ". " + enlace(capa.url_fuente) + "</dd>" +
+      "<dt>Fuente</dt><dd>" + esc(capa.organismo) + "." + (capa.url_fuente ? " " + enlace(capa.url_fuente) : "") + "</dd>" +
       "<dt>Fecha de los datos</dt><dd>" + esc(capa.fecha_datos || "s/d") + "</dd>" +
       "<dt>Licencia</dt><dd>" + esc(capa.licencia) + ". " + enlace(capa.url_licencia, "Texto de la licencia") +
       (capa.url_aviso_legal ? ". " + enlace(capa.url_aviso_legal, "Aviso legal de FIRMS") : "") + "</dd>" +
       "<dt>Cita</dt><dd>" + esc(capa.cita) + "</dd>" +
       "<dt>Verificación</dt><dd>" + esc(capa.verificacion ? capa.verificacion.fecha : "") + ". " +
       '<a href="metodologia.html#' + esc(capa.id) + '">Limitaciones y controles</a></dd>' +
+      colaborar(capa) +
       "</dl>"
     );
   }
@@ -294,7 +386,7 @@
     const div = document.createElement("div");
     const verificada = capa.estado === "verificada";
     div.className = "capa" + (verificada ? "" : " pendiente");
-    const cuenta = verificada && capa.id !== "limite" ? '<span class="capa-cuenta">' + numero(capa.elementos) + " elementos</span>" : "";
+    const cuenta = verificada && capa.id !== "limite" ? '<span class="capa-cuenta">' + numero(capa.elementos) + (capa.elementos === 1 ? " elemento" : " elementos") + "</span>" : "";
     div.innerHTML =
       '<div class="capa-fila">' +
       (verificada

@@ -1,0 +1,315 @@
+{
+  "_fuentes": {
+    "tipos_evento": "Guía Metodológica de DesInventar, versión 8.1.9 (2009), pp. 9 a 14: https://www.desinventar.org/docs/DesInventar-GuiaMetodologica-2.pdf. Se usan los nombres en castellano y las definiciones de esa guía; el valor interno es el código de la base DesInventar Sendai de Argentina (https://www.desinventar.net/DesInventar/main.jsp?countrycode=arg&lang=ES), consultada el 27/09/2026.",
+    "efectos": "Misma guía, pp. 20 a 24. No se convierten familias a personas (la guía lo pide, pero sería estimar): esa información va en las observaciones de efectos.",
+    "servicios": "Sectores de la misma guía ('Afectado o No afectado').",
+    "localidades": "Localidades de BAHRA publicadas por el IGN (capa localidades del mapa), más la zona rural.",
+    "tipos_vulnerabilidad": "Lista propia del proyecto: DesInventar no clasifica vulnerabilidades.",
+    "nombre": "Lo que se publica en el mapa: el nombre corto (el de la guía de DesInventar en los tipos de evento). El formulario muestra la etiqueta, con la aclaración entre paréntesis."
+  },
+  "titulo": "Inventario local de eventos y vulnerabilidades del partido de Necochea",
+  "form_id": "inventario_necochea",
+  "presentacion": "Registrá un evento adverso ocurrido en el partido de Necochea o una vulnerabilidad observada, tal como lo informó un medio. Cada registro se revisa antes de publicarse en el mapa de riesgos (https://jsbertole-ai.github.io/mapa-riesgos-necochea/). No cargues nombres de personas ni domicilios particulares. Este formulario no pide tus datos; KoboToolbox guarda en su historial interno la dirección IP de cada envío, que el proyecto no exporta ni publica.",
+  "texto_licencia": "Acepto que este registro se publique con licencia Creative Commons Atribución 4.0 (CC BY 4.0), citado como \"Inventario local de eventos y vulnerabilidades del partido de Necochea\".",
+  "efectos": [
+    {
+      "name": "muertos",
+      "label": "Muertos",
+      "hint": "Personas fallecidas por causas directas. Si la cifra no está confirmada oficialmente, anotala en las observaciones de efectos."
+    },
+    {
+      "name": "desaparecidos",
+      "label": "Desaparecidos",
+      "hint": "Personas cuyo paradero es desconocido. No se suman a los muertos."
+    },
+    {
+      "name": "heridos",
+      "label": "Heridos o enfermos",
+      "hint": "Personas afectadas en su salud o integridad física por causa directa del evento."
+    },
+    {
+      "name": "damnificados",
+      "label": "Damnificados",
+      "hint": "Personas con grave daño en sus bienes o servicios (por ejemplo, vivienda destruida). Incluye reubicados."
+    },
+    {
+      "name": "afectados",
+      "label": "Afectados",
+      "hint": "Personas, distintas de los damnificados, con efectos indirectos: cortes de servicios, aislamiento, pérdida de trabajo."
+    },
+    {
+      "name": "evacuados",
+      "label": "Evacuados",
+      "hint": "Personas evacuadas temporalmente de viviendas, trabajos, escuelas u hospitales."
+    },
+    {
+      "name": "reubicados",
+      "label": "Reubicados",
+      "hint": "Personas trasladadas de forma permanente a otro lugar de vivienda."
+    },
+    {
+      "name": "viviendas_destruidas",
+      "label": "Viviendas destruidas",
+      "hint": "Viviendas que quedaron inhabitables."
+    },
+    {
+      "name": "viviendas_afectadas",
+      "label": "Viviendas afectadas",
+      "hint": "Viviendas con daños menores, que siguen siendo habitables. No se suman a las destruidas."
+    },
+    {
+      "name": "centros_educativos",
+      "label": "Centros educativos afectados",
+      "hint": "Escuelas, jardines, institutos. Incluye los usados como albergue."
+    },
+    {
+      "name": "centros_salud",
+      "label": "Centros de salud afectados",
+      "hint": "Salas, clínicas y hospitales dañados o afectados."
+    },
+    {
+      "name": "vias_m",
+      "label": "Vías afectadas (metros)",
+      "hint": "Longitud de calles, caminos o rutas destruidas o inhabilitadas, solo si la nota la da en metros o kilómetros."
+    },
+    {
+      "name": "cultivos_ha",
+      "label": "Cultivos, pastizales o bosques (hectáreas)",
+      "tipo": "decimal",
+      "hint": "Superficie afectada, solo si la nota la da en hectáreas."
+    },
+    {
+      "name": "ganado",
+      "label": "Ganado perdido (cabezas)",
+      "hint": "Animales perdidos: bovinos, porcinos, ovinos, aves."
+    }
+  ],
+  "tipos_evento": [
+    {
+      "name": "FLOOD",
+      "label": "Inundación (anegamiento de terrenos con población, cultivos o bienes)",
+      "nombre": "Inundación"
+    },
+    {
+      "name": "RAIN",
+      "label": "Lluvias"
+    },
+    {
+      "name": "STORM",
+      "label": "Tempestad (lluvia con viento fuerte o rayos)",
+      "nombre": "Tempestad"
+    },
+    {
+      "name": "STRONGWIND",
+      "label": "Vendaval (viento fuerte, sin lluvia)",
+      "nombre": "Vendaval"
+    },
+    {
+      "name": "ELECTRICSTORM",
+      "label": "Tormenta eléctrica (rayos, sin lluvia ni viento fuerte)",
+      "nombre": "Tormenta eléctrica"
+    },
+    {
+      "name": "TORNADO",
+      "label": "Tornado"
+    },
+    {
+      "name": "HAILSTORM",
+      "label": "Granizada"
+    },
+    {
+      "name": "SNOWSTORM",
+      "label": "Nevada"
+    },
+    {
+      "name": "FROST",
+      "label": "Helada u ola de frío",
+      "nombre": "Helada"
+    },
+    {
+      "name": "FOG",
+      "label": "Neblina"
+    },
+    {
+      "name": "DROUGHT",
+      "label": "Sequía"
+    },
+    {
+      "name": "HEATWAVE",
+      "label": "Ola de calor"
+    },
+    {
+      "name": "SURGE",
+      "label": "Marejada (grandes olas o inundación en la costa)",
+      "nombre": "Marejada"
+    },
+    {
+      "name": "COASTLINE",
+      "label": "Cambio de la línea de costa (erosión de playas o acantilados)",
+      "nombre": "Cambio de la línea de costa"
+    },
+    {
+      "name": "FORESTFIRE",
+      "label": "Incendio forestal (en campo abierto: pastizal, monte, forestación)",
+      "nombre": "Incendio forestal"
+    },
+    {
+      "name": "FIRE",
+      "label": "Incendio (urbano, industrial o rural, que no sea forestal)",
+      "nombre": "Incendio"
+    },
+    {
+      "name": "EXPLOSION",
+      "label": "Explosión"
+    },
+    {
+      "name": "LEAK",
+      "label": "Escape (derrame o fuga de sustancias tóxicas)",
+      "nombre": "Escape"
+    },
+    {
+      "name": "POLLUTION",
+      "label": "Contaminación (de aire, agua o suelo)",
+      "nombre": "Contaminación"
+    },
+    {
+      "name": "STRUCTURE",
+      "label": "Colapso estructural (daño o caída de estructuras, redes o puentes)",
+      "nombre": "Colapso estructural"
+    },
+    {
+      "name": "ACCIDENT",
+      "label": "Accidente de transporte causado por un fenómeno natural o con escape de sustancias",
+      "nombre": "Accidente"
+    },
+    {
+      "name": "OTHER",
+      "label": "Otro"
+    }
+  ],
+  "tipos_vulnerabilidad": [
+    {
+      "name": "desague",
+      "label": "Desagüe pluvial obstruido o insuficiente"
+    },
+    {
+      "name": "zona_anegable",
+      "label": "Viviendas o servicios en zona que se anega"
+    },
+    {
+      "name": "erosion",
+      "label": "Erosión costera, de barrancas o de márgenes"
+    },
+    {
+      "name": "basural",
+      "label": "Basural o quema a cielo abierto"
+    },
+    {
+      "name": "infraestructura",
+      "label": "Infraestructura deteriorada (puente, camino, edificio público)"
+    },
+    {
+      "name": "peligrosas",
+      "label": "Almacenamiento o transporte de sustancias peligrosas"
+    },
+    {
+      "name": "combustible",
+      "label": "Pastizal seco o falta de cortafuegos"
+    },
+    {
+      "name": "arbolado",
+      "label": "Árboles o postes con riesgo de caída"
+    },
+    {
+      "name": "otra",
+      "label": "Otra"
+    }
+  ],
+  "localidades": [
+    {
+      "name": "necochea_quequen",
+      "label": "Necochea y Quequén",
+      "ign": "Necochea - Quequén"
+    },
+    {
+      "name": "juan_n_fernandez",
+      "label": "Juan N. Fernández",
+      "ign": "Juan N. Fernández"
+    },
+    {
+      "name": "nicanor_olivera",
+      "label": "Nicanor Olivera (La Dulce)",
+      "ign": "Nicanor Olivera"
+    },
+    {
+      "name": "energia",
+      "label": "Energía",
+      "ign": "Energía"
+    },
+    {
+      "name": "claraz",
+      "label": "Claraz",
+      "ign": "Claraz"
+    },
+    {
+      "name": "ramon_santamarina",
+      "label": "Ramón Santamarina",
+      "ign": "Ramón Santamarina"
+    },
+    {
+      "name": "rural",
+      "label": "Zona rural o costa fuera de las localidades",
+      "ign": null
+    }
+  ],
+  "servicios": [
+    {
+      "name": "transporte",
+      "label": "Transporte (calles, rutas, ferrocarril, puentes, muelles)",
+      "nombre": "Transporte"
+    },
+    {
+      "name": "comunicaciones",
+      "label": "Comunicaciones (telefonía, radio, televisión, internet)",
+      "nombre": "Comunicaciones"
+    },
+    {
+      "name": "energia",
+      "label": "Energía (electricidad, gas, combustibles)",
+      "nombre": "Energía"
+    },
+    {
+      "name": "acueducto",
+      "label": "Agua potable"
+    },
+    {
+      "name": "alcantarillado",
+      "label": "Cloacas y desagües pluviales"
+    },
+    {
+      "name": "educacion",
+      "label": "Educación"
+    },
+    {
+      "name": "salud",
+      "label": "Salud"
+    },
+    {
+      "name": "socorro",
+      "label": "Instalaciones de socorro (bomberos, Defensa Civil)",
+      "nombre": "Instalaciones de socorro"
+    },
+    {
+      "name": "agropecuario",
+      "label": "Agropecuario"
+    },
+    {
+      "name": "industrias",
+      "label": "Industrias"
+    },
+    {
+      "name": "otros",
+      "label": "Otros"
+    }
+  ]
+}

@@ -43,6 +43,7 @@
       fila("Formato", esc(capa.formato)) +
       fila("Elementos", capa.elementos ? esc(Number(capa.elementos).toLocaleString("es-AR")) : "") +
       fila("Focos por año", esc(focosPorAnio(capa))) +
+      fila("Colaborar", capa.url_formulario ? enlace(capa.url_formulario, "Sumar un registro") : "") +
       fila("Verificación", capa.verificacion ? esc(capa.verificacion.fecha) + ": " + capa.verificacion.controles.map(esc).join(" ") : "") +
       "</dl></section>"
     );
@@ -92,6 +93,52 @@
       '<p class="nota">' + esc(f.licencia) + ". Indicadores consultados el " + esc((f.generado || "").slice(0, 10).split("-").reverse().join("/")) + ".</p>"
     );
   }
+
+  // "2026-09-29T09:00:00-03:00" pasa a "29/09/2026 09:00" (hora que informa el SMN).
+  function fechaHora(iso) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(iso || "");
+    return m ? m[3] + "/" + m[2] + "/" + m[1] + " " + m[4] + ":" + m[5] : esc(iso || "s/d");
+  }
+
+  // Los mensajes de un mismo evento y vigencia (uno por zona, más sus actualizaciones) forman un episodio.
+  function archivoAlertas(a) {
+    const episodios = {};
+    a.alertas.forEach(function (x) {
+      const k = [x.tipo, x.evento, x.inicio, x.fin].join("|");
+      const e = episodios[k] || (episodios[k] = { x: x, localidades: {}, todo: false, mensajes: 0, severidades: {} });
+      e.mensajes += 1;
+      if ((x.enviado || "") > (e.x.enviado || "")) e.x = x;
+      x.localidades.forEach(function (l) { e.localidades[l] = true; });
+      if (x.alcance === "todo el partido") e.todo = true;
+      e.severidades[x.severidad] = true;
+    });
+    const orden = Object.values(episodios).sort(function (p, q) { return (q.x.inicio || "").localeCompare(p.x.inicio || ""); });
+    const desde = a.desde.split("-").reverse().join("/");
+    if (!orden.length) return "<p>Todavía no hay alertas registradas desde el " + esc(desde) + ".</p>";
+    return (
+      "<p>" + numero(orden.length) + (orden.length === 1 ? " episodio" : " episodios") + " desde el " + esc(desde) +
+      " (" + numero(a.alertas.length) + " mensajes del SMN).</p>" +
+      '<div class="tabla-desplazable"><table class="tabla-alertas"><thead><tr><th>Vigencia</th><th>Evento</th><th>Severidad</th><th>Alcance</th></tr></thead><tbody>' +
+      orden.map(function (e) {
+        const locs = Object.keys(e.localidades).sort();
+        return "<tr><td>" + fechaHora(e.x.inicio) + " a " + fechaHora(e.x.fin) + "</td>" +
+          "<td>" + esc(e.x.tipo === "alerta" ? e.x.evento : e.x.titular || e.x.evento) + "</td>" +
+          "<td>" + esc(Object.keys(e.severidades).join(", ")) + "</td>" +
+          // Si ninguna zona cubre sola todo el partido, no se afirma que haya sido parcial: la unión no se calcula.
+          "<td>" + (e.todo ? "Todo el partido" : e.mensajes > 1 ? numero(e.mensajes) + " mensajes cuyas zonas tocan el partido" : "Un mensaje cuya zona toca el partido") +
+          (locs.length ? ". Localidades dentro: " + esc(lista(locs)) : ". Ninguna localidad dentro") + "</td></tr>";
+      }).join("") +
+      "</tbody></table></div>" +
+      '<p class="nota">Fuente: ' + esc(a.fuente) + ". " + esc(a.licencia) + ".</p>"
+    );
+  }
+
+  fetch("datos/alertas_smn.json")
+    .then(function (r) { return r.json(); })
+    .then(function (a) { document.getElementById("alertas-smn").innerHTML = archivoAlertas(a); })
+    .catch(function () {
+      document.getElementById("alertas-smn").innerHTML = "<p>No se pudo cargar el archivo de alertas.</p>";
+    });
 
   fetch("datos/ficha_partido.json")
     .then(function (r) { return r.json(); })
