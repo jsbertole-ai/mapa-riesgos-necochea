@@ -244,6 +244,7 @@ def refugios(offline, limite, caja):
         fechas.append(el.get("timestamp", "")[:10])
         features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
             "nombre": tags.get("name"), "tipo": r["tipo"], "fuente": r["fuente"], "ref": r["osm"],
+            "designado_defensa_civil": bool(r.get("designado_defensa_civil")),
             "version_osm": el.get("version")}})
     return features, fechas
 

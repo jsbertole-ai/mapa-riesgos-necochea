@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-27T15:13:01+00:00",
+  "generado": "2026-09-27T15:32:14+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -859,7 +859,7 @@
       "estado": "verificada",
       "elementos": 12,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-09-27T15:10:07+00:00",
+      "procesado": "2026-09-27T15:31:49+00:00",
       "por_organismo": {
         "Bomberos": 3,
         "Centro Operativo de Monitoreo": 1,
@@ -896,13 +896,13 @@
         "radio": 7
       },
       "activa_al_inicio": false,
-      "que_representa": "Lugares que pueden funcionar como refugio ante una emergencia: el Polideportivo Municipal \"Edgardo Hugo Yelpo\" y la Parroquia Nuestra Señora de la Medalla Milagrosa, indicados por Juan Sebastián Bértole.",
+      "que_representa": "Lugares que pueden funcionar como refugio ante una emergencia: el Polideportivo Municipal \"Edgardo Hugo Yelpo\", único refugio designado por Defensa Civil ante catástrofes (según Juan Sebastián Bértole), y la Parroquia Nuestra Señora de la Medalla Milagrosa, indicada por él y sin designación oficial.",
       "que_no_representa": "No es una lista oficial de centros de evacuación ni indica capacidad. Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
       "limitaciones": "La lista está en datos/refugios.json; el nombre y la ubicación salen de OpenStreetMap. Se muestra el punto central de cada edificio.",
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-09-27T15:10:08+00:00",
+      "procesado": "2026-09-27T15:31:49+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [

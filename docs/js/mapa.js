@@ -169,8 +169,11 @@
   function popupRefugio(p) {
     return (
       "<h3>" + esc(p.nombre || p.tipo) + "</h3>" +
-      "<div>Lugar de refugio (" + esc(p.tipo.toLowerCase()) + ")</div>" +
-      '<p class="nota">' + esc(p.fuente) + " No es una lista oficial: ante una emergencia, el lugar de evacuación lo indica Defensa Civil.</p>" +
+      "<div>" + (p.designado_defensa_civil ? "Refugio designado por Defensa Civil" : "Lugar de refugio") +
+      " (" + esc(p.tipo.toLowerCase()) + ")</div>" +
+      '<p class="nota">' + esc(p.fuente) + (p.designado_defensa_civil
+        ? " Ante una emergencia, la habilitación del refugio la informa Defensa Civil."
+        : " No está designado por Defensa Civil: ante una emergencia, el lugar de evacuación lo indica Defensa Civil.") + "</p>" +
       notaFuente({ fuente: "OpenStreetMap", ref: p.ref })
     );
   }

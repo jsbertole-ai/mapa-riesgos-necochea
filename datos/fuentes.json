@@ -635,7 +635,7 @@
         "radio": 7
       },
       "activa_al_inicio": false,
-      "que_representa": "Lugares que pueden funcionar como refugio ante una emergencia: el Polideportivo Municipal \"Edgardo Hugo Yelpo\" y la Parroquia Nuestra Señora de la Medalla Milagrosa, indicados por Juan Sebastián Bértole.",
+      "que_representa": "Lugares que pueden funcionar como refugio ante una emergencia: el Polideportivo Municipal \"Edgardo Hugo Yelpo\", único refugio designado por Defensa Civil ante catástrofes (según Juan Sebastián Bértole), y la Parroquia Nuestra Señora de la Medalla Milagrosa, indicada por él y sin designación oficial.",
       "que_no_representa": "No es una lista oficial de centros de evacuación ni indica capacidad. Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
       "limitaciones": "La lista está en datos/refugios.json; el nombre y la ubicación salen de OpenStreetMap. Se muestra el punto central de cada edificio."
     },
