@@ -169,11 +169,8 @@
   function popupRefugio(p) {
     return (
       "<h3>" + esc(p.nombre || p.tipo) + "</h3>" +
-      "<div>" + (p.designado_defensa_civil ? "Refugio designado por Defensa Civil" : "Lugar de refugio") +
-      " (" + esc(p.tipo.toLowerCase()) + ")</div>" +
-      '<p class="nota">' + esc(p.fuente) + (p.designado_defensa_civil
-        ? " Ante una emergencia, la habilitación del refugio la informa Defensa Civil."
-        : " No está designado por Defensa Civil: ante una emergencia, el lugar de evacuación lo indica Defensa Civil.") + "</p>" +
+      "<div>Refugio: " + esc(p.uso.charAt(0).toLowerCase() + p.uso.slice(1)) + " (" + esc(p.tipo.toLowerCase()) + ")</div>" +
+      '<p class="nota">' + esc(p.fuente) + " Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.</p>" +
       notaFuente({ fuente: "OpenStreetMap", ref: p.ref })
     );
   }
@@ -333,8 +330,8 @@
           radius: (e.radio || 4) + (n > 1 ? Math.min(8, Math.sqrt(n) * 2) : 0),
           color: "#ffffff",
           weight: 1,
-          // Organismos de respuesta: un color por organismo.
-          fillColor: (e.colores && e.colores[f.properties.organismo]) || e.color,
+          // Organismos de respuesta: un color por organismo; refugios: un color por uso.
+          fillColor: (e.colores && e.colores[f.properties[e.campo_color || "organismo"]]) || e.color,
           fillOpacity: 0.85,
         });
       },
@@ -445,7 +442,7 @@
     const lineas = (capa.estilo || {}).lineas;
     const leyenda = !verificada ? ""
       : colores ? '<ul class="leyenda-tipos">' + Object.keys(colores).map(function (k) {
-          const n = (capa.por_organismo || {})[k] || 0;
+          const n = (capa.por_organismo || capa.por_tipo || {})[k] || 0;
           return '<li><span class="punto-leyenda" style="background:' + esc(colores[k]) + '"></span>' + esc(k) + " (" + numero(n) + ")</li>";
         }).join("") + "</ul>"
       : lineas ? '<ul class="leyenda-tipos">' + Object.keys(lineas).map(function (k) {

@@ -632,11 +632,16 @@
       "geometria": "punto",
       "estilo": {
         "color": "#8c510a",
-        "radio": 7
+        "radio": 7,
+        "campo_color": "uso",
+        "colores": {
+          "Evacuación ante catástrofes": "#8c510a",
+          "Personas en situación de calle": "#01665e"
+        }
       },
       "activa_al_inicio": false,
-      "que_representa": "Lugares que pueden funcionar como refugio ante una emergencia: el Polideportivo Municipal \"Edgardo Hugo Yelpo\", único refugio designado por Defensa Civil ante catástrofes (según Juan Sebastián Bértole), y la Parroquia Nuestra Señora de la Medalla Milagrosa, indicada por él y sin designación oficial.",
-      "que_no_representa": "No es una lista oficial de centros de evacuación ni indica capacidad. Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
+      "que_representa": "Lugares de refugio, con un color según a quién alojan: el Polideportivo Municipal \"Edgardo Hugo Yelpo\", único refugio designado por Defensa Civil para evacuación ante catástrofes, y la Parroquia Nuestra Señora de la Medalla Milagrosa, refugio para personas en situación de calle. Los dos datos los aportó Juan Sebastián Bértole.",
+      "que_no_representa": "No indica capacidad ni si el refugio está abierto. La parroquia no es un lugar de evacuación ni depende de Defensa Civil. Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
       "limitaciones": "La lista está en datos/refugios.json; el nombre y la ubicación salen de OpenStreetMap. Se muestra el punto central de cada edificio."
     },
     {

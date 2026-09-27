@@ -1,17 +1,17 @@
 {
-  "_nota": "Lugares de refugio indicados por Juan Sebastián Bértole (27/09/2026). La geometría y el nombre se toman de OpenStreetMap por su identificador; acá solo se registra cuáles son, por qué y si Defensa Civil los designa.",
+  "_nota": "Lugares de refugio indicados por Juan Sebastián Bértole (27/09/2026). La geometría y el nombre se toman de OpenStreetMap por su identificador; acá solo se registra cuáles son, a quién alojan y de dónde sale el dato.",
   "refugios": [
     {
       "osm": "way/326255242",
       "tipo": "Polideportivo",
-      "fuente": "Refugio designado por Defensa Civil ante catástrofes, según Juan Sebastián Bértole (27/09/2026). No se encontró un documento público de la designación.",
-      "designado_defensa_civil": true
+      "fuente": "Único refugio designado por Defensa Civil ante catástrofes, según Juan Sebastián Bértole (27/09/2026). No se encontró un documento público de la designación.",
+      "uso": "Evacuación ante catástrofes"
     },
     {
       "osm": "way/1272959264",
       "tipo": "Parroquia",
-      "fuente": "Indicado por Juan Sebastián Bértole como lugar de refugio (27/09/2026).",
-      "designado_defensa_civil": false
+      "fuente": "Refugio para personas en situación de calle, según Juan Sebastián Bértole (27/09/2026). No depende de Defensa Civil ni es un lugar de evacuación. No se encontró un documento público que lo informe.",
+      "uso": "Personas en situación de calle"
     }
   ]
 }

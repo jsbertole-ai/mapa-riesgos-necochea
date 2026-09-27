@@ -22,7 +22,7 @@ riesgo (decisión de Sebastián, 27/09/2026), cada uno con su color. Fuentes, en
   Las áreas (edificios, predios) se publican como su punto central, para que cada organismo se
   vea con un mismo símbolo.
 
-Lugares de refugio: los que lista datos/refugios.json, con nombre y geometría tomados de la
+Lugares de refugio: los que lista datos/refugios.json (con su uso: evacuación o personas en situación de calle), con nombre y geometría tomados de la
 API de OpenStreetMap por su identificador (no depende de Overpass).
 """
 
@@ -243,8 +243,7 @@ def refugios(offline, limite, caja):
         tags = el.get("tags") or {}
         fechas.append(el.get("timestamp", "")[:10])
         features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
-            "nombre": tags.get("name"), "tipo": r["tipo"], "fuente": r["fuente"], "ref": r["osm"],
-            "designado_defensa_civil": bool(r.get("designado_defensa_civil")),
+            "nombre": tags.get("name"), "tipo": r["tipo"], "uso": r["uso"], "fuente": r["fuente"], "ref": r["osm"],
             "version_osm": el.get("version")}})
     return features, fechas
 
@@ -291,6 +290,7 @@ def main():
     anotar_procesamiento("refugios", {
         "archivo_crudo": "osm/refugios/",
         "elementos": len(ref),
+        "por_tipo": {u: sum(1 for f in ref if f["properties"]["uso"] == u) for u in {f["properties"]["uso"] for f in ref}},
         "fecha_datos": max(fechas) if fechas else None,
     })
     print(f"Lugares de refugio: {len(ref)}.")
