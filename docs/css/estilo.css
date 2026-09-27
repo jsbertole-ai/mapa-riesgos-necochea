@@ -41,21 +41,26 @@ a { color: var(--acento); }
   color: #fff;
 }
 
-/* Tipografía del título: Source Serif 4 (Adobe, licencia OFL), servida desde el sitio: funciona sin conexión
-   y no depende de terceros. Ver vendor/source-serif-4/LICENSE. */
+/* Tipografía del título: Josefin Sans (licencia OFL), elegida por Sebastián porque remite a la arquitectura
+   de los años veinte de la ciudad. Se sirve desde el sitio: funciona sin conexión y no depende de terceros.
+   Ver vendor/josefin-sans/LICENSE. */
 @font-face {
-  font-family: "Source Serif 4";
+  font-family: "Josefin Sans";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("../vendor/source-serif-4/source-serif-4-latin-600-normal.woff2") format("woff2");
+  src: url("../vendor/josefin-sans/josefin-sans-latin-600-normal.woff2") format("woff2");
 }
 
 .cabecera h1 {
-  font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
-  font-size: 19px;
+  font-family: "Josefin Sans", "Century Gothic", system-ui, sans-serif;
+  /* En escritorio, el título termina en el primer tercio de la barra: el texto mide 19,54 veces el tamaño
+     de la fuente, y empieza después de 16 px de margen. */
+  font-size: clamp(15px, calc((33.333vw - 16px) / 19.54), 34px);
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
+  line-height: 1;
+  padding-top: 0.12em;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
