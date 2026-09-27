@@ -457,7 +457,7 @@ Sin comprobar: si el SHN considera que sus avisos valen también para Necochea (
 
 ### 11.2 Pedidos al SHN (enviados el 27/09/2026)
 
-Enviados por Sebastián desde su cuenta de Outlook, aunque la firma de los correos indica su dirección de Gmail: las respuestas pueden llegar a cualquiera de las dos. Firmados como estudiante de la Licenciatura en Gestión de Riesgos y Siniestralidad del Instituto Universitario Vucetich. Las direcciones figuran en el sitio del SHN; la del CEADO, en https://ceado.shn.gob.ar/explorar-datos/20/ (ofuscada por Cloudflare y decodificada el 27/09/2026).
+Enviados por Sebastián desde su cuenta de Outlook, sin otra dirección en la firma: las respuestas llegan ahí. Firmados como estudiante de la Licenciatura en Gestión de Riesgos y Siniestralidad del Instituto Universitario Vucetich. Las direcciones figuran en el sitio del SHN; la del CEADO, en https://ceado.shn.gob.ar/explorar-datos/20/ (ofuscada por Cloudflare y decodificada el 27/09/2026).
 
 | Destinatario | Asunto | Qué se pidió | Estado |
 |---|---|---|---|
