@@ -377,10 +377,10 @@
   },
   "datos/crudos/ign/departamento_06581.geojson": {
     "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Adepartamento&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=in1%3D%2706581%27",
-    "descargado": "2026-09-27T21:31:14+00:00",
+    "descargado": "2026-09-27T22:39:46+00:00",
     "last_modified": null,
     "bytes": 875884,
-    "sha256": "bc4ba92f7b6f39dad76b2bca1cac59ac068bed12c45dd67886460b392b20d79a"
+    "sha256": "a3290364c1ddc38bae46eab9fd8eb148b90cd27dbf361b4852f6ef5415a17fcd"
   },
   "datos/crudos/ign/localidad_bahra.geojson": {
     "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alocalidad_bahra&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
@@ -675,5 +675,19 @@
     "last_modified": "Tue, 02 Jun 2026 17:20:30 GMT",
     "bytes": 32483,
     "sha256": "6a9ef1b58b000ed50fdbb8da60967346b0b04904c9e7e862bb1b45fef8879a55"
+  },
+  "datos/crudos/osm/torres.json": {
+    "url": "https://overpass-api.de/api/interpreter?… (consulta abreviada; la completa la arma el script)",
+    "descargado": "2026-09-27T22:26:35+00:00",
+    "last_modified": null,
+    "bytes": 966096,
+    "sha256": "93d58602011c51bf62699afc60f32d270e31433c795e0f7336873655cb157c21"
+  },
+  "datos/crudos/osm/antenas.json": {
+    "url": "https://overpass-api.de/api/interpreter?… (consulta abreviada; la completa la arma el script)",
+    "descargado": "2026-09-27T22:30:03+00:00",
+    "last_modified": null,
+    "bytes": 5364,
+    "sha256": "b45c4cc4d05b4c0870e788bbd5ffe9c34aaeb2bb7766b48a3080b01203194b7a"
   }
 }
