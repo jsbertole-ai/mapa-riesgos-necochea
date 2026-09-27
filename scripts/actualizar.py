@@ -3,8 +3,9 @@
 Uso:  python3 scripts/actualizar.py            (descarga todo y verifica)
       python3 scripts/actualizar.py --offline  (reprocesa lo que ya está en datos/crudos/)
 
-Orden: límite (hace falta para recortar lo demás), FIRMS, OpenStreetMap, IGN y
-verificación. Un paso que falla no frena los siguientes: la capa afectada
+Orden: límite (hace falta para recortar lo demás), FIRMS, OpenStreetMap, IGN,
+indicadores, inventario local (usa la última exportación de Kobo que haya en
+datos/crudos/inventario/) y verificación. Un paso que falla no frena los siguientes: la capa afectada
 queda "pendiente de fuente" y verificar.py lo anota.
 """
 
@@ -13,7 +14,8 @@ import sys
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
-PASOS = ["descargar_limite.py", "descargar_firms.py", "descargar_osm.py", "descargar_ign.py", "descargar_indicadores.py", "verificar.py"]
+PASOS = ["descargar_limite.py", "descargar_firms.py", "descargar_osm.py", "descargar_ign.py", "descargar_indicadores.py",
+         "procesar_inventario.py", "verificar.py"]
 
 
 def main():
