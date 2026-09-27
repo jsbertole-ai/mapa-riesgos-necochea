@@ -69,7 +69,7 @@ Eso corre, en orden:
 Después de actualizar:
 
 - Revisá lo que cambió (`git diff --stat`) y anotá en `DATOS.md` la nueva fecha de los datos.
-- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v7` a `mapa-riesgos-v8`), así los celulares con la aplicación instalada descartan la copia vieja.
+- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v8` a `mapa-riesgos-v9`), así los celulares con la aplicación instalada descartan la copia vieja.
 - Subí los cambios a `main`.
 
 ### Si un sitio no deja descargar

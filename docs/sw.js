@@ -1,12 +1,12 @@
 /* Service worker del mapa de riesgos.
  * Guarda solo archivos del propio sitio (páginas, estilos, código y capas).
- * Estrategia: primero la red, y si no hay conexión, la copia guardada; así
- * una actualización de datos se ve apenas hay red.
+ * Estrategia: primero la red (revalidando siempre con el servidor), y si no
+ * hay conexión, la copia guardada; así una actualización se ve apenas hay red.
  * Las teselas del mapa de fondo (tile.openstreetmap.org) no se interceptan
  * ni se guardan: la política de uso de OpenStreetMap prohíbe el uso sin
  * conexión y la descarga anticipada.
  */
-const CACHE = "mapa-riesgos-v7";
+const CACHE = "mapa-riesgos-v8";
 const BASE = [
   "./",
   "index.html",
@@ -39,8 +39,14 @@ self.addEventListener("activate", (evento) => {
 self.addEventListener("fetch", (evento) => {
   const url = new URL(evento.request.url);
   if (evento.request.method !== "GET" || url.origin !== self.location.origin) return;
+  // "no-cache": el navegador pregunta al servidor si el archivo cambió en lugar de usar su copia HTTP
+  // (GitHub Pages permite guardarla 10 minutos). Sin esto, una versión nueva tardaba en verse.
+  // Una navegación no admite opciones sobre el pedido original: se arma uno nuevo con la misma URL.
+  const pedido = evento.request.mode === "navigate"
+    ? new Request(url.href, { cache: "no-cache", credentials: "same-origin" })
+    : new Request(evento.request, { cache: "no-cache" });
   evento.respondWith(
-    fetch(evento.request)
+    fetch(pedido)
       .then((respuesta) => {
         if (respuesta.ok) {
           const copia = respuesta.clone();
