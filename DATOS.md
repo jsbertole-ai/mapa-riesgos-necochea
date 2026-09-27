@@ -389,3 +389,20 @@ Decisiones de Sebastián (26/09/2026): se publican los cuarteles de bomberos, vo
 | Defensa Civil | OSM tiene un punto "Defensa Civil" (`node/4092470096`, `office=government`, sobre calle 56, junto a la Municipalidad). Según el municipio, sus instalaciones están "sobre avenida 10, casi Pinolandia" (https://necochea.gov.ar/se-realizara-una-jornada-de-prevencion-del-suicidio-este-sabado-en-defensa-civil/, 17/09/2026), y Sebastián indicó una ubicación a unos 3 km del punto de OSM. Además, el punto de OSM está a unos 15 m del de la Municipalidad de Necochea en el IGN (`puntos_de_asentamientos_y_edificios_020101`), y Sebastián confirmó que marca el Palacio Municipal, donde Defensa Civil no funciona desde hace muchos años. El punto está desactualizado: el script lo descarta mientras siga a menos de 100 m de su posición actual, y vuelve a entrar solo si se corrige en OSM. Historial del nodo (API de OSM, consultada el 26/09/2026): creado el 02/04/2016 en calle 56 N° 2945; en la versión 7 (26/09/2026, 19:25 UTC) Sebastián cambió la dirección a "Calle 10" N° 4500, pero la posición sigue siendo la de 2016. La dirección sola no se convierte en coordenadas: sería interpolar sobre la cuadra, es decir, estimar. **Resuelto:** en la versión 8 (26/09/2026, 20:30 UTC) Sebastián movió el nodo 2.907 m, hasta calle 10 N° 4500, a partir de su conocimiento del lugar. Con la base de Overpass de las 20:35 UTC, Defensa Civil se publica (`docs/datos/defensa_civil.geojson`). La entrada de exclusión se mantiene en el script para que una respuesta vieja de Overpass no reintroduzca la posición del Palacio Municipal. La dirección oficial no tiene número, así que no se convierte en coordenadas (sería estimar). La ubicación que indicó Sebastián salió de Google Maps y no se usa: sus condiciones no permiten copiar esos datos. |
 | Centro Operativo de Monitoreo | `node/14220751253`, creado en OpenStreetMap el 26/09/2026 a las 23:40 UTC: nombre "Centro Operativo de Monitoreo", nombre oficial "Subsecretaría de Prevención y Monitoreo.", descripción "Multiagencia", dirección sobre avenida 58. No tiene etiqueta de tipo ni ninguna etiqueta de vigilancia o policía, así que los filtros de exclusión no lo afectan; la consulta lo busca por nombre. Archivo: `docs/datos/monitoreo.geojson`. |
 
+---
+
+## 10. Inventario local de eventos y vulnerabilidades · **Fuente propia, en preparación**
+
+Decisión de Sebastián (27/09/2026): el proyecto arma su propio registro de eventos adversos y vulnerabilidades a partir de notas de medios locales, al estilo DesInventar, con carga de varios colaboradores.
+
+| Campo | Detalle |
+|---|---|
+| Autoría | "Inventario local de eventos y vulnerabilidades del partido de Necochea", Juan Sebastián Bértole y colaboradores. |
+| Licencia | Creative Commons Atribución 4.0 (CC BY 4.0). El formulario pide a quien carga que acepte esa licencia. |
+| Herramienta de carga | KoboToolbox (https://kf.kobotoolbox.org, cuenta de Sebastián, plan gratuito según él). Comprobado en su documentación (https://support.kobotoolbox.org/viewing_validating_data.html, 26/09/2026): cada envío tiene estado de validación "Approved", "Not approved" u "On hold", y el formulario web puede aceptar envíos "without a username and password". |
+| Revisión | Nada se publica sin estado "Approved". Sebastián verifica la nota de origen y que no haya datos personales; el script vuelve a validar al procesar la exportación. |
+| Reglas | Nota enlazada obligatoria; sin nombres de personas ni domicilios particulares; ubicación por localidad o barrio, con punto exacto solo para lugares públicos que la nota nombre; una dirección no se convierte en coordenadas; no se copia el texto de las notas. |
+| Clasificación | Tipos de evento compatibles con DesInventar, para comparar con los registros de 1970 a 2015 que publica el IGN (sección 7). En verificación. |
+| Exportaciones crudas | Van a `datos/crudos/inventario/`, que no se sube al repositorio: pueden contener envíos no aprobados. |
+| Estado | Formulario y script en preparación; todavía no hay registros aprobados, así que la capa figura como "pendiente de fuente". |
+

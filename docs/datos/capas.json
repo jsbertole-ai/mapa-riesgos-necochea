@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-26T23:48:01+00:00",
+  "generado": "2026-09-27T00:01:15+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -24,6 +24,10 @@
     {
       "id": "respuesta",
       "nombre": "Capacidad de respuesta"
+    },
+    {
+      "id": "inventario",
+      "nombre": "Inventario local (colaborativo)"
     }
   ],
   "capas": [
@@ -54,7 +58,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:43+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -87,7 +91,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:43+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "6 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -132,7 +136,7 @@
       "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "138 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -165,7 +169,7 @@
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:21:54Z (UTC).",
       "procesado": "2026-09-26T19:00:43+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "2279 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
@@ -199,7 +203,7 @@
       "fecha_datos": "El servicio del IGN no informa la fecha de esta capa; la documentación que republica la provincia es del 24/10/2021. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "229 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -232,7 +236,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "40 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -265,7 +269,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "16 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -330,7 +334,7 @@
         "2": 17
       },
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "654 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-09-26)."
@@ -382,7 +386,7 @@
         "0": 601
       },
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "601 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-09-26)."
@@ -415,7 +419,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "47 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -459,7 +463,7 @@
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:24:01Z (UTC).",
       "procesado": "2026-09-26T19:00:43+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "643 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
@@ -494,7 +498,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "9 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -528,7 +532,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "11 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -562,7 +566,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "31 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -595,7 +599,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "14 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -628,7 +632,7 @@
       "fecha_datos": "Metadato del IGN creado el 24/10/2021, con actualización mensual declarada (https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf); el servicio no informa la fecha de la versión consultada. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "19 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -672,7 +676,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "7 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -705,7 +709,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "140 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -738,7 +742,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-26.",
       "procesado": "2026-09-26T19:00:44+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "22 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-26)."
@@ -771,7 +775,7 @@
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T23:42:00Z (UTC).",
       "procesado": "2026-09-26T23:47:50+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "2 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
@@ -805,7 +809,7 @@
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T23:42:00Z (UTC).",
       "procesado": "2026-09-26T23:47:50+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
@@ -839,13 +843,26 @@
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T23:42:00Z (UTC).",
       "procesado": "2026-09-26T23:47:50+00:00",
       "verificacion": {
-        "fecha": "2026-09-26",
+        "fecha": "2026-09-27",
         "controles": [
           "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia ni policía.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-26)."
         ]
       }
+    },
+    {
+      "id": "inventario_local",
+      "grupo": "inventario",
+      "nombre": "Eventos y vulnerabilidades registrados en medios locales",
+      "archivo": null,
+      "organismo": "Inventario local de eventos y vulnerabilidades del partido de Necochea (Juan Sebastián Bértole y colaboradores), a partir de notas de medios locales",
+      "licencia": "CC BY 4.0",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "motivo_pendiente": "El inventario está en preparación: todavía no hay registros revisados y aprobados. Cada registro se publica solo después de que Juan Sebastián Bértole verifica la nota de origen y que no contenga datos personales.",
+      "que_representa": "Eventos adversos (inundaciones, temporales, incendios, accidentes tecnológicos) y vulnerabilidades observadas en el partido, cada uno con la nota periodística de origen enlazada, al estilo de la base DesInventar.",
+      "que_no_representa": "No es un registro oficial ni completo: depende de lo que publicaron los medios y de lo que cargaron los colaboradores.",
+      "estado": "sin_fuente"
     }
   ]
 }

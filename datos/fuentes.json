@@ -24,6 +24,10 @@
     {
       "id": "respuesta",
       "nombre": "Capacidad de respuesta"
+    },
+    {
+      "id": "inventario",
+      "nombre": "Inventario local (colaborativo)"
     }
   ],
   "capas": [
@@ -584,6 +588,18 @@
       "que_representa": "La sede del Centro Operativo de Monitoreo del municipio (nombre oficial cargado en OpenStreetMap: \"Subsecretaría de Prevención y Monitoreo.\"), un espacio multiagencia de coordinación.",
       "que_no_representa": "No incluye, ni va a incluir, la ubicación de las cámaras de videovigilancia: esa exclusión se mantiene.",
       "limitaciones": "El punto está cargado en OpenStreetMap solo con nombre, descripción y dirección, sin etiqueta de tipo: la consulta lo encuentra por su nombre."
+    },
+    {
+      "id": "inventario_local",
+      "grupo": "inventario",
+      "nombre": "Eventos y vulnerabilidades registrados en medios locales",
+      "archivo": null,
+      "organismo": "Inventario local de eventos y vulnerabilidades del partido de Necochea (Juan Sebastián Bértole y colaboradores), a partir de notas de medios locales",
+      "licencia": "CC BY 4.0",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "motivo_pendiente": "El inventario está en preparación: todavía no hay registros revisados y aprobados. Cada registro se publica solo después de que Juan Sebastián Bértole verifica la nota de origen y que no contenga datos personales.",
+      "que_representa": "Eventos adversos (inundaciones, temporales, incendios, accidentes tecnológicos) y vulnerabilidades observadas en el partido, cada uno con la nota periodística de origen enlazada, al estilo de la base DesInventar.",
+      "que_no_representa": "No es un registro oficial ni completo: depende de lo que publicaron los medios y de lo que cargaron los colaboradores."
     }
   ]
 }
