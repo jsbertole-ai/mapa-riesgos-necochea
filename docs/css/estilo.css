@@ -54,9 +54,10 @@ a { color: var(--acento); }
 
 .cabecera h1 {
   font-family: "Josefin Sans", "Century Gothic", system-ui, sans-serif;
-  /* En escritorio, el título termina en el primer tercio de la barra: el texto mide 19,54 veces el tamaño
-     de la fuente, y empieza después de 16 px de margen. */
-  font-size: clamp(15px, calc((33.333vw - 16px) / 19.54), 34px);
+  /* Josefin tiene las minúsculas bajas (altura x de 0,378 del tamaño, contra 0,54 de una sans moderna),
+     así que necesita más cuerpo para leerse bien. En escritorio el título ocupa hasta el 42 % de la barra:
+     el texto mide 19,54 veces el tamaño de la fuente y empieza después de 16 px de margen. */
+  font-size: clamp(22px, calc((42vw - 16px) / 19.54), 38px);
   font-weight: 600;
   letter-spacing: 0;
   line-height: 1;
