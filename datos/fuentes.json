@@ -546,21 +546,25 @@
       "fecha_datos_fija": "El IGN no informa la fecha de esta capa."
     },
     {
-      "organismo": "Instituto Geográfico Nacional (WFS) y OpenStreetMap (colaboradores, vía Overpass)",
+      "organismo": "Ministerio de Seguridad de la Provincia de Buenos Aires, Instituto Geográfico Nacional (WFS) y OpenStreetMap (colaboradores)",
       "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
-      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (estructuras_operativas_y_defensivas_FA517 y _090102) y https://overpass-api.de/api/interpreter",
-      "licencia": "Términos y Condiciones del IGN, y ODbL 1.0 para lo que proviene de OpenStreetMap",
+      "url_datos": "https://catalogo.datos.gba.gob.ar/es_AR/dataset/comisarias ; https://wms.ign.gob.ar/geoserver/wfs (estructuras_operativas_y_defensivas_FA517 y _090102) ; https://overpass-api.de/api/interpreter y https://api.openstreetmap.org/api/0.6/",
+      "licencia": "Términos y Condiciones del IGN; CC BY 4.0 (Provincia de Buenos Aires); ODbL 1.0 para lo que proviene de OpenStreetMap",
       "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
       "frase_licencia": "Los datos descargados deben compartirse de manera libre y gratuita",
       "licencias_extra": [
         {
           "url_licencia": "https://www.openstreetmap.org/copyright",
           "frase_licencia": "Open Data Commons Open Database License"
+        },
+        {
+          "url_licencia": "https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias",
+          "frase_licencia": "\"license_id\": \"CC-BY-4.0\""
         }
       ],
       "crudo_osm": true,
-      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina (policía, Prefectura y bomberos). © colaboradores de OpenStreetMap, ODbL (Defensa Civil, Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja).",
-      "formato": "GeoJSON armado por scripts/armar_respuesta.py a partir del WFS del IGN y de la respuesta de Overpass",
+      "cita": "Ministerio de Seguridad de la Provincia de Buenos Aires, \"Comisarías\" (Datos Abiertos PBA, CC BY 4.0). FUENTE: Instituto Geográfico Nacional de la República Argentina (policía, bomberos). © colaboradores de OpenStreetMap, ODbL (Prefectura Naval, Defensa Civil, Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja).",
+      "formato": "GeoJSON armado por scripts/armar_respuesta.py a partir del CSV de la Provincia, el WFS del IGN y OpenStreetMap",
       "id": "organismos",
       "grupo": "respuesta",
       "nombre": "Organismos de respuesta",
@@ -583,7 +587,7 @@
       "activa_al_inicio": false,
       "que_representa": "Los cuerpos que intervienen en la gestión del riesgo y los siniestros en el partido, cada uno con su color: policía, Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja. Según el municipio, estos organismos trabajan en conjunto ante los temporales (por ejemplo, https://necochea.gov.ar/arboles-y-postes-caidos-techos-volados-y-cuatro-auto-evacuados-por-los-fuertes-vientos/, 26/08/2021).",
       "que_no_representa": "No indica dotación, equipamiento, horarios ni área de cobertura. Los guardavidas funcionan solo en temporada de verano. No incluye cámaras de videovigilancia ni datos de las personas que trabajan en cada organismo.",
-      "limitaciones": "Policía, Prefectura y bomberos salen del IGN, que no informa la fecha de sus datos; el resto, de OpenStreetMap. Si un organismo figura en las dos fuentes a menos de 200 m, queda el del IGN. Guardavidas, guardaparques y Cruz Roja aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central."
+      "limitaciones": "Fuentes en orden de prioridad: ubicaciones confirmadas por Juan Sebastián Bértole en OpenStreetMap (la Prefectura Naval Quequén), las comisarías de la Provincia (actualizadas en junio de 2026), el IGN (sin fecha informada) y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. Guardavidas, guardaparques y Cruz Roja aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central."
     },
     {
       "organismo": "OpenStreetMap (colaboradores), vía su API; selección de Juan Sebastián Bértole",

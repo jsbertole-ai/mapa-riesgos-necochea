@@ -546,13 +546,17 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-09-27T14:26:47+00:00",
+    "procesado": "2026-09-27T14:42:20+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
-      "estructuras_operativas_y_defensivas_FA517": "871183300748acb1fd322dc91a9cb64c6ece8e3fdce9771950649a4203e20a37",
-      "estructuras_operativas_y_defensivas_090102": "f29eb3c3dcb32f7d0fcb94f93ab73bf0ff8778d4e173f381cee065539bae463a"
+      "estructuras_operativas_y_defensivas_FA517": "a69b75f3f00b967f0a31b0dfe283a1669997f517c6b23313f6ecc19e8ac0e4c1",
+      "estructuras_operativas_y_defensivas_090102": "75e1f5506616529a80172339f398a9d07b1bff6d4c31120906998a865040d788"
     },
+    "sha256_comisarias_pba": "e1ca926e4ade907a5433c1025778103adea2d924ff060617d8dcc58375b79728",
+    "pba_sin_coordenadas": [
+      "Comisaría Necochea 1°"
+    ],
     "elementos": 11,
     "por_organismo": {
       "Bomberos": 2,
@@ -561,7 +565,12 @@
       "Policía": 6,
       "Prefectura Naval": 1
     },
-    "descartados_por_duplicar_al_ign": 2,
+    "por_fuente": {
+      "IGN": 5,
+      "OpenStreetMap": 3,
+      "Provincia de Buenos Aires": 3
+    },
+    "descartados_por_duplicados": 6,
     "descartes_de_la_consulta": {
       "excluidos": 0,
       "fuera_del_partido": 2,
@@ -570,7 +579,7 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-09-27T14:26:47+00:00",
+    "procesado": "2026-09-27T14:42:21+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "fecha_datos": "2026-07-30"

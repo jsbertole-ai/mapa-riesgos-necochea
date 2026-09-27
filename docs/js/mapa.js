@@ -143,6 +143,9 @@
   }
 
   function notaFuente(p) {
+    if (p.fuente === "Provincia de Buenos Aires") {
+      return '<p class="nota">Fuente: ' + enlace("https://catalogo.datos.gba.gob.ar/es_AR/dataset/comisarias", "Ministerio de Seguridad de la Provincia de Buenos Aires, Comisarías") + " (CC BY 4.0).</p>";
+    }
     return p.fuente === "IGN"
       ? '<p class="nota">' + esc(CITA_IGN) + (p.fuente_captura ? " Fuente de captura: " + esc(p.fuente_captura) + "." : "") + "</p>"
       : '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.ref, "OpenStreetMap, " + p.ref) + " (ODbL).</p>";
@@ -155,6 +158,7 @@
     if (p.description) filas.push(["Descripción (según OSM)", p.description]);
     if (p.lifeguard && TIPO_GUARDAVIDAS[p.lifeguard]) filas.push(["Tipo", TIPO_GUARDAVIDAS[p.lifeguard]]);
     if (p.seasonal === "summer") filas.push(["Temporada", "Funciona en verano"]);
+    if (p.localidad) filas.push(["Localidad", p.localidad]);
     return (
       "<h3>" + esc(p.nombre || p.organismo) + "</h3>" +
       "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +

@@ -1,0 +1,10 @@
+{
+  "_nota": "Elementos de OpenStreetMap que se publican en \"Organismos de respuesta\" con prioridad sobre el IGN y la Provincia, porque Sebastián confirmó su ubicación. Se traen de la API de OSM por su identificador.",
+  "elementos": [
+    {
+      "osm": "way/698430678",
+      "organismo": "Prefectura Naval",
+      "fuente": "Ubicación confirmada por Juan Sebastián Bértole (27/09/2026): https://www.openstreetmap.org/#map=19/-38.574593/-58.703578"
+    }
+  ]
+}

@@ -4,7 +4,12 @@ Uso:  python3 scripts/armar_respuesta.py            (consulta el IGN y la API de
       python3 scripts/armar_respuesta.py --offline  (arma con lo guardado en datos/crudos/)
 
 Organismos de respuesta: una sola capa con todos los cuerpos que intervienen en la gestión del
-riesgo (decisión de Sebastián, 27/09/2026), cada uno con su color.
+riesgo (decisión de Sebastián, 27/09/2026), cada uno con su color. Fuentes, en orden de prioridad
+(si dos fuentes traen el mismo organismo a menos de 200 m, o con el mismo nombre, queda la primera):
+  - Elementos de OpenStreetMap fijados por Sebastián en datos/organismos_osm.json (por ejemplo, la
+    Prefectura Naval Quequén), traídos de la API de OSM.
+  - Ministerio de Seguridad de la Provincia de Buenos Aires, conjunto "Comisarías" de Datos
+    Abiertos PBA (CC BY 4.0): las dependencias del partido que traen coordenadas.
   - IGN (WFS, términos del IGN): policía, Prefectura Naval y bomberos, de las capas
     estructuras_operativas_y_defensivas_FA517 y _090102.
   - OpenStreetMap (consulta "respuesta" de descargar_osm.py, ODbL): Defensa Civil, Centro
@@ -18,9 +23,13 @@ Lugares de refugio: los que lista datos/refugios.json, con nombre y geometría t
 API de OpenStreetMap por su identificador (no depende de Overpass).
 """
 
+import csv
+import io
 import json
 import math
+import re
 import sys
+import unicodedata
 
 import descargar_ign
 import descargar_osm
@@ -29,6 +38,10 @@ from comun import (CRUDOS, RAIZ, SITIO_DATOS, ErrorRed, anotar_procesamiento, av
 
 CAPAS_IGN = ("estructuras_operativas_y_defensivas_FA517", "estructuras_operativas_y_defensivas_090102")
 REFUGIOS = RAIZ / "datos" / "refugios.json"
+FIJADOS_OSM = RAIZ / "datos" / "organismos_osm.json"
+COMISARIAS_PBA = ("https://catalogo.datos.gba.gob.ar/dataset/bf79faeb-cb8a-4444-bbbe-5dc39479aa4a/resource/"
+                  "8d31bb16-3489-4ede-9e63-072f7f17383d/download/comisarias-pba-2026.csv")
+CODIGO_PBA = "6581"
 API_OSM = "https://api.openstreetmap.org/api/0.6"
 DISTANCIA_DUPLICADO_M = 200
 DECIMALES = 5
@@ -59,6 +72,104 @@ def punto(x, y):
 
 def metros(a, b):
     return math.hypot((a[0] - b[0]) * 111320 * math.cos(math.radians(a[1])), (a[1] - b[1]) * 110570)
+
+
+def clave_nombre(nombre):
+    """Palabras de un nombre sin tildes ni ordinales, para reconocer la misma dependencia en dos fuentes."""
+    t = unicodedata.normalize("NFD", (nombre or "").lower())
+    t = "".join(c for c in t if unicodedata.category(c) != "Mn")
+    return set(re.findall(r"[a-z]+|\d+", t)) - {"n", "de", "la", "y"}
+
+
+def mismo(a, b):
+    pa, pb = a["properties"], b["properties"]
+    if pa["organismo"] != pb["organismo"]:
+        return False
+    if metros(a["geometry"]["coordinates"], b["geometry"]["coordinates"]) < DISTANCIA_DUPLICADO_M:
+        return True
+    ka, kb = clave_nombre(pa.get("nombre")), clave_nombre(pb.get("nombre"))
+    return bool(ka) and bool(kb) and (ka <= kb or kb <= ka)
+
+
+def unir(*fuentes):
+    """Une listas de elementos en orden de prioridad; descarta los que repiten uno ya incluido."""
+    todos, descartados = [], 0
+    for lista in fuentes:
+        for f in lista:
+            if any(mismo(f, g) for g in todos):
+                descartados += 1
+            else:
+                todos.append(f)
+    return todos, descartados
+
+
+def geometria_api(ruta, tipo_el, ident):
+    elementos = json.loads(ruta.read_bytes())["elements"]
+    el = next(e for e in elementos if e["type"] == tipo_el and str(e["id"]) == ident)
+    if tipo_el == "node":
+        return el, (el["lon"], el["lat"])
+    nodos = {e["id"]: (e["lon"], e["lat"]) for e in elementos if e["type"] == "node"}
+    anillo = [list(nodos[n]) for n in el["nodes"]]
+    return el, tuple(centro({"type": "Polygon", "coordinates": [anillo]}))
+
+
+def bajar_api(osm, offline, carpeta):
+    tipo_el, ident = osm.split("/")
+    ruta = CRUDOS / "osm" / carpeta / f"{tipo_el}_{ident}.json"
+    if not offline:
+        try:
+            descargar(f"{API_OSM}/{osm}{'/full' if tipo_el != 'node' else ''}.json", ruta, timeout=60)
+        except ErrorRed as e:
+            aviso(f"{osm}: {e}")
+    return (ruta, tipo_el, ident) if ruta.exists() else None
+
+
+def organismos_fijados(offline, limite, caja):
+    features = []
+    for r in leer_json(FIJADOS_OSM, {"elementos": []})["elementos"]:
+        bajado = bajar_api(r["osm"], offline, "organismos")
+        if not bajado:
+            aviso(f"{r['osm']}: sin datos guardados; no se publica.")
+            continue
+        el, (x, y) = geometria_api(*bajado)
+        if not punto_en_geometria(x, y, limite, caja):
+            continue
+        tags = el.get("tags") or {}
+        features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
+            "organismo": r["organismo"], "nombre": tags.get("name") or r.get("nombre"), "fuente": "OpenStreetMap",
+            "ref": r["osm"], "nota": r.get("fuente")}})
+    return features
+
+
+def comisarias_pba(offline, limite, caja):
+    ruta = CRUDOS / "pba" / "comisarias-pba-2026.csv"
+    if not offline:
+        try:
+            descargar(COMISARIAS_PBA, ruta, timeout=120)
+        except ErrorRed as e:
+            aviso(f"Comisarías PBA: {e}")
+    if not ruta.exists():
+        aviso("Faltan las comisarías de la Provincia: se usan las del IGN.")
+        return [], None, []
+    crudo = ruta.read_bytes()
+    texto = crudo.decode("utf-8-sig", errors="replace")
+    separador = max((";", ","), key=texto.splitlines()[0].count)
+    features, sin_coordenadas = [], []
+    for fila in csv.DictReader(io.StringIO(texto), delimiter=separador):
+        if fila.get("municipio_id") != CODIGO_PBA:
+            continue
+        try:
+            x, y = float(fila["longitud"]), float(fila["latitud"])
+        except (TypeError, ValueError):
+            # Una dirección no se convierte en coordenadas (sería estimar): queda la del IGN, si la hay.
+            sin_coordenadas.append(fila.get("dependencia"))
+            continue
+        if not punto_en_geometria(x, y, limite, caja):
+            continue
+        features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
+            "organismo": "Policía", "nombre": fila.get("dependencia"), "fuente": "Provincia de Buenos Aires",
+            "localidad": fila.get("localidad")}})
+    return features, sha256(crudo), sin_coordenadas
 
 
 def organismo_ign(capa, props):
@@ -118,24 +229,11 @@ def refugios(offline, limite, caja):
     lista = leer_json(REFUGIOS, {"refugios": []})["refugios"]
     features, fechas = [], []
     for r in lista:
-        tipo_el, ident = r["osm"].split("/")
-        ruta = CRUDOS / "osm" / "refugios" / f"{tipo_el}_{ident}.json"
-        if not offline:
-            try:
-                descargar(f"{API_OSM}/{r['osm']}{'/full' if tipo_el != 'node' else ''}.json", ruta, timeout=60)
-            except ErrorRed as e:
-                aviso(f"{r['osm']}: {e}")
-        if not ruta.exists():
+        bajado = bajar_api(r["osm"], offline, "refugios")
+        if not bajado:
             aviso(f"{r['osm']}: sin datos guardados; no se publica.")
             continue
-        elementos = json.loads(ruta.read_bytes())["elements"]
-        el = next(e for e in elementos if e["type"] == tipo_el and str(e["id"]) == ident)
-        if tipo_el == "node":
-            x, y = el["lon"], el["lat"]
-        else:
-            nodos = {e["id"]: (e["lon"], e["lat"]) for e in elementos if e["type"] == "node"}
-            anillo = [list(nodos[n]) for n in el["nodes"]]
-            x, y = centro({"type": "Polygon", "coordinates": [anillo]})
+        el, (x, y) = geometria_api(*bajado)
         if not punto_en_geometria(x, y, limite, caja):
             aviso(f"{r['osm']}: cae fuera del partido; no se publica.")
             continue
@@ -155,11 +253,14 @@ def main():
     except FileNotFoundError as e:
         aviso(f"Falta {e}: sin el IGN no se arma la capa de organismos.")
         return 1
+    fijados = organismos_fijados(offline, limite, caja)
+    pba, huella_pba, pba_sin_coordenadas = comisarias_pba(offline, limite, caja)
     osm, huella_osm, fecha_osm, descartes = organismos_osm(limite, caja)
-    quedan = [f for f in osm if not any(
-        g["properties"]["organismo"] == f["properties"]["organismo"]
-        and metros(g["geometry"]["coordinates"], f["geometry"]["coordinates"]) < DISTANCIA_DUPLICADO_M for g in ign)]
-    features = sorted(ign + quedan, key=lambda f: (f["properties"]["organismo"], f["properties"].get("nombre") or ""))
+    unidos, duplicados = unir(fijados, pba, ign, osm)
+    features = sorted(unidos, key=lambda f: (f["properties"]["organismo"], f["properties"].get("nombre") or ""))
+    por_fuente = {}
+    for f in features:
+        por_fuente[f["properties"]["fuente"]] = por_fuente.get(f["properties"]["fuente"], 0) + 1
     por_organismo = {}
     for f in features:
         por_organismo[f["properties"]["organismo"]] = por_organismo.get(f["properties"]["organismo"], 0) + 1
@@ -168,15 +269,18 @@ def main():
         "archivo_crudo": "osm/respuesta.json",
         "sha256_crudo": huella_osm,
         "sha256_crudos_ign": huellas_ign,
+        "sha256_comisarias_pba": huella_pba,
+        "pba_sin_coordenadas": pba_sin_coordenadas,
         "elementos": len(features),
         "por_organismo": por_organismo,
-        "descartados_por_duplicar_al_ign": len(osm) - len(quedan),
+        "por_fuente": por_fuente,
+        "descartados_por_duplicados": duplicados,
         "descartes_de_la_consulta": descartes,
         "fecha_datos": (f"OpenStreetMap al {fecha_osm} (UTC); IGN sin fecha informada." if fecha_osm
                         else "IGN sin fecha informada."),
     })
-    print(f"Organismos de respuesta: {len(features)} ({por_organismo}); IGN {len(ign)}, OSM {len(osm)}, "
-          f"{len(osm) - len(quedan)} de OSM descartados por duplicar al IGN.")
+    print(f"Organismos de respuesta: {len(features)} ({por_organismo}); por fuente {por_fuente}; "
+          f"{duplicados} descartados por duplicados; PBA sin coordenadas: {pba_sin_coordenadas}.")
 
     ref, fechas = refugios(offline, limite, caja)
     escribir_json(SITIO_DATOS / "refugios.geojson", coleccion(ref), compacto=True)
