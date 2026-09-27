@@ -374,3 +374,7 @@ a { color: var(--acento); }
 .punto-leyenda { width: 10px; height: 10px; border-radius: 50%; flex: none; border: 1px solid #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15); }
 .linea-leyenda { width: 18px; flex: none; border-top: 2px solid; }
 .linea-leyenda.punteada { border-top-style: dashed; }
+
+/* Referencias bibliográficas (APA), con sangría francesa. */
+.referencias { list-style: none; padding-left: 0; }
+.referencias li { padding-left: 2em; text-indent: -2em; margin-bottom: 6px; }

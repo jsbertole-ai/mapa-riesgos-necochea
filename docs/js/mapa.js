@@ -197,6 +197,29 @@
     );
   }
 
+  // Barrios populares (RENABAP): condiciones del barrio, no de personas.
+  function popupBarrio(p) {
+    const titulo = { SI: "Mayoritariamente sí", NO: "Mayoritariamente no" };
+    const filas = [];
+    if (p.localidad) filas.push(["Localidad", p.localidad]);
+    if (p.clasificacion) filas.push(["Tipo", p.clasificacion]);
+    if (p.familias) filas.push(["Familias (aprox.)", numero(p.familias)]);
+    if (p.viviendas) filas.push(["Viviendas (aprox.)", numero(p.viviendas)]);
+    if (p.decada) filas.push(["Origen", p.decada]);
+    if (p.energia) filas.push(["Electricidad", p.energia]);
+    if (p.agua) filas.push(["Agua", p.agua]);
+    if (p.cloacas) filas.push(["Cloacas", p.cloacas]);
+    if (p.cocina) filas.push(["Cocina", p.cocina]);
+    if (p.calefaccion) filas.push(["Calefacción", p.calefaccion]);
+    if (p.titulo) filas.push(["Título de propiedad", titulo[p.titulo] || p.titulo]);
+    return (
+      "<h3>" + esc(p.nombre || "Barrio popular") + "</h3>" +
+      "<div>Barrio popular del RENABAP</div>" +
+      "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
+      '<p class="nota">Fuente: ' + enlace("https://datos.gob.ar/dataset/registro-nacional-de-barrios-populares", "Subsecretaría de Integración Socio Urbana, RENABAP") + ", corte del 05/12/2023 (Creative Commons Atribución).</p>"
+    );
+  }
+
   // Inventario local: cada marcador trae uno o varios registros (los ubicados por localidad van juntos).
   function popupInventario(p) {
     const registros = p.registros.slice().reverse();
@@ -343,6 +366,7 @@
           if (capa.id === "refugios") return popupRefugio(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
+          if (capa.id === "barrios_populares") return popupBarrio(f.properties);
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
           if (esIgn(capa)) return popupIgn(f.properties);
           return popupOsm(f.properties);

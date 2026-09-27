@@ -633,5 +633,12 @@
     "last_modified": null,
     "bytes": 669,
     "sha256": "614006406f17d06936e38ac92d1612b52cae040dd5b99c6d7375195321f76103"
+  },
+  "datos/crudos/renabap/20231205_info_publica.geojson": {
+    "url": "https://archivo.infraestructura.gob.ar/dataset/ssisu/20231205_info_publica.geojson",
+    "descargado": "2026-09-27T16:12:42+00:00",
+    "last_modified": "Wed, 22 Oct 2025 14:24:00 GMT",
+    "bytes": 9435792,
+    "sha256": "69e2f325dd042d0bde50b007a4a2cd7194f8d63a93f81c5845737c294643e27a"
   }
 }

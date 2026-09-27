@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-27T15:37:19+00:00",
+  "generado": "2026-09-27T16:15:26+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -20,6 +20,10 @@
     {
       "id": "expuestos",
       "nombre": "Elementos expuestos"
+    },
+    {
+      "id": "vulnerabilidad",
+      "nombre": "Condiciones de vulnerabilidad"
     },
     {
       "id": "respuesta",
@@ -822,6 +826,40 @@
         "controles": [
           "22 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+        ]
+      }
+    },
+    {
+      "organismo": "Subsecretaría de Integración Socio Urbana (Registro Nacional de Barrios Populares, RENABAP)",
+      "url_fuente": "https://datos.gob.ar/dataset/registro-nacional-de-barrios-populares",
+      "url_datos": "https://archivo.infraestructura.gob.ar/dataset/ssisu/20231205_info_publica.geojson",
+      "licencia": "Creative Commons Atribución (el catálogo no indica la versión)",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "url_declaracion_licencia": "https://datos.gob.ar/api/3/action/package_show?id=registro-nacional-de-barrios-populares",
+      "cita": "Subsecretaría de Integración Socio Urbana. Registro Nacional de Barrios Populares (RENABAP), Barrios Populares de Argentina, corte del 05/12/2023. Datos Argentina, Creative Commons Atribución.",
+      "formato": "GeoJSON nacional, recortado al partido por scripts/descargar_renabap.py; coordenadas redondeadas a 5 decimales",
+      "id": "barrios_populares",
+      "grupo": "vulnerabilidad",
+      "nombre": "Barrios populares (RENABAP)",
+      "archivo": "barrios_populares.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#7b3294",
+        "relleno": "#c2a5cf"
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Los 9 barrios populares que el registro nacional ubica en el partido (8 en Necochea y 1 en Quequén), con unas 460 familias. Para cada uno: cantidad aproximada de familias y viviendas, década de origen, cómo accede a la electricidad, el agua y las cloacas, con qué cocina y calefacciona, y si las familias tienen título de propiedad.",
+      "que_no_representa": "No mide la vulnerabilidad: muestra algunas condiciones materiales de cada barrio. La vulnerabilidad no se reduce a la pobreza; también depende de la organización del barrio, de sus redes y de su relación con el Estado, que el registro no releva. No incluye a las personas en situación de calle ni la pobreza dispersa en el resto de la ciudad, y no contiene datos de personas.",
+      "limitaciones": "Es una foto de diciembre de 2023: los cambios posteriores (obras, relocalizaciones, barrios nuevos) no aparecen. Las familias y viviendas son aproximadas. El criterio para que un barrio entre al registro lo fija el decreto 2670/2015 (al que remite la Ley 27.453), cuyo texto todavía no se revisó para este mapa. Algunos campos figuran como \"Sin Datos\" en la fuente.",
+      "estado": "verificada",
+      "elementos": 9,
+      "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado. Consulta al servicio: 2026-09-27.",
+      "procesado": "2026-09-27T16:12:43+00:00",
+      "verificacion": {
+        "fecha": "2026-09-27",
+        "controles": [
+          "9 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=registro-nacional-de-barrios-populares (leída el 2026-09-27)."
         ]
       }
     },

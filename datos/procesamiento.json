@@ -603,5 +603,14 @@
       "fuera_del_partido": 0,
       "geometria_incompleta": 0
     }
+  },
+  "barrios_populares": {
+    "procesado": "2026-09-27T16:12:43+00:00",
+    "archivo_crudo": "renabap/20231205_info_publica.geojson",
+    "sha256_crudo": "69e2f325dd042d0bde50b007a4a2cd7194f8d63a93f81c5845737c294643e27a",
+    "elementos": 9,
+    "barrios_en_el_pais": 6467,
+    "familias_aproximadas": 460,
+    "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado."
   }
 }
