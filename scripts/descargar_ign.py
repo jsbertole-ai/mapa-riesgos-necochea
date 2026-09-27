@@ -100,10 +100,18 @@ CAPAS = {
 # Atributos del IGN que se conservan (el resto son códigos internos sin dominio documentado).
 ATRIBUTOS = ("fna", "gna", "nam", "tipo_asent", "rtn", "typ", "rst", "hct", "crv", "mo2", "fdc", "sag")
 
-# Atributos con dominio publicado solo en el metadato de una capa: se conservan únicamente en ella.
+# Atributos con dominio publicado en el metadato de una capa o en el Catálogo de Objetos Geográficos
+# del IGN: se conservan únicamente en esas capas.
 # Líneas de energía: tipo de tensión (ten) y estado (fun), según
 # https://www.ign.gob.ar/capas-sig/metadata/lineas_de_energia_AT030.pdf
-ATRIBUTOS_POR_CAPA = {"lineas_de_energia_AT030": ("ten", "fun")}
+ATRIBUTOS_POR_CAPA = {"lineas_de_energia_AT030": ("ten", "fun"),
+                      "lineas_de_transporte_ferroviario_AN010": ("fun",),
+                      "puntos_de_transporte_ferroviario_AN070": ("fun",)}
+
+# Dominio del atributo FUN ("Estado") en el Catálogo de Objetos Geográficos del IGN, versión 2.0,
+# hoja "FUN" (planilla enlazada en https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/catalogo-de-objetos-geograficos,
+# leída el 27/09/2026). "Activo": "La instalación es capaz de funcionar completamente"; no dice que haya servicio.
+ESTADO_FERROCARRIL = {-1: "sin dato", 2: "abandonada", 4: "desmantelada", 6: "activa", 9: "en construcción"}
 
 # Capas cuyo nombre identifica a una persona: se descarta (regla de datos personales).
 # En las estaciones de servicio el nombre es el del titular, por ejemplo "Apellido Nombre (Marca)".
@@ -131,7 +139,7 @@ def main():
     carpeta = CRUDOS / "ign"
     resultado = 0
     for capa, fuentes in CAPAS.items():
-        features, detalle, huellas = [], {}, {}
+        features, detalle, huellas, por_tipo = [], {}, {}, {}
         completa = True
         for capa_wfs, etiqueta in fuentes.items():
             ruta = carpeta / f"{capa_wfs}.geojson"
@@ -159,6 +167,11 @@ def main():
                         props.pop(k, None)
                 props["tipo"] = etiqueta
                 props["ign"] = f.get("id")
+                if capa == "ferrocarril":
+                    # La leyenda separa las vías y estaciones activas de las abandonadas o desmanteladas.
+                    base = "Estación" if geom["type"] in ("Point", "MultiPoint") else "Vía"
+                    clave = f"{base} {ESTADO_FERROCARRIL.get(props.get('fun'), 'sin dato')}"
+                    por_tipo[clave] = por_tipo.get(clave, 0) + 1
                 features.append({"type": "Feature", "properties": props,
                                  "geometry": {"type": geom["type"], "coordinates": redondear(geom["coordinates"])}})
                 dentro += 1
@@ -173,6 +186,7 @@ def main():
             "elementos": len(features),
             "capas_wfs": detalle,
             "fecha_datos": None,
+            **({"por_tipo": por_tipo} if por_tipo else {}),
         })
         print(f"{capa}: {len(features)} elementos en el partido; {detalle}")
     return resultado

@@ -396,6 +396,8 @@ a { color: var(--acento); }
 .punto-leyenda { width: 10px; height: 10px; border-radius: 50%; flex: none; border: 1px solid #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15); }
 .linea-leyenda { width: 18px; flex: none; border-top: 2px solid; }
 .linea-leyenda.punteada { border-top-style: dashed; }
+.punto-leyenda.estacion { background: #fff; border: 2px solid; box-shadow: none; }
+.leyenda-tipos .muestra.ferro { flex: none; margin: 0; }
 
 /* Referencias bibliográficas (APA), con sangría francesa. */
 .referencias { list-style: none; padding-left: 0; }

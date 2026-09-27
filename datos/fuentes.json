@@ -556,9 +556,9 @@
       "activa_al_inicio": true,
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: ferrocarril (fuente de captura: IGN, Ministerio de Transporte de la Nación y Ferrosur).",
       "fecha_datos_fija": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026).",
-      "que_representa": "Los ramales del Ferrocarril General Roca que atraviesan el partido (R18, R21, R23, R25 y R27) y sus estaciones (8), según la cartografía oficial del IGN.",
-      "que_no_representa": "No indica si el ramal está en servicio ni qué carga transporta: el IGN no publica ese dato en la capa.",
-      "limitaciones": "Un ramal que cruza el límite se ve completo, también fuera del partido. El IGN no informa la escala ni la fecha de la capa."
+      "que_representa": "Los ramales del Ferrocarril General Roca que atraviesan el partido (R18, R21, R23, R25 y R27) y sus estaciones, según la cartografía oficial del IGN, con el estado que el IGN asigna a cada tramo: activa, abandonada o desmantelada. Las vías abandonadas o desmanteladas van en gris punteado porque su traza (terraplenes, alcantarillas, restos de puentes) sigue en el terreno y puede interferir con el escurrimiento.",
+      "que_no_representa": "No indica si circulan trenes. En el catálogo del IGN, \"Activo\" significa \"La instalación es capaz de funcionar completamente\", no que haya servicio: el ramal R18 entre Quequén y Lobería y el R21 al puerto figuran activos, pero el tren de cargas a Quequén no opera desde 1998 (Fernández, 2026). El tramo del R18 que cruzaba el río hacia la estación Necochea figura desmantelado: el último tren partió de esa estación el 15/12/1968 y el viejo puente ferroviario se derrumbó en la inundación de abril de 1980 (Ecos Diarios, 14/12/2025).",
+      "limitaciones": "Un ramal que cruza el límite se ve completo, también fuera del partido. El IGN no informa la escala ni la fecha de la capa, así que el estado de cada tramo puede estar desactualizado. Todas las estaciones del partido figuran abandonadas. La fuente de captura dice \"Ferrosur\" en los tramos que eran de esa concesión; no se verificó quién los tiene hoy."
     },
     {
       "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
