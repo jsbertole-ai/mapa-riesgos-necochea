@@ -159,7 +159,7 @@
     }
   },
   "ferrocarril": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "lineas_de_transporte_ferroviario_AN010": "842ca3bb89a6c278c1256e9c595d94d75388877dc72467d9cb571c1fc3903e9a",
@@ -179,7 +179,7 @@
     "fecha_datos": null
   },
   "red_vial": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "vial_nacional": "c7e2b9987f811a33142cf7189799b7a9d9c89661842dc47996142a3aa3927e7a",
@@ -199,7 +199,7 @@
     "fecha_datos": null
   },
   "hidrografia_ign": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "lineas_de_aguas_continentales_perenne": "600b1a7d0087ab90678b6a5af2d6fd50f1b5a249d13fdc764d264509dcfe60eb",
@@ -254,7 +254,7 @@
     "fecha_datos": null
   },
   "curvas_nivel": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "lineas_de_geomorfologia_CA010": "ff7c8a508d96b6ddfb4c6f37fd5796762fadd841cee29e203ba39066f4daba62"
@@ -269,7 +269,7 @@
     "fecha_datos": null
   },
   "localidades": {
-    "procesado": "2026-09-26T19:00:43+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "localidad_bahra": "7ea09e5f6e6436e79a462dda8b8881ea2ad02c9e67c474796b60e6916d092e44"
@@ -284,7 +284,7 @@
     "fecha_datos": null
   },
   "planta_urbana": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "areas_de_asentamientos_y_edificios_020105": "2fc46d4eb2d61eca5c271314e588a784641e07aec737d57e585dddcf37ab5706"
@@ -299,7 +299,7 @@
     "fecha_datos": null
   },
   "vegetacion_hidrofila": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "vegetacion_hidrofila_ED020": "f22b24ae5e56ca2835adc8c47bb46497f708cc0e2b0260159c8f8552c5e05061"
@@ -314,7 +314,7 @@
     "fecha_datos": null
   },
   "puentes_vados": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "puntos_de_cruces_y_enlaces_AQ040": "be2be54a2fb7b6fff30e637d076923695207c4c6493bd02dd4b639c3be0636b7",
@@ -334,7 +334,7 @@
     "fecha_datos": null
   },
   "forestaciones": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "vegetacion_arborea_060301": "bcc83b764520ef3a8b1f7cdc1077fb3ddebe391c9900b23046e1188a805ad6cd",
@@ -389,7 +389,7 @@
     "fecha_datos": null
   },
   "industria_residuos": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "areas_de_fabricacion_y_procesamiento_AC070": "90b5416af718bb1a770954fad4484019ab2bab59fc7cb3ce06267fece345fce0",
@@ -429,7 +429,7 @@
     "fecha_datos": null
   },
   "puerto_navegacion": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "puntos_de_puertos_y_muelles_BB005": "9d348e69de1e11dbf8fac613f6cdba9a6730a78ff40ed56b8f4b63fbc812972a",
@@ -469,7 +469,7 @@
     "fecha_datos": null
   },
   "educacion": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "puntos_de_ciencia_y_educacion_020601": "8e9df90081173a0f8a0ae82daa2a5ae90a8b8b3fb349438004c8e85ca1066dca",
@@ -489,7 +489,7 @@
     "fecha_datos": null
   },
   "salud": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "salud_020801": "1fd68fe64de2dd0281276e43355a506a877fa1a45b9848baf5de6c5cbdb7cbe6"
@@ -504,7 +504,7 @@
     "fecha_datos": null
   },
   "energia": {
-    "procesado": "2026-09-26T19:00:44+00:00",
+    "procesado": "2026-09-27T01:28:33+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "lineas_de_estructura_asociada_ducto_subterraneo": "6186a09a68201e052a0688807f38e8d36906365dbf2be66a9c6674515f1d9c0a",

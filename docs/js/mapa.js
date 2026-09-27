@@ -34,6 +34,9 @@
   // Dominios de la red vial del IGN, según la documentación de la capa.
   const JURISDICCION_IGN = { 1: "Ruta nacional", 2: "Ruta provincial", 4: "Camino terciario", 5: "Camino vecinal" };
   const SUPERFICIE_IGN = { 1: "Pavimentado", 2: "Consolidado", 3: "Tierra" };
+  // Líneas de energía (AT030): dominios del metadato del IGN.
+  const TENSION_IGN = { 2: "Baja tensión (hasta 1 kV)", 3: "Media tensión (más de 1 kV y hasta 66 kV)", 6: "Alta tensión (más de 66 kV y hasta 220 kV)", 9: "Extra alta tensión (más de 220 kV y hasta 800 kV)", 17: "Ultra alta tensión (más de 800 kV)" };
+  const ESTADO_IGN = { 2: "Abandonado", 4: "Desmantelado", 6: "Activo", 9: "En construcción" };
   const METODO_CURVAS_IGN = { 1: "Por restitución", 2: "Por modelo digital de elevaciones", 3: "Por plancheta", 4: "Por fotogrametría" };
   const ATRIBUCION_IGN = 'FUENTE: <a href="https://www.ign.gob.ar/">Instituto Geográfico Nacional de la República Argentina</a>';
 
@@ -184,6 +187,8 @@
     if (p.rtn) filas.push(["Número", p.rtn]);
     if (p.rst !== undefined) filas.push(["Superficie", SUPERFICIE_IGN[p.rst] || "s/d"]);
     if (p.mo2 !== undefined) filas.push(["Método", METODO_CURVAS_IGN[p.mo2] || "Código " + p.mo2 + " (no figura en la documentación)"]);
+    if (p.ten !== undefined) filas.push(["Tensión", TENSION_IGN[p.ten] || "s/d"]);
+    if (p.fun !== undefined) filas.push(["Estado", ESTADO_IGN[p.fun] || "s/d"]);
     if (p.fdc) filas.push(["Fuente de captura", p.fdc]);
     const titulo = p.crv !== undefined ? "Curva de nivel: " + numero(p.crv) + " m"
       : p.fna || (p.hct !== undefined && p.rtn ? (JURISDICCION_IGN[p.hct] || "Ruta") + " " + p.rtn : p.tipo);

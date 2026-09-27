@@ -100,6 +100,11 @@ CAPAS = {
 # Atributos del IGN que se conservan (el resto son códigos internos sin dominio documentado).
 ATRIBUTOS = ("fna", "gna", "nam", "tipo_asent", "rtn", "typ", "rst", "hct", "crv", "mo2", "fdc", "sag")
 
+# Atributos con dominio publicado solo en el metadato de una capa: se conservan únicamente en ella.
+# Líneas de energía: tipo de tensión (ten) y estado (fun), según
+# https://www.ign.gob.ar/capas-sig/metadata/lineas_de_energia_AT030.pdf
+ATRIBUTOS_POR_CAPA = {"lineas_de_energia_AT030": ("ten", "fun")}
+
 # Capas cuyo nombre identifica a una persona: se descarta (regla de datos personales).
 # En las estaciones de servicio el nombre es el del titular, por ejemplo "Apellido Nombre (Marca)".
 SIN_NOMBRES = {"infraestructura_de_transporte_AQ170"}
@@ -147,7 +152,8 @@ def main():
                 geom = f.get("geometry")
                 if not geom or not any(punto_en_geometria(x, y, limite, caja) for x, y, *_ in vertices(geom)):
                     continue
-                props = {k: v for k, v in (f.get("properties") or {}).items() if k in ATRIBUTOS and v not in (None, "")}
+                permitidos = ATRIBUTOS + ATRIBUTOS_POR_CAPA.get(capa_wfs, ())
+                props = {k: v for k, v in (f.get("properties") or {}).items() if k in permitidos and v not in (None, "")}
                 if capa_wfs in SIN_NOMBRES:
                     for k in ("fna", "gna", "nam"):
                         props.pop(k, None)
