@@ -24,10 +24,15 @@ import sys
 import time
 import urllib.parse
 
-from comun import (CRUDOS, SITIO_DATOS, ErrorRed, anotar_procesamiento, es_prefectura, excluido_osm, aviso, cargar_limite, coleccion, descargar, escribir_json,
+from comun import (CRUDOS, SITIO_DATOS, ErrorRed, anotar_procesamiento, registrar_descarga, es_prefectura, excluido_osm, aviso, cargar_limite, coleccion, descargar, escribir_json,
                    punto_en_geometria, sha256, vertices)
 
 OVERPASS = "https://overpass-api.de/api/interpreter"
+# Servidor de respaldo, autorizado por Sebastián el 27/09/2026 cuando overpass-api.de cortaba las conexiones
+# del entorno y le respondía 403 a él. Es una instancia pública de la lista de la wiki de OSM
+# (https://wiki.openstreetmap.org/wiki/Overpass_API), de VK Maps; sirve la misma base de OSM, bajo ODbL.
+# Qué servidor respondió queda anotado en el procesamiento de cada capa.
+OVERPASS_RESPALDO = "https://maps.mail.ru/osm/tools/overpass/api/interpreter"
 
 EXCLUIR_EN_CONSULTA = """
   nwr["man_made"="surveillance"]({caja});
@@ -370,8 +375,48 @@ def procesar(nombre, crudo, limite, caja):
     return salidas, descartes, fecha_osm
 
 
+def leer_servidor(ruta):
+    # Las respuestas guardadas antes del 27/09/2026 vinieron todas del servidor principal.
+    return ruta.read_text(encoding="utf-8").strip() if ruta.exists() else OVERPASS
+
+
 def consulta_incluye(ruta, texto):
     return ruta.exists() and texto in ruta.read_text(encoding="utf-8")
+
+
+def respuesta_valida(crudo):
+    """Una respuesta sirve si es JSON con elementos y Overpass no avisa de un error (por ejemplo, un
+    tiempo agotado, que deja la respuesta incompleta)."""
+    try:
+        datos = json.loads(crudo)
+    except ValueError:
+        return False
+    return isinstance(datos.get("elements"), list) and "error" not in (datos.get("remark") or "").lower()
+
+
+def consultar_overpass(nombre, consulta, ruta):
+    """Prueba el servidor principal y, si falla o responde algo inválido, el de respaldo. Guarda la
+    respuesta en ruta solo si es válida (la anterior no se pisa con una incompleta) y devuelve el
+    servidor que respondió, o None."""
+    for servidor, reintentos in ((OVERPASS, 1), (OVERPASS_RESPALDO, 3)):
+        aviso(f"Consultando Overpass ({servidor}): {nombre}")
+        try:
+            # GET en vez de POST: desde la nube, Overpass cortó los POST y aceptó los GET
+            # espaciados (prueba del 26/09/2026). Entre consultas se espera un minuto.
+            url = f"{servidor}?{urllib.parse.urlencode({'data': consulta})}"
+            crudo = descargar(url, reintentos=reintentos)
+        except ErrorRed as e:
+            aviso(str(e))
+            continue
+        finally:
+            time.sleep(60)
+        if respuesta_valida(crudo):
+            ruta.parent.mkdir(parents=True, exist_ok=True)
+            ruta.write_bytes(crudo)
+            registrar_descarga(url, ruta, crudo, None)
+            return servidor
+        aviso(f"{servidor} devolvió una respuesta vacía, incompleta o con error para {nombre}; no se usa.")
+    return None
 
 
 def main():
@@ -389,16 +434,13 @@ def main():
             consulta = armar_consulta(cuerpo, caja)
             (carpeta / f"{nombre}.overpassql").parent.mkdir(parents=True, exist_ok=True)
             (carpeta / f"{nombre}.overpassql").write_text(consulta, encoding="utf-8")
-            try:
-                aviso(f"Consultando Overpass: {nombre}")
-                # GET en vez de POST: desde la nube, Overpass cortó los POST y aceptó los GET
-                # espaciados (prueba del 26/09/2026). Entre consultas se espera un minuto.
-                descargar(f"{OVERPASS}?{urllib.parse.urlencode({'data': consulta})}", ruta)
-                time.sleep(60)
-            except ErrorRed as e:
+            servidor = consultar_overpass(nombre, consulta, ruta)
+            if servidor:
+                (carpeta / f"{nombre}.servidor").write_text(servidor, encoding="utf-8")
+            else:
                 # Si hay una respuesta anterior guardada, se reprocesa (por ejemplo, con un límite nuevo)
                 # y se avisa que la base de OSM es la de esa descarga.
-                aviso(f"{e}\nSin conexión con Overpass: se reprocesa la respuesta anterior de {nombre}, si existe.")
+                aviso(f"Sin respuesta válida de Overpass: se reprocesa la respuesta anterior de {nombre}, si existe.")
                 resultado = 1
         if not ruta.exists():
             aviso(f"No existe {ruta}; la capa {nombre} queda pendiente de fuente.")
@@ -427,6 +469,7 @@ def main():
                 "elementos": len(features),
                 **({"por_tipo": por_tipo} if por_tipo else {}),
                 "fecha_datos": fecha_osm,
+                "servidor_overpass": leer_servidor(carpeta / f"{nombre}.servidor"),
                 "descartes_de_la_consulta": descartes,
             })
             print(f"{capa}: {len(features)} elementos (base OSM del {fecha_osm}); descartes {descartes}")

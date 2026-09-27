@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-27T21:31:21+00:00",
+  "generado": "2026-09-27T22:39:53+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -60,7 +60,7 @@
       "estado": "verificada",
       "elementos": 1,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:14+00:00",
+      "procesado": "2026-09-27T22:39:46+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -93,7 +93,7 @@
       "estado": "verificada",
       "elementos": 6,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -142,7 +142,7 @@
       "estado": "verificada",
       "elementos": 1,
       "fecha_datos": "Recurso publicado el 13/07/2023 según datos.gob.ar; la fuente no informa la fecha de la delimitación. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:18+00:00",
+      "procesado": "2026-09-27T22:39:49+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -181,7 +181,7 @@
       "estado": "verificada",
       "elementos": 329,
       "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:18+00:00",
+      "procesado": "2026-09-27T22:39:49+00:00",
       "por_tipo": {
         "Corriente de agua perenne": 91,
         "Corriente de agua intermitente": 192,
@@ -219,7 +219,7 @@
       "estado": "verificada",
       "elementos": 138,
       "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:48+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -252,7 +252,7 @@
       "estado": "verificada",
       "elementos": 2279,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:21:54Z (UTC).",
-      "procesado": "2026-09-27T21:31:15+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -286,7 +286,7 @@
       "estado": "verificada",
       "elementos": 229,
       "fecha_datos": "El servicio del IGN no informa la fecha de esta capa; la documentación que republica la provincia es del 24/10/2021. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -319,7 +319,7 @@
       "estado": "verificada",
       "elementos": 40,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -352,7 +352,7 @@
       "estado": "verificada",
       "elementos": 16,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -386,7 +386,7 @@
       "estado": "verificada",
       "elementos": 654,
       "fecha_datos": "2000-11-16 a 2024-11-12",
-      "procesado": "2026-09-27T21:31:14+00:00",
+      "procesado": "2026-09-27T22:39:46+00:00",
       "focos_por_anio": {
         "2000": 3,
         "2001": 28,
@@ -451,7 +451,7 @@
       "estado": "verificada",
       "elementos": 601,
       "fecha_datos": "2012-02-10 a 2024-12-20",
-      "procesado": "2026-09-27T21:31:14+00:00",
+      "procesado": "2026-09-27T22:39:46+00:00",
       "focos_por_anio": {
         "2012": 41,
         "2013": 30,
@@ -502,7 +502,7 @@
       "estado": "verificada",
       "elementos": 47,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -546,7 +546,7 @@
       "estado": "verificada",
       "elementos": 643,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:24:01Z (UTC).",
-      "procesado": "2026-09-27T21:31:15+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -581,7 +581,7 @@
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -615,7 +615,7 @@
       "estado": "verificada",
       "elementos": 11,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -653,7 +653,7 @@
       "estado": "verificada",
       "elementos": 5502,
       "fecha_datos": "Recurso actualizado el 30/05/2022 según datos.gob.ar; la fuente no informa la fecha del relevamiento. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:20+00:00",
+      "procesado": "2026-09-27T22:39:52+00:00",
       "por_tipo": {
         "Aérea": 4236,
         "Subterránea": 1266
@@ -686,11 +686,11 @@
       "activa_al_inicio": false,
       "que_representa": "Las torres y los postes cargados en OpenStreetMap: torres de las líneas de 132 y 500 kV y postes de la línea de 33 kV, con la tensión de la línea a la que pertenecen.",
       "que_no_representa": "No incluye los postes de baja tensión, de telecomunicaciones ni las columnas de alumbrado: esos van en la capa \"Postes de la vía pública\". Tampoco los postes de la red de 13,2 kV, que no están cargados en OpenStreetMap. Que una zona no tenga postes en esta capa no quiere decir que no los haya. Para ver dónde el tendido de media tensión es aéreo, está la capa de media tensión.",
-      "limitaciones": "Depende de lo cargado por voluntarios en OpenStreetMap. La primera versión sale de una respuesta de Overpass del 27/09/2026 (00:04 UTC) obtenida con una consulta de energía más amplia; la consulta propia la reemplaza cuando Overpass responda.",
+      "limitaciones": "Depende de lo cargado por voluntarios en OpenStreetMap. Descarga propia del 27/09/2026 (base de OSM de las 22:23 UTC): 771 torres (707 de 132 kV y 64 de 500 kV) y 703 postes de la línea de 33 kV, 276 de ellos en la zona urbana de Necochea y Quequén.",
       "estado": "verificada",
       "elementos": 1474,
-      "fecha_datos": "Base de OpenStreetMap al 2026-09-27T00:04:15Z (UTC).",
-      "procesado": "2026-09-27T21:31:15+00:00",
+      "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:23:36Z (UTC).",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -716,7 +716,7 @@
       "activa_al_inicio": false,
       "que_representa": "Todo poste de la calle cargado en OpenStreetMap, con o sin cables: postes eléctricos de baja tensión (o sin tensión informada), postes de telecomunicaciones, postes compartidos, postes de servicios de uso no informado y columnas de alumbrado público, cada tipo con su color. En un temporal, los postes que caen cortan servicios y calles y son un peligro para quien pasa.",
       "que_no_representa": "No dice el estado del poste, su material ni su antigüedad, salvo que OSM lo indique. OpenStreetMap distingue un poste eléctrico de uno de telecomunicaciones solo si quien lo cargó lo etiquetó así; muchos postes compartidos figuran como de un solo uso o como de uso no informado.",
-      "limitaciones": "Depende por completo de lo cargado por voluntarios: en ciudades argentinas los postes de la calle casi nunca están mapeados, así que la capa va a ser muy incompleta. Las distribuidoras y cooperativas eléctricas y las empresas de telecomunicaciones no publican el inventario de sus postes como dato abierto (no encontrado al 27/09/2026).",
+      "limitaciones": "Depende por completo de lo cargado por voluntarios. En la descarga del 27/09/2026 (base de OSM de las 22:23 UTC) hay un solo poste de la calle en el partido: los 703 postes eléctricos cargados pertenecen a la línea de 33 kV y están en la capa de torres y postes, y no hay columnas de alumbrado ni postes de telecomunicaciones cargados. Las distribuidoras y cooperativas eléctricas y las empresas de telecomunicaciones no publican el inventario de sus postes como dato abierto (no encontrado al 27/09/2026).",
       "estilo": {
         "color": "#8c8c8c",
         "radio": 2.5,
@@ -729,14 +729,18 @@
           "Poste de servicios (uso no informado)": "#8c8c8c"
         }
       },
-      "estado": "pendiente",
-      "elementos": 0,
-      "fecha_datos": null,
-      "procesado": null,
+      "estado": "verificada",
+      "elementos": 1,
+      "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:23:36Z (UTC).",
+      "procesado": "2026-09-27T22:39:47+00:00",
+      "por_tipo": {
+        "Poste eléctrico de baja tensión o sin tensión informada": 1
+      },
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
-          "Pendiente de fuente: la consulta de postes de la vía pública (eléctricos de baja tensión, de telecomunicaciones y columnas de alumbrado) está lista, pero OpenStreetMap (Overpass) no respondió desde el 27/09/2026. Se completa sola cuando responda.",
+          "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
         ]
       }
@@ -766,7 +770,7 @@
       "estado": "verificada",
       "elementos": 31,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -799,7 +803,7 @@
       "estado": "verificada",
       "elementos": 14,
       "fecha_datos": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "por_tipo": {
         "Vía desmantelada": 2,
         "Vía activa": 3,
@@ -838,7 +842,7 @@
       "estado": "verificada",
       "elementos": 19,
       "fecha_datos": "Metadato del IGN creado el 24/10/2021, con actualización mensual declarada (https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf); el servicio no informa la fecha de la versión consultada. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -882,7 +886,7 @@
       "estado": "verificada",
       "elementos": 7,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -915,7 +919,7 @@
       "estado": "verificada",
       "elementos": 140,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -948,7 +952,7 @@
       "estado": "verificada",
       "elementos": 22,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:16+00:00",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -977,15 +981,16 @@
       "activa_al_inicio": false,
       "que_representa": "Toda antena, mástil o torre de comunicaciones cargada en OpenStreetMap dentro del partido: telefonía móvil, radio, televisión, radioaficionados y comunicaciones de servicios. Son infraestructura crítica: de ellas dependen las comunicaciones durante un siniestro.",
       "que_no_representa": "No indica a qué operador pertenece cada antena salvo que OSM lo diga, ni su potencia o cobertura. No incluye cámaras de videovigilancia.",
-      "limitaciones": "Depende de lo cargado en OpenStreetMap, que suele estar incompleto en antenas. Las repetidoras de radioaficionados autorizadas por ENACOM y los registros de estaciones de ENACOM no se pudieron descargar desde el entorno (DATOS.md, sección 15).",
-      "estado": "pendiente",
-      "elementos": 0,
-      "fecha_datos": null,
-      "procesado": null,
+      "limitaciones": "Depende de lo cargado en OpenStreetMap, que suele estar incompleto en antenas: en la descarga del 27/09/2026 (base de OSM de las 22:27 UTC) hay 12 en el partido y una sola en la ciudad de Necochea. La planilla de repetidoras de radioaficionados de ENACOM no trae coordenadas, así que no sirve para ubicarlas (DATOS.md, sección 15).",
+      "estado": "verificada",
+      "elementos": 12,
+      "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:27:40Z (UTC).",
+      "procesado": "2026-09-27T22:39:47+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
-          "Pendiente de fuente: el IGN no registra antenas ni torres de telecomunicaciones en el partido y OpenStreetMap (Overpass) no respondió al consultarlo (27/09/2026). Se completa sola cuando Overpass responda.",
+          "12 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://opendatacommons.org/licenses/odbl/1-0/ (leída el 2026-09-27)."
         ]
       }
@@ -1015,7 +1020,7 @@
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T21:31:20+00:00",
+      "procesado": "2026-09-27T22:39:52+00:00",
       "verificacion": {
         "fecha": "2026-09-27",
         "controles": [
@@ -1059,7 +1064,7 @@
       "estado": "verificada",
       "elementos": 12,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-09-27T21:31:18+00:00",
+      "procesado": "2026-09-27T22:39:49+00:00",
       "por_organismo": {
         "Bomberos": 3,
         "Centro Operativo de Monitoreo": 1,
@@ -1108,10 +1113,10 @@
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-09-27T21:31:18+00:00",
+      "procesado": "2026-09-27T22:39:49+00:00",
       "por_tipo": {
-        "Evacuación ante catástrofes": 1,
-        "Personas en situación de calle": 1
+        "Personas en situación de calle": 1,
+        "Evacuación ante catástrofes": 1
       },
       "verificacion": {
         "fecha": "2026-09-27",

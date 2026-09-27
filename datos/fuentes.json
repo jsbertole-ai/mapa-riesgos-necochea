@@ -477,7 +477,7 @@
       "activa_al_inicio": false,
       "que_representa": "Las torres y los postes cargados en OpenStreetMap: torres de las líneas de 132 y 500 kV y postes de la línea de 33 kV, con la tensión de la línea a la que pertenecen.",
       "que_no_representa": "No incluye los postes de baja tensión, de telecomunicaciones ni las columnas de alumbrado: esos van en la capa \"Postes de la vía pública\". Tampoco los postes de la red de 13,2 kV, que no están cargados en OpenStreetMap. Que una zona no tenga postes en esta capa no quiere decir que no los haya. Para ver dónde el tendido de media tensión es aéreo, está la capa de media tensión.",
-      "limitaciones": "Depende de lo cargado por voluntarios en OpenStreetMap. La primera versión sale de una respuesta de Overpass del 27/09/2026 (00:04 UTC) obtenida con una consulta de energía más amplia; la consulta propia la reemplaza cuando Overpass responda."
+      "limitaciones": "Depende de lo cargado por voluntarios en OpenStreetMap. Descarga propia del 27/09/2026 (base de OSM de las 22:23 UTC): 771 torres (707 de 132 kV y 64 de 500 kV) y 703 postes de la línea de 33 kV, 276 de ellos en la zona urbana de Necochea y Quequén."
     },
     {
       "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
@@ -496,7 +496,7 @@
       "activa_al_inicio": false,
       "que_representa": "Todo poste de la calle cargado en OpenStreetMap, con o sin cables: postes eléctricos de baja tensión (o sin tensión informada), postes de telecomunicaciones, postes compartidos, postes de servicios de uso no informado y columnas de alumbrado público, cada tipo con su color. En un temporal, los postes que caen cortan servicios y calles y son un peligro para quien pasa.",
       "que_no_representa": "No dice el estado del poste, su material ni su antigüedad, salvo que OSM lo indique. OpenStreetMap distingue un poste eléctrico de uno de telecomunicaciones solo si quien lo cargó lo etiquetó así; muchos postes compartidos figuran como de un solo uso o como de uso no informado.",
-      "limitaciones": "Depende por completo de lo cargado por voluntarios: en ciudades argentinas los postes de la calle casi nunca están mapeados, así que la capa va a ser muy incompleta. Las distribuidoras y cooperativas eléctricas y las empresas de telecomunicaciones no publican el inventario de sus postes como dato abierto (no encontrado al 27/09/2026).",
+      "limitaciones": "Depende por completo de lo cargado por voluntarios. En la descarga del 27/09/2026 (base de OSM de las 22:23 UTC) hay un solo poste de la calle en el partido: los 703 postes eléctricos cargados pertenecen a la línea de 33 kV y están en la capa de torres y postes, y no hay columnas de alumbrado ni postes de telecomunicaciones cargados. Las distribuidoras y cooperativas eléctricas y las empresas de telecomunicaciones no publican el inventario de sus postes como dato abierto (no encontrado al 27/09/2026).",
       "estilo": {
         "color": "#8c8c8c",
         "radio": 2.5,
@@ -688,7 +688,7 @@
       "mensaje_sin_archivo": "Pendiente de fuente: el IGN no registra antenas ni torres de telecomunicaciones en el partido y OpenStreetMap (Overpass) no respondió al consultarlo (27/09/2026). Se completa sola cuando Overpass responda.",
       "que_representa": "Toda antena, mástil o torre de comunicaciones cargada en OpenStreetMap dentro del partido: telefonía móvil, radio, televisión, radioaficionados y comunicaciones de servicios. Son infraestructura crítica: de ellas dependen las comunicaciones durante un siniestro.",
       "que_no_representa": "No indica a qué operador pertenece cada antena salvo que OSM lo diga, ni su potencia o cobertura. No incluye cámaras de videovigilancia.",
-      "limitaciones": "Depende de lo cargado en OpenStreetMap, que suele estar incompleto en antenas. Las repetidoras de radioaficionados autorizadas por ENACOM y los registros de estaciones de ENACOM no se pudieron descargar desde el entorno (DATOS.md, sección 15)."
+      "limitaciones": "Depende de lo cargado en OpenStreetMap, que suele estar incompleto en antenas: en la descarga del 27/09/2026 (base de OSM de las 22:27 UTC) hay 12 en el partido y una sola en la ciudad de Necochea. La planilla de repetidoras de radioaficionados de ENACOM no trae coordenadas, así que no sirve para ubicarlas (DATOS.md, sección 15)."
     },
     {
       "organismo": "Subsecretaría de Integración Socio Urbana (Registro Nacional de Barrios Populares, RENABAP)",
