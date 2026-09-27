@@ -1,0 +1,123 @@
+# Marco conceptual y metodológico del mapa
+
+Base conceptual del proyecto: qué entendemos por riesgo, por qué el mapa se arma como se arma y qué le falta. Sale de la bibliografía de la Licenciatura en Gestión de Riesgos y Siniestralidad del Instituto Universitario Vucetich y de las normas que rigen la gestión del riesgo en la Argentina y en la provincia de Buenos Aires.
+
+**Cómo leer este documento.** Cada cita textual se verificó contra el texto original y lleva su página; las páginas son las impresas en cada documento (en los que no tienen numeración impresa se indica la página del PDF). Lo que no es cita ni paráfrasis de un autor, sino lectura nuestra aplicada al mapa, va marcado como **Para el mapa**. Las referencias completas, en formato APA, están al final. Relevamiento cerrado el 27/09/2026; se amplía a medida que se sumen lecturas.
+
+## 1. El riesgo no es el fenómeno
+
+El punto de partida es que el riesgo no está en la naturaleza sino en la relación entre un fenómeno físico y una sociedad que lo recibe. Para Narváez, Lavell y Pérez Ortega (2009), "el riesgo es una condición latente que, al no ser modificada o mitigada a través de la intervención humana o por medio de un cambio en las condiciones del entorno físico-ambiental, anuncia un determinado nivel de impacto social y económico hacia el futuro" (p. 9). De ahí se desprenden tres precisiones que el mapa usa todo el tiempo: "una amenaza no es el evento físico en sí, sino el peligro asociado con ella" (p. 11); "sin exposición no hay posibilidad de amenaza o riesgo" (p. 13); y "toda causa de vulnerabilidad y toda expresión de vulnerabilidad, es social" (p. 16). Las amenazas se clasifican en naturales, socionaturales y antrópicas (p. 10), y la frontera entre ellas es borrosa: una inundación puede tener origen en la lluvia, pero su magnitud depende de cómo se manejó el territorio.
+
+Lavell (2007) lleva la idea al plano de la intervención: el riesgo de desastre requiere "la presencia, confluencia, convolución e interacción" de amenazas y de poblaciones expuestas en condiciones de vulnerabilidad (p. 8), y como es una construcción social, "lo que la sociedad construye puede ser objeto de desconstrucción y control social" (p. 9). El Plan Nacional para la Reducción del Riesgo de Desastres 2025-2029 adopta el mismo principio: "Los desastres no son sólo naturales" (Ministerio de Seguridad Nacional, 2026, p. 12), y suma a la ecuación las capacidades. La cátedra trabaja con cinco componentes: amenaza, vulnerabilidad, exposición, capacidad y gobernanza.
+
+**Para el mapa:** por eso el sitio no pinta "zonas de riesgo". Muestra piezas (amenazas, elementos expuestos, condiciones de vulnerabilidad, capacidades de respuesta) y deja dicho, capa por capa, qué no representa.
+
+## 2. La vulnerabilidad no es pobreza
+
+Wilches-Chaux (1993) definió la vulnerabilidad como la incapacidad de una comunidad para "absorber", mediante el autoajuste, los efectos de un cambio en su medio (p. 17), y propuso la noción de vulnerabilidad global: natural, física, económica, social, política, técnica, ideológica, cultural, educativa, ecológica e institucional. Sobre la dimensión social cita una afirmación que resume buena parte del proyecto: "El nivel de traumatismo social resultante de un desastre es inversamente proporcional al nivel de organización existente en la comunidad afectada" (p. 28). También advierte que la reducción del riesgo "no puede ser solamente responsabilidad de una oficina, ni siquiera del conjunto del Estado" (p. 39).
+
+Maskrey (1998) separa los dos conceptos: "la vulnerabilidad no puede considerarse sinónimo de pobreza. Mientras que la pobreza se refiere a necesidades insatisfechas, la vulnerabilidad se refiere a una falta de capacidad de defenderse y superar una crisis" (p. 12, siguiendo a Chambers, 1989). Lavell (2007) completa el cuadro con los cinco componentes de Wisner y otros (2003): condiciones de bienestar, resiliencia de las bases de vida, autoprotección, protección social y sociedad civil (pp. 13-14), y con la noción de riesgo cotidiano, el "desastre permanente" en que vive la población pobre (pp. 16-17).
+
+Fernández, Waldmüller y Vega (2020) critican el enfoque de resiliencia cuando traslada la responsabilidad a las personas, y ponen el foco en el sostenimiento de la vida: después de un desastre, los afectados "ponen en común los alimentos disponibles, organizan carpas para pernoctar, habilitan cocinas comunitarias" (p. 20). Advierten, a la vez, contra la idealización de lo comunitario.
+
+**Para el mapa:** el grupo "Condiciones de vulnerabilidad" muestra los barrios populares del RENABAP, que registra condiciones materiales (servicios, tenencia, vivienda), no la vulnerabilidad completa. La red de asistencia (comedores, parroquias, Cáritas, templos) es la parte visible de lo que Fernández y otros llaman sostenimiento de la vida, y de la organización que según Wilches-Chaux amortigua el golpe. Por eso se mapea.
+
+## 3. Territorio del impacto y territorio de la causalidad: la cuenca
+
+Es el concepto que justifica que la cuenca del Quequén Grande vaya entera aunque exceda el partido. Lavell (2007) escribe que los desastres tienen una circunscripción definida, "el 'territorio del impacto'", pero que "los factores causales del riesgo y del desastre [...] no tienen necesariamente la misma circunscripción territorial. Muchas veces, el 'territorio de la causalidad' tiende a diferir sustancialmente del territorio del impacto" (p. 17). Sus ejemplos son los nuestros: "la deforestación de las altas cuencas de los ríos que contribuyen a las inundaciones en las cuencas bajas; las descargas de las presas río arriba con los mismos efectos" (p. 17). Y concluye que "lo local es un depositario del riesgo, no siempre un constructor como tal", por lo que propone esquemas intermunicipales y "esquemas que toman una cuenca hidrográfica, región económica, etc., como su punto de referencia principal" (p. 28).
+
+Reboratti (2001) llega a lo mismo desde la geografía: los estudios locales "necesitan adoptar una visión más general para explicar una serie de procesos que se originan fuera de la escala original elegida"; si no, se cae en "el clásico trabajo localista", donde "las explicaciones se buscan siempre puertas adentro de la escala adoptada" (p. 85). La escala es "una escala y no una escalera" (p. 84) y, sobre todo, "las escalas son construcciones sociales" (p. 90): el límite del partido es una de ellas; la cuenca, otra. Francese y Folguera (2023) muestran que las posturas críticas frente a proyectos productivos definen sus escalas por "cuencas hidrológicas" y ecosistemas, no por recortes políticos ni por la resolución de los modelos (p. 82).
+
+**Para el mapa:** Necochea y Quequén están en la desembocadura de una cuenca de unos 9.800 km² de la que menos de un cuarto cae dentro del partido (ver `DATOS.md`, sección 1.9). Las canalizaciones o el manejo del suelo aguas arriba pertenecen al territorio de la causalidad; la ciudad, al territorio del impacto. Hoy ninguna fuente abierta registra los canales de la cuenca: esa ausencia es en sí misma un hallazgo.
+
+## 4. Lo pequeño también cuenta: el inventario local
+
+Lavell (2007) estima que "por cada desastre grande que se registra en las bases de datos internacionales, ocurren entre 100 y 200 eventos de menor magnitud que afectan a barrios, aldeas" y comunidades (p. 5), que pasan inadvertidos y se acumulan. Maskrey (1998) explica por qué: a baja resolución, los desastres chicos desaparecen del mapa (pp. 16-19). La experiencia de DesInventar lo resolvió con una fuente "impura": la Corporación OSSO recurrió a "los recortes de prensa" para reconstruir la historia de desastres de Cali entre 1950 y 2000 (Aguilar, 2013, p. 2 del PDF).
+
+**Para el mapa:** el inventario local (formulario de KoboToolbox) registra eventos y vulnerabilidades informados por medios, con su fuente y revisión previa. Es una versión modesta del método de DesInventar a escala de partido.
+
+## 5. Gestión del riesgo: correctiva, prospectiva y sistémica
+
+Lavell (2007) define la gestión del riesgo como "un proceso social cuyo fin último es la reducción y atención, o la previsión y control permanente del riesgo de desastre" (p. 21), y distingue la gestión correctiva, sobre el riesgo que ya existe, de la prospectiva, sobre el que se puede crear con nuevas inversiones (pp. 23-24). Entre las correctivas, separa las conservadoras (un dique, un dragado) de las transformadoras (la recuperación de una cuenca). Diferencia además la "gestión del riesgo en los niveles locales", que puede impulsar cualquier actor, de la "gestión local del riesgo", que pertenece a los actores locales (p. 27).
+
+Liñayo (s.f.) describe los sistemas de gestión de riesgos como un organismo con cinco tipos de actores (alto gobierno, actores sociales, organismos de respuesta, actores del conocimiento e instituciones del desarrollo) y distingue la atención de las consecuencias de la atención de las causas; concluye que "gestión de riesgos aquí es sinónimo de gestión de sociedad" (p. 7 del PDF). Arnold Cathalifaud y Osorio (1998) aportan el vocabulario de sistemas: sistemas abiertos, retroalimentación, frontera, modelo.
+
+**Para el mapa:** la capa de organismos de respuesta mapea el brazo que atiende consecuencias. Los actores sociales, los del conocimiento y los del desarrollo (el brazo que atiende causas) casi no aparecen todavía. Es la principal deuda conceptual del proyecto.
+
+## 6. Gobernanza, participación y mapeo comunitario
+
+El Marco de Sendai pide "facultar a las autoridades locales [...] para que trabajen y se coordinen con la sociedad civil, las comunidades y los pueblos y migrantes indígenas en la gestión del riesgo de desastres a nivel local" (Naciones Unidas, 2015, p. 18, párr. 27 h). Jerez-Ramírez y Ramos-Torres (2022) critican el uso despolitizado de la gobernanza y sostienen que "igual de importante es bajar el lente de observación a lo territorial y observar ahí las dinámicas de fuerza" (p. 221). Altschuler (2013) advierte que los enfoques territoriales del desarrollo ponen el acento en la participación y el consenso más que en las relaciones de poder (p. 67). Santos (1996) recuerda que "es el uso del territorio y no el territorio en sí mismo, el objeto del análisis social" (p. 123).
+
+El manual del SINAGIR sobre mapeo comunitario (Chiroque, 2022) fija el estándar: el mapa comunitario "coloca como centro el saber colectivo" (p. 36); "es un medio, no un fin", "no es definitivo, debe ser actualizado periódicamente" y "no produce transformaciones por sí solo, pero visibiliza y permite incidir" (p. 41). Lo construye la comunidad, en talleres, con un equipo facilitador que modera y valida (pp. 45-47).
+
+**Para el mapa:** el sitio se presenta como proyecto colectivo, pero hoy junta datos abiertos y aportes por formulario; en la escala de participación que usa el manual (p. 18), eso está más cerca de informar y consultar que de decidir en común. Llegar al mapeo comunitario requiere un proceso fuera de la web, con organismos de respuesta, red de asistencia y barrios. Y el análisis tiene que incluir las relaciones de poder: quién decide el uso del agua y del suelo en la cuenca, y quién recibe las consecuencias.
+
+## 7. Marco normativo y planificación
+
+- **Ley 27.287** (2016): crea el Sistema Nacional para la Gestión Integral del Riesgo y la Protección Civil (SINAGIR). La provincia adhirió por la Ley 15.063.
+- **Resolución 334/2026** del Ministerio de Seguridad Nacional: aprueba el Plan Nacional para la Reducción del Riesgo de Desastres 2025-2029. El plan afirma que "el 60% de los desastres en la República Argentina son inundaciones" y que las inundaciones regionales están "principalmente vinculadas a la fase cálida del fenómeno 'El Niño-Oscilación Sur'" (p. 20); prevé actualizar el Manual para elaboración de mapas de riesgos del SINAGIR (pp. 43 y 54).
+- **Resolución 367/2021** del Ministerio de Seguridad de la Provincia de Buenos Aires: aprueba los "Lineamientos para la Elaboración del Plan de Gestión Integral del Riesgo" para los municipios. Dice que "los gobiernos locales tienen la responsabilidad de planificar y adoptar cursos de acción hacia la prevención y mitigación de riesgos" (p. 1 del anexo) y que para el mapa de riesgos municipal "se encuentran disponibles tecnología e información geoespacial de libre acceso", que debe estar al alcance del "público en general" (p. 4 del anexo). Entre la información a considerar enumera "la ubicación geográfica de las zonas urbanas, asentamientos y barrios populares" (p. 5 del anexo), y asigna "un rol estratégico en la legitimación" de las propuestas a actores como "las y los referentes religiosos, políticos y comunitarios" y "las y los voluntarios en comedores, merenderos y espacios de apoyo escolar" (p. 7 del anexo).
+- **Decreto 275/2021** de la Provincia de Buenos Aires (promulgado el 13/05/2021, publicado el 17/05/2021): aprueba la estructura del Ministerio de Seguridad, incluida la Subsecretaría de Emergencias; lo lista la Dirección Provincial de Riesgos y Emergencias en su marco normativo (https://www.mseg.gba.gov.ar/areas/dirprovriesgos/marco.html). A la Dirección Provincial de Defensa Civil le asigna "asegurar la vigilancia, alarma y comunicaciones, integrado por la Red de comunicaciones policial y de bomberos con el apoyo de los radioaficionados" (Anexo II, p. 2) y "articular con las organizaciones de Bomberos Voluntarios, Radioaficionados, Sociedades Colombófilas y/o Cruz Roja Argentina" (p. 3). A la Dirección Provincial de Riesgos y Emergencias, brindar "información para la toma de decisiones a nivel provincial y municipal" (p. 6), y a su Dirección de Análisis y Reducción de Riesgos, promover la planificación municipal "mediante la realización de evaluación y mapas de riesgo" y mantener actualizados los "sistemas de información georreferencial" (p. 7).
+- **Bello, Bustamante y Pizarro (2020)**, de la CEPAL: "la planificación debe nutrirse del mapeo de las amenazas naturales y la identificación de infraestructura potencialmente expuesta" (p. 31) y "deben trazarse planes locales de evacuación, incluida la identificación clara de rutas y albergues" (p. 34). Recuerdan además el Principio 10 de Río y el Acuerdo de Escazú sobre acceso a la información ambiental (p. 29).
+
+**Para el mapa:** el Decreto 275/2021 es la razón normativa para que los radioaficionados figuren entre los organismos de respuesta y para que las antenas estén en el mapa: sin comunicaciones no hay coordinación en la emergencia. Los Lineamientos provinciales piden, en su primera etapa, un mapa de riesgos municipal con información geoespacial libre, y en la segunda, el mapeo de capacidades de respuesta y de zonas y población vulnerables. El sitio aporta piezas de las dos etapas. No reemplaza el plan municipal, que no encontramos publicado (ver `DATOS.md`, sección 14).
+
+## 8. Contexto de 2026: El Niño
+
+El Climate Prediction Center de la NOAA (2026) mantiene el estado "El Niño Advisory" y da "a greater than 90% chance of a very strong event during the Northern Hemisphere fall and winter 2026-27" (es decir, la primavera y el verano australes), con "a 75% chance of a historic event" para octubre-diciembre de 2026. La Provincia presentó el 27/08/2026 un plan de prevención y mitigación ante el "Súper Niño" (Municipalidad de Necochea, 2026). Lavell (2007) recuerda cómo se encadenan los riesgos: el impacto del huracán Mitch fue mayor por la sequía asociada a El Niño de 1997-98 (p. 21).
+
+**Para el mapa:** es el escenario más probable de los próximos meses. La cuenca completa, los barrios populares, los refugios y los organismos de respuesta son las capas que más sirven para leerlo.
+
+## 9. Lo que el marco le pide al mapa y todavía no tiene
+
+1. **Los canales y obras de drenaje de la cuenca** (territorio de la causalidad): sin fuente abierta.
+2. **Los actores de las causas** (Liñayo): organizaciones sociales, instituciones del conocimiento y del desarrollo.
+3. **El proceso comunitario** (Chiroque): talleres, validación y apropiación por parte de quienes viven el riesgo.
+4. **La historia de eventos** (DesInventar, Lavell): un inventario local con más registros y más años.
+5. **Las relaciones de poder** (Jerez-Ramírez y Ramos-Torres, Altschuler): quién decide y quién recibe las consecuencias.
+
+## Referencias
+
+Aguilar, E. (2013, 10 de septiembre). *La base de datos Desinventar. Construcción de conocimiento para la gestión del riesgo* [Cuaderno Ciudades colombianas y cambio climático]. Instituto de Investigación y Debate sobre la Gobernanza.
+
+Altschuler, B. (2013). Territorio y desarrollo: aportes de la geografía y otras disciplinas para repensarlos (fragmentos). *Theomai*, (27-28), 64-68.
+
+Arnold Cathalifaud, M. y Osorio, F. (1998). Introducción a los conceptos básicos de la Teoría General de Sistemas. *Cinta de Moebio*, (3). http://www.redalyc.org/articulo.oa?id=10100306
+
+Bello, O., Bustamante, A. y Pizarro, P. (2020). *Planificación para la reducción del riesgo de desastres en el marco de la Agenda 2030 para el Desarrollo Sostenible* (Documentos de Proyectos LC/TS.2020/108). Comisión Económica para América Latina y el Caribe.
+
+Chiroque, H. (2022). *Mapeo comunitario de gestión de riesgos* (Manual #GIRD 4). Ministerio de Seguridad de la Nación; Universidad Nacional de San Martín. https://www.argentina.gob.ar/sites/default/files/2022/10/mapeo_comunitario_de_gestion_de_riesgos.pdf
+
+Climate Prediction Center. (2026, 10 de septiembre). *El Niño/Southern Oscillation (ENSO) diagnostic discussion*. National Oceanic and Atmospheric Administration. https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml
+
+Fernández, A. G., Waldmüller, J. y Vega, C. (2020). Comunidad, vulnerabilidad y reproducción en condiciones de desastre. Abordajes desde América Latina y el Caribe. *Íconos. Revista de Ciencias Sociales*, (66), 7-29. https://doi.org/10.17141/iconos.66.2020.4156
+
+Francese, C. F. y Folguera, G. (2023). La estructuración jerárquica del cambio climático y la relación entre sus escalas-niveles. *Prometeica*, (26), 74-90. https://doi.org/10.34024/prometeica.2023.26.14618
+
+Jerez-Ramírez, D. O. y Ramos-Torres, R. J. (2022). La gobernanza del riesgo en América Latina y la dimensión política de los desastres. *Estudios de la Gestión*, (11), 211-230. https://doi.org/10.32719/25506641.2022.11.9
+
+Lavell, A. (2007). *Apuntes para una reflexión institucional en países de la Subregión Andina sobre el enfoque de la gestión del riesgo*. Comunidad Andina, Proyecto PREDECAN. http://www.comunidadandina.org/predecan/doc/r1/docAllan2.pdf
+
+Liñayo, A. (s.f.). *Una aproximación al carácter sistémico de los "sistemas" de gestión de riesgos*. Fundación para la Prevención del Riesgo Sísmico (FUNDAPRIS). https://www.desenredando.org/public/varios/2005/Linayo_Sistemas_Gestion_de_Riesgos.pdf
+
+Maskrey, A. (1998). El riesgo. En A. Maskrey (Ed.), *Navegando entre brumas: La aplicación de los sistemas de información geográfica al análisis de riesgo en América Latina* (pp. 4-23). Red de Estudios Sociales en Prevención de Desastres en América Latina.
+
+Ministerio de Seguridad de la Provincia de Buenos Aires. (2021). *Resolución 367/2021. Lineamientos para la elaboración del Plan de Gestión Integral del Riesgo* (Anexo Único IF-2021-07542884-GDEBA-SSEMMSGP). https://normas.gba.gob.ar/ar-b/resolucion/2021/367/233391
+
+Ministerio de Seguridad Nacional. (2026). *Plan Nacional para la Reducción del Riesgo de Desastres de la República Argentina 2025-2029* (Anexo IF-2026-27078134-APN-DNS#AFE, aprobado por la Resolución 334/2026).
+
+Municipalidad de Necochea. (2026, 27 de agosto). *El intendente Rojas fue parte de la presentación del Plan de Prevención y Mitigación del Niño junto a Kicillof*. https://necochea.gov.ar/el-intendente-rojas-fue-parte-de-la-presentacion-del-plan-de-prevencion-y-mitigacion-del-nino-junto-a-kicillof/
+
+Provincia de Buenos Aires. (2021). *Decreto 275/2021. Aprueba la estructura orgánico-funcional del Ministerio de Seguridad* (Anexo II: Acciones; Subsecretaría de Emergencias, IF-2021-10513887-GDEBA-DGTYLMSGP). https://normas.gba.gob.ar/ar-b/decreto/2021/275/238545
+
+Naciones Unidas. (2015). *Marco de Sendai para la Reducción del Riesgo de Desastres 2015-2030*.
+
+Narváez, L., Lavell, A. y Pérez Ortega, G. (2009). *La gestión del riesgo de desastres: Un enfoque basado en procesos*. Secretaría General de la Comunidad Andina.
+
+Quiroga, S. G., Pravatta, L. y Méndez, G. (2024). Escenarios de riesgo de desastres en la escala local: Ciudad de Maipú, Mendoza, Argentina. En J. M. Camacho Sanabria, R. Chávez Alvarado y Y. G. Canchola Pantoja (Coords.), *Gestión del riesgo de desastres en América Latina y el Caribe: Experiencias, aprendizajes y desafíos* (pp. 211-234). Comunicación Científica. https://doi.org/10.52501/cc.218.07
+
+Reboratti, C. E. (2001). Una cuestión de escala: sociedad, ambiente, tiempo y territorio. *Sociologias*, 3(5), 80-93.
+
+Santos, M. (1996). El retorno del territorio. En *De la totalidad al lugar* (pp. 123-130). Oikos-Tau.
+
+Wilches-Chaux, G. (1993). La vulnerabilidad global. En A. Maskrey (Ed.), *Los desastres no son naturales* (pp. 11-44). Red de Estudios Sociales en Prevención de Desastres en América Latina; Tercer Mundo Editores.

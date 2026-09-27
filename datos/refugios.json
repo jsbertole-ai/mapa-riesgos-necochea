@@ -1,15 +1,22 @@
 {
-  "_nota": "Lugares de refugio indicados por Juan Sebastián Bértole (27/09/2026). La geometría y el nombre se toman de OpenStreetMap por su identificador; acá solo se registra cuáles son y por qué.",
+  "_nota": "Lugares de refugio indicados por Juan Sebastián Bértole (27/09/2026). La geometría y el nombre se toman de OpenStreetMap por su identificador; acá solo se registra cuáles son, a quién alojan y de dónde sale el dato.",
   "refugios": [
     {
       "osm": "way/326255242",
       "tipo": "Polideportivo",
-      "fuente": "Indicado por Juan Sebastián Bértole como lugar de refugio (27/09/2026)."
+      "fuente": "Único refugio designado por Defensa Civil ante catástrofes, según Juan Sebastián Bértole (27/09/2026). No se encontró un documento público de la designación.",
+      "uso": "Evacuación ante catástrofes"
     },
     {
       "osm": "way/1272959264",
       "tipo": "Parroquia",
-      "fuente": "Indicado por Juan Sebastián Bértole como lugar de refugio (27/09/2026)."
+      "fuente": "Indicada por Juan Sebastián Bértole (27/09/2026). Asiste a personas en situación de calle con el comedor \"Esperanza y Gozo\" (cena caliente), bolsones de alimentos y ropero comunitario (Ecos Diarios; Necochea Digital, 02/07/2026). En el invierno de 2026 sumó lugares para pasar la noche, aunque el párroco aclaró: \"No tenemos algo oficial donde se pueda cobijar a estas personas\" (Ecos Diarios, 26/07/2026). No depende de Defensa Civil ni es un lugar de evacuación.",
+      "uso": "Personas en situación de calle",
+      "referencias": [
+        "https://elecos.com.ar/la-demanda-en-comedores-comunitarios-es-cada-vez-mayor",
+        "https://necocheadigital.com/nota/118910/el-padre-alejandro-martinez-advierte-que-la-pobreza-no-es-solo-hambre-y-que-el-invierno-deja-al-descubierto-las-heridas-sociales-de-necochea/",
+        "https://www.facebook.com/EcosDiarios/videos/634776802968520/"
+      ]
     }
   ]
 }

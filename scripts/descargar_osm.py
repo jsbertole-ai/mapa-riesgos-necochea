@@ -2,7 +2,7 @@
 
 Uso:  python3 scripts/descargar_osm.py            (consulta Overpass y procesa)
       python3 scripts/descargar_osm.py --offline  (procesa lo ya guardado en datos/crudos/osm/)
-      python3 scripts/descargar_osm.py respuesta  (solo una consulta: hidrografia, portuaria o respuesta)
+      python3 scripts/descargar_osm.py respuesta  (solo una consulta: hidrografia, portuaria, torres, respuesta o antenas)
 
 Requiere el límite del partido (scripts/descargar_limite.py). La consulta usa
 la caja envolvente del límite y después recorta por el polígono: queda todo
@@ -19,12 +19,13 @@ OpenStreetMap y se publican bajo la misma licencia.
 """
 
 import json
+import re
 import sys
 import time
 import urllib.parse
 
 from comun import (CRUDOS, SITIO_DATOS, ErrorRed, anotar_procesamiento, es_prefectura, excluido_osm, aviso, cargar_limite, coleccion, descargar, escribir_json,
-                   punto_en_geometria, sha256)
+                   punto_en_geometria, sha256, vertices)
 
 OVERPASS = "https://overpass-api.de/api/interpreter"
 
@@ -47,9 +48,14 @@ CONSULTAS = {
   nwr["man_made"~"^(silo|storage_tank|pier|breakwater)$"]({caja});
 """,
     # Torres y postes de las líneas eléctricas; las líneas se piden para saber la tensión de cada poste.
+    # También todo otro poste de la vía pública (pedido de Sebastián, 27/09/2026): postes de servicios,
+    # de telecomunicaciones y columnas de alumbrado.
     "torres": """
   way["power"~"^(line|minor_line|cable)$"]({caja});
   node["power"~"^(tower|pole)$"]({caja});
+  node["man_made"="utility_pole"]({caja});
+  node["telecom"="pole"]({caja});
+  node["highway"="street_lamp"]({caja});
 """,
     "respuesta": """
   nwr["amenity"="fire_station"]({caja});
@@ -62,6 +68,13 @@ CONSULTAS = {
   nwr["amenity"="ranger_station"]({caja});
   nwr["name"~"prefectura",i][!"highway"]({caja});
   nwr["operator"~"prefectura",i][!"highway"]({caja});
+  nwr["club"="amateur_radio"]({caja});
+  nwr["name"~"radio ?club",i][!"highway"]({caja});
+""",
+    # Antenas y torres de comunicaciones (telefonía, radio, televisión, radioaficionados). Pedido de
+    # Sebastián (27/09/2026): toda antena debe figurar, sea del Estado o privada.
+    "antenas": """
+  nwr["man_made"~"^(mast|tower|antenna|communications_tower)$"]({caja});
 """,
 }
 
@@ -87,7 +100,12 @@ def en_revision(el, geom):
 # En la capa de respuesta solo se conserva qué es y su nombre: el operador de un cuartel
 # puede ser el nombre de una persona.
 TAGS_RESPUESTA = {"name", "official_name", "description", "amenity", "office", "government", "emergency", "lifeguard",
-                  "seasonal"}
+                  "seasonal", "police", "club"}
+
+# Antenas: se descartan las torres que no son de comunicaciones (campanarios, miradores, iluminación, etc.).
+TORRES_NO_COMUNICACION = {"lighting", "bell_tower", "observation", "defensive", "minaret", "watchtower", "cooling",
+                          "pagoda", "lightning_protection", "transition", "anchor", "siren", "radar", "monitoring"}
+TAGS_ANTENAS = {"name", "man_made", "tower:type", "tower:construction", "operator", "height", "ele"}
 
 TAGS_CONSERVADAS = {
     "name", "waterway", "natural", "water", "intermittent", "landuse", "industrial", "harbour",
@@ -112,19 +130,80 @@ def procesar_torres(datos, limite, caja):
             kv = [round(int(v) / 1000, 1) for v in t["voltage"].split(";") if v.strip().isdigit()]
             for n in el.get("nodes", []):
                 tension.setdefault(n, set()).update(kv)
-    features = []
+    features, postes = [], []
     for el in datos.get("elements", []):
         t = el.get("tags") or {}
-        if el["type"] != "node" or t.get("power") not in ("tower", "pole") or excluido(t):
+        if el["type"] != "node" or excluido(t):
             continue
         if not punto_en_geometria(el["lon"], el["lat"], limite, caja):
             continue
-        props = {"power": t["power"], "osm": f"node/{el['id']}"}
-        if tension.get(el["id"]):
-            props["tension_kv"] = sorted(tension[el["id"]])
+        punto_osm = {"type": "Point", "coordinates": [round(el["lon"], DECIMALES), round(el["lat"], DECIMALES)]}
+        kv = sorted(tension.get(el["id"], []))
+        # Torres, y postes de líneas con tensión conocida: capa de torres y postes de líneas eléctricas.
+        if t.get("power") == "tower" or (t.get("power") == "pole" and kv and max(kv) >= 1):
+            props = {"power": t["power"], "osm": f"node/{el['id']}"}
+            if kv:
+                props["tension_kv"] = kv
+            features.append({"type": "Feature", "properties": props, "geometry": punto_osm})
+            continue
+        tipo = tipo_de_poste(t)
+        if tipo:
+            props = {"tipo": tipo, "osm": f"node/{el['id']}"}
+            for k in ("operator", "utility", "material", "height"):
+                if t.get(k):
+                    props[k] = t[k]
+            postes.append({"type": "Feature", "properties": props, "geometry": punto_osm})
+    return {"torres_postes": features, "postes_via_publica": postes}
+
+
+def tipo_de_poste(t):
+    """Tipo de poste de la vía pública según sus etiquetas de OSM (None si no es un poste)."""
+    usos = (t.get("utility") or "").split(";")
+    if t.get("power") == "pole":
+        return "Poste eléctrico de baja tensión o sin tensión informada"
+    if t.get("highway") == "street_lamp":
+        return "Columna de alumbrado público"
+    if t.get("telecom") == "pole" or (t.get("man_made") == "utility_pole" and usos == ["telecom"]):
+        return "Poste de telecomunicaciones"
+    if t.get("man_made") == "utility_pole":
+        if "power" in usos and "telecom" in usos:
+            return "Poste compartido (electricidad y telecomunicaciones)"
+        if "power" in usos:
+            return "Poste eléctrico de baja tensión o sin tensión informada"
+        if "street_lighting" in usos:
+            return "Columna de alumbrado público"
+        return "Poste de servicios (uso no informado)"
+    return None
+
+
+def procesar_antenas(datos, limite, caja):
+    """Antenas, mástiles y torres de comunicaciones como puntos (los edificios o predios, en su centro)."""
+    features, descartadas = [], 0
+    for el in datos.get("elements", []):
+        t = el.get("tags") or {}
+        if excluido(t):
+            continue
+        mm = t.get("man_made")
+        tipo = t.get("tower:type")
+        if mm == "tower" and tipo != "communication" and not any(k.startswith("communication:") for k in t):
+            descartadas += 1
+            continue
+        if tipo in TORRES_NO_COMUNICACION:
+            descartadas += 1
+            continue
+        geom = geometria(el, t)
+        if geom is None:
+            continue
+        xs = [c[0] for c in vertices(geom)]
+        ys = [c[1] for c in vertices(geom)]
+        x, y = sum(xs) / len(xs), sum(ys) / len(ys)
+        if not punto_en_geometria(x, y, limite, caja):
+            continue
+        props = {k: v for k, v in t.items() if k in TAGS_ANTENAS or k.startswith("communication:")}
+        props["osm"] = f"{el['type']}/{el['id']}"
         features.append({"type": "Feature", "properties": props, "geometry": {
-            "type": "Point", "coordinates": [round(el["lon"], DECIMALES), round(el["lat"], DECIMALES)]}})
-    return {"torres_postes": features}
+            "type": "Point", "coordinates": [round(x, DECIMALES), round(y, DECIMALES)]}})
+    return {"antenas": features}
 
 
 def organismo_osm(tags):
@@ -136,6 +215,8 @@ def organismo_osm(tags):
         return "Prefectura Naval"
     if tags.get("amenity") == "fire_station":
         return "Bomberos"
+    if tags.get("club") == "amateur_radio" or re.search(r"radio ?club", nombre):
+        return "Radioaficionados"
     if tags.get("amenity") == "police":
         return "Policía"
     if tags.get("emergency") == "lifeguard" or tags.get("office") == "lifeguard":
@@ -255,6 +336,8 @@ def procesar(nombre, crudo, limite, caja):
     descartes = {"excluidos": 0, "fuera_del_partido": 0, "geometria_incompleta": 0}
     if nombre == "torres":
         return procesar_torres(datos, limite, caja), descartes, fecha_osm
+    if nombre == "antenas":
+        return procesar_antenas(datos, limite, caja), descartes, fecha_osm
     for el in datos.get("elements", []):
         tags = el.get("tags") or {}
         if excluido(tags):
@@ -285,6 +368,10 @@ def procesar(nombre, crudo, limite, caja):
             continue
         salidas.setdefault(capa, []).append({"type": "Feature", "properties": props, "geometry": geom})
     return salidas, descartes, fecha_osm
+
+
+def consulta_incluye(ruta, texto):
+    return ruta.exists() and texto in ruta.read_text(encoding="utf-8")
 
 
 def main():
@@ -323,12 +410,22 @@ def main():
             continue
         crudo = ruta.read_bytes()
         salidas, descartes, fecha_osm = procesar(nombre, crudo, limite, caja)
+        if nombre == "torres" and not consulta_incluye(carpeta / "torres.overpassql", "utility_pole"):
+            # La respuesta guardada es anterior a la consulta de postes de la vía pública: esa capa
+            # quedaría incompleta, así que no se escribe y queda pendiente hasta la próxima descarga.
+            aviso("postes_via_publica: la respuesta guardada no incluye los postes de la vía pública; queda pendiente.")
+            salidas.pop("postes_via_publica", None)
         for capa, features in salidas.items():
             escribir_json(SITIO_DATOS / f"{capa}.geojson", coleccion(features), compacto=True)
+            por_tipo = {}
+            for ft in features:
+                if "tipo" in ft["properties"]:
+                    por_tipo[ft["properties"]["tipo"]] = por_tipo.get(ft["properties"]["tipo"], 0) + 1
             anotar_procesamiento(capa, {
                 "archivo_crudo": f"osm/{ruta.name}",
                 "sha256_crudo": sha256(crudo),
                 "elementos": len(features),
+                **({"por_tipo": por_tipo} if por_tipo else {}),
                 "fecha_datos": fecha_osm,
                 "descartes_de_la_consulta": descartes,
             })

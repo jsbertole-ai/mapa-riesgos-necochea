@@ -22,6 +22,10 @@
       "nombre": "Elementos expuestos"
     },
     {
+      "id": "vulnerabilidad",
+      "nombre": "Condiciones de vulnerabilidad"
+    },
+    {
       "id": "respuesta",
       "nombre": "Capacidad de respuesta"
     },
@@ -90,6 +94,64 @@
       "motivo_pendiente": "La Autoridad del Agua todavía no elaboró la carta de riesgo hídrico de la cuenca del río Quequén Grande: no figura entre las cartas publicadas (revisión manual de Juan Sebastián Bértole, 26/09/2026). Hasta que exista, no hay un mapa oficial de peligrosidad hídrica para el partido.",
       "que_representa": "Sería la zonificación oficial de la amenaza de inundación (categorías de peligrosidad).",
       "que_no_representa": "La hidrografía no la reemplaza: saber por dónde corre el agua no dice dónde se inunda."
+    },
+    {
+      "organismo": "Secretaría de Energía de la Nación, con información compilada por el Consejo Hídrico Federal (COHIFE)",
+      "url_fuente": "https://datos.gob.ar/dataset/cuencas-hidricas-cohife",
+      "url_datos": "http://datos.energia.gob.ar/dataset/2c8b870a-7d6b-4ad0-ace0-86c4a9c9e3c0/resource/ace98ef1-e7a8-4d5d-8f44-2e85a2d824a4/download/cuencas-hdricas-cohife.zip",
+      "licencia": "CC BY 4.0",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "url_declaracion_licencia": "https://datos.gob.ar/api/3/action/package_show?id=cuencas-hidricas-cohife",
+      "frase_licencia": "\"license_id\": \"CC-BY-4.0\"",
+      "cita": "Secretaría de Energía de la Nación, Consejo Hídrico Federal (COHIFE). Cuencas Hídricas - COHIFE. Datos Argentina, CC BY 4.0.",
+      "formato": "Shapefile nacional de cuencas (WGS 84); se toma el registro \"Río Quequén Grande\" con scripts/descargar_cuenca.py",
+      "id": "cuenca_quequen",
+      "grupo": "inundaciones",
+      "nombre": "Cuenca del río Quequén Grande, completa (COHIFE)",
+      "archivo": "cuenca_quequen.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#08519c",
+        "relleno": false,
+        "grosor": 2.5,
+        "trazo": "8 5",
+        "encuadrar": true
+      },
+      "activa_al_inicio": false,
+      "fecha_datos_fija": "Recurso publicado el 13/07/2023 según datos.gob.ar; la fuente no informa la fecha de la delimitación.",
+      "que_representa": "El límite de toda la cuenca del río Quequén Grande, que desemboca entre Necochea y Quequén: unos 9.800 km², de los que solo cerca de un cuarto está dentro del partido. El resto se reparte, aproximadamente, entre Benito Juárez (40 %), Lobería (22 %), Adolfo Gonzales Chaves (6 %), Tandil (5 %), San Cayetano (3 %) y Azul (1 %). Al activarla, el mapa se aleja para mostrarla entera. El agua que cae o se drena en cualquier punto de la cuenca termina pasando por la desembocadura, donde se concentra la población.",
+      "que_no_representa": "No indica zonas inundables ni cuánta agua llega. Tampoco muestra las obras de drenaje o canalización hechas en la cuenca: ninguna fuente abierta revisada las registra (ver la capa de red hídrica).",
+      "limitaciones": "Delimitación de escala nacional, con un trazado simplificado (555 vértices): sirve para ver el conjunto, no para decidir si un campo o una calle está adentro o afuera. El área y el reparto entre partidos son aproximados: se calcularon sobre este mismo polígono, con una grilla de 0,02 grados y los límites de Georef."
+    },
+    {
+      "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
+      "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
+      "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja de la cuenca, GeoJSON)",
+      "licencia": "Términos y Condiciones del IGN: uso libre y gratuito citando la fuente y la fecha de los datos",
+      "url_licencia": "https://www.ign.gob.ar/descargas/tyc1.html",
+      "frase_licencia": "Los datos descargados deben compartirse de manera libre y gratuita",
+      "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: corrientes de agua perennes e intermitentes, acequias y zanjas.",
+      "formato": "GeoJSON del servicio WFS del IGN, recortado a la cuenca del Quequén Grande por scripts/descargar_cuenca.py; coordenadas redondeadas a 5 decimales",
+      "id": "red_hidrica_cuenca",
+      "grupo": "inundaciones",
+      "nombre": "Red hídrica de toda la cuenca (IGN)",
+      "archivo": "red_hidrica_cuenca.geojson",
+      "geometria": "linea",
+      "estilo": {
+        "color": "#2c7fb8",
+        "grosor": 1.4,
+        "encuadrar": true,
+        "lineas": {
+          "Corriente de agua perenne": "",
+          "Corriente de agua intermitente": "5 4",
+          "Acequia, zanja o zanjón": "1 3"
+        }
+      },
+      "activa_al_inicio": false,
+      "fecha_datos_fija": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026).",
+      "que_representa": "Los ríos y arroyos de toda la cuenca del Quequén Grande, aguas arriba del partido incluidas (Quequén Chico, Chapaleofú, Pescado Castigado, de los Huesos y otros), y las acequias, zanjas o zanjones que registra el IGN. Línea llena: curso permanente; rayada: intermitente; punteada: acequia, zanja o zanjón.",
+      "que_no_representa": "No incluye canales: el IGN no registra ninguno en la cuenca (su capa de canales devuelve cero elementos en toda la caja de la cuenca, consulta del 27/09/2026). Que no figuren no quiere decir que no existan: las obras de drenaje rural, autorizadas o no, no están en esta fuente. No indica caudales ni crecidas.",
+      "limitaciones": "Cartografía de escala regional, sin fecha informada. Las zanjas aparecen sin nombre ni función. Un tramo que cruza el límite de la cuenca se ve completo."
     },
     {
       "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
@@ -414,8 +476,40 @@
       },
       "activa_al_inicio": false,
       "que_representa": "Las torres y los postes cargados en OpenStreetMap: torres de las líneas de 132 y 500 kV y postes de la línea de 33 kV, con la tensión de la línea a la que pertenecen.",
-      "que_no_representa": "No incluye los postes de la red urbana y rural de 13,2 kV, ni los de telefonía o alumbrado: en OpenStreetMap no están cargados. Que una zona no tenga postes en esta capa no quiere decir que no los haya. Para ver dónde el tendido de media tensión es aéreo, está la capa de media tensión.",
+      "que_no_representa": "No incluye los postes de baja tensión, de telecomunicaciones ni las columnas de alumbrado: esos van en la capa \"Postes de la vía pública\". Tampoco los postes de la red de 13,2 kV, que no están cargados en OpenStreetMap. Que una zona no tenga postes en esta capa no quiere decir que no los haya. Para ver dónde el tendido de media tensión es aéreo, está la capa de media tensión.",
       "limitaciones": "Depende de lo cargado por voluntarios en OpenStreetMap. La primera versión sale de una respuesta de Overpass del 27/09/2026 (00:04 UTC) obtenida con una consulta de energía más amplia; la consulta propia la reemplaza cuando Overpass responda."
+    },
+    {
+      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
+      "url_fuente": "https://www.openstreetmap.org/",
+      "url_datos": "https://overpass-api.de/api/interpreter",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://www.openstreetmap.org/copyright",
+      "frase_licencia": "Open Data Commons Open Database License",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "GeoJSON derivado de la respuesta JSON de Overpass (consulta \"torres\" de scripts/descargar_osm.py)",
+      "id": "postes_via_publica",
+      "grupo": "portuaria",
+      "nombre": "Postes de la vía pública (OpenStreetMap)",
+      "archivo": "postes_via_publica.geojson",
+      "geometria": "punto",
+      "activa_al_inicio": false,
+      "que_representa": "Todo poste de la calle cargado en OpenStreetMap, con o sin cables: postes eléctricos de baja tensión (o sin tensión informada), postes de telecomunicaciones, postes compartidos, postes de servicios de uso no informado y columnas de alumbrado público, cada tipo con su color. En un temporal, los postes que caen cortan servicios y calles y son un peligro para quien pasa.",
+      "que_no_representa": "No dice el estado del poste, su material ni su antigüedad, salvo que OSM lo indique. OpenStreetMap distingue un poste eléctrico de uno de telecomunicaciones solo si quien lo cargó lo etiquetó así; muchos postes compartidos figuran como de un solo uso o como de uso no informado.",
+      "limitaciones": "Depende por completo de lo cargado por voluntarios: en ciudades argentinas los postes de la calle casi nunca están mapeados, así que la capa va a ser muy incompleta. Las distribuidoras y cooperativas eléctricas y las empresas de telecomunicaciones no publican el inventario de sus postes como dato abierto (no encontrado al 27/09/2026).",
+      "estilo": {
+        "color": "#8c8c8c",
+        "radio": 2.5,
+        "campo_color": "tipo",
+        "colores": {
+          "Poste eléctrico de baja tensión o sin tensión informada": "#e6550d",
+          "Poste de telecomunicaciones": "#3182bd",
+          "Poste compartido (electricidad y telecomunicaciones)": "#756bb1",
+          "Columna de alumbrado público": "#e7ba52",
+          "Poste de servicios (uso no informado)": "#8c8c8c"
+        }
+      },
+      "mensaje_sin_archivo": "Pendiente de fuente: la consulta de postes de la vía pública (eléctricos de baja tensión, de telecomunicaciones y columnas de alumbrado) está lista, pero OpenStreetMap (Overpass) no respondió desde el 27/09/2026. Se completa sola cuando responda."
     },
     {
       "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
@@ -573,6 +667,55 @@
       "fecha_datos_fija": "El IGN no informa la fecha de esta capa."
     },
     {
+      "organismo": "Colaboradores de OpenStreetMap (consulta Overpass); se revisó también el IGN",
+      "url_fuente": "https://www.openstreetmap.org/copyright",
+      "url_datos": "https://overpass-api.de/api/interpreter (consulta en datos/crudos/osm/antenas.overpassql)",
+      "licencia": "ODbL 1.0",
+      "url_licencia": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "frase_licencia": "Open Data Commons Open Database License",
+      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
+      "formato": "Puntos armados por scripts/descargar_osm.py (consulta \"antenas\"): man_made = mast, tower, antenna o communications_tower; las torres que no son de comunicaciones se descartan",
+      "id": "antenas",
+      "grupo": "expuestos",
+      "nombre": "Antenas y torres de comunicaciones",
+      "archivo": "antenas.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#6a51a3",
+        "radio": 4
+      },
+      "activa_al_inicio": false,
+      "mensaje_sin_archivo": "Pendiente de fuente: el IGN no registra antenas ni torres de telecomunicaciones en el partido y OpenStreetMap (Overpass) no respondió al consultarlo (27/09/2026). Se completa sola cuando Overpass responda.",
+      "que_representa": "Toda antena, mástil o torre de comunicaciones cargada en OpenStreetMap dentro del partido: telefonía móvil, radio, televisión, radioaficionados y comunicaciones de servicios. Son infraestructura crítica: de ellas dependen las comunicaciones durante un siniestro.",
+      "que_no_representa": "No indica a qué operador pertenece cada antena salvo que OSM lo diga, ni su potencia o cobertura. No incluye cámaras de videovigilancia.",
+      "limitaciones": "Depende de lo cargado en OpenStreetMap, que suele estar incompleto en antenas. Las repetidoras de radioaficionados autorizadas por ENACOM y los registros de estaciones de ENACOM no se pudieron descargar desde el entorno (DATOS.md, sección 15)."
+    },
+    {
+      "organismo": "Subsecretaría de Integración Socio Urbana (Registro Nacional de Barrios Populares, RENABAP)",
+      "url_fuente": "https://datos.gob.ar/dataset/registro-nacional-de-barrios-populares",
+      "url_datos": "https://archivo.infraestructura.gob.ar/dataset/ssisu/20231205_info_publica.geojson",
+      "licencia": "Creative Commons Atribución (el catálogo no indica la versión)",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "url_declaracion_licencia": "https://datos.gob.ar/api/3/action/package_show?id=registro-nacional-de-barrios-populares",
+      "frase_licencia": "\"license_title\": \"Creative Commons Attribution\"",
+      "cita": "Subsecretaría de Integración Socio Urbana. Registro Nacional de Barrios Populares (RENABAP), Barrios Populares de Argentina, corte del 05/12/2023. Datos Argentina, Creative Commons Atribución.",
+      "formato": "GeoJSON nacional, recortado al partido por scripts/descargar_renabap.py; coordenadas redondeadas a 5 decimales",
+      "id": "barrios_populares",
+      "grupo": "vulnerabilidad",
+      "nombre": "Barrios populares (RENABAP)",
+      "archivo": "barrios_populares.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#7b3294",
+        "relleno": "#c2a5cf"
+      },
+      "activa_al_inicio": false,
+      "fecha_datos_fija": "Corte del 05/12/2023, según el nombre del archivo publicado.",
+      "que_representa": "Los 9 barrios populares que el registro nacional ubica en el partido (8 en Necochea y 1 en Quequén), con unas 460 familias. Para cada uno: cantidad aproximada de familias y viviendas, década de origen, cómo accede a la electricidad, el agua y las cloacas, con qué cocina y calefacciona, y si las familias tienen título de propiedad.",
+      "que_no_representa": "No mide la vulnerabilidad: muestra algunas condiciones materiales de cada barrio. La vulnerabilidad no se reduce a la pobreza; también depende de la organización del barrio, de sus redes y de su relación con el Estado, que el registro no releva. No incluye a las personas en situación de calle ni la pobreza dispersa en el resto de la ciudad, y no contiene datos de personas.",
+      "limitaciones": "Es una foto de diciembre de 2023: los cambios posteriores (obras, relocalizaciones, barrios nuevos) no aparecen. Las familias y viviendas son aproximadas. El criterio para que un barrio entre al registro lo fija el decreto 2670/2015 (al que remite la Ley 27.453), cuyo texto todavía no se revisó para este mapa. Algunos campos figuran como \"Sin Datos\" en la fuente."
+    },
+    {
       "organismo": "Ministerio de Seguridad de la Provincia de Buenos Aires, Instituto Geográfico Nacional (WFS) y OpenStreetMap (colaboradores)",
       "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
       "url_datos": "https://catalogo.datos.gba.gob.ar/es_AR/dataset/comisarias ; https://wms.ign.gob.ar/geoserver/wfs (estructuras_operativas_y_defensivas_FA517 y _090102) ; https://overpass-api.de/api/interpreter y https://api.openstreetmap.org/api/0.6/",
@@ -587,10 +730,14 @@
         {
           "url_licencia": "https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias",
           "frase_licencia": "\"license_id\": \"CC-BY-4.0\""
+        },
+        {
+          "url_licencia": "https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias-de-la-mujer",
+          "frase_licencia": "\"license_id\": \"CC-BY-4.0\""
         }
       ],
       "crudo_osm": true,
-      "cita": "Ministerio de Seguridad de la Provincia de Buenos Aires, \"Comisarías\" (Datos Abiertos PBA, CC BY 4.0). FUENTE: Instituto Geográfico Nacional de la República Argentina (Comisaría Necochea 1ª, Comisaría de la Mujer y la Familia, Policía Federal, Prefectura Naval y bomberos). © colaboradores de OpenStreetMap, ODbL (Defensa Civil, Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja).",
+      "cita": "Ministerio de Seguridad de la Provincia de Buenos Aires, \"Comisarías\" y \"Comisarías de la Mujer\" (Datos Abiertos PBA, CC BY 4.0). FUENTE: Instituto Geográfico Nacional de la República Argentina (Comisaría Necochea 1ª, Policía Federal, Prefectura Naval y bomberos). © colaboradores de OpenStreetMap, ODbL (Defensa Civil, Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja).",
       "formato": "GeoJSON armado por scripts/armar_respuesta.py a partir del CSV de la Provincia, el WFS del IGN y OpenStreetMap",
       "id": "organismos",
       "grupo": "respuesta",
@@ -608,13 +755,14 @@
           "Centro Operativo de Monitoreo": "#6a3d9a",
           "Guardavidas": "#e8b400",
           "Guardaparques": "#33a02c",
-          "Cruz Roja": "#e7298a"
+          "Cruz Roja": "#e7298a",
+          "Radioaficionados": "#8c6d31"
         }
       },
       "activa_al_inicio": false,
-      "que_representa": "Los cuerpos que intervienen en la gestión del riesgo y los siniestros en el partido, cada uno con su color: policía, Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo, guardavidas, guardaparques y Cruz Roja. Según el municipio, estos organismos trabajan en conjunto ante los temporales (por ejemplo, https://necochea.gov.ar/arboles-y-postes-caidos-techos-volados-y-cuatro-auto-evacuados-por-los-fuertes-vientos/, 26/08/2021).",
+      "que_representa": "Los cuerpos que intervienen en la gestión del riesgo y los siniestros en el partido, cada uno con su color: policía (comisarías, subcomisarías y, cuando se carguen, el Comando de Patrullas, la Policía Rural y la Policía Vial), Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo, guardavidas, guardaparques, Cruz Roja y radioaficionados. Según el municipio, estos organismos trabajan en conjunto ante los temporales (por ejemplo, https://necochea.gov.ar/arboles-y-postes-caidos-techos-volados-y-cuatro-auto-evacuados-por-los-fuertes-vientos/, 26/08/2021). Los radioaficionados están porque la Provincia les asigna un papel en las comunicaciones de emergencia (Decreto 275/2021, Anexo II, acciones de la Dirección Provincial de Defensa Civil).",
       "que_no_representa": "No indica dotación, equipamiento, horarios ni área de cobertura. Los guardavidas funcionan solo en temporada de verano. No incluye cámaras de videovigilancia ni datos de las personas que trabajan en cada organismo.",
-      "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por Juan Sebastián Bértole en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. Guardavidas, guardaparques y Cruz Roja aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central."
+      "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por Juan Sebastián Bértole en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. La Provincia no publica en datos abiertos la ubicación del Comando de Patrullas, la Policía Rural ni la Policía Vial, y ninguna de las tres figura en el IGN ni en OpenStreetMap (búsqueda del 27/09/2026); lo mismo pasa con los radio clubes. Guardavidas, guardaparques, Cruz Roja, esas tres dependencias policiales y los radio clubes aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central."
     },
     {
       "organismo": "OpenStreetMap (colaboradores), vía su API; selección de Juan Sebastián Bértole",
@@ -632,11 +780,16 @@
       "geometria": "punto",
       "estilo": {
         "color": "#8c510a",
-        "radio": 7
+        "radio": 7,
+        "campo_color": "uso",
+        "colores": {
+          "Evacuación ante catástrofes": "#8c510a",
+          "Personas en situación de calle": "#01665e"
+        }
       },
       "activa_al_inicio": false,
-      "que_representa": "Lugares que pueden funcionar como refugio ante una emergencia: el Polideportivo Municipal \"Edgardo Hugo Yelpo\" y la Parroquia Nuestra Señora de la Medalla Milagrosa, indicados por Juan Sebastián Bértole.",
-      "que_no_representa": "No es una lista oficial de centros de evacuación ni indica capacidad. Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
+      "que_representa": "Lugares de refugio, con un color según a quién alojan: el Polideportivo Municipal \"Edgardo Hugo Yelpo\", único refugio designado por Defensa Civil para evacuación ante catástrofes, y la Parroquia Nuestra Señora de la Medalla Milagrosa, refugio para personas en situación de calle. Los dos datos los aportó Juan Sebastián Bértole.",
+      "que_no_representa": "No indica capacidad ni si el refugio está abierto. La parroquia no es un lugar de evacuación ni depende de Defensa Civil. Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
       "limitaciones": "La lista está en datos/refugios.json; el nombre y la ubicación salen de OpenStreetMap. Se muestra el punto central de cada edificio."
     },
     {

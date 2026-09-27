@@ -14,6 +14,10 @@
 <body>
   <header class="cabecera">
     <h1><span class="titulo-largo">Mapa de riesgos del partido de Necochea</span><span class="titulo-corto">Riesgos Necochea</span></h1>
+    <a class="obra-cabecera" href="metodologia.html#colectivo" title="Sitio en construcción: es un proyecto colectivo y abierto">
+      <svg viewBox="0 0 24 20" aria-hidden="true" focusable="false"><defs><pattern id="rayas-mini" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2" height="4" fill="#2b2b2b"/><rect x="2" width="2" height="4" fill="#f2b705"/></pattern></defs><rect x="3" y="7" width="1.6" height="12" fill="#6b6b6b"/><rect x="13" y="7" width="1.6" height="12" fill="#6b6b6b"/><rect x="1" y="5" width="16" height="4.5" rx="0.8" fill="url(#rayas-mini)" stroke="#2b2b2b" stroke-width="0.6"/><path d="M20 6 L23.5 19 H16.5 Z" fill="#e8590c"/><path d="M19 10.5 H21 L21.7 13.2 H18.3 Z" fill="#fff"/></svg>
+      <span class="obra-texto">En construcción</span>
+    </a>
     <nav>
       <a href="./">Mapa</a>
       <a href="metodologia.html" aria-current="page">Metodología</a>
@@ -25,10 +29,24 @@
 
   <main class="documento">
     <h1>Metodología</h1>
+    <div class="en-construccion" role="note">
+      <svg class="dibujo-obra" viewBox="0 0 64 48" aria-hidden="true" focusable="false">
+        <defs><pattern id="rayas-obra" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="8" fill="#2b2b2b"/><rect x="4" width="4" height="8" fill="#f2b705"/></pattern></defs>
+        <rect x="8" y="14" width="3" height="32" fill="#6b6b6b"/><rect x="37" y="14" width="3" height="32" fill="#6b6b6b"/>
+        <rect x="3" y="12" width="42" height="9" rx="1.5" fill="url(#rayas-obra)" stroke="#2b2b2b"/>
+        <rect x="3" y="27" width="42" height="7" rx="1.5" fill="url(#rayas-obra)" stroke="#2b2b2b"/>
+        <circle cx="24" cy="7" r="3.5" fill="#f2b705" stroke="#2b2b2b"/>
+        <path d="M53 14 L61 44 H45 Z" fill="#e8590c"/><path d="M50.3 24 H55.7 L57.1 29.5 H48.9 Z" fill="#fff"/>
+        <rect x="43" y="43" width="20" height="3" rx="1" fill="#c2410c"/>
+      </svg>
+      <p><strong>Sitio en construcción.</strong> Es un proyecto colectivo: se arma entre quienes aportan datos, correcciones y lecturas. Para sumar algo, usá el botón "Agregar un evento" o escribí en el <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea">repositorio</a>.</p>
+    </div>
     <p>Este mapa reúne, para el partido de Necochea, datos abiertos sobre tres amenazas: inundaciones y anegamientos, incendios de pastizal y rurales, y actividad portuaria e industrial. Es una pieza de divulgación. No es un mapa oficial de riesgo, no tiene valor normativo y no reemplaza la información de Defensa Civil ni de los organismos competentes.</p>
 
     <h2>Qué muestra y qué no</h2>
     <p>El riesgo de desastre surge de combinar una amenaza con la exposición y la vulnerabilidad de lo que está expuesto. Este mapa no calcula esa combinación: muestra piezas sueltas. Algunas capas registran indicios de una amenaza (los focos de calor), otras ubican elementos que pueden originar un evento (silos, tanques, industrias, líneas de energía) o que quedarían expuestos a él (planta urbana, escuelas, centros de salud) y otras sirven de referencia para leer las demás (la hidrografía, el límite del partido). Ninguna capa, sola o combinada con otras, dice cuánto riesgo hay en un lugar.</p>
+    <p><strong>La cuenca, entera.</strong> Necochea y Quequén están en la desembocadura del río Quequén Grande, cuya cuenca ocupa unos 9.800 km² repartidos entre siete partidos; menos de un cuarto está dentro del partido de Necochea. Lo que ocurre aguas arriba (lluvias intensas, anegamientos, obras de drenaje) puede originar el problema, y el impacto se concentra aguas abajo, donde vive la mayor parte de la población. Por eso la capa de la cuenca y su red hídrica no se recortan por el límite del partido: al activarlas, el mapa se aleja para mostrarlas completas. Ninguna fuente abierta revisada registra los canales de la cuenca; esa ausencia es un dato, no una prueba de que no existan.</p>
+    <p>El grupo "Condiciones de vulnerabilidad" tampoco mide la vulnerabilidad. La capa de barrios populares muestra algunas condiciones materiales (acceso a servicios, tenencia de la tierra), que son solo una parte del problema: "la vulnerabilidad no puede considerarse sinónimo de pobreza. Mientras que la pobreza se refiere a necesidades insatisfechas, la vulnerabilidad se refiere a una falta de capacidad de defenderse y superar una crisis" (Maskrey, 1998, p. 12, siguiendo a Chambers, 1989). La organización de cada barrio, sus redes de ayuda y su relación con el Estado pesan tanto como las carencias, y ningún registro abierto las mide.</p>
     <p>La regla del proyecto es no inventar, estimar ni simular datos para completar una capa. Cuando no hay un dato abierto que se pueda verificar, la capa figura como <strong>"pendiente de fuente"</strong> y no se dibuja nada en su lugar.</p>
 
     <h2>Cómo se verifica cada capa</h2>
@@ -95,7 +113,7 @@
 
     <h2>Exclusiones</h2>
     <p>El mapa no incluye, en ninguna capa, la ubicación de cámaras de videovigilancia ni datos personales. En las consultas a OpenStreetMap se descartan de forma explícita los elementos etiquetados como <code>man_made=surveillance</code> o con claves de vigilancia, primero en la consulta y otra vez al procesar. De cada elemento se conservan solo las etiquetas que describen qué es (nombre y tipo), no teléfonos, correos ni otros datos de contacto. De las capas del Instituto Geográfico Nacional quedan afuera las instalaciones militares, las instituciones penitenciarias y los puestos de control; y en las estaciones de servicio se descartan los nombres, que identifican a sus titulares.</p>
-    <p>Los cuerpos que intervienen en la gestión del riesgo sí se muestran, juntos, en la capa "Organismos de respuesta": policía, Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo (como espacio físico; sus cámaras, no), guardavidas, guardaparques y Cruz Roja. Saber dónde están es parte de la gestión del riesgo: ante un temporal trabajan en conjunto, y la policía suele ser el primer contacto. Los lugares de refugio van en su propia capa y no son una lista oficial: ante una emergencia, el lugar de evacuación lo indica Defensa Civil.</p>
+    <p>Los cuerpos que intervienen en la gestión del riesgo sí se muestran, juntos, en la capa "Organismos de respuesta": policía, Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo (como espacio físico; sus cámaras, no), guardavidas, guardaparques y Cruz Roja. Saber dónde están es parte de la gestión del riesgo: ante un temporal trabajan en conjunto, y la policía suele ser el primer contacto. Los lugares de refugio van en su propia capa. El único designado por Defensa Civil ante catástrofes es el Polideportivo Municipal (dato aportado por el autor; no se encontró un documento público); la Parroquia Nuestra Señora de la Medalla Milagrosa figura como refugio para personas en situación de calle, que no depende de Defensa Civil. Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.</p>
 
     <h2>Uso sin conexión</h2>
     <p>El sitio se puede instalar como aplicación en el celular o la computadora. Una vez abierto con conexión, las páginas y las capas que ya se vieron quedan guardadas y se pueden consultar sin red. <strong>El mapa de fondo necesita conexión:</strong> la política de uso de las teselas de OpenStreetMap prohíbe guardarlas para uso sin conexión, así que sin red las capas se ven sobre un fondo liso.</p>
@@ -108,8 +126,14 @@
       <li>Código del sitio y de los scripts: licencia MIT. Los datos no se relicencian: cada uno conserva la licencia de su fuente.</li>
     </ul>
 
-    <h2>Autoría</h2>
-    <p>Proyecto de Juan Sebastián Bértole, estudiante de la <a href="https://iuv.edu.ar/lic-gestion.html" rel="noopener">Licenciatura en Gestión de Riesgos y Siniestralidad</a> del Instituto Universitario Vucetich. El registro completo de fuentes, con las que se descartaron y por qué, está en <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea/blob/main/DATOS.md">DATOS.md</a>.</p>
+    <h2>Referencias</h2>
+    <p>La base conceptual completa del proyecto, con las citas y la bibliografía de la carrera, está en <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea/blob/main/MARCO_CONCEPTUAL.md">MARCO_CONCEPTUAL.md</a>.</p>
+    <ul class="referencias">
+      <li>Maskrey, A. (1998). El riesgo. En A. Maskrey (Ed.), <em>Navegando entre brumas: La aplicación de los sistemas de información geográfica al análisis de riesgo en América Latina</em> (pp. 4-23). Red de Estudios Sociales en Prevención de Desastres en América Latina (LA RED).</li>
+    </ul>
+
+    <h2 id="colectivo">Un proyecto colectivo</h2>
+    <p>El mapa no es de una persona: se construye entre quienes conocen el territorio y aportan datos, correcciones y lecturas. Se puede sumar un evento o una vulnerabilidad con el formulario del botón "Agregar un evento", cargar lugares en OpenStreetMap o proponer cambios en el <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea">repositorio</a>. Lo empezó Juan Sebastián Bértole, estudiante de la <a href="https://iuv.edu.ar/lic-gestion.html" rel="noopener">Licenciatura en Gestión de Riesgos y Siniestralidad</a> del Instituto Universitario Vucetich. El registro completo de fuentes, con las que se descartaron y por qué, está en <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea/blob/main/DATOS.md">DATOS.md</a>.</p>
   </main>
 
   <script src="js/metodologia.js"></script>

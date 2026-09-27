@@ -15,6 +15,10 @@
 <body>
   <header class="cabecera">
     <h1><span class="titulo-largo">Mapa de riesgos del partido de Necochea</span><span class="titulo-corto">Riesgos Necochea</span></h1>
+    <a class="obra-cabecera" href="metodologia.html#colectivo" title="Sitio en construcción: es un proyecto colectivo y abierto">
+      <svg viewBox="0 0 24 20" aria-hidden="true" focusable="false"><defs><pattern id="rayas-mini" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2" height="4" fill="#2b2b2b"/><rect x="2" width="2" height="4" fill="#f2b705"/></pattern></defs><rect x="3" y="7" width="1.6" height="12" fill="#6b6b6b"/><rect x="13" y="7" width="1.6" height="12" fill="#6b6b6b"/><rect x="1" y="5" width="16" height="4.5" rx="0.8" fill="url(#rayas-mini)" stroke="#2b2b2b" stroke-width="0.6"/><path d="M20 6 L23.5 19 H16.5 Z" fill="#e8590c"/><path d="M19 10.5 H21 L21.7 13.2 H18.3 Z" fill="#fff"/></svg>
+      <span class="obra-texto">En construcción</span>
+    </a>
     <button id="boton-capas" type="button" aria-controls="panel" aria-expanded="false">Capas</button>
     <nav>
       <a href="./" aria-current="page">Mapa</a>
@@ -27,11 +31,23 @@
 
   <div class="app">
     <aside id="panel" class="panel" aria-label="Capas del mapa">
+      <div class="en-construccion" role="note">
+        <svg class="dibujo-obra" viewBox="0 0 64 48" aria-hidden="true" focusable="false">
+          <defs><pattern id="rayas-obra" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="8" fill="#2b2b2b"/><rect x="4" width="4" height="8" fill="#f2b705"/></pattern></defs>
+          <rect x="8" y="14" width="3" height="32" fill="#6b6b6b"/><rect x="37" y="14" width="3" height="32" fill="#6b6b6b"/>
+          <rect x="3" y="12" width="42" height="9" rx="1.5" fill="url(#rayas-obra)" stroke="#2b2b2b"/>
+          <rect x="3" y="27" width="42" height="7" rx="1.5" fill="url(#rayas-obra)" stroke="#2b2b2b"/>
+          <circle cx="24" cy="7" r="3.5" fill="#f2b705" stroke="#2b2b2b"/>
+          <path d="M53 14 L61 44 H45 Z" fill="#e8590c"/><path d="M50.3 24 H55.7 L57.1 29.5 H48.9 Z" fill="#fff"/>
+          <rect x="43" y="43" width="20" height="3" rx="1" fill="#c2410c"/>
+        </svg>
+        <p><strong>Sitio en construcción.</strong> Es un proyecto colectivo: se arma entre quienes aportan datos, correcciones y lecturas. Para sumar algo, usá el botón "Agregar un evento" o escribí en el <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea">repositorio</a>.</p>
+      </div>
       <p class="aviso">Este mapa reúne, con datos abiertos, las amenazas y los elementos expuestos del partido. No es un mapa oficial de riesgo ni reemplaza la información de Defensa Civil. En la <a href="metodologia.html">metodología</a> se explica qué muestra cada capa y cuáles son sus límites.</p>
       <div id="lista-capas"><p>Cargando capas…</p></div>
       <div class="pie-panel">
         Mapa de fondo: © <a href="https://www.openstreetmap.org/copyright">colaboradores de OpenStreetMap</a> (ODbL). El mapa de fondo necesita conexión.
-        Hecho por Juan Sebastián Bértole, estudiante de la <a href="https://iuv.edu.ar/lic-gestion.html" rel="noopener">Licenciatura en Gestión de Riesgos y Siniestralidad</a> del Instituto Universitario Vucetich. Código bajo licencia MIT; cada capa conserva la licencia de su fuente.
+        Proyecto colectivo y abierto. Lo empezó Juan Sebastián Bértole, estudiante de la <a href="https://iuv.edu.ar/lic-gestion.html" rel="noopener">Licenciatura en Gestión de Riesgos y Siniestralidad</a> del Instituto Universitario Vucetich. Código bajo licencia MIT; cada capa conserva la licencia de su fuente.
         <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea">Repositorio</a>.
       </div>
     </aside>

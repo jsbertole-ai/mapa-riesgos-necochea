@@ -157,6 +157,7 @@
     if (p.official_name) filas.push(["Nombre oficial", p.official_name]);
     if (p.description) filas.push(["Descripción (según OSM)", p.description]);
     if (p.lifeguard && TIPO_GUARDAVIDAS[p.lifeguard]) filas.push(["Tipo", TIPO_GUARDAVIDAS[p.lifeguard]]);
+    if (p.police === "traffic_police") filas.push(["Tipo", "Policía vial o de tránsito"]);
     if (p.seasonal === "summer") filas.push(["Temporada", "Funciona en verano"]);
     if (p.localidad) filas.push(["Localidad", p.localidad]);
     return (
@@ -169,8 +170,8 @@
   function popupRefugio(p) {
     return (
       "<h3>" + esc(p.nombre || p.tipo) + "</h3>" +
-      "<div>Lugar de refugio (" + esc(p.tipo.toLowerCase()) + ")</div>" +
-      '<p class="nota">' + esc(p.fuente) + " No es una lista oficial: ante una emergencia, el lugar de evacuación lo indica Defensa Civil.</p>" +
+      "<div>Refugio: " + esc(p.uso.charAt(0).toLowerCase() + p.uso.slice(1)) + " (" + esc(p.tipo.toLowerCase()) + ")</div>" +
+      '<p class="nota">' + esc(p.fuente) + " Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.</p>" +
       notaFuente({ fuente: "OpenStreetMap", ref: p.ref })
     );
   }
@@ -194,6 +195,59 @@
       "<h3>Línea de media tensión" + (p.tension_kv ? ", " + esc(String(p.tension_kv).replace(".", ",")) + " kV" : "") + "</h3>" +
       (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
       '<p class="nota">Fuente: Secretaría de Energía de la Nación (CFEE), datos de 2022. CC BY 4.0.</p>'
+    );
+  }
+
+  // Postes de la vía pública (OpenStreetMap).
+  function popupPoste(p) {
+    const filas = [];
+    if (p.operator) filas.push(["Operador (según OSM)", p.operator]);
+    if (p.material) filas.push(["Material", p.material]);
+    if (p.height) filas.push(["Altura", p.height + " m"]);
+    return (
+      "<h3>" + esc(p.tipo) + "</h3>" +
+      (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
+      '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
+    );
+  }
+
+  // Antenas y torres de comunicaciones (OpenStreetMap).
+  function popupAntena(p) {
+    const tipos = { mast: "Mástil", tower: "Torre", antenna: "Antena", communications_tower: "Torre de comunicaciones" };
+    const servicios = { mobile_phone: "telefonía móvil", radio: "radio", television: "televisión", amateur_radio: "radioaficionados", microwave: "microondas" };
+    const usos = Object.keys(p).filter(function (k) { return k.indexOf("communication:") === 0 && p[k] !== "no"; })
+      .map(function (k) { return servicios[k.slice(14)] || k.slice(14); });
+    const filas = [];
+    if (usos.length) filas.push(["Uso", usos.join(", ")]);
+    if (p.operator) filas.push(["Operador (según OSM)", p.operator]);
+    if (p.height) filas.push(["Altura", p.height + " m"]);
+    return (
+      "<h3>" + esc(p.name || tipos[p.man_made] || "Antena") + "</h3>" +
+      (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
+      '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
+    );
+  }
+
+  // Barrios populares (RENABAP): condiciones del barrio, no de personas.
+  function popupBarrio(p) {
+    const titulo = { SI: "Mayoritariamente sí", NO: "Mayoritariamente no" };
+    const filas = [];
+    if (p.localidad) filas.push(["Localidad", p.localidad]);
+    if (p.clasificacion) filas.push(["Tipo", p.clasificacion]);
+    if (p.familias) filas.push(["Familias (aprox.)", numero(p.familias)]);
+    if (p.viviendas) filas.push(["Viviendas (aprox.)", numero(p.viviendas)]);
+    if (p.decada) filas.push(["Origen", p.decada]);
+    if (p.energia) filas.push(["Electricidad", p.energia]);
+    if (p.agua) filas.push(["Agua", p.agua]);
+    if (p.cloacas) filas.push(["Cloacas", p.cloacas]);
+    if (p.cocina) filas.push(["Cocina", p.cocina]);
+    if (p.calefaccion) filas.push(["Calefacción", p.calefaccion]);
+    if (p.titulo) filas.push(["Título de propiedad", titulo[p.titulo] || p.titulo]);
+    return (
+      "<h3>" + esc(p.nombre || "Barrio popular") + "</h3>" +
+      "<div>Barrio popular del RENABAP</div>" +
+      "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
+      '<p class="nota">Fuente: ' + enlace("https://datos.gob.ar/dataset/registro-nacional-de-barrios-populares", "Subsecretaría de Integración Socio Urbana, RENABAP") + ", corte del 05/12/2023 (Creative Commons Atribución).</p>"
     );
   }
 
@@ -244,6 +298,19 @@
     );
   }
 
+  // Cuenca del Quequén Grande (COHIFE): área y reparto aproximado entre partidos.
+  function popupCuenca(p) {
+    const partidos = Object.keys(p.partidos || {}).map(function (k) {
+      return "<tr><td>" + esc(k) + "</td><td>" + esc(String(p.partidos[k]).replace(".", ",")) + " %</td></tr>";
+    }).join("");
+    return (
+      "<h3>Cuenca del " + esc(p.nombre) + "</h3>" +
+      "<div>Unos " + numero(p.area_km2) + " km² en total. Parte aproximada en cada partido:</div>" +
+      (partidos ? "<table>" + partidos + "</table>" : "") +
+      '<p class="nota">Fuente: Secretaría de Energía de la Nación, Consejo Hídrico Federal (COHIFE), CC BY 4.0. El área y el reparto se calcularon sobre este polígono y son aproximados.</p>'
+    );
+  }
+
   function popupFirms(p, capa) {
     const hora = p.acq_time ? String(p.acq_time).padStart(4, "0") : "";
     const esViirs = capa.id === "incendios_viirs";
@@ -267,6 +334,12 @@
 
   // ---------- Capas ----------
 
+  function trazoDe(e, tipo) {
+    if (!e.lineas || !tipo) return null;
+    if (tipo in e.lineas) return e.lineas[tipo];
+    return tipo.indexOf("Subterr") === 0 ? e.lineas["Subterránea"] : e.lineas["Aérea"];
+  }
+
   function estiloDe(capa) {
     const e = capa.estilo || {};
     return function (feature) {
@@ -277,8 +350,9 @@
       return {
         color: e.color,
         weight: capa.id === "limite" ? 2.5 : e.grosor || (esArea ? 1 : 1.8),
-        // Media tensión: tendido aéreo con línea llena, subterráneo con línea punteada.
-        dashArray: (e.lineas && feature.properties.tipo && (feature.properties.tipo.indexOf("Subterr") === 0 ? e.lineas["Subterránea"] : e.lineas["Aérea"])) || e.trazo || null,
+        // Trazo por tipo (red hídrica de la cuenca: perenne, intermitente, zanja). En media tensión,
+        // los tipos que no están en la lista se agrupan en aéreo o subterráneo.
+        dashArray: trazoDe(e, feature.properties.tipo) || e.trazo || null,
         fill: esArea && e.relleno !== false,
         fillColor: e.relleno || e.color,
         fillOpacity: 0.45,
@@ -330,8 +404,8 @@
           radius: (e.radio || 4) + (n > 1 ? Math.min(8, Math.sqrt(n) * 2) : 0),
           color: "#ffffff",
           weight: 1,
-          // Organismos de respuesta: un color por organismo.
-          fillColor: (e.colores && e.colores[f.properties.organismo]) || e.color,
+          // Organismos de respuesta: un color por organismo; refugios: un color por uso.
+          fillColor: (e.colores && e.colores[f.properties[e.campo_color || "organismo"]]) || e.color,
           fillOpacity: 0.85,
         });
       },
@@ -343,6 +417,10 @@
           if (capa.id === "refugios") return popupRefugio(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
+          if (capa.id === "postes_via_publica") return popupPoste(f.properties);
+          if (capa.id === "barrios_populares") return popupBarrio(f.properties);
+          if (capa.id === "antenas") return popupAntena(f.properties);
+          if (capa.id === "cuenca_quequen") return popupCuenca(f.properties);
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
           if (esIgn(capa)) return popupIgn(f.properties);
           return popupOsm(f.properties);
@@ -378,6 +456,8 @@
       mapa.fitBounds(nueva.getBounds(), { padding: [16, 16] });
       estado.encuadrado = true;
     }
+    // Capas que exceden el partido (la cuenca del Quequén): al activarlas, el mapa se aleja para mostrarlas enteras.
+    if ((capa.estilo || {}).encuadrar) mapa.fitBounds(nueva.getBounds(), { padding: [16, 16] });
   }
 
   function refrescarIncendios() {
@@ -442,7 +522,7 @@
     const lineas = (capa.estilo || {}).lineas;
     const leyenda = !verificada ? ""
       : colores ? '<ul class="leyenda-tipos">' + Object.keys(colores).map(function (k) {
-          const n = (capa.por_organismo || {})[k] || 0;
+          const n = (capa.por_organismo || capa.por_tipo || {})[k] || 0;
           return '<li><span class="punto-leyenda" style="background:' + esc(colores[k]) + '"></span>' + esc(k) + " (" + numero(n) + ")</li>";
         }).join("") + "</ul>"
       : lineas ? '<ul class="leyenda-tipos">' + Object.keys(lineas).map(function (k) {

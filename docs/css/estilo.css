@@ -71,6 +71,26 @@ a { color: var(--acento); }
 
 .cabecera nav { display: flex; gap: 4px; }
 
+/* Distintivo de sitio en construcción en la barra: visible también en el celular, donde el panel de capas
+   (con el cartel grande) queda oculto hasta tocar "Capas". */
+.obra-cabecera {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px 3px 6px;
+  border-radius: 12px;
+  background: #fff3bf;
+  color: #3d3200;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.obra-cabecera svg { width: 24px; height: 20px; }
+.obra-cabecera:hover { background: #ffe8a1; }
+.obra-cabecera:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
 .cabecera nav a, .cabecera button {
   color: #fff;
   text-decoration: none;
@@ -132,6 +152,23 @@ a { color: var(--acento); }
 }
 
 .aviso[hidden] { display: none; }
+
+/* Cartel de sitio en construcción (panel del mapa y metodología). */
+.en-construccion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border: 2px dashed #f2b705;
+  border-radius: var(--radio);
+  background: #fffbea;
+  color: #3d3200;
+  font-size: 13px;
+}
+.en-construccion p { margin: 0; }
+.en-construccion .dibujo-obra { flex: 0 0 56px; width: 56px; height: 42px; }
+.documento .en-construccion { max-width: 720px; font-size: 14px; }
 
 .aviso-flotante {
   position: absolute;
@@ -301,6 +338,8 @@ a { color: var(--acento); }
   :root { --cabecera: 48px; }
   .cabecera { padding: 0 8px 0 12px; gap: 4px; }
   .cabecera h1 { font-size: 16px; }
+  .obra-cabecera { padding: 3px 4px; }
+  .obra-cabecera .obra-texto { display: none; }
   .titulo-largo { display: none; }
   .titulo-corto { display: inline; }
   .cabecera nav a, .cabecera button { padding: 5px 6px; font-size: 13px; }
@@ -357,3 +396,7 @@ a { color: var(--acento); }
 .punto-leyenda { width: 10px; height: 10px; border-radius: 50%; flex: none; border: 1px solid #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15); }
 .linea-leyenda { width: 18px; flex: none; border-top: 2px solid; }
 .linea-leyenda.punteada { border-top-style: dashed; }
+
+/* Referencias bibliográficas (APA), con sangría francesa. */
+.referencias { list-style: none; padding-left: 0; }
+.referencias li { padding-left: 2em; text-indent: -2em; margin-bottom: 6px; }

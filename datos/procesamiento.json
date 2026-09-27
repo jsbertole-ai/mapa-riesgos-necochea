@@ -550,14 +550,17 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-09-27T15:10:07+00:00",
+    "procesado": "2026-09-27T20:33:02+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
-      "estructuras_operativas_y_defensivas_FA517": "73bf0de550e055ecb36adeda7cf6d9e3abddc1abffe9b62aed002d78fd5ddd4c",
-      "estructuras_operativas_y_defensivas_090102": "f9b40da28894c5566adeba1c360c94044c5dc639ac21c92ed612333d4120d588"
+      "estructuras_operativas_y_defensivas_FA517": "c1342b46790ecad29c779c439202ee89f1eb6c585bb7a4feefac84e1b45a4a50",
+      "estructuras_operativas_y_defensivas_090102": "55146735e3fbd7c959650d1e1f949f490e6117283ec05543dc4124b1e9a88fdd"
     },
-    "sha256_comisarias_pba": "e1ca926e4ade907a5433c1025778103adea2d924ff060617d8dcc58375b79728",
+    "sha256_comisarias_pba": {
+      "comisarias-pba-2026.csv": "e1ca926e4ade907a5433c1025778103adea2d924ff060617d8dcc58375b79728",
+      "comisarias-mujer.csv": "6a9ef1b58b000ed50fdbb8da60967346b0b04904c9e7e862bb1b45fef8879a55"
+    },
     "pba_sin_coordenadas": [
       "Comisaría Necochea 1°"
     ],
@@ -571,10 +574,10 @@
     },
     "por_fuente": {
       "OpenStreetMap": 3,
-      "IGN": 6,
-      "Provincia de Buenos Aires": 3
+      "IGN": 5,
+      "Provincia de Buenos Aires": 4
     },
-    "descartados_por_duplicados": 6,
+    "descartados_por_duplicados": 7,
     "descartes_de_la_consulta": {
       "excluidos": 0,
       "fuera_del_partido": 2,
@@ -583,21 +586,93 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-09-27T15:10:08+00:00",
+    "procesado": "2026-09-27T20:33:03+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
+    "por_tipo": {
+      "Personas en situación de calle": 1,
+      "Evacuación ante catástrofes": 1
+    },
     "fecha_datos": "2026-07-30"
   },
   "torres_postes": {
-    "procesado": "2026-09-27T15:12:29+00:00",
+    "procesado": "2026-09-27T20:37:58+00:00",
     "archivo_crudo": "osm/torres.json",
     "sha256_crudo": "d80d1ed8820b51044964a2cc53f94ff747c9f163027c7d4a468e5a687abb9573",
-    "elementos": 1475,
+    "elementos": 1474,
     "fecha_datos": "2026-09-27T00:04:15Z",
     "descartes_de_la_consulta": {
       "excluidos": 0,
       "fuera_del_partido": 0,
       "geometria_incompleta": 0
     }
+  },
+  "barrios_populares": {
+    "procesado": "2026-09-27T16:12:43+00:00",
+    "archivo_crudo": "renabap/20231205_info_publica.geojson",
+    "sha256_crudo": "69e2f325dd042d0bde50b007a4a2cd7194f8d63a93f81c5845737c294643e27a",
+    "elementos": 9,
+    "barrios_en_el_pais": 6467,
+    "familias_aproximadas": 460,
+    "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado."
+  },
+  "cuenca_quequen": {
+    "procesado": "2026-09-27T19:23:02+00:00",
+    "archivo_crudo": "cuencas/cuencas-hdricas-cohife.zip",
+    "sha256_crudo": "17ba455b3403c4dd9a8788c582968b593be6c6ac0a190c72ac8699aa90220c0f",
+    "elementos": 1,
+    "area_km2_aproximada": 9788,
+    "partidos_porcentaje_aproximado": {
+      "Benito Juárez": 39.5,
+      "Necochea": 23.9,
+      "Lobería": 22.0,
+      "Adolfo Gonzales Chaves": 5.9,
+      "Tandil": 4.7,
+      "San Cayetano": 2.8,
+      "Azul": 0.9
+    },
+    "caja_verificacion": [
+      -60.260565472999986,
+      -38.58268104199993,
+      -58.57978685099994,
+      -37.31725955099995
+    ],
+    "fecha_datos": null
+  },
+  "red_hidrica_cuenca": {
+    "procesado": "2026-09-27T19:23:09+00:00",
+    "archivo_crudo": "ign_cuenca/*.geojson",
+    "sha256_crudos": {
+      "lineas_de_aguas_continentales_perenne": "0941e60cbae91c3fcc27bf69534b52c77b5b6243dce2dec434d52e17ba71f645",
+      "lineas_de_aguas_continentales_intermitentes": "520d485b42f4a876cc7daf400d6cd43b1dc2b0239fd4f7c2d4e40cd42337b123",
+      "lineas_de_aguas_continentales_BH030": "0dfed9e8246d0f8ee62e98ad086615011ae41ecc549e484c9c8b321fbd13c5ba"
+    },
+    "elementos": 329,
+    "capas_wfs": {
+      "lineas_de_aguas_continentales_perenne": {
+        "en_la_caja": 186,
+        "en_la_cuenca": 91
+      },
+      "lineas_de_aguas_continentales_intermitentes": {
+        "en_la_caja": 392,
+        "en_la_cuenca": 192
+      },
+      "lineas_de_aguas_continentales_BH030": {
+        "en_la_caja": 48,
+        "en_la_cuenca": 46
+      }
+    },
+    "por_tipo": {
+      "Corriente de agua perenne": 91,
+      "Corriente de agua intermitente": 192,
+      "Acequia, zanja o zanjón": 46
+    },
+    "caja_verificacion": [
+      -60.260565472999986,
+      -38.58268104199993,
+      -58.57978685099994,
+      -37.31725955099995
+    ],
+    "fecha_datos": null
   }
 }

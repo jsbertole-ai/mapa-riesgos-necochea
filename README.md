@@ -19,6 +19,7 @@ Una vez publicado, el sitio queda en https://jsbertole-ai.github.io/mapa-riesgos
 | `datos/fuentes.json` | Datos fijos de cada capa: organismo, URL, licencia, qué representa y qué no. |
 | `datos/*.json` | Constancias de la última actualización: descargas con huella SHA-256, resultados del procesamiento y lecturas de las páginas de licencia. |
 | `DATOS.md` | Registro completo de fuentes, verificadas, identificadas y descartadas. |
+| `MARCO_CONCEPTUAL.md` | Base conceptual y metodológica: riesgo, vulnerabilidad, escala (la cuenca), gestión y normas, con citas verificadas y referencias APA. |
 
 Los archivos crudos que se descargan (`datos/crudos/`) no se suben al repositorio: se regeneran con los scripts y su huella queda en `datos/registro_descargas.json`.
 
