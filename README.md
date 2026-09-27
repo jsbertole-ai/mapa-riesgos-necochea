@@ -13,6 +13,7 @@ Una vez publicado, el sitio queda en https://jsbertole-ai.github.io/mapa-riesgos
 | `docs/` | El sitio completo: `index.html` (mapa), `metodologia.html`, estilos, código, íconos, manifiesto y service worker. |
 | `docs/datos/` | Las capas ya procesadas (GeoJSON) y `capas.json`, el registro que lee el sitio con fuente, fecha, licencia y estado de cada capa. |
 | `docs/vendor/leaflet/` | Leaflet 1.9.4 (licencia BSD de 2 cláusulas), copiado desde npm. |
+| `docs/vendor/source-serif-4/` | Tipografía del título, Source Serif 4 SemiBold (Adobe, licencia SIL OFL 1.1), copiada del paquete npm `@fontsource/source-serif-4`. |
 | `scripts/` | Scripts en Python para descargar, recortar y verificar los datos. Solo usan la biblioteca estándar. |
 | `datos/inventario/` | Formulario del inventario local: `formulario.json` (listas de tipos de evento, efectos, localidades y servicios) y `formulario_inventario.xlsx`, generado a partir de él para subir a KoboToolbox. |
 | `datos/fuentes.json` | Datos fijos de cada capa: organismo, URL, licencia, qué representa y qué no. |
@@ -68,7 +69,7 @@ Eso corre, en orden:
 Después de actualizar:
 
 - Revisá lo que cambió (`git diff --stat`) y anotá en `DATOS.md` la nueva fecha de los datos.
-- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v4` a `mapa-riesgos-v5`), así los celulares con la aplicación instalada descartan la copia vieja.
+- Subí en uno la versión de `CACHE` en `docs/sw.js` (por ejemplo, de `mapa-riesgos-v5` a `mapa-riesgos-v6`), así los celulares con la aplicación instalada descartan la copia vieja.
 - Subí los cambios a `main`.
 
 ### Si un sitio no deja descargar
