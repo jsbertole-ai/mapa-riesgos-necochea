@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-27T01:14:37+00:00",
+  "generado": "2026-09-27T01:23:46+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -893,7 +893,7 @@
       "organismo": "Inventario local de eventos y vulnerabilidades del partido de Necochea (Juan Sebastián Bértole y colaboradores), a partir de notas de medios locales",
       "licencia": "CC BY 4.0",
       "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
-      "motivo_pendiente": "El inventario está en preparación: todavía no hay registros revisados y aprobados. Cada registro se publica solo después de que Juan Sebastián Bértole verifica la nota de origen y que no contenga datos personales.",
+      "motivo_pendiente": "El formulario ya recibe registros, pero todavía no hay ninguno revisado y aprobado. Cada registro se publica solo después de que Juan Sebastián Bértole verifica la nota de origen y que no contenga datos personales.",
       "que_representa": "Eventos adversos (inundaciones, temporales, incendios, accidentes tecnológicos) y vulnerabilidades observadas en el partido, cada uno con la nota periodística de origen enlazada, al estilo de la base DesInventar.",
       "que_no_representa": "No es un registro oficial ni completo: depende de lo que publicaron los medios y de lo que cargaron los colaboradores.",
       "geometria": "punto",
@@ -905,6 +905,7 @@
       "formato": "Formulario de KoboToolbox; exportación CSV procesada a GeoJSON por scripts/procesar_inventario.py",
       "cita": "Inventario local de eventos y vulnerabilidades del partido de Necochea (Juan Sebastián Bértole y colaboradores), CC BY 4.0. Cada registro cita la nota periodística de origen.",
       "limitaciones": "Los registros sin punto propio se muestran juntos en el punto de su localidad (IGN), que no es el lugar del evento; los de zona rural sin punto solo cuentan en el resumen. Las cifras de efectos son las que informó la nota, sin verificación independiente; un campo vacío significa sin dato, no cero.",
+      "url_formulario": "https://ee.kobotoolbox.org/x/JsHKYrg5",
       "estado": "pendiente",
       "elementos": 0,
       "fecha_datos": null,

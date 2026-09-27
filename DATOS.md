@@ -393,7 +393,7 @@ Decisiones de Sebastián (26/09/2026): se publican los cuarteles de bomberos, vo
 
 ---
 
-## 10. Inventario local de eventos y vulnerabilidades · **Fuente propia, en preparación**
+## 10. Inventario local de eventos y vulnerabilidades · **Fuente propia, formulario abierto**
 
 Decisión de Sebastián (27/09/2026): el proyecto arma su propio registro de eventos adversos y vulnerabilidades a partir de notas de medios locales, al estilo DesInventar, con carga de varios colaboradores.
 
@@ -409,7 +409,8 @@ Decisión de Sebastián (27/09/2026): el proyecto arma su propio registro de eve
 | Clasificación | Tipos de evento y efectos de la "Guía Metodológica" de DesInventar, versión 8.1.9 (2009), en castellano: https://www.desinventar.org/docs/DesInventar-GuiaMetodologica-2.pdf (SHA-256 389e772f…, pp. 9 a 14 y 20 a 24). Se eligieron 21 tipos más "Otro", pertinentes para el partido; el valor interno es el código de la base argentina de DesInventar Sendai (https://www.desinventar.net/DesInventar/main.jsp?countrycode=arg&lang=ES), que usa el nombre en castellano con el código en inglés. Dos decisiones: (1) Incendio y Explosión siguen la definición castellana, que incluye causas humanas y tecnológicas (la versión Sendai en inglés los limita a los inducidos por fenómenos naturales); (2) la guía pide convertir familias a personas "según indicadores disponibles", pero eso sería estimar: las cifras por familias van en "Observaciones de efectos". "Afectados" tiene el sentido de la guía de 2009 (efectos indirectos), no el de "directly affected" de Sendai. La lista de vulnerabilidades es propia del proyecto. Todo en `datos/inventario/formulario.json`. |
 | Exportaciones crudas | Van a `datos/crudos/inventario/`, que no se sube al repositorio: pueden contener envíos no aprobados. |
 | Formulario y procesamiento | `scripts/generar_formulario.py` arma el XLSForm (`datos/inventario/formulario_inventario.xlsx`, convertido sin errores con pyxform, el mismo motor que usa KoboToolbox). `scripts/procesar_inventario.py` publica solo los aprobados que pasan los controles (campos, listas, fechas, enlace, cantidades, rastros de datos personales, punto dentro del partido, duplicados). Los registros sin punto se agrupan en el punto de su localidad (IGN). El título de la nota y el usuario de Kobo nunca se publican. |
-| Estado | Formulario listo para subir a Kobo; todavía no hay registros aprobados, así que la capa figura como "pendiente". |
+| Formulario publicado | Desplegado por Sebastián el 27/09/2026 a las 01:21 UTC (proyecto `aD2nAa796eJ9xV2yCqiwXf`). Enlace público: https://ee.kobotoolbox.org/x/JsHKYrg5. Comprobado en la API de Kobo el mismo día: el formulario llegó completo (31 preguntas, 51 opciones) y el usuario anónimo tiene solo "Add submissions" y "View form"; los envíos no se leen sin sesión (404). |
+| Estado | Formulario abierto a envíos; todavía no hay registros aprobados, así que la capa figura como "pendiente". |
 
 ## 10 bis. Líneas de media tensión (Secretaría de Energía) · **Verificada** · en uso
 
