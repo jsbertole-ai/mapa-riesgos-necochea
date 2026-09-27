@@ -5,6 +5,11 @@
       "osm": "way/698430678",
       "organismo": "Prefectura Naval",
       "fuente": "Ubicación confirmada por Juan Sebastián Bértole (27/09/2026): https://www.openstreetmap.org/#map=19/-38.574593/-58.703578"
+    },
+    {
+      "osm": "node/14222511472",
+      "organismo": "Bomberos",
+      "fuente": "Cargado en OpenStreetMap por Juan Sebastián Bértole a partir de su conocimiento del lugar (27/09/2026); cuartel de la Policía de la Provincia de Buenos Aires."
     }
   ]
 }
