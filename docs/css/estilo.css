@@ -133,6 +133,23 @@ a { color: var(--acento); }
 
 .aviso[hidden] { display: none; }
 
+/* Cartel de sitio en construcción (panel del mapa y metodología). */
+.en-construccion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border: 2px dashed #f2b705;
+  border-radius: var(--radio);
+  background: #fffbea;
+  color: #3d3200;
+  font-size: 13px;
+}
+.en-construccion p { margin: 0; }
+.en-construccion .dibujo-obra { flex: 0 0 56px; width: 56px; height: 42px; }
+.documento .en-construccion { max-width: 720px; font-size: 14px; }
+
 .aviso-flotante {
   position: absolute;
   top: 10px;
