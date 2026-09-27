@@ -109,6 +109,32 @@
     );
   }
 
+  // Inventario local: cada marcador trae uno o varios registros (los ubicados por localidad van juntos).
+  function popupInventario(p) {
+    const registros = p.registros.slice().reverse();
+    const titulo = p.ubicacion === "localidad"
+      ? registros.length + (registros.length === 1 ? " registro en " : " registros en ") + p.localidad
+      : registros[0].tipo;
+    return (
+      "<h3>" + esc(titulo) + "</h3>" +
+      (p.ubicacion === "localidad" ? '<p class="nota">' + (registros.length === 1 ? "Ubicado" : "Ubicados") + ' en el punto de la localidad (IGN): no marca el lugar del evento.</p>' : "") +
+      registros.map(function (r) {
+        const efectos = Object.keys(r.efectos || {}).map(function (k) { return k + ": " + numero(r.efectos[k]); });
+        return (
+          '<div class="registro">' +
+          "<strong>" + esc(fecha(r.fecha)) + ". " + esc(r.tipo) + "</strong>" +
+          (r.lugar ? " (" + esc(r.lugar) + ")" : "") +
+          "<div>" + esc(r.descripcion) + "</div>" +
+          (efectos.length ? "<div>" + esc(efectos.join(" · ")) + "</div>" : "") +
+          (r.servicios && r.servicios.length ? "<div>Servicios afectados: " + esc(r.servicios.join(", ")) + "</div>" : "") +
+          '<div class="nota">Fuente: ' + enlace(r.fuente_url, r.fuente_medio + ", " + fecha(r.fuente_fecha)) + "</div>" +
+          "</div>"
+        );
+      }).join("") +
+      '<p class="nota">Inventario local (CC BY 4.0). Registros tomados de medios y revisados antes de publicarse; no es un registro oficial.</p>'
+    );
+  }
+
   function popupIgn(p) {
     const filas = [];
     if (p.fna && p.tipo) filas.push(["Tipo", p.tipo]);
@@ -203,9 +229,11 @@
         : esIgn(capa) ? ATRIBUCION_IGN
         : null,
       pointToLayer: function (f, latlng) {
+        const n = f.properties.registros ? f.properties.registros.length : 1;
         return L.circleMarker(latlng, {
           pane: "puntos",
-          radius: e.radio || 4,
+          // En el inventario, los marcadores por localidad crecen con la cantidad de registros.
+          radius: (e.radio || 4) + (n > 1 ? Math.min(8, Math.sqrt(n) * 2) : 0),
           color: "#ffffff",
           weight: 1,
           fillColor: e.color,
@@ -215,10 +243,11 @@
       onEachFeature: function (f, l) {
         if (capa.id === "limite") return;
         l.bindPopup(function () {
+          if (capa.id === "inventario_local") return popupInventario(f.properties);
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
           if (esIgn(capa)) return popupIgn(f.properties);
           return popupOsm(f.properties);
-        });
+        }, { maxHeight: 320 });
       },
     });
   }
@@ -268,6 +297,13 @@
     return '<span class="muestra ' + clase + discontinua + '" style="color:' + esc(e.color || "#888") + ";" + fondo + '"></span>';
   }
 
+  // Enlace al formulario de carga (solo el inventario local lo tiene, y solo cuando está publicado en Kobo).
+  function colaborar(capa) {
+    return capa.url_formulario
+      ? "<dt>Colaborar</dt><dd>" + enlace(capa.url_formulario, "Sumar un registro") + ". Se publica después de revisar la nota de origen.</dd>"
+      : "";
+  }
+
   function fichaDe(capa) {
     if (capa.estado !== "verificada") {
       return (
@@ -276,6 +312,7 @@
         (capa.verificacion ? "<dt>Controles</dt><dd>" + capa.verificacion.controles.map(esc).join("<br>") + "</dd>" : "") +
         (capa.que_representa ? "<dt>Qué representaría</dt><dd>" + esc(capa.que_representa) + "</dd>" : "") +
         (capa.url_fuente ? "<dt>Fuente a revisar</dt><dd>" + enlace(capa.url_fuente) + "</dd>" : "") +
+        colaborar(capa) +
         "</dl>"
       );
     }
@@ -283,13 +320,14 @@
       "<dl>" +
       "<dt>Qué representa</dt><dd>" + esc(capa.que_representa) + "</dd>" +
       "<dt>Qué no representa</dt><dd>" + esc(capa.que_no_representa) + "</dd>" +
-      "<dt>Fuente</dt><dd>" + esc(capa.organismo) + ". " + enlace(capa.url_fuente) + "</dd>" +
+      "<dt>Fuente</dt><dd>" + esc(capa.organismo) + "." + (capa.url_fuente ? " " + enlace(capa.url_fuente) : "") + "</dd>" +
       "<dt>Fecha de los datos</dt><dd>" + esc(capa.fecha_datos || "s/d") + "</dd>" +
       "<dt>Licencia</dt><dd>" + esc(capa.licencia) + ". " + enlace(capa.url_licencia, "Texto de la licencia") +
       (capa.url_aviso_legal ? ". " + enlace(capa.url_aviso_legal, "Aviso legal de FIRMS") : "") + "</dd>" +
       "<dt>Cita</dt><dd>" + esc(capa.cita) + "</dd>" +
       "<dt>Verificación</dt><dd>" + esc(capa.verificacion ? capa.verificacion.fecha : "") + ". " +
       '<a href="metodologia.html#' + esc(capa.id) + '">Limitaciones y controles</a></dd>' +
+      colaborar(capa) +
       "</dl>"
     );
   }

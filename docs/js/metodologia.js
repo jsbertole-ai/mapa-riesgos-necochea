@@ -43,6 +43,7 @@
       fila("Formato", esc(capa.formato)) +
       fila("Elementos", capa.elementos ? esc(Number(capa.elementos).toLocaleString("es-AR")) : "") +
       fila("Focos por año", esc(focosPorAnio(capa))) +
+      fila("Colaborar", capa.url_formulario ? enlace(capa.url_formulario, "Sumar un registro") : "") +
       fila("Verificación", capa.verificacion ? esc(capa.verificacion.fecha) + ": " + capa.verificacion.controles.map(esc).join(" ") : "") +
       "</dl></section>"
     );
