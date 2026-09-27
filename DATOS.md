@@ -296,9 +296,10 @@ Pendientes:
 5. **Red hidrométrica y freatímetros de la ADA (1.1 ter):** la capa se descarga en shapefile desde el visor, sin licencia. Si se quiere como capa, pedirle a la ADA el permiso de uso.
 6. **IDEBA (1.2):** revisar si sus geoservicios publican por WFS, con licencia, las capas de cuencas, red hidrométrica o freatímetros de la ADA.
 7. **Información naval (sección 11): relevada, sin fuente reutilizable.** Pedir por escrito al Servicio de Hidrografía Naval (shn@hidro.gov.ar; mareas y alertas: pronomarea@hidro.gov.ar; informes: ceado@hidro.gov.ar): (a) bajo qué licencia están los conjuntos de "Datos Abiertos" y las capas WFS de batimetría y línea de costa; (b) si autorizan enlazar sus páginas; (c) si existe una serie de alturas del mareógrafo de Quequén y en qué condiciones se entrega; (d) si sus avisos de crecida de la costa atlántica aplican a Necochea. Sin respuesta, queda el pedido de acceso a la información pública (Ley 27.275) al Ministerio de Defensa.
-8. **SMN (sección 12):** revisar a mano la licencia en https://www.smn.gob.ar/descarga-de-datos (Cloudflare bloquea al entorno) y decidir si se arma un archivo propio de las alertas del SMN que alcanzan al partido.
-9. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
-10. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
+8. **Prefectura Naval (11.1):** revisar a mano https://www.prefecturanaval.gob.ar/ (504 desde el entorno).
+9. **SMN (sección 12):** revisar a mano la licencia en https://www.smn.gob.ar/descarga-de-datos (Cloudflare bloquea al entorno) y decidir si se arma un archivo propio de las alertas del SMN que alcanzan al partido.
+10. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
+11. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
 
 Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `datos/crudos/` para procesarlo con `python3 scripts/actualizar.py --offline` (instrucciones en el README).
 
@@ -430,6 +431,15 @@ Relevamiento del 27/09/2026, por HTTPS, desde el entorno. Los "datos de la Armad
 | datos.gob.ar, organización SHN | https://datos.gob.ar/api/3/action/organization_show?id=servicio-de-hidrografia-naval | 0 conjuntos al 27/09/2026. | Volver a mirar en cada actualización. |
 
 Sin comprobar: si el SHN considera que sus avisos valen también para Necochea (el texto habla de "la población costera de la Provincia de Buenos Aires (costa atlántica)", pero el área termina en Mar del Plata); el huso horario del CSV de alturas; la Prefectura Naval Argentina, que no se relevó.
+
+### 11.1 Prefectura Naval Argentina (27/09/2026)
+
+Comprobado en https://www.argentina.gob.ar/prefecturanaval/ambitos-actuacion-despliegue-geografico: la Prefectura Quequén integra la Prefectura de Zona Mar Argentino Norte ("las Prefecturas de Mar del Plata, Quequén, Bahía Blanca, ..."), y la Prefectura actúa, entre otros ámbitos, "en las costas y playas marítimas y fluviales". Es la autoridad de la navegación en el puerto y la costa del partido.
+
+- datos.gob.ar no tiene ninguna organización ni conjunto de la Prefectura (búsquedas "prefectura", "naufragio", "salvamento", "Quequén": 0 resultados).
+- https://www.prefecturanaval.gob.ar/ devuelve 504 al entorno; https://prefecturanaval.gob.ar/ (sin www) es el acceso al correo institucional, no un sitio de datos. Sin rodeos: Sebastián revisa a mano si el sitio publica, para Quequén, el estado del puerto (cierres por mal tiempo), avisos a los navegantes o partes meteorológicos, y bajo qué condiciones de uso.
+- El conjunto "Puertos" de la Secretaría de Transporte (https://datos.transporte.gob.ar/dataset/puertos, licencia "Other (Open)", relevamiento 2019) se sirve desde ide.transporte.gob.ar, cuyo certificado no valida desde el entorno; no se forzó. El puerto ya está en el mapa por el IGN y OpenStreetMap.
+- El conjunto de entrada y salida de buques de la Secretaría de Transporte (CC BY 4.0) es solo del Puerto Buenos Aires: no sirve para Quequén.
 
 ## 12. Servicio Meteorológico Nacional (SMN) · **Alertas: licencia verificada; datos de estaciones: sin licencia declarada** · todavía no se usa
 
