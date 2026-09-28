@@ -628,7 +628,7 @@ Control contra las capas del mapa: los 36 puntos caen dentro del partido y ningu
 | AV. MITRE 587 Y BARRAGAN (Necochea) | No corresponde al partido. No se publica. |
 | 114 N° 715 (Necochea) | La dirección no existe. No se publica. |
 | 542 N° 1170 (Quequén) y ALMIRANTE BROWN 1500 (Quequén) | No los pudo confirmar: siguen sin ubicar. |
-| RUTA 228 KM 52 (Energía), GNC de una cooperativa | **En espera.** Sebastián la ubica en la Shell de la Ruta 228 y la Av. 43, en Necochea; pero el padrón dice km 52 y localidad Energía, y esa Shell ya figura en el padrón como "Ruta 228 km 1". Hay que resolver la diferencia. |
+| RUTA 228 KM 52 (Energía), GNC de una cooperativa | Sin ubicar. Se consideró la Shell de la Ruta 228 y la Av. 43, pero esa estación ya figura en el padrón como "Ruta 228 km 1" y Sebastián confirmó que la inscripción no le corresponde. Por el km y la localidad estaría cerca de Energía; ninguna fuente abierta ubica esa boca de GNC. |
 | RUTA 80 601 (Juan N. Fernández) | **En espera.** Sebastián dice que no hay Ruta 80 en el partido, pero la capa de rutas del IGN y OpenStreetMap la tienen en Juan N. Fernández, donde ya está publicada la estación del acceso por la Ruta 80. |
 
 Resultado: 45 establecimientos publicados en 41 puntos; 4 siguen sin ubicar y 3 quedan descartados.

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-28T13:19:20+00:00",
+  "generado": "2026-09-28T13:27:58+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -845,7 +845,7 @@
       "estado": "verificada",
       "elementos": 41,
       "fecha_datos": "Padrón de combustibles actualizado al: 28/09/2026 02:59:39; distribuidoras de GLP y plantas aceiteras según la fecha de cada recurso en Datos Argentina.",
-      "procesado": "2026-09-28T13:18:47+00:00",
+      "procesado": "2026-09-28T13:27:57+00:00",
       "por_tipo": {
         "Depósitos de combustible": 15,
         "Gas envasado (GLP)": 4,
