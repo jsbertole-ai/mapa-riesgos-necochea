@@ -29,13 +29,13 @@
       "fuente": "Cáritas parroquial, confirmada por un colaborador (28/09/2026). El punto es el del templo en OpenStreetMap (node/11821125524), en la Calle 96, barrio Tiro Federal."
     },
     {
-      "nombre": "Iglesia Evangélica Bethel",
+      "nombre": "Iglesia Evangélica Bethel (lugar de asistencia)",
       "tipo": "Iglesia evangélica",
       "punto": [
         -38.56331,
         -58.73346
       ],
-      "fuente": "Brinda ayuda asistencial, según un colaborador (28/09/2026). Coordenada tomada de OpenStreetMap por el colaborador, sobre la Calle 40, en la cuadra que corresponde a las direcciones que da su sitio web (https://visionfeyaccion.com/). El templo no figura cargado en OSM."
+      "fuente": "El punto marca dónde se brinda la ayuda asistencial, en la cuadra del 3100 de la Calle 40; el templo principal está en la misma calle, a la altura 3037. Ambos datos, de un colaborador (28/09/2026); la coordenada se tomó de OpenStreetMap, donde la iglesia no figura cargada. Sitio web: https://visionfeyaccion.com/"
     }
   ]
 }
