@@ -399,7 +399,7 @@
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: puerto, rompeolas, faro, balizas y mareógrafo (fuente de captura: IGN, Servicio de Hidrografía Naval y Ministerio de Transporte).",
       "que_representa": "Puerto Quequén, sus rompeolas, el faro Quequén, las balizas de las escolleras norte y sur, y el mareógrafo de la estación Quequén.",
       "que_no_representa": "No incluye cartografía náutica ni mediciones de marea.",
-      "limitaciones": "El IGN no informa la fecha. Las posiciones del mareógrafo de Quequén, el faro y la baliza Escollera Norte coinciden, a menos de 12 m, con las que publica el Servicio de Hidrografía Naval (comparación del 27/09/2026); los datos del SHN no se usan porque no tienen licencia de reutilización.",
+      "limitaciones": "El IGN no informa la fecha. Las posiciones del mareógrafo de Quequén, el faro y la baliza Escollera Norte coinciden, a menos de 12 m, con las que publica el Servicio de Hidrografía Naval (comparación del 27/09/2026); los datos del SHN no se usan porque no tienen licencia de reutilización. El mareógrafo figura en el IGN, pero según el Servicio de Hidrografía Naval (respuesta por correo del 28/09/2026) la estación \"Quequén\" está desinstalada, a la espera de un equipo nuevo.",
       "fecha_datos_fija": "El IGN no informa la fecha de esta capa."
     },
     {
