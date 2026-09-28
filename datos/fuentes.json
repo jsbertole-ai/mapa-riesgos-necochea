@@ -77,7 +77,7 @@
         "color": "#1a1a1a",
         "radio": 5
       },
-      "activa_al_inicio": false,
+      "activa_al_inicio": true,
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: localidades (BAHRA).",
       "que_representa": "Las localidades del partido (Necochea-Quequén, Claraz, Energía, Juan N. Fernández, Nicanor Olivera y Ramón Santamarina) según la capa de localidades BAHRA del IGN.",
       "que_no_representa": "No indica cantidad de población.",
@@ -170,7 +170,7 @@
         "color": "#1f6fb2",
         "relleno": "#9cc7ea"
       },
-      "activa_al_inicio": true,
+      "activa_al_inicio": false,
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: corrientes de agua perennes e intermitentes, acequias y zanjas, canales, espejos de agua y embalses.",
       "fecha_datos_fija": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026).",
       "que_representa": "Corrientes de agua perennes e intermitentes, acequias y zanjas, canales, espejos de agua (lagunas) y embalses, según la cartografía oficial del IGN.",
@@ -364,7 +364,7 @@
         "relleno": "#b9a3d8",
         "radio": 5
       },
-      "activa_al_inicio": true,
+      "activa_al_inicio": false,
       "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
       "url_fuente": "https://www.openstreetmap.org/",
       "url_datos": "https://overpass-api.de/api/interpreter",
@@ -623,7 +623,7 @@
         "color": "#222222",
         "bicolor": true
       },
-      "activa_al_inicio": true,
+      "activa_al_inicio": false,
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: ferrocarril (fuente de captura: IGN, Ministerio de Transporte de la Nación y Ferrosur).",
       "fecha_datos_fija": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026).",
       "que_representa": "Los ramales del Ferrocarril General Roca que atraviesan el partido (R18, R21, R23, R25 y R27) y sus estaciones, según la cartografía oficial del IGN, con el estado que el IGN asigna a cada tramo: activa, abandonada o desmantelada. Las vías abandonadas o desmanteladas van en gris punteado porque su traza (terraplenes, alcantarillas, restos de puentes) sigue en el terreno y puede interferir con el escurrimiento.",
