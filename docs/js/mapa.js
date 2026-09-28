@@ -213,6 +213,16 @@
   }
 
   // Antenas y torres de comunicaciones (OpenStreetMap).
+  function popupEnvases(p) {
+    const filas = [["Dirección (según la fuente)", p.direccion || "s/d"]];
+    if (p.capacidad_envases) filas.push(["Capacidad", numero(p.capacidad_envases) + " envases"]);
+    return (
+      "<h3>Centro de acopio transitorio de envases vacíos de agroquímicos</h3>" +
+      "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
+      '<p class="nota">Guarda envases ya lavados, no productos. Fuente: Secretaría de Agricultura, Ganadería y Pesca (Ley 27.279), datos de 2019, CC BY 4.0.</p>'
+    );
+  }
+
   function popupAntena(p) {
     const tipos = { mast: "Mástil", tower: "Torre", antenna: "Antena", communications_tower: "Torre de comunicaciones" };
     const servicios = { mobile_phone: "telefonía móvil", radio: "radio", television: "televisión", amateur_radio: "radioaficionados", microwave: "microondas" };
@@ -430,6 +440,7 @@
           if (capa.id === "postes_via_publica") return popupPoste(f.properties);
           if (capa.id === "barrios_populares") return popupBarrio(f.properties);
           if (capa.id === "antenas") return popupAntena(f.properties);
+          if (capa.id === "envases_fitosanitarios") return popupEnvases(f.properties);
           if (capa.id === "cuenca_quequen") return popupCuenca(f.properties);
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
           if (esIgn(capa)) return popupIgn(f.properties);

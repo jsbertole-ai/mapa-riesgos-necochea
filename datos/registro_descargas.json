@@ -377,10 +377,10 @@
   },
   "datos/crudos/ign/departamento_06581.geojson": {
     "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Adepartamento&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=in1%3D%2706581%27",
-    "descargado": "2026-09-27T22:39:46+00:00",
+    "descargado": "2026-09-28T03:43:25+00:00",
     "last_modified": null,
     "bytes": 875884,
-    "sha256": "a3290364c1ddc38bae46eab9fd8eb148b90cd27dbf361b4852f6ef5415a17fcd"
+    "sha256": "5130bc4d75279703f516a6a9b5491cfead0f4b4ed4308c7d3846173f3fb2f729"
   },
   "datos/crudos/ign/localidad_bahra.geojson": {
     "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Alocalidad_bahra&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
@@ -689,5 +689,12 @@
     "last_modified": null,
     "bytes": 5364,
     "sha256": "b45c4cc4d05b4c0870e788bbd5ffe9c34aaeb2bb7766b48a3080b01203194b7a"
+  },
+  "datos/crudos/envases/centros-almacenamiento-transitorio-envases-fitosanitarios.csv": {
+    "url": "https://datos.magyp.gob.ar/dataset/8d83f150-d079-4cfb-bb3e-d4200bf2b011/resource/d4a9cf05-3520-4f98-a4b8-32653ebbeaa6/download/centros-almacenamiento-transitorio-envases-fitosanitarios.csv",
+    "descargado": "2026-09-28T03:42:36+00:00",
+    "last_modified": "Tue, 24 Sep 2019 17:39:01 GMT",
+    "bytes": 7561,
+    "sha256": "ffea33162663a730df9896db1601da8efe53a5be9923b6cbbedc41cb7fa709e6"
   }
 }
