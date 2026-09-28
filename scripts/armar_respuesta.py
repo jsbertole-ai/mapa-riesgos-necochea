@@ -42,6 +42,8 @@ from comun import (CRUDOS, RAIZ, SITIO_DATOS, ErrorRed, anotar_procesamiento, av
 CAPAS_IGN = ("estructuras_operativas_y_defensivas_FA517", "estructuras_operativas_y_defensivas_090102")
 REFUGIOS = RAIZ / "datos" / "refugios.json"
 FIJADOS_OSM = RAIZ / "datos" / "organismos_osm.json"
+# Organismos que ningún registro abierto ubica: el punto lo aporta un colaborador que conoce el lugar.
+COLABORADORES = RAIZ / "datos" / "organismos_colaboradores.json"
 COMISARIAS_PBA = ("https://catalogo.datos.gba.gob.ar/dataset/bf79faeb-cb8a-4444-bbbe-5dc39479aa4a/resource/"
                   "8d31bb16-3489-4ede-9e63-072f7f17383d/download/comisarias-pba-2026.csv")
 # Comisarías de la Mujer de la Provincia (CC BY 4.0). La columna "coordinacion_datos" trae nombres de
@@ -150,6 +152,18 @@ def organismos_fijados(offline, limite, caja):
         features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
             "organismo": r["organismo"], "nombre": tags.get("name") or r.get("nombre"), "fuente": "OpenStreetMap",
             "ref": r["osm"], "nota": r.get("fuente")}})
+    return features
+
+
+def organismos_colaboradores(limite, caja):
+    features = []
+    for r in leer_json(COLABORADORES, {"elementos": []})["elementos"]:
+        lat, lon = r["punto"]
+        if not punto_en_geometria(lon, lat, limite, caja):
+            aviso(f"{r['nombre']}: el punto cae fuera del partido; no se publica.")
+            continue
+        features.append({"type": "Feature", "geometry": punto(lon, lat), "properties": {
+            "organismo": r["organismo"], "nombre": r["nombre"], "fuente": "Colaborador", "nota": r["fuente"]}})
     return features
 
 
@@ -281,7 +295,7 @@ def main():
     fijados = organismos_fijados(offline, limite, caja)
     pba, huella_pba, pba_sin_coordenadas = comisarias_pba(offline, limite, caja)
     osm, huella_osm, fecha_osm, descartes = organismos_osm(limite, caja)
-    unidos, duplicados = unir(pba, ign, fijados, osm)
+    unidos, duplicados = unir(pba, ign, fijados, organismos_colaboradores(limite, caja), osm)
     features = sorted(unidos, key=lambda f: (f["properties"]["organismo"], f["properties"].get("nombre") or ""))
     por_fuente = {}
     for f in features:

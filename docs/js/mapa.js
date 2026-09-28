@@ -147,6 +147,7 @@
     if (p.fuente === "Provincia de Buenos Aires") {
       return '<p class="nota">Fuente: ' + enlace("https://catalogo.datos.gba.gob.ar/es_AR/dataset/comisarias", "Ministerio de Seguridad de la Provincia de Buenos Aires, Comisarías") + " (CC BY 4.0).</p>";
     }
+    if (p.fuente === "Colaborador") return '<p class="nota">' + esc(p.nota) + "</p>";
     return p.fuente === "IGN"
       ? '<p class="nota">' + esc(CITA_IGN) + (p.fuente_captura ? " Fuente de captura: " + esc(p.fuente_captura) + "." : "") + "</p>"
       : '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.ref, "OpenStreetMap, " + p.ref) + " (ODbL).</p>";
