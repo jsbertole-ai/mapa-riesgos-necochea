@@ -9,7 +9,7 @@
   },
   "titulo": "Inventario local de eventos y vulnerabilidades del partido de Necochea",
   "form_id": "inventario_necochea",
-  "presentacion": "Registrá un evento adverso ocurrido en el partido de Necochea o una vulnerabilidad observada, tal como lo informó un medio. Cada registro se revisa antes de publicarse en el mapa de riesgos (https://jsbertole-ai.github.io/mapa-riesgos-necochea/). No cargues nombres de personas ni domicilios particulares. Este formulario no pide tus datos; KoboToolbox guarda en su historial interno la dirección IP de cada envío, que el proyecto no exporta ni publica.",
+  "presentacion": "Registrá un evento adverso ocurrido en el partido de Necochea o una vulnerabilidad observada, tal como lo informó un medio. Cada registro se revisa antes de publicarse en el mapa para la gestión del riesgo (https://jsbertole-ai.github.io/mapa-riesgos-necochea/). No cargues nombres de personas ni domicilios particulares. Este formulario no pide tus datos; KoboToolbox guarda en su historial interno la dirección IP de cada envío, que el proyecto no exporta ni publica.",
   "texto_licencia": "Acepto que este registro se publique con licencia Creative Commons Atribución 4.0 (CC BY 4.0), citado como \"Inventario local de eventos y vulnerabilidades del partido de Necochea\".",
   "efectos": [
     {
