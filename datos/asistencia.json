@@ -35,7 +35,16 @@
         -38.56331,
         -58.73346
       ],
-      "fuente": "El punto marca dónde se brinda la ayuda asistencial, en la cuadra del 3100 de la Calle 40; el templo principal está en la misma calle, a la altura 3037. Ambos datos, de un colaborador (28/09/2026); la coordenada se tomó de OpenStreetMap, donde la iglesia no figura cargada. Sitio web: https://visionfeyaccion.com/"
+      "fuente": "El punto marca dónde se brinda la ayuda asistencial, en la cuadra del 3100 de la Calle 40; el templo principal está en la misma calle, a la altura 3037. Ambos datos, de un colaborador (28/09/2026); la coordenada se tomó de OpenStreetMap, donde la iglesia no figura cargada. Sitio web: https://visionfeyaccion.com/ Reparte mercadería en los barrios y asiste a personas mayores (La Quinta Digital, 05/06/2020: https://laquintadigital.com.ar/nota/2220/la-iglesia-bethel-en-necochea-confecciona-tapabocas-y-reparte-mercaderia-en-los-barrios); que también acoge a personas en situación de calle lo informa el colaborador, la nota no lo menciona."
+    },
+    {
+      "nombre": "\"El Cafecito\", parroquia Santa María del Carmen",
+      "tipo": "Personas en situación de calle",
+      "punto": [
+        -38.55497,
+        -58.74115
+      ],
+      "fuente": "Dispositivo de asistencia para personas en situación de calle en el salón parroquial: comida, duchas, lavandería y descanso, desde las cuatro de la madrugada; no es un refugio ni un parador nocturno formal (Confirmado Necochea, 29/08/2026: https://www.confirmadonecochea.com/asistencia-integral-para-personas-en-situacion-de-calle-en-necochea). El punto es el del templo en OpenStreetMap (node/4093972993), que coincide con el que aportó un colaborador."
     }
   ]
 }
