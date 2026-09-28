@@ -77,7 +77,7 @@
         "color": "#1a1a1a",
         "radio": 5
       },
-      "activa_al_inicio": false,
+      "activa_al_inicio": true,
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: localidades (BAHRA).",
       "que_representa": "Las localidades del partido (Necochea-Quequén, Claraz, Energía, Juan N. Fernández, Nicanor Olivera y Ramón Santamarina) según la capa de localidades BAHRA del IGN.",
       "que_no_representa": "No indica cantidad de población.",
@@ -170,7 +170,7 @@
         "color": "#1f6fb2",
         "relleno": "#9cc7ea"
       },
-      "activa_al_inicio": true,
+      "activa_al_inicio": false,
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: corrientes de agua perennes e intermitentes, acequias y zanjas, canales, espejos de agua y embalses.",
       "fecha_datos_fija": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026).",
       "que_representa": "Corrientes de agua perennes e intermitentes, acequias y zanjas, canales, espejos de agua (lagunas) y embalses, según la cartografía oficial del IGN.",
@@ -364,7 +364,7 @@
         "relleno": "#b9a3d8",
         "radio": 5
       },
-      "activa_al_inicio": true,
+      "activa_al_inicio": false,
       "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
       "url_fuente": "https://www.openstreetmap.org/",
       "url_datos": "https://overpass-api.de/api/interpreter",
@@ -604,7 +604,7 @@
       "cita": "Secretaría de Energía: Padrón de operadores autorizados para la venta de combustibles líquidos (Res. SE 1102/2004), Operadores de GLP (distribuidoras) y Plantas productoras y refinadoras de aceite vegetal. Datos Argentina, CC BY 4.0. Parte de los puntos: © colaboradores de OpenStreetMap, ODbL.",
       "que_representa": "Los establecimientos del partido que los listados oficiales de la Secretaría de Energía registran y que guardan o despachan sustancias inflamables: estaciones de servicio (combustibles líquidos y GNC), depósitos de combustible (revendedores a granel, distribuidores con camiones y tanques de empresas para consumo propio, entre ellos el de la central termoeléctrica), distribuidoras de gas envasado y plantas aceiteras. El proyecto ubicó cada establecimiento uno por uno y la ventana de cada punto dice de dónde sale.",
       "que_no_representa": "No informa cantidades almacenadas, tipo de tanque ni medidas de seguridad. No incluye depósitos de agroquímicos o fertilizantes, plantas de acopio de granos (donde se fumiga con fosfina), terminales portuarias ni generadores de residuos especiales: ninguno tiene un listado abierto con ubicación. El registro municipal de actividades riesgosas de la Ordenanza 6248/08 existe, pero no está publicado. No muestra titulares, CUIT ni datos de contacto, aunque las fuentes los traigan.",
-      "limitaciones": "El padrón de combustibles es un registro de inscripciones: puede incluir operadores que ya no están en actividad. Trae dirección y no coordenadas. De sus 50 inscripciones en el partido se descartan 4 fleteros, que no almacenan, y se ubicaron 40. De ellas, 32 salen de fuentes abiertas: la estación de servicio de OpenStreetMap que corresponde a la dirección (en la mayoría, con el mismo operador), las coordenadas que declara el propio padrón o la esquina, el cruce o el tramo de calle que declara, tomado de OpenStreetMap. Las otras 8 las ubicó Juan Sebastián Bértole, que conoce los lugares, porque Quequén, La Dulce y parte de Necochea no tienen direcciones cargadas en OpenStreetMap; la ventana de cada punto lo dice. Tres inscripciones no corresponden al partido o tienen una dirección inexistente, y 3 siguen sin ubicar (DATOS.md, sección 17). Una esquina o un cruce tiene una precisión de decenas de metros. La Secretaría de Energía no dice cómo tomó las coordenadas de las distribuidoras de GLP; las de las aceiteras las georreferenció con datos de la Cámara de la Industria Aceitera. Muchas estaciones también figuran en la capa de industria del IGN."
+      "limitaciones": "El padrón de combustibles es un registro de inscripciones: puede incluir operadores que ya no están en actividad. Trae dirección y no coordenadas. De sus 50 inscripciones en el partido se descartan 4 fleteros, que no almacenan, y se ubicaron 40. De ellas, 32 salen de fuentes abiertas: la estación de servicio de OpenStreetMap que corresponde a la dirección (en la mayoría, con el mismo operador), las coordenadas que declara el propio padrón o la esquina, el cruce o el tramo de calle que declara, tomado de OpenStreetMap. Las otras 8 las ubicó Juan Sebastián Bértole, que conoce los lugares, porque Quequén, La Dulce y parte de Necochea no tienen direcciones cargadas en OpenStreetMap; la ventana de cada punto lo dice. Cuatro inscripciones no corresponden al partido o tienen una dirección inexistente, y 2 siguen sin ubicar (DATOS.md, sección 17). Una esquina o un cruce tiene una precisión de decenas de metros. La Secretaría de Energía no dice cómo tomó las coordenadas de las distribuidoras de GLP; las de las aceiteras las georreferenció con datos de la Cámara de la Industria Aceitera. Muchas estaciones también figuran en la capa de industria del IGN."
     },
     {
       "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
@@ -623,7 +623,7 @@
         "color": "#222222",
         "bicolor": true
       },
-      "activa_al_inicio": true,
+      "activa_al_inicio": false,
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: ferrocarril (fuente de captura: IGN, Ministerio de Transporte de la Nación y Ferrosur).",
       "fecha_datos_fija": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026).",
       "que_representa": "Los ramales del Ferrocarril General Roca que atraviesan el partido (R18, R21, R23, R25 y R27) y sus estaciones, según la cartografía oficial del IGN, con el estado que el IGN asigna a cada tramo: activa, abandonada o desmantelada. Las vías abandonadas o desmanteladas van en gris punteado porque su traza (terraplenes, alcantarillas, restos de puentes) sigue en el terreno y puede interferir con el escurrimiento.",

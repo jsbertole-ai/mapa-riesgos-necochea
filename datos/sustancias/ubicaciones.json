@@ -12,7 +12,7 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EX-2019-56784480-APN-DGDOMEN#MHA": {
-      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Sebastián no pudo confirmarla (28/09/2026)."
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Sebastián no pudo confirmarla (28/09/2026). Sebastián buscó la dirección y no encontró ningún establecimiento (28/09/2026): queda pendiente."
     },
     "EX-2018-53858298-APN-DGDOMEN#MHA": {
       "punto": [
@@ -28,7 +28,7 @@
       "sin_ubicar": "No corresponde al partido, según Sebastián (28/09/2026); el empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap también queda fuera del límite, a unos 425 m."
     },
     "EX-2018-56076406-APN-DGDOMEN#MHA": {
-      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Sebastián no pudo confirmarla (28/09/2026)."
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Sebastián no pudo confirmarla (28/09/2026). Sebastián buscó la dirección y no encontró ningún establecimiento (28/09/2026): queda pendiente."
     },
     "EXP-S01:0388350/2005": {
       "punto": [
@@ -164,7 +164,7 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01:0036224/2006": {
-      "sin_ubicar": "No corresponde a la Shell de la Ruta 228 y la Av. 43, según Sebastián (28/09/2026). Por el km 52 y la localidad que declara el padrón, estaría cerca de Energía; ninguna fuente abierta ubica esa boca de GNC."
+      "sin_ubicar": "Descartada: según Sebastián (28/09/2026), que lo verificó en la guía de rutas 2026, no hay GNC en Energía ni en San Cayetano; la boca más cercana sobre la Ruta 228 queda fuera del partido. La inscripción no corresponde a un establecimiento del partido."
     },
     "EXP-S01:0036230/2006": {
       "punto": [
