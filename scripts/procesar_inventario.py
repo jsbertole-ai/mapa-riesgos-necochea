@@ -10,8 +10,9 @@ archivo del proyecto). Cada registro aprobado pasa además estos controles; si f
 no se publica y el motivo se informa en pantalla (nunca en un archivo público):
 
   1. campos obligatorios completos y valores dentro de las listas de formulario.json;
-  2. fechas válidas (entre 1900 y hoy), evento de los últimos 100 años (criterio de Sebastián,
-     28/09/2026) y enlace que empieza con http:// o https://;
+  2. fechas válidas (entre 1900 y hoy), evento desde el 1/1/1980 (criterio de Sebastián,
+     28/09/2026: incluye la inundación de abril de 1980, la mayor registrada) y enlace que
+     empieza con http:// o https://;
   3. cantidades enteras mayores o iguales a cero;
   4. sin rastros de datos personales en el lugar ni en la descripción (correos,
      teléfonos, DNI, domicilios con número de puerta);
@@ -40,6 +41,8 @@ from comun import (CRUDOS, RAIZ, SITIO_DATOS, anotar_procesamiento, aviso, carga
 
 CONFIG = RAIZ / "datos" / "inventario" / "formulario.json"
 CARPETA = CRUDOS / "inventario"
+# Comienzo del período del inventario (decisión de Sebastián, 28/09/2026; antes eran los últimos 100 años).
+DESDE = dt.date(1980, 1, 1)
 # Registros cargados por el proyecto desde notas de prensa (público: solo lleva campos publicables y la nota de origen).
 PROYECTO = RAIZ / "datos" / "inventario" / "registros_proyecto.csv"
 
@@ -106,9 +109,8 @@ def controlar(fila, cfg, etiquetas, limite, caja):
     fecha, fecha_nota = fecha_valida(fila["fecha"]), fecha_valida(fila["fuente_fecha"])
     if not fecha or not fecha_nota:
         return None, "fecha inválida"
-    hoy = dt.date.today()
-    if fecha < hoy.replace(year=hoy.year - 100, day=min(hoy.day, 28)):
-        return None, "evento de hace más de 100 años (fuera del período del inventario)"
+    if fecha < DESDE:
+        return None, f"evento anterior al {DESDE.strftime('%d/%m/%Y')} (fuera del período del inventario)"
     url = fila["fuente_url"].strip()
     if not re.match(r"^https?://\S+$", url):
         return None, "enlace inválido"
@@ -202,9 +204,11 @@ def main():
         if not resultado:
             rechazos.append((fila.get("_id"), motivo))
             continue
-        clave = (resultado[0]["fuente_url"], resultado[0]["tipo"], resultado[0]["localidad"], resultado[0]["fecha"])
+        # El lugar distingue eventos distintos de una misma nota (por ejemplo, dos focos de incendio el mismo día).
+        clave = (resultado[0]["fuente_url"], resultado[0]["tipo"], resultado[0]["localidad"], resultado[0]["fecha"],
+                 (resultado[0]["lugar"] or "").lower())
         if clave in vistos:
-            rechazos.append((fila.get("_id"), "duplicado de otro registro aprobado (misma nota, tipo, localidad y fecha)"))
+            rechazos.append((fila.get("_id"), "duplicado de otro registro aprobado (misma nota, tipo, localidad, fecha y lugar)"))
             continue
         vistos.add(clave)
         publicados.append(resultado)

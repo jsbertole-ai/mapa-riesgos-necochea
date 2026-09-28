@@ -1,33 +1,45 @@
 {
   "exportacion": "registros_proyecto.csv",
-  "registros_en_la_exportacion": 11,
-  "aprobados": 6,
-  "publicados": 6,
+  "registros_en_la_exportacion": 17,
+  "aprobados": 17,
+  "publicados": 17,
   "no_publicados_por_controles": 0,
-  "sin_ubicacion_en_el_mapa": 0,
+  "sin_ubicacion_en_el_mapa": 1,
   "por_tipo": {
-    "Inundación": 4,
-    "Tornado": 2
+    "Inundación": 5,
+    "Tornado": 2,
+    "Tempestad": 2,
+    "Incendio forestal": 5,
+    "Marejada": 2,
+    "Colapso estructural": 1
   },
   "por_anio": {
     "1980": 4,
     "1990": 1,
-    "1993": 1
+    "1993": 1,
+    "2023": 1,
+    "2026": 6,
+    "2020": 1,
+    "2024": 3
   },
   "por_localidad": {
-    "Necochea y Quequén": 3,
+    "Necochea y Quequén": 12,
     "Nicanor Olivera (La Dulce)": 1,
     "Juan N. Fernández": 1,
-    "Claraz": 1
+    "Claraz": 1,
+    "Ramón Santamarina": 1,
+    "Zona rural o costa fuera de las localidades": 1
   },
   "efectos": {
-    "Evacuados": 845,
+    "Evacuados": 859,
     "Muertos": 1,
-    "Heridos o enfermos": 15
+    "Heridos o enfermos": 15,
+    "Viviendas afectadas": 30,
+    "Cultivos, pastizales o bosques (hectáreas)": 87.0
   },
   "periodo": [
     "1980-04-29",
-    "1993-04-13"
+    "2026-09-21"
   ],
   "licencia": "CC BY 4.0"
 }
