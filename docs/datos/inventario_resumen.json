@@ -1,8 +1,8 @@
 {
   "exportacion": "registros_proyecto.csv",
   "registros_en_la_exportacion": 18,
-  "aprobados": 17,
-  "publicados": 17,
+  "aprobados": 18,
+  "publicados": 18,
   "no_publicados_por_controles": 0,
   "sin_ubicacion_en_el_mapa": 1,
   "por_tipo": {
@@ -11,7 +11,8 @@
     "Tempestad": 2,
     "Incendio forestal": 5,
     "Marejada": 2,
-    "Colapso estructural": 1
+    "Colapso estructural": 1,
+    "Escape": 1
   },
   "por_anio": {
     "1980": 4,
@@ -20,10 +21,11 @@
     "2023": 1,
     "2026": 6,
     "2020": 1,
-    "2024": 3
+    "2024": 3,
+    "2015": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 12,
+    "Necochea y Quequén": 13,
     "Nicanor Olivera (La Dulce)": 1,
     "Juan N. Fernández": 1,
     "Claraz": 1,
@@ -32,8 +34,8 @@
   },
   "efectos": {
     "Evacuados": 859,
-    "Muertos": 1,
-    "Heridos o enfermos": 15,
+    "Muertos": 2,
+    "Heridos o enfermos": 25,
     "Viviendas afectadas": 30,
     "Cultivos, pastizales o bosques (hectáreas)": 87.0
   },
