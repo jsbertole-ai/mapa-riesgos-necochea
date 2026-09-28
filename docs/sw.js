@@ -6,7 +6,7 @@
  * ni se guardan: la política de uso de OpenStreetMap prohíbe el uso sin
  * conexión y la descarga anticipada.
  */
-const CACHE = "mapa-riesgos-v53";
+const CACHE = "mapa-riesgos-v54";
 const BASE = [
   "./",
   "index.html",

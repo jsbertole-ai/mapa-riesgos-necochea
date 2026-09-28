@@ -18,6 +18,15 @@
         -58.730947
       ],
       "fuente": "Coordenada tomada de OpenStreetMap por un colaborador (28/09/2026); la Jefatura todavía no figura cargada en OSM. Funciona en temporada de verano."
+    },
+    {
+      "organismo": "Radioaficionados",
+      "nombre": "Radio Club Necochea (LU9EV)",
+      "punto": [
+        -38.55535,
+        -58.740756
+      ],
+      "fuente": "Sede del Radio Club Necochea; coordenada tomada de OpenStreetMap por un colaborador que conoce el lugar (28/09/2026). Según El Eco (18/07/2026), el club trabaja \"junto al Municipio, Defensa Civil, Bomberos, Guardaparques, Guardavidas\" y tiene dos repetidoras (VHF y UHF)."
     }
   ]
 }

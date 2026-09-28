@@ -558,7 +558,7 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-09-28T16:06:29+00:00",
+    "procesado": "2026-09-28T16:10:38+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
@@ -572,7 +572,7 @@
     "pba_sin_coordenadas": [
       "Comisaría Necochea 1°"
     ],
-    "elementos": 15,
+    "elementos": 16,
     "por_organismo": {
       "Bomberos": 3,
       "Centro Operativo de Monitoreo": 1,
@@ -580,12 +580,13 @@
       "Defensa Civil": 1,
       "Guardavidas": 1,
       "Policía": 7,
-      "Prefectura Naval": 1
+      "Prefectura Naval": 1,
+      "Radioaficionados": 1
     },
     "por_fuente": {
       "OpenStreetMap": 4,
       "IGN": 6,
-      "Colaborador": 2,
+      "Colaborador": 3,
       "Provincia de Buenos Aires": 3
     },
     "descartados_por_duplicados": 6,
@@ -597,7 +598,7 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-09-28T16:06:29+00:00",
+    "procesado": "2026-09-28T16:10:38+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "por_tipo": {
