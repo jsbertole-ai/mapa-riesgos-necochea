@@ -29,13 +29,13 @@
       "fuente": "Cáritas parroquial, confirmada por un colaborador (28/09/2026). El punto es el del templo en OpenStreetMap (node/11821125524), en la Calle 96, barrio Tiro Federal."
     },
     {
-      "nombre": "Iglesia Evangélica Bethel (lugar de asistencia)",
-      "tipo": "Iglesia evangélica",
+      "nombre": "Iglesia Evangélica Bethel (obra misionera)",
+      "tipo": "Organización de ayuda social",
       "punto": [
         -38.56331,
         -58.73346
       ],
-      "fuente": "El punto marca dónde se brinda la ayuda asistencial, en la cuadra del 3100 de la Calle 40; el templo principal está en la misma calle, a la altura 3037. Ambos datos, de un colaborador (28/09/2026); la coordenada se tomó de OpenStreetMap, donde la iglesia no figura cargada. Sitio web: https://visionfeyaccion.com/ Reparte mercadería en los barrios y asiste a personas mayores (La Quinta Digital, 05/06/2020: https://laquintadigital.com.ar/nota/2220/la-iglesia-bethel-en-necochea-confecciona-tapabocas-y-reparte-mercaderia-en-los-barrios); que también acoge a personas en situación de calle lo informa el colaborador, la nota no lo menciona. En el Digesto del Concejo Deliberante figura como entidad de bien público con personería jurídica (Ordenanza 10338/2020, que le da en tenencia precaria la unidad turística ex Costa Dorada \"dada la labor que desarrollan\") y con permisos para locros solidarios en la vía pública (Ordenanzas 8230/2014 y 8507/2015): https://hcdnecochea.gob.ar/app/digesto-publico/"
+      "fuente": "El punto marca dónde funciona su obra misionera, en la cuadra del 3100 de la Calle 40; el templo principal está en la misma calle, a la altura 3037. Ambos datos, de un colaborador (28/09/2026); la coordenada se tomó de OpenStreetMap, donde la iglesia no figura cargada. Sitio web: https://visionfeyaccion.com/ Reparte mercadería en los barrios y asiste a personas mayores (La Quinta Digital, 05/06/2020: https://laquintadigital.com.ar/nota/2220/la-iglesia-bethel-en-necochea-confecciona-tapabocas-y-reparte-mercaderia-en-los-barrios). Según el colaborador, la obra misionera se sostiene con personas que ayudan a cocinar y vender comida; no es un refugio ni aloja personas. En el Digesto del Concejo Deliberante figura como entidad de bien público con personería jurídica (Ordenanza 10338/2020, que le da en tenencia precaria la unidad turística ex Costa Dorada \"dada la labor que desarrollan\") y con permisos para locros solidarios en la vía pública (Ordenanzas 8230/2014 y 8507/2015): https://hcdnecochea.gob.ar/app/digesto-publico/"
     },
     {
       "nombre": "\"El Cafecito\", parroquia Santa María del Carmen",
