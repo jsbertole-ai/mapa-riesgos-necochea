@@ -1,8 +1,8 @@
 {
   "exportacion": "registros_proyecto.csv",
   "registros_en_la_exportacion": 31,
-  "aprobados": 30,
-  "publicados": 30,
+  "aprobados": 31,
+  "publicados": 31,
   "no_publicados_por_controles": 0,
   "sin_ubicacion_en_el_mapa": 2,
   "por_tipo": {
@@ -14,14 +14,15 @@
     "Colapso estructural": 2,
     "Escape": 2,
     "Vendaval": 2,
-    "Cambio de la línea de costa": 1
+    "Cambio de la línea de costa": 1,
+    "Incendio": 1
   },
   "por_anio": {
     "1980": 4,
     "1990": 1,
     "1993": 1,
     "2023": 1,
-    "2026": 9,
+    "2026": 10,
     "2020": 1,
     "2024": 4,
     "2015": 1,
@@ -31,7 +32,7 @@
     "2025": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 21,
+    "Necochea y Quequén": 22,
     "Nicanor Olivera (La Dulce)": 3,
     "Juan N. Fernández": 1,
     "Claraz": 1,
@@ -41,7 +42,7 @@
   "efectos": {
     "Evacuados": 892,
     "Muertos": 2,
-    "Heridos o enfermos": 25,
+    "Heridos o enfermos": 26,
     "Viviendas afectadas": 43,
     "Cultivos, pastizales o bosques (hectáreas)": 87.0,
     "Centros de salud afectados": 1
