@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-27T22:39:53+00:00",
+  "generado": "2026-09-28T02:19:00+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -59,10 +59,10 @@
       "limitaciones": "Geometría detallada (32.136 vértices). Reemplazó el 26/09/2026 a la versión generalizada de Georef (57 vértices); el cambio movió la asignación al partido de algunos elementos cercanos al borde (por ejemplo, 4 focos MODIS menos y 1 VIIRS más). El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 1,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:46+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:54+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -92,10 +92,10 @@
       "limitaciones": "Cada localidad es un punto; su extensión está en la capa de planta urbana. El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 6,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:54+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "6 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -141,10 +141,10 @@
       "limitaciones": "Delimitación de escala nacional, con un trazado simplificado (555 vértices): sirve para ver el conjunto, no para decidir si un campo o una calle está adentro o afuera. El área y el reparto entre partidos son aproximados: se calcularon sobre este mismo polígono, con una grilla de 0,02 grados y los límites de Georef.",
       "estado": "verificada",
       "elementos": 1,
-      "fecha_datos": "Recurso publicado el 13/07/2023 según datos.gob.ar; la fuente no informa la fecha de la delimitación. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:49+00:00",
+      "fecha_datos": "Recurso publicado el 13/07/2023 según datos.gob.ar; la fuente no informa la fecha de la delimitación. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:56+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "1 elementos, todos dentro de la caja de la cuenca y sin etiquetas excluidas.",
           "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=cuencas-hidricas-cohife (leída el 2026-09-27)."
@@ -180,15 +180,15 @@
       "limitaciones": "Cartografía de escala regional, sin fecha informada. Las zanjas aparecen sin nombre ni función. Un tramo que cruza el límite de la cuenca se ve completo.",
       "estado": "verificada",
       "elementos": 329,
-      "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:49+00:00",
+      "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:56+00:00",
       "por_tipo": {
         "Corriente de agua perenne": 91,
         "Corriente de agua intermitente": 192,
         "Acequia, zanja o zanjón": 46
       },
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "329 elementos, todos dentro de la caja de la cuenca y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -218,10 +218,10 @@
       "limitaciones": "Mucho menos detallada que la de OpenStreetMap: no incluye la mayoría de los cuerpos de agua chicos ni la línea de costa. El IGN no informa la escala ni la fecha de la capa. Un curso que cruza el límite se ve completo.",
       "estado": "verificada",
       "elementos": 138,
-      "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:48+00:00",
+      "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "138 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -252,9 +252,9 @@
       "estado": "verificada",
       "elementos": 2279,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:21:54Z (UTC).",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "procesado": "2026-09-28T02:18:54+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "2279 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -285,10 +285,10 @@
       "limitaciones": "Según su campo de fuente de captura, provienen de cartografía a escala 1:500.000 y 1:250.000: sirven para ver el relieve general, no para decidir si una calle o un lote se inunda. Los intervalos entre curvas no son regulares. Una curva que cruza el límite se ve completa. En 93 curvas el código de método de obtención es 6, que no figura en la documentación de la capa.",
       "estado": "verificada",
       "elementos": 229,
-      "fecha_datos": "El servicio del IGN no informa la fecha de esta capa; la documentación que republica la provincia es del 24/10/2021. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El servicio del IGN no informa la fecha de esta capa; la documentación que republica la provincia es del 24/10/2021. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "229 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -318,10 +318,10 @@
       "limitaciones": "Cartografía de escala regional. El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 40,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "40 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -351,10 +351,10 @@
       "limitaciones": "Registro posiblemente incompleto (inferido: son pocos frente a los cruces entre caminos y cursos de agua del partido). El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 16,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "16 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -386,7 +386,7 @@
       "estado": "verificada",
       "elementos": 654,
       "fecha_datos": "2000-11-16 a 2024-11-12",
-      "procesado": "2026-09-27T22:39:46+00:00",
+      "procesado": "2026-09-28T02:18:54+00:00",
       "focos_por_anio": {
         "2000": 3,
         "2001": 28,
@@ -419,7 +419,7 @@
         "2": 17
       },
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "654 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-09-27)."
@@ -451,7 +451,7 @@
       "estado": "verificada",
       "elementos": 601,
       "fecha_datos": "2012-02-10 a 2024-12-20",
-      "procesado": "2026-09-27T22:39:46+00:00",
+      "procesado": "2026-09-28T02:18:54+00:00",
       "focos_por_anio": {
         "2012": 41,
         "2013": 30,
@@ -471,7 +471,7 @@
         "0": 601
       },
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "601 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-09-27)."
@@ -501,10 +501,10 @@
       "limitaciones": "Escala regional: las forestaciones chicas pueden faltar. El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 47,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "47 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -546,9 +546,9 @@
       "estado": "verificada",
       "elementos": 643,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:24:01Z (UTC).",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "procesado": "2026-09-28T02:18:54+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "643 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -580,10 +580,10 @@
       "limitaciones": "El IGN no informa la fecha. Las posiciones del mareógrafo de Quequén, el faro y la baliza Escollera Norte coinciden, a menos de 12 m, con las que publica el Servicio de Hidrografía Naval (comparación del 27/09/2026); los datos del SHN no se usan porque no tienen licencia de reutilización.",
       "estado": "verificada",
       "elementos": 9,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "9 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -614,10 +614,10 @@
       "limitaciones": "Una línea que cruza el límite se ve completa. El IGN tiene además un ducto en la zona (General San Martín), pero cae fuera del partido. El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 11,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "11 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -652,14 +652,14 @@
       "limitaciones": "Es una foto de 2022: tramos nuevos o retirados después no aparecen. El campo de cooperativa está vacío en casi todos los tramos del partido, así que el mapa no atribuye el operador. En la capa del IGN no hay líneas de media tensión, y en OpenStreetMap solo figuran algunas de 33 kV. El tendido aéreo es el expuesto a caídas de postes y cables en temporales (las notas del municipio sobre temporales las registran con frecuencia); la fuente no ubica los postes uno por uno.",
       "estado": "verificada",
       "elementos": 5502,
-      "fecha_datos": "Recurso actualizado el 30/05/2022 según datos.gob.ar; la fuente no informa la fecha del relevamiento. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:52+00:00",
+      "fecha_datos": "Recurso actualizado el 30/05/2022 según datos.gob.ar; la fuente no informa la fecha del relevamiento. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:59+00:00",
       "por_tipo": {
         "Aérea": 4236,
         "Subterránea": 1266
       },
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "5502 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=redes-de-distribucion-electrica-del-consejo-federal (leída el 2026-09-27)."
@@ -690,9 +690,9 @@
       "estado": "verificada",
       "elementos": 1474,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:23:36Z (UTC).",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "procesado": "2026-09-28T02:18:54+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "1474 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -732,12 +732,12 @@
       "estado": "verificada",
       "elementos": 1,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:23:36Z (UTC).",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "procesado": "2026-09-28T02:18:54+00:00",
       "por_tipo": {
         "Poste eléctrico de baja tensión o sin tensión informada": 1
       },
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -769,10 +769,10 @@
       "limitaciones": "En las estaciones de servicio se descartan los nombres, porque identifican al titular (regla de datos personales). El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 31,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "31 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -802,8 +802,8 @@
       "limitaciones": "Un ramal que cruza el límite se ve completo, también fuera del partido. El IGN no informa la escala ni la fecha de la capa, así que el estado de cada tramo puede estar desactualizado. Todas las estaciones del partido figuran abandonadas. La fuente de captura dice \"Ferrosur\" en los tramos que eran de esa concesión; no se verificó quién los tiene hoy.",
       "estado": "verificada",
       "elementos": 14,
-      "fecha_datos": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "por_tipo": {
         "Vía desmantelada": 2,
         "Vía activa": 3,
@@ -811,7 +811,7 @@
         "Estación abandonada": 8
       },
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "14 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -841,10 +841,10 @@
       "limitaciones": "Un tramo que cruza el límite se ve completo. La red terciaria del IGN (797 tramos en la caja envolvente del partido) queda afuera para que el mapa se pueda leer.",
       "estado": "verificada",
       "elementos": 19,
-      "fecha_datos": "Metadato del IGN creado el 24/10/2021, con actualización mensual declarada (https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf); el servicio no informa la fecha de la versión consultada. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "Metadato del IGN creado el 24/10/2021, con actualización mensual declarada (https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf); el servicio no informa la fecha de la versión consultada. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "19 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -885,10 +885,10 @@
       "limitaciones": "Delimitación de escala regional: puede no reflejar el crecimiento urbano reciente. El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 7,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "7 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -918,10 +918,10 @@
       "limitaciones": "Puede haber establecimientos cerrados o nuevos que no figuren. El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 140,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "140 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -951,10 +951,10 @@
       "limitaciones": "Puede haber establecimientos cerrados o nuevos que no figuren. El IGN no informa la fecha.",
       "estado": "verificada",
       "elementos": 22,
-      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:55+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "22 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
@@ -985,9 +985,9 @@
       "estado": "verificada",
       "elementos": 12,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:27:40Z (UTC).",
-      "procesado": "2026-09-27T22:39:47+00:00",
+      "procesado": "2026-09-28T02:18:54+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "12 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -1019,10 +1019,10 @@
       "limitaciones": "Es una foto de diciembre de 2023: los cambios posteriores (obras, relocalizaciones, barrios nuevos) no aparecen. Las familias y viviendas son aproximadas. El criterio para que un barrio entre al registro lo fija el decreto 2670/2015 (al que remite la Ley 27.453), cuyo texto todavía no se revisó para este mapa. Algunos campos figuran como \"Sin Datos\" en la fuente.",
       "estado": "verificada",
       "elementos": 9,
-      "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado. Consulta al servicio: 2026-09-27.",
-      "procesado": "2026-09-27T22:39:52+00:00",
+      "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T02:18:59+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "9 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=registro-nacional-de-barrios-populares (leída el 2026-09-27)."
@@ -1064,7 +1064,7 @@
       "estado": "verificada",
       "elementos": 12,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-09-27T22:39:49+00:00",
+      "procesado": "2026-09-28T02:18:57+00:00",
       "por_organismo": {
         "Bomberos": 3,
         "Centro Operativo de Monitoreo": 1,
@@ -1073,7 +1073,7 @@
         "Prefectura Naval": 1
       },
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "12 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -1113,13 +1113,13 @@
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-09-27T22:39:49+00:00",
+      "procesado": "2026-09-28T02:18:57+00:00",
       "por_tipo": {
         "Personas en situación de calle": 1,
         "Evacuación ante catástrofes": 1
       },
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
           "2 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
@@ -1134,7 +1134,6 @@
       "organismo": "Inventario local de eventos y vulnerabilidades del partido de Necochea (Juan Sebastián Bértole y colaboradores), a partir de notas de medios locales",
       "licencia": "CC BY 4.0",
       "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
-      "motivo_pendiente": "El formulario ya recibe registros, pero todavía no hay ninguno revisado y aprobado. Cada registro se publica solo después de que Juan Sebastián Bértole verifica la nota de origen y que no contenga datos personales.",
       "que_representa": "Eventos adversos (inundaciones, temporales, incendios, accidentes tecnológicos) y vulnerabilidades observadas en el partido, cada uno con la nota periodística de origen enlazada, al estilo de la base DesInventar.",
       "que_no_representa": "No es un registro oficial ni completo: depende de lo que publicaron los medios y de lo que cargaron los colaboradores.",
       "geometria": "punto",
@@ -1143,18 +1142,18 @@
         "radio": 6
       },
       "activa_al_inicio": false,
-      "formato": "Formulario de KoboToolbox; exportación CSV procesada a GeoJSON por scripts/procesar_inventario.py",
+      "formato": "Formulario de KoboToolbox y registros cargados por el proyecto desde el archivo de prensa (datos/inventario/registros_proyecto.csv), procesados a GeoJSON por scripts/procesar_inventario.py",
       "cita": "Inventario local de eventos y vulnerabilidades del partido de Necochea (Juan Sebastián Bértole y colaboradores), CC BY 4.0. Cada registro cita la nota periodística de origen.",
-      "limitaciones": "Los registros sin punto propio se muestran juntos en el punto de su localidad (IGN), que no es el lugar del evento; los de zona rural sin punto solo cuentan en el resumen. Las cifras de efectos son las que informó la nota, sin verificación independiente; un campo vacío significa sin dato, no cero.",
+      "limitaciones": "Abarca los eventos de los últimos 100 años (criterio de Sebastián, 28/09/2026). Los registros sin punto propio se muestran juntos en el punto de su localidad (IGN), que no es el lugar del evento; los de zona rural sin punto solo cuentan en el resumen. Las cifras de efectos son las que informó la nota, sin verificación independiente; un campo vacío significa sin dato, no cero. Los primeros registros salen de crónicas de Ecos Diarios que repasan eventos históricos; cuando una nota no nombra la localidad y se la asigna por el contexto, el registro lo dice en sus observaciones.",
       "url_formulario": "https://ee.kobotoolbox.org/x/JsHKYrg5",
-      "estado": "pendiente",
-      "elementos": 0,
-      "fecha_datos": null,
-      "procesado": null,
+      "estado": "verificada",
+      "elementos": 4,
+      "fecha_datos": "Registros aprobados al 2026-09-28; eventos entre 1980-04-29 y 1993-04-13",
+      "procesado": "2026-09-28T02:18:59+00:00",
       "verificacion": {
-        "fecha": "2026-09-27",
+        "fecha": "2026-09-28",
         "controles": [
-          "Todavía no hay registros aprobados.",
+          "4 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Fuente propia: cada colaborador acepta publicar su registro bajo CC BY 4.0 en el formulario; solo se publican los registros aprobados tras revisar la nota de origen."
         ]
       }

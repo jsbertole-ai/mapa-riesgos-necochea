@@ -809,11 +809,11 @@
         "radio": 6
       },
       "activa_al_inicio": false,
-      "formato": "Formulario de KoboToolbox; exportación CSV procesada a GeoJSON por scripts/procesar_inventario.py",
+      "formato": "Formulario de KoboToolbox y registros cargados por el proyecto desde el archivo de prensa (datos/inventario/registros_proyecto.csv), procesados a GeoJSON por scripts/procesar_inventario.py",
       "cita": "Inventario local de eventos y vulnerabilidades del partido de Necochea (Juan Sebastián Bértole y colaboradores), CC BY 4.0. Cada registro cita la nota periodística de origen.",
       "licencia_propia": "Fuente propia: cada colaborador acepta publicar su registro bajo CC BY 4.0 en el formulario; solo se publican los registros aprobados tras revisar la nota de origen.",
       "mensaje_sin_archivo": "Todavía no hay registros aprobados.",
-      "limitaciones": "Los registros sin punto propio se muestran juntos en el punto de su localidad (IGN), que no es el lugar del evento; los de zona rural sin punto solo cuentan en el resumen. Las cifras de efectos son las que informó la nota, sin verificación independiente; un campo vacío significa sin dato, no cero.",
+      "limitaciones": "Abarca los eventos de los últimos 100 años (criterio de Sebastián, 28/09/2026). Los registros sin punto propio se muestran juntos en el punto de su localidad (IGN), que no es el lugar del evento; los de zona rural sin punto solo cuentan en el resumen. Las cifras de efectos son las que informó la nota, sin verificación independiente; un campo vacío significa sin dato, no cero. Los primeros registros salen de crónicas de Ecos Diarios que repasan eventos históricos; cuando una nota no nombra la localidad y se la asigna por el contexto, el registro lo dice en sus observaciones.",
       "url_formulario": "https://ee.kobotoolbox.org/x/JsHKYrg5"
     }
   ]
