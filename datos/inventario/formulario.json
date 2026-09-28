@@ -183,6 +183,11 @@
       "nombre": "Accidente"
     },
     {
+      "name": "PLAGUE",
+      "label": "Plaga (proliferación de insectos u otros animales que dañan cultivos, ganado o personas)",
+      "nombre": "Plaga"
+    },
+    {
       "name": "OTHER",
       "label": "Otro"
     }

@@ -1,10 +1,10 @@
 {
   "exportacion": "registros_proyecto.csv",
-  "registros_en_la_exportacion": 36,
-  "aprobados": 36,
-  "publicados": 36,
+  "registros_en_la_exportacion": 37,
+  "aprobados": 37,
+  "publicados": 37,
   "no_publicados_por_controles": 0,
-  "sin_ubicacion_en_el_mapa": 5,
+  "sin_ubicacion_en_el_mapa": 6,
   "por_tipo": {
     "Inundación": 11,
     "Tornado": 3,
@@ -16,7 +16,8 @@
     "Vendaval": 2,
     "Cambio de la línea de costa": 1,
     "Incendio": 1,
-    "Sequía": 2
+    "Sequía": 2,
+    "Plaga": 1
   },
   "por_anio": {
     "1980": 4,
@@ -33,7 +34,8 @@
     "2025": 1,
     "1999": 1,
     "2001": 1,
-    "2014": 1
+    "2014": 1,
+    "2009": 1
   },
   "por_localidad": {
     "Necochea y Quequén": 23,
@@ -41,7 +43,7 @@
     "Juan N. Fernández": 1,
     "Claraz": 1,
     "Ramón Santamarina": 2,
-    "Zona rural o costa fuera de las localidades": 6
+    "Zona rural o costa fuera de las localidades": 7
   },
   "efectos": {
     "Evacuados": 892,
