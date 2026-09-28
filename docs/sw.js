@@ -1,4 +1,4 @@
-/* Service worker del mapa de riesgos.
+/* Service worker del mapa para la gestión del riesgo.
  * Guarda solo archivos del propio sitio (páginas, estilos, código y capas).
  * Estrategia: primero la red (revalidando siempre con el servidor), y si no
  * hay conexión, la copia guardada; así una actualización se ve apenas hay red.
@@ -6,7 +6,7 @@
  * ni se guardan: la política de uso de OpenStreetMap prohíbe el uso sin
  * conexión y la descarga anticipada.
  */
-const CACHE = "mapa-riesgos-v42";
+const CACHE = "mapa-riesgos-v44";
 const BASE = [
   "./",
   "index.html",
