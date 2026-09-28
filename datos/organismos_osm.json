@@ -10,6 +10,12 @@
       "osm": "node/14222511472",
       "organismo": "Bomberos",
       "fuente": "Cargado en OpenStreetMap por un colaborador a partir de su conocimiento del lugar (27/09/2026); cuartel de la Policía de la Provincia de Buenos Aires."
+    },
+    {
+      "osm": "node/14073727496",
+      "organismo": "Cruz Roja",
+      "nombre": "Posta sanitaria de la Cruz Roja",
+      "fuente": "Posta sanitaria de la Cruz Roja, según un colaborador (28/09/2026); funciona de diciembre a marzo. En OpenStreetMap figura como \"Posta Sanitaria\", junto a la Jefatura de Playa."
     }
   ]
 }

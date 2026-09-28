@@ -151,7 +151,7 @@ def organismos_fijados(offline, limite, caja):
             continue
         tags = el.get("tags") or {}
         features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
-            "organismo": r["organismo"], "nombre": tags.get("name") or r.get("nombre"), "fuente": "OpenStreetMap",
+            "organismo": r["organismo"], "nombre": r.get("nombre") or tags.get("name"), "fuente": "OpenStreetMap",
             "ref": r["osm"], "nota": r.get("fuente")}})
     return features
 

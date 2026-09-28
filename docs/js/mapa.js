@@ -150,7 +150,7 @@
     if (p.fuente === "Colaborador") return '<p class="nota">' + esc(p.nota) + "</p>";
     return p.fuente === "IGN"
       ? '<p class="nota">' + esc(CITA_IGN) + (p.fuente_captura ? " Fuente de captura: " + esc(p.fuente_captura) + "." : "") + "</p>"
-      : '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.ref, "OpenStreetMap, " + p.ref) + " (ODbL).</p>";
+      : (p.nota ? '<p class="nota">' + esc(p.nota) + "</p>" : "") + '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.ref, "OpenStreetMap, " + p.ref) + " (ODbL).</p>";
   }
 
   // Organismos de respuesta: IGN (policía, Prefectura, bomberos) y OpenStreetMap (el resto).
