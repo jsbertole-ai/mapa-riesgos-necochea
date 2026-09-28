@@ -1,4 +1,4 @@
-/* Mapa de riesgos del partido de Necochea.
+/* Mapa para la gestión del riesgo del partido de Necochea.
  * Lee docs/datos/capas.json (generado por scripts/verificar.py) y dibuja
  * solo las capas en estado "verificada". El resto se lista como
  * "pendiente de fuente". Los GeoJSON se piden recién al activar cada capa.

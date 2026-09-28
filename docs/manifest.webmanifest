@@ -1,7 +1,7 @@
 {
-  "name": "Mapa de riesgos del partido de Necochea",
+  "name": "Mapa para la gestión del riesgo del partido de Necochea",
   "short_name": "Riesgos Necochea",
-  "description": "Mapa de amenazas del partido de Necochea hecho con datos abiertos.",
+  "description": "Mapa para la gestión del riesgo en el partido de Necochea, hecho con datos abiertos.",
   "lang": "es-AR",
   "start_url": "./",
   "scope": "./",

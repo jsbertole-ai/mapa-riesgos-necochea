@@ -1,6 +1,6 @@
-# Mapa interactivo de riesgos del partido de Necochea
+# Mapa para la gestión del riesgo del partido de Necochea
 
-Mapa de riesgos del partido de Necochea (provincia de Buenos Aires, Argentina), hecho solo con datos abiertos y publicado como sitio estático en GitHub Pages. Es una pieza de divulgación, en construcción y colectiva (decisión de Sebastián, 27/09/2026: el mapa no es de una persona, se arma entre quienes aportan datos). Lo empezó Juan Sebastián Bértole, estudiante de la Licenciatura en Gestión de Riesgos y Siniestralidad (Instituto Universitario Vucetich). Importa más el rigor de las fuentes que la cantidad de capas.
+Mapa para la gestión del riesgo del partido de Necochea (provincia de Buenos Aires, Argentina; nombre decidido por Sebastián el 28/09/2026, porque según Lavell, 2007, p. 37, un "mapa de riesgos" marca probabilidades y este no lo hace), hecho solo con datos abiertos y publicado como sitio estático en GitHub Pages. Es una pieza de divulgación, en construcción y colectiva (decisión de Sebastián, 27/09/2026: el mapa no es de una persona, se arma entre quienes aportan datos). Lo empezó Juan Sebastián Bértole, estudiante de la Licenciatura en Gestión de Riesgos y Siniestralidad (Instituto Universitario Vucetich). Importa más el rigor de las fuentes que la cantidad de capas.
 
 ## Reglas que no se negocian
 

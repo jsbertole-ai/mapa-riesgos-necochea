@@ -122,7 +122,16 @@ a { color: var(--acento); }
 .boton-colaborar .corto { display: none; }
 
 #boton-capas { display: none; }
-.titulo-corto { display: none; }
+.titulo-corto, .titulo-medio { display: none; }
+/* El nombre completo entra recién desde unos 1440 px; en pantallas intermedias va una versión media. */
+@media (min-width: 761px) and (max-width: 1023px) {
+  .titulo-largo { display: none; }
+  .titulo-corto { display: inline; }
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .titulo-largo { display: none; }
+  .titulo-medio { display: inline; }
+}
 
 /* Página del mapa */
 .app {
