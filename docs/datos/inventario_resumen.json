@@ -1,33 +1,40 @@
 {
   "exportacion": "registros_proyecto.csv",
   "registros_en_la_exportacion": 11,
-  "aprobados": 6,
-  "publicados": 6,
+  "aprobados": 11,
+  "publicados": 11,
   "no_publicados_por_controles": 0,
   "sin_ubicacion_en_el_mapa": 0,
   "por_tipo": {
-    "Inundación": 4,
-    "Tornado": 2
+    "Inundación": 5,
+    "Tornado": 2,
+    "Tempestad": 2,
+    "Incendio forestal": 2
   },
   "por_anio": {
     "1980": 4,
     "1990": 1,
-    "1993": 1
+    "1993": 1,
+    "2023": 1,
+    "2026": 3,
+    "2020": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 3,
+    "Necochea y Quequén": 7,
     "Nicanor Olivera (La Dulce)": 1,
     "Juan N. Fernández": 1,
-    "Claraz": 1
+    "Claraz": 1,
+    "Ramón Santamarina": 1
   },
   "efectos": {
-    "Evacuados": 845,
+    "Evacuados": 859,
     "Muertos": 1,
-    "Heridos o enfermos": 15
+    "Heridos o enfermos": 15,
+    "Viviendas afectadas": 30
   },
   "periodo": [
     "1980-04-29",
-    "1993-04-13"
+    "2026-05-08"
   ],
   "licencia": "CC BY 4.0"
 }
