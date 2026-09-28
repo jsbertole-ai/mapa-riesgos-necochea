@@ -223,6 +223,29 @@
     );
   }
 
+  // Sustancias peligrosas: uno o varios establecimientos de los listados de la Secretaría de Energía en un mismo punto.
+  function popupSustancias(p) {
+    const registros = p.registros;
+    return (
+      "<h3>" + esc(registros.length === 1 ? registros[0].tipo : registros.length + " establecimientos en este punto") + "</h3>" +
+      registros.map(function (r) {
+        const filas = [];
+        if (registros.length > 1) filas.push(["Tipo", r.tipo]);
+        if (r.detalle) filas.push(["Detalle", r.detalle]);
+        if (r.direccion) filas.push(["Dirección (según la fuente)", r.direccion]);
+        if (r.localidad) filas.push(["Localidad", r.localidad]);
+        return (
+          '<div class="registro">' +
+          "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
+          '<div class="nota">Ubicación del punto: ' + esc(r.punto) + "</div>" +
+          '<div class="nota">Fuente: ' + esc(r.fuente) + ", Secretaría de Energía (CC BY 4.0).</div>" +
+          "</div>"
+        );
+      }).join("") +
+      '<p class="nota">No informa cantidades almacenadas. No se publican titulares ni datos de contacto.</p>'
+    );
+  }
+
   function popupAntena(p) {
     const tipos = { mast: "Mástil", tower: "Torre", antenna: "Antena", communications_tower: "Torre de comunicaciones" };
     const servicios = { mobile_phone: "telefonía móvil", radio: "radio", television: "televisión", amateur_radio: "radioaficionados", microwave: "microondas" };
@@ -441,6 +464,7 @@
           if (capa.id === "barrios_populares") return popupBarrio(f.properties);
           if (capa.id === "antenas") return popupAntena(f.properties);
           if (capa.id === "envases_fitosanitarios") return popupEnvases(f.properties);
+          if (capa.id === "sustancias_peligrosas") return popupSustancias(f.properties);
           if (capa.id === "cuenca_quequen") return popupCuenca(f.properties);
           if (capa.id.startsWith("incendios_")) return popupFirms(f.properties, capa);
           if (esIgn(capa)) return popupIgn(f.properties);

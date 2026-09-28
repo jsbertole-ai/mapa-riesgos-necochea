@@ -347,6 +347,7 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Portuaria e industrial: ferrocarril | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada (6 tramos y 8 estaciones), con el estado de cada tramo según el IGN |
 | Portuaria e industrial: rutas nacionales y provinciales | IGN (WFS) | Verificada, términos del IGN; metadato de 2021, actualización mensual declarada | Publicada, apagada al inicio (19 tramos) |
 | Portuaria e industrial: zonificación | Municipio | Sin fuente geográfica | Pendiente de fuente |
+| Portuaria e industrial: sustancias peligrosas | Secretaría de Energía (padrón de combustibles, distribuidoras de GLP, aceiteras); puntos con OpenStreetMap (sección 17) | Verificada, CC BY 4.0 y ODbL | 36 establecimientos ubicados, a la espera de la aprobación de Sebastián |
 | Expuestos: planta urbana | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (7) |
 | Expuestos: establecimientos educativos | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (140) |
 | Expuestos: establecimientos de salud | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (22) |
@@ -588,6 +589,73 @@ Pedido: una capa de lugares donde se acopian agroquímicos, a partir del caso de
 | Depósitos y comercios de agroquímicos (registro provincial de la Ley 10.699) | Sin fuente abierta encontrada en los catálogos nacional y provincial (búsquedas "agroquimicos", "fitosanitarios", "plaguicidas", "acopio"). |
 | Plantas de acopio de granos (donde se fumiga con fosfina) | "Granos - Centros de acopio" de datos.gob.ar informa cantidades por partido, sin ubicación. OpenStreetMap tiene silos (`man_made=silo`) en la capa de instalaciones portuarias, sin operador ni uso. |
 | INTA (GeoINTA, http://www.geointa.inta.gob.ar/) | No se encontró una capa de depósitos de agroquímicos ni de acopios; no se revisó el catálogo capa por capa. |
+
+## 17. Sustancias peligrosas: combustibles, gas envasado y aceiteras (pedido de Sebastián, 28/09/2026) · **Verificada** · capa armada, puntos a la espera de su aprobación
+
+Pedido: "buscamos un listado y referenciamos uno por uno en una capa específica de sustancias peligrosas". Relevamiento de fuentes hecho por un agente el 28/09/2026 (los archivos quedaron en el espacio de trabajo de la sesión, no en el repositorio). La regla de ubicación de `CLAUDE.md` se aplica a esta capa: cada punto se ubica uno por uno, dice de dónde sale y se publica solo con la aprobación de Sebastián (`datos/sustancias/ubicaciones.json`, campo `aprobado`).
+
+**Fuentes en uso** (las tres de la Secretaría de Energía, en Datos Argentina, `"license_id": "CC-BY-4.0"`, leído el 28/09/2026):
+
+| Fuente | Datos | Cobertura en el partido y limitaciones |
+|---|---|---|
+| Padrón de operadores autorizados para la venta de combustibles líquidos (Res. SE 1102/2004), https://datos.gob.ar/dataset/registro-de-operadores-autorizados-para-la-venta-de-combustibles-liquidos; archivo http://sgda.energia.gob.ar/sgdaint/publico/res1102-padronoperadores-publico.xls.zip (solo por HTTP; el HTTPS del servidor no valida su certificado) | Excel 97 con expediente, titular, CUIT, dirección, localidad, tipo de negocio y tipo de boca. Encabezado "ACTUALIZADO AL: 28/09/2026". Se lee con `scripts/leer_xls.py` (lector propio, sin dependencias; comparado celda por celda con la biblioteca xlrd sobre las 10.535 filas del padrón: 0 diferencias). | 50 inscripciones en el partido (Necochea 25, Quequén 18, La Dulce 3, Juan N. Fernández 2, Energía 1, Nicanor Olivera 1); se descartan 2 de "Arroyo Dulce" (partido de Salto) y los 4 fleteros, que no almacenan. Es un registro de inscripciones: puede incluir operadores que ya no están en actividad. Trae dirección, no coordenadas (salvo tres que las escriben en la dirección). Unas 9 inscripciones tienen como titular a una persona: su nombre y su CUIT no se publican. |
+| Operadores de GLP, recurso "Distribuidoras de GLP" (Res. SE 800/2004), https://datos.gob.ar/dataset/operadores_glp; CSV modificado el 29/04/2026 | Empresa, CUIT, actividad, dirección y coordenadas. | 4 distribuidoras de envases de hasta 45 kg (categoría 3), todas empresas; 3 con coordenadas. No dice cómo se tomaron. |
+| Plantas productoras y refinadoras de aceite vegetal, https://datos.gob.ar/dataset/plantas-productoras-y-refinadoras-de-aceite-vegetal; CSV del 07/06/2023 | Establecimiento, tipo de planta, grano, capacidad diaria y coordenadas, "georreferenciadas por la Dirección de Información Energética... en base a información descargada del sitio de la Cámara de la Industria Aceitera (CIARA)". | 2 plantas en Quequén (1.350 y 2.000 t diarias). La primera coincide, a 17 m, con una fábrica de la capa del IGN. |
+
+**Cómo se ubicó cada punto (28/09/2026)**, con OpenStreetMap (Overpass de respaldo, base del 28/09/2026 a las 05:50 UTC, ODbL):
+
+- 20 inscripciones, con la estación de servicio de OSM que corresponde a la dirección del padrón. En 11 el operador que carga OSM es el mismo titular del padrón; en el resto coincide el lugar (la esquina o la cuadra que declara el padrón, según las direcciones de OSM), y en tres de ellas OSM trae otro operador. Las 20 quedan a menos de 75 m de una estación de la capa del IGN.
+- 3, con las coordenadas que el padrón escribe en la dirección, comparadas con OSM (a 18, 30 y 35 m de la estación o la esquina). La de Calle 515 y Av. 554 (Quequén, inscripta en 2024) no está en el IGN ni en OSM.
+- 1, la central termoeléctrica (tanques para consumo propio), con el centro de su predio en OSM, el mismo punto del derrame de 2017 del inventario.
+- 7, con la esquina, el cruce o el tramo de calle que declara el padrón, tomado de OSM (nodo compartido de las dos calles, o la mitad del tramo). Dos inscripciones distintas caen en el mismo cruce de la Av. Circunvalación con la Ruta 227. Un octavo, el empalme de la Ruta 228 con la Ruta 75, quedó sin ubicar: el control contra el límite mostró que el empalme de OSM cae fuera del partido, a unos 425 m.
+- GLP y aceiteras: con las coordenadas de la fuente, controladas contra OSM (la distribuidora de la Ruta 86 queda a 116 m de la ruta, entre las calles 86 y 90, que es lo que dice su dirección).
+
+Control contra las capas del mapa: los 36 puntos caen dentro del partido y ninguno en el agua. Ninguno es una vivienda particular: las inscripciones que podrían funcionar en una casa quedaron sin ubicar.
+
+**Sin ubicar (15 del padrón y 1 de GLP)**, a la espera de un dato de Sebastián o de una fuente:
+
+| Tipo | Dirección (según la fuente) | Motivo |
+|---|---|---|
+| Revendedor general (venta a granel mayorista, incluye tambores) | RUTA 228 EMPALME RUTA 75 (Necochea) | El empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap queda fuera del partido, a unos 425 m del límite: hace falta confirmar el lugar. |
+| Revendedor general (venta a granel mayorista, incluye tambores) | 542 N° 1170 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
+| Bocas de expendio (venta por menor) | ALMIRANTE BROWN 1500 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
+| Bocas de expendio para consumo propio (instalaciones fijas) | CALLE 536 997 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
+| Bocas de expendio para consumo propio (instalaciones fijas) | CALLE 87 N° 4250 (Necochea) | OpenStreetMap carga direcciones de la Calle 87 solo hasta el 4200. |
+| Bocas de expendio (venta por menor) | RUTA 228 KM 52 (Energía) | No hay fuente con los kilómetros de la Ruta 228 en Energía. |
+| Bocas de expendio para consumo propio (instalaciones fijas) | CALLE 528 N° 940 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
+| Revendedor general (venta a granel mayorista, incluye tambores) | 114 N° 715 (Necochea) | La Calle 114 no tiene direcciones cargadas en OpenStreetMap. |
+| Bocas de expendio (venta por menor) | AV. MITRE 587 Y BARRAGAN (Necochea) | La dirección (Av. Mitre 587 y Barragán) no coincide con ninguna calle de Necochea en OpenStreetMap. |
+| Revendedor general (venta a granel mayorista, incluye tambores) | RUTA 80 601 (Juan N. Fernández) | La Ruta 80 no tiene direcciones cargadas en Juan N. Fernández; puede ser la misma estación de la inscripción del acceso, pero no hay cómo comprobarlo. |
+| Bocas de expendio para consumo propio (instalaciones fijas) | 542 2551 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
+| Revendedor general (venta a granel mayorista, incluye tambores) | 28 1200 (La Dulce) | La Dulce no tiene direcciones cargadas en OpenStreetMap; además el titular es una persona y podría ser una vivienda. |
+| Distribuidor (con camiones) | 575 2090 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
+| Revendedor general (venta a granel mayorista, incluye tambores) | 575 Nº 2090-CIC.14 SECC G - QTA. 24 PARC. 1B MZA. 24 2090 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
+| Revendedor general (venta a granel mayorista, incluye tambores) | AV. 59 Y BANQUINA PESCADORES (Necochea) | La Banquina de Pescadores no figura con nombre en OpenStreetMap. |
+| Distribuidora de gas envasado (GLP) | CALLE 575 2669 (Quequén) | La fuente no trae coordenadas y Quequén no tiene direcciones cargadas en OpenStreetMap. |
+
+**Lo que existe pero no está publicado**, y los pedidos de acceso a la información que conviene presentar (Ley 25.831 de información pública ambiental; verificar el plazo antes de presentarlos). En todos, pedir tipo de establecimiento, dirección o nomenclatura catastral, coordenadas si existen y rubro o sustancias, sin titulares personas, teléfonos ni correos:
+
+1. **Municipalidad de Necochea** (Secretaría de Planeamiento, Obras y Servicios Públicos, y Dirección de Gestión Ambiental): el registro de actividades riesgosas de la Ordenanza 6248/08, cuyo artículo 4 pide los sitios "ubicados catastralmente y georreferenciados"; el relevamiento de "todos los depósitos de agroquímicos de la ciudad" de septiembre de 2020 (https://necochea.gov.ar/gestion-ambiental-releva-y-notifica-a-depositos-de-agroquimicos-locales/); el padrón de plantas de acopio de la Ordenanza 6414/08, indicando cuáles fumigan con fosfina; las habilitaciones vigentes de agroquímicos, fertilizantes, productos químicos, combustibles, GLP y control de plagas; y el permiso de uso de la zonificación del visor de Planeamiento (ver abajo).
+2. **Ministerio de Ambiente de la Provincia:** generadores de residuos especiales (Ley 11.720) con certificado vigente en el partido y establecimientos de 2.ª y 3.ª categoría (Ley 11.459). Hoy los generadores solo se buscan por CUIT, de a uno.
+3. **Ministerio de Desarrollo Agrario de la Provincia** (Fiscalización Vegetal): las inscripciones de la Ley 10.699 con depósito en el partido.
+4. **Consorcio de Gestión del Puerto Quequén:** plano georreferenciado de sitios y terminales, mercancías peligrosas y capacidad de tanques; verificar si la Ley 25.831 lo alcanza.
+5. **Prefectura, por la Ley 27.275:** instalaciones con hidrocarburos o sustancias peligrosas y equipamiento del plan de contingencias (PLANACON); probablemente reservado.
+
+**Otras fuentes revisadas (28/09/2026):**
+
+| Fuente | Resultado |
+|---|---|
+| Estudio de impacto ambiental de la terminal de fertilizantes Pier Doce (2014), https://www.puertoquequen.com/descargas/pierdoce/1%20-%20EIA/0075-001%20EIA%20Pier%20Doce%20Rev%200.pdf | Coordenadas del predio en la p. 36 (38º 34' 38" S, 58º 42' 38" O), sitios 11 y 12, y capacidades en la p. 7 (fertilizantes sólidos y UAN). **No declara licencia:** no se usa por ahora. |
+| Res. 39/2026 de la Agencia Nacional de Puertos y Navegación, https://www.boletinoficial.gob.ar/detalleAviso/primera/343607/20260626 | Lista oficial de las 6 terminales de Puerto Quequén, sin coordenadas. |
+| Digesto del Concejo Deliberante, https://hcdnecochea.gob.ar/app/digesto-publico/ | Ordenanzas que habilitan depósitos de agroquímicos (unos 8, casi todos en el Sector Industrial Planificado), fertilizantes, productos químicos, combustible y GLP, y unas 15 plantas de silos. Traen titular y dirección en la carátula; sin licencia declarada y sin prueba de que sigan en actividad. Base posible para ubicar uno por uno si el municipio no responde. |
+| Ordenanza 7069/10 | Los depósitos de agroquímicos deben estar a "más de 100 mts. de hospitales, escuelas, zonas urbanizadas" y a 400 m de los bordes urbanos. |
+| Secretaría de Energía, "Precios en Surtidor" (Res. 314/2016) | 21 estaciones con coordenadas en el partido, casi las mismas del IGN; sirve de contraste. El campo "empresa" trae nombres de personas. |
+| CEP XXI, "Distribución geográfica de los establecimientos productivos" | **No se usa como puntos:** su metodología dice que parte de las coordenadas se obtuvo con el geocodificador de Google y que en zona rural son estimaciones. Sirve para contar establecimientos por rubro. |
+| OpenStreetMap | 572 silos y 40 tanques (31 de agua), sin operador ni contenido; ningún comercio de agroquímicos en el partido. |
+| GeoINTA (geo.inta.gob.ar, nodos nacional, Buenos Aires y CNIA), IGN (tanques `AM070`, plantas de residuos `AB030`), Ministerio de Ambiente (operadores y tratadores de residuos especiales) | Sin elementos en el partido. |
+| Visor de Planeamiento Urbano del municipio, https://necochea.gov.ar/descargas/planeamiento/qgis/index.html, capa `data/ZONIFICACIONWEB_2.js` | 149 polígonos de zonificación (zonas industriales, portuaria e industrial mixta). Resolvería la capa de zonificación (3.3), pero no declara licencia: hace falta el permiso del municipio. |
+
+**Para descarga manual** (el entorno no llegó): Ministerio de Transporte, "Terminales Portuarias" (2019, licencia "other-open"; el certificado TLS no valida): https://ide.transporte.gob.ar/geoserver/observ/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=observ:_3.4.3.1.terminales_portuarias_view&maxFeatures=150&outputFormat=application%2Fjson ; búsqueda de operadores del RENPRE (403): https://busquedaoperadores-rnpq.minseg.gob.ar/operador.php ; sistemas del Ministerio de Desarrollo Agrario (403): https://maa.gba.gov.ar/sistemas/ ; Boletín Oficial Municipal (conexión cortada): https://sibom.slyt.gba.gob.ar/bulletins/4062/contents/1480310
 
 ## 15. Antenas y torres de comunicaciones (pedido de Sebastián, 27/09/2026) · **Verificada (OpenStreetMap)** · en uso, muy incompleta
 

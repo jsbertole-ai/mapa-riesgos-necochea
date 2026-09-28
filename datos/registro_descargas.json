@@ -696,5 +696,26 @@
     "last_modified": "Tue, 24 Sep 2019 17:39:01 GMT",
     "bytes": 7561,
     "sha256": "ffea33162663a730df9896db1601da8efe53a5be9923b6cbbedc41cb7fa709e6"
+  },
+  "datos/crudos/sustancias/res1102-padronoperadores-publico.xls.zip": {
+    "url": "http://sgda.energia.gob.ar/sgdaint/publico/res1102-padronoperadores-publico.xls.zip",
+    "descargado": "2026-09-28T06:02:09+00:00",
+    "last_modified": "Mon, 28 Sep 2026 05:59:42 GMT",
+    "bytes": 1175980,
+    "sha256": "830b0b8b16949aa33cb29998d5b98c3f76a8786f262c1c27ef10d6fb81faa12b"
+  },
+  "datos/crudos/sustancias/distribuidoras-de-glp.csv": {
+    "url": "http://datos.energia.gob.ar/dataset/075c393d-5ad1-4cb0-a653-e953c313796d/resource/7f0464ef-9067-4f00-91b3-00b46fde1c39/download/distribuidoras-de-glp.csv",
+    "descargado": "2026-09-28T06:02:10+00:00",
+    "last_modified": "Wed, 29 Apr 2026 16:41:39 GMT",
+    "bytes": 96117,
+    "sha256": "f9cbe0921e8839a1cbc49f7b15f40ede7dc48e564620d589c42d213c9abf120f"
+  },
+  "datos/crudos/sustancias/plantas-productoras-y-refinadoras-de-aceite-vegetal.csv": {
+    "url": "http://datos.energia.gob.ar/dataset/a9115f5b-084c-4169-92a5-ea85f4a166eb/resource/3f177450-8d92-48e9-a846-91537db5322e/download/plantas-productoras-y-refinadoras-de-aceite-vegetal.csv",
+    "descargado": "2026-09-28T06:02:11+00:00",
+    "last_modified": "Wed, 07 Jun 2023 17:38:04 GMT",
+    "bytes": 9949,
+    "sha256": "c1bfe94c10e61d513fe94ee89d56d1972bd6713e5483f4fb006367b418aba522"
   }
 }
