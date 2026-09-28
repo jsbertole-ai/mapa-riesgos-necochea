@@ -45,6 +45,15 @@
         -58.74115
       ],
       "fuente": "Dispositivo de asistencia para personas en situación de calle en el salón parroquial: comida, duchas, lavandería y descanso, desde las cuatro de la madrugada; no es un refugio ni un parador nocturno formal (Confirmado Necochea, 29/08/2026: https://www.confirmadonecochea.com/asistencia-integral-para-personas-en-situacion-de-calle-en-necochea). El punto es el del templo en OpenStreetMap (node/4093972993), que coincide con el que aportó un colaborador."
+    },
+    {
+      "nombre": "Comedor \"Gozo y Esperanza\", parroquia Medalla Milagrosa",
+      "tipo": "Personas en situación de calle",
+      "punto": [
+        -38.569057,
+        -58.722533
+      ],
+      "fuente": "Salón frente al templo de la parroquia, donde se brinda la asistencia; coordenada tomada de OpenStreetMap por un colaborador (28/09/2026), que informa que funciona todo el año. Según Necochea Digital (02/07/2026), el comedor funciona de domingo a viernes y atiende a personas en situación de vulnerabilidad, en situación de calle y con consumos problemáticos: https://necocheadigital.com/nota/118910/"
     }
   ]
 }
