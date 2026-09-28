@@ -12,7 +12,7 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EX-2019-56784480-APN-DGDOMEN#MHA": {
-      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Sebastián no pudo confirmarla (28/09/2026)."
     },
     "EX-2018-53858298-APN-DGDOMEN#MHA": {
       "punto": [
@@ -25,10 +25,10 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EX-2018-37889574-APN-DGDO#MEN": {
-      "sin_ubicar": "El empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap queda fuera del partido, a unos 425 m del límite: hace falta confirmar el lugar."
+      "sin_ubicar": "No corresponde al partido, según Sebastián (28/09/2026); el empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap también queda fuera del límite, a unos 425 m."
     },
     "EX-2018-56076406-APN-DGDOMEN#MHA": {
-      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Sebastián no pudo confirmarla (28/09/2026)."
     },
     "EXP-S01:0388350/2005": {
       "punto": [
@@ -71,7 +71,13 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EX-2026-20410560- -APN-DNEYR#MEC": {
-      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+      "punto": [
+        -38.56379,
+        -58.70504
+      ],
+      "fuente_punto": "Predio de la empresa en Quequén, punto aportado por Juan Sebastián Bértole (28/09/2026). Quequén no tiene direcciones cargadas en OpenStreetMap.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EX-2024-90998978- -APN-DNEYR#MEC": {
       "sin_ubicar": "Fletero (distribuidor por cuenta de terceros): no almacena, no se publica."
@@ -149,10 +155,16 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01:0003394/2006": {
-      "sin_ubicar": "OpenStreetMap carga direcciones de la Calle 87 solo hasta el 4200."
+      "punto": [
+        -38.55296,
+        -58.76809
+      ],
+      "fuente_punto": "Predio donde se guardan los colectivos, punto aportado por Juan Sebastián Bértole (28/09/2026).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01:0036224/2006": {
-      "sin_ubicar": "No hay fuente con los kilómetros de la Ruta 228 en Energía."
+      "sin_ubicar": "Sebastián la ubica en la Shell de la Ruta 228 y la Av. 43 (28/09/2026), pero el padrón dice km 52 y localidad Energía, y esa estación ya figura en el padrón como km 1: hay que resolver la diferencia antes de publicarla."
     },
     "EXP-S01:0036230/2006": {
       "punto": [
@@ -164,7 +176,13 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01:0036234/2006": {
-      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+      "punto": [
+        -38.56754,
+        -58.70076
+      ],
+      "fuente_punto": "Planta de fertilizantes, punto aportado por Juan Sebastián Bértole (28/09/2026).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01:0037637/2006": {
       "punto": [
@@ -179,10 +197,10 @@
       "sin_ubicar": "Fletero (distribuidor por cuenta de terceros): no almacena, no se publica."
     },
     "EX-2017-18143298-APN-DDYME#MEM": {
-      "sin_ubicar": "La Calle 114 no tiene direcciones cargadas en OpenStreetMap."
+      "sin_ubicar": "La dirección (Calle 114 N° 715) no existe, según Sebastián (28/09/2026)."
     },
     "EXP-S01:0066443/2006": {
-      "sin_ubicar": "La dirección (Av. Mitre 587 y Barragán) no coincide con ninguna calle de Necochea en OpenStreetMap."
+      "sin_ubicar": "No corresponde al partido, según Sebastián (28/09/2026): la dirección (Av. Mitre 587 y Barragán) no es de Necochea."
     },
     "EXP-S01:0040575/2006": {
       "punto": [
@@ -266,16 +284,40 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EX-2021-37889354- -APN-DNRYC#MEC": {
-      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+      "punto": [
+        -38.54931,
+        -58.69263
+      ],
+      "fuente_punto": "Predio de una cooperativa agropecuaria, punto aportado por Juan Sebastián Bértole (28/09/2026).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01:0322211/2012": {
-      "sin_ubicar": "La Dulce no tiene direcciones cargadas en OpenStreetMap; además el titular es una persona y podría ser una vivienda."
+      "punto": [
+        -38.27919,
+        -59.20839
+      ],
+      "fuente_punto": "Planta de silos de La Dulce (no es una vivienda), punto aportado por Juan Sebastián Bértole (28/09/2026).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01: 0201662/2016": {
-      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+      "punto": [
+        -38.5422,
+        -58.68626
+      ],
+      "fuente_punto": "Predio donde se guardan fertilizantes, sobre la Av. Circunvalación (el tramo de la calle 575 se conoce por ese nombre), punto aportado por Juan Sebastián Bértole (28/09/2026).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01:0167716/2014": {
-      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+      "punto": [
+        -38.5422,
+        -58.68626
+      ],
+      "fuente_punto": "Predio donde se guardan fertilizantes, sobre la Av. Circunvalación (el tramo de la calle 575 se conoce por ese nombre), punto aportado por Juan Sebastián Bértole (28/09/2026).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01:0336711/2011": {
       "punto": [
@@ -339,7 +381,13 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01:0021473/2006": {
-      "sin_ubicar": "La Banquina de Pescadores no figura con nombre en OpenStreetMap."
+      "punto": [
+        -38.57149,
+        -58.71618
+      ],
+      "fuente_punto": "Depósito de gasoil en la banquina de pescadores, al final de la Av. 59, punto aportado por Juan Sebastián Bértole (28/09/2026).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EX-2024-13232140- -APN-DNEYR#MEC": {
       "punto": [
@@ -380,7 +428,13 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "CALLE 575 N/KM 2669": {
-      "sin_ubicar": "La fuente no trae coordenadas y Quequén no tiene direcciones cargadas en OpenStreetMap."
+      "punto": [
+        -38.53901,
+        -58.6919
+      ],
+      "fuente_punto": "Predio de la distribuidora sobre la Av. Circunvalación (el tramo de la calle 575 se conoce por ese nombre), punto aportado por Juan Sebastián Bértole (28/09/2026).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     }
   },
   "aceiteras": {
