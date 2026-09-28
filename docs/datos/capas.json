@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-28T16:41:23+00:00",
+  "generado": "2026-09-28T16:45:04+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1148,7 +1148,7 @@
       "estado": "verificada",
       "elementos": 18,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-09-28T16:41:22+00:00",
+      "procesado": "2026-09-28T16:45:04+00:00",
       "por_organismo": {
         "Bomberos": 3,
         "Centro Operativo de Monitoreo": 1,
@@ -1194,13 +1194,13 @@
         }
       },
       "activa_al_inicio": false,
-      "que_representa": "Lugares de refugio, con un color según a quién alojan: el Polideportivo Municipal \"Edgardo Hugo Yelpo\", único refugio designado por Defensa Civil para evacuación ante catástrofes, y la Parroquia Nuestra Señora de la Medalla Milagrosa, refugio para personas en situación de calle. Los dos datos los aportó un colaborador.",
+      "que_representa": "Lugares de refugio, con un color según a quién alojan: el Polideportivo Municipal \"Edgardo Hugo Yelpo\", único refugio designado por Defensa Civil para evacuación ante catástrofes, y el espacio nocturno de la parroquia Nuestra Señora de la Medalla Milagrosa, en el salón frente al templo, refugio para personas en situación de calle con pocos lugares. Los dos datos los aportó un colaborador.",
       "que_no_representa": "No indica capacidad ni si el refugio está abierto. La parroquia no es un lugar de evacuación ni depende de Defensa Civil. Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
-      "limitaciones": "La lista está en datos/refugios.json; el nombre y la ubicación salen de OpenStreetMap. Se muestra el punto central de cada edificio.",
+      "limitaciones": "La lista está en datos/refugios.json; el nombre y la ubicación salen de OpenStreetMap. Se muestra el punto central de cada edificio, salvo cuando el refugio funciona en otro edificio que el cargado en OpenStreetMap: ahí va el punto que aportó el colaborador.",
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-09-28T16:41:22+00:00",
+      "procesado": "2026-09-28T16:45:04+00:00",
       "por_tipo": {
         "Personas en situación de calle": 1,
         "Evacuación ante catástrofes": 1
@@ -1237,7 +1237,7 @@
       "estado": "verificada",
       "elementos": 6,
       "fecha_datos": "Puntos aportados por colaboradores; ver la fecha en cada punto.",
-      "procesado": "2026-09-28T16:41:22+00:00",
+      "procesado": "2026-09-28T16:45:04+00:00",
       "por_tipo": {
         "Personas en situación de calle": 2,
         "Iglesia evangélica": 1,

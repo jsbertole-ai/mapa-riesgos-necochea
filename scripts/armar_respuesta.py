@@ -294,13 +294,17 @@ def refugios(offline, limite, caja):
             aviso(f"{r['osm']}: sin datos guardados; no se publica.")
             continue
         el, (x, y) = geometria_api(*bajado)
+        if r.get("punto"):
+            # El refugio funciona en otro edificio que el elemento de OSM (por ejemplo, un salón frente al
+            # templo): se usa el punto que aportó el colaborador y el elemento de OSM queda como referencia.
+            y, x = r["punto"]
         if not punto_en_geometria(x, y, limite, caja):
             aviso(f"{r['osm']}: cae fuera del partido; no se publica.")
             continue
         tags = el.get("tags") or {}
         fechas.append(el.get("timestamp", "")[:10])
         features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
-            "nombre": tags.get("name"), "tipo": r["tipo"], "uso": r["uso"], "fuente": r["fuente"], "ref": r["osm"],
+            "nombre": r.get("nombre") or tags.get("name"), "tipo": r["tipo"], "uso": r["uso"], "fuente": r["fuente"], "ref": r["osm"],
             "version_osm": el.get("version")}})
     return features, fechas
 
