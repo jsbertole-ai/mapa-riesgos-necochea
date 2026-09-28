@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-28T16:45:04+00:00",
+  "generado": "2026-09-28T17:21:45+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1148,7 +1148,7 @@
       "estado": "verificada",
       "elementos": 18,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-09-28T16:45:04+00:00",
+      "procesado": "2026-09-28T17:21:44+00:00",
       "por_organismo": {
         "Bomberos": 3,
         "Centro Operativo de Monitoreo": 1,
@@ -1200,7 +1200,7 @@
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-09-28T16:45:04+00:00",
+      "procesado": "2026-09-28T17:21:44+00:00",
       "por_tipo": {
         "Personas en situación de calle": 1,
         "Evacuación ante catástrofes": 1
@@ -1235,18 +1235,19 @@
       "que_no_representa": "No indica qué servicios presta cada organización, sus horarios ni su capacidad. No es un lugar de evacuación: ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
       "limitaciones": "Está en construcción: por ahora tiene solo los puntos que aportaron colaboradores que conocen el lugar, y cada ventana lo dice. Los puntos de Cáritas del mapa \"Mapas Cáritas\" (Mapa Poblaciones) están pendientes de descarga (DATOS.md, sección 13.1).",
       "estado": "verificada",
-      "elementos": 6,
+      "elementos": 9,
       "fecha_datos": "Puntos aportados por colaboradores; ver la fecha en cada punto.",
-      "procesado": "2026-09-28T16:45:04+00:00",
+      "procesado": "2026-09-28T17:21:44+00:00",
       "por_tipo": {
-        "Personas en situación de calle": 2,
         "Iglesia evangélica": 1,
-        "Cáritas": 3
+        "Personas en situación de calle": 2,
+        "Comedor": 2,
+        "Cáritas": 4
       },
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
-          "6 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "9 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Fuente propia: puntos aportados por colaboradores del proyecto que conocen el lugar, publicados bajo CC BY 4.0."
         ]
       }

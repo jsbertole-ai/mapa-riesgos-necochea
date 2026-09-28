@@ -54,6 +54,33 @@
         -58.722533
       ],
       "fuente": "Salón frente al templo de la parroquia, donde se brinda la asistencia; coordenada tomada de OpenStreetMap por un colaborador (28/09/2026), que informa que funciona todo el año. Según Necochea Digital (02/07/2026), el comedor funciona de domingo a viernes y atiende a personas en situación de vulnerabilidad, en situación de calle y con consumos problemáticos: https://necocheadigital.com/nota/118910/el-padre-alejandro-martinez-advierte-que-la-pobreza-no-es-solo-hambre-y-que-el-invierno-deja-al-descubierto-las-heridas-sociales-de-necochea/"
+    },
+    {
+      "nombre": "\"La Noche de la Caridad\", parroquia Nuestra Señora de Lourdes",
+      "tipo": "Cáritas",
+      "punto": [
+        -38.5808653,
+        -58.7309122
+      ],
+      "fuente": "Cáritas parroquial: bolsones alimentarios mensuales a unas 90 familias y, dos veces por semana, un plato de comida caliente que se lleva a la noche a las casas de más de 70 personas (Ecos Diarios, 26/07/2026: https://elecos.com.ar/la-demanda-en-comedores-comunitarios-es-cada-vez-mayor). Coordenada aportada por un colaborador (28/09/2026), a 7 m del templo que carga OpenStreetMap."
+    },
+    {
+      "nombre": "Comedor Mateo",
+      "tipo": "Comedor",
+      "punto": [
+        -38.5468738,
+        -58.7524789
+      ],
+      "fuente": "Fundado hace unos 26 años; entrega mercadería, ropa, calzado y elementos para el hogar a familias relevadas por voluntarios, y dicta capacitaciones laborales (Ecos Diarios, 26/07/2026: https://elecos.com.ar/la-demanda-en-comedores-comunitarios-es-cada-vez-mayor). Coordenada tomada de OpenStreetMap por un colaborador (28/09/2026); el comedor no figura cargado en OSM."
+    },
+    {
+      "nombre": "Solidaridad en Marcha",
+      "tipo": "Comedor",
+      "punto": [
+        -38.5492,
+        -58.7615
+      ],
+      "fuente": "Comedor comunitario: desayuno y almuerzo para los chicos del barrio, talleres de cocina, karate y apoyo escolar (Noticias de Necochea, 11/02/2023: https://nden.com.ar/nota/16399/la-obra-de-solidaridad-en-marcha-se-impulsa-con-el-apoyo-de-cameq/). Coordenada tomada de OpenStreetMap por un colaborador (28/09/2026); no figura cargado en OSM."
     }
   ]
 }
