@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-28T17:39:26+00:00",
+  "generado": "2026-09-28T18:02:58+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -577,7 +577,7 @@
       "cita": "FUENTE: Instituto Geográfico Nacional de la República Argentina. Capas SIG: puerto, rompeolas, faro, balizas y mareógrafo (fuente de captura: IGN, Servicio de Hidrografía Naval y Ministerio de Transporte).",
       "que_representa": "Puerto Quequén, sus rompeolas, el faro Quequén, las balizas de las escolleras norte y sur, y el mareógrafo de la estación Quequén.",
       "que_no_representa": "No incluye cartografía náutica ni mediciones de marea.",
-      "limitaciones": "El IGN no informa la fecha. Las posiciones del mareógrafo de Quequén, el faro y la baliza Escollera Norte coinciden, a menos de 12 m, con las que publica el Servicio de Hidrografía Naval (comparación del 27/09/2026); los datos del SHN no se usan porque no tienen licencia de reutilización. El mareógrafo figura en el IGN, pero según el Servicio de Hidrografía Naval (respuesta por correo del 28/09/2026) la estación \"Quequén\" está desinstalada, a la espera de un equipo nuevo.",
+      "limitaciones": "El IGN no informa la fecha. Las posiciones del mareógrafo de Quequén, el faro y la baliza Escollera Norte coinciden con las que publica el Servicio de Hidrografía Naval (comparación del 27/09/2026); los datos del SHN no se usan porque no tienen licencia de reutilización. El mareógrafo figura en el IGN, pero según el Servicio de Hidrografía Naval (respuesta por correo del 28/09/2026) la estación \"Quequén\" está desinstalada, a la espera de un equipo nuevo.",
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
@@ -845,7 +845,7 @@
       "estado": "verificada",
       "elementos": 41,
       "fecha_datos": "Padrón de combustibles actualizado al: 28/09/2026 02:59:39; distribuidoras de GLP y plantas aceiteras según la fecha de cada recurso en Datos Argentina.",
-      "procesado": "2026-09-28T13:51:35+00:00",
+      "procesado": "2026-09-28T17:58:46+00:00",
       "por_tipo": {
         "Depósitos de combustible": 16,
         "Gas envasado (GLP)": 4,
@@ -1144,11 +1144,11 @@
       "activa_al_inicio": false,
       "que_representa": "Los cuerpos que intervienen en la gestión del riesgo y los siniestros en el partido, cada uno con su color: policía (comisarías, subcomisarías, el Comando de Patrullas y, cuando se carguen, la Policía Rural y la Policía Vial), Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo, guardavidas, guardaparques, Cruz Roja y radioaficionados. Según el municipio, estos organismos trabajan en conjunto ante los temporales (por ejemplo, https://necochea.gov.ar/arboles-y-postes-caidos-techos-volados-y-cuatro-auto-evacuados-por-los-fuertes-vientos/, 26/08/2021). Los radioaficionados están porque la Provincia les asigna un papel en las comunicaciones de emergencia (Decreto 275/2021, Anexo II, acciones de la Dirección Provincial de Defensa Civil).",
       "que_no_representa": "No indica dotación, equipamiento, horarios ni área de cobertura. Los guardavidas funcionan solo en temporada de verano. No incluye cámaras de videovigilancia ni datos de las personas que trabajan en cada organismo.",
-      "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por un colaborador en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. La coordenada que la Provincia da para la Comisaría de la Mujer no cae en su propia dirección (Calle 24 N° 4242, confirmada por un colaborador) sino en Calle 24 y 67, a unos 1100 m: se usa el punto del IGN, que está en esa dirección. La Provincia no publica en datos abiertos la ubicación del Comando de Patrullas, la Policía Rural ni la Policía Vial, y ninguna de las tres figura en el IGN ni en OpenStreetMap (búsqueda del 27/09/2026); lo mismo pasa con los radio clubes. El Comando de Patrullas se publica con el punto que aportó un colaborador que conoce el lugar (28/09/2026), y la ventana lo dice. Guardavidas, guardaparques, Cruz Roja, esas tres dependencias policiales y los radio clubes aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central.",
+      "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por un colaborador en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. La coordenada que la Provincia da para la Comisaría de la Mujer no cae en su propia dirección (Calle 24 N° 4242, confirmada por un colaborador) sino en Calle 24 y 67: se usa el punto del IGN, que está en esa dirección. La Provincia no publica en datos abiertos la ubicación del Comando de Patrullas, la Policía Rural ni la Policía Vial, y ninguna de las tres figura en el IGN ni en OpenStreetMap (búsqueda del 27/09/2026); lo mismo pasa con los radio clubes. El Comando de Patrullas se publica con el punto que aportó un colaborador que conoce el lugar (28/09/2026), y la ventana lo dice. Guardavidas, guardaparques, Cruz Roja, esas tres dependencias policiales y los radio clubes aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central.",
       "estado": "verificada",
       "elementos": 18,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-09-28T17:38:21+00:00",
+      "procesado": "2026-09-28T18:02:10+00:00",
       "por_organismo": {
         "Bomberos": 3,
         "Centro Operativo de Monitoreo": 1,
@@ -1200,7 +1200,7 @@
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-09-28T17:38:22+00:00",
+      "procesado": "2026-09-28T18:02:11+00:00",
       "por_tipo": {
         "Evacuación ante catástrofes": 1,
         "Personas en situación de calle": 1
@@ -1237,12 +1237,12 @@
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "Puntos aportados por colaboradores; ver la fecha en cada punto.",
-      "procesado": "2026-09-28T17:38:22+00:00",
+      "procesado": "2026-09-28T18:02:11+00:00",
       "por_tipo": {
         "Cáritas": 4,
-        "Comedor": 2,
+        "Personas en situación de calle": 2,
         "Organización de ayuda social": 1,
-        "Personas en situación de calle": 2
+        "Comedor": 2
       },
       "verificacion": {
         "fecha": "2026-09-28",
@@ -1275,7 +1275,7 @@
       "estado": "verificada",
       "elementos": 19,
       "fecha_datos": "Registros aprobados al 2026-09-28; eventos entre 1980-04-29 y 2026-09-21",
-      "procesado": "2026-09-28T14:05:53+00:00",
+      "procesado": "2026-09-28T17:58:47+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
