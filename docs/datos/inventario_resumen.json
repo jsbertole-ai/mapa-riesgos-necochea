@@ -1,18 +1,18 @@
 {
   "exportacion": "registros_proyecto.csv",
-  "registros_en_la_exportacion": 28,
-  "aprobados": 28,
-  "publicados": 28,
+  "registros_en_la_exportacion": 31,
+  "aprobados": 30,
+  "publicados": 30,
   "no_publicados_por_controles": 0,
-  "sin_ubicacion_en_el_mapa": 1,
+  "sin_ubicacion_en_el_mapa": 2,
   "por_tipo": {
-    "Inundación": 8,
+    "Inundación": 9,
     "Tornado": 3,
     "Tempestad": 4,
     "Incendio forestal": 5,
     "Marejada": 2,
     "Colapso estructural": 2,
-    "Escape": 1,
+    "Escape": 2,
     "Vendaval": 2,
     "Cambio de la línea de costa": 1
   },
@@ -21,22 +21,22 @@
     "1990": 1,
     "1993": 1,
     "2023": 1,
-    "2026": 8,
+    "2026": 9,
     "2020": 1,
     "2024": 4,
     "2015": 1,
     "2021": 2,
     "2012": 3,
-    "2017": 1,
+    "2017": 2,
     "2025": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 20,
+    "Necochea y Quequén": 21,
     "Nicanor Olivera (La Dulce)": 3,
     "Juan N. Fernández": 1,
     "Claraz": 1,
     "Ramón Santamarina": 2,
-    "Zona rural o costa fuera de las localidades": 1
+    "Zona rural o costa fuera de las localidades": 2
   },
   "efectos": {
     "Evacuados": 892,
