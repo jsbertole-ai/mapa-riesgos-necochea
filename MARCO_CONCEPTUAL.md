@@ -126,9 +126,9 @@ Provincia de Buenos Aires. (2021). *Decreto 275/2021. Aprueba la estructura org�
 
 Naciones Unidas. (2015). *Marco de Sendai para la Reducción del Riesgo de Desastres 2015-2030*.
 
-Noticias del Radioaficionado. (2025, 21 de octubre). *El radioaficionado es el único que puede comunicarse cuando todo lo demás falla*. https://www.noticiasdelradioaficionado.com/el-radioaficionado-es-el-unico-que-puede-comunicarse-cuando-todo-lo-demas-falla
-
 Narváez, L., Lavell, A. y Pérez Ortega, G. (2009). *La gestión del riesgo de desastres: Un enfoque basado en procesos*. Secretaría General de la Comunidad Andina.
+
+Noticias del Radioaficionado. (2025, 21 de octubre). *El radioaficionado es el único que puede comunicarse cuando todo lo demás falla*. https://www.noticiasdelradioaficionado.com/el-radioaficionado-es-el-unico-que-puede-comunicarse-cuando-todo-lo-demas-falla
 
 Quiroga, S. G., Pravatta, L. y Méndez, G. (2024). Escenarios de riesgo de desastres en la escala local: Ciudad de Maipú, Mendoza, Argentina. En J. M. Camacho Sanabria, R. Chávez Alvarado y Y. G. Canchola Pantoja (Coords.), *Gestión del riesgo de desastres en América Latina y el Caribe: Experiencias, aprendizajes y desafíos* (pp. 211-234). Comunicación Científica. https://doi.org/10.52501/cc.218.07
 
