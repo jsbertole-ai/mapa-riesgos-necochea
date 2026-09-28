@@ -537,6 +537,31 @@
       "fecha_datos_fija": "El IGN no informa la fecha de esta capa."
     },
     {
+      "organismo": "Secretaría de Agricultura, Ganadería y Pesca (Producciones Sostenibles), en Datos Argentina",
+      "url_fuente": "https://datos.gob.ar/dataset/centros-de-almacenamiento-transitorio-de-envases-de-productos-fitosanitarios",
+      "url_datos": "https://datos.magyp.gob.ar/dataset/8d83f150-d079-4cfb-bb3e-d4200bf2b011/resource/d4a9cf05-3520-4f98-a4b8-32653ebbeaa6/download/centros-almacenamiento-transitorio-envases-fitosanitarios.csv",
+      "licencia": "Creative Commons Atribución 4.0 (CC BY 4.0)",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "url_declaracion_licencia": "https://datos.gob.ar/api/3/action/package_show?id=centros-de-almacenamiento-transitorio-de-envases-de-productos-fitosanitarios",
+      "frase_licencia": "\"license_id\": \"CC-BY-4.0\"",
+      "formato": "CSV nacional con latitud y longitud, filtrado al partido por scripts/descargar_envases.py; se publican solo ubicación, dirección y capacidad",
+      "id": "envases_fitosanitarios",
+      "grupo": "portuaria",
+      "nombre": "Envases vacíos de agroquímicos (centros de acopio transitorio)",
+      "archivo": "envases_fitosanitarios.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#b2182b",
+        "radio": 6
+      },
+      "activa_al_inicio": false,
+      "cita": "Secretaría de Agricultura, Ganadería y Pesca. Centros de almacenamiento transitorio de envases de productos fitosanitarios (Ley 27.279). Datos Argentina, CC BY 4.0.",
+      "fecha_datos_fija": "Recurso actualizado por última vez el 11/09/2019, según datos.gob.ar.",
+      "que_representa": "Los centros de almacenamiento transitorio (CAT) de envases vacíos de agroquímicos que el registro nacional ubica en el partido: dos, en el Parque Industrial de Necochea, con capacidad para 12.000 y 5.000 envases. La Ley 27.279 obliga a devolver los envases lavados a estos centros, que los guardan hasta su reciclado o disposición final.",
+      "que_no_representa": "No son depósitos ni comercios de agroquímicos, ni plantas de acopio de granos donde se fumiga con fosfina: esos lugares no tienen fuente abierta con ubicación. No informa qué cantidad de envases hay en cada momento.",
+      "limitaciones": "El recurso no se actualiza desde el 11/09/2019: algún centro puede haber cerrado o cambiado. La fuente también publica un correo y un teléfono de contacto, que el mapa no muestra. El registro provincial de centros (Datos Abiertos PBA, actualizado en 2026) no trae coordenadas ni ninguno en el partido."
+    },
+    {
       "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
       "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
       "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-28T03:04:16+00:00",
+  "generado": "2026-09-28T03:44:26+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -60,12 +60,12 @@
       "estado": "verificada",
       "elementos": 1,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:10+00:00",
+      "procesado": "2026-09-28T03:43:25+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -93,12 +93,12 @@
       "estado": "verificada",
       "elementos": 6,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "6 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -142,7 +142,7 @@
       "estado": "verificada",
       "elementos": 1,
       "fecha_datos": "Recurso publicado el 13/07/2023 según datos.gob.ar; la fuente no informa la fecha de la delimitación. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:12+00:00",
+      "procesado": "2026-09-28T03:43:27+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
@@ -181,7 +181,7 @@
       "estado": "verificada",
       "elementos": 329,
       "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:13+00:00",
+      "procesado": "2026-09-28T03:43:27+00:00",
       "por_tipo": {
         "Corriente de agua perenne": 91,
         "Corriente de agua intermitente": 192,
@@ -191,7 +191,7 @@
         "fecha": "2026-09-28",
         "controles": [
           "329 elementos, todos dentro de la caja de la cuenca y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -219,12 +219,12 @@
       "estado": "verificada",
       "elementos": 138,
       "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "138 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -252,13 +252,13 @@
       "estado": "verificada",
       "elementos": 2279,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:21:54Z (UTC).",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:25+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "2279 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
-          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-28)."
         ]
       }
     },
@@ -286,12 +286,12 @@
       "estado": "verificada",
       "elementos": 229,
       "fecha_datos": "El servicio del IGN no informa la fecha de esta capa; la documentación que republica la provincia es del 24/10/2021. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "229 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -319,12 +319,12 @@
       "estado": "verificada",
       "elementos": 40,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "40 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -352,12 +352,12 @@
       "estado": "verificada",
       "elementos": 16,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "16 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -386,7 +386,7 @@
       "estado": "verificada",
       "elementos": 654,
       "fecha_datos": "2000-11-16 a 2024-11-12",
-      "procesado": "2026-09-28T03:04:10+00:00",
+      "procesado": "2026-09-28T03:43:25+00:00",
       "focos_por_anio": {
         "2000": 3,
         "2001": 28,
@@ -422,7 +422,7 @@
         "fecha": "2026-09-28",
         "controles": [
           "654 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-09-28)."
         ]
       }
     },
@@ -451,7 +451,7 @@
       "estado": "verificada",
       "elementos": 601,
       "fecha_datos": "2012-02-10 a 2024-12-20",
-      "procesado": "2026-09-28T03:04:10+00:00",
+      "procesado": "2026-09-28T03:43:25+00:00",
       "focos_por_anio": {
         "2012": 41,
         "2013": 30,
@@ -474,7 +474,7 @@
         "fecha": "2026-09-28",
         "controles": [
           "601 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-09-28)."
         ]
       }
     },
@@ -502,12 +502,12 @@
       "estado": "verificada",
       "elementos": 47,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "47 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -546,13 +546,13 @@
       "estado": "verificada",
       "elementos": 643,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:24:01Z (UTC).",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "643 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
-          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-28)."
         ]
       }
     },
@@ -581,12 +581,12 @@
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "9 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -615,12 +615,12 @@
       "estado": "verificada",
       "elementos": 11,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "11 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -653,7 +653,7 @@
       "estado": "verificada",
       "elementos": 5502,
       "fecha_datos": "Recurso actualizado el 30/05/2022 según datos.gob.ar; la fuente no informa la fecha del relevamiento. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:15+00:00",
+      "procesado": "2026-09-28T03:43:29+00:00",
       "por_tipo": {
         "Aérea": 4236,
         "Subterránea": 1266
@@ -662,7 +662,7 @@
         "fecha": "2026-09-28",
         "controles": [
           "5502 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=redes-de-distribucion-electrica-del-consejo-federal (leída el 2026-09-27)."
+          "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=redes-de-distribucion-electrica-del-consejo-federal (leída el 2026-09-28)."
         ]
       }
     },
@@ -690,13 +690,13 @@
       "estado": "verificada",
       "elementos": 1474,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:23:36Z (UTC).",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "1474 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
-          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-28)."
         ]
       }
     },
@@ -732,7 +732,7 @@
       "estado": "verificada",
       "elementos": 1,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:23:36Z (UTC).",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "por_tipo": {
         "Poste eléctrico de baja tensión o sin tensión informada": 1
       },
@@ -741,7 +741,7 @@
         "controles": [
           "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
-          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-28)."
         ]
       }
     },
@@ -770,12 +770,46 @@
       "estado": "verificada",
       "elementos": 31,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "31 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
+        ]
+      }
+    },
+    {
+      "organismo": "Secretaría de Agricultura, Ganadería y Pesca (Producciones Sostenibles), en Datos Argentina",
+      "url_fuente": "https://datos.gob.ar/dataset/centros-de-almacenamiento-transitorio-de-envases-de-productos-fitosanitarios",
+      "url_datos": "https://datos.magyp.gob.ar/dataset/8d83f150-d079-4cfb-bb3e-d4200bf2b011/resource/d4a9cf05-3520-4f98-a4b8-32653ebbeaa6/download/centros-almacenamiento-transitorio-envases-fitosanitarios.csv",
+      "licencia": "Creative Commons Atribución 4.0 (CC BY 4.0)",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "url_declaracion_licencia": "https://datos.gob.ar/api/3/action/package_show?id=centros-de-almacenamiento-transitorio-de-envases-de-productos-fitosanitarios",
+      "formato": "CSV nacional con latitud y longitud, filtrado al partido por scripts/descargar_envases.py; se publican solo ubicación, dirección y capacidad",
+      "id": "envases_fitosanitarios",
+      "grupo": "portuaria",
+      "nombre": "Envases vacíos de agroquímicos (centros de acopio transitorio)",
+      "archivo": "envases_fitosanitarios.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#b2182b",
+        "radio": 6
+      },
+      "activa_al_inicio": false,
+      "cita": "Secretaría de Agricultura, Ganadería y Pesca. Centros de almacenamiento transitorio de envases de productos fitosanitarios (Ley 27.279). Datos Argentina, CC BY 4.0.",
+      "que_representa": "Los centros de almacenamiento transitorio (CAT) de envases vacíos de agroquímicos que el registro nacional ubica en el partido: dos, en el Parque Industrial de Necochea, con capacidad para 12.000 y 5.000 envases. La Ley 27.279 obliga a devolver los envases lavados a estos centros, que los guardan hasta su reciclado o disposición final.",
+      "que_no_representa": "No son depósitos ni comercios de agroquímicos, ni plantas de acopio de granos donde se fumiga con fosfina: esos lugares no tienen fuente abierta con ubicación. No informa qué cantidad de envases hay en cada momento.",
+      "limitaciones": "El recurso no se actualiza desde el 11/09/2019: algún centro puede haber cerrado o cambiado. La fuente también publica un correo y un teléfono de contacto, que el mapa no muestra. El registro provincial de centros (Datos Abiertos PBA, actualizado en 2026) no trae coordenadas ni ninguno en el partido.",
+      "estado": "verificada",
+      "elementos": 2,
+      "fecha_datos": "Recurso actualizado por última vez el 11/09/2019, según datos.gob.ar. Consulta al servicio: 2026-09-28.",
+      "procesado": "2026-09-28T03:43:30+00:00",
+      "verificacion": {
+        "fecha": "2026-09-28",
+        "controles": [
+          "2 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=centros-de-almacenamiento-transitorio-de-envases-de-productos-fitosanitarios (leída el 2026-09-28)."
         ]
       }
     },
@@ -803,7 +837,7 @@
       "estado": "verificada",
       "elementos": 14,
       "fecha_datos": "El IGN no informa la fecha de esta capa: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "por_tipo": {
         "Vía desmantelada": 2,
         "Vía activa": 3,
@@ -814,7 +848,7 @@
         "fecha": "2026-09-28",
         "controles": [
           "14 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -842,12 +876,12 @@
       "estado": "verificada",
       "elementos": 19,
       "fecha_datos": "Metadato del IGN creado el 24/10/2021, con actualización mensual declarada (https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf); el servicio no informa la fecha de la versión consultada. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "19 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -886,12 +920,12 @@
       "estado": "verificada",
       "elementos": 7,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "7 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -919,12 +953,12 @@
       "estado": "verificada",
       "elementos": 140,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "140 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -952,12 +986,12 @@
       "estado": "verificada",
       "elementos": 22,
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "22 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28)."
         ]
       }
     },
@@ -985,13 +1019,13 @@
       "estado": "verificada",
       "elementos": 12,
       "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:27:40Z (UTC).",
-      "procesado": "2026-09-28T03:04:11+00:00",
+      "procesado": "2026-09-28T03:43:26+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "12 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
-          "Licencia confirmada en https://opendatacommons.org/licenses/odbl/1-0/ (leída el 2026-09-27)."
+          "Licencia confirmada en https://opendatacommons.org/licenses/odbl/1-0/ (leída el 2026-09-28)."
         ]
       }
     },
@@ -1020,7 +1054,7 @@
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado. Consulta al servicio: 2026-09-28.",
-      "procesado": "2026-09-28T03:04:15+00:00",
+      "procesado": "2026-09-28T03:43:30+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
@@ -1064,7 +1098,7 @@
       "estado": "verificada",
       "elementos": 12,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-09-28T03:04:13+00:00",
+      "procesado": "2026-09-28T03:43:28+00:00",
       "por_organismo": {
         "Bomberos": 3,
         "Centro Operativo de Monitoreo": 1,
@@ -1077,10 +1111,10 @@
         "controles": [
           "12 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
-          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-27).",
-          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27).",
-          "Licencia confirmada en https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias (leída el 2026-09-27).",
-          "Licencia confirmada en https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias-de-la-mujer (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28).",
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-28).",
+          "Licencia confirmada en https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias (leída el 2026-09-28).",
+          "Licencia confirmada en https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=comisarias-de-la-mujer (leída el 2026-09-28)."
         ]
       }
     },
@@ -1113,16 +1147,16 @@
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-09-28T03:04:13+00:00",
+      "procesado": "2026-09-28T03:43:28+00:00",
       "por_tipo": {
-        "Personas en situación de calle": 1,
-        "Evacuación ante catástrofes": 1
+        "Evacuación ante catástrofes": 1,
+        "Personas en situación de calle": 1
       },
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
           "2 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-27)."
+          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-28)."
         ]
       }
     },
@@ -1149,7 +1183,7 @@
       "estado": "verificada",
       "elementos": 10,
       "fecha_datos": "Registros aprobados al 2026-09-28; eventos entre 1980-04-29 y 2026-09-21",
-      "procesado": "2026-09-28T03:04:15+00:00",
+      "procesado": "2026-09-28T03:43:30+00:00",
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
