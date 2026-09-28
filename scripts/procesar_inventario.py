@@ -10,7 +10,8 @@ archivo del proyecto). Cada registro aprobado pasa además estos controles; si f
 no se publica y el motivo se informa en pantalla (nunca en un archivo público):
 
   1. campos obligatorios completos y valores dentro de las listas de formulario.json;
-  2. fechas válidas (entre 1900 y hoy) y enlace que empieza con http:// o https://;
+  2. fechas válidas (entre 1900 y hoy), evento de los últimos 100 años (criterio de Sebastián,
+     28/09/2026) y enlace que empieza con http:// o https://;
   3. cantidades enteras mayores o iguales a cero;
   4. sin rastros de datos personales en el lugar ni en la descripción (correos,
      teléfonos, DNI, domicilios con número de puerta);
@@ -105,6 +106,9 @@ def controlar(fila, cfg, etiquetas, limite, caja):
     fecha, fecha_nota = fecha_valida(fila["fecha"]), fecha_valida(fila["fuente_fecha"])
     if not fecha or not fecha_nota:
         return None, "fecha inválida"
+    hoy = dt.date.today()
+    if fecha < hoy.replace(year=hoy.year - 100, day=min(hoy.day, 28)):
+        return None, "evento de hace más de 100 años (fuera del período del inventario)"
     url = fila["fuente_url"].strip()
     if not re.match(r"^https?://\S+$", url):
         return None, "enlace inválido"
