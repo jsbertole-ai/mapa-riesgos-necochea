@@ -29,13 +29,13 @@
       "fuente": "Cáritas parroquial, confirmada por un colaborador (28/09/2026). El punto es el del templo en OpenStreetMap (node/11821125524), en la Calle 96, barrio Tiro Federal."
     },
     {
-      "nombre": "Iglesia Evangélica Bethel (lugar de asistencia)",
-      "tipo": "Iglesia evangélica",
+      "nombre": "Iglesia Evangélica Bethel (obra misionera)",
+      "tipo": "Organización de ayuda social",
       "punto": [
         -38.56331,
         -58.73346
       ],
-      "fuente": "El punto marca dónde se brinda la ayuda asistencial, en la cuadra del 3100 de la Calle 40; el templo principal está en la misma calle, a la altura 3037. Ambos datos, de un colaborador (28/09/2026); la coordenada se tomó de OpenStreetMap, donde la iglesia no figura cargada. Sitio web: https://visionfeyaccion.com/ Reparte mercadería en los barrios y asiste a personas mayores (La Quinta Digital, 05/06/2020: https://laquintadigital.com.ar/nota/2220/la-iglesia-bethel-en-necochea-confecciona-tapabocas-y-reparte-mercaderia-en-los-barrios); que también acoge a personas en situación de calle lo informa el colaborador, la nota no lo menciona."
+      "fuente": "El punto marca dónde funciona su obra misionera, en la cuadra del 3100 de la Calle 40; el templo principal está en la misma calle, a la altura 3037. Ambos datos, de un colaborador (28/09/2026); la coordenada se tomó de OpenStreetMap, donde la iglesia no figura cargada. Sitio web: https://visionfeyaccion.com/ Reparte mercadería en los barrios y asiste a personas mayores (La Quinta Digital, 05/06/2020: https://laquintadigital.com.ar/nota/2220/la-iglesia-bethel-en-necochea-confecciona-tapabocas-y-reparte-mercaderia-en-los-barrios). Según el colaborador, la obra misionera se sostiene con personas que ayudan a cocinar y vender comida; no es un refugio ni aloja personas. En el Digesto del Concejo Deliberante figura como entidad de bien público con personería jurídica (Ordenanza 10338/2020, que le da en tenencia precaria la unidad turística ex Costa Dorada \"dada la labor que desarrollan\") y con permisos para locros solidarios en la vía pública (Ordenanzas 8230/2014 y 8507/2015): https://hcdnecochea.gob.ar/app/digesto-publico/"
     },
     {
       "nombre": "\"El Cafecito\", parroquia Santa María del Carmen",
@@ -54,6 +54,33 @@
         -58.722533
       ],
       "fuente": "Salón frente al templo de la parroquia, donde se brinda la asistencia; coordenada tomada de OpenStreetMap por un colaborador (28/09/2026), que informa que funciona todo el año. Según Necochea Digital (02/07/2026), el comedor funciona de domingo a viernes y atiende a personas en situación de vulnerabilidad, en situación de calle y con consumos problemáticos: https://necocheadigital.com/nota/118910/el-padre-alejandro-martinez-advierte-que-la-pobreza-no-es-solo-hambre-y-que-el-invierno-deja-al-descubierto-las-heridas-sociales-de-necochea/"
+    },
+    {
+      "nombre": "\"La Noche de la Caridad\", parroquia Nuestra Señora de Lourdes",
+      "tipo": "Cáritas",
+      "punto": [
+        -38.5808653,
+        -58.7309122
+      ],
+      "fuente": "Cáritas parroquial: bolsones alimentarios mensuales a unas 90 familias y, dos veces por semana, un plato de comida caliente que se lleva a la noche a las casas de más de 70 personas (Ecos Diarios, 26/07/2026: https://elecos.com.ar/la-demanda-en-comedores-comunitarios-es-cada-vez-mayor). Coordenada aportada por un colaborador (28/09/2026), a 7 m del templo que carga OpenStreetMap."
+    },
+    {
+      "nombre": "Comedor Mateo",
+      "tipo": "Comedor",
+      "punto": [
+        -38.5468738,
+        -58.7524789
+      ],
+      "fuente": "Fundado hace unos 26 años; entrega mercadería, ropa, calzado y elementos para el hogar a familias relevadas por voluntarios, y dicta capacitaciones laborales (Ecos Diarios, 26/07/2026: https://elecos.com.ar/la-demanda-en-comedores-comunitarios-es-cada-vez-mayor). Coordenada tomada de OpenStreetMap por un colaborador (28/09/2026); el comedor no figura cargado en OSM."
+    },
+    {
+      "nombre": "Solidaridad en Marcha",
+      "tipo": "Comedor",
+      "punto": [
+        -38.5492,
+        -58.7615
+      ],
+      "fuente": "Comedor comunitario: desayuno y almuerzo para los chicos del barrio, talleres de cocina, karate y apoyo escolar (Noticias de Necochea, 11/02/2023: https://nden.com.ar/nota/16399/la-obra-de-solidaridad-en-marcha-se-impulsa-con-el-apoyo-de-cameq/). Coordenada tomada de OpenStreetMap por un colaborador (28/09/2026); no figura cargado en OSM."
     }
   ]
 }
