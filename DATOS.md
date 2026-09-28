@@ -347,7 +347,7 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Portuaria e industrial: ferrocarril | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada (6 tramos y 8 estaciones), con el estado de cada tramo según el IGN |
 | Portuaria e industrial: rutas nacionales y provinciales | IGN (WFS) | Verificada, términos del IGN; metadato de 2021, actualización mensual declarada | Publicada, apagada al inicio (19 tramos) |
 | Portuaria e industrial: zonificación | Municipio | Sin fuente geográfica | Pendiente de fuente |
-| Portuaria e industrial: sustancias peligrosas | Secretaría de Energía (padrón de combustibles, distribuidoras de GLP, aceiteras); puntos con OpenStreetMap (sección 17) | Verificada, CC BY 4.0 y ODbL | Publicada, apagada al inicio (45 establecimientos en 41 puntos, aprobados por Sebastián el 28/09/2026) |
+| Portuaria e industrial: sustancias peligrosas | Secretaría de Energía (padrón de combustibles, distribuidoras de GLP, aceiteras); puntos con OpenStreetMap (sección 17) | Verificada, CC BY 4.0 y ODbL | Publicada, apagada al inicio (46 establecimientos en 41 puntos, aprobados por Sebastián el 28/09/2026) |
 | Expuestos: planta urbana | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (7) |
 | Expuestos: establecimientos educativos | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (140) |
 | Expuestos: establecimientos de salud | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (22) |
@@ -590,7 +590,7 @@ Pedido: una capa de lugares donde se acopian agroquímicos, a partir del caso de
 | Plantas de acopio de granos (donde se fumiga con fosfina) | "Granos - Centros de acopio" de datos.gob.ar informa cantidades por partido, sin ubicación. OpenStreetMap tiene silos (`man_made=silo`) en la capa de instalaciones portuarias, sin operador ni uso. |
 | INTA (GeoINTA, http://www.geointa.inta.gob.ar/) | No se encontró una capa de depósitos de agroquímicos ni de acopios; no se revisó el catálogo capa por capa. |
 
-## 17. Sustancias peligrosas: combustibles, gas envasado y aceiteras (pedido de Sebastián, 28/09/2026) · **Verificada** · en uso (45 establecimientos aprobados por Sebastián el 28/09/2026)
+## 17. Sustancias peligrosas: combustibles, gas envasado y aceiteras (pedido de Sebastián, 28/09/2026) · **Verificada** · en uso (46 establecimientos aprobados por Sebastián el 28/09/2026)
 
 Pedido: "buscamos un listado y referenciamos uno por uno en una capa específica de sustancias peligrosas". Relevamiento de fuentes hecho por un agente el 28/09/2026 (los archivos quedaron en el espacio de trabajo de la sesión, no en el repositorio). La regla de ubicación de `CLAUDE.md` se aplica a esta capa: cada punto se ubica uno por uno, dice de dónde sale y se publica solo con la aprobación de Sebastián (`datos/sustancias/ubicaciones.json`, campo `aprobado`).
 
@@ -629,9 +629,9 @@ Control contra las capas del mapa: los 36 puntos caen dentro del partido y ningu
 | 114 N° 715 (Necochea) | La dirección no existe. No se publica. |
 | 542 N° 1170 (Quequén) y ALMIRANTE BROWN 1500 (Quequén) | No los pudo confirmar: siguen sin ubicar. |
 | RUTA 228 KM 52 (Energía), GNC de una cooperativa | Sin ubicar. Se consideró la Shell de la Ruta 228 y la Av. 43, pero esa estación ya figura en el padrón como "Ruta 228 km 1" y Sebastián confirmó que la inscripción no le corresponde. Por el km y la localidad estaría cerca de Energía; ninguna fuente abierta ubica esa boca de GNC. |
-| RUTA 80 601 (Juan N. Fernández) | **En espera.** Sebastián dice que no hay Ruta 80 en el partido, pero la capa de rutas del IGN y OpenStreetMap la tienen en Juan N. Fernández, donde ya está publicada la estación del acceso por la Ruta 80. |
+| RUTA 80 601 (Juan N. Fernández) | Ubicada en la estación del acceso por la Ruta 80 (OpenStreetMap), del mismo titular. Primero Sebastián dijo que no hay Ruta 80 en el partido; ante los tramos que carga la capa de rutas del IGN, confirmó que sobre esa parte de la ruta está esa estación (a 16 m del punto de OSM) y que no vende gas. |
 
-Resultado: 45 establecimientos publicados en 41 puntos; 4 siguen sin ubicar y 3 quedan descartados.
+Resultado: 46 establecimientos publicados en 41 puntos; 3 siguen sin ubicar y 3 quedan descartados.
 
 **Lo que existe pero no está publicado**, y los pedidos de acceso a la información que conviene presentar (Ley 25.831 de información pública ambiental; verificar el plazo antes de presentarlos). En todos, pedir tipo de establecimiento, dirección o nomenclatura catastral, coordenadas si existen y rubro o sustancias, sin titulares personas, teléfonos ni correos:
 

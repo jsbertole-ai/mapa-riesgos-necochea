@@ -251,7 +251,14 @@
       "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01: 0249419/2012": {
-      "sin_ubicar": "La Ruta 80 no tiene direcciones cargadas en Juan N. Fernández; puede ser la misma estación de la inscripción del acceso, pero no hay cómo comprobarlo."
+      "punto": [
+        -38.01514,
+        -59.26018
+      ],
+      "osm": "node/3801339124",
+      "fuente_punto": "Estación de servicio del acceso por la Ruta 80 en OpenStreetMap, del mismo titular del padrón; Juan Sebastián Bértole confirmó que es la única sobre ese tramo (28/09/2026, a 16 m del punto de OSM).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
     },
     "EXP-S01:0386001/2005": {
       "punto": [
