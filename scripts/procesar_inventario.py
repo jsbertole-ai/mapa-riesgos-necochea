@@ -204,9 +204,11 @@ def main():
         if not resultado:
             rechazos.append((fila.get("_id"), motivo))
             continue
-        clave = (resultado[0]["fuente_url"], resultado[0]["tipo"], resultado[0]["localidad"], resultado[0]["fecha"])
+        # El lugar distingue eventos distintos de una misma nota (por ejemplo, dos focos de incendio el mismo día).
+        clave = (resultado[0]["fuente_url"], resultado[0]["tipo"], resultado[0]["localidad"], resultado[0]["fecha"],
+                 (resultado[0]["lugar"] or "").lower())
         if clave in vistos:
-            rechazos.append((fila.get("_id"), "duplicado de otro registro aprobado (misma nota, tipo, localidad y fecha)"))
+            rechazos.append((fila.get("_id"), "duplicado de otro registro aprobado (misma nota, tipo, localidad, fecha y lugar)"))
             continue
         vistos.add(clave)
         publicados.append(resultado)
