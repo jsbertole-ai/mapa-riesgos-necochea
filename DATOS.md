@@ -316,7 +316,7 @@ Pendientes:
 9. **SMN (sección 12):** revisar a mano la licencia en https://www.smn.gob.ar/descarga-de-datos (Cloudflare bloquea al entorno) y decidir si se arma un archivo propio de las alertas del SMN que alcanzan al partido.
 10. **FIRMS 2025 (2.1):** cuando FIRMS publique el resumen anual de 2025, volver a correr `python3 scripts/actualizar.py`.
 11. **INTA (1.5 y 2.4) y SNMF (2.2):** sin cambios desde la Fase 1.
-13 bis. **Antenas (sección 15) y organismos sin fuente (sección 9):** antenas y postes ya se descargaron (27/09/2026); falta repetir la consulta "respuesta" (los dos servidores de Overpass agotaron el tiempo); la planilla de repetidoras de ENACOM ya se revisó (27/09/2026) y no trae posiciones; cargar en OSM el Comando de Patrullas, la Policía Rural, la Policía Vial y los radio clubes.
+13 bis. **Antenas (sección 15) y organismos sin fuente (sección 9):** antenas y postes ya se descargaron (27/09/2026); falta repetir la consulta "respuesta" (los dos servidores de Overpass agotaron el tiempo); la planilla de repetidoras de ENACOM ya se revisó (27/09/2026) y no trae posiciones; para las antenas grandes, pedir al municipio el registro de estructuras portantes de la Ordenanza 9010 (sección 15); cargar en OSM el Comando de Patrullas, la Policía Rural, la Policía Vial y los radio clubes.
 13. **Visor provincial de estaciones meteorológicas (sección 14):** localizar la URL, ver si publica datos abiertos y con qué licencia.
 12. **Red de asistencia (sección 13):** bajar a mano los puntos de Cáritas del partido desde Mapa Poblaciones y revisar la página de la DGCyE; ver 13.1 y 13.3.
 
@@ -588,4 +588,15 @@ Pedido: toda antena debe figurar, sea de la Provincia, de empresas, de medios o 
 | Provincia de Buenos Aires | El catálogo no tiene conjuntos de antenas (búsqueda "antena", 27/09/2026). |
 
 **Resultado de OpenStreetMap (27/09/2026, base de las 22:27 UTC, servidor overpass-api.de):** 12 antenas y mástiles en el partido: 6 de telefonía móvil (La Dulce, Juan N. Fernández, Claraz y Ramón Santamarina), 1 de radio FM ("FM La Radio 93.5", la única en la ciudad de Necochea) y 5 sin uso informado (La Dulce y Ramón Santamarina). Ningún radio club. La capa pasa a verificada, con la advertencia de que es muy incompleta.
+
+**Búsqueda de antenas grandes fuera de OSM (28/09/2026)**, a pedido de Sebastián ("en Necochea tenemos muchas antenas, eso debe estar en algún lado"):
+
+| Fuente | Resultado |
+|---|---|
+| ANAC, AIP ENR 5.4 "Obstáculos para la navegación aérea" (AMDT AIRAC 1/2026, vigente desde el 11/06/2026), https://ais.anac.gob.ar/descarga/aip-69e0f4435a0eb, sha256 `67eff4d6c6904b02e2fd83d24f6f8fe235a19f01714db0cd101eea2eecc3a518` | Solo publica obstáculos de "100 m AGL o más" y en todo el país lista un único parque eólico (Vientos La Rinconada). **Nada en el partido.** |
+| ANAC, MADHEL (API https://datos.anac.gob.ar/madhel/api/v2/airports/NEC/), aeródromo Necochea (NEC / SAZO), actualizado el 23/09/2026 | La ficha no informa obstáculos. Trae nombres y teléfonos de personas: no se usa. El aeródromo no tiene sección AD 2 en el AIP. |
+| ENACOM, radiodifusión (https://www.enacom.gob.ar/fm_p565, https://datosabiertos.enacom.gob.ar/, http://registros-sca.enacom.gob.ar/licencias-autorizaciones/) | Los tres respondieron 503 o cortaron la conexión (28/09/2026). Según Radios Libres (https://radioslibres.net/cuantas-radios-hay/), la tabla de licenciatarios ya no está en el portal de datos abiertos de ENACOM; no se sabe si traía la posición de las plantas transmisoras. |
+| datos.gob.ar (búsquedas "enacom", "antenas", "radiodifusion", "telefonia", 28/09/2026) | Solo indicadores de mercado (accesos, ingresos); ningún conjunto con ubicación de antenas. |
+| OpenCelliD | **No se usa:** sus posiciones de celdas se calculan a partir de mediciones de teléfonos, no son la ubicación de las torres; publicarlas sería publicar una estimación. |
+| **Municipalidad de Necochea, Ordenanza 9010** (sancionada el 11/11/2016, Expte. HCD 19946-D), https://necochea.gov.ar/descargas/tramites/antenas/9010-regula-portantes-antenas.pdf | Regula las estructuras portantes de antenas. Su artículo 9 crea el "Registro Municipal de Prestadores de Servicios de Telefonía Celular y Telecomunicaciones" y el artículo 10 obliga a quienes "tengan instaladas en el Partido de Necochea, estructuras portantes de antenas" a inscribirse y tramitar el permiso, con planos. **El dato existe en el municipio pero no está publicado.** Camino: pedido de acceso a la información pública a la Secretaría de Planeamiento, Obras y Servicios Públicos, solo por la ubicación y el tipo de cada estructura (sin datos de personas). |
 
