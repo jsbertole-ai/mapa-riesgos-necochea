@@ -1,8 +1,8 @@
 {
   "exportacion": "registros_proyecto.csv",
   "registros_en_la_exportacion": 28,
-  "aprobados": 27,
-  "publicados": 27,
+  "aprobados": 28,
+  "publicados": 28,
   "no_publicados_por_controles": 0,
   "sin_ubicacion_en_el_mapa": 1,
   "por_tipo": {
@@ -13,7 +13,8 @@
     "Marejada": 2,
     "Colapso estructural": 2,
     "Escape": 1,
-    "Vendaval": 2
+    "Vendaval": 2,
+    "Cambio de la línea de costa": 1
   },
   "por_anio": {
     "1980": 4,
@@ -22,7 +23,7 @@
     "2023": 1,
     "2026": 8,
     "2020": 1,
-    "2024": 3,
+    "2024": 4,
     "2015": 1,
     "2021": 2,
     "2012": 3,
@@ -30,7 +31,7 @@
     "2025": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 19,
+    "Necochea y Quequén": 20,
     "Nicanor Olivera (La Dulce)": 3,
     "Juan N. Fernández": 1,
     "Claraz": 1,
