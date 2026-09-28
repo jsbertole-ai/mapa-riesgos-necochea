@@ -704,3 +704,21 @@ Pedido: toda antena debe figurar, sea de la Provincia, de empresas, de medios o 
 | OpenCelliD | **No se usa:** sus posiciones de celdas se calculan a partir de mediciones de teléfonos, no son la ubicación de las torres; publicarlas sería publicar una estimación. |
 | **Municipalidad de Necochea, Ordenanza 9010** (sancionada el 11/11/2016, Expte. HCD 19946-D), https://necochea.gov.ar/descargas/tramites/antenas/9010-regula-portantes-antenas.pdf | Regula las estructuras portantes de antenas. Su artículo 9 crea el "Registro Municipal de Prestadores de Servicios de Telefonía Celular y Telecomunicaciones" y el artículo 10 obliga a quienes "tengan instaladas en el Partido de Necochea, estructuras portantes de antenas" a inscribirse y tramitar el permiso, con planos. **El dato existe en el municipio pero no está publicado.** Camino: pedido de acceso a la información pública a la Secretaría de Planeamiento, Obras y Servicios Públicos, solo por la ubicación y el tipo de cada estructura (sin datos de personas). |
 
+
+## 19. Erosión costera en Quequén (pedido de Sebastián, 28/09/2026) · **Relevamiento** · sin capa propia; un evento en el inventario
+
+No hay una línea de costa oficial ni científica en datos abiertos que muestre el retroceso año por año. Lo encontrado:
+
+| Fuente | Qué aporta | Estado |
+|---|---|---|
+| Isla, F., Bértola, G., Merlotto, A., Ferrante, Á. y Cortizo, L. (2009). Requerimientos y disponibilidad de arenas para la defensa de las playas de Necochea y Lobería. *Revista de la Asociación Geológica Argentina*, 65(3). https://www.scielo.org.ar/img/revistas/raga/v65n3/html/v65n3a03.htm | Las escolleras del puerto generaron acumulación en Necochea y "un crítico proceso erosivo de los acantilados y en las playas del este"; erosión de 0,5 a 0,8 m/año; Bahía de los Vientos es "el sector de erosión más crítico". Monitoreo de playas 1994-2007. | Leída el 28/09/2026 (texto HTML); falta cotejar páginas en el PDF y la licencia. |
+| Merlotto, A., Bértola, G. e Isla, F. (2017). Riesgo de erosión costera de la provincia de Buenos Aires. *Revista Universitaria de Geografía*, 26(2), 37-72. https://www.redalyc.org/journal/3832/383254667003/html/ | Cita un retroceso de 14 a 18,6 m entre 1967 y 2004 en Quequén (0,5 m/año). Clasifica a Quequén con riesgo **bajo** (peligrosidad alta, vulnerabilidad muy baja) y al resto de la franja urbana, muy bajo. | Leída el 28/09/2026; licencia CC BY-NC 3.0 (se cita, no se redistribuyen sus datos). |
+| Ecos Diarios (24/08/2025), https://elecos.com.ar/no-descartan-un-nuevo-desvio-del-camino-costero-en-quequen-ante-el-avance-de-la-erosion | Erosión frente a Quequén Chico y el peñón de la Rosa Mística; camino a Costa Bonita comprometido; desvíos en septiembre de 1995 (calle 504) y julio de 2020. | Cargada como registro `proyecto-0039` del inventario. Los desvíos de 1995 y 2020 esperan notas de esos años antes de cargarse. |
+| La Nación (abril de 2026) | La extensión de la escollera sur (casi 400 m) se inauguró en 2008; se perdieron "al menos 2500 metros" de espacio de balneario en Bahía de los Vientos; el Consorcio se comprometió a hacer el estudio de impacto ambiental para el refulado. | Leída; no cargada. |
+| Monitoreo anual de la Universidad Nacional de Mar del Plata para el Consorcio de Gestión del Puerto Quequén (según la prensa) | Sería el único dato posterior a la extensión de la escollera. | **Sin fuente pública:** pedir por acceso a la información al Consorcio. |
+
+**Sin respaldo publicado:** varios medios dicen que, desde 2004, el retroceso pasó de 30 a 50 cm/año a 3 a 5 m/año y que el mar avanzó 50 m, citando a "especialistas" sin nombre ni estudio (por ejemplo, La Capital de Mar del Plata). Los datos revisados por pares llegan hasta 2004-2007 y no miden el efecto de la extensión. No se usa esa cifra.
+
+**Causa judicial:** no se encontró una por la erosión en Quequén (28/09/2026). La causa de Surfrider Argentina con dictamen de la Procuración (2016) es contra la Municipalidad de General Pueyrredon; la de Quequén que trae la prensa es por la concesión del Giro 0.
+
+**Capa posible, pendiente:** un tramo de "costa con erosión documentada" sobre la línea de costa de OpenStreetMap, solo si los trabajos delimitan el tramo con lugares con nombre. El peñón de la Rosa Mística no figura en OpenStreetMap.
