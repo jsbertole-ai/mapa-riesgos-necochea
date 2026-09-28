@@ -127,12 +127,15 @@ def controlar(fila, cfg, etiquetas, limite, caja):
                     return None, f"cantidad inválida en {e['name']} ({v})"
                 efectos[e["label"]] = int(v)
     lugar = (fila.get("lugar") or "").strip()
+    # De dónde sale el punto (solo en los registros del proyecto): un lugar público que la nota nombra,
+    # tomado de una capa verificada; nunca una dirección convertida en coordenadas.
+    punto_fuente = (fila.get("ubicacion_fuente") or "").strip()
     descripcion = fila["descripcion"].strip()
     observaciones = (fila.get("observaciones_efectos") or "").strip() if tipo == "evento" else ""
-    if len(lugar) > 120 or len(descripcion) > 400 or len(observaciones) > 300:
+    if len(lugar) > 120 or len(descripcion) > 400 or len(observaciones) > 300 or len(punto_fuente) > 200:
         return None, "texto más largo que lo permitido"
     for nombre, patron in RASTROS_PERSONALES:
-        if any(patron.search(t) for t in (lugar, descripcion, observaciones)):
+        if any(patron.search(t) for t in (lugar, descripcion, observaciones, punto_fuente)):
             return None, f"posible dato personal ({nombre}); revisar y corregir en Kobo"
     p = punto(fila)
     if p is False:
@@ -149,6 +152,7 @@ def controlar(fila, cfg, etiquetas, limite, caja):
         "efectos": efectos,
         "observaciones_efectos": observaciones or None,
         "servicios": [etiquetas["servicios"][s] for s in servicios],
+        "punto": punto_fuente if p and punto_fuente else None,
         "descripcion": descripcion,
         "fuente_medio": fila["fuente_medio"].strip(),
         "fuente_fecha": fecha_nota.isoformat(),
