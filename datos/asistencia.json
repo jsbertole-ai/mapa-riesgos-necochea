@@ -18,6 +18,24 @@
         -58.749014
       ],
       "fuente": "Cáritas parroquial. Coordenada tomada de OpenStreetMap por un colaborador que conoce el lugar (28/09/2026); queda a 20 m del templo que OpenStreetMap carga como \"Parroquia Nuestra Señora del Rosario de Nueva Pompeya\" (way/1272959262)."
+    },
+    {
+      "nombre": "Cáritas de la parroquia Santa Teresita del Niño Jesús",
+      "tipo": "Cáritas",
+      "punto": [
+        -38.5387,
+        -58.7554
+      ],
+      "fuente": "Cáritas parroquial, confirmada por un colaborador (28/09/2026). El punto es el del templo en OpenStreetMap (node/11821125524), en la Calle 96, barrio Tiro Federal."
+    },
+    {
+      "nombre": "Iglesia Evangélica Bethel",
+      "tipo": "Iglesia evangélica",
+      "punto": [
+        -38.56331,
+        -58.73346
+      ],
+      "fuente": "Brinda ayuda asistencial, según un colaborador (28/09/2026). Coordenada tomada de OpenStreetMap por el colaborador, sobre la Calle 40, en la cuadra que corresponde a las direcciones que da su sitio web (https://visionfeyaccion.com/). El templo no figura cargado en OSM."
     }
   ]
 }
