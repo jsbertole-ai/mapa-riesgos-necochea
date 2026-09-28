@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-28T14:05:54+00:00",
+  "generado": "2026-09-28T16:45:04+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1142,24 +1142,27 @@
         }
       },
       "activa_al_inicio": false,
-      "que_representa": "Los cuerpos que intervienen en la gestión del riesgo y los siniestros en el partido, cada uno con su color: policía (comisarías, subcomisarías y, cuando se carguen, el Comando de Patrullas, la Policía Rural y la Policía Vial), Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo, guardavidas, guardaparques, Cruz Roja y radioaficionados. Según el municipio, estos organismos trabajan en conjunto ante los temporales (por ejemplo, https://necochea.gov.ar/arboles-y-postes-caidos-techos-volados-y-cuatro-auto-evacuados-por-los-fuertes-vientos/, 26/08/2021). Los radioaficionados están porque la Provincia les asigna un papel en las comunicaciones de emergencia (Decreto 275/2021, Anexo II, acciones de la Dirección Provincial de Defensa Civil).",
+      "que_representa": "Los cuerpos que intervienen en la gestión del riesgo y los siniestros en el partido, cada uno con su color: policía (comisarías, subcomisarías, el Comando de Patrullas y, cuando se carguen, la Policía Rural y la Policía Vial), Prefectura Naval, bomberos, Defensa Civil, el Centro Operativo de Monitoreo, guardavidas, guardaparques, Cruz Roja y radioaficionados. Según el municipio, estos organismos trabajan en conjunto ante los temporales (por ejemplo, https://necochea.gov.ar/arboles-y-postes-caidos-techos-volados-y-cuatro-auto-evacuados-por-los-fuertes-vientos/, 26/08/2021). Los radioaficionados están porque la Provincia les asigna un papel en las comunicaciones de emergencia (Decreto 275/2021, Anexo II, acciones de la Dirección Provincial de Defensa Civil).",
       "que_no_representa": "No indica dotación, equipamiento, horarios ni área de cobertura. Los guardavidas funcionan solo en temporada de verano. No incluye cámaras de videovigilancia ni datos de las personas que trabajan en cada organismo.",
-      "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por un colaborador en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. La coordenada que la Provincia da para la Comisaría de la Mujer no cae en su propia dirección (Calle 24 N° 4242, confirmada por un colaborador) sino en Calle 24 y 67, a unos 1100 m: se usa el punto del IGN, que está en esa dirección. La Provincia no publica en datos abiertos la ubicación del Comando de Patrullas, la Policía Rural ni la Policía Vial, y ninguna de las tres figura en el IGN ni en OpenStreetMap (búsqueda del 27/09/2026); lo mismo pasa con los radio clubes. Guardavidas, guardaparques, Cruz Roja, esas tres dependencias policiales y los radio clubes aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central.",
+      "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por un colaborador en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. La coordenada que la Provincia da para la Comisaría de la Mujer no cae en su propia dirección (Calle 24 N° 4242, confirmada por un colaborador) sino en Calle 24 y 67, a unos 1100 m: se usa el punto del IGN, que está en esa dirección. La Provincia no publica en datos abiertos la ubicación del Comando de Patrullas, la Policía Rural ni la Policía Vial, y ninguna de las tres figura en el IGN ni en OpenStreetMap (búsqueda del 27/09/2026); lo mismo pasa con los radio clubes. El Comando de Patrullas se publica con el punto que aportó un colaborador que conoce el lugar (28/09/2026), y la ventana lo dice. Guardavidas, guardaparques, Cruz Roja, esas tres dependencias policiales y los radio clubes aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central.",
       "estado": "verificada",
-      "elementos": 12,
+      "elementos": 18,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-09-28T13:51:35+00:00",
+      "procesado": "2026-09-28T16:45:04+00:00",
       "por_organismo": {
         "Bomberos": 3,
         "Centro Operativo de Monitoreo": 1,
+        "Cruz Roja": 2,
         "Defensa Civil": 1,
-        "Policía": 6,
-        "Prefectura Naval": 1
+        "Guardavidas": 1,
+        "Policía": 8,
+        "Prefectura Naval": 1,
+        "Radioaficionados": 1
       },
       "verificacion": {
         "fecha": "2026-09-28",
         "controles": [
-          "12 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "18 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-09-28).",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-28).",
@@ -1191,13 +1194,13 @@
         }
       },
       "activa_al_inicio": false,
-      "que_representa": "Lugares de refugio, con un color según a quién alojan: el Polideportivo Municipal \"Edgardo Hugo Yelpo\", único refugio designado por Defensa Civil para evacuación ante catástrofes, y la Parroquia Nuestra Señora de la Medalla Milagrosa, refugio para personas en situación de calle. Los dos datos los aportó un colaborador.",
+      "que_representa": "Lugares de refugio, con un color según a quién alojan: el Polideportivo Municipal \"Edgardo Hugo Yelpo\", único refugio designado por Defensa Civil para evacuación ante catástrofes, y el espacio nocturno de la parroquia Nuestra Señora de la Medalla Milagrosa, en el salón frente al templo, refugio para personas en situación de calle con pocos lugares. Los dos datos los aportó un colaborador.",
       "que_no_representa": "No indica capacidad ni si el refugio está abierto. La parroquia no es un lugar de evacuación ni depende de Defensa Civil. Ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
-      "limitaciones": "La lista está en datos/refugios.json; el nombre y la ubicación salen de OpenStreetMap. Se muestra el punto central de cada edificio.",
+      "limitaciones": "La lista está en datos/refugios.json; el nombre y la ubicación salen de OpenStreetMap. Se muestra el punto central de cada edificio, salvo cuando el refugio funciona en otro edificio que el cargado en OpenStreetMap: ahí va el punto que aportó el colaborador.",
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-09-28T13:51:35+00:00",
+      "procesado": "2026-09-28T16:45:04+00:00",
       "por_tipo": {
         "Personas en situación de calle": 1,
         "Evacuación ante catástrofes": 1
@@ -1207,6 +1210,44 @@
         "controles": [
           "2 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-09-28)."
+        ]
+      }
+    },
+    {
+      "organismo": "Colaboradores del proyecto",
+      "url_fuente": "https://github.com/jsbertole-ai/mapa-riesgos-necochea/blob/main/datos/asistencia.json",
+      "url_datos": "datos/asistencia.json (repositorio del proyecto)",
+      "licencia": "CC BY 4.0 (aporte de colaboradores del proyecto)",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "cita": "Red de asistencia del partido de Necochea (colaboradores del proyecto), CC BY 4.0.",
+      "formato": "GeoJSON armado por scripts/armar_respuesta.py a partir de datos/asistencia.json",
+      "id": "red_asistencia",
+      "grupo": "respuesta",
+      "nombre": "Red de asistencia",
+      "archivo": "red_asistencia.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#c51b7d",
+        "radio": 6
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Organizaciones que asisten a la población vulnerable antes, durante y después de un siniestro: Cáritas, comedores, parroquias, templos y otras. Son la parte visible de la organización comunitaria que amortigua el impacto de un desastre (ver MARCO_CONCEPTUAL.md, sección 2).",
+      "que_no_representa": "No indica qué servicios presta cada organización, sus horarios ni su capacidad. No es un lugar de evacuación: ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
+      "limitaciones": "Está en construcción: por ahora tiene solo los puntos que aportaron colaboradores que conocen el lugar, y cada ventana lo dice. Los puntos de Cáritas del mapa \"Mapas Cáritas\" (Mapa Poblaciones) están pendientes de descarga (DATOS.md, sección 13.1).",
+      "estado": "verificada",
+      "elementos": 6,
+      "fecha_datos": "Puntos aportados por colaboradores; ver la fecha en cada punto.",
+      "procesado": "2026-09-28T16:45:04+00:00",
+      "por_tipo": {
+        "Personas en situación de calle": 2,
+        "Iglesia evangélica": 1,
+        "Cáritas": 3
+      },
+      "verificacion": {
+        "fecha": "2026-09-28",
+        "controles": [
+          "6 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Fuente propia: puntos aportados por colaboradores del proyecto que conocen el lugar, publicados bajo CC BY 4.0."
         ]
       }
     },

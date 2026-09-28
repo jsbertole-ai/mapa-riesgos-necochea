@@ -147,9 +147,10 @@
     if (p.fuente === "Provincia de Buenos Aires") {
       return '<p class="nota">Fuente: ' + enlace("https://catalogo.datos.gba.gob.ar/es_AR/dataset/comisarias", "Ministerio de Seguridad de la Provincia de Buenos Aires, Comisarías") + " (CC BY 4.0).</p>";
     }
+    if (p.fuente === "Colaborador") return '<p class="nota">' + esc(p.nota) + "</p>";
     return p.fuente === "IGN"
       ? '<p class="nota">' + esc(CITA_IGN) + (p.fuente_captura ? " Fuente de captura: " + esc(p.fuente_captura) + "." : "") + "</p>"
-      : '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.ref, "OpenStreetMap, " + p.ref) + " (ODbL).</p>";
+      : (p.nota ? '<p class="nota">' + esc(p.nota) + "</p>" : "") + '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.ref, "OpenStreetMap, " + p.ref) + " (ODbL).</p>";
   }
 
   // Organismos de respuesta: IGN (policía, Prefectura, bomberos) y OpenStreetMap (el resto).
@@ -166,6 +167,11 @@
       "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
       notaFuente(p)
     );
+  }
+
+  // Red de asistencia: organizaciones que asisten a la población vulnerable (puntos de colaboradores).
+  function popupAsistencia(p) {
+    return "<h3>" + esc(p.nombre) + "</h3>" + "<div>" + esc(p.tipo) + "</div>" + '<p class="nota">' + esc(p.nota) + "</p>";
   }
 
   function popupRefugio(p) {
@@ -458,6 +464,7 @@
           if (capa.id === "inventario_local") return popupInventario(f.properties);
           if (capa.id === "organismos") return popupOrganismo(f.properties);
           if (capa.id === "refugios") return popupRefugio(f.properties);
+          if (capa.id === "red_asistencia") return popupAsistencia(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
           if (capa.id === "postes_via_publica") return popupPoste(f.properties);

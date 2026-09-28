@@ -9,13 +9,18 @@
     },
     {
       "osm": "way/1272959264",
-      "tipo": "Parroquia",
-      "fuente": "Indicada por un colaborador (27/09/2026). Asiste a personas en situación de calle con el comedor \"Esperanza y Gozo\" (cena caliente), bolsones de alimentos y ropero comunitario (Ecos Diarios; Necochea Digital, 02/07/2026). En el invierno de 2026 sumó lugares para pasar la noche, aunque el párroco aclaró: \"No tenemos algo oficial donde se pueda cobijar a estas personas\" (Ecos Diarios, 26/07/2026). No depende de Defensa Civil ni es un lugar de evacuación.",
+      "tipo": "Salón parroquial",
+      "fuente": "Indicada por un colaborador (27/09/2026). El espacio para pasar la noche funciona en el salón frente al templo, se organiza desde hace unos dos años y tiene pocos lugares (colaborador, 28/09/2026); el punto es el del salón, tomado de OpenStreetMap por el colaborador, y el templo de OSM queda como referencia. Asiste a personas en situación de calle con el comedor \"Gozo y Esperanza\" (cena caliente), bolsones de alimentos y ropero comunitario (Ecos Diarios; Necochea Digital, 02/07/2026). En el invierno de 2026 sumó lugares para pasar la noche, aunque el párroco aclaró: \"No tenemos algo oficial donde se pueda cobijar a estas personas\" (Ecos Diarios, 26/07/2026). No depende de Defensa Civil ni es un lugar de evacuación.",
       "uso": "Personas en situación de calle",
       "referencias": [
         "https://elecos.com.ar/la-demanda-en-comedores-comunitarios-es-cada-vez-mayor",
         "https://necocheadigital.com/nota/118910/el-padre-alejandro-martinez-advierte-que-la-pobreza-no-es-solo-hambre-y-que-el-invierno-deja-al-descubierto-las-heridas-sociales-de-necochea/",
         "https://www.facebook.com/EcosDiarios/videos/634776802968520/"
+      ],
+      "nombre": "Espacio nocturno de la parroquia Nuestra Señora de la Medalla Milagrosa",
+      "punto": [
+        -38.569057,
+        -58.722533
       ]
     }
   ]

@@ -1,0 +1,41 @@
+{
+  "_nota": "Organismos de respuesta que no figuran en ningún registro abierto (Provincia, IGN ni OpenStreetMap). El punto lo aporta un colaborador que conoce el lugar; cada uno dice de dónde sale.",
+  "elementos": [
+    {
+      "organismo": "Policía",
+      "nombre": "Comando de Patrullas Necochea",
+      "punto": [
+        -38.5255,
+        -58.75292
+      ],
+      "fuente": "Depende del Ministerio de Seguridad de la Provincia de Buenos Aires. Punto aportado por un colaborador (28/09/2026); la Provincia no publica su ubicación en datos abiertos."
+    },
+    {
+      "organismo": "Guardavidas",
+      "nombre": "Jefatura de Playa (Guardavidas)",
+      "punto": [
+        -38.584522,
+        -58.730947
+      ],
+      "fuente": "Coordenada tomada de OpenStreetMap por un colaborador (28/09/2026); la Jefatura todavía no figura cargada en OSM. Funciona en temporada de verano."
+    },
+    {
+      "organismo": "Radioaficionados",
+      "nombre": "Radio Club Necochea (LU9EV)",
+      "punto": [
+        -38.55535,
+        -58.740756
+      ],
+      "fuente": "Sede del Radio Club Necochea; coordenada tomada de OpenStreetMap por un colaborador que conoce el lugar (28/09/2026). Según Ecos Diarios (18/07/2026), el club trabaja \"junto al Municipio, Defensa Civil, Bomberos, Guardaparques, Guardavidas\" y tiene dos repetidoras (VHF y UHF)."
+    },
+    {
+      "organismo": "Cruz Roja",
+      "nombre": "Cruz Roja Argentina, Filial Necochea",
+      "punto": [
+        -38.551595,
+        -58.741083
+      ],
+      "fuente": "Sede de la filial; coordenada tomada de OpenStreetMap por un colaborador que conoce el lugar (28/09/2026). La filial no figura cargada en OSM."
+    }
+  ]
+}
