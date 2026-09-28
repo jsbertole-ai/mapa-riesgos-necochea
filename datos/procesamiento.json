@@ -558,7 +558,7 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-09-28T05:50:54+00:00",
+    "procesado": "2026-09-28T13:51:35+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
@@ -594,12 +594,12 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-09-28T05:50:54+00:00",
+    "procesado": "2026-09-28T13:51:35+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "por_tipo": {
-      "Evacuación ante catástrofes": 1,
-      "Personas en situación de calle": 1
+      "Personas en situación de calle": 1,
+      "Evacuación ante catástrofes": 1
     },
     "fecha_datos": "2026-07-30"
   },
@@ -714,10 +714,10 @@
     }
   },
   "inventario_local": {
-    "procesado": "2026-09-28T05:45:38+00:00",
+    "procesado": "2026-09-28T13:51:34+00:00",
     "archivo_crudo": "datos/inventario/registros_proyecto.csv",
     "sha256_crudo": {
-      "registros_proyecto.csv": "455648ec3cea58e0326d35c1e6bb31dd4e6f8c8f9ab89a7be4a9cc384c769ba1"
+      "registros_proyecto.csv": "96a3b13b7b9cad8a1d4285f20f01ec63eaa1e9df518dbc2368527d3cf78aff0d"
     },
     "elementos": 19,
     "registros": 31,
@@ -733,7 +733,7 @@
     "fecha_datos": "Recurso actualizado por última vez el 11/09/2019, según datos.gob.ar."
   },
   "sustancias_peligrosas": {
-    "procesado": "2026-09-28T13:43:50+00:00",
+    "procesado": "2026-09-28T13:51:35+00:00",
     "archivo_crudo": "sustancias/",
     "sha256_crudo": {
       "res1102-padronoperadores-publico.xls.zip": "830b0b8b16949aa33cb29998d5b98c3f76a8786f262c1c27ef10d6fb81faa12b",
@@ -751,12 +751,12 @@
     "fleteros_descartados": 4,
     "sin_aprobar": [],
     "sin_ubicar": [
-      "padron_1102: EX-2019-56784480-APN-DGDOMEN#MHA (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Sebastián no pudo confirmarla (28/09/2026). Sebastián buscó la dirección y no encontró ningún establecimiento (28/09/2026): queda pendiente.)",
-      "padron_1102: EX-2018-37889574-APN-DGDO#MEN (No corresponde al partido, según Sebastián (28/09/2026); el empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap también queda fuera del límite, a unos 425 m.)",
-      "padron_1102: EX-2018-56076406-APN-DGDOMEN#MHA (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Sebastián no pudo confirmarla (28/09/2026). Sebastián buscó la dirección y no encontró ningún establecimiento (28/09/2026): queda pendiente.)",
-      "padron_1102: EXP-S01:0036224/2006 (Descartada: según Sebastián (28/09/2026), que lo verificó en la guía de rutas 2026, no hay GNC en Energía ni en San Cayetano; la boca más cercana sobre la Ruta 228 queda fuera del partido. La inscripción no corresponde a un establecimiento del partido.)",
-      "padron_1102: EX-2017-18143298-APN-DDYME#MEM (La dirección (Calle 114 N° 715) no existe, según Sebastián (28/09/2026).)",
-      "padron_1102: EXP-S01:0066443/2006 (No corresponde al partido, según Sebastián (28/09/2026): la dirección (Av. Mitre 587 y Barragán) no es de Necochea.)"
+      "padron_1102: EX-2019-56784480-APN-DGDOMEN#MHA (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Un colaborador no pudo confirmarla (28/09/2026); después buscó la dirección y no encontró ningún establecimiento (28/09/2026): queda pendiente.)",
+      "padron_1102: EX-2018-37889574-APN-DGDO#MEN (No corresponde al partido, según un colaborador (28/09/2026); el empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap también queda fuera del límite, a unos 425 m.)",
+      "padron_1102: EX-2018-56076406-APN-DGDOMEN#MHA (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Un colaborador no pudo confirmarla (28/09/2026); después buscó la dirección y no encontró ningún establecimiento (28/09/2026): queda pendiente.)",
+      "padron_1102: EXP-S01:0036224/2006 (Descartada: según un colaborador (28/09/2026), que lo verificó en la guía de rutas 2026, no hay GNC en Energía ni en San Cayetano; la boca más cercana sobre la Ruta 228 queda fuera del partido. La inscripción no corresponde a un establecimiento del partido.)",
+      "padron_1102: EX-2017-18143298-APN-DDYME#MEM (La dirección (Calle 114 N° 715) no existe, según un colaborador (28/09/2026).)",
+      "padron_1102: EXP-S01:0066443/2006 (No corresponde al partido, según un colaborador (28/09/2026): la dirección (Av. Mitre 587 y Barragán) no es de Necochea.)"
     ],
     "nuevos_en_los_listados": [],
     "fuera_del_partido": [],
