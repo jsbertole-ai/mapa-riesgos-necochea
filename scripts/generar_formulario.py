@@ -118,13 +118,13 @@ def main():
     fila(type="text", name="descripcion", label="Descripción breve", required="yes", appearance="multiline",
          hint="Qué pasó y dónde, en pocas líneas y con tus palabras. Sin nombres de personas ni domicilios.",
          constraint="string-length(.) <= 400", constraint_message="Máximo 400 caracteres.")
-    fila(type="text", name="fuente_medio", label="Medio que publicó la nota", required="yes",
-         hint="Escribilo siempre de la misma forma, para poder agrupar los registros por medio.")
-    fila(type="text", name="fuente_titulo", label="Título de la nota", required="yes",
-         hint="Sirve para revisar el registro; no se publica.")
-    fila(type="date", name="fuente_fecha", label="Fecha de publicación de la nota", required="yes",
+    fila(type="text", name="fuente_medio", label="Fuente: medio, organismo o tribunal", required="yes",
+         hint="Escribila siempre de la misma forma, para poder agrupar los registros. En un fallo, el tribunal y la sala.")
+    fila(type="text", name="fuente_titulo", label="Título de la nota o del documento, o número de causa", required="yes",
+         hint="De una causa, solo el número: no copies la carátula, porque suele traer nombres de personas. Sirve para revisar el registro; no se publica.")
+    fila(type="date", name="fuente_fecha", label="Fecha de publicación o del fallo", required="yes",
          constraint=". <= today()", constraint_message="La fecha no puede ser posterior a hoy.")
-    fila(type="text", name="fuente_url", label="Enlace a la nota", required="yes",
+    fila(type="text", name="fuente_url", label="Enlace a la fuente", required="yes",
          constraint="regex(., '^https?://.+')", constraint_message="Tiene que ser un enlace que empiece con http:// o https://")
     fila(type="acknowledge", name="licencia", label=cfg["texto_licencia"], required="yes")
 

@@ -347,7 +347,7 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Portuaria e industrial: ferrocarril | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada (6 tramos y 8 estaciones), con el estado de cada tramo según el IGN |
 | Portuaria e industrial: rutas nacionales y provinciales | IGN (WFS) | Verificada, términos del IGN; metadato de 2021, actualización mensual declarada | Publicada, apagada al inicio (19 tramos) |
 | Portuaria e industrial: zonificación | Municipio | Sin fuente geográfica | Pendiente de fuente |
-| Portuaria e industrial: sustancias peligrosas | Secretaría de Energía (padrón de combustibles, distribuidoras de GLP, aceiteras); puntos con OpenStreetMap (sección 17) | Verificada, CC BY 4.0 y ODbL | Publicada, apagada al inicio (36 establecimientos en 33 puntos, aprobados por Sebastián el 28/09/2026) |
+| Portuaria e industrial: sustancias peligrosas | Secretaría de Energía (padrón de combustibles, distribuidoras de GLP, aceiteras); puntos con OpenStreetMap (sección 17) | Verificada, CC BY 4.0 y ODbL | Publicada, apagada al inicio (46 establecimientos en 41 puntos, aprobados por Sebastián el 28/09/2026) |
 | Expuestos: planta urbana | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (7) |
 | Expuestos: establecimientos educativos | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (140) |
 | Expuestos: establecimientos de salud | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (22) |
@@ -590,7 +590,7 @@ Pedido: una capa de lugares donde se acopian agroquímicos, a partir del caso de
 | Plantas de acopio de granos (donde se fumiga con fosfina) | "Granos - Centros de acopio" de datos.gob.ar informa cantidades por partido, sin ubicación. OpenStreetMap tiene silos (`man_made=silo`) en la capa de instalaciones portuarias, sin operador ni uso. |
 | INTA (GeoINTA, http://www.geointa.inta.gob.ar/) | No se encontró una capa de depósitos de agroquímicos ni de acopios; no se revisó el catálogo capa por capa. |
 
-## 17. Sustancias peligrosas: combustibles, gas envasado y aceiteras (pedido de Sebastián, 28/09/2026) · **Verificada** · en uso (36 establecimientos aprobados por Sebastián el 28/09/2026)
+## 17. Sustancias peligrosas: combustibles, gas envasado y aceiteras (pedido de Sebastián, 28/09/2026) · **Verificada** · en uso (46 establecimientos aprobados por Sebastián el 28/09/2026)
 
 Pedido: "buscamos un listado y referenciamos uno por uno en una capa específica de sustancias peligrosas". Relevamiento de fuentes hecho por un agente el 28/09/2026 (los archivos quedaron en el espacio de trabajo de la sesión, no en el repositorio). La regla de ubicación de `CLAUDE.md` se aplica a esta capa: cada punto se ubica uno por uno, dice de dónde sale y se publica solo con la aprobación de Sebastián (`datos/sustancias/ubicaciones.json`, campo `aprobado`).
 
@@ -612,26 +612,26 @@ Pedido: "buscamos un listado y referenciamos uno por uno en una capa específica
 
 Control contra las capas del mapa: los 36 puntos caen dentro del partido y ninguno en el agua. Ninguno es una vivienda particular: las inscripciones que podrían funcionar en una casa quedaron sin ubicar.
 
-**Sin ubicar (15 del padrón y 1 de GLP)**, a la espera de un dato de Sebastián o de una fuente:
+**Confirmación de Sebastián (28/09/2026).** Revisó uno por uno los 16 que quedaban sin ubicar:
 
-| Tipo | Dirección (según la fuente) | Motivo |
-|---|---|---|
-| Revendedor general (venta a granel mayorista, incluye tambores) | RUTA 228 EMPALME RUTA 75 (Necochea) | El empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap queda fuera del partido, a unos 425 m del límite: hace falta confirmar el lugar. |
-| Revendedor general (venta a granel mayorista, incluye tambores) | 542 N° 1170 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
-| Bocas de expendio (venta por menor) | ALMIRANTE BROWN 1500 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
-| Bocas de expendio para consumo propio (instalaciones fijas) | CALLE 536 997 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
-| Bocas de expendio para consumo propio (instalaciones fijas) | CALLE 87 N° 4250 (Necochea) | OpenStreetMap carga direcciones de la Calle 87 solo hasta el 4200. |
-| Bocas de expendio (venta por menor) | RUTA 228 KM 52 (Energía) | No hay fuente con los kilómetros de la Ruta 228 en Energía. |
-| Bocas de expendio para consumo propio (instalaciones fijas) | CALLE 528 N° 940 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
-| Revendedor general (venta a granel mayorista, incluye tambores) | 114 N° 715 (Necochea) | La Calle 114 no tiene direcciones cargadas en OpenStreetMap. |
-| Bocas de expendio (venta por menor) | AV. MITRE 587 Y BARRAGAN (Necochea) | La dirección (Av. Mitre 587 y Barragán) no coincide con ninguna calle de Necochea en OpenStreetMap. |
-| Revendedor general (venta a granel mayorista, incluye tambores) | RUTA 80 601 (Juan N. Fernández) | La Ruta 80 no tiene direcciones cargadas en Juan N. Fernández; puede ser la misma estación de la inscripción del acceso, pero no hay cómo comprobarlo. |
-| Bocas de expendio para consumo propio (instalaciones fijas) | 542 2551 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
-| Revendedor general (venta a granel mayorista, incluye tambores) | 28 1200 (La Dulce) | La Dulce no tiene direcciones cargadas en OpenStreetMap; además el titular es una persona y podría ser una vivienda. |
-| Distribuidor (con camiones) | 575 2090 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
-| Revendedor general (venta a granel mayorista, incluye tambores) | 575 Nº 2090-CIC.14 SECC G - QTA. 24 PARC. 1B MZA. 24 2090 (Quequén) | Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. |
-| Revendedor general (venta a granel mayorista, incluye tambores) | AV. 59 Y BANQUINA PESCADORES (Necochea) | La Banquina de Pescadores no figura con nombre en OpenStreetMap. |
-| Distribuidora de gas envasado (GLP) | CALLE 575 2669 (Quequén) | La fuente no trae coordenadas y Quequén no tiene direcciones cargadas en OpenStreetMap. |
+| Dirección (según la fuente) | Resultado |
+|---|---|
+| CALLE 536 997 (Quequén) | Ubicado con su punto. |
+| CALLE 87 N° 4250 (Necochea) | Ubicado con su punto: predio donde se guardan los colectivos. |
+| CALLE 528 N° 940 (Quequén) | Ubicado con su punto: planta de fertilizantes. |
+| 542 2551 (Quequén) | Ubicado con su punto: predio de una cooperativa agropecuaria. |
+| 28 1200 (La Dulce) | Ubicado con su punto: planta de silos, no una vivienda. |
+| 575 2090 (Quequén), dos inscripciones | Ubicadas con su punto, sobre la Av. Circunvalación (el tramo de la calle 575 se conoce por ese nombre): depósito de fertilizantes. |
+| AV. 59 Y BANQUINA PESCADORES (Necochea) | Ubicado con su punto: depósito de gasoil. |
+| CALLE 575 2669 (Quequén), distribuidora de GLP | Ubicada con su punto, sobre la Av. Circunvalación. |
+| RUTA 228 EMPALME RUTA 75 (Necochea) | No corresponde al partido (coincide con el control contra el límite). No se publica. |
+| AV. MITRE 587 Y BARRAGAN (Necochea) | No corresponde al partido. No se publica. |
+| 114 N° 715 (Necochea) | La dirección no existe. No se publica. |
+| 542 N° 1170 (Quequén) y ALMIRANTE BROWN 1500 (Quequén) | No los pudo confirmar: siguen sin ubicar. |
+| RUTA 228 KM 52 (Energía), GNC de una cooperativa | Sin ubicar. Se consideró la Shell de la Ruta 228 y la Av. 43, pero esa estación ya figura en el padrón como "Ruta 228 km 1" y Sebastián confirmó que la inscripción no le corresponde. Por el km y la localidad estaría cerca de Energía; ninguna fuente abierta ubica esa boca de GNC. |
+| RUTA 80 601 (Juan N. Fernández) | Ubicada en la estación del acceso por la Ruta 80 (OpenStreetMap), del mismo titular. Primero Sebastián dijo que no hay Ruta 80 en el partido; ante los tramos que carga la capa de rutas del IGN, confirmó que sobre esa parte de la ruta está esa estación (a 16 m del punto de OSM) y que no vende gas. |
+
+Resultado: 46 establecimientos publicados en 41 puntos; 3 siguen sin ubicar y 3 quedan descartados.
 
 **Lo que existe pero no está publicado**, y los pedidos de acceso a la información que conviene presentar (Ley 25.831 de información pública ambiental; verificar el plazo antes de presentarlos). En todos, pedir tipo de establecimiento, dirección o nomenclatura catastral, coordenadas si existen y rubro o sustancias, sin titulares personas, teléfonos ni correos:
 
