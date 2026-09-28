@@ -551,6 +551,10 @@ Relevamiento del 27/09/2026, por HTTPS, desde el entorno.
 
 Idea de Sebastián (27/09/2026): además de los organismos de respuesta, el mapa tiene que mostrar la red que asiste a la población vulnerable (Cáritas, parroquias, templos evangélicos y otras organizaciones) y dónde vive esa población. Se va armando por partes, a medida que aparecen fuentes.
 
+### 13.0 Capa "Red de asistencia" (desde el 28/09/2026) · **Fuente propia** · en uso
+
+`datos/asistencia.json`, armada por `scripts/armar_respuesta.py`, con los puntos que aporta un colaborador que conoce el lugar (CC BY 4.0). Primer punto, 28/09/2026: Cáritas Necochea, en la parroquia Santa María del Carmen (-38.55102, -58.73960). Cuando se descarguen los puntos de "Mapas Cáritas" (13.1), se suman a esta capa.
+
 ### 13.1 Cáritas Argentina: "Mapas Cáritas" en Mapa Poblaciones · **Identificada, licencia comprobada** · falta descarga manual
 
 - Página que lo publica: https://caritas.org.ar/donde-estamos/, que incrusta https://mapa.poblaciones.org/map/70301/ (Mapa Poblaciones, Observatorio de la Deuda Social Argentina, UCA).

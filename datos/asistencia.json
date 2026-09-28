@@ -1,0 +1,14 @@
+{
+  "_nota": "Red de asistencia a la población vulnerable (idea de la sección 13 de DATOS.md): Cáritas, comedores, parroquias, templos y otras organizaciones que asisten. Mientras no se descarguen los puntos de Cáritas de Mapa Poblaciones, cada punto lo aporta un colaborador que conoce el lugar, y cada uno dice de dónde sale.",
+  "elementos": [
+    {
+      "nombre": "Cáritas Necochea, parroquia Santa María del Carmen",
+      "tipo": "Cáritas",
+      "punto": [
+        -38.55102,
+        -58.7396
+      ],
+      "fuente": "Sede de Cáritas en la parroquia Santa María del Carmen. Punto aportado por un colaborador (28/09/2026)."
+    }
+  ]
+}

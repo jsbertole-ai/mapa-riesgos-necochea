@@ -863,6 +863,29 @@
       "limitaciones": "La lista está en datos/refugios.json; el nombre y la ubicación salen de OpenStreetMap. Se muestra el punto central de cada edificio."
     },
     {
+      "organismo": "Colaboradores del proyecto",
+      "url_fuente": "https://github.com/jsbertole-ai/mapa-riesgos-necochea/blob/main/datos/asistencia.json",
+      "url_datos": "datos/asistencia.json (repositorio del proyecto)",
+      "licencia": "CC BY 4.0 (aporte de colaboradores del proyecto)",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "licencia_propia": "Fuente propia: puntos aportados por colaboradores del proyecto que conocen el lugar, publicados bajo CC BY 4.0.",
+      "cita": "Red de asistencia del partido de Necochea (colaboradores del proyecto), CC BY 4.0.",
+      "formato": "GeoJSON armado por scripts/armar_respuesta.py a partir de datos/asistencia.json",
+      "id": "red_asistencia",
+      "grupo": "respuesta",
+      "nombre": "Red de asistencia",
+      "archivo": "red_asistencia.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#c51b7d",
+        "radio": 6
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Organizaciones que asisten a la población vulnerable antes, durante y después de un siniestro: Cáritas, comedores, parroquias, templos y otras. Son la parte visible de la organización comunitaria que amortigua el impacto de un desastre (ver MARCO_CONCEPTUAL.md, sección 2).",
+      "que_no_representa": "No indica qué servicios presta cada organización, sus horarios ni su capacidad. No es un lugar de evacuación: ante una emergencia, el lugar de evacuación lo indica Defensa Civil.",
+      "limitaciones": "Está en construcción: por ahora tiene solo los puntos que aportaron colaboradores que conocen el lugar, y cada ventana lo dice. Los puntos de Cáritas del mapa \"Mapas Cáritas\" (Mapa Poblaciones) están pendientes de descarga (DATOS.md, sección 13.1)."
+    },
+    {
       "id": "inventario_local",
       "grupo": "inventario",
       "nombre": "Eventos y vulnerabilidades registrados en medios locales",

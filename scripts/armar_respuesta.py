@@ -1,4 +1,4 @@
-"""Arma las capas "Organismos de respuesta" y "Lugares de refugio".
+"""Arma las capas "Organismos de respuesta", "Lugares de refugio" y "Red de asistencia".
 
 Uso:  python3 scripts/armar_respuesta.py            (consulta el IGN y la API de OSM, y arma)
       python3 scripts/armar_respuesta.py --offline  (arma con lo guardado en datos/crudos/)
@@ -44,6 +44,7 @@ REFUGIOS = RAIZ / "datos" / "refugios.json"
 FIJADOS_OSM = RAIZ / "datos" / "organismos_osm.json"
 # Organismos que ningún registro abierto ubica: el punto lo aporta un colaborador que conoce el lugar.
 COLABORADORES = RAIZ / "datos" / "organismos_colaboradores.json"
+ASISTENCIA = RAIZ / "datos" / "asistencia.json"
 COMISARIAS_PBA = ("https://catalogo.datos.gba.gob.ar/dataset/bf79faeb-cb8a-4444-bbbe-5dc39479aa4a/resource/"
                   "8d31bb16-3489-4ede-9e63-072f7f17383d/download/comisarias-pba-2026.csv")
 # Comisarías de la Mujer de la Provincia (CC BY 4.0). La columna "coordinacion_datos" trae nombres de
@@ -165,6 +166,26 @@ def organismos_colaboradores(limite, caja):
         features.append({"type": "Feature", "geometry": punto(lon, lat), "properties": {
             "organismo": r["organismo"], "nombre": r["nombre"], "fuente": "Colaborador", "nota": r["fuente"]}})
     return features
+
+
+def red_de_asistencia(limite, caja):
+    """Capa "Red de asistencia": organizaciones que asisten a la población vulnerable (datos/asistencia.json)."""
+    features = []
+    for r in leer_json(ASISTENCIA, {"elementos": []})["elementos"]:
+        lat, lon = r["punto"]
+        if not punto_en_geometria(lon, lat, limite, caja):
+            aviso(f"{r['nombre']}: el punto cae fuera del partido; no se publica.")
+            continue
+        features.append({"type": "Feature", "geometry": punto(lon, lat), "properties": {
+            "nombre": r["nombre"], "tipo": r["tipo"], "nota": r["fuente"]}})
+    escribir_json(SITIO_DATOS / "red_asistencia.geojson", coleccion(features), compacto=True)
+    anotar_procesamiento("red_asistencia", {
+        "archivo_crudo": "datos/asistencia.json",
+        "elementos": len(features),
+        "por_tipo": {t: sum(1 for f in features if f["properties"]["tipo"] == t) for t in {f["properties"]["tipo"] for f in features}},
+        "fecha_datos": "Puntos aportados por colaboradores; ver la fecha en cada punto.",
+    })
+    print(f"Red de asistencia: {len(features)}.")
 
 
 def comisarias_pba(offline, limite, caja):
@@ -330,6 +351,7 @@ def main():
         "fecha_datos": max(fechas) if fechas else None,
     })
     print(f"Lugares de refugio: {len(ref)}.")
+    red_de_asistencia(limite, caja)
     return 0
 
 

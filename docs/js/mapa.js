@@ -169,6 +169,11 @@
     );
   }
 
+  // Red de asistencia: organizaciones que asisten a la población vulnerable (puntos de colaboradores).
+  function popupAsistencia(p) {
+    return "<h3>" + esc(p.nombre) + "</h3>" + "<div>" + esc(p.tipo) + "</div>" + '<p class="nota">' + esc(p.nota) + "</p>";
+  }
+
   function popupRefugio(p) {
     return (
       "<h3>" + esc(p.nombre || p.tipo) + "</h3>" +
@@ -459,6 +464,7 @@
           if (capa.id === "inventario_local") return popupInventario(f.properties);
           if (capa.id === "organismos") return popupOrganismo(f.properties);
           if (capa.id === "refugios") return popupRefugio(f.properties);
+          if (capa.id === "red_asistencia") return popupAsistencia(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
           if (capa.id === "postes_via_publica") return popupPoste(f.properties);
