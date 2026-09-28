@@ -9,6 +9,15 @@
         -58.75292
       ],
       "fuente": "Depende del Ministerio de Seguridad de la Provincia de Buenos Aires. Punto aportado por un colaborador (28/09/2026); la Provincia no publica su ubicación en datos abiertos."
+    },
+    {
+      "organismo": "Guardavidas",
+      "nombre": "Jefatura de Playa (Guardavidas)",
+      "punto": [
+        -38.584522,
+        -58.730947
+      ],
+      "fuente": "Coordenada tomada de OpenStreetMap por un colaborador (28/09/2026); la Jefatura todavía no figura cargada en OSM. Funciona en temporada de verano."
     }
   ]
 }
