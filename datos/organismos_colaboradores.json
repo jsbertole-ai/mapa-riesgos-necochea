@@ -27,6 +27,15 @@
         -58.740756
       ],
       "fuente": "Sede del Radio Club Necochea; coordenada tomada de OpenStreetMap por un colaborador que conoce el lugar (28/09/2026). Según Ecos Diarios (18/07/2026), el club trabaja \"junto al Municipio, Defensa Civil, Bomberos, Guardaparques, Guardavidas\" y tiene dos repetidoras (VHF y UHF)."
+    },
+    {
+      "organismo": "Cruz Roja",
+      "nombre": "Cruz Roja Argentina, Filial Necochea",
+      "punto": [
+        -38.551595,
+        -58.741083
+      ],
+      "fuente": "Sede de la filial; coordenada tomada de OpenStreetMap por un colaborador que conoce el lugar (28/09/2026). La filial no figura cargada en OSM."
     }
   ]
 }
