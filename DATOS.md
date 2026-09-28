@@ -657,6 +657,22 @@ Resultado: 46 establecimientos publicados en 41 puntos; 2 siguen sin ubicar y 4 
 
 **Para descarga manual** (el entorno no llegó): Ministerio de Transporte, "Terminales Portuarias" (2019, licencia "other-open"; el certificado TLS no valida): https://ide.transporte.gob.ar/geoserver/observ/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=observ:_3.4.3.1.terminales_portuarias_view&maxFeatures=150&outputFormat=application%2Fjson ; búsqueda de operadores del RENPRE (403): https://busquedaoperadores-rnpq.minseg.gob.ar/operador.php ; sistemas del Ministerio de Desarrollo Agrario (403): https://maa.gba.gov.ar/sistemas/ ; Boletín Oficial Municipal (conexión cortada): https://sibom.slyt.gba.gob.ar/bulletins/4062/contents/1480310
 
+## 18. Comunicaciones como línea vital: fibra óptica, correo, radio y televisión (pedido de Sebastián, 28/09/2026) · **Relevamiento**
+
+Pedido: completar las líneas vitales de comunicaciones que enumera Lavell (2007, p. 34): "redes y plantas telefónicas, estaciones de radio y televisión, oficinas de correo e información publica", con el tendido de fibra óptica y un último intento de ubicar las antenas.
+
+| Fuente | Resultado al 28/09/2026 |
+|---|---|
+| ARSAT, "Puntos de conexión REFEFO" (https://datos.arsat.com.ar/dataset/puntos-de-conexion-refefo, CC BY 4.0, CSV de febrero de 2026) | Lista de 1.163 localidades conectadas a la Red Federal de Fibra Óptica, sin coordenadas. **Ninguna localidad del partido figura como conectada.** El portal de ARSAT no publica la traza de la red. |
+| Jefatura de Gabinete y ARSAT, "EIAS – Proyecto Nuevo Enlace de la Red Federal de Fibra Óptica Mar del Plata – Bahía Blanca" (13/10/2021), https://www.argentina.gob.ar/sites/default/files/2022/08/estudio_de_impacto_ambiental_y_social.pdf | Proyecto, no obra terminada. Tramo 2 "Miramar – Necochea" (106,6 km, con derivación a Costa Bonita de 5,2 km) y tramo 3 "Necochea – San Cayetano" (94,8 km, con derivaciones a La Dulce, Ramón Santamarina y Energía), con tritubo enterrado a 1,2 m (pp. 17-19). Shelter "Necochea - Quequén" con localización confirmada en 38°32'39.66"S, 58°43'51.67"W, en terreno municipal (Tabla 4, p. 22); gabinete de Ramón Santamarina confirmado (38°26'57.64"S, 59°19'51.33"W); Costa Bonita, Energía y La Dulce, pendientes (Tabla 3, p. 21). La traza solo aparece como figura (pp. 27-28), no como dato georreferenciado: no se digitaliza desde la imagen, porque sería estimar. Licencia del documento: la del sitio argentina.gob.ar, sin verificar. |
+| IGN (WFS), `puntos_de_asentamientos_y_edificios_020102` ("Edificio de comunicaciones") | 3 sucursales del Correo Argentino: Necochea, Quequén y Juan N. Fernández. Son oficinas de correo, una de las líneas vitales de Lavell: se pueden sumar a una capa de comunicaciones. |
+| IGN, `puntos_de_comunicacion_AT010` (antenas) y `_AT080` (torres) | 0 elementos en el partido (consulta repetida el 28/09/2026). |
+| ENACOM | Sin conjunto abierto con la ubicación de antenas ni de estaciones de radio y televisión (ver la sección 15). |
+| Televisión Digital Abierta (TDA), estación de Necochea | Según un colaborador, la antena de la TDA en Necochea funciona. El "Mapa de Estaciones de Transmisión" de la TDA (https://www.tda.gob.ar/mapa-estaciones.php) respondió 503 el 28/09/2026: queda para revisar a mano. La página de Argentina.gob.ar sobre las estaciones no trae listado con coordenadas. La ubicación de la antena la aporta el colaborador. |
+| OpenStreetMap (oficinas de correo, centrales telefónicas, estudios de radio y televisión, líneas de telecomunicaciones) | Overpass no respondió el 28/09/2026 (504 y 406): queda por repetir. |
+
+Conclusión: no hay fuente abierta con el tendido de fibra óptica ni con las antenas del partido. Las antenas las marcará un colaborador que las conoce, una por una. La traza de la fibra se puede pedir a ARSAT por acceso a la información (Ley 27.275).
+
 ## 15. Antenas y torres de comunicaciones (pedido de Sebastián, 27/09/2026) · **Verificada (OpenStreetMap)** · en uso, muy incompleta
 
 Pedido: toda antena debe figurar, sea de la Provincia, de empresas, de medios o de radioaficionados; en un siniestro las comunicaciones son críticas y los radio clubes son los que instalan buena parte de las antenas. Respaldo normativo en el Decreto 275/2021 (sección 9 y `MARCO_CONCEPTUAL.md`).
