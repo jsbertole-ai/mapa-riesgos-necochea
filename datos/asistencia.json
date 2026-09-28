@@ -9,6 +9,15 @@
         -58.7396
       ],
       "fuente": "Sede de Cáritas en la parroquia Santa María del Carmen. Punto aportado por un colaborador (28/09/2026)."
+    },
+    {
+      "nombre": "Cáritas de la parroquia Nuestra Señora de Nueva Pompeya",
+      "tipo": "Cáritas",
+      "punto": [
+        -38.562757,
+        -58.749014
+      ],
+      "fuente": "Cáritas parroquial. Coordenada tomada de OpenStreetMap por un colaborador que conoce el lugar (28/09/2026)."
     }
   ]
 }
