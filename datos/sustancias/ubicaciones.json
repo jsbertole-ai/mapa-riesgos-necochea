@@ -25,7 +25,7 @@
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
     "EX-2018-37889574-APN-DGDO#MEN": {
-      "sin_ubicar": "No corresponde al partido, según un colaborador (28/09/2026); el empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap también queda fuera del límite, a unos 425 m."
+      "sin_ubicar": "No corresponde al partido, según un colaborador (28/09/2026); el empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap también queda fuera del límite."
     },
     "EX-2018-56076406-APN-DGDOMEN#MHA": {
       "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Un colaborador no pudo confirmarla (28/09/2026); después buscó la dirección y no encontró ningún establecimiento (28/09/2026): queda pendiente."
@@ -36,7 +36,7 @@
         -58.74993
       ],
       "osm": "node/1561525331",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, a 33 m de la esquina de Av. 59 y Calle 80 que declara el padrón.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, en la esquina de Av. 59 y Calle 80 que declara el padrón.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -88,7 +88,7 @@
         -58.72375
       ],
       "osm": "node/4044575146",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, a 17 m de la esquina de Calle 574 y Calle 519 que declara el padrón.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, en la esquina de Calle 574 y Calle 519 que declara el padrón.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -98,7 +98,7 @@
         -58.72909
       ],
       "osm": "node/1561525337",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, a 27 m de la esquina de Av. 79 y Av. 10 que declara el padrón (en OSM figura otro operador).",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, en la esquina de Av. 79 y Av. 10 que declara el padrón (en OSM figura otro operador).",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -108,7 +108,7 @@
         -59.14398
       ],
       "osm": "node/4044575140",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, a 90 m del cruce de las rutas 86 y 85 que declara el padrón.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, en el cruce de las rutas 86 y 85 que declara el padrón.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -121,7 +121,7 @@
         -58.73884
       ],
       "osm": "node/1561525336",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, a 15 m de la esquina de Av. 75 y Av. 42 que declara el padrón (en OSM figura otro operador).",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, en la esquina de Av. 75 y Av. 42 que declara el padrón (en OSM figura otro operador).",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -140,7 +140,7 @@
         -58.72318
       ],
       "osm": "node/1561525335",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 37 m de la esquina de Av. 59 y Calle 26.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, en la esquina de Av. 59 y Calle 26.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -150,7 +150,7 @@
         -58.70785
       ],
       "osm": "way/433838242",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 40 m de la esquina de Av. 578 y Av. 565.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, en la esquina de Av. 578 y Av. 565.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -217,7 +217,7 @@
         -58.73
       ],
       "osm": "node/1561541548",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 49 m de la esquina de Calle 47 y Calle 50.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, en la esquina de Calle 47 y Calle 50.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -237,7 +237,7 @@
         -58.75988
       ],
       "osm": "node/1561525318",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 122 m del cruce de la Ruta 228 y la Av. 43.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, en el cruce de la Ruta 228 y la Av. 43.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -246,7 +246,7 @@
         -38.54975,
         -58.74546
       ],
-      "fuente_punto": "Coordenadas que declara el propio padrón, en la esquina de Av. 59 y Calle 70; hay dos estaciones de OSM a 30 y 40 m.",
+      "fuente_punto": "Coordenadas que declara el propio padrón, en la esquina de Av. 59 y Calle 70, donde OpenStreetMap carga dos estaciones.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -256,7 +256,7 @@
         -59.26018
       ],
       "osm": "node/3801339124",
-      "fuente_punto": "Estación de servicio del acceso por la Ruta 80 en OpenStreetMap, del mismo titular del padrón; un colaborador confirmó que es la única sobre ese tramo (28/09/2026, a 16 m del punto de OSM).",
+      "fuente_punto": "Estación de servicio del acceso por la Ruta 80 en OpenStreetMap, del mismo titular del padrón; un colaborador confirmó que es la única sobre ese tramo (28/09/2026).",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -266,7 +266,7 @@
         -59.26018
       ],
       "osm": "node/3801339124",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 84 m de la Ruta 80.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, sobre la Ruta 80.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -276,7 +276,7 @@
         -58.73138
       ],
       "osm": "node/1561541576",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 41 m de la esquina de Av. 59 y Av. 42.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, en la esquina de Av. 59 y Av. 42.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -331,7 +331,7 @@
         -38.53167,
         -58.77611
       ],
-      "fuente_punto": "Coordenadas que declara el propio padrón; la estación de OSM de ese lugar está a 18 m.",
+      "fuente_punto": "Coordenadas que declara el propio padrón; coincide con la estación de OSM de ese lugar.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -341,7 +341,7 @@
         -58.73286
       ],
       "osm": "way/899320333",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 34 m de la esquina de Av. 59 y Calle 46.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, en la esquina de Av. 59 y Calle 46.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -364,7 +364,7 @@
         -59.20541
       ],
       "osm": "way/899142161",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, a 29 m de la esquina de Calle 26 y Calle 35 de La Dulce que declara el padrón.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, en la esquina de Calle 26 y Calle 35 de La Dulce que declara el padrón.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -374,7 +374,7 @@
         -58.68127
       ],
       "osm": "node/1561541541",
-      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 81 m de la Ruta 88.",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, sobre la Ruta 88.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -401,7 +401,7 @@
         -38.5596,
         -58.71631
       ],
-      "fuente_punto": "Coordenadas que declara el propio padrón, a 35 m de la esquina de Calle 515 y Av. 554 de OSM.",
+      "fuente_punto": "Coordenadas que declara el propio padrón, en la esquina de Calle 515 y Av. 554.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
@@ -418,19 +418,19 @@
   "glp": {
     "AVENIDA 59 N/KM 5336": {
       "punto": "fuente",
-      "fuente_punto": "Coordenadas de la Secretaría de Energía, a 11 m de la Av. 59 en OpenStreetMap.",
+      "fuente_punto": "Coordenadas de la Secretaría de Energía, sobre la Av. 59.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
     "CALLE 25 N/KM 4985": {
       "punto": "fuente",
-      "fuente_punto": "Coordenadas de la Secretaría de Energía, a 36 m de la Calle 25 en OpenStreetMap.",
+      "fuente_punto": "Coordenadas de la Secretaría de Energía, sobre la Calle 25.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },
     "RUTA PROVINCIAL 86 N/KM 4176 ENTRE CALLE 90 Y 86": {
       "punto": "fuente",
-      "fuente_punto": "Coordenadas de la Secretaría de Energía, entre las calles 86 y 90, a 116 m de la Ruta 86 en OpenStreetMap.",
+      "fuente_punto": "Coordenadas de la Secretaría de Energía, entre las calles 86 y 90, junto a la Ruta 86.",
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     },

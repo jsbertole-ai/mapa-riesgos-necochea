@@ -558,12 +558,12 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-09-28T17:38:21+00:00",
+    "procesado": "2026-09-28T17:58:55+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
-      "estructuras_operativas_y_defensivas_FA517": "706847f492f882c57c156334d12998ed6539ad827063f93ebc7594d568683c26",
-      "estructuras_operativas_y_defensivas_090102": "c77955129c6cdf2b795c6b513bf89328da2d1add64f7f0b834280f6b9ad6e2fc"
+      "estructuras_operativas_y_defensivas_FA517": "280f8c0351545df2fc4ccc34375bc1ced3d8c67cf0f3380f3bf61886b844097b",
+      "estructuras_operativas_y_defensivas_090102": "3d01bf73b03b9f3317d3c717eb5662dff2fc9e7ccdfcfb934c73dadd0412903c"
     },
     "sha256_comisarias_pba": {
       "comisarias-pba-2026.csv": "e1ca926e4ade907a5433c1025778103adea2d924ff060617d8dcc58375b79728",
@@ -598,12 +598,12 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-09-28T17:38:22+00:00",
+    "procesado": "2026-09-28T17:58:56+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "por_tipo": {
-      "Evacuación ante catástrofes": 1,
-      "Personas en situación de calle": 1
+      "Personas en situación de calle": 1,
+      "Evacuación ante catástrofes": 1
     },
     "fecha_datos": "2026-07-30"
   },
@@ -718,10 +718,10 @@
     }
   },
   "inventario_local": {
-    "procesado": "2026-09-28T14:05:53+00:00",
+    "procesado": "2026-09-28T17:58:47+00:00",
     "archivo_crudo": "datos/inventario/registros_proyecto.csv",
     "sha256_crudo": {
-      "registros_proyecto.csv": "664ee5d0532ef5db568e114ef58ff8e4312fda6ad997242bf5626662d56a5540"
+      "registros_proyecto.csv": "1c05f8b2fcefecdd57b29af65b18ba1d5841865e84d0c0324add453ae2b70b9d"
     },
     "elementos": 19,
     "registros": 34,
@@ -737,7 +737,7 @@
     "fecha_datos": "Recurso actualizado por última vez el 11/09/2019, según datos.gob.ar."
   },
   "sustancias_peligrosas": {
-    "procesado": "2026-09-28T13:51:35+00:00",
+    "procesado": "2026-09-28T17:58:46+00:00",
     "archivo_crudo": "sustancias/",
     "sha256_crudo": {
       "res1102-padronoperadores-publico.xls.zip": "830b0b8b16949aa33cb29998d5b98c3f76a8786f262c1c27ef10d6fb81faa12b",
@@ -756,7 +756,7 @@
     "sin_aprobar": [],
     "sin_ubicar": [
       "padron_1102: EX-2019-56784480-APN-DGDOMEN#MHA (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Un colaborador no pudo confirmarla (28/09/2026); después buscó la dirección y no encontró ningún establecimiento (28/09/2026): queda pendiente.)",
-      "padron_1102: EX-2018-37889574-APN-DGDO#MEN (No corresponde al partido, según un colaborador (28/09/2026); el empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap también queda fuera del límite, a unos 425 m.)",
+      "padron_1102: EX-2018-37889574-APN-DGDO#MEN (No corresponde al partido, según un colaborador (28/09/2026); el empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap también queda fuera del límite.)",
       "padron_1102: EX-2018-56076406-APN-DGDOMEN#MHA (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra. Un colaborador no pudo confirmarla (28/09/2026); después buscó la dirección y no encontró ningún establecimiento (28/09/2026): queda pendiente.)",
       "padron_1102: EXP-S01:0036224/2006 (Descartada: según un colaborador (28/09/2026), que lo verificó en la guía de rutas 2026, no hay GNC en Energía ni en San Cayetano; la boca más cercana sobre la Ruta 228 queda fuera del partido. La inscripción no corresponde a un establecimiento del partido.)",
       "padron_1102: EX-2017-18143298-APN-DDYME#MEM (La dirección (Calle 114 N° 715) no existe, según un colaborador (28/09/2026).)",
@@ -767,14 +767,14 @@
     "fecha_datos": "Padrón de combustibles actualizado al: 28/09/2026 02:59:39; distribuidoras de GLP y plantas aceiteras según la fecha de cada recurso en Datos Argentina."
   },
   "red_asistencia": {
-    "procesado": "2026-09-28T17:38:22+00:00",
+    "procesado": "2026-09-28T17:58:56+00:00",
     "archivo_crudo": "datos/asistencia.json",
     "elementos": 9,
     "por_tipo": {
+      "Personas en situación de calle": 2,
       "Cáritas": 4,
       "Comedor": 2,
-      "Organización de ayuda social": 1,
-      "Personas en situación de calle": 2
+      "Organización de ayuda social": 1
     },
     "fecha_datos": "Puntos aportados por colaboradores; ver la fecha en cada punto."
   }
