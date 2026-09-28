@@ -627,11 +627,11 @@ Control contra las capas del mapa: los 36 puntos caen dentro del partido y ningu
 | RUTA 228 EMPALME RUTA 75 (Necochea) | No corresponde al partido (coincide con el control contra el límite). No se publica. |
 | AV. MITRE 587 Y BARRAGAN (Necochea) | No corresponde al partido. No se publica. |
 | 114 N° 715 (Necochea) | La dirección no existe. No se publica. |
-| 542 N° 1170 (Quequén) y ALMIRANTE BROWN 1500 (Quequén) | No los pudo confirmar: siguen sin ubicar. |
-| RUTA 228 KM 52 (Energía), GNC de una cooperativa | Sin ubicar. Se consideró la Shell de la Ruta 228 y la Av. 43, pero esa estación ya figura en el padrón como "Ruta 228 km 1" y Sebastián confirmó que la inscripción no le corresponde. Por el km y la localidad estaría cerca de Energía; ninguna fuente abierta ubica esa boca de GNC. |
+| 542 N° 1170 (Quequén) y ALMIRANTE BROWN 1500 (Quequén) | Pendientes. Sebastián buscó las dos direcciones y no encontró ningún establecimiento: siguen sin ubicar. |
+| RUTA 228 KM 52 (Energía), GNC de una cooperativa | Descartada. No es la Shell de la Ruta 228 y la Av. 43 (esa estación figura en el padrón como "Ruta 228 km 1"). Sebastián verificó en la guía de rutas 2026 que no hay GNC en Energía ni en San Cayetano: la boca más cercana sobre la Ruta 228 queda fuera del partido. No se publica. |
 | RUTA 80 601 (Juan N. Fernández) | Ubicada en la estación del acceso por la Ruta 80 (OpenStreetMap), del mismo titular. Primero Sebastián dijo que no hay Ruta 80 en el partido; ante los tramos que carga la capa de rutas del IGN, confirmó que sobre esa parte de la ruta está esa estación (a 16 m del punto de OSM) y que no vende gas. |
 
-Resultado: 46 establecimientos publicados en 41 puntos; 3 siguen sin ubicar y 3 quedan descartados.
+Resultado: 46 establecimientos publicados en 41 puntos; 2 siguen sin ubicar y 4 quedan descartados.
 
 **Lo que existe pero no está publicado**, y los pedidos de acceso a la información que conviene presentar (Ley 25.831 de información pública ambiental; verificar el plazo antes de presentarlos). En todos, pedir tipo de establecimiento, dirección o nomenclatura catastral, coordenadas si existen y rubro o sustancias, sin titulares personas, teléfonos ni correos:
 
