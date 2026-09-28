@@ -1,17 +1,17 @@
 {
   "exportacion": "registros_proyecto.csv",
-  "registros_en_la_exportacion": 18,
-  "aprobados": 18,
-  "publicados": 18,
+  "registros_en_la_exportacion": 23,
+  "aprobados": 23,
+  "publicados": 23,
   "no_publicados_por_controles": 0,
   "sin_ubicacion_en_el_mapa": 1,
   "por_tipo": {
-    "Inundación": 5,
-    "Tornado": 2,
+    "Inundación": 8,
+    "Tornado": 3,
     "Tempestad": 2,
     "Incendio forestal": 5,
     "Marejada": 2,
-    "Colapso estructural": 1,
+    "Colapso estructural": 2,
     "Escape": 1
   },
   "por_anio": {
@@ -22,14 +22,17 @@
     "2026": 6,
     "2020": 1,
     "2024": 3,
-    "2015": 1
+    "2015": 1,
+    "2021": 1,
+    "2012": 3,
+    "2017": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 13,
-    "Nicanor Olivera (La Dulce)": 1,
+    "Necochea y Quequén": 15,
+    "Nicanor Olivera (La Dulce)": 3,
     "Juan N. Fernández": 1,
     "Claraz": 1,
-    "Ramón Santamarina": 1,
+    "Ramón Santamarina": 2,
     "Zona rural o costa fuera de las localidades": 1
   },
   "efectos": {
