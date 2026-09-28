@@ -49,6 +49,11 @@ COMISARIAS_PBA = ("https://catalogo.datos.gba.gob.ar/dataset/bf79faeb-cb8a-4444-
 COMISARIAS_MUJER_PBA = ("https://catalogo.datos.gba.gob.ar/dataset/41f3695c-02bf-4bee-9e70-346edbb8236c/resource/"
                         "03f20b6c-e645-4c08-ba3b-4f0e9b555a65/download/comisarias-mujer.csv")
 CODIGO_PBA = "6581"
+# Coordenadas de la Provincia que no caen en la dirección que ella misma declara: se descartan y queda
+# el punto del IGN del mismo organismo. Comisaría de la Mujer: la Provincia declara "Calle 24 Nro. 4242"
+# (dirección confirmada por Sebastián, 27/09/2026), pero su coordenada cae en Calle 24 y 67, a unos
+# 1100 m; el punto del IGN está a 7 m de la dirección 4242 que carga OpenStreetMap (28/09/2026).
+COORDENADA_PBA_DESCARTADA = {"Comisaría de la Mujer y la Familia Necochea"}
 API_OSM = "https://api.openstreetmap.org/api/0.6"
 DISTANCIA_DUPLICADO_M = 200
 DECIMALES = 5
@@ -184,7 +189,7 @@ def leer_comisarias_pba(nombre_archivo, url, de_la_mujer, offline, limite, caja)
             # Una dirección no se convierte en coordenadas (sería estimar): queda la del IGN, si la hay.
             sin_coordenadas.append(nombre)
             continue
-        if not punto_en_geometria(x, y, limite, caja):
+        if not punto_en_geometria(x, y, limite, caja) or nombre in COORDENADA_PBA_DESCARTADA:
             continue
         features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
             "organismo": "Policía", "nombre": nombre, "fuente": "Provincia de Buenos Aires",

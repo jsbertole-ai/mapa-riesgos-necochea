@@ -558,7 +558,7 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-09-28T05:39:34+00:00",
+    "procesado": "2026-09-28T05:50:54+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
@@ -582,10 +582,10 @@
     },
     "por_fuente": {
       "OpenStreetMap": 3,
-      "IGN": 5,
-      "Provincia de Buenos Aires": 4
+      "IGN": 6,
+      "Provincia de Buenos Aires": 3
     },
-    "descartados_por_duplicados": 7,
+    "descartados_por_duplicados": 6,
     "descartes_de_la_consulta": {
       "excluidos": 0,
       "fuera_del_partido": 2,
@@ -594,7 +594,7 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-09-28T05:39:34+00:00",
+    "procesado": "2026-09-28T05:50:54+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "por_tipo": {
@@ -714,13 +714,13 @@
     }
   },
   "inventario_local": {
-    "procesado": "2026-09-28T05:39:37+00:00",
+    "procesado": "2026-09-28T05:45:38+00:00",
     "archivo_crudo": "datos/inventario/registros_proyecto.csv",
     "sha256_crudo": {
-      "registros_proyecto.csv": "eebfc7615dafd370d77482f5c64fe1cfe9af88a4ce0b1d01fcfe9b9d64a8c21d"
+      "registros_proyecto.csv": "455648ec3cea58e0326d35c1e6bb31dd4e6f8c8f9ab89a7be4a9cc384c769ba1"
     },
-    "elementos": 18,
-    "registros": 30,
+    "elementos": 19,
+    "registros": 31,
     "fecha_datos": "Registros aprobados al 2026-09-28; eventos entre 1980-04-29 y 2026-09-21"
   },
   "envases_fitosanitarios": {
@@ -731,5 +731,45 @@
     "centros_en_el_pais": 25,
     "sin_coordenadas": 0,
     "fecha_datos": "Recurso actualizado por última vez el 11/09/2019, según datos.gob.ar."
+  },
+  "sustancias_peligrosas": {
+    "procesado": "2026-09-28T11:24:48+00:00",
+    "archivo_crudo": "sustancias/",
+    "sha256_crudo": {
+      "res1102-padronoperadores-publico.xls.zip": "830b0b8b16949aa33cb29998d5b98c3f76a8786f262c1c27ef10d6fb81faa12b",
+      "distribuidoras-de-glp.csv": "f9cbe0921e8839a1cbc49f7b15f40ede7dc48e564620d589c42d213c9abf120f",
+      "plantas-productoras-y-refinadoras-de-aceite-vegetal.csv": "c1bfe94c10e61d513fe94ee89d56d1972bd6713e5483f4fb006367b418aba522"
+    },
+    "elementos": 33,
+    "registros": 36,
+    "por_tipo": {
+      "Depósitos de combustible": 8,
+      "Gas envasado (GLP)": 3,
+      "Plantas aceiteras": 2,
+      "Estaciones de servicio": 20
+    },
+    "fleteros_descartados": 4,
+    "sin_aprobar": [],
+    "sin_ubicar": [
+      "padron_1102: EX-2019-56784480-APN-DGDOMEN#MHA (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra.)",
+      "padron_1102: EX-2018-37889574-APN-DGDO#MEN (El empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap queda fuera del partido, a unos 425 m del límite: hace falta confirmar el lugar.)",
+      "padron_1102: EX-2018-56076406-APN-DGDOMEN#MHA (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra.)",
+      "padron_1102: EX-2026-20410560- -APN-DNEYR#MEC (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra.)",
+      "padron_1102: EXP-S01:0003394/2006 (OpenStreetMap carga direcciones de la Calle 87 solo hasta el 4200.)",
+      "padron_1102: EXP-S01:0036224/2006 (No hay fuente con los kilómetros de la Ruta 228 en Energía.)",
+      "padron_1102: EXP-S01:0036234/2006 (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra.)",
+      "padron_1102: EX-2017-18143298-APN-DDYME#MEM (La Calle 114 no tiene direcciones cargadas en OpenStreetMap.)",
+      "padron_1102: EXP-S01:0066443/2006 (La dirección (Av. Mitre 587 y Barragán) no coincide con ninguna calle de Necochea en OpenStreetMap.)",
+      "padron_1102: EXP-S01: 0249419/2012 (La Ruta 80 no tiene direcciones cargadas en Juan N. Fernández; puede ser la misma estación de la inscripción del acceso, pero no hay cómo comprobarlo.)",
+      "padron_1102: EX-2021-37889354- -APN-DNRYC#MEC (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra.)",
+      "padron_1102: EXP-S01:0322211/2012 (La Dulce no tiene direcciones cargadas en OpenStreetMap; además el titular es una persona y podría ser una vivienda.)",
+      "padron_1102: EXP-S01:0167716/2014 (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra.)",
+      "padron_1102: EXP-S01: 0201662/2016 (Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra.)",
+      "padron_1102: EXP-S01:0021473/2006 (La Banquina de Pescadores no figura con nombre en OpenStreetMap.)",
+      "glp: CALLE 575 N/KM 2669 (La fuente no trae coordenadas y Quequén no tiene direcciones cargadas en OpenStreetMap.)"
+    ],
+    "nuevos_en_los_listados": [],
+    "fuera_del_partido": [],
+    "fecha_datos": "Padrón de combustibles actualizado al: 28/09/2026 02:59:39; distribuidoras de GLP y plantas aceiteras según la fecha de cada recurso en Datos Argentina."
   }
 }

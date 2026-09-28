@@ -1,0 +1,400 @@
+{
+  "nota": "Puntos de la capa de sustancias peligrosas (regla de ubicación de CLAUDE.md, decisión de Sebastián del 28/09/2026). Cada establecimiento de un listado oficial se ubica uno por uno y cada punto dice de dónde sale. \"punto\": [latitud, longitud], o \"fuente\" cuando se usan las coordenadas del propio listado. Nada se publica hasta que Sebastián lo aprueba (\"aprobado\": true). Los que no se pudieron ubicar llevan el motivo en \"sin_ubicar\". Las claves son el expediente del padrón, la dirección de la distribuidora de GLP o el nombre de la planta aceitera (empresas); no se guardan nombres de personas.",
+  "armado": "2026-09-28",
+  "padron_1102": {
+    "EX-2022-108227643- -APN-DNEYR#MEC": {
+      "punto": [
+        -38.55634,
+        -58.70052
+      ],
+      "fuente_punto": "Mitad del tramo de la Av. 542 entre las calles 541 y 545 en OpenStreetMap, que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2019-56784480-APN-DGDOMEN#MHA": {
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+    },
+    "EX-2018-53858298-APN-DGDOMEN#MHA": {
+      "punto": [
+        -38.54147,
+        -58.68127
+      ],
+      "osm": "node/1561541541",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, la del parador de la Ruta 88, que es la misma dirección del padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2018-37889574-APN-DGDO#MEN": {
+      "sin_ubicar": "El empalme de la Ruta 228 con la Ruta 75 que carga OpenStreetMap queda fuera del partido, a unos 425 m del límite: hace falta confirmar el lugar."
+    },
+    "EX-2018-56076406-APN-DGDOMEN#MHA": {
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+    },
+    "EXP-S01:0388350/2005": {
+      "punto": [
+        -38.54587,
+        -58.74993
+      ],
+      "osm": "node/1561525331",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, a 33 m de la esquina de Av. 59 y Calle 80 que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0261113/2011": {
+      "punto": [
+        -38.53977,
+        -58.75891
+      ],
+      "osm": "node/5251243141",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, al final de la cuadra del 4500 de la Av. 59 según las direcciones de OSM.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0416306/2005": {
+      "punto": [
+        -38.55865,
+        -58.73448
+      ],
+      "osm": "node/1561541565",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, al final de la cuadra del 2000 de la Av. 59 según las direcciones de OSM (en OSM figura otro operador).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0014794/2006": {
+      "punto": [
+        -38.57876,
+        -58.71023
+      ],
+      "osm": "way/183904319",
+      "fuente_punto": "Centro del predio de la Central Termoeléctrica Necochea en OpenStreetMap.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2026-20410560- -APN-DNEYR#MEC": {
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+    },
+    "EX-2024-90998978- -APN-DNEYR#MEC": {
+      "sin_ubicar": "Fletero (distribuidor por cuenta de terceros): no almacena, no se publica."
+    },
+    "S01:0282955/2016": {
+      "punto": [
+        -38.55032,
+        -58.72375
+      ],
+      "osm": "node/4044575146",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, a 17 m de la esquina de Calle 574 y Calle 519 que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2017-4771506-APN-DDYME#MEM": {
+      "punto": [
+        -38.57772,
+        -58.72909
+      ],
+      "osm": "node/1561525337",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, a 27 m de la esquina de Av. 79 y Av. 10 que declara el padrón (en OSM figura otro operador).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2018-48858361-APN-DGDOMEN#MHA": {
+      "punto": [
+        -38.24293,
+        -59.14398
+      ],
+      "osm": "node/4044575140",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, a 90 m del cruce de las rutas 86 y 85 que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0043912/2007": {
+      "sin_ubicar": "Fletero (distribuidor por cuenta de terceros): no almacena, no se publica."
+    },
+    "EX-2021-125149057- -APN-DNEYR#MEC": {
+      "punto": [
+        -38.56671,
+        -58.73884
+      ],
+      "osm": "node/1561525336",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, a 15 m de la esquina de Av. 75 y Av. 42 que declara el padrón (en OSM figura otro operador).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2021-111179871- -APN-DNRYC#MEC": {
+      "punto": [
+        -38.53057,
+        -58.70272
+      ],
+      "fuente_punto": "Cruce de la Av. Circunvalación con la Ruta 227 en OpenStreetMap, que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0435568/2005": {
+      "punto": [
+        -38.56633,
+        -58.72318
+      ],
+      "osm": "node/1561525335",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 37 m de la esquina de Av. 59 y Calle 26.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0273371/2008": {
+      "punto": [
+        -38.53455,
+        -58.70785
+      ],
+      "osm": "way/433838242",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 40 m de la esquina de Av. 578 y Av. 565.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0003394/2006": {
+      "sin_ubicar": "OpenStreetMap carga direcciones de la Calle 87 solo hasta el 4200."
+    },
+    "EXP-S01:0036224/2006": {
+      "sin_ubicar": "No hay fuente con los kilómetros de la Ruta 228 en Energía."
+    },
+    "EXP-S01:0036230/2006": {
+      "punto": [
+        -38.54862,
+        -58.7028
+      ],
+      "fuente_punto": "Esquina de Av. Almirante Brown y Calle 554 en OpenStreetMap, que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0036234/2006": {
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+    },
+    "EXP-S01:0037637/2006": {
+      "punto": [
+        -38.2791,
+        -59.20625
+      ],
+      "fuente_punto": "Mitad del tramo de la Calle 28 entre las calles 35 y 37 de La Dulce en OpenStreetMap, que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2022-59219709- -APN-DNEYR#MEC": {
+      "sin_ubicar": "Fletero (distribuidor por cuenta de terceros): no almacena, no se publica."
+    },
+    "EX-2017-18143298-APN-DDYME#MEM": {
+      "sin_ubicar": "La Calle 114 no tiene direcciones cargadas en OpenStreetMap."
+    },
+    "EXP-S01:0066443/2006": {
+      "sin_ubicar": "La dirección (Av. Mitre 587 y Barragán) no coincide con ninguna calle de Necochea en OpenStreetMap."
+    },
+    "EXP-S01:0040575/2006": {
+      "punto": [
+        -38.54629,
+        -58.7038
+      ],
+      "fuente_punto": "Esquina de Calle 558 y Calle 553 en OpenStreetMap, que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2022-34354503- -APN-DNEYR#MEC": {
+      "punto": [
+        -38.55279,
+        -58.73
+      ],
+      "osm": "node/1561541548",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 49 m de la esquina de Calle 47 y Calle 50.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0091747/2006": {
+      "punto": [
+        -38.55279,
+        -58.73
+      ],
+      "osm": "node/1561541548",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón (misma dirección que la inscripción de GNC y líquidos).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0076317/2007": {
+      "punto": [
+        -38.5279,
+        -58.75988
+      ],
+      "osm": "node/1561525318",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 122 m del cruce de la Ruta 228 y la Av. 43.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0184266/2014": {
+      "punto": [
+        -38.54975,
+        -58.74546
+      ],
+      "fuente_punto": "Coordenadas que declara el propio padrón, en la esquina de Av. 59 y Calle 70; hay dos estaciones de OSM a 30 y 40 m.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01: 0249419/2012": {
+      "sin_ubicar": "La Ruta 80 no tiene direcciones cargadas en Juan N. Fernández; puede ser la misma estación de la inscripción del acceso, pero no hay cómo comprobarlo."
+    },
+    "EXP-S01:0386001/2005": {
+      "punto": [
+        -38.01514,
+        -59.26018
+      ],
+      "osm": "node/3801339124",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 84 m de la Ruta 80.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2017-619243-APN-DDYME#MEM": {
+      "punto": [
+        -38.56098,
+        -58.73138
+      ],
+      "osm": "node/1561541576",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 41 m de la esquina de Av. 59 y Av. 42.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0023305/2007": {
+      "punto": [
+        -38.55475,
+        -58.72741
+      ],
+      "osm": "node/1561541562",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, en la cuadra del 1900 de la Calle 47.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2021-37889354- -APN-DNRYC#MEC": {
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+    },
+    "EXP-S01:0322211/2012": {
+      "sin_ubicar": "La Dulce no tiene direcciones cargadas en OpenStreetMap; además el titular es una persona y podría ser una vivienda."
+    },
+    "EXP-S01: 0201662/2016": {
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+    },
+    "EXP-S01:0167716/2014": {
+      "sin_ubicar": "Quequén no tiene direcciones cargadas en OpenStreetMap: con calle y número solos no se puede ubicar la cuadra."
+    },
+    "EXP-S01:0336711/2011": {
+      "punto": [
+        -38.53167,
+        -58.77611
+      ],
+      "fuente_punto": "Coordenadas que declara el propio padrón; la estación de OSM de ese lugar está a 18 m.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0120587/2010": {
+      "punto": [
+        -38.55888,
+        -58.73286
+      ],
+      "osm": "way/899320333",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 34 m de la esquina de Av. 59 y Calle 46.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01: 0007844/2015": {
+      "sin_ubicar": "Fletero (distribuidor por cuenta de terceros): no almacena, no se publica."
+    },
+    "EXP-S01:0270703/2013": {
+      "punto": [
+        -38.55058,
+        -58.73476
+      ],
+      "osm": "node/1561525333",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, en la cuadra del 2400 de la Av. 58.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0377634/2005": {
+      "punto": [
+        -38.28053,
+        -59.20541
+      ],
+      "osm": "way/899142161",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, a 29 m de la esquina de Calle 26 y Calle 35 de La Dulce que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0388367/2005": {
+      "punto": [
+        -38.54147,
+        -58.68127
+      ],
+      "osm": "node/1561541541",
+      "fuente_punto": "Estación de servicio de OpenStreetMap, cuyo operador en OSM es el mismo titular del padrón, a 81 m de la Ruta 88.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2017-22888826-DDYME#MEM": {
+      "punto": [
+        -38.53766,
+        -58.73754
+      ],
+      "fuente_punto": "Cruce de la Ruta 86 con la Calle 78 en OpenStreetMap, que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EXP-S01:0021473/2006": {
+      "sin_ubicar": "La Banquina de Pescadores no figura con nombre en OpenStreetMap."
+    },
+    "EX-2024-13232140- -APN-DNEYR#MEC": {
+      "punto": [
+        -38.5596,
+        -58.71631
+      ],
+      "fuente_punto": "Coordenadas que declara el propio padrón, a 35 m de la esquina de Calle 515 y Av. 554 de OSM.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "EX-2019-2104686-APN-DGDOMEN#MHA": {
+      "punto": [
+        -38.53057,
+        -58.70272
+      ],
+      "fuente_punto": "Cruce de la Av. Circunvalación con la Ruta 227 en OpenStreetMap, que declara el padrón.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    }
+  },
+  "glp": {
+    "AVENIDA 59 N/KM 5336": {
+      "punto": "fuente",
+      "fuente_punto": "Coordenadas de la Secretaría de Energía, a 11 m de la Av. 59 en OpenStreetMap.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "CALLE 25 N/KM 4985": {
+      "punto": "fuente",
+      "fuente_punto": "Coordenadas de la Secretaría de Energía, a 36 m de la Calle 25 en OpenStreetMap.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "RUTA PROVINCIAL 86 N/KM 4176 ENTRE CALLE 90 Y 86": {
+      "punto": "fuente",
+      "fuente_punto": "Coordenadas de la Secretaría de Energía, entre las calles 86 y 90, a 116 m de la Ruta 86 en OpenStreetMap.",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "CALLE 575 N/KM 2669": {
+      "sin_ubicar": "La fuente no trae coordenadas y Quequén no tiene direcciones cargadas en OpenStreetMap."
+    }
+  },
+  "aceiteras": {
+    "Oleaginosa Moreno Hnos. SA": {
+      "punto": "fuente",
+      "fuente_punto": "Coordenadas de la Secretaría de Energía, que las georreferenció con datos de la Cámara de la Industria Aceitera (CIARA).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    },
+    "Renova S.A.": {
+      "punto": "fuente",
+      "fuente_punto": "Coordenadas de la Secretaría de Energía, que las georreferenció con datos de la Cámara de la Industria Aceitera (CIARA).",
+      "aprobado": true,
+      "aprobado_por": "Juan Sebastián Bértole, 28/09/2026"
+    }
+  }
+}
