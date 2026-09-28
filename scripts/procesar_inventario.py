@@ -3,8 +3,10 @@
 Uso:  python3 scripts/procesar_inventario.py
 
 Lee el CSV más reciente de datos/crudos/inventario/ (exportación de KoboToolbox en CSV
-con "XML values and headers"; Kobo usa punto y coma como separador) y publica solo los registros que Sebastián marcó como
-aprobados en Kobo. Cada registro aprobado pasa además estos controles; si falla uno,
+con "XML values and headers"; Kobo usa punto y coma como separador) y datos/inventario/registros_proyecto.csv
+(registros que arma el proyecto a partir del archivo de prensa, con las mismas columnas que la exportación), y
+publica solo los registros que Sebastián marcó como aprobados (en Kobo, o en la columna _validation_status del
+archivo del proyecto). Cada registro aprobado pasa además estos controles; si falla uno,
 no se publica y el motivo se informa en pantalla (nunca en un archivo público):
 
   1. campos obligatorios completos y valores dentro de las listas de formulario.json;
@@ -37,6 +39,8 @@ from comun import (CRUDOS, RAIZ, SITIO_DATOS, anotar_procesamiento, aviso, carga
 
 CONFIG = RAIZ / "datos" / "inventario" / "formulario.json"
 CARPETA = CRUDOS / "inventario"
+# Registros cargados por el proyecto desde notas de prensa (público: solo lleva campos publicables y la nota de origen).
+PROYECTO = RAIZ / "datos" / "inventario" / "registros_proyecto.csv"
 
 # Columna y valores del estado de validación en la exportación de Kobo: el identificador con
 # "XML values and headers" y la etiqueta en inglés con "Labels" (fijos en el código de KoboToolbox,
@@ -165,18 +169,21 @@ def main():
     etiquetas = {clave: {t["name"]: t.get("nombre", t["label"]) for t in cfg[lista]}
                  for clave, lista in (("tipo_evento", "tipos_evento"), ("tipo_vulnerabilidad", "tipos_vulnerabilidad"),
                                       ("localidades", "localidades"), ("servicios", "servicios"))}
-    exportaciones = sorted(CARPETA.glob("*.csv"), key=lambda r: r.stat().st_mtime)
-    if not exportaciones:
-        aviso(f"No hay exportaciones de Kobo en {CARPETA.relative_to(RAIZ)}: el inventario queda como está.")
+    exportaciones = sorted(CARPETA.glob("*.csv"), key=lambda r: r.stat().st_mtime) if CARPETA.exists() else []
+    rutas = exportaciones[-1:] + ([PROYECTO] if PROYECTO.exists() else [])
+    if not rutas:
+        aviso(f"No hay exportaciones de Kobo en {CARPETA.relative_to(RAIZ)} ni registros del proyecto: el inventario queda como está.")
         return 0
-    ruta = exportaciones[-1]
-    filas = leer_csv(ruta)
-    if filas and "tipo_registro" not in filas[0]:
-        aviso("La exportación no trae la columna tipo_registro: exportá con \"XML values and headers\". No se publica nada.")
-        return 1
-    if filas and COLUMNA_VALIDACION not in filas[0]:
-        aviso(f"La exportación no trae la columna {COLUMNA_VALIDACION}: no se puede saber qué está aprobado. No se publica nada.")
-        return 1
+    filas = []
+    for ruta in rutas:
+        propias = leer_csv(ruta)
+        if propias and "tipo_registro" not in propias[0]:
+            aviso(f"{ruta.name} no trae la columna tipo_registro (en Kobo, exportá con \"XML values and headers\"). No se publica nada.")
+            return 1
+        if propias and COLUMNA_VALIDACION not in propias[0]:
+            aviso(f"{ruta.name} no trae la columna {COLUMNA_VALIDACION}: no se puede saber qué está aprobado. No se publica nada.")
+            return 1
+        filas += propias
     limite, caja = cargar_limite()
     ubic_localidad = puntos_localidad(cfg)
 
@@ -210,7 +217,7 @@ def main():
 
     registros = [r for r, _, _ in publicados]
     resumen = {
-        "exportacion": ruta.name,
+        "exportacion": ", ".join(r.name for r in rutas),
         "registros_en_la_exportacion": len(filas),
         "aprobados": len(aprobados),
         "publicados": len(registros),
@@ -237,11 +244,11 @@ def main():
         (SITIO_DATOS / "inventario_local.geojson").unlink(missing_ok=True)
     escribir_json(SITIO_DATOS / "inventario_resumen.json", resumen)
     anotar_procesamiento("inventario_local", {
-        "archivo_crudo": f"inventario/{ruta.name}",
-        "sha256_crudo": sha256(ruta.read_bytes()),
+        "archivo_crudo": ", ".join(str(r.relative_to(RAIZ)) for r in rutas),
+        "sha256_crudo": {r.name: sha256(r.read_bytes()) for r in rutas},
         "elementos": len(features),
         "registros": len(registros),
-        "fecha_datos": f"Registros aprobados al {dt.datetime.fromtimestamp(ruta.stat().st_mtime).date().isoformat()}"
+        "fecha_datos": f"Registros aprobados al {dt.date.fromtimestamp(max(r.stat().st_mtime for r in rutas)).isoformat()}"
                        + (f"; eventos entre {resumen['periodo'][0]} y {resumen['periodo'][1]}" if registros else ""),
     })
     print(f"Inventario: {len(filas)} registros exportados, {len(aprobados)} aprobados, {len(registros)} publicados "
