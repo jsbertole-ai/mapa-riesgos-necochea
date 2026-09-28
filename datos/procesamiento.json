@@ -1,8 +1,8 @@
 {
   "limite": {
-    "procesado": "2026-09-28T04:20:03+00:00",
+    "procesado": "2026-09-28T04:25:15+00:00",
     "archivo_crudo": "ign/departamento_06581.geojson",
-    "sha256_crudo": "baf6af2e7d62d72c9790ba310be4202807bc1ba917a6a1612f53492661542813",
+    "sha256_crudo": "943bdce4edb25913be011703c40b2e00b621baf15e253d15518a465547519642",
     "elementos": 1,
     "vertices": 32136,
     "caja": [
@@ -24,7 +24,7 @@
     "fecha_datos": null
   },
   "incendios_modis": {
-    "procesado": "2026-09-28T04:20:03+00:00",
+    "procesado": "2026-09-28T04:25:15+00:00",
     "archivo_crudo": "firms/modis_*_Argentina_caja.csv",
     "elementos": 654,
     "fecha_datos": "2000-11-16 a 2024-11-12",
@@ -93,7 +93,7 @@
     ]
   },
   "incendios_viirs": {
-    "procesado": "2026-09-28T04:20:03+00:00",
+    "procesado": "2026-09-28T04:25:15+00:00",
     "archivo_crudo": "firms/viirs-snpp_*_Argentina_caja.csv",
     "elementos": 601,
     "fecha_datos": "2012-02-10 a 2024-12-20",
@@ -135,7 +135,7 @@
     ]
   },
   "hidrografia": {
-    "procesado": "2026-09-28T04:20:03+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "osm/hidrografia.json",
     "sha256_crudo": "b41f3669bac79d533bcc2f0b509650877300642a873d952c5101bf5d7fd9491b",
     "elementos": 2279,
@@ -148,7 +148,7 @@
     }
   },
   "portuaria_instalaciones": {
-    "procesado": "2026-09-28T04:20:03+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "osm/portuaria.json",
     "sha256_crudo": "8f6f209ea217d76708a4ba1740f8e37698f8bc69ca53bc9f384792bc6f9ccac0",
     "elementos": 643,
@@ -161,7 +161,7 @@
     }
   },
   "ferrocarril": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "lineas_de_transporte_ferroviario_AN010": "842ca3bb89a6c278c1256e9c595d94d75388877dc72467d9cb571c1fc3903e9a",
@@ -187,7 +187,7 @@
     }
   },
   "red_vial": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "vial_nacional": "c7e2b9987f811a33142cf7189799b7a9d9c89661842dc47996142a3aa3927e7a",
@@ -207,7 +207,7 @@
     "fecha_datos": null
   },
   "hidrografia_ign": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:17+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "lineas_de_aguas_continentales_perenne": "600b1a7d0087ab90678b6a5af2d6fd50f1b5a249d13fdc764d264509dcfe60eb",
@@ -262,7 +262,7 @@
     "fecha_datos": null
   },
   "curvas_nivel": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:17+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "lineas_de_geomorfologia_CA010": "ff7c8a508d96b6ddfb4c6f37fd5796762fadd841cee29e203ba39066f4daba62"
@@ -277,7 +277,7 @@
     "fecha_datos": null
   },
   "localidades": {
-    "procesado": "2026-09-28T04:20:03+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "localidad_bahra": "7ea09e5f6e6436e79a462dda8b8881ea2ad02c9e67c474796b60e6916d092e44"
@@ -292,7 +292,7 @@
     "fecha_datos": null
   },
   "planta_urbana": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "areas_de_asentamientos_y_edificios_020105": "2fc46d4eb2d61eca5c271314e588a784641e07aec737d57e585dddcf37ab5706"
@@ -307,7 +307,7 @@
     "fecha_datos": null
   },
   "vegetacion_hidrofila": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "vegetacion_hidrofila_ED020": "f22b24ae5e56ca2835adc8c47bb46497f708cc0e2b0260159c8f8552c5e05061"
@@ -322,7 +322,7 @@
     "fecha_datos": null
   },
   "puentes_vados": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "puntos_de_cruces_y_enlaces_AQ040": "be2be54a2fb7b6fff30e637d076923695207c4c6493bd02dd4b639c3be0636b7",
@@ -342,7 +342,7 @@
     "fecha_datos": null
   },
   "forestaciones": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "vegetacion_arborea_060301": "bcc83b764520ef3a8b1f7cdc1077fb3ddebe391c9900b23046e1188a805ad6cd",
@@ -397,7 +397,7 @@
     "fecha_datos": null
   },
   "industria_residuos": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "areas_de_fabricacion_y_procesamiento_AC070": "90b5416af718bb1a770954fad4484019ab2bab59fc7cb3ce06267fece345fce0",
@@ -437,7 +437,7 @@
     "fecha_datos": null
   },
   "puerto_navegacion": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "puntos_de_puertos_y_muelles_BB005": "9d348e69de1e11dbf8fac613f6cdba9a6730a78ff40ed56b8f4b63fbc812972a",
@@ -477,7 +477,7 @@
     "fecha_datos": null
   },
   "educacion": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "puntos_de_ciencia_y_educacion_020601": "8e9df90081173a0f8a0ae82daa2a5ae90a8b8b3fb349438004c8e85ca1066dca",
@@ -497,7 +497,7 @@
     "fecha_datos": null
   },
   "salud": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "salud_020801": "1fd68fe64de2dd0281276e43355a506a877fa1a45b9848baf5de6c5cbdb7cbe6"
@@ -512,7 +512,7 @@
     "fecha_datos": null
   },
   "energia": {
-    "procesado": "2026-09-28T04:20:04+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "ign/*.geojson",
     "sha256_crudos": {
       "lineas_de_estructura_asociada_ducto_subterraneo": "6186a09a68201e052a0688807f38e8d36906365dbf2be66a9c6674515f1d9c0a",
@@ -542,7 +542,7 @@
     "fecha_datos": null
   },
   "media_tension": {
-    "procesado": "2026-09-28T04:20:08+00:00",
+    "procesado": "2026-09-28T04:25:20+00:00",
     "archivo_crudo": "energia/-buenos-aires-alta-tensin-media-tensin-lneas.zip",
     "sha256_crudo": "4674d971f0d3765867acdf1d90e3d4bcee700747689dc658c457fe4b5d4f6e9e",
     "elementos": 5502,
@@ -558,7 +558,7 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-09-28T04:20:05+00:00",
+    "procesado": "2026-09-28T04:25:18+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
@@ -594,7 +594,7 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-09-28T04:20:05+00:00",
+    "procesado": "2026-09-28T04:25:18+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "por_tipo": {
@@ -604,7 +604,7 @@
     "fecha_datos": "2026-07-30"
   },
   "torres_postes": {
-    "procesado": "2026-09-28T04:20:03+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "osm/torres.json",
     "sha256_crudo": "93d58602011c51bf62699afc60f32d270e31433c795e0f7336873655cb157c21",
     "elementos": 1474,
@@ -617,7 +617,7 @@
     }
   },
   "barrios_populares": {
-    "procesado": "2026-09-28T04:20:08+00:00",
+    "procesado": "2026-09-28T04:25:20+00:00",
     "archivo_crudo": "renabap/20231205_info_publica.geojson",
     "sha256_crudo": "69e2f325dd042d0bde50b007a4a2cd7194f8d63a93f81c5845737c294643e27a",
     "elementos": 9,
@@ -626,7 +626,7 @@
     "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado."
   },
   "cuenca_quequen": {
-    "procesado": "2026-09-28T04:20:05+00:00",
+    "procesado": "2026-09-28T04:25:18+00:00",
     "archivo_crudo": "cuencas/cuencas-hdricas-cohife.zip",
     "sha256_crudo": "17ba455b3403c4dd9a8788c582968b593be6c6ac0a190c72ac8699aa90220c0f",
     "elementos": 1,
@@ -649,7 +649,7 @@
     "fecha_datos": null
   },
   "red_hidrica_cuenca": {
-    "procesado": "2026-09-28T04:20:05+00:00",
+    "procesado": "2026-09-28T04:25:18+00:00",
     "archivo_crudo": "ign_cuenca/*.geojson",
     "sha256_crudos": {
       "lineas_de_aguas_continentales_perenne": "0941e60cbae91c3fcc27bf69534b52c77b5b6243dce2dec434d52e17ba71f645",
@@ -685,7 +685,7 @@
     "fecha_datos": null
   },
   "postes_via_publica": {
-    "procesado": "2026-09-28T04:20:03+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "osm/torres.json",
     "sha256_crudo": "93d58602011c51bf62699afc60f32d270e31433c795e0f7336873655cb157c21",
     "elementos": 1,
@@ -701,7 +701,7 @@
     }
   },
   "antenas": {
-    "procesado": "2026-09-28T04:20:03+00:00",
+    "procesado": "2026-09-28T04:25:16+00:00",
     "archivo_crudo": "osm/antenas.json",
     "sha256_crudo": "b45c4cc4d05b4c0870e788bbd5ffe9c34aaeb2bb7766b48a3080b01203194b7a",
     "elementos": 12,
@@ -714,17 +714,17 @@
     }
   },
   "inventario_local": {
-    "procesado": "2026-09-28T04:20:08+00:00",
+    "procesado": "2026-09-28T04:25:21+00:00",
     "archivo_crudo": "datos/inventario/registros_proyecto.csv",
     "sha256_crudo": {
-      "registros_proyecto.csv": "bec1d6f015b285ad33a9590f9dce74154ca502596e4a721e627c485c219f242c"
+      "registros_proyecto.csv": "39303d9a2bd3626b70c88c75f4bb74ef06d74bc1993ccc9085bb5517d97dd583"
     },
-    "elementos": 11,
-    "registros": 18,
+    "elementos": 12,
+    "registros": 23,
     "fecha_datos": "Registros aprobados al 2026-09-28; eventos entre 1980-04-29 y 2026-09-21"
   },
   "envases_fitosanitarios": {
-    "procesado": "2026-09-28T04:20:08+00:00",
+    "procesado": "2026-09-28T04:25:20+00:00",
     "archivo_crudo": "envases/centros-almacenamiento-transitorio-envases-fitosanitarios.csv",
     "sha256_crudo": "ffea33162663a730df9896db1601da8efe53a5be9923b6cbbedc41cb7fa709e6",
     "elementos": 2,
