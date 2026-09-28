@@ -16,6 +16,12 @@
       "organismo": "Cruz Roja",
       "nombre": "Posta sanitaria de la Cruz Roja",
       "fuente": "Posta sanitaria de la Cruz Roja, según un colaborador (28/09/2026); funciona de diciembre a marzo. En OpenStreetMap figura como \"Posta Sanitaria\", junto a la Jefatura de Playa."
+    },
+    {
+      "osm": "node/14061966263",
+      "organismo": "Policía",
+      "nombre": "Base GAD y Caballería (Policía de la Provincia de Buenos Aires)",
+      "fuente": "Base de los Grupos de Apoyo Departamentales (GAD), donde funciona también la base de Caballería, según un colaborador (28/09/2026). En OpenStreetMap figura como puesto de la Policía de la Provincia de Buenos Aires."
     }
   ]
 }

@@ -558,12 +558,12 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-09-28T16:10:38+00:00",
+    "procesado": "2026-09-28T16:19:22+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
-      "estructuras_operativas_y_defensivas_FA517": "88a1563a73e4a9275d4b2c7306a825dd90f0ee6e94ff1dee287b97266f5533b0",
-      "estructuras_operativas_y_defensivas_090102": "5147ec95c8ee3689bb27cb1885955fee52d8c8011884d12d9fb401eded0c2349"
+      "estructuras_operativas_y_defensivas_FA517": "d02fb94c74eb0c536d5e493cfca260a4580ea7079e1d9315f2ddcdad8ea2996f",
+      "estructuras_operativas_y_defensivas_090102": "6127e169a0603e7f914ea9c866367fc385a89c65d97648f61debc07dc642334d"
     },
     "sha256_comisarias_pba": {
       "comisarias-pba-2026.csv": "e1ca926e4ade907a5433c1025778103adea2d924ff060617d8dcc58375b79728",
@@ -572,19 +572,19 @@
     "pba_sin_coordenadas": [
       "Comisaría Necochea 1°"
     ],
-    "elementos": 16,
+    "elementos": 17,
     "por_organismo": {
       "Bomberos": 3,
       "Centro Operativo de Monitoreo": 1,
       "Cruz Roja": 1,
       "Defensa Civil": 1,
       "Guardavidas": 1,
-      "Policía": 7,
+      "Policía": 8,
       "Prefectura Naval": 1,
       "Radioaficionados": 1
     },
     "por_fuente": {
-      "OpenStreetMap": 4,
+      "OpenStreetMap": 5,
       "IGN": 6,
       "Colaborador": 3,
       "Provincia de Buenos Aires": 3
@@ -598,12 +598,12 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-09-28T16:10:38+00:00",
+    "procesado": "2026-09-28T16:19:23+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "por_tipo": {
-      "Evacuación ante catástrofes": 1,
-      "Personas en situación de calle": 1
+      "Personas en situación de calle": 1,
+      "Evacuación ante catástrofes": 1
     },
     "fecha_datos": "2026-07-30"
   },
