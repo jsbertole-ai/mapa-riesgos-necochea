@@ -39,6 +39,13 @@ import descargar_osm
 from comun import (CRUDOS, RAIZ, SITIO_DATOS, ErrorRed, anotar_procesamiento, aviso, cargar_limite, coleccion, descargar,
                    escribir_json, leer_json, poligonos, punto_en_geometria, sha256, vertices)
 
+# Datos de otras fuentes para organismos que ubica el IGN, por nombre (pedido de Sebastián, 01/10/2026).
+NOTAS_IGN = {
+    "Bomberos Voluntarios de La Dulce": "Fundada el 27 de septiembre de 1983; sede institucional en Calle 24 969, "
+        "Nicanor Olivera (ficha del Consejo de Federaciones de Bomberos Voluntarios: "
+        "https://www.bomberosra.org.ar/bomberos/614-bomberos-voluntarios-de-la-dulce).",
+}
+
 CAPAS_IGN = ("estructuras_operativas_y_defensivas_FA517", "estructuras_operativas_y_defensivas_090102")
 REFUGIOS = RAIZ / "datos" / "refugios.json"
 FIJADOS_OSM = RAIZ / "datos" / "organismos_osm.json"
@@ -261,7 +268,7 @@ def organismos_ign(offline, limite, caja):
             x, y = centro(geom)
             features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
                 "organismo": organismo_ign(capa, p), "nombre": p.get("fna"), "fuente": "IGN", "ref": f.get("id"),
-                "fuente_captura": p.get("fdc")}})
+                "fuente_captura": p.get("fdc"), **({"nota": NOTAS_IGN[p.get("fna")]} if p.get("fna") in NOTAS_IGN else {})}})
     return features, huellas
 
 
