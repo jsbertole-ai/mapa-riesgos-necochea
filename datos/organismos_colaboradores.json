@@ -36,6 +36,15 @@
         -58.741083
       ],
       "fuente": "Sede de la filial; coordenada tomada de OpenStreetMap por un colaborador que conoce el lugar (28/09/2026). La filial no figura cargada en OSM."
+    },
+    {
+      "organismo": "Bomberos",
+      "nombre": "Bomberos Voluntarios de Ramón Santamarina",
+      "punto": [
+        -38.44913,
+        -59.32601
+      ],
+      "fuente": "La asociación no publica su dirección: el punto marca el pueblo, junto al de la localidad, y no el cuartel. Un colaborador comprobó que funciona en la página de Facebook de la asociación (01/10/2026). En diciembre de 2022 compraron una autobomba con aportes de vecinos (Necochea Digital: https://necocheadigital.com/nota/93867/compraron-una-autobomba-para-ramon-santamarina/)."
     }
   ]
 }
