@@ -705,12 +705,18 @@
     }
   },
   "antenas": {
-    "procesado": "2026-09-28T05:39:32+00:00",
+    "procesado": "2026-10-01T12:03:33+00:00",
     "archivo_crudo": "osm/antenas.json",
-    "sha256_crudo": "b45c4cc4d05b4c0870e788bbd5ffe9c34aaeb2bb7766b48a3080b01203194b7a",
-    "elementos": 12,
-    "fecha_datos": "2026-09-27T22:27:40Z",
-    "servidor_overpass": "https://overpass-api.de/api/interpreter",
+    "sha256_crudo": "164c24f16a7da57407bca0b8b1e80e9addf036294ca98169225023344404ffa1",
+    "elementos": 24,
+    "por_tipo": {
+      "Radio y televisión": 7,
+      "Sin clasificar": 6,
+      "Telefonía móvil": 10,
+      "Usos múltiples": 1
+    },
+    "fecha_datos": "2026-10-01T12:00:11Z",
+    "servidor_overpass": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
     "descartes_de_la_consulta": {
       "excluidos": 0,
       "fuera_del_partido": 0,

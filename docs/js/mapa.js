@@ -312,12 +312,14 @@
     const usos = Object.keys(p).filter(function (k) { return k.indexOf("communication:") === 0 && p[k] !== "no"; })
       .map(function (k) { return servicios[k.slice(14)] || k.slice(14); });
     const filas = [];
+    if (p.tipo) filas.push(["Clasificación", p.tipo]);
     if (usos.length) filas.push(["Uso", usos.join(", ")]);
     if (p.operator) filas.push(["Operador (según OSM)", p.operator]);
     if (p.height) filas.push(["Altura", p.height + " m"]);
     return (
       "<h3>" + esc(p.name || tipos[p.man_made] || "Antena") + "</h3>" +
       (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
+      (p.nota ? '<p class="nota">' + esc(p.nota) + "</p>" : "") +
       '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
     );
   }

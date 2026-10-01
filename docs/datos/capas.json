@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-01T11:51:08+00:00",
+  "generado": "2026-10-01T12:05:47+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1143,20 +1143,33 @@
       "geometria": "punto",
       "estilo": {
         "color": "#6a51a3",
-        "radio": 4
+        "radio": 5,
+        "campo_color": "tipo",
+        "colores": {
+          "Usos múltiples": "#b2182b",
+          "Telefonía móvil": "#2166ac",
+          "Radio y televisión": "#1b7837",
+          "Sin clasificar": "#878787"
+        }
       },
       "activa_al_inicio": false,
-      "que_representa": "Toda antena, mástil o torre de comunicaciones cargada en OpenStreetMap dentro del partido: telefonía móvil, radio, televisión, radioaficionados y comunicaciones de servicios. Son infraestructura crítica: de ellas dependen las comunicaciones durante un siniestro.",
-      "que_no_representa": "No indica a qué operador pertenece cada antena salvo que OSM lo diga, ni su potencia o cobertura. No incluye cámaras de videovigilancia.",
-      "limitaciones": "Depende de lo cargado en OpenStreetMap, que suele estar incompleto en antenas: en la descarga del 27/09/2026 (base de OSM de las 22:27 UTC) hay 12 en el partido y una sola en la ciudad de Necochea. La planilla de repetidoras de radioaficionados de ENACOM no trae coordenadas, así que no sirve para ubicarlas (DATOS.md, sección 15).",
+      "que_representa": "Toda antena, mástil o torre de comunicaciones cargada en OpenStreetMap dentro del partido, con un color según su servicio: telefonía móvil, radio y televisión (incluye las radios de Policía, Prefectura, bomberos y hospital) o usos múltiples (telefonía y radio en la misma torre, como la de Telefónica en calle 61, la de uso más intensivo de la ciudad). Son infraestructura crítica: de ellas dependen las comunicaciones durante un siniestro. La Ordenanza 9010/2016 regula estas instalaciones y pide conocer su \"situación en el territorio (mapa de riesgo)\".",
+      "que_no_representa": "No indica potencia, cobertura ni si la antena tiene energía de respaldo. No incluye cámaras de videovigilancia. La clasificación sale de las etiquetas de OSM: una antena sin etiqueta de servicio queda \"sin clasificar\".",
+      "limitaciones": "Depende de lo cargado en OpenStreetMap. Un colaborador relevó y cargó las antenas de Necochea y Quequén el 30/09 y el 01/10/2026: la descarga del 01/10/2026 trae 24 (antes había 12, casi todas rurales). El municipio lleva un Registro Municipal de Prestadores de Servicios de Telefonía Celular y Telecomunicaciones (Ordenanza 9010/2016, artículo 9) que no es público. La planilla de repetidoras de radioaficionados de ENACOM no trae coordenadas (DATOS.md, sección 15).",
       "estado": "verificada",
-      "elementos": 12,
-      "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:27:40Z (UTC).",
-      "procesado": "2026-09-28T05:39:32+00:00",
+      "elementos": 24,
+      "fecha_datos": "Base de OpenStreetMap al 2026-10-01T12:00:11Z (UTC).",
+      "procesado": "2026-10-01T12:03:33+00:00",
+      "por_tipo": {
+        "Radio y televisión": 7,
+        "Sin clasificar": 6,
+        "Telefonía móvil": 10,
+        "Usos múltiples": 1
+      },
       "verificacion": {
         "fecha": "2026-10-01",
         "controles": [
-          "12 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "24 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://opendatacommons.org/licenses/odbl/1-0/ (leída el 2026-10-01)."
         ]
