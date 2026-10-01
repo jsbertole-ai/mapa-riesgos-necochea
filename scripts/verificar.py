@@ -36,6 +36,10 @@ def texto_plano(contenido):
 def verificar_licencia(capa, offline, cache):
     if capa.get("licencia_propia"):
         return True, capa["licencia_propia"]
+    # Licencia que el entorno no puede leer (el sitio no responde) y que leyó a mano un colaborador:
+    # el texto copiado, la fecha y la lectura quedan en DATOS.md (decisión de Sebastián, 01/10/2026).
+    if capa.get("licencia_leida_a_mano"):
+        return True, capa["licencia_leida_a_mano"]
     # Si la licencia está declarada en otro lugar (por ejemplo, la API de datos.gob.ar), se controla ahí;
     # url_licencia sigue siendo el texto de la licencia que ve el público.
     url, frase = capa.get("url_declaracion_licencia") or capa.get("url_licencia"), capa.get("frase_licencia")
@@ -128,6 +132,7 @@ def main():
         c.pop("frase_licencia", None)
         c.pop("fecha_datos_fija", None)
         c.pop("licencia_propia", None)
+        c.pop("licencia_leida_a_mano", None)
         c.pop("licencias_extra", None)
         c.pop("crudo_osm", None)
         c.pop("mensaje_sin_archivo", None)

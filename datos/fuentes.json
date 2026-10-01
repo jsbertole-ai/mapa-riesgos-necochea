@@ -761,6 +761,36 @@
       "limitaciones": "Depende de lo cargado en OpenStreetMap, que suele estar incompleto en antenas: en la descarga del 27/09/2026 (base de OSM de las 22:27 UTC) hay 12 en el partido y una sola en la ciudad de Necochea. La planilla de repetidoras de radioaficionados de ENACOM no trae coordenadas, así que no sirve para ubicarlas (DATOS.md, sección 15)."
     },
     {
+      "organismo": "Ente Nacional de Comunicaciones (ENACOM), Datos Abiertos, conjunto \"Internet Fija\"",
+      "url_fuente": "https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/default",
+      "url_datos": "https://indicadores.enacom.gob.ar/Files/DatosAbiertos/internet_accesos_tecnologias_localidades.csv",
+      "licencia": "Términos de uso de ENACOM: prohíben el uso con fines comerciales y/o privados sin autorización y obligan a citar la fuente; uso público y sin fines de lucro, con cita",
+      "url_licencia": "https://www.enacom.gob.ar/terminos-de-uso_p1004",
+      "cita": "Ente Nacional de Comunicaciones (ENACOM). Accesos a Internet fijo por tecnología y localidad. Datos Abiertos, https://indicadores.enacom.gob.ar/DatosAbiertos/Internet/default (período no informado; descargado el 01/10/2026).",
+      "formato": "CSV descargado a mano por un colaborador; GeoJSON armado por scripts/armar_conectividad.py",
+      "id": "conectividad_localidades",
+      "grupo": "expuestos",
+      "nombre": "Conectividad por localidad (Internet fijo)",
+      "archivo": "conectividad_localidades.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#fc8d59",
+        "radio": 9,
+        "campo_color": "categoria",
+        "colores": {
+          "Con fibra óptica": "#1a9850",
+          "Sin fibra o con fibra mínima": "#fc8d59",
+          "Solo satelital": "#d73027"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Cómo se conecta a Internet fijo cada localidad del partido, según los accesos que declaran los prestadores ante ENACOM: verde si predomina la fibra óptica, naranja si no hay fibra o es mínima (ADSL, cable o inalámbrico) y rojo si solo hay conexión satelital. La ventana trae la cantidad de accesos por tecnología.",
+      "que_no_representa": "No es un mapa de cobertura: no dice por dónde pasa la red, qué barrios alcanza ni si funciona sin energía. No incluye la telefonía celular ni la red troncal de fibra (ARSAT), que no tiene traza publicada.",
+      "limitaciones": "ENACOM no informa en el archivo a qué período corresponden los datos. Son declaraciones juradas de los prestadores y cuentan accesos (contratos), no hogares. Hay 253 accesos del partido sin localidad asignada (237 satelitales y 16 inalámbricos) que no tienen punto. Costa Bonita no está en la capa de localidades del IGN: usa el punto central de su límite en OpenStreetMap.",
+      "fecha_datos_fija": "ENACOM no informa el período; descargado el 01/10/2026.",
+      "licencia_leida_a_mano": "Términos de uso de ENACOM (https://www.enacom.gob.ar/terminos-de-uso_p1004) leídos a mano por un colaborador el 01/10/2026, porque el sitio no responde desde el entorno: el texto y la lectura están en DATOS.md, sección 18."
+    },
+    {
       "organismo": "Subsecretaría de Integración Socio Urbana (Registro Nacional de Barrios Populares, RENABAP)",
       "url_fuente": "https://datos.gob.ar/dataset/registro-nacional-de-barrios-populares",
       "url_datos": "https://archivo.infraestructura.gob.ar/dataset/ssisu/20231205_info_publica.geojson",

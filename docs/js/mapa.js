@@ -170,6 +170,20 @@
   }
 
   // Red de asistencia: organizaciones que asisten a la población vulnerable (puntos de colaboradores).
+  function popupConectividad(p) {
+    const filas = (p.tecnologias || []).map(function (t) {
+      return "<li>" + esc(t[0]) + ": " + numero(t[1]) + "</li>";
+    }).join("");
+    const minima = p.categoria !== "Con fibra óptica" && p.fibra
+      ? '<p class="nota">La fibra óptica existe pero es mínima: ' + numero(p.fibra) + " accesos.</p>" : "";
+    return (
+      "<h3>" + esc(p.localidad) + "</h3>" +
+      "<div>" + esc(p.categoria) + " · " + numero(p.accesos) + " accesos a Internet fijo</div>" +
+      "<ul>" + filas + "</ul>" + minima +
+      '<p class="nota">Accesos declarados por los prestadores ante ENACOM (período no informado). No es un mapa de cobertura. ' + esc(p.punto) + "</p>"
+    );
+  }
+
   function popupAsistencia(p) {
     return "<h3>" + esc(p.nombre) + "</h3>" + "<div>" + esc(p.tipo) + "</div>" + '<p class="nota">' + esc(p.nota) + "</p>";
   }
@@ -465,6 +479,7 @@
           if (capa.id === "organismos") return popupOrganismo(f.properties);
           if (capa.id === "refugios") return popupRefugio(f.properties);
           if (capa.id === "red_asistencia") return popupAsistencia(f.properties);
+          if (capa.id === "conectividad_localidades") return popupConectividad(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
           if (capa.id === "postes_via_publica") return popupPoste(f.properties);
