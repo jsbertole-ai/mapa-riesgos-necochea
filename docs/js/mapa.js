@@ -162,6 +162,7 @@
     if (p.police === "traffic_police") filas.push(["Tipo", "Policía vial o de tránsito"]);
     if (p.seasonal === "summer") filas.push(["Temporada", "Funciona en verano"]);
     if (p.localidad) filas.push(["Localidad", p.localidad]);
+    if (p.partido) filas.push(["Partido", p.partido + " (fuera del partido de Necochea; asiste en él)"]);
     return (
       "<h3>" + esc(p.nombre || p.organismo) + "</h3>" +
       "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
