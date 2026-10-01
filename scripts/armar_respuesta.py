@@ -14,7 +14,8 @@ riesgo (decisión de Sebastián, 27/09/2026), cada uno con su color. Fuentes, en
     Sebastián revisó sus posiciones en el visor del IGN y las confirmó (27/09/2026); OpenStreetMap,
     en cambio, ubica mal la PFA.
   - Elementos de OpenStreetMap fijados por Sebastián en datos/organismos_osm.json, traídos de la
-    API de OSM (quedan de respaldo si el IGN deja de publicar ese organismo).
+    API de OSM (quedan de respaldo si el IGN deja de publicar ese organismo). Incluye los cuarteles
+    de bomberos de partidos vecinos que asisten al de Necochea (San Cayetano y Benito Juárez).
   - OpenStreetMap (consulta "respuesta" de descargar_osm.py, ODbL): Defensa Civil, Centro
     Operativo de Monitoreo, guardavidas, guardaparques, Cruz Roja, y policía, Prefectura o
     bomberos que el IGN no tenga. Un elemento de OSM a menos de 200 m de uno del IGN del mismo
@@ -38,6 +39,13 @@ import descargar_ign
 import descargar_osm
 from comun import (CRUDOS, RAIZ, SITIO_DATOS, ErrorRed, anotar_procesamiento, aviso, cargar_limite, coleccion, descargar,
                    escribir_json, leer_json, poligonos, punto_en_geometria, sha256, vertices)
+
+# Datos de otras fuentes para organismos que ubica el IGN, por nombre (pedido de Sebastián, 01/10/2026).
+NOTAS_IGN = {
+    "Bomberos Voluntarios de La Dulce": "Fundada el 27 de septiembre de 1983; sede institucional en Calle 24 969, "
+        "Nicanor Olivera (ficha del Consejo de Federaciones de Bomberos Voluntarios: "
+        "https://www.bomberosra.org.ar/bomberos/614-bomberos-voluntarios-de-la-dulce).",
+}
 
 CAPAS_IGN = ("estructuras_operativas_y_defensivas_FA517", "estructuras_operativas_y_defensivas_090102")
 REFUGIOS = RAIZ / "datos" / "refugios.json"
@@ -102,6 +110,9 @@ def mismo(a, b):
         return False
     if metros(a["geometry"]["coordinates"], b["geometry"]["coordinates"]) < DISTANCIA_DUPLICADO_M:
         return True
+    if pa.get("partido") or pb.get("partido"):
+        # Cuartel y destacamento de un mismo partido vecino comparten nombre: solo cuenta la distancia.
+        return False
     ka, kb = clave_nombre(pa.get("nombre")), clave_nombre(pb.get("nombre"))
     return bool(ka) and bool(kb) and (ka <= kb or kb <= ka)
 
@@ -147,12 +158,14 @@ def organismos_fijados(offline, limite, caja):
             aviso(f"{r['osm']}: sin datos guardados; no se publica.")
             continue
         el, (x, y) = geometria_api(*bajado)
-        if not punto_en_geometria(x, y, limite, caja):
+        # Los cuarteles de partidos vecinos que asisten al de Necochea son parte del mismo sistema
+        # (decisión de Sebastián, 01/10/2026): se publican aunque caigan fuera del límite.
+        if not r.get("fuera_del_partido") and not punto_en_geometria(x, y, limite, caja):
             continue
         tags = el.get("tags") or {}
         features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
             "organismo": r["organismo"], "nombre": r.get("nombre") or tags.get("name"), "fuente": "OpenStreetMap",
-            "ref": r["osm"], "nota": r.get("fuente")}})
+            "ref": r["osm"], "nota": r.get("fuente"), **({"partido": r["partido"]} if r.get("partido") else {})}})
     return features
 
 
@@ -160,11 +173,12 @@ def organismos_colaboradores(limite, caja):
     features = []
     for r in leer_json(COLABORADORES, {"elementos": []})["elementos"]:
         lat, lon = r["punto"]
-        if not punto_en_geometria(lon, lat, limite, caja):
+        if not r.get("fuera_del_partido") and not punto_en_geometria(lon, lat, limite, caja):
             aviso(f"{r['nombre']}: el punto cae fuera del partido; no se publica.")
             continue
         features.append({"type": "Feature", "geometry": punto(lon, lat), "properties": {
-            "organismo": r["organismo"], "nombre": r["nombre"], "fuente": "Colaborador", "nota": r["fuente"]}})
+            "organismo": r["organismo"], "nombre": r["nombre"], "fuente": "Colaborador", "nota": r["fuente"],
+            **({"partido": r["partido"]} if r.get("partido") else {})}})
     return features
 
 
@@ -261,7 +275,7 @@ def organismos_ign(offline, limite, caja):
             x, y = centro(geom)
             features.append({"type": "Feature", "geometry": punto(x, y), "properties": {
                 "organismo": organismo_ign(capa, p), "nombre": p.get("fna"), "fuente": "IGN", "ref": f.get("id"),
-                "fuente_captura": p.get("fdc")}})
+                "fuente_captura": p.get("fdc"), **({"nota": NOTAS_IGN[p.get("fna")]} if p.get("fna") in NOTAS_IGN else {})}})
     return features, huellas
 
 
@@ -329,6 +343,10 @@ def main():
     for f in features:
         por_organismo[f["properties"]["organismo"]] = por_organismo.get(f["properties"]["organismo"], 0) + 1
     escribir_json(SITIO_DATOS / "organismos.geojson", coleccion(features), compacto=True)
+    # Con cuarteles de partidos vecinos, la caja de control abarca el partido y esos puntos.
+    vecinos = [f["geometry"]["coordinates"] for f in features if f["properties"].get("partido")]
+    caja_control = [min([caja[0]] + [c[0] for c in vecinos]), min([caja[1]] + [c[1] for c in vecinos]),
+                    max([caja[2]] + [c[0] for c in vecinos]), max([caja[3]] + [c[1] for c in vecinos])] if vecinos else None
     anotar_procesamiento("organismos", {
         "archivo_crudo": "osm/respuesta.json",
         "sha256_crudo": huella_osm,
@@ -338,6 +356,9 @@ def main():
         "elementos": len(features),
         "por_organismo": por_organismo,
         "por_fuente": por_fuente,
+        "de_partidos_vecinos": [f["properties"]["nombre"] for f in features if f["properties"].get("partido")],
+        **({"caja_verificacion": caja_control, "ambito_verificacion": "zona del partido y de los cuarteles vecinos"}
+           if caja_control else {}),
         "descartados_por_duplicados": duplicados,
         "descartes_de_la_consulta": descartes,
         "fecha_datos": (f"OpenStreetMap al {fecha_osm} (UTC); IGN sin fecha informada." if fecha_osm

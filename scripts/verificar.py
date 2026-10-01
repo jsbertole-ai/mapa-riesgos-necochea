@@ -146,9 +146,11 @@ def main():
             controles.append((False, "Falta el límite del partido para verificar la cobertura."))
             n = 0
         else:
-            # Las capas de la cuenca del Quequén exceden el partido: se controlan contra la caja de la cuenca.
+            # Las capas de la cuenca del Quequén, y los organismos con cuarteles vecinos, exceden el partido:
+            # se controlan contra su propia caja.
             caja_propia = procesamiento.get(capa["id"], {}).get("caja_verificacion")
-            ok, msj, n = verificar_archivo(capa, caja_propia or caja, "cuenca" if caja_propia else "partido")
+            ambito = procesamiento.get(capa["id"], {}).get("ambito_verificacion", "cuenca") if caja_propia else "partido"
+            ok, msj, n = verificar_archivo(capa, caja_propia or caja, ambito)
             controles.append((ok, msj))
         proc = procesamiento.get(capa["id"], {})
         if (capa["licencia"].startswith("ODbL") or capa.get("crudo_osm")) and proc and proc.get("sha256_crudo"):

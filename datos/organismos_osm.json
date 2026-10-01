@@ -1,5 +1,5 @@
 {
-  "_nota": "Elementos de OpenStreetMap que se publican en \"Organismos de respuesta\" con prioridad sobre el IGN y la Provincia, porque un colaborador confirmó su ubicación. Se traen de la API de OSM por su identificador.",
+  "_nota": "Elementos de OpenStreetMap que se publican en \"Organismos de respuesta\" con prioridad sobre el IGN y la Provincia, porque un colaborador confirmó su ubicación. Se traen de la API de OSM por su identificador. Los que llevan \"fuera_del_partido\" son cuarteles de partidos vecinos que asisten al de Necochea (decisión de Sebastián, 01/10/2026: forman parte del mismo sistema); se publican aunque caigan fuera del límite.",
   "elementos": [
     {
       "osm": "way/698430678",
@@ -22,6 +22,34 @@
       "organismo": "Policía",
       "nombre": "Base GAD y Caballería (Policía de la Provincia de Buenos Aires)",
       "fuente": "Base de los Grupos de Apoyo Departamentales (GAD), donde funciona también la base de Caballería, según un colaborador (28/09/2026). En OpenStreetMap figura como puesto de la Policía de la Provincia de Buenos Aires."
+    },
+    {
+      "osm": "node/14239945055",
+      "organismo": "Bomberos",
+      "partido": "San Cayetano",
+      "fuera_del_partido": true,
+      "fuente": "Cuartel de un partido vecino que asiste al de Necochea: destacamento del Balneario San Cayetano, de Bomberos Voluntarios de San Cayetano, que acude a los incendios del oeste del partido. Esa cobertura la informa un colaborador (01/10/2026); no se encontró prensa de este cuartel actuando dentro del partido."
+    },
+    {
+      "osm": "node/6222248533",
+      "organismo": "Bomberos",
+      "partido": "San Cayetano",
+      "fuera_del_partido": true,
+      "fuente": "Cuartel de un partido vecino que asiste al de Necochea: entra al oeste del partido por la RP 75 y la RN 228. Esa cobertura la informa un colaborador (01/10/2026); no se encontró prensa de este cuartel actuando dentro del partido. Fundado el 29 de octubre de 1961; sede institucional en Juan Magnin 235 (ficha del Consejo de Federaciones de Bomberos Voluntarios: https://www.bomberosra.org.ar/bomberos/658-bomberos-voluntarios-de-san-cayetano)."
+    },
+    {
+      "osm": "node/5438304772",
+      "organismo": "Bomberos",
+      "partido": "Benito Juárez",
+      "fuera_del_partido": true,
+      "fuente": "Cuartel de un partido vecino que asiste al de Necochea: cubre los incendios del norte del partido por la RP 86. Esa cobertura la informa un colaborador (01/10/2026); no se encontró prensa de este cuartel actuando dentro del partido. Fundado el 2 de junio de 1960; sede institucional en Av. Mitre 174 (ficha del Consejo de Federaciones de Bomberos Voluntarios: https://www.bomberosra.org.ar/bomberos/574-bomberos-voluntarios-de-benito-juarez)."
+    },
+    {
+      "osm": "node/14239988066",
+      "organismo": "Bomberos",
+      "partido": "Lobería",
+      "fuera_del_partido": true,
+      "fuente": "Cuartel de un partido vecino que asiste al de Necochea, según un colaborador (01/10/2026). Depende de la Policía de la Provincia de Buenos Aires; en 2013 sumó cinco efectivos (Municipio de Lobería: https://loberia.gov.ar/?q=content/mas-personal-al-cuartel-bomberos)."
     }
   ]
 }
