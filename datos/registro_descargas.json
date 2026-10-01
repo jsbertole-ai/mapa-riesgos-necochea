@@ -685,10 +685,10 @@
   },
   "datos/crudos/osm/antenas.json": {
     "url": "https://maps.mail.ru/osm/tools/overpass/api/interpreter?… (consulta abreviada; la completa la arma el script)",
-    "descargado": "2026-10-01T12:02:29+00:00",
+    "descargado": "2026-10-01T12:52:08+00:00",
     "last_modified": null,
-    "bytes": 8952,
-    "sha256": "164c24f16a7da57407bca0b8b1e80e9addf036294ca98169225023344404ffa1"
+    "bytes": 9038,
+    "sha256": "c086bdf000aa6c2ed1170cd3b537b7cecf83c672412e69650f6f6c4c2d480493"
   },
   "datos/crudos/envases/centros-almacenamiento-transitorio-envases-fitosanitarios.csv": {
     "url": "https://datos.magyp.gob.ar/dataset/8d83f150-d079-4cfb-bb3e-d4200bf2b011/resource/d4a9cf05-3520-4f98-a4b8-32653ebbeaa6/download/centros-almacenamiento-transitorio-envases-fitosanitarios.csv",
