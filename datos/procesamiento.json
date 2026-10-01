@@ -558,7 +558,7 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-10-01T16:22:21+00:00",
+    "procesado": "2026-10-01T16:23:09+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
@@ -610,7 +610,7 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-10-01T16:22:21+00:00",
+    "procesado": "2026-10-01T16:23:09+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "por_tipo": {
