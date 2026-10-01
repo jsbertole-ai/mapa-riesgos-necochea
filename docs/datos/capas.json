@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-01T12:55:44+00:00",
+  "generado": "2026-10-01T14:11:00+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -719,7 +719,7 @@
       },
       "activa_al_inicio": false,
       "que_representa": "Las torres y los postes cargados en OpenStreetMap: torres de las líneas de 132 y 500 kV y postes de la línea de 33 kV, con la tensión de la línea a la que pertenecen.",
-      "que_no_representa": "No incluye los postes de baja tensión, de telecomunicaciones ni las columnas de alumbrado: esos van en la capa \"Postes de la vía pública\". Tampoco los postes de la red de 13,2 kV, que no están cargados en OpenStreetMap. Que una zona no tenga postes en esta capa no quiere decir que no los haya. Para ver dónde el tendido de media tensión es aéreo, está la capa de media tensión.",
+      "que_no_representa": "No incluye los postes de baja tensión, de telecomunicaciones ni las columnas de alumbrado: esos se relevan aparte y por ahora no están en el mapa. Tampoco los postes de la red de 13,2 kV, que no están cargados en OpenStreetMap. Que una zona no tenga postes en esta capa no quiere decir que no los haya. Para ver dónde el tendido de media tensión es aéreo, está la capa de media tensión.",
       "limitaciones": "Depende de lo cargado por voluntarios en OpenStreetMap. Descarga propia del 27/09/2026 (base de OSM de las 22:23 UTC): 771 torres (707 de 132 kV y 64 de 500 kV) y 703 postes de la línea de 33 kV, 276 de ellos en la zona urbana de Necochea y Quequén.",
       "estado": "verificada",
       "elementos": 1474,
@@ -729,51 +729,6 @@
         "fecha": "2026-10-01",
         "controles": [
           "1474 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "La respuesta cruda de Overpass no trae elementos de vigilancia.",
-          "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-10-01)."
-        ]
-      }
-    },
-    {
-      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
-      "url_fuente": "https://www.openstreetmap.org/",
-      "url_datos": "https://overpass-api.de/api/interpreter",
-      "licencia": "ODbL 1.0",
-      "url_licencia": "https://www.openstreetmap.org/copyright",
-      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
-      "formato": "GeoJSON derivado de la respuesta JSON de Overpass (consulta \"torres\" de scripts/descargar_osm.py)",
-      "id": "postes_via_publica",
-      "grupo": "portuaria",
-      "nombre": "Postes de la vía pública (OpenStreetMap)",
-      "archivo": "postes_via_publica.geojson",
-      "geometria": "punto",
-      "activa_al_inicio": false,
-      "que_representa": "Todo poste de la calle cargado en OpenStreetMap, con o sin cables: postes eléctricos de baja tensión (o sin tensión informada), postes de telecomunicaciones, postes compartidos, postes de servicios de uso no informado y columnas de alumbrado público, cada tipo con su color. En un temporal, los postes que caen cortan servicios y calles y son un peligro para quien pasa.",
-      "que_no_representa": "No dice el estado del poste, su material ni su antigüedad, salvo que OSM lo indique. OpenStreetMap distingue un poste eléctrico de uno de telecomunicaciones solo si quien lo cargó lo etiquetó así; muchos postes compartidos figuran como de un solo uso o como de uso no informado.",
-      "limitaciones": "Depende por completo de lo cargado por voluntarios. En la descarga del 27/09/2026 (base de OSM de las 22:23 UTC) hay un solo poste de la calle en el partido: los 703 postes eléctricos cargados pertenecen a la línea de 33 kV y están en la capa de torres y postes, y no hay columnas de alumbrado ni postes de telecomunicaciones cargados. Las distribuidoras y cooperativas eléctricas y las empresas de telecomunicaciones no publican el inventario de sus postes como dato abierto (no encontrado al 27/09/2026).",
-      "estilo": {
-        "color": "#8c8c8c",
-        "radio": 2.5,
-        "campo_color": "tipo",
-        "colores": {
-          "Poste eléctrico de baja tensión o sin tensión informada": "#e6550d",
-          "Poste de telecomunicaciones": "#3182bd",
-          "Poste compartido (electricidad y telecomunicaciones)": "#756bb1",
-          "Columna de alumbrado público": "#e7ba52",
-          "Poste de servicios (uso no informado)": "#8c8c8c"
-        }
-      },
-      "estado": "verificada",
-      "elementos": 1,
-      "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:23:36Z (UTC).",
-      "procesado": "2026-09-28T05:39:32+00:00",
-      "por_tipo": {
-        "Poste eléctrico de baja tensión o sin tensión informada": 1
-      },
-      "verificacion": {
-        "fecha": "2026-10-01",
-        "controles": [
-          "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-10-01)."
         ]
@@ -1248,7 +1203,7 @@
       "que_representa": "Los 229 radios censales del partido coloreados según el porcentaje de hogares con al menos una necesidad básica insatisfecha (NBI). La ventana suma otras condiciones que pesan ante un siniestro: hacinamiento, falta de agua de red y de cloaca, cocina a garrafa o leña, cobertura de salud solo pública y la proporción de niñas, niños y adolescentes y de personas de 70 años o más.",
       "que_no_representa": "No mide la vulnerabilidad completa: NBI registra carencias materiales del hogar, y la vulnerabilidad también depende de la organización comunitaria, las redes y la relación con el Estado (MARCO_CONCEPTUAL.md, sección 2). Un radio con NBI bajo puede tener hogares en situación crítica.",
       "limitaciones": "Datos del día del censo (18/05/2022). En los 45 radios con menos de 20 hogares no se calculan porcentajes, porque con tan pocos casos engañan: van en gris. Los porcentajes de personas usan la población en hogares familiares. En el partido, el 3,1 % de los hogares tiene NBI: las diferencias entre radios son chicas en números absolutos.",
-      "estado": "pendiente",
+      "estado": "verificada",
       "elementos": 229,
       "fecha_datos": "Censo 2022 (18/05/2022); indicadores publicados en 2024 (actualizados el 29/04/2025). Consulta al servicio: 2026-10-01.",
       "procesado": "2026-10-01T03:34:19+00:00",
@@ -1263,7 +1218,7 @@
         "fecha": "2026-10-01",
         "controles": [
           "229 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
-          "La página https://ri.conicet.gov.ar/handle/11336/277944 no contiene la frase esperada.",
+          "Licencia confirmada en https://ri.conicet.gov.ar/handle/11336/277944 (leída el 2026-10-01).",
           "Licencia confirmada en https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=radios-censales (leída el 2026-10-01)."
         ]
       }

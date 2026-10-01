@@ -500,40 +500,8 @@
       },
       "activa_al_inicio": false,
       "que_representa": "Las torres y los postes cargados en OpenStreetMap: torres de las líneas de 132 y 500 kV y postes de la línea de 33 kV, con la tensión de la línea a la que pertenecen.",
-      "que_no_representa": "No incluye los postes de baja tensión, de telecomunicaciones ni las columnas de alumbrado: esos van en la capa \"Postes de la vía pública\". Tampoco los postes de la red de 13,2 kV, que no están cargados en OpenStreetMap. Que una zona no tenga postes en esta capa no quiere decir que no los haya. Para ver dónde el tendido de media tensión es aéreo, está la capa de media tensión.",
+      "que_no_representa": "No incluye los postes de baja tensión, de telecomunicaciones ni las columnas de alumbrado: esos se relevan aparte y por ahora no están en el mapa. Tampoco los postes de la red de 13,2 kV, que no están cargados en OpenStreetMap. Que una zona no tenga postes en esta capa no quiere decir que no los haya. Para ver dónde el tendido de media tensión es aéreo, está la capa de media tensión.",
       "limitaciones": "Depende de lo cargado por voluntarios en OpenStreetMap. Descarga propia del 27/09/2026 (base de OSM de las 22:23 UTC): 771 torres (707 de 132 kV y 64 de 500 kV) y 703 postes de la línea de 33 kV, 276 de ellos en la zona urbana de Necochea y Quequén."
-    },
-    {
-      "organismo": "OpenStreetMap (colaboradores), vía la API Overpass",
-      "url_fuente": "https://www.openstreetmap.org/",
-      "url_datos": "https://overpass-api.de/api/interpreter",
-      "licencia": "ODbL 1.0",
-      "url_licencia": "https://www.openstreetmap.org/copyright",
-      "frase_licencia": "Open Data Commons Open Database License",
-      "cita": "© colaboradores de OpenStreetMap. Datos disponibles bajo la Open Database License (ODbL).",
-      "formato": "GeoJSON derivado de la respuesta JSON de Overpass (consulta \"torres\" de scripts/descargar_osm.py)",
-      "id": "postes_via_publica",
-      "grupo": "portuaria",
-      "nombre": "Postes de la vía pública (OpenStreetMap)",
-      "archivo": "postes_via_publica.geojson",
-      "geometria": "punto",
-      "activa_al_inicio": false,
-      "que_representa": "Todo poste de la calle cargado en OpenStreetMap, con o sin cables: postes eléctricos de baja tensión (o sin tensión informada), postes de telecomunicaciones, postes compartidos, postes de servicios de uso no informado y columnas de alumbrado público, cada tipo con su color. En un temporal, los postes que caen cortan servicios y calles y son un peligro para quien pasa.",
-      "que_no_representa": "No dice el estado del poste, su material ni su antigüedad, salvo que OSM lo indique. OpenStreetMap distingue un poste eléctrico de uno de telecomunicaciones solo si quien lo cargó lo etiquetó así; muchos postes compartidos figuran como de un solo uso o como de uso no informado.",
-      "limitaciones": "Depende por completo de lo cargado por voluntarios. En la descarga del 27/09/2026 (base de OSM de las 22:23 UTC) hay un solo poste de la calle en el partido: los 703 postes eléctricos cargados pertenecen a la línea de 33 kV y están en la capa de torres y postes, y no hay columnas de alumbrado ni postes de telecomunicaciones cargados. Las distribuidoras y cooperativas eléctricas y las empresas de telecomunicaciones no publican el inventario de sus postes como dato abierto (no encontrado al 27/09/2026).",
-      "estilo": {
-        "color": "#8c8c8c",
-        "radio": 2.5,
-        "campo_color": "tipo",
-        "colores": {
-          "Poste eléctrico de baja tensión o sin tensión informada": "#e6550d",
-          "Poste de telecomunicaciones": "#3182bd",
-          "Poste compartido (electricidad y telecomunicaciones)": "#756bb1",
-          "Columna de alumbrado público": "#e7ba52",
-          "Poste de servicios (uso no informado)": "#8c8c8c"
-        }
-      },
-      "mensaje_sin_archivo": "Pendiente de fuente: la consulta de postes de la vía pública (eléctricos de baja tensión, de telecomunicaciones y columnas de alumbrado) está lista, pero OpenStreetMap (Overpass) no respondió desde el 27/09/2026. Se completa sola cuando responda."
     },
     {
       "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
