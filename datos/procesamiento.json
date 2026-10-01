@@ -705,7 +705,7 @@
     }
   },
   "antenas": {
-    "procesado": "2026-10-01T12:03:33+00:00",
+    "procesado": "2026-10-01T12:36:15+00:00",
     "archivo_crudo": "osm/antenas.json",
     "sha256_crudo": "164c24f16a7da57407bca0b8b1e80e9addf036294ca98169225023344404ffa1",
     "elementos": 24,
