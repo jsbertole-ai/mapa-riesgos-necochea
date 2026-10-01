@@ -705,12 +705,17 @@
     }
   },
   "antenas": {
-    "procesado": "2026-09-28T05:39:32+00:00",
+    "procesado": "2026-10-01T12:52:08+00:00",
     "archivo_crudo": "osm/antenas.json",
-    "sha256_crudo": "b45c4cc4d05b4c0870e788bbd5ffe9c34aaeb2bb7766b48a3080b01203194b7a",
-    "elementos": 12,
-    "fecha_datos": "2026-09-27T22:27:40Z",
-    "servidor_overpass": "https://overpass-api.de/api/interpreter",
+    "sha256_crudo": "c086bdf000aa6c2ed1170cd3b537b7cecf83c672412e69650f6f6c4c2d480493",
+    "elementos": 22,
+    "por_tipo": {
+      "Radio y televisión": 9,
+      "Telefonía móvil": 12,
+      "Usos múltiples": 1
+    },
+    "fecha_datos": "2026-10-01T12:49:26Z",
+    "servidor_overpass": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
     "descartes_de_la_consulta": {
       "excluidos": 0,
       "fuera_del_partido": 0,
@@ -718,14 +723,14 @@
     }
   },
   "inventario_local": {
-    "procesado": "2026-09-28T18:39:31+00:00",
+    "procesado": "2026-10-01T11:50:18+00:00",
     "archivo_crudo": "datos/inventario/registros_proyecto.csv",
     "sha256_crudo": {
-      "registros_proyecto.csv": "ef2b416cf79e86ca0fa03126e97b48dd3b8531c7878d6b15124d516d4eec2593"
+      "registros_proyecto.csv": "0f09f7d68f4fe4a8b8daf4bb6d78a7ee317ee174a1596f052dd40792605c54d5"
     },
-    "elementos": 22,
-    "registros": 38,
-    "fecha_datos": "Registros aprobados al 2026-09-28; eventos entre 1980-04-29 y 2026-09-21"
+    "elementos": 24,
+    "registros": 40,
+    "fecha_datos": "Registros aprobados al 2026-10-01; eventos entre 1980-04-29 y 2026-09-21"
   },
   "envases_fitosanitarios": {
     "procesado": "2026-09-28T05:39:36+00:00",
@@ -793,5 +798,50 @@
       "WIRELESS": 16
     },
     "fecha_datos": "ENACOM no informa el período en el archivo; descargado a mano el 01/10/2026."
+  },
+  "gasoductos": {
+    "procesado": "2026-10-01T03:27:38+00:00",
+    "archivo_crudo": "gas/gasoductos-de-distribucin.csv",
+    "sha256_crudo": "c4209c42c1e3b1e65f23d936caf9af1ae290ee2d5e11242d918119cc51567599",
+    "elementos": 5,
+    "gasoductos_en_el_pais": 18635,
+    "sin_geometria": 1,
+    "fecha_datos": null
+  },
+  "poblacion_radios": {
+    "procesado": "2026-10-01T03:30:39+00:00",
+    "archivo_crudo": "censo/radios_2022_conDatos_1habHa.gpkg",
+    "sha256_crudo": "124e6e1e6ed28012c656d75987f2010fd6c37044b44b40084aeb3afe72bceb1e",
+    "elementos": 162,
+    "radios_en_el_pais": 53879,
+    "poblacion_en_los_radios": 98127,
+    "por_tipo": {
+      "20 a 40 hab/ha": 43,
+      "40 a 80 hab/ha": 58,
+      "80 a 150 hab/ha": 10,
+      "1 a 20 hab/ha": 50,
+      "150 a 300 hab/ha": 1
+    },
+    "fecha_datos": "Censo Nacional de Población, Hogares y Viviendas, 18/05/2022 (INDEC)."
+  },
+  "vulnerabilidad_radios": {
+    "procesado": "2026-10-01T03:34:19+00:00",
+    "archivos_crudos": {
+      "hogares": "censo/Indicadores_de_hogares__2022.zip",
+      "personas": "censo/Indicadores_de_personas__2022.zip",
+      "radios": "censo/radios-censales-2022-geojson.zip"
+    },
+    "sha256_crudo": "e08da3a227ea5379ce291f4197688101e0e726776c3f4be5d5a79fb59bcfc7d8",
+    "elementos": 229,
+    "por_tipo": {
+      "Menos de 2,5 %": 96,
+      "5 a 10 %": 32,
+      "2,5 a 5 %": 48,
+      "10 % o más": 8,
+      "Menos de 20 hogares": 45
+    },
+    "hogares": 39406,
+    "poblacion": 101483,
+    "fecha_datos": "Censo Nacional de Población, Hogares y Viviendas, 18/05/2022 (INDEC)."
   }
 }

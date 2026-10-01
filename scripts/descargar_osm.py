@@ -181,6 +181,34 @@ def tipo_de_poste(t):
     return None
 
 
+# Notas de colaboradores y fuentes para antenas puntuales (01/10/2026). El texto va a la ventana.
+NOTAS_ANTENAS = {
+    "node/14231588201": "La de uso más intensivo de la ciudad: es de Telefónica de Argentina y la comparten otras "
+                        "empresas (según un colaborador). Se levanta en el predio de calle 61 entre 54 y 56, que la "
+                        "estatal ENTel compró el 25 de julio de 1958 y donde en 1969 se puso en marcha la Central "
+                        "Telefónica Automática (Ecos Diarios, 03/08/2025: https://elecos.com.ar/evolucion-del-servicio-"
+                        "telefonico-en-necochea-a-traves-los-tiempos); la nota no menciona la torre.",
+    "node/14235360716": "Antena de radiocomunicaciones de los Bomberos Voluntarios, en el predio lindero a la Unidad "
+                        "Sanitaria que el municipio les cedió en comodato (Ordenanza 10009/2019).",
+}
+
+
+def uso_antena(t):
+    """Clasifica la antena por servicio según sus etiquetas communication:* (pedido de Sebastián, 01/10/2026).
+    Las que dan telefonía móvil y además radio o televisión son "de usos múltiples"."""
+    def si(*claves):
+        return any(t.get("communication:" + c) not in (None, "no") for c in claves)
+    movil = si("mobile_phone", "gsm", "3g", "4g", "lte", "5g")
+    radio = si("radio", "television", "amateur_radio", "broadcast") or t.get("tower:type") in ("radio", "broadcast")
+    if movil and radio:
+        return "Usos múltiples"
+    if movil:
+        return "Telefonía móvil"
+    if radio:
+        return "Radio y televisión"
+    return "Sin clasificar"
+
+
 def procesar_antenas(datos, limite, caja):
     """Antenas, mástiles y torres de comunicaciones como puntos (los edificios o predios, en su centro)."""
     features, descartadas = [], 0
@@ -205,6 +233,9 @@ def procesar_antenas(datos, limite, caja):
         if not punto_en_geometria(x, y, limite, caja):
             continue
         props = {k: v for k, v in t.items() if k in TAGS_ANTENAS or k.startswith("communication:")}
+        props["tipo"] = uso_antena(t)
+        if f"{el['type']}/{el['id']}" in NOTAS_ANTENAS:
+            props["nota"] = NOTAS_ANTENAS[f"{el['type']}/{el['id']}"]
         props["osm"] = f"{el['type']}/{el['id']}"
         features.append({"type": "Feature", "properties": props, "geometry": {
             "type": "Point", "coordinates": [round(x, DECIMALES), round(y, DECIMALES)]}})

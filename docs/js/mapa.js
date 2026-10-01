@@ -170,6 +170,46 @@
   }
 
   // Red de asistencia: organizaciones que asisten a la población vulnerable (puntos de colaboradores).
+  function popupVulnerabilidad(p) {
+    const pc = function (v) { return v === null || v === undefined ? "s/d" : String(v).replace(".", ",") + " %"; };
+    const filas = p.pct_nbi === undefined
+      ? '<p class="nota">Menos de 20 hogares: no se calculan porcentajes.</p>'
+      : "<ul>" +
+        "<li>Hogares con NBI: " + pc(p.pct_nbi) + "</li>" +
+        "<li>Hacinamiento (más de 2 personas por cuarto): " + pc(p.pct_hacinamiento) + "</li>" +
+        "<li>Sin agua de red para beber y cocinar: " + pc(p.pct_sin_agua_red) + "</li>" +
+        "<li>Sin cloaca: " + pc(p.pct_sin_cloaca) + "</li>" +
+        "<li>Cocinan con garrafa o leña: " + pc(p.pct_garrafa_lena) + "</li>" +
+        "<li>Personas con salud solo pública: " + pc(p.pct_solo_salud_publica) + "</li>" +
+        "<li>Personas de 0 a 17 años: " + pc(p.pct_0a17) + "</li>" +
+        "<li>Personas de 70 años o más: " + pc(p.pct_70ymas) + "</li></ul>";
+    return (
+      "<h3>Radio censal " + esc(p.radio) + "</h3>" +
+      "<div>" + esc(p.tipo || "") + " · " + numero(p.poblacion) + " habitantes · " + numero(p.hogares) + " hogares</div>" +
+      filas +
+      '<p class="nota">Censo 2022 (INDEC), indicadores de de Grande y Salvia (2024). NBI mide carencias materiales, no toda la vulnerabilidad.</p>'
+    );
+  }
+
+  function popupPoblacion(p) {
+    return (
+      "<h3>Radio censal " + esc(p.radio) + "</h3>" +
+      "<div>" + numero(p.poblacion) + " habitantes · " + esc(String(p.densidad_hab_ha).replace(".", ",")) + " hab/ha</div>" +
+      "<div>Superficie: " + esc(String(p.area_ha).replace(".", ",")) + " ha</div>" +
+      '<p class="nota">Población residente del Censo 2022 (INDEC), según Boccolini (2026). No incluye la población turística.</p>'
+    );
+  }
+
+  function popupGasoducto(p) {
+    return (
+      "<h3>" + esc(p.nombre || "Gasoducto") + "</h3>" +
+      "<div>" + esc([p.tipo, p.subtipo].filter(Boolean).join(" · ")) + "</div>" +
+      (p.tramo ? "<div>Tramo: " + esc(p.tramo) + "</div>" : "") +
+      (p.licenciataria ? "<div>Licenciataria: " + esc(p.licenciataria) + "</div>" : "") +
+      '<p class="nota">Traza declarada ante ENARGAS: no sirve para ubicar el caño en el terreno.</p>'
+    );
+  }
+
   function popupConectividad(p) {
     const filas = (p.tecnologias || []).map(function (t) {
       return "<li>" + esc(t[0]) + ": " + numero(t[1]) + "</li>";
@@ -272,12 +312,14 @@
     const usos = Object.keys(p).filter(function (k) { return k.indexOf("communication:") === 0 && p[k] !== "no"; })
       .map(function (k) { return servicios[k.slice(14)] || k.slice(14); });
     const filas = [];
+    if (p.tipo) filas.push(["Clasificación", p.tipo]);
     if (usos.length) filas.push(["Uso", usos.join(", ")]);
     if (p.operator) filas.push(["Operador (según OSM)", p.operator]);
     if (p.height) filas.push(["Altura", p.height + " m"]);
     return (
       "<h3>" + esc(p.name || tipos[p.man_made] || "Antena") + "</h3>" +
       (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
+      (p.nota ? '<p class="nota">' + esc(p.nota) + "</p>" : "") +
       '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
     );
   }
@@ -411,8 +453,8 @@
         // los tipos que no están en la lista se agrupan en aéreo o subterráneo.
         dashArray: trazoDe(e, feature.properties.tipo) || e.trazo || null,
         fill: esArea && e.relleno !== false,
-        fillColor: e.relleno || e.color,
-        fillOpacity: 0.45,
+        fillColor: (esArea && e.colores && e.colores[feature.properties[e.campo_color]]) || e.relleno || e.color,
+        fillOpacity: esArea && e.colores ? 0.6 : 0.45,
         pane: capa.id === "limite" ? "limite" : "dibujo",
         renderer: lienzo(capa.id === "limite" ? "limite" : "dibujo"),
       };
@@ -480,6 +522,9 @@
           if (capa.id === "refugios") return popupRefugio(f.properties);
           if (capa.id === "red_asistencia") return popupAsistencia(f.properties);
           if (capa.id === "conectividad_localidades") return popupConectividad(f.properties);
+          if (capa.id === "gasoductos") return popupGasoducto(f.properties);
+          if (capa.id === "poblacion_radios") return popupPoblacion(f.properties);
+          if (capa.id === "vulnerabilidad_radios") return popupVulnerabilidad(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
           if (capa.id === "postes_via_publica") return popupPoste(f.properties);

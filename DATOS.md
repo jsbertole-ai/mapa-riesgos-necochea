@@ -733,4 +733,58 @@ No hay una línea de costa oficial ni científica en datos abiertos que muestre 
 
 **Causa judicial:** no se encontró una por la erosión en Quequén (28/09/2026). La causa de Surfrider Argentina con dictamen de la Procuración (2016) es contra la Municipalidad de General Pueyrredon; la de Quequén que trae la prensa es por la concesión del Giro 0.
 
-**Capa posible, pendiente:** un tramo de "costa con erosión documentada" sobre la línea de costa de OpenStreetMap, solo si los trabajos delimitan el tramo con lugares con nombre. El peñón de la Rosa Mística figura en OpenStreetMap como "Punta Caraballido" (`node/10247596781`, `natural=cape`); lo identificó un colaborador el 28/09/2026, y ahí va el punto del registro `proyecto-0039`.
+**Capa posible, pendiente:** un tramo de "costa con erosión documentada" sobre la línea de costa de OpenStreetMap, solo si los trabajos delimitan el tramo con lugares con nombre. **Corrección del 01/10/2026:** el punto del registro `proyecto-0039` estaba en Punta Caraballido (`node/10247596781`, `natural=cape`), pero ahí está el emisario cloacal (`way/1120424032`, `man_made=pipeline`, `substance=sewage`), no el peñón. Un colaborador lo corrigió: el punto pasa a la "Gruta de la Virgen María Rosa Mística" (`node/14237600440`, `historic=wayside_shrine`). El emisario es ahora su propio registro, `proyecto-0040` (Noticias de Necochea, 12/06/2026).
+
+## 20. OpenArg como buscador de conjuntos (desde el 01/10/2026) · **Herramienta, no fuente**
+
+OpenArg (https://mcp.openarg.org/, Colossus Lab) indexa más de 30.000 conjuntos de 38 portales oficiales. Se usa solo para encontrar conjuntos; lo que sirva se descarga y se cita desde el portal original. La clave está en la variable de entorno `OPENARG_TOKEN` (plan gratuito: 200 consultas de datos por mes). Búsquedas del 01/10/2026:
+
+- Antenas de telefonía y estaciones de radio y TV: ningún conjunto con ubicaciones en el partido (solo antenas de la Ciudad de Mendoza e indicadores de ENACOM por provincia).
+- "Bomberos Voluntarios" de la Provincia (https://catalogo.datos.gba.gob.ar/dataset/f3cf1025-b253-4627-b546-9c83457618f9, CC BY 4.0, archivo de 08/2026): en el partido trae los mismos dos cuarteles que ya están en la capa de organismos (Necochea y La Dulce), con las mismas coordenadas, tomadas del IGN y de OpenStreetMap. No suma nada nuevo; confirma la capa.
+- Puntos Digitales y puntos WiFi del programa nacional: ninguno en el partido.
+
+## 21. Gasoductos (ENARGAS) · **Verificada** · en uso (desde el 01/10/2026)
+
+| Campo | Valor |
+|---|---|
+| Organismo | ENARGAS, publicado por la Secretaría de Energía de la Nación |
+| Conjunto | "Gasoductos (ENARGAS)", http://datos.energia.gob.ar/dataset/transporte-hidrocarburos-ductos-troncales-gasoductos (actualizado el 10/09/2026) |
+| Recurso usado | "Gasoductos de Distribución", CSV con geometría GeoJSON: http://datos.energia.gob.ar/dataset/8758101a-1e0d-413f-8cc5-83e21ece6391/resource/3f7f87ab-bdcf-4a21-b361-f59732754330/download/gasoductos-de-distribucin.csv |
+| Licencia | CC BY 4.0 (declarada en la API del portal: `"license_id": "CC-BY-4.0"`) |
+| Cobertura | 18.635 gasoductos de distribución en el país; 5 entran al partido: Barker-Necochea (Camuzzi Gas Pampeana) y los ramales de alimentación a San Cayetano, Nicanor Olivera (la fuente escribe "Nelsón Olivera"), Lobería y Eseba |
+| Transporte | El shapefile "Gasoductos de Transporte" del mismo conjunto (296 tramos troncales) se revisó el 01/10/2026: ninguno toca el partido |
+| Limitaciones | Sin diámetro, presión, profundidad ni fecha de relevamiento. No incluye la red domiciliaria. La traza no sirve para ubicar el caño en el terreno. Inferido, no confirmado: el ramal "Eseba" alimentaría la central termoeléctrica de Quequén (ESEBA era la empresa eléctrica provincial). |
+| Script | `scripts/descargar_gasoductos.py` |
+
+## 22. Población por radio censal, Censo 2022 · **Verificada** · en uso (desde el 01/10/2026)
+
+| Campo | Valor |
+|---|---|
+| Autoría | Boccolini, S. M. (2026). *Argentina (2022) radios censales con datos de cantidad de población y densidad de población* [Conjunto de datos]. CONICET Digital. http://hdl.handle.net/11336/284095 (publicado el 07/04/2026) |
+| Origen de los datos | Cartografía de radios del INDEC y población total por radio de la base Redatam del Censo 2022 (INDEC); área y densidad calculadas por la autora en QGIS |
+| Archivo | `radios_2022_conDatos_1habHa.gpkg` (GeoPackage, EPSG:4326, 53.879 radios en el país) |
+| Licencia | CC BY 2.5. El texto visible de la página dice "Creative Commons Attribution 2.5 Unported (CC BY 2.5)" y los metadatos enlazan https://creativecommons.org/licenses/by/2.5/ar/; las condiciones (atribución) son las mismas |
+| Cobertura en el partido | 162 de los 229 radios del partido (los que superan 1 hab/ha), con 98.127 habitantes. La zona rural queda casi toda afuera |
+| Categorías | Las del archivo de estilo del propio conjunto: 1-20, 20-40, 40-80, 80-150 y 150-300 hab/ha (en el partido: 50, 43, 58, 10 y 1 radios) |
+| Limitaciones | Población residente del día del censo: no incluye la turística de verano ni dónde está la gente durante el día. Densidad no es vulnerabilidad |
+| Script | `scripts/armar_poblacion.py` (lee el GeoPackage con sqlite3 y decodifica el WKB) |
+| Comparación | La provincia publica los radios 2022 sin población (https://catalogo.datos.gba.gob.ar/dataset/radios-censales, CC BY 4.0): sirve como control de la geometría, no como fuente de población |
+
+## 23. Necesidades básicas insatisfechas y otras condiciones por radio censal, Censo 2022 · **Verificada** · en uso (desde el 01/10/2026)
+
+| Campo | Valor |
+|---|---|
+| Indicadores | de Grande, P. E. y Salvia, H. A. (2024). *Indicadores del Censo Nacional de Población, Hogares y Viviendas, 2022* [Conjunto de datos]. CONICET Digital. http://hdl.handle.net/11336/277944 (publicado el 17/10/2024, actualizado el 29/04/2025; también en Mapa Poblaciones: https://poblaciones.org/@257701) |
+| Archivos | `Indicadores_de_hogares__2022.zip` y `Indicadores_de_personas__2022.zip` (CSV por radio, departamento y provincia; extraídos de la base Redatam del INDEC) |
+| Licencia de los indicadores | CC BY 2.5 (misma situación que la sección 22: el texto visible dice "Unported" y los metadatos enlazan la versión Argentina). Confirmada el 01/10/2026 |
+| Geometría | Radios censales 2022 de la Provincia de Buenos Aires (https://catalogo.datos.gba.gob.ar/dataset/radios-censales, CC BY 4.0): los 229 radios del partido, también los rurales |
+| Control | La suma de población de los 229 radios da 101.483 habitantes; los 162 radios de la sección 22 dan 98.127: la diferencia (3.356) es la población de los radios rurales de menos de 1 hab/ha |
+| Qué se muestra | Color: porcentaje de hogares con al menos un indicador NBI (menos de 2,5 %, 2,5 a 5 %, 5 a 10 %, 10 % o más; 96, 48, 32 y 8 radios). Ventana: hacinamiento, sin agua de red, sin cloaca, cocina a garrafa o leña, salud solo pública, 0 a 17 años y 70 años o más. Porcentajes calculados por `scripts/armar_vulnerabilidad.py` con los conteos de la fuente |
+| Limitaciones | En los 45 radios con menos de 20 hogares no se calculan porcentajes (gris). El partido tiene 3,1 % de hogares con NBI (1.223 de 39.406): los contrastes son chicos en números absolutos. NBI mide carencias materiales, no la vulnerabilidad completa |
+
+## 24. Notas de prensa que el entorno no puede leer (para leer a mano)
+
+Diario Necochea (diarionecochea.com) responde con una página vacía (código 202) a la lectura automática desde el entorno (01/10/2026). Notas aportadas por un colaborador, pendientes de lectura manual antes de usarlas como fuente del inventario:
+
+- https://diarionecochea.com/2025/01/31/el-sistema-cloacal-de-necochea-estaria-colapsado-por-la-alta-demanda/ (sistema cloacal en temporada).
+- https://diarionecochea.com/2025/01/25/contaminacion-en-el-cano-no-va-a-cambiar-hasta-que-haya-intendentes-y-concejales-que-se-preocupen/ (complemento del registro `proyecto-0041`, "El Caño").

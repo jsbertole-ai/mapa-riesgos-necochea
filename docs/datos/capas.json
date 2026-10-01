@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-01T01:28:26+00:00",
+  "generado": "2026-10-01T12:55:44+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -625,6 +625,40 @@
       }
     },
     {
+      "organismo": "Ente Nacional Regulador del Gas (ENARGAS), publicado por la Secretaría de Energía de la Nación",
+      "url_fuente": "http://datos.energia.gob.ar/dataset/transporte-hidrocarburos-ductos-troncales-gasoductos",
+      "url_datos": "http://datos.energia.gob.ar/dataset/8758101a-1e0d-413f-8cc5-83e21ece6391/resource/3f7f87ab-bdcf-4a21-b361-f59732754330/download/gasoductos-de-distribucin.csv",
+      "licencia": "CC BY 4.0",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "url_declaracion_licencia": "http://datos.energia.gob.ar/api/3/action/package_show?id=transporte-hidrocarburos-ductos-troncales-gasoductos",
+      "cita": "ENARGAS. Gasoductos de Distribución. Secretaría de Energía de la Nación, datos.energia.gob.ar, CC BY 4.0.",
+      "formato": "CSV con geometría GeoJSON, recortado al partido por scripts/descargar_gasoductos.py",
+      "id": "gasoductos",
+      "grupo": "portuaria",
+      "nombre": "Gasoductos (ENARGAS)",
+      "archivo": "gasoductos.geojson",
+      "geometria": "linea",
+      "estilo": {
+        "color": "#e6550d",
+        "grosor": 2.5
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Los gasoductos de distribución que entran al partido: el Barker-Necochea, de Camuzzi Gas Pampeana, y sus ramales de alimentación a San Cayetano, Nicanor Olivera, Lobería y Eseba. Son una línea vital (Lavell, 2007, p. 34): si se cortan, la ciudad se queda sin gas; y son una amenaza tecnológica, por fuga o explosión.",
+      "que_no_representa": "No incluye la red domiciliaria de cada localidad ni los gasoductos de transporte (troncales), que no pasan por el partido. No indica diámetro, presión, profundidad ni estado de los caños.",
+      "limitaciones": "La traza es la que declara ENARGAS: no sirve para ubicar el caño en el terreno ni para excavar (para eso está el aviso a la distribuidora). Cada gasoducto se dibuja entero, también fuera del partido. La fuente no informa la fecha del relevamiento; el conjunto se actualizó el 10/09/2026. El nombre \"Nelsón Olivera\" es como figura en la fuente (corresponde a Nicanor Olivera).",
+      "estado": "verificada",
+      "elementos": 5,
+      "fecha_datos": null,
+      "procesado": "2026-10-01T03:27:38+00:00",
+      "verificacion": {
+        "fecha": "2026-10-01",
+        "controles": [
+          "5 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en http://datos.energia.gob.ar/api/3/action/package_show?id=transporte-hidrocarburos-ductos-troncales-gasoductos (leída el 2026-10-01)."
+        ]
+      }
+    },
+    {
       "organismo": "Secretaría de Energía de la Nación, con datos del Consejo Federal de la Energía Eléctrica (CFEE)",
       "url_fuente": "https://datos.gob.ar/dataset/redes-de-distribucion-electrica-del-consejo-federal",
       "url_datos": "http://datos.energia.gob.ar/dataset/ff99e7be-7bab-4617-9588-9a74ae046a40/resource/be371445-5d0a-4ad7-8346-f1cdfb89c66f/download/-buenos-aires-alta-tensin-media-tensin-lneas.zip",
@@ -980,6 +1014,55 @@
       }
     },
     {
+      "organismo": "Boccolini, S. M. (2026), CONICET Digital, con la cartografía de radios y la población del Censo 2022 del INDEC (base Redatam)",
+      "url_fuente": "http://hdl.handle.net/11336/284095",
+      "url_datos": "https://ri.conicet.gov.ar/bitstream/handle/11336/284095/radios_2022_conDatos_1habHa.gpkg?sequence=2&isAllowed=y",
+      "licencia": "CC BY 2.5 (la página del repositorio dice \"Unported\" y enlaza la versión Argentina)",
+      "url_licencia": "https://creativecommons.org/licenses/by/2.5/ar/",
+      "url_declaracion_licencia": "https://ri.conicet.gov.ar/handle/11336/284095",
+      "cita": "Boccolini, S. M. (2026). Argentina (2022) radios censales con datos de cantidad de población y densidad de población [Conjunto de datos]. CONICET Digital. http://hdl.handle.net/11336/284095. Datos de población: INDEC, Censo Nacional de Población, Hogares y Viviendas 2022.",
+      "formato": "GeoPackage nacional, recortado al partido por scripts/armar_poblacion.py",
+      "id": "poblacion_radios",
+      "grupo": "expuestos",
+      "nombre": "Población por radio censal (Censo 2022)",
+      "archivo": "poblacion_radios.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#7f2704",
+        "grosor": 0.6,
+        "campo_color": "densidad",
+        "colores": {
+          "1 a 20 hab/ha": "#f7c2a1",
+          "20 a 40 hab/ha": "#f5946b",
+          "40 a 80 hab/ha": "#f16144",
+          "80 a 150 hab/ha": "#dd2c45",
+          "150 a 300 hab/ha": "#b51657"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Dónde vive la gente: los radios censales del Censo 2022 coloreados por densidad de población (habitantes por hectárea), con la población de cada radio en la ventana. Es la población expuesta: cruzada con las capas de amenazas, muestra cuánta gente hay en cada lugar.",
+      "que_no_representa": "No mide la vulnerabilidad: un radio denso no es por eso más vulnerable. No muestra dónde está la gente de día (trabajo, escuela, turismo de verano), solo dónde reside.",
+      "limitaciones": "Solo incluye los radios con más de 1 habitante por hectárea: de los 229 radios del partido entran 162, con 98.127 habitantes; la mayor parte de la zona rural queda afuera. La población es la del día del censo (18/05/2022), sin la población turística de temporada. Los colores siguen las categorías de densidad del propio conjunto.",
+      "estado": "verificada",
+      "elementos": 162,
+      "fecha_datos": "Censo 2022 (18/05/2022); conjunto publicado el 07/04/2026. Consulta al servicio: 2026-10-01.",
+      "procesado": "2026-10-01T03:30:39+00:00",
+      "por_tipo": {
+        "20 a 40 hab/ha": 43,
+        "40 a 80 hab/ha": 58,
+        "80 a 150 hab/ha": 10,
+        "1 a 20 hab/ha": 50,
+        "150 a 300 hab/ha": 1
+      },
+      "verificacion": {
+        "fecha": "2026-10-01",
+        "controles": [
+          "162 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://ri.conicet.gov.ar/handle/11336/284095 (leída el 2026-10-01)."
+        ]
+      }
+    },
+    {
       "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
       "url_fuente": "https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG",
       "url_datos": "https://wms.ign.gob.ar/geoserver/wfs (GetFeature en la caja del partido, GeoJSON)",
@@ -1060,20 +1143,32 @@
       "geometria": "punto",
       "estilo": {
         "color": "#6a51a3",
-        "radio": 4
+        "radio": 5,
+        "campo_color": "tipo",
+        "colores": {
+          "Usos múltiples": "#b2182b",
+          "Telefonía móvil": "#2166ac",
+          "Radio y televisión": "#1b7837",
+          "Sin clasificar": "#878787"
+        }
       },
       "activa_al_inicio": false,
-      "que_representa": "Toda antena, mástil o torre de comunicaciones cargada en OpenStreetMap dentro del partido: telefonía móvil, radio, televisión, radioaficionados y comunicaciones de servicios. Son infraestructura crítica: de ellas dependen las comunicaciones durante un siniestro.",
-      "que_no_representa": "No indica a qué operador pertenece cada antena salvo que OSM lo diga, ni su potencia o cobertura. No incluye cámaras de videovigilancia.",
-      "limitaciones": "Depende de lo cargado en OpenStreetMap, que suele estar incompleto en antenas: en la descarga del 27/09/2026 (base de OSM de las 22:27 UTC) hay 12 en el partido y una sola en la ciudad de Necochea. La planilla de repetidoras de radioaficionados de ENACOM no trae coordenadas, así que no sirve para ubicarlas (DATOS.md, sección 15).",
+      "que_representa": "Toda antena, mástil o torre de comunicaciones cargada en OpenStreetMap dentro del partido, con un color según su servicio: telefonía móvil, radio y televisión (incluye las radios de Policía, Prefectura, bomberos y hospital) o usos múltiples (telefonía y radio en la misma torre, como la de Telefónica en calle 61, la de uso más intensivo de la ciudad). Son infraestructura crítica: de ellas dependen las comunicaciones durante un siniestro. La Ordenanza 9010/2016 regula estas instalaciones y pide conocer su \"situación en el territorio (mapa de riesgo)\".",
+      "que_no_representa": "No indica potencia, cobertura ni si la antena tiene energía de respaldo. No incluye cámaras de videovigilancia. La clasificación sale de las etiquetas de OSM: una antena sin etiqueta de servicio queda \"sin clasificar\".",
+      "limitaciones": "Depende de lo cargado en OpenStreetMap. Un colaborador relevó y cargó las antenas de Necochea y Quequén el 30/09 y el 01/10/2026: la descarga del 01/10/2026 (base de OSM de las 12:49 UTC) trae 22, todas clasificadas por servicio (antes había 12, casi todas rurales y sin clasificar). El municipio lleva un Registro Municipal de Prestadores de Servicios de Telefonía Celular y Telecomunicaciones (Ordenanza 9010/2016, artículo 9) que no es público. La planilla de repetidoras de radioaficionados de ENACOM no trae coordenadas (DATOS.md, sección 15).",
       "estado": "verificada",
-      "elementos": 12,
-      "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:27:40Z (UTC).",
-      "procesado": "2026-09-28T05:39:32+00:00",
+      "elementos": 22,
+      "fecha_datos": "Base de OpenStreetMap al 2026-10-01T12:49:26Z (UTC).",
+      "procesado": "2026-10-01T12:52:08+00:00",
+      "por_tipo": {
+        "Radio y televisión": 9,
+        "Telefonía móvil": 12,
+        "Usos múltiples": 1
+      },
       "verificacion": {
         "fecha": "2026-10-01",
         "controles": [
-          "12 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "22 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://opendatacommons.org/licenses/odbl/1-0/ (leída el 2026-10-01)."
         ]
@@ -1120,6 +1215,56 @@
         "controles": [
           "7 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Términos de uso de ENACOM (https://www.enacom.gob.ar/terminos-de-uso_p1004) leídos a mano por un colaborador el 01/10/2026, porque el sitio no responde desde el entorno: el texto y la lectura están en DATOS.md, sección 18."
+        ]
+      }
+    },
+    {
+      "organismo": "de Grande, P. E. y Salvia, H. A. (2024), CONICET Digital, con datos del Censo 2022 del INDEC (base Redatam); geometría de los radios censales de la Provincia de Buenos Aires",
+      "url_fuente": "http://hdl.handle.net/11336/277944",
+      "url_datos": "https://ri.conicet.gov.ar/bitstream/handle/11336/277944/Indicadores_de_hogares__2022.zip?sequence=8&isAllowed=y",
+      "licencia": "CC BY 2.5 (indicadores) y CC BY 4.0 (geometría de los radios, Provincia de Buenos Aires)",
+      "url_licencia": "https://creativecommons.org/licenses/by/2.5/ar/",
+      "url_declaracion_licencia": "https://ri.conicet.gov.ar/handle/11336/277944",
+      "cita": "de Grande, P. E. y Salvia, H. A. (2024). Indicadores del Censo Nacional de Población, Hogares y Viviendas, 2022 [Conjunto de datos]. CONICET Digital. http://hdl.handle.net/11336/277944. Geometría: Provincia de Buenos Aires, Radios censales del Censo 2022, CC BY 4.0. Datos: INDEC, Censo 2022.",
+      "formato": "CSV de indicadores por radio unidos a la geometría provincial por scripts/armar_vulnerabilidad.py",
+      "id": "vulnerabilidad_radios",
+      "grupo": "vulnerabilidad",
+      "nombre": "Necesidades básicas insatisfechas por radio censal (Censo 2022)",
+      "archivo": "vulnerabilidad_radios.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#54278f",
+        "grosor": 0.6,
+        "campo_color": "nbi",
+        "colores": {
+          "Menos de 2,5 %": "#f2f0f7",
+          "2,5 a 5 %": "#cbc9e2",
+          "5 a 10 %": "#9e9ac8",
+          "10 % o más": "#6a51a3",
+          "Menos de 20 hogares": "#d9d9d9"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Los 229 radios censales del partido coloreados según el porcentaje de hogares con al menos una necesidad básica insatisfecha (NBI). La ventana suma otras condiciones que pesan ante un siniestro: hacinamiento, falta de agua de red y de cloaca, cocina a garrafa o leña, cobertura de salud solo pública y la proporción de niñas, niños y adolescentes y de personas de 70 años o más.",
+      "que_no_representa": "No mide la vulnerabilidad completa: NBI registra carencias materiales del hogar, y la vulnerabilidad también depende de la organización comunitaria, las redes y la relación con el Estado (MARCO_CONCEPTUAL.md, sección 2). Un radio con NBI bajo puede tener hogares en situación crítica.",
+      "limitaciones": "Datos del día del censo (18/05/2022). En los 45 radios con menos de 20 hogares no se calculan porcentajes, porque con tan pocos casos engañan: van en gris. Los porcentajes de personas usan la población en hogares familiares. En el partido, el 3,1 % de los hogares tiene NBI: las diferencias entre radios son chicas en números absolutos.",
+      "estado": "pendiente",
+      "elementos": 229,
+      "fecha_datos": "Censo 2022 (18/05/2022); indicadores publicados en 2024 (actualizados el 29/04/2025). Consulta al servicio: 2026-10-01.",
+      "procesado": "2026-10-01T03:34:19+00:00",
+      "por_tipo": {
+        "Menos de 2,5 %": 96,
+        "5 a 10 %": 32,
+        "2,5 a 5 %": 48,
+        "10 % o más": 8,
+        "Menos de 20 hogares": 45
+      },
+      "verificacion": {
+        "fecha": "2026-10-01",
+        "controles": [
+          "229 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "La página https://ri.conicet.gov.ar/handle/11336/277944 no contiene la frase esperada.",
+          "Licencia confirmada en https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=radios-censales (leída el 2026-10-01)."
         ]
       }
     },
@@ -1317,13 +1462,13 @@
       "limitaciones": "Abarca los eventos desde el 1/1/1980 (criterio del proyecto, 28/09/2026: incluye la inundación de abril de 1980, la mayor registrada en la ciudad). Los registros anteriores a los años 2000 salen casi todos de notas de aniversario, que recuerdan solo los eventos grandes: la cantidad de eventos por década no sirve para ver tendencias. Los registros sin punto propio se muestran juntos en el punto de su localidad (IGN), que no es el lugar del evento; los de zona rural sin punto solo cuentan en el resumen. Las cifras de efectos son las que informó la nota, sin verificación independiente; un campo vacío significa sin dato, no cero. Los primeros registros salen de crónicas de Ecos Diarios que repasan eventos históricos; cuando una nota no nombra la localidad y se la asigna por el contexto, el registro lo dice en sus observaciones.",
       "url_formulario": "https://ee.kobotoolbox.org/x/JsHKYrg5",
       "estado": "verificada",
-      "elementos": 22,
-      "fecha_datos": "Registros aprobados al 2026-09-28; eventos entre 1980-04-29 y 2026-09-21",
-      "procesado": "2026-09-28T18:39:31+00:00",
+      "elementos": 24,
+      "fecha_datos": "Registros aprobados al 2026-10-01; eventos entre 1980-04-29 y 2026-09-21",
+      "procesado": "2026-10-01T11:50:18+00:00",
       "verificacion": {
         "fecha": "2026-10-01",
         "controles": [
-          "22 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "24 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Fuente propia: cada colaborador acepta publicar su registro bajo CC BY 4.0 en el formulario; solo se publican los registros aprobados tras revisar la nota de origen."
         ]
       }

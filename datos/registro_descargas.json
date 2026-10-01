@@ -684,11 +684,11 @@
     "sha256": "93d58602011c51bf62699afc60f32d270e31433c795e0f7336873655cb157c21"
   },
   "datos/crudos/osm/antenas.json": {
-    "url": "https://overpass-api.de/api/interpreter?… (consulta abreviada; la completa la arma el script)",
-    "descargado": "2026-09-27T22:30:03+00:00",
+    "url": "https://maps.mail.ru/osm/tools/overpass/api/interpreter?… (consulta abreviada; la completa la arma el script)",
+    "descargado": "2026-10-01T12:52:08+00:00",
     "last_modified": null,
-    "bytes": 5364,
-    "sha256": "b45c4cc4d05b4c0870e788bbd5ffe9c34aaeb2bb7766b48a3080b01203194b7a"
+    "bytes": 9038,
+    "sha256": "c086bdf000aa6c2ed1170cd3b537b7cecf83c672412e69650f6f6c4c2d480493"
   },
   "datos/crudos/envases/centros-almacenamiento-transitorio-envases-fitosanitarios.csv": {
     "url": "https://datos.magyp.gob.ar/dataset/8d83f150-d079-4cfb-bb3e-d4200bf2b011/resource/d4a9cf05-3520-4f98-a4b8-32653ebbeaa6/download/centros-almacenamiento-transitorio-envases-fitosanitarios.csv",
@@ -731,5 +731,12 @@
     "last_modified": null,
     "bytes": 547,
     "sha256": "5d8f36e78cd9f2bde9fe11ecccdae63cff3e3e349307a0328dab776bf8116b00"
+  },
+  "datos/crudos/gas/gasoductos-de-distribucin.csv": {
+    "url": "http://datos.energia.gob.ar/dataset/8758101a-1e0d-413f-8cc5-83e21ece6391/resource/3f7f87ab-bdcf-4a21-b361-f59732754330/download/gasoductos-de-distribucin.csv",
+    "descargado": "2026-10-01T03:27:36+00:00",
+    "last_modified": "Wed, 02 Sep 2026 13:00:08 GMT",
+    "bytes": 31031895,
+    "sha256": "c4209c42c1e3b1e65f23d936caf9af1ae290ee2d5e11242d918119cc51567599"
   }
 }
