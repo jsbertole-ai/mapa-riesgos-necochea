@@ -818,5 +818,25 @@
       "150 a 300 hab/ha": 1
     },
     "fecha_datos": "Censo Nacional de Población, Hogares y Viviendas, 18/05/2022 (INDEC)."
+  },
+  "vulnerabilidad_radios": {
+    "procesado": "2026-10-01T03:34:19+00:00",
+    "archivos_crudos": {
+      "hogares": "censo/Indicadores_de_hogares__2022.zip",
+      "personas": "censo/Indicadores_de_personas__2022.zip",
+      "radios": "censo/radios-censales-2022-geojson.zip"
+    },
+    "sha256_crudo": "e08da3a227ea5379ce291f4197688101e0e726776c3f4be5d5a79fb59bcfc7d8",
+    "elementos": 229,
+    "por_tipo": {
+      "Menos de 2,5 %": 96,
+      "5 a 10 %": 32,
+      "2,5 a 5 %": 48,
+      "10 % o más": 8,
+      "Menos de 20 hogares": 45
+    },
+    "hogares": 39406,
+    "poblacion": 101483,
+    "fecha_datos": "Censo Nacional de Población, Hogares y Viviendas, 18/05/2022 (INDEC)."
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-01T03:31:43+00:00",
+  "generado": "2026-10-01T03:35:27+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1203,6 +1203,56 @@
         "controles": [
           "7 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Términos de uso de ENACOM (https://www.enacom.gob.ar/terminos-de-uso_p1004) leídos a mano por un colaborador el 01/10/2026, porque el sitio no responde desde el entorno: el texto y la lectura están en DATOS.md, sección 18."
+        ]
+      }
+    },
+    {
+      "organismo": "de Grande, P. E. y Salvia, H. A. (2024), CONICET Digital, con datos del Censo 2022 del INDEC (base Redatam); geometría de los radios censales de la Provincia de Buenos Aires",
+      "url_fuente": "http://hdl.handle.net/11336/277944",
+      "url_datos": "https://ri.conicet.gov.ar/bitstream/handle/11336/277944/Indicadores_de_hogares__2022.zip?sequence=8&isAllowed=y",
+      "licencia": "CC BY 2.5 (indicadores) y CC BY 4.0 (geometría de los radios, Provincia de Buenos Aires)",
+      "url_licencia": "https://creativecommons.org/licenses/by/2.5/ar/",
+      "url_declaracion_licencia": "https://ri.conicet.gov.ar/handle/11336/277944",
+      "cita": "de Grande, P. E. y Salvia, H. A. (2024). Indicadores del Censo Nacional de Población, Hogares y Viviendas, 2022 [Conjunto de datos]. CONICET Digital. http://hdl.handle.net/11336/277944. Geometría: Provincia de Buenos Aires, Radios censales del Censo 2022, CC BY 4.0. Datos: INDEC, Censo 2022.",
+      "formato": "CSV de indicadores por radio unidos a la geometría provincial por scripts/armar_vulnerabilidad.py",
+      "id": "vulnerabilidad_radios",
+      "grupo": "vulnerabilidad",
+      "nombre": "Necesidades básicas insatisfechas por radio censal (Censo 2022)",
+      "archivo": "vulnerabilidad_radios.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#54278f",
+        "grosor": 0.6,
+        "campo_color": "nbi",
+        "colores": {
+          "Menos de 2,5 %": "#f2f0f7",
+          "2,5 a 5 %": "#cbc9e2",
+          "5 a 10 %": "#9e9ac8",
+          "10 % o más": "#6a51a3",
+          "Menos de 20 hogares": "#d9d9d9"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Los 229 radios censales del partido coloreados según el porcentaje de hogares con al menos una necesidad básica insatisfecha (NBI). La ventana suma otras condiciones que pesan ante un siniestro: hacinamiento, falta de agua de red y de cloaca, cocina a garrafa o leña, cobertura de salud solo pública y la proporción de niñas, niños y adolescentes y de personas de 70 años o más.",
+      "que_no_representa": "No mide la vulnerabilidad completa: NBI registra carencias materiales del hogar, y la vulnerabilidad también depende de la organización comunitaria, las redes y la relación con el Estado (MARCO_CONCEPTUAL.md, sección 2). Un radio con NBI bajo puede tener hogares en situación crítica.",
+      "limitaciones": "Datos del día del censo (18/05/2022). En los 45 radios con menos de 20 hogares no se calculan porcentajes, porque con tan pocos casos engañan: van en gris. Los porcentajes de personas usan la población en hogares familiares. En el partido, el 3,1 % de los hogares tiene NBI: las diferencias entre radios son chicas en números absolutos.",
+      "estado": "verificada",
+      "elementos": 229,
+      "fecha_datos": "Censo 2022 (18/05/2022); indicadores publicados en 2024 (actualizados el 29/04/2025). Consulta al servicio: 2026-10-01.",
+      "procesado": "2026-10-01T03:34:19+00:00",
+      "por_tipo": {
+        "Menos de 2,5 %": 96,
+        "5 a 10 %": 32,
+        "2,5 a 5 %": 48,
+        "10 % o más": 8,
+        "Menos de 20 hogares": 45
+      },
+      "verificacion": {
+        "fecha": "2026-10-01",
+        "controles": [
+          "229 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://ri.conicet.gov.ar/handle/11336/277944 (leída el 2026-10-01).",
+          "Licencia confirmada en https://catalogo.datos.gba.gob.ar/api/3/action/package_show?id=radios-censales (leída el 2026-10-01)."
         ]
       }
     },

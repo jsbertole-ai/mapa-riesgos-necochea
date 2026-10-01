@@ -170,6 +170,27 @@
   }
 
   // Red de asistencia: organizaciones que asisten a la población vulnerable (puntos de colaboradores).
+  function popupVulnerabilidad(p) {
+    const pc = function (v) { return v === null || v === undefined ? "s/d" : String(v).replace(".", ",") + " %"; };
+    const filas = p.pct_nbi === undefined
+      ? '<p class="nota">Menos de 20 hogares: no se calculan porcentajes.</p>'
+      : "<ul>" +
+        "<li>Hogares con NBI: " + pc(p.pct_nbi) + "</li>" +
+        "<li>Hacinamiento (más de 2 personas por cuarto): " + pc(p.pct_hacinamiento) + "</li>" +
+        "<li>Sin agua de red para beber y cocinar: " + pc(p.pct_sin_agua_red) + "</li>" +
+        "<li>Sin cloaca: " + pc(p.pct_sin_cloaca) + "</li>" +
+        "<li>Cocinan con garrafa o leña: " + pc(p.pct_garrafa_lena) + "</li>" +
+        "<li>Personas con salud solo pública: " + pc(p.pct_solo_salud_publica) + "</li>" +
+        "<li>Personas de 0 a 17 años: " + pc(p.pct_0a17) + "</li>" +
+        "<li>Personas de 70 años o más: " + pc(p.pct_70ymas) + "</li></ul>";
+    return (
+      "<h3>Radio censal " + esc(p.radio) + "</h3>" +
+      "<div>" + esc(p.tipo || "") + " · " + numero(p.poblacion) + " habitantes · " + numero(p.hogares) + " hogares</div>" +
+      filas +
+      '<p class="nota">Censo 2022 (INDEC), indicadores de de Grande y Salvia (2024). NBI mide carencias materiales, no toda la vulnerabilidad.</p>'
+    );
+  }
+
   function popupPoblacion(p) {
     return (
       "<h3>Radio censal " + esc(p.radio) + "</h3>" +
@@ -501,6 +522,7 @@
           if (capa.id === "conectividad_localidades") return popupConectividad(f.properties);
           if (capa.id === "gasoductos") return popupGasoducto(f.properties);
           if (capa.id === "poblacion_radios") return popupPoblacion(f.properties);
+          if (capa.id === "vulnerabilidad_radios") return popupVulnerabilidad(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
           if (capa.id === "postes_via_publica") return popupPoste(f.properties);

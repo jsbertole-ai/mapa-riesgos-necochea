@@ -769,3 +769,15 @@ OpenArg (https://mcp.openarg.org/, Colossus Lab) indexa más de 30.000 conjuntos
 | Limitaciones | Población residente del día del censo: no incluye la turística de verano ni dónde está la gente durante el día. Densidad no es vulnerabilidad |
 | Script | `scripts/armar_poblacion.py` (lee el GeoPackage con sqlite3 y decodifica el WKB) |
 | Comparación | La provincia publica los radios 2022 sin población (https://catalogo.datos.gba.gob.ar/dataset/radios-censales, CC BY 4.0): sirve como control de la geometría, no como fuente de población |
+
+## 23. Necesidades básicas insatisfechas y otras condiciones por radio censal, Censo 2022 · **Verificada** · en uso (desde el 01/10/2026)
+
+| Campo | Valor |
+|---|---|
+| Indicadores | de Grande, P. E. y Salvia, H. A. (2024). *Indicadores del Censo Nacional de Población, Hogares y Viviendas, 2022* [Conjunto de datos]. CONICET Digital. http://hdl.handle.net/11336/277944 (publicado el 17/10/2024, actualizado el 29/04/2025; también en Mapa Poblaciones: https://poblaciones.org/@257701) |
+| Archivos | `Indicadores_de_hogares__2022.zip` y `Indicadores_de_personas__2022.zip` (CSV por radio, departamento y provincia; extraídos de la base Redatam del INDEC) |
+| Licencia de los indicadores | CC BY 2.5 (misma situación que la sección 22: el texto visible dice "Unported" y los metadatos enlazan la versión Argentina). Confirmada el 01/10/2026 |
+| Geometría | Radios censales 2022 de la Provincia de Buenos Aires (https://catalogo.datos.gba.gob.ar/dataset/radios-censales, CC BY 4.0): los 229 radios del partido, también los rurales |
+| Control | La suma de población de los 229 radios da 101.483 habitantes; los 162 radios de la sección 22 dan 98.127: la diferencia (3.356) es la población de los radios rurales de menos de 1 hab/ha |
+| Qué se muestra | Color: porcentaje de hogares con al menos un indicador NBI (menos de 2,5 %, 2,5 a 5 %, 5 a 10 %, 10 % o más; 96, 48, 32 y 8 radios). Ventana: hacinamiento, sin agua de red, sin cloaca, cocina a garrafa o leña, salud solo pública, 0 a 17 años y 70 años o más. Porcentajes calculados por `scripts/armar_vulnerabilidad.py` con los conteos de la fuente |
+| Limitaciones | En los 45 radios con menos de 20 hogares no se calculan porcentajes (gris). El partido tiene 3,1 % de hogares con NBI (1.223 de 39.406): los contrastes son chicos en números absolutos. NBI mide carencias materiales, no la vulnerabilidad completa |
