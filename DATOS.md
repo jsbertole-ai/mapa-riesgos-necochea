@@ -734,3 +734,11 @@ No hay una línea de costa oficial ni científica en datos abiertos que muestre 
 **Causa judicial:** no se encontró una por la erosión en Quequén (28/09/2026). La causa de Surfrider Argentina con dictamen de la Procuración (2016) es contra la Municipalidad de General Pueyrredon; la de Quequén que trae la prensa es por la concesión del Giro 0.
 
 **Capa posible, pendiente:** un tramo de "costa con erosión documentada" sobre la línea de costa de OpenStreetMap, solo si los trabajos delimitan el tramo con lugares con nombre. El peñón de la Rosa Mística figura en OpenStreetMap como "Punta Caraballido" (`node/10247596781`, `natural=cape`); lo identificó un colaborador el 28/09/2026, y ahí va el punto del registro `proyecto-0039`.
+
+## 20. OpenArg como buscador de conjuntos (desde el 01/10/2026) · **Herramienta, no fuente**
+
+OpenArg (https://mcp.openarg.org/, Colossus Lab) indexa más de 30.000 conjuntos de 38 portales oficiales. Se usa solo para encontrar conjuntos; lo que sirva se descarga y se cita desde el portal original. La clave está en la variable de entorno `OPENARG_TOKEN` (plan gratuito: 200 consultas de datos por mes). Búsquedas del 01/10/2026:
+
+- Antenas de telefonía y estaciones de radio y TV: ningún conjunto con ubicaciones en el partido (solo antenas de la Ciudad de Mendoza e indicadores de ENACOM por provincia).
+- "Bomberos Voluntarios" de la Provincia (https://catalogo.datos.gba.gob.ar/dataset/f3cf1025-b253-4627-b546-9c83457618f9, CC BY 4.0, archivo de 08/2026): en el partido trae los mismos dos cuarteles que ya están en la capa de organismos (Necochea y La Dulce), con las mismas coordenadas, tomadas del IGN y de OpenStreetMap. No suma nada nuevo; confirma la capa.
+- Puntos Digitales y puntos WiFi del programa nacional: ninguno en el partido.
