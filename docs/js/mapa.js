@@ -170,6 +170,15 @@
   }
 
   // Red de asistencia: organizaciones que asisten a la población vulnerable (puntos de colaboradores).
+  function popupPoblacion(p) {
+    return (
+      "<h3>Radio censal " + esc(p.radio) + "</h3>" +
+      "<div>" + numero(p.poblacion) + " habitantes · " + esc(String(p.densidad_hab_ha).replace(".", ",")) + " hab/ha</div>" +
+      "<div>Superficie: " + esc(String(p.area_ha).replace(".", ",")) + " ha</div>" +
+      '<p class="nota">Población residente del Censo 2022 (INDEC), según Boccolini (2026). No incluye la población turística.</p>'
+    );
+  }
+
   function popupGasoducto(p) {
     return (
       "<h3>" + esc(p.nombre || "Gasoducto") + "</h3>" +
@@ -421,8 +430,8 @@
         // los tipos que no están en la lista se agrupan en aéreo o subterráneo.
         dashArray: trazoDe(e, feature.properties.tipo) || e.trazo || null,
         fill: esArea && e.relleno !== false,
-        fillColor: e.relleno || e.color,
-        fillOpacity: 0.45,
+        fillColor: (esArea && e.colores && e.colores[feature.properties[e.campo_color]]) || e.relleno || e.color,
+        fillOpacity: esArea && e.colores ? 0.6 : 0.45,
         pane: capa.id === "limite" ? "limite" : "dibujo",
         renderer: lienzo(capa.id === "limite" ? "limite" : "dibujo"),
       };
@@ -491,6 +500,7 @@
           if (capa.id === "red_asistencia") return popupAsistencia(f.properties);
           if (capa.id === "conectividad_localidades") return popupConectividad(f.properties);
           if (capa.id === "gasoductos") return popupGasoducto(f.properties);
+          if (capa.id === "poblacion_radios") return popupPoblacion(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
           if (capa.id === "postes_via_publica") return popupPoste(f.properties);

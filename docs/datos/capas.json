@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-01T03:28:32+00:00",
+  "generado": "2026-10-01T03:31:43+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1010,6 +1010,55 @@
         "controles": [
           "7 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
+        ]
+      }
+    },
+    {
+      "organismo": "Boccolini, S. M. (2026), CONICET Digital, con la cartografía de radios y la población del Censo 2022 del INDEC (base Redatam)",
+      "url_fuente": "http://hdl.handle.net/11336/284095",
+      "url_datos": "https://ri.conicet.gov.ar/bitstream/handle/11336/284095/radios_2022_conDatos_1habHa.gpkg?sequence=2&isAllowed=y",
+      "licencia": "CC BY 2.5 (la página del repositorio dice \"Unported\" y enlaza la versión Argentina)",
+      "url_licencia": "https://creativecommons.org/licenses/by/2.5/ar/",
+      "url_declaracion_licencia": "https://ri.conicet.gov.ar/handle/11336/284095",
+      "cita": "Boccolini, S. M. (2026). Argentina (2022) radios censales con datos de cantidad de población y densidad de población [Conjunto de datos]. CONICET Digital. http://hdl.handle.net/11336/284095. Datos de población: INDEC, Censo Nacional de Población, Hogares y Viviendas 2022.",
+      "formato": "GeoPackage nacional, recortado al partido por scripts/armar_poblacion.py",
+      "id": "poblacion_radios",
+      "grupo": "expuestos",
+      "nombre": "Población por radio censal (Censo 2022)",
+      "archivo": "poblacion_radios.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#7f2704",
+        "grosor": 0.6,
+        "campo_color": "densidad",
+        "colores": {
+          "1 a 20 hab/ha": "#f7c2a1",
+          "20 a 40 hab/ha": "#f5946b",
+          "40 a 80 hab/ha": "#f16144",
+          "80 a 150 hab/ha": "#dd2c45",
+          "150 a 300 hab/ha": "#b51657"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Dónde vive la gente: los radios censales del Censo 2022 coloreados por densidad de población (habitantes por hectárea), con la población de cada radio en la ventana. Es la población expuesta: cruzada con las capas de amenazas, muestra cuánta gente hay en cada lugar.",
+      "que_no_representa": "No mide la vulnerabilidad: un radio denso no es por eso más vulnerable. No muestra dónde está la gente de día (trabajo, escuela, turismo de verano), solo dónde reside.",
+      "limitaciones": "Solo incluye los radios con más de 1 habitante por hectárea: de los 229 radios del partido entran 162, con 98.127 habitantes; la mayor parte de la zona rural queda afuera. La población es la del día del censo (18/05/2022), sin la población turística de temporada. Los colores siguen las categorías de densidad del propio conjunto.",
+      "estado": "verificada",
+      "elementos": 162,
+      "fecha_datos": "Censo 2022 (18/05/2022); conjunto publicado el 07/04/2026. Consulta al servicio: 2026-10-01.",
+      "procesado": "2026-10-01T03:30:39+00:00",
+      "por_tipo": {
+        "20 a 40 hab/ha": 43,
+        "40 a 80 hab/ha": 58,
+        "80 a 150 hab/ha": 10,
+        "1 a 20 hab/ha": 50,
+        "150 a 300 hab/ha": 1
+      },
+      "verificacion": {
+        "fecha": "2026-10-01",
+        "controles": [
+          "162 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://ri.conicet.gov.ar/handle/11336/284095 (leída el 2026-10-01)."
         ]
       }
     },

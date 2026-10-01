@@ -755,3 +755,17 @@ OpenArg (https://mcp.openarg.org/, Colossus Lab) indexa más de 30.000 conjuntos
 | Transporte | El shapefile "Gasoductos de Transporte" del mismo conjunto (296 tramos troncales) se revisó el 01/10/2026: ninguno toca el partido |
 | Limitaciones | Sin diámetro, presión, profundidad ni fecha de relevamiento. No incluye la red domiciliaria. La traza no sirve para ubicar el caño en el terreno. Inferido, no confirmado: el ramal "Eseba" alimentaría la central termoeléctrica de Quequén (ESEBA era la empresa eléctrica provincial). |
 | Script | `scripts/descargar_gasoductos.py` |
+
+## 22. Población por radio censal, Censo 2022 · **Verificada** · en uso (desde el 01/10/2026)
+
+| Campo | Valor |
+|---|---|
+| Autoría | Boccolini, S. M. (2026). *Argentina (2022) radios censales con datos de cantidad de población y densidad de población* [Conjunto de datos]. CONICET Digital. http://hdl.handle.net/11336/284095 (publicado el 07/04/2026) |
+| Origen de los datos | Cartografía de radios del INDEC y población total por radio de la base Redatam del Censo 2022 (INDEC); área y densidad calculadas por la autora en QGIS |
+| Archivo | `radios_2022_conDatos_1habHa.gpkg` (GeoPackage, EPSG:4326, 53.879 radios en el país) |
+| Licencia | CC BY 2.5. El texto visible de la página dice "Creative Commons Attribution 2.5 Unported (CC BY 2.5)" y los metadatos enlazan https://creativecommons.org/licenses/by/2.5/ar/; las condiciones (atribución) son las mismas |
+| Cobertura en el partido | 162 de los 229 radios del partido (los que superan 1 hab/ha), con 98.127 habitantes. La zona rural queda casi toda afuera |
+| Categorías | Las del archivo de estilo del propio conjunto: 1-20, 20-40, 40-80, 80-150 y 150-300 hab/ha (en el partido: 50, 43, 58, 10 y 1 radios) |
+| Limitaciones | Población residente del día del censo: no incluye la turística de verano ni dónde está la gente durante el día. Densidad no es vulnerabilidad |
+| Script | `scripts/armar_poblacion.py` (lee el GeoPackage con sqlite3 y decodifica el WKB) |
+| Comparación | La provincia publica los radios 2022 sin población (https://catalogo.datos.gba.gob.ar/dataset/radios-censales, CC BY 4.0): sirve como control de la geometría, no como fuente de población |

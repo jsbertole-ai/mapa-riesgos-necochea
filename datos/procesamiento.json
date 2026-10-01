@@ -802,5 +802,21 @@
     "gasoductos_en_el_pais": 18635,
     "sin_geometria": 1,
     "fecha_datos": null
+  },
+  "poblacion_radios": {
+    "procesado": "2026-10-01T03:30:39+00:00",
+    "archivo_crudo": "censo/radios_2022_conDatos_1habHa.gpkg",
+    "sha256_crudo": "124e6e1e6ed28012c656d75987f2010fd6c37044b44b40084aeb3afe72bceb1e",
+    "elementos": 162,
+    "radios_en_el_pais": 53879,
+    "poblacion_en_los_radios": 98127,
+    "por_tipo": {
+      "20 a 40 hab/ha": 43,
+      "40 a 80 hab/ha": 58,
+      "80 a 150 hab/ha": 10,
+      "1 a 20 hab/ha": 50,
+      "150 a 300 hab/ha": 1
+    },
+    "fecha_datos": "Censo Nacional de Población, Hogares y Viviendas, 18/05/2022 (INDEC)."
   }
 }
