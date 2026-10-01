@@ -1,8 +1,8 @@
 {
   "exportacion": "registros_proyecto.csv",
-  "registros_en_la_exportacion": 38,
-  "aprobados": 38,
-  "publicados": 38,
+  "registros_en_la_exportacion": 39,
+  "aprobados": 39,
+  "publicados": 39,
   "no_publicados_por_controles": 0,
   "sin_ubicacion_en_el_mapa": 6,
   "por_tipo": {
@@ -11,7 +11,7 @@
     "Tempestad": 4,
     "Incendio forestal": 5,
     "Marejada": 3,
-    "Colapso estructural": 2,
+    "Colapso estructural": 3,
     "Escape": 2,
     "Vendaval": 2,
     "Cambio de la línea de costa": 2,
@@ -24,7 +24,7 @@
     "1990": 1,
     "1993": 2,
     "2023": 1,
-    "2026": 10,
+    "2026": 11,
     "2020": 2,
     "2024": 4,
     "2015": 1,
@@ -38,7 +38,7 @@
     "2009": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 24,
+    "Necochea y Quequén": 25,
     "Nicanor Olivera (La Dulce)": 3,
     "Juan N. Fernández": 1,
     "Claraz": 1,

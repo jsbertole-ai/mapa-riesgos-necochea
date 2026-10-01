@@ -733,7 +733,7 @@ No hay una línea de costa oficial ni científica en datos abiertos que muestre 
 
 **Causa judicial:** no se encontró una por la erosión en Quequén (28/09/2026). La causa de Surfrider Argentina con dictamen de la Procuración (2016) es contra la Municipalidad de General Pueyrredon; la de Quequén que trae la prensa es por la concesión del Giro 0.
 
-**Capa posible, pendiente:** un tramo de "costa con erosión documentada" sobre la línea de costa de OpenStreetMap, solo si los trabajos delimitan el tramo con lugares con nombre. El peñón de la Rosa Mística figura en OpenStreetMap como "Punta Caraballido" (`node/10247596781`, `natural=cape`); lo identificó un colaborador el 28/09/2026, y ahí va el punto del registro `proyecto-0039`.
+**Capa posible, pendiente:** un tramo de "costa con erosión documentada" sobre la línea de costa de OpenStreetMap, solo si los trabajos delimitan el tramo con lugares con nombre. **Corrección del 01/10/2026:** el punto del registro `proyecto-0039` estaba en Punta Caraballido (`node/10247596781`, `natural=cape`), pero ahí está el emisario cloacal (`way/1120424032`, `man_made=pipeline`, `substance=sewage`), no el peñón. Un colaborador lo corrigió: el punto pasa a la "Gruta de la Virgen María Rosa Mística" (`node/14237600440`, `historic=wayside_shrine`). El emisario es ahora su propio registro, `proyecto-0040` (Noticias de Necochea, 12/06/2026).
 
 ## 20. OpenArg como buscador de conjuntos (desde el 01/10/2026) · **Herramienta, no fuente**
 
