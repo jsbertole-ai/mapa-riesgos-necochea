@@ -731,5 +731,12 @@
     "last_modified": null,
     "bytes": 547,
     "sha256": "5d8f36e78cd9f2bde9fe11ecccdae63cff3e3e349307a0328dab776bf8116b00"
+  },
+  "datos/crudos/gas/gasoductos-de-distribucin.csv": {
+    "url": "http://datos.energia.gob.ar/dataset/8758101a-1e0d-413f-8cc5-83e21ece6391/resource/3f7f87ab-bdcf-4a21-b361-f59732754330/download/gasoductos-de-distribucin.csv",
+    "descargado": "2026-10-01T03:27:36+00:00",
+    "last_modified": "Wed, 02 Sep 2026 13:00:08 GMT",
+    "bytes": 31031895,
+    "sha256": "c4209c42c1e3b1e65f23d936caf9af1ae290ee2d5e11242d918119cc51567599"
   }
 }

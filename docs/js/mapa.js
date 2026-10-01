@@ -170,6 +170,16 @@
   }
 
   // Red de asistencia: organizaciones que asisten a la población vulnerable (puntos de colaboradores).
+  function popupGasoducto(p) {
+    return (
+      "<h3>" + esc(p.nombre || "Gasoducto") + "</h3>" +
+      "<div>" + esc([p.tipo, p.subtipo].filter(Boolean).join(" · ")) + "</div>" +
+      (p.tramo ? "<div>Tramo: " + esc(p.tramo) + "</div>" : "") +
+      (p.licenciataria ? "<div>Licenciataria: " + esc(p.licenciataria) + "</div>" : "") +
+      '<p class="nota">Traza declarada ante ENARGAS: no sirve para ubicar el caño en el terreno.</p>'
+    );
+  }
+
   function popupConectividad(p) {
     const filas = (p.tecnologias || []).map(function (t) {
       return "<li>" + esc(t[0]) + ": " + numero(t[1]) + "</li>";
@@ -480,6 +490,7 @@
           if (capa.id === "refugios") return popupRefugio(f.properties);
           if (capa.id === "red_asistencia") return popupAsistencia(f.properties);
           if (capa.id === "conectividad_localidades") return popupConectividad(f.properties);
+          if (capa.id === "gasoductos") return popupGasoducto(f.properties);
           if (capa.id === "media_tension") return popupMediaTension(f.properties);
           if (capa.id === "torres_postes") return popupTorre(f.properties);
           if (capa.id === "postes_via_publica") return popupPoste(f.properties);

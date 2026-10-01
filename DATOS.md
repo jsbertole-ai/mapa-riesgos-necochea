@@ -742,3 +742,16 @@ OpenArg (https://mcp.openarg.org/, Colossus Lab) indexa más de 30.000 conjuntos
 - Antenas de telefonía y estaciones de radio y TV: ningún conjunto con ubicaciones en el partido (solo antenas de la Ciudad de Mendoza e indicadores de ENACOM por provincia).
 - "Bomberos Voluntarios" de la Provincia (https://catalogo.datos.gba.gob.ar/dataset/f3cf1025-b253-4627-b546-9c83457618f9, CC BY 4.0, archivo de 08/2026): en el partido trae los mismos dos cuarteles que ya están en la capa de organismos (Necochea y La Dulce), con las mismas coordenadas, tomadas del IGN y de OpenStreetMap. No suma nada nuevo; confirma la capa.
 - Puntos Digitales y puntos WiFi del programa nacional: ninguno en el partido.
+
+## 21. Gasoductos (ENARGAS) · **Verificada** · en uso (desde el 01/10/2026)
+
+| Campo | Valor |
+|---|---|
+| Organismo | ENARGAS, publicado por la Secretaría de Energía de la Nación |
+| Conjunto | "Gasoductos (ENARGAS)", http://datos.energia.gob.ar/dataset/transporte-hidrocarburos-ductos-troncales-gasoductos (actualizado el 10/09/2026) |
+| Recurso usado | "Gasoductos de Distribución", CSV con geometría GeoJSON: http://datos.energia.gob.ar/dataset/8758101a-1e0d-413f-8cc5-83e21ece6391/resource/3f7f87ab-bdcf-4a21-b361-f59732754330/download/gasoductos-de-distribucin.csv |
+| Licencia | CC BY 4.0 (declarada en la API del portal: `"license_id": "CC-BY-4.0"`) |
+| Cobertura | 18.635 gasoductos de distribución en el país; 5 entran al partido: Barker-Necochea (Camuzzi Gas Pampeana) y los ramales de alimentación a San Cayetano, Nicanor Olivera (la fuente escribe "Nelsón Olivera"), Lobería y Eseba |
+| Transporte | El shapefile "Gasoductos de Transporte" del mismo conjunto (296 tramos troncales) se revisó el 01/10/2026: ninguno toca el partido |
+| Limitaciones | Sin diámetro, presión, profundidad ni fecha de relevamiento. No incluye la red domiciliaria. La traza no sirve para ubicar el caño en el terreno. Inferido, no confirmado: el ramal "Eseba" alimentaría la central termoeléctrica de Quequén (ESEBA era la empresa eléctrica provincial). |
+| Script | `scripts/descargar_gasoductos.py` |

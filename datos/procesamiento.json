@@ -793,5 +793,14 @@
       "WIRELESS": 16
     },
     "fecha_datos": "ENACOM no informa el período en el archivo; descargado a mano el 01/10/2026."
+  },
+  "gasoductos": {
+    "procesado": "2026-10-01T03:27:38+00:00",
+    "archivo_crudo": "gas/gasoductos-de-distribucin.csv",
+    "sha256_crudo": "c4209c42c1e3b1e65f23d936caf9af1ae290ee2d5e11242d918119cc51567599",
+    "elementos": 5,
+    "gasoductos_en_el_pais": 18635,
+    "sin_geometria": 1,
+    "fecha_datos": null
   }
 }

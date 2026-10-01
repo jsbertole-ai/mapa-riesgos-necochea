@@ -428,6 +428,30 @@
       "fecha_datos_fija": "El IGN no informa la fecha de esta capa."
     },
     {
+      "organismo": "Ente Nacional Regulador del Gas (ENARGAS), publicado por la Secretaría de Energía de la Nación",
+      "url_fuente": "http://datos.energia.gob.ar/dataset/transporte-hidrocarburos-ductos-troncales-gasoductos",
+      "url_datos": "http://datos.energia.gob.ar/dataset/8758101a-1e0d-413f-8cc5-83e21ece6391/resource/3f7f87ab-bdcf-4a21-b361-f59732754330/download/gasoductos-de-distribucin.csv",
+      "licencia": "CC BY 4.0",
+      "url_licencia": "https://creativecommons.org/licenses/by/4.0/deed.es",
+      "url_declaracion_licencia": "http://datos.energia.gob.ar/api/3/action/package_show?id=transporte-hidrocarburos-ductos-troncales-gasoductos",
+      "frase_licencia": "\"license_id\": \"CC-BY-4.0\"",
+      "cita": "ENARGAS. Gasoductos de Distribución. Secretaría de Energía de la Nación, datos.energia.gob.ar, CC BY 4.0.",
+      "formato": "CSV con geometría GeoJSON, recortado al partido por scripts/descargar_gasoductos.py",
+      "id": "gasoductos",
+      "grupo": "portuaria",
+      "nombre": "Gasoductos (ENARGAS)",
+      "archivo": "gasoductos.geojson",
+      "geometria": "linea",
+      "estilo": {
+        "color": "#e6550d",
+        "grosor": 2.5
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Los gasoductos de distribución que entran al partido: el Barker-Necochea, de Camuzzi Gas Pampeana, y sus ramales de alimentación a San Cayetano, Nicanor Olivera, Lobería y Eseba. Son una línea vital (Lavell, 2007, p. 34): si se cortan, la ciudad se queda sin gas; y son una amenaza tecnológica, por fuga o explosión.",
+      "que_no_representa": "No incluye la red domiciliaria de cada localidad ni los gasoductos de transporte (troncales), que no pasan por el partido. No indica diámetro, presión, profundidad ni estado de los caños.",
+      "limitaciones": "La traza es la que declara ENARGAS: no sirve para ubicar el caño en el terreno ni para excavar (para eso está el aviso a la distribuidora). Cada gasoducto se dibuja entero, también fuera del partido. La fuente no informa la fecha del relevamiento; el conjunto se actualizó el 10/09/2026. El nombre \"Nelsón Olivera\" es como figura en la fuente (corresponde a Nicanor Olivera)."
+    },
+    {
       "organismo": "Secretaría de Energía de la Nación, con datos del Consejo Federal de la Energía Eléctrica (CFEE)",
       "url_fuente": "https://datos.gob.ar/dataset/redes-de-distribucion-electrica-del-consejo-federal",
       "url_datos": "http://datos.energia.gob.ar/dataset/ff99e7be-7bab-4617-9588-9a74ae046a40/resource/be371445-5d0a-4ad7-8346-f1cdfb89c66f/download/-buenos-aires-alta-tensin-media-tensin-lneas.zip",
