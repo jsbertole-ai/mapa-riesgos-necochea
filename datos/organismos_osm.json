@@ -43,6 +43,13 @@
       "partido": "Benito Juárez",
       "fuera_del_partido": true,
       "fuente": "Cuartel de un partido vecino que asiste al de Necochea: cubre los incendios del norte del partido por la RP 86. Esa cobertura la informa un colaborador (01/10/2026); no se encontró prensa de este cuartel actuando dentro del partido. Fundado el 2 de junio de 1960; sede institucional en Av. Mitre 174 (ficha del Consejo de Federaciones de Bomberos Voluntarios: https://www.bomberosra.org.ar/bomberos/574-bomberos-voluntarios-de-benito-juarez)."
+    },
+    {
+      "osm": "node/14239988066",
+      "organismo": "Bomberos",
+      "partido": "Lobería",
+      "fuera_del_partido": true,
+      "fuente": "Cuartel de un partido vecino que asiste al de Necochea, según un colaborador (01/10/2026). Depende de la Policía de la Provincia de Buenos Aires; en 2013 sumó cinco efectivos (Municipio de Lobería: https://loberia.gov.ar/?q=content/mas-personal-al-cuartel-bomberos)."
     }
   ]
 }

@@ -558,12 +558,12 @@
     "fecha_datos": null
   },
   "organismos": {
-    "procesado": "2026-10-01T16:23:09+00:00",
+    "procesado": "2026-10-01T16:42:25+00:00",
     "archivo_crudo": "osm/respuesta.json",
     "sha256_crudo": "c956e875550d03f759b1c9d06ca60069e2a141c527f46ceb2ae5e8dadb4e36a6",
     "sha256_crudos_ign": {
-      "estructuras_operativas_y_defensivas_FA517": "47737d0cfb44a6ddd5b4e0b406e1babda2deeb7f206df78ce382624e245539a1",
-      "estructuras_operativas_y_defensivas_090102": "a4ba4d0f713323830473240f6301c1fff1ec56f146c17f1855346f5e678bb361"
+      "estructuras_operativas_y_defensivas_FA517": "74977bb9739bb53b3ac0f967af7de14a38e3399caf83d4e26d8b2e2708ab1a9c",
+      "estructuras_operativas_y_defensivas_090102": "d58fca610c3238d9ff36128f11b6b76b8536f1fab3b5e9858210e0ebed0660cd"
     },
     "sha256_comisarias_pba": {
       "comisarias-pba-2026.csv": "e1ca926e4ade907a5433c1025778103adea2d924ff060617d8dcc58375b79728",
@@ -572,9 +572,9 @@
     "pba_sin_coordenadas": [
       "Comisaría Necochea 1°"
     ],
-    "elementos": 22,
+    "elementos": 24,
     "por_organismo": {
-      "Bomberos": 7,
+      "Bomberos": 9,
       "Centro Operativo de Monitoreo": 1,
       "Cruz Roja": 2,
       "Defensa Civil": 1,
@@ -584,15 +584,17 @@
       "Radioaficionados": 1
     },
     "por_fuente": {
-      "OpenStreetMap": 8,
+      "OpenStreetMap": 9,
       "IGN": 6,
-      "Colaborador": 5,
+      "Colaborador": 6,
       "Provincia de Buenos Aires": 3
     },
     "de_partidos_vecinos": [
       "Bomberos Voluntarios de Benito Juárez",
       "Bomberos Voluntarios de San Cayetano",
-      "Destacamento Bomberos Voluntarios del Balneario de San Cayetano"
+      "Cuartel de Bomberos Lobería",
+      "Destacamento Bomberos Voluntarios del Balneario de San Cayetano",
+      "Destacamento de Bomberos San Manuel"
     ],
     "caja_verificacion": [
       -59.80751,
@@ -610,7 +612,7 @@
     "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada."
   },
   "refugios": {
-    "procesado": "2026-10-01T16:23:09+00:00",
+    "procesado": "2026-10-01T16:42:26+00:00",
     "archivo_crudo": "osm/refugios/",
     "elementos": 2,
     "por_tipo": {

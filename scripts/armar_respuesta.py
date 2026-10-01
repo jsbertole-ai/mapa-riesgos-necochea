@@ -173,11 +173,12 @@ def organismos_colaboradores(limite, caja):
     features = []
     for r in leer_json(COLABORADORES, {"elementos": []})["elementos"]:
         lat, lon = r["punto"]
-        if not punto_en_geometria(lon, lat, limite, caja):
+        if not r.get("fuera_del_partido") and not punto_en_geometria(lon, lat, limite, caja):
             aviso(f"{r['nombre']}: el punto cae fuera del partido; no se publica.")
             continue
         features.append({"type": "Feature", "geometry": punto(lon, lat), "properties": {
-            "organismo": r["organismo"], "nombre": r["nombre"], "fuente": "Colaborador", "nota": r["fuente"]}})
+            "organismo": r["organismo"], "nombre": r["nombre"], "fuente": "Colaborador", "nota": r["fuente"],
+            **({"partido": r["partido"]} if r.get("partido") else {})}})
     return features
 
 
