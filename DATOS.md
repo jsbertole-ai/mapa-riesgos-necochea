@@ -268,6 +268,8 @@ No se encontró un producto abierto del INTA con superficie quemada para el sude
 | Qué se encontró | La zonificación del complejo urbano Necochea-Quequén surge de la Ordenanza 2005/81 (modificada por la Ordenanza 2358/91). La Ordenanza 5558/05 asignó al sector "Uso Específico 13" de Quequén la zona "C" (industrial mixta), según el Decreto provincial 1741/96. El municipio trabaja en una actualización del código (https://necochea.gov.ar/el-municipio-suma-consenso-tecnico-para-avanzar-en-la-actualizacion-del-codigo-de-ordenamiento-territorial/). |
 | Limitaciones | No se encontró la zonificación como dato geográfico abierto. Sin archivo oficial, **no se digitaliza a ojo desde un plano**. |
 | Acción manual | Consultar al municipio si publica la zonificación en SHP o GeoJSON, y con qué licencia. |
+| Hallazgo (01/10/2026) | Un colaborador encontró el visor QGIS del municipio: https://necochea.gov.ar/descargas/planeamiento/qgis/index.html (archivos actualizados el 04/08/2026). Trae la zonificación como GeoJSON en `data/ZONIFICACIONWEB_2.js` (149 polígonos con sigla, nombre de zona, FOS, FOT, densidad, altura y observaciones; cita ordenanzas de 2024) y las parcelas de ARBA en `data/PARCELASNQF5_1.js` (90.310; no se usan). **Identificada, sin licencia declarada:** la página no menciona licencia ni condiciones de uso. No se publica hasta tener autorización. |
+| Pedido | Mail a la Secretaría de Planeamiento, Obras y Servicios Públicos (vía informes@necochea.gov.ar; la página de la Secretaría no trae un correo propio) pidiendo autorización para reutilizar la capa citando al municipio. Redactado el 01/10/2026; lo envía Sebastián. |
 
 ### 3.4 Ferrocarril y rutas: IGN por WFS · **Verificada** · en uso
 
