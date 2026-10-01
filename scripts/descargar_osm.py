@@ -199,7 +199,7 @@ def uso_antena(t):
     def si(*claves):
         return any(t.get("communication:" + c) not in (None, "no") for c in claves)
     movil = si("mobile_phone", "gsm", "3g", "4g", "lte", "5g")
-    radio = si("radio", "television", "amateur_radio", "broadcast")
+    radio = si("radio", "television", "amateur_radio", "broadcast") or t.get("tower:type") in ("radio", "broadcast")
     if movil and radio:
         return "Usos múltiples"
     if movil:
