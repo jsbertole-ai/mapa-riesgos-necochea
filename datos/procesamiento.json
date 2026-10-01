@@ -777,5 +777,21 @@
       "Comedor": 2
     },
     "fecha_datos": "Puntos aportados por colaboradores; ver la fecha en cada punto."
+  },
+  "conectividad_localidades": {
+    "procesado": "2026-10-01T01:21:20+00:00",
+    "archivo_crudo": "enacom/internet_accesos_tecnologias_localidades.csv",
+    "sha256_crudo": "197d9bd02c19bb77cd9d54c91b4b9de6976725d531d8e87f899b03636dcca1eb",
+    "elementos": 7,
+    "por_tipo": {
+      "Con fibra óptica": 1,
+      "Sin fibra o con fibra mínima": 4,
+      "Solo satelital": 2
+    },
+    "accesos_sin_localidad": {
+      "SATELITAL": 237,
+      "WIRELESS": 16
+    },
+    "fecha_datos": "ENACOM no informa el período en el archivo; descargado a mano el 01/10/2026."
   }
 }
