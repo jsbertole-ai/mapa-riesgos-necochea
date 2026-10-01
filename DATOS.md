@@ -781,3 +781,10 @@ OpenArg (https://mcp.openarg.org/, Colossus Lab) indexa más de 30.000 conjuntos
 | Control | La suma de población de los 229 radios da 101.483 habitantes; los 162 radios de la sección 22 dan 98.127: la diferencia (3.356) es la población de los radios rurales de menos de 1 hab/ha |
 | Qué se muestra | Color: porcentaje de hogares con al menos un indicador NBI (menos de 2,5 %, 2,5 a 5 %, 5 a 10 %, 10 % o más; 96, 48, 32 y 8 radios). Ventana: hacinamiento, sin agua de red, sin cloaca, cocina a garrafa o leña, salud solo pública, 0 a 17 años y 70 años o más. Porcentajes calculados por `scripts/armar_vulnerabilidad.py` con los conteos de la fuente |
 | Limitaciones | En los 45 radios con menos de 20 hogares no se calculan porcentajes (gris). El partido tiene 3,1 % de hogares con NBI (1.223 de 39.406): los contrastes son chicos en números absolutos. NBI mide carencias materiales, no la vulnerabilidad completa |
+
+## 24. Notas de prensa que el entorno no puede leer (para leer a mano)
+
+Diario Necochea (diarionecochea.com) responde con una página vacía (código 202) a la lectura automática desde el entorno (01/10/2026). Notas aportadas por un colaborador, pendientes de lectura manual antes de usarlas como fuente del inventario:
+
+- https://diarionecochea.com/2025/01/31/el-sistema-cloacal-de-necochea-estaria-colapsado-por-la-alta-demanda/ (sistema cloacal en temporada).
+- https://diarionecochea.com/2025/01/25/contaminacion-en-el-cano-no-va-a-cambiar-hasta-que-haya-intendentes-y-concejales-que-se-preocupen/ (complemento del registro `proyecto-0041`, "El Caño").

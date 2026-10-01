@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-01T11:48:26+00:00",
+  "generado": "2026-10-01T11:51:08+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1450,13 +1450,13 @@
       "limitaciones": "Abarca los eventos desde el 1/1/1980 (criterio del proyecto, 28/09/2026: incluye la inundación de abril de 1980, la mayor registrada en la ciudad). Los registros anteriores a los años 2000 salen casi todos de notas de aniversario, que recuerdan solo los eventos grandes: la cantidad de eventos por década no sirve para ver tendencias. Los registros sin punto propio se muestran juntos en el punto de su localidad (IGN), que no es el lugar del evento; los de zona rural sin punto solo cuentan en el resumen. Las cifras de efectos son las que informó la nota, sin verificación independiente; un campo vacío significa sin dato, no cero. Los primeros registros salen de crónicas de Ecos Diarios que repasan eventos históricos; cuando una nota no nombra la localidad y se la asigna por el contexto, el registro lo dice en sus observaciones.",
       "url_formulario": "https://ee.kobotoolbox.org/x/JsHKYrg5",
       "estado": "verificada",
-      "elementos": 23,
+      "elementos": 24,
       "fecha_datos": "Registros aprobados al 2026-10-01; eventos entre 1980-04-29 y 2026-09-21",
-      "procesado": "2026-10-01T11:47:38+00:00",
+      "procesado": "2026-10-01T11:50:18+00:00",
       "verificacion": {
         "fecha": "2026-10-01",
         "controles": [
-          "23 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "24 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Fuente propia: cada colaborador acepta publicar su registro bajo CC BY 4.0 en el formulario; solo se publican los registros aprobados tras revisar la nota de origen."
         ]
       }

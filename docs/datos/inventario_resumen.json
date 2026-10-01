@@ -1,8 +1,8 @@
 {
   "exportacion": "registros_proyecto.csv",
-  "registros_en_la_exportacion": 39,
-  "aprobados": 39,
-  "publicados": 39,
+  "registros_en_la_exportacion": 40,
+  "aprobados": 40,
+  "publicados": 40,
   "no_publicados_por_controles": 0,
   "sin_ubicacion_en_el_mapa": 6,
   "por_tipo": {
@@ -17,7 +17,8 @@
     "Cambio de la línea de costa": 2,
     "Incendio": 1,
     "Sequía": 2,
-    "Plaga": 1
+    "Plaga": 1,
+    "Contaminación": 1
   },
   "por_anio": {
     "1980": 4,
@@ -31,14 +32,14 @@
     "2021": 2,
     "2012": 3,
     "2017": 2,
-    "2025": 2,
+    "2025": 3,
     "1999": 1,
     "2001": 1,
     "2014": 1,
     "2009": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 25,
+    "Necochea y Quequén": 26,
     "Nicanor Olivera (La Dulce)": 3,
     "Juan N. Fernández": 1,
     "Claraz": 1,
