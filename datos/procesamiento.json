@@ -737,14 +737,14 @@
     }
   },
   "inventario_local": {
-    "procesado": "2026-10-01T11:50:18+00:00",
+    "procesado": "2026-10-02T15:27:36+00:00",
     "archivo_crudo": "datos/inventario/registros_proyecto.csv",
     "sha256_crudo": {
-      "registros_proyecto.csv": "0f09f7d68f4fe4a8b8daf4bb6d78a7ee317ee174a1596f052dd40792605c54d5"
+      "registros_proyecto.csv": "d877a43fa3838d5187a18df20338351ff420e5d50985619ff56cc0f6a24d3c5c"
     },
     "elementos": 24,
     "registros": 40,
-    "fecha_datos": "Registros aprobados al 2026-10-01; eventos entre 1980-04-29 y 2026-09-21"
+    "fecha_datos": "Registros aprobados al 2026-10-02; eventos entre 1980-04-29 y 2026-09-21"
   },
   "envases_fitosanitarios": {
     "procesado": "2026-09-28T05:39:36+00:00",
