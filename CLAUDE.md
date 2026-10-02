@@ -31,6 +31,7 @@ Mapa para la gestión del riesgo del partido de Necochea (provincia de Buenos Ai
 Estado al 26/09/2026: límite (Georef), focos de calor (FIRMS), instalaciones portuarias e hidrografía detallada (OpenStreetMap) e hidrografía oficial, curvas de nivel, ferrocarril y rutas (IGN, por WFS) descargados y verificados; sitio en `docs/` (Leaflet 1.9.4, PWA); tubería completa con `python3 scripts/actualizar.py`. Lo que falta está en la sección 5 de `DATOS.md`.
 
 Trabajar por etapas y dejar un resumen al final de cada una.
+Usa la skill de TypeSafe (https://docs.typesafe.ai) cuando necesites clasificar, evaluar o extraer datos de los registros
 
 ## Licencias
 
