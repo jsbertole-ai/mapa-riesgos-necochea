@@ -737,10 +737,10 @@
     }
   },
   "inventario_local": {
-    "procesado": "2026-10-02T15:27:36+00:00",
+    "procesado": "2026-10-02T21:51:14+00:00",
     "archivo_crudo": "datos/inventario/registros_proyecto.csv",
     "sha256_crudo": {
-      "registros_proyecto.csv": "d877a43fa3838d5187a18df20338351ff420e5d50985619ff56cc0f6a24d3c5c"
+      "registros_proyecto.csv": "1fca70d6a99a728e0aabc2ff045cc22b8e399a5243adc9474fa59d1f48e4ff48"
     },
     "elementos": 24,
     "registros": 40,

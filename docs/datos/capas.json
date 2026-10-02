@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-02T15:27:37+00:00",
+  "generado": "2026-10-02T21:51:15+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1419,7 +1419,7 @@
       "estado": "verificada",
       "elementos": 24,
       "fecha_datos": "Registros aprobados al 2026-10-02; eventos entre 1980-04-29 y 2026-09-21",
-      "procesado": "2026-10-02T15:27:36+00:00",
+      "procesado": "2026-10-02T21:51:14+00:00",
       "verificacion": {
         "fecha": "2026-10-02",
         "controles": [
