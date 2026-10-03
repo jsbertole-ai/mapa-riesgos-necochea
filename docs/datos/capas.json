@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-02T15:27:37+00:00",
+  "generado": "2026-10-03T02:00:42+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -62,7 +62,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:31+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "1 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -95,7 +95,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "6 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -144,7 +144,7 @@
       "fecha_datos": "Recurso publicado el 13/07/2023 según datos.gob.ar; la fuente no informa la fecha de la delimitación. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:34+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "1 elementos, todos dentro de la caja de la cuenca y sin etiquetas excluidas.",
           "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=cuencas-hidricas-cohife (leída el 2026-10-01)."
@@ -188,7 +188,7 @@
         "Acequia, zanja o zanjón": 46
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "329 elementos, todos dentro de la caja de la cuenca y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -221,7 +221,7 @@
       "fecha_datos": "El IGN no informa la fecha de estas capas: su enlace de metadatos está desactivado en la página de Capas SIG y el archivo devuelve 404 (26/09/2026). Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "138 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -254,7 +254,7 @@
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:21:54Z (UTC).",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "2279 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -288,7 +288,7 @@
       "fecha_datos": "El servicio del IGN no informa la fecha de esta capa; la documentación que republica la provincia es del 24/10/2021. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "229 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -321,7 +321,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "40 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -354,7 +354,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "16 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -419,7 +419,7 @@
         "2": 17
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "654 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-10-01)."
@@ -471,7 +471,7 @@
         "0": 601
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "601 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.earthdata.nasa.gov/engage/open-data-services-software-policies/data-use-policy (leída el 2026-10-01)."
@@ -504,7 +504,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "47 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -548,7 +548,7 @@
       "fecha_datos": "Base de OpenStreetMap al 2026-09-26T17:24:01Z (UTC).",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "643 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -583,7 +583,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "9 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -617,7 +617,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "11 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -651,7 +651,7 @@
       "fecha_datos": null,
       "procesado": "2026-10-01T03:27:38+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "5 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en http://datos.energia.gob.ar/api/3/action/package_show?id=transporte-hidrocarburos-ductos-troncales-gasoductos (leída el 2026-10-01)."
@@ -693,7 +693,7 @@
         "Subterránea": 1266
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "5502 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=redes-de-distribucion-electrica-del-consejo-federal (leída el 2026-10-01)."
@@ -726,7 +726,7 @@
       "fecha_datos": "Base de OpenStreetMap al 2026-09-27T22:23:36Z (UTC).",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "1474 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -761,7 +761,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "31 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -795,7 +795,7 @@
       "fecha_datos": "Recurso actualizado por última vez el 11/09/2019, según datos.gob.ar. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:36+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "2 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=centros-de-almacenamiento-transitorio-de-envases-de-productos-fitosanitarios (leída el 2026-10-01)."
@@ -842,7 +842,7 @@
         "Estaciones de servicio": 19
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "41 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=registro-de-operadores-autorizados-para-la-venta-de-combustibles-liquidos (leída el 2026-10-01).",
@@ -884,7 +884,7 @@
         "Estación abandonada": 8
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "14 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -917,7 +917,7 @@
       "fecha_datos": "Metadato del IGN creado el 24/10/2021, con actualización mensual declarada (https://www.ign.gob.ar/capas-sig/metadata/red_vial_provincial.pdf); el servicio no informa la fecha de la versión consultada. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "19 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -961,7 +961,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "7 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -1010,7 +1010,7 @@
         "150 a 300 hab/ha": 1
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "162 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://ri.conicet.gov.ar/handle/11336/284095 (leída el 2026-10-01)."
@@ -1043,7 +1043,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "140 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -1076,7 +1076,7 @@
       "fecha_datos": "El IGN no informa la fecha de esta capa. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:32+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "22 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-01)."
@@ -1121,7 +1121,7 @@
         "Usos múltiples": 1
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "22 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -1166,7 +1166,7 @@
         "Solo satelital": 2
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "7 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Términos de uso de ENACOM (https://www.enacom.gob.ar/terminos-de-uso_p1004) leídos a mano por un colaborador el 01/10/2026, porque el sitio no responde desde el entorno: el texto y la lectura están en DATOS.md, sección 18."
@@ -1215,7 +1215,7 @@
         "Menos de 20 hogares": 45
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "229 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://ri.conicet.gov.ar/handle/11336/277944 (leída el 2026-10-01).",
@@ -1250,7 +1250,7 @@
       "fecha_datos": "Corte del 05/12/2023, según el nombre del archivo publicado. Consulta al servicio: 2026-09-28.",
       "procesado": "2026-09-28T05:39:36+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "9 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=registro-nacional-de-barrios-populares (leída el 2026-10-01)."
@@ -1304,7 +1304,7 @@
         "Radioaficionados": 1
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "24 elementos, todos dentro de la caja de la zona del partido y de los cuarteles vecinos y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
@@ -1350,7 +1350,7 @@
         "Evacuación ante catástrofes": 1
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "2 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-10-01)."
@@ -1389,7 +1389,7 @@
         "Organización de ayuda social": 1
       },
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "9 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Fuente propia: puntos aportados por colaboradores del proyecto que conocen el lugar, publicados bajo CC BY 4.0."
@@ -1418,10 +1418,10 @@
       "url_formulario": "https://ee.kobotoolbox.org/x/JsHKYrg5",
       "estado": "verificada",
       "elementos": 24,
-      "fecha_datos": "Registros aprobados al 2026-10-02; eventos entre 1980-04-29 y 2026-09-21",
-      "procesado": "2026-10-02T15:27:36+00:00",
+      "fecha_datos": "Registros aprobados al 2026-10-03; eventos entre 1980-04-29 y 2026-09-21",
+      "procesado": "2026-10-03T02:00:41+00:00",
       "verificacion": {
-        "fecha": "2026-10-02",
+        "fecha": "2026-10-03",
         "controles": [
           "24 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Fuente propia: cada colaborador acepta publicar su registro bajo CC BY 4.0 en el formulario; solo se publican los registros aprobados tras revisar la nota de origen."
