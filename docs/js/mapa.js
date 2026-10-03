@@ -368,7 +368,7 @@
           (r.observaciones_efectos ? "<div>Observaciones: " + esc(r.observaciones_efectos) + "</div>" : "") +
           (r.servicios && r.servicios.length ? "<div>Servicios afectados: " + esc(r.servicios.join(", ")) + "</div>" : "") +
           (r.punto ? '<div class="nota">Ubicación del punto: ' + esc(r.punto) + "</div>" : "") +
-          '<div class="nota">Fuente: ' + enlace(r.fuente_url, r.fuente_medio + ", " + fecha(r.fuente_fecha)) + "</div>" +
+          '<div class="nota">Fuente: ' + enlace(r.fuente_url, r.fuente_medio + (r.fuente_fecha ? ", " + fecha(r.fuente_fecha) : "")) + "</div>" +
           "</div>"
         );
       }).join("") +

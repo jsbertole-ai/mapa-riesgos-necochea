@@ -88,43 +88,34 @@ def main():
 
     fila(type="note", name="presentacion", label=cfg["presentacion"])
     fila(type="select_one tipo_registro", name="tipo_registro", label="¿Qué vas a registrar?", required="yes")
-    fila(type="date", name="fecha", label="Fecha del evento o de la observación", required="yes",
-         constraint=". <= today() and . >= date('1900-01-01')", constraint_message="La fecha tiene que estar entre 1900 y hoy.")
+    # Fecha como texto dd/mm/aaaa: el campo de fecha de Kobo muestra año-mes-día (pedido de Sebastián, 03/10/2026).
+    fila(type="text", name="fecha", label="Fecha del evento o de la observación", required="yes",
+         hint="Día/mes/año, por ejemplo 13/04/2015.",
+         constraint="regex(., '^(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[0-2])/(19|20)[0-9]{2}$')",
+         constraint_message="Escribila como día/mes/año, por ejemplo 13/04/2015.")
     fila(type="select_one tipo_evento", name="tipo_evento", label="Tipo de evento", required="yes",
          relevant="${tipo_registro} = 'evento'", hint="Clasificación compatible con DesInventar.")
     fila(type="select_one tipo_vulnerabilidad", name="tipo_vulnerabilidad", label="Tipo de vulnerabilidad", required="yes",
          relevant="${tipo_registro} = 'vulnerabilidad'")
     fila(type="select_one localidad", name="localidad", label="Localidad", required="yes")
-    fila(type="text", name="lugar", label="Barrio, paraje o lugar público (opcional)",
-         hint="Por ejemplo: barrio, esquina, puente, escuela. Nunca un domicilio particular.",
+    fila(type="text", name="lugar", label="Lugar (opcional)",
+         hint="Barrio, dirección, esquina o lugar público, como lo nombra la nota.",
          constraint="string-length(.) <= 120", constraint_message="Máximo 120 caracteres.")
     fila(type="geopoint", name="ubicacion", label="Punto en el mapa (opcional)",
-         hint="Marcalo solo si la nota nombra un lugar público concreto. Si no, dejalo vacío: alcanza con la localidad.")
-    fila(type="note", name="nota_efectos", label="Efectos, según la nota (opcional)",
-         hint="Cargá solo las cifras que da la nota. Un campo vacío significa sin dato, no cero.",
-         relevant="${tipo_registro} = 'evento'")
-    for e in cfg["efectos"]:
-        decimal = e.get("tipo") == "decimal"
-        fila(type="decimal" if decimal else "integer", name=e["name"], label=e["label"], hint=e.get("hint", ""),
-             relevant="${tipo_registro} = 'evento'", constraint=". >= 0",
-             constraint_message="Tiene que ser un número mayor o igual a cero." if decimal
-             else "Tiene que ser un número entero mayor o igual a cero.")
-    fila(type="text", name="observaciones_efectos", label="Observaciones de efectos (opcional)", appearance="multiline",
-         relevant="${tipo_registro} = 'evento'",
-         hint="Cifras en familias (no las pases a personas), cifras no confirmadas o diferencias entre fuentes.",
-         constraint="string-length(.) <= 300", constraint_message="Máximo 300 caracteres.")
-    fila(type="select_multiple servicio", name="servicios_afectados", label="Servicios o sectores afectados (opcional)",
-         relevant="${tipo_registro} = 'evento'")
-    fila(type="text", name="descripcion", label="Descripción breve", required="yes", appearance="multiline",
-         hint="Qué pasó y dónde, en pocas líneas y con tus palabras. Sin nombres de personas ni domicilios.",
+         hint="Marcá el lugar que nombra la nota. Si no nombra ninguno, dejalo vacío: alcanza con la localidad.")
+    fila(type="text", name="descripcion", label="¿Qué pasó?", required="yes", appearance="multiline",
+         hint="En pocas líneas y con tus palabras.",
          constraint="string-length(.) <= 400", constraint_message="Máximo 400 caracteres.")
-    fila(type="text", name="fuente_medio", label="Fuente: medio, organismo o tribunal", required="yes",
-         hint="Escribila siempre de la misma forma, para poder agrupar los registros. En un fallo, el tribunal y la sala.")
-    fila(type="text", name="fuente_titulo", label="Título de la nota o del documento, o número de causa", required="yes",
-         hint="De una causa, solo el número: no copies la carátula, porque suele traer nombres de personas. Sirve para revisar el registro; no se publica.")
-    fila(type="date", name="fuente_fecha", label="Fecha de publicación o del fallo", required="yes",
-         constraint=". <= today()", constraint_message="La fecha no puede ser posterior a hoy.")
-    fila(type="text", name="fuente_url", label="Enlace a la fuente", required="yes",
+    for e in cfg["efectos"]:
+        if not e.get("en_formulario"):
+            continue
+        fila(type="integer", name=e["name"], label=e["label"] + " (opcional)", hint="Solo si la nota da la cifra.",
+             relevant="${tipo_registro} = 'evento'", constraint=". >= 0",
+             constraint_message="Tiene que ser un número entero mayor o igual a cero.")
+    fila(type="text", name="observaciones_efectos", label="Otras cifras que da la nota (opcional)", appearance="multiline",
+         relevant="${tipo_registro} = 'evento'", hint="Por ejemplo: viviendas afectadas, hectáreas, cortes de servicios.",
+         constraint="string-length(.) <= 300", constraint_message="Máximo 300 caracteres.")
+    fila(type="text", name="fuente_url", label="Enlace a la nota o a la fuente", required="yes",
          constraint="regex(., '^https?://.+')", constraint_message="Tiene que ser un enlace que empiece con http:// o https://")
     fila(type="acknowledge", name="licencia", label=cfg["texto_licencia"], required="yes")
 
@@ -134,7 +125,6 @@ def main():
     choices += [["tipo_evento", t["name"], t["label"]] for t in cfg["tipos_evento"]]
     choices += [["tipo_vulnerabilidad", t["name"], t["label"]] for t in cfg["tipos_vulnerabilidad"]]
     choices += [["localidad", t["name"], t["label"]] for t in cfg["localidades"]]
-    choices += [["servicio", t["name"], t["label"]] for t in cfg["servicios"]]
 
     # KoboToolbox reemplaza form_id y version al desplegar; la versión útil es la columna __version__ de la exportación.
     settings = [["form_title", "form_id", "default_language"],

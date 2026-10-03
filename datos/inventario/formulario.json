@@ -9,13 +9,14 @@
   },
   "titulo": "Inventario local de eventos y vulnerabilidades del partido de Necochea",
   "form_id": "inventario_necochea",
-  "presentacion": "**Registrá un evento adverso ocurrido en el partido de Necochea o una vulnerabilidad observada, tal como lo informó un medio local o nacional, un organismo oficial, o una causa o un fallo judicial.** Cada registro se revisa antes de publicarse en el mapa para la gestión del riesgo. No cargues nombres de personas ni domicilios particulares. Este formulario no pide tus datos; KoboToolbox guarda en su historial interno la dirección IP de cada envío, que el proyecto no exporta ni publica.",
+  "presentacion": "**Registrá un evento adverso ocurrido en el partido de Necochea o una vulnerabilidad observada, tal como lo informó un medio local o nacional, un organismo oficial, o una causa o un fallo judicial.** Cada registro se revisa antes de publicarse en el mapa para la gestión del riesgo. No cargues nombres de personas. Este formulario no pide tus datos; KoboToolbox guarda en su historial interno la dirección IP de cada envío, que el proyecto no exporta ni publica.",
   "texto_licencia": "Acepto que este registro se publique con licencia Creative Commons Atribución 4.0 (CC BY 4.0), citado como \"Inventario local de eventos y vulnerabilidades del partido de Necochea\".",
   "efectos": [
     {
       "name": "muertos",
       "label": "Muertos",
-      "hint": "Personas fallecidas por causas directas. Si la cifra no está confirmada oficialmente, anotala en las observaciones de efectos."
+      "hint": "Personas fallecidas por causas directas. Si la cifra no está confirmada oficialmente, anotala en las observaciones de efectos.",
+      "en_formulario": true
     },
     {
       "name": "desaparecidos",
@@ -25,7 +26,8 @@
     {
       "name": "heridos",
       "label": "Heridos o enfermos",
-      "hint": "Personas afectadas en su salud o integridad física por causa directa del evento."
+      "hint": "Personas afectadas en su salud o integridad física por causa directa del evento.",
+      "en_formulario": true
     },
     {
       "name": "damnificados",
@@ -40,7 +42,8 @@
     {
       "name": "evacuados",
       "label": "Evacuados",
-      "hint": "Personas evacuadas temporalmente de viviendas, trabajos, escuelas u hospitales."
+      "hint": "Personas evacuadas temporalmente de viviendas, trabajos, escuelas u hospitales.",
+      "en_formulario": true
     },
     {
       "name": "reubicados",
@@ -316,5 +319,6 @@
       "name": "otros",
       "label": "Otros"
     }
-  ]
+  ],
+  "_nota_efectos": "Solo los efectos con en_formulario se preguntan en Kobo (formulario simplificado, decisión de Sebastián, 03/10/2026); el resto lo completa quien revisa y los registros del proyecto pueden traerlos."
 }

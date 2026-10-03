@@ -10,7 +10,7 @@ archivo del proyecto). Cada registro aprobado pasa además estos controles; si f
 no se publica y el motivo se informa en pantalla (nunca en un archivo público):
 
   1. campos obligatorios completos y valores dentro de las listas de formulario.json;
-  2. fechas válidas (entre 1900 y hoy), evento desde el 1/1/1980 (criterio de Sebastián,
+  2. fechas válidas (entre 1900 y hoy; día/mes/año o año-mes-día), evento desde el 1/1/1980 (criterio de Sebastián,
      28/09/2026: incluye la inundación de abril de 1980, la mayor registrada) y enlace que
      empieza con http:// o https://;
   3. cantidades enteras mayores o iguales a cero;
@@ -36,6 +36,7 @@ import io
 import json
 import re
 import sys
+import urllib.parse
 
 from comun import (CRUDOS, RAIZ, SITIO_DATOS, anotar_procesamiento, aviso, cargar_limite, coleccion, escribir_json,
                    leer_json, punto_en_geometria, sha256)
@@ -53,8 +54,9 @@ PROYECTO = RAIZ / "datos" / "inventario" / "registros_proyecto.csv"
 COLUMNA_VALIDACION = "_validation_status"
 APROBADO = {"validation_status_approved", "Approved"}
 
-OBLIGATORIOS_COMUNES = ("tipo_registro", "fecha", "localidad", "descripcion", "fuente_medio", "fuente_fecha", "fuente_url",
-                        "licencia")
+# El formulario simplificado (decisión de Sebastián, 03/10/2026) ya no pide medio ni fecha de la fuente:
+# los completa quien revisa al aprobar el registro, y si faltan, la ventana muestra el sitio del enlace.
+OBLIGATORIOS_COMUNES = ("tipo_registro", "fecha", "localidad", "descripcion", "fuente_url", "licencia")
 
 RASTROS_PERSONALES = [
     ("correo electrónico", re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+")),
@@ -71,8 +73,11 @@ def leer_csv(ruta):
 
 
 def fecha_valida(valor):
+    """Acepta dd/mm/aaaa (el formulario, desde el 03/10/2026) y aaaa-mm-dd (envíos anteriores y registros del proyecto)."""
+    valor = (valor or "").strip()
     try:
-        d = dt.date.fromisoformat((valor or "")[:10])
+        m = re.fullmatch(r"(\d{1,2})/(\d{1,2})/(\d{4})", valor)
+        d = dt.date(int(m[3]), int(m[2]), int(m[1])) if m else dt.date.fromisoformat(valor[:10])
     except ValueError:
         return None
     return d if dt.date(1900, 1, 1) <= d <= dt.date.today() else None
@@ -106,8 +111,9 @@ def controlar(fila, cfg, etiquetas, limite, caja):
     servicios = (fila.get("servicios_afectados") or "").split() if tipo == "evento" else []
     if any(s not in etiquetas["servicios"] for s in servicios):
         return None, "servicio afectado fuera de la lista"
-    fecha, fecha_nota = fecha_valida(fila["fecha"]), fecha_valida(fila["fuente_fecha"])
-    if not fecha or not fecha_nota:
+    fecha = fecha_valida(fila["fecha"])
+    fecha_nota = fecha_valida(fila.get("fuente_fecha")) if (fila.get("fuente_fecha") or "").strip() else None
+    if not fecha or ((fila.get("fuente_fecha") or "").strip() and not fecha_nota):
         return None, "fecha inválida"
     if fecha < DESDE:
         return None, f"evento anterior al {DESDE.strftime('%d/%m/%Y')} (fuera del período del inventario)"
@@ -156,8 +162,8 @@ def controlar(fila, cfg, etiquetas, limite, caja):
         "servicios": [etiquetas["servicios"][s] for s in servicios],
         "punto": punto_fuente if p and punto_fuente else None,
         "descripcion": descripcion,
-        "fuente_medio": fila["fuente_medio"].strip(),
-        "fuente_fecha": fecha_nota.isoformat(),
+        "fuente_medio": (fila.get("fuente_medio") or "").strip() or urllib.parse.urlsplit(url).hostname.removeprefix("www."),
+        "fuente_fecha": fecha_nota.isoformat() if fecha_nota else None,
         "fuente_url": url,
     }
     return (registro, p, fila["localidad"]), None
