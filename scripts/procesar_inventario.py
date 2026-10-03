@@ -15,7 +15,8 @@ no se publica y el motivo se informa en pantalla (nunca en un archivo público):
      empieza con http:// o https://;
   3. cantidades enteras mayores o iguales a cero;
   4. sin rastros de datos personales en el lugar ni en la descripción (correos,
-     teléfonos, DNI, domicilios con número de puerta);
+     teléfonos, DNI); las direcciones con número sí se publican (decisión de Sebastián,
+     02/10/2026: el punto va en el lugar exacto, también si es una vivienda);
   5. si trae un punto, que caiga dentro del partido.
 
 Los registros sin punto se ubican en el punto de su localidad (IGN, BAHRA) y se
@@ -59,7 +60,6 @@ RASTROS_PERSONALES = [
     ("correo electrónico", re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+")),
     ("teléfono", re.compile(r"(\+?54[\s-]?)?(\(?0?\d{2,4}\)?[\s-]?)?\d{2,4}[\s-]\d{4}\b|\b\d{8,}\b")),
     ("DNI", re.compile(r"\bD\.?\s?N\.?\s?I\b|\b\d{1,2}\.\d{3}\.\d{3}\b", re.I)),
-    ("domicilio con número de puerta", re.compile(r"\b(n\s?[°º.]|nro\.?|n[uú]mero)\s*\d{2,5}\b", re.I)),
 ]
 
 
