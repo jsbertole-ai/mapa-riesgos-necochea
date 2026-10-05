@@ -70,7 +70,7 @@
     {"nombre": "Guardavidas Las Cascadas", "tipo": "Guardavidas", "temporada": "verano", "osm": "node/1764401015", "vigencia": "guardavidas_2026", "origen": "Paraje Las Cascadas en OpenStreetMap. Puesto sobre el río Quequén Grande; en 2026 se cubrió hasta fines de marzo, según la nota municipal del 27/03/2026."}
   ],
   "pendientes": [
-    {"nombre": "Guardavidas Puesto 61", "motivo": "La nota municipal del 26/12/2025 lo nombra (por la tarde), pero en OpenStreetMap la calle 61 no llega a la costanera: no hay un cruce ni un lugar con nombre del que tomar el punto."}
+    {"nombre": "Guardavidas Puesto 61", "motivo": "La nota municipal del 26/12/2025 lo nombra (por la tarde), pero en OpenStreetMap la calle 61 no llega a la costanera: no hay un cruce ni un lugar con nombre del que tomar el punto. Se deja sin punto (decisión de Sebastián, 05/10/2026: hay otro puesto cerca) y se vuelve a mirar si la Municipalidad publica la nota de la temporada 2026-2027."}
   ],
   "no_incluidos": [
     {"kml": ["GUARDAVIDAS PUESTO KARAMAWI 2", 37], "motivo": "Según un colaborador (05/10/2026), en Karamawi hay un solo puesto; el otro de la nota municipal es el Espigón, ubicado en el muelle de pescadores de OpenStreetMap."},

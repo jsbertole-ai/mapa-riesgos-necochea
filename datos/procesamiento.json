@@ -859,7 +859,7 @@
     "fecha_datos": "Censo Nacional de Población, Hogares y Viviendas, 18/05/2022 (INDEC)."
   },
   "servicios_playa": {
-    "procesado": "2026-10-05T02:38:54+00:00",
+    "procesado": "2026-10-05T02:54:23+00:00",
     "archivo_crudo": "municipio/info_zona_playa.kml",
     "sha256_kml": "6f1c58a45c0915ae8f3026fd5c4e1acf21cfcfd9ca01a50f25bee75905656a1b",
     "elementos": 42,
