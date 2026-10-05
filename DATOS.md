@@ -261,7 +261,7 @@ No se encontró un producto abierto del INTA con superficie quemada para el sude
 | Qué se encontró | Información institucional y operativa (terminales, capacidad de almacenamiento, sistema AIS). **No se encontró cartografía descargable ni licencia de reutilización.** |
 | Uso posible | Contexto y cita en la Metodología; no como capa. |
 
-### 3.3 Municipalidad de Necochea, zonificación (Código de Ordenamiento Territorial) · **Sin fuente geográfica**
+### 3.3 Municipalidad de Necochea, zonificación (Código de Ordenamiento Territorial) · **Verificada** · en uso (desde el 05/10/2026)
 
 | Campo | Detalle |
 |---|---|
@@ -269,6 +269,7 @@ No se encontró un producto abierto del INTA con superficie quemada para el sude
 | Limitaciones | No se encontró la zonificación como dato geográfico abierto. Sin archivo oficial, **no se digitaliza a ojo desde un plano**. |
 | Acción manual | Consultar al municipio si publica la zonificación en SHP o GeoJSON, y con qué licencia. |
 | Hallazgo (01/10/2026) | Un colaborador encontró el visor QGIS del municipio: https://necochea.gov.ar/descargas/planeamiento/qgis/index.html (archivos actualizados el 04/08/2026). Trae la zonificación como GeoJSON en `data/ZONIFICACIONWEB_2.js` (149 polígonos con sigla, nombre de zona, FOS, FOT, densidad, altura y observaciones; cita ordenanzas de 2024) y las parcelas de ARBA en `data/PARCELASNQF5_1.js` (90.310; no se usan). **Identificada, sin licencia declarada:** la página no menciona licencia ni condiciones de uso. No se publica hasta tener autorización. La página de la Secretaría (https://necochea.gov.ar/secretaria-de-planeamiento-obras-y-servicios-publicos/, leída el 01/10/2026) dice que "pone a disposición de la comunidad un visor cartográfico interactivo" y advierte: "La información publicada tiene carácter orientativo [...]. Para realizar trámites, presentar proyectos o confirmar la normativa aplicable a un inmueble, se recomienda efectuar la consulta correspondiente ante las áreas técnicas municipales". Si se publica, esa advertencia va en la ficha. La misma página ofrece en PDF los "Indicadores urbanísticos por zona" y el "Plano de zonificación", y en JPG la zonificación de Claraz, Juan N. Fernández, Nicanor Olivera y Ramón Santamarina. |
+| Decisión (05/10/2026) | Sebastián decidió publicarla como información pública, citando la fuente, sin esperar la respuesta del mail: la Secretaría pone el visor "a disposición de la comunidad" y la página de Datos Abiertos del municipio pide que la información circule (sección 25). Capa "Zonificación (ordenamiento territorial)": 148 zonas (un polígono vacío de la fuente se descarta), con nombre, sigla, observaciones y una categoría de uso para el color, agrupación del proyecto en `datos/zonificacion_categorias.json` (primera clasificación con Jev, revisada a mano: "Zona Equipamiento Playa 2" pasó a costa, como la 1). No se publican los indicadores urbanísticos. Archivo publicado el 04/08/2026 según el servidor. Inconsistencias de la fuente, publicadas como vienen: una "Zona Residencial 7 Especial" con sigla C3 y una "Zona Comercial 3" sin sigla. Script: `scripts/descargar_municipio.py`. |
 | Pedido | Mail a la Secretaría de Planeamiento, Obras y Servicios Públicos (vía informes@necochea.gov.ar; la página de la Secretaría no trae un correo propio) pidiendo autorización para reutilizar la capa citando al municipio. Enviado por Sebastián el 01/10/2026, dirigido a Lisandro Dones, subsecretario de Planeamiento y Obras Públicas. Sin respuesta por ahora. |
 
 ### 3.4 Ferrocarril y rutas: IGN por WFS · **Verificada** · en uso
@@ -348,7 +349,7 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Portuaria e industrial: industria, combustibles y residuos | IGN (WFS) | Verificada, términos del IGN; sin nombres de titulares | Publicada, apagada al inicio (31) |
 | Portuaria e industrial: ferrocarril | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada, apagada al inicio (6 tramos y 8 estaciones), con el estado de cada tramo según el IGN |
 | Portuaria e industrial: rutas nacionales y provinciales | IGN (WFS) | Verificada, términos del IGN; metadato de 2021, actualización mensual declarada | Publicada, apagada al inicio (19 tramos) |
-| Portuaria e industrial: zonificación | Municipio | Sin fuente geográfica | Pendiente de fuente |
+| Portuaria e industrial: zonificación | Municipio, visor de Planeamiento (sección 3.3) | Verificada, información pública municipal con cita | Publicada, apagada al inicio (148 zonas) |
 | Portuaria e industrial: sustancias peligrosas | Secretaría de Energía (padrón de combustibles, distribuidoras de GLP, aceiteras); puntos con OpenStreetMap (sección 17) | Verificada, CC BY 4.0 y ODbL | Publicada, apagada al inicio (46 establecimientos en 41 puntos, aprobados por Sebastián el 28/09/2026) |
 | Expuestos: planta urbana | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (7) |
 | Expuestos: establecimientos educativos | IGN (WFS) | Verificada, términos del IGN | Publicada, apagada al inicio (140) |
@@ -356,6 +357,7 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Respuesta: cuarteles de bomberos | OpenStreetMap | Verificada, ODbL; completa según Sebastián | Publicada, apagada al inicio (2) |
 | Respuesta: Defensa Civil | OpenStreetMap (corregido el 26/09/2026) | Verificada, ODbL | Publicada, apagada al inicio (1) |
 | Respuesta: Centro Operativo de Monitoreo | OpenStreetMap | Verificada, ODbL; sin cámaras | Publicada, apagada al inicio (1) |
+| Expuestos: pozos de agua y cámaras de bombeo | Municipio, Obras Sanitarias (sección 26) | Verificada, información pública municipal con cita | Publicada, apagada al inicio (59), sin el estado de funcionamiento |
 | Respuesta: servicios de playa | Municipalidad de Necochea (mapa de 2023 y notas de 2025-2026) y OpenStreetMap (sección 25) | Verificada, información pública municipal con cita y ODbL | Publicada, apagada al inicio (41; falta el puesto 61) |
 
 ---
@@ -441,6 +443,7 @@ Decisiones de Sebastián (26/09/2026): se publican los cuarteles de bomberos, vo
 | Centro Operativo de Monitoreo | `node/14220751253`, creado en OpenStreetMap el 26/09/2026 a las 23:40 UTC: nombre "Centro Operativo de Monitoreo", nombre oficial "Subsecretaría de Prevención y Monitoreo.", descripción "Multiagencia", dirección sobre avenida 58. No tiene etiqueta de tipo ni ninguna etiqueta de vigilancia o policía, así que los filtros de exclusión no lo afectan; la consulta lo busca por nombre. Archivo: `docs/datos/monitoreo.geojson`. |
 | Guardavidas | Capa preparada el 27/09/2026, pendiente de datos: OSM no tiene ningún elemento de guardavidas en el partido (consulta del agente, 27/09/2026). Sebastián los va a cargar por conocimiento local: puestos con `emergency=lifeguard` + `lifeguard=tower`, y la Jefatura de Guardavidas y Operativo en Playas (nombre oficial según el municipio, Secretaría de Gobierno) con `lifeguard=base` u `office=lifeguard`; todos con `seasonal=summer`, porque funcionan solo en verano, incluida la Jefatura. Etiquetas según la wiki de OSM (Tag:emergency=lifeguard, Key:lifeguard, Key:seasonal, leídas el 27/09/2026). Lista de puestos publicada por el municipio: https://necochea.gov.ar/se-amplio-el-servicio-de-guardavidas-con-mas-puestos-en-playa-y-sectores-del-rio/ (02/12/2025). No se cargan ni se publican datos de las personas que trabajan en el servicio. |
 | Guardaparques | OSM no tiene `amenity=ranger_station` en el partido (27/09/2026). Desde el 05/10/2026, el punto sale del mapa municipal "Info Zona Playa - 2023" (sección 25), en `datos/organismos_colaboradores.json`; funciona todo el año, según un colaborador. |
+| Caballería y GAD | Hasta el 05/10/2026 había un solo punto, "Base GAD y Caballería", en el puesto policial sin nombre de OpenStreetMap del parque Miguel Lillo (`node/14061966263`). Un colaborador aclaró ese día que ahí funciona solo Caballería (Necochea Digital, 26/12/2025, también la ubica en el parque) y que el GAD tiene su propia base, cargada en OpenStreetMap como "Base del Grupo de Apoyo Departamental" (`way/1234875706`). Desde entonces son dos puntos, en `datos/organismos_osm.json`. Ese mismo día el colaborador le puso el nombre "Base de Caballería" al nodo de OpenStreetMap (versión 3). Función de Caballería según el Ministerio de Seguridad bonaerense: https://www.mseg.gba.gov.ar/areas/dircaballeria/index.html. |
 | Prefectura Naval | Desde el 27/09/2026 sale del IGN (`estructuras_operativas_y_defensivas_FA517.6076`). En OSM figura como `way/698430678`, "Prefectura Naval Quequén". |
 
 ---
@@ -827,6 +830,17 @@ Capa aprobada por Sebastián el 05/10/2026, en el grupo "Capacidad de respuesta"
 **Otras fuentes municipales aportadas por un colaborador (05/10/2026) · Identificadas, sin procesar:**
 
 - Secretaría de Planeamiento, Obras y Servicios Públicos (https://necochea.gov.ar/secretaria-de-planeamiento-obras-y-servicios-publicos/): indicadores urbanísticos por zona y plano de zonificación (PDF), y zonificación de Claraz, Juan N. Fernández, Nicanor Olivera (La Dulce) y Ramón Santamarina (JPG). El colaborador ya los descargó. Cita indicada: "Municipalidad de Necochea, Secretaría de Planeamiento, Obras y Servicios Públicos, actualización a octubre de 2026". Puede resolver la sección 3.3.
-- Visor de Información Territorial y Urbanística (https://necochea.gov.ar/descargas/planeamiento/qgis/index.html), hecho con qgis2web y Leaflet: parcelas, zonificación e indicadores. Información orientativa según el propio visor. Falta revisar qué capas trae y en qué formato.
-- Obras Sanitarias (https://necochea.gov.ar/obras-sanitarias/): estado de cámaras de bombeo y pozos de explotación, con su ubicación; dejan de funcionar con un corte de energía. Falta revisar el formato y si el mapa es del municipio o de Google.
+- Visor de Información Territorial y Urbanística (https://necochea.gov.ar/descargas/planeamiento/qgis/index.html), hecho con qgis2web y Leaflet: **en uso desde el 05/10/2026** (zonificación, sección 3.3).
+- Obras Sanitarias (https://necochea.gov.ar/obras-sanitarias/): **en uso desde el 05/10/2026** (sección 26).
 - Google Flood Hub (https://sites.research.google/floods): pronóstico de crecidas de ríos. Es contenido de Google: sirve de referencia y enlace, no como capa.
+
+## 26. Pozos de agua y cámaras de bombeo (Obras Sanitarias, Municipalidad de Necochea) · **Verificada** · en uso (desde el 05/10/2026)
+
+| Campo | Valor |
+|---|---|
+| Fuente | Página de Obras Sanitarias (https://necochea.gov.ar/obras-sanitarias/): una tabla de "Monitoreo de Bombas de agua de Necochea y Quequén" y un mapa de Google My Maps cargado por el municipio ("Pozos OS Necochea", https://www.google.com/maps/d/viewer?mid=1MgtytVAe0iBcq8nbGEWAVSQfK1k-laSO). Se usa la exportación KML del mapa: https://www.google.com/maps/d/kml?mid=1MgtytVAe0iBcq8nbGEWAVSQfK1k-laSO&forcekml=1 |
+| Licencia | La misma situación que la sección 25: información pública municipal, sin licencia declarada, citando la fuente (decisión de Sebastián, 05/10/2026) |
+| Contenido | 59 puntos: 48 pozos de explotación de agua y 11 cámaras de bombeo, con nombre, tipo, dirección y coordenadas. Las coordenadas del KML coinciden con la latitud y longitud que trae cada descripción |
+| Lo que no se publica | El estado ("activado", "fuera de servicio"). La página dice que la tabla muestra "la información en tiempo real" y que la actualiza "diariamente" el personal de Obras Sanitarias, pero las fechas de actualización de la tabla van de diciembre de 2021 a noviembre de 2022 (leída el 05/10/2026), y las del KML son del 27 y 28/12/2021. Con datos de esa antigüedad, el estado confundiría a quien mire el mapa durante un corte de energía |
+| Por qué importa | Son una línea vital: funcionan con energía eléctrica, así que un corte de luz deja sin bombeo de agua a la zona que abastecen. El mapa no dice si tienen grupo electrógeno |
+| Limitaciones | El mapa no aclara si las cámaras de bombeo son de agua potable o de cloacas (una está en la planta cloacal). Script: `scripts/descargar_municipio.py` |

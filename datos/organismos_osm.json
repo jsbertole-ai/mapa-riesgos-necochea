@@ -20,8 +20,14 @@
     {
       "osm": "node/14061966263",
       "organismo": "Policía",
-      "nombre": "Base GAD y Caballería (Policía de la Provincia de Buenos Aires)",
-      "fuente": "Base de los Grupos de Apoyo Departamentales (GAD), donde funciona también la base de Caballería, según un colaborador (28/09/2026). En OpenStreetMap figura como puesto de la Policía de la Provincia de Buenos Aires."
+      "nombre": "Base de Caballería (Policía de la Provincia de Buenos Aires)",
+      "fuente": "Base del Cuerpo de Caballería, según un colaborador (05/10/2026); Necochea Digital (26/12/2025) también la ubica en el parque Miguel Lillo. En OpenStreetMap figura como \"Base de Caballería\" (nombre cargado por un colaborador el 05/10/2026). Según el Ministerio de Seguridad bonaerense, Caballería es un organismo operacional para el orden público y la seguridad de las personas en concentraciones masivas (https://www.mseg.gba.gov.ar/areas/dircaballeria/index.html)."
+    },
+    {
+      "osm": "way/1234875706",
+      "organismo": "Policía",
+      "nombre": "Base del Grupo de Apoyo Departamental (GAD)",
+      "fuente": "Base de los Grupos de Apoyo Departamentales (GAD) de la Policía de la Provincia de Buenos Aires; en OpenStreetMap figura con ese nombre y la ubicación la confirmó un colaborador (05/10/2026)."
     },
     {
       "osm": "node/14239945055",

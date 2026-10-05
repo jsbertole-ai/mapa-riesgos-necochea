@@ -587,52 +587,52 @@
   },
   "datos/crudos/ign/estructuras_operativas_y_defensivas_FA517.geojson": {
     "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aestructuras_operativas_y_defensivas_FA517&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-10-01T16:42:17+00:00",
+    "descargado": "2026-10-05T03:26:13+00:00",
     "last_modified": null,
     "bytes": 4778,
-    "sha256": "74977bb9739bb53b3ac0f967af7de14a38e3399caf83d4e26d8b2e2708ab1a9c"
+    "sha256": "9c05e15c4c740bea1b81a01d4f7a14064c31553c8a1f016457c9f204e824d57e"
   },
   "datos/crudos/ign/estructuras_operativas_y_defensivas_090102.geojson": {
     "url": "https://wms.ign.gob.ar/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ign%3Aestructuras_operativas_y_defensivas_090102&outputFormat=application%2Fjson&srsName=EPSG%3A4326&bbox=-38.73667%2C-59.67703%2C-37.61675%2C-58.61945%2Curn%3Aogc%3Adef%3Acrs%3AEPSG%3A%3A4326",
-    "descargado": "2026-10-01T16:42:18+00:00",
+    "descargado": "2026-10-05T03:26:14+00:00",
     "last_modified": null,
     "bytes": 2014,
-    "sha256": "d58fca610c3238d9ff36128f11b6b76b8536f1fab3b5e9858210e0ebed0660cd"
+    "sha256": "d053462a73c82cd7919d89cadac0b0967273b7f8166810a39e6ecd0c05dffecf"
   },
   "datos/crudos/osm/refugios/way_326255242.json": {
     "url": "https://api.openstreetmap.org/api/0.6/way/326255242/full.json",
-    "descargado": "2026-10-01T16:42:25+00:00",
+    "descargado": "2026-10-05T03:26:22+00:00",
     "last_modified": null,
     "bytes": 1419,
-    "sha256": "823f6c5fe9b491f82980d31c088aa2ddbef22b6c145eee789b6312949db042ba"
+    "sha256": "9990f39050d9a51940e91dead55b791164699f106d8c04561f63728a569c244c"
   },
   "datos/crudos/osm/refugios/way_1272959264.json": {
     "url": "https://api.openstreetmap.org/api/0.6/way/1272959264/full.json",
-    "descargado": "2026-10-01T16:42:26+00:00",
+    "descargado": "2026-10-05T03:26:22+00:00",
     "last_modified": null,
     "bytes": 5140,
-    "sha256": "41939b9ddde378e4b306d19cc6f7ea026c3cf047898d61465e665bb06c8c4733"
+    "sha256": "9eae0b67db76a2ebd8cd258fd050d3b94a535511a653ac3292c6a1c2b8e25914"
   },
   "datos/crudos/pba/comisarias-pba-2026.csv": {
     "url": "https://catalogo.datos.gba.gob.ar/dataset/bf79faeb-cb8a-4444-bbbe-5dc39479aa4a/resource/8d31bb16-3489-4ede-9e63-072f7f17383d/download/comisarias-pba-2026.csv",
-    "descargado": "2026-10-01T16:42:24+00:00",
+    "descargado": "2026-10-05T03:26:20+00:00",
     "last_modified": "Tue, 02 Jun 2026 17:22:33 GMT",
     "bytes": 54713,
     "sha256": "e1ca926e4ade907a5433c1025778103adea2d924ff060617d8dcc58375b79728"
   },
   "datos/crudos/osm/organismos/way_698430678.json": {
     "url": "https://api.openstreetmap.org/api/0.6/way/698430678/full.json",
-    "descargado": "2026-10-01T16:42:19+00:00",
+    "descargado": "2026-10-05T03:26:15+00:00",
     "last_modified": null,
-    "bytes": 2200,
-    "sha256": "c788336cc18f6f45a6ce0d62dc6e6465bc9ed334db74913acd1768406eac1f7c"
+    "bytes": 2201,
+    "sha256": "758e0e36676f67334c891be7decda9aab34395322b90d5fc9b1e2700b57d2dfa"
   },
   "datos/crudos/osm/organismos/node_14222511472.json": {
     "url": "https://api.openstreetmap.org/api/0.6/node/14222511472.json",
-    "descargado": "2026-10-01T16:42:19+00:00",
+    "descargado": "2026-10-05T03:26:15+00:00",
     "last_modified": null,
-    "bytes": 669,
-    "sha256": "7ae64b83e7eea6004db042661e1ad103ae0eabbbb4f1e8d9f7837c0eb57f2162"
+    "bytes": 670,
+    "sha256": "f1b5414679aed987bae06db603f82e91e4cbe5490e29f9cdceecb9243cafa2b3"
   },
   "datos/crudos/renabap/20231205_info_publica.geojson": {
     "url": "https://archivo.infraestructura.gob.ar/dataset/ssisu/20231205_info_publica.geojson",
@@ -671,7 +671,7 @@
   },
   "datos/crudos/pba/comisarias-mujer.csv": {
     "url": "https://catalogo.datos.gba.gob.ar/dataset/41f3695c-02bf-4bee-9e70-346edbb8236c/resource/03f20b6c-e645-4c08-ba3b-4f0e9b555a65/download/comisarias-mujer.csv",
-    "descargado": "2026-10-01T16:42:25+00:00",
+    "descargado": "2026-10-05T03:26:21+00:00",
     "last_modified": "Tue, 02 Jun 2026 17:20:30 GMT",
     "bytes": 32483,
     "sha256": "6a9ef1b58b000ed50fdbb8da60967346b0b04904c9e7e862bb1b45fef8879a55"
@@ -720,17 +720,17 @@
   },
   "datos/crudos/osm/organismos/node_14073727496.json": {
     "url": "https://api.openstreetmap.org/api/0.6/node/14073727496.json",
-    "descargado": "2026-10-01T16:42:20+00:00",
+    "descargado": "2026-10-05T03:26:16+00:00",
     "last_modified": null,
-    "bytes": 487,
-    "sha256": "f3adda67c6d7d8866bca3048c6c375dd2626a074431f115b0184ed3dbf326c2b"
+    "bytes": 488,
+    "sha256": "329b50e7ff8aa3c744602f06d2c058e0fd43efc9eb0b3e06549e2adcb431f5bd"
   },
   "datos/crudos/osm/organismos/node_14061966263.json": {
     "url": "https://api.openstreetmap.org/api/0.6/node/14061966263.json",
-    "descargado": "2026-10-01T16:42:20+00:00",
+    "descargado": "2026-10-05T03:26:16+00:00",
     "last_modified": null,
-    "bytes": 547,
-    "sha256": "b04d4a45b065a7f8b4b5ba25df48f399d87455f1ea718eced0801e7f741f1581"
+    "bytes": 578,
+    "sha256": "d0192e6416a3c5e9183ee3f558b1ee65173534604446a94750e7e7de9cb9b666"
   },
   "datos/crudos/gas/gasoductos-de-distribucin.csv": {
     "url": "http://datos.energia.gob.ar/dataset/8758101a-1e0d-413f-8cc5-83e21ece6391/resource/3f7f87ab-bdcf-4a21-b361-f59732754330/download/gasoductos-de-distribucin.csv",
@@ -741,31 +741,31 @@
   },
   "datos/crudos/osm/organismos/node_14239945055.json": {
     "url": "https://api.openstreetmap.org/api/0.6/node/14239945055.json",
-    "descargado": "2026-10-01T16:42:21+00:00",
+    "descargado": "2026-10-05T03:26:17+00:00",
     "last_modified": null,
     "bytes": 593,
-    "sha256": "db1faf1f5882e953f9ddbbd0bf2c6e891fafca35ff49b7c1659d196ec3969441"
+    "sha256": "a3ad56e60662b9a052981cb37ff9175d312f6ba8793ef1edca9d7b6eb8907193"
   },
   "datos/crudos/osm/organismos/node_6222248533.json": {
     "url": "https://api.openstreetmap.org/api/0.6/node/6222248533.json",
-    "descargado": "2026-10-01T16:42:21+00:00",
+    "descargado": "2026-10-05T03:26:18+00:00",
     "last_modified": null,
-    "bytes": 596,
-    "sha256": "b7e305cd3b8a1804c3a518328a1c18ac0e6cc6cee3973062694b5378eadabfec"
+    "bytes": 595,
+    "sha256": "a7285ddf6f8f7cd5e92973251983946d06726e7a5bc6b8f05450651a9d773227"
   },
   "datos/crudos/osm/organismos/node_5438304772.json": {
     "url": "https://api.openstreetmap.org/api/0.6/node/5438304772.json",
-    "descargado": "2026-10-01T16:42:22+00:00",
+    "descargado": "2026-10-05T03:26:18+00:00",
     "last_modified": null,
-    "bytes": 732,
-    "sha256": "9ed73ddef53129464c7a1406b50ca3633e85b8b50af3d6a8883bd4d215a80d41"
+    "bytes": 733,
+    "sha256": "05e46d9760ad21fbf0038bf3e5cdfefd153ec9dc0f99c05e76a169fae25a7720"
   },
   "datos/crudos/osm/organismos/node_14239988066.json": {
     "url": "https://api.openstreetmap.org/api/0.6/node/14239988066.json",
-    "descargado": "2026-10-01T16:42:22+00:00",
+    "descargado": "2026-10-05T03:26:18+00:00",
     "last_modified": null,
     "bytes": 642,
-    "sha256": "dc6cedf3c14b81584a659d2a7cf09fc85da1995c2ffb3a2edd7e0788615a1bd4"
+    "sha256": "c9a75ceee898cab96c515e6afebd9b9c5cafb96330559f98382ba2abbc7c1b96"
   },
   "datos/crudos/municipio/info_zona_playa.kml": {
     "url": "https://www.google.com/maps/d/kml?mid=14s6GBczqEDmkVCyO3y27SkUbBibg_dM&forcekml=1",
@@ -815,5 +815,26 @@
     "last_modified": null,
     "bytes": 493,
     "sha256": "e5bfb7845fc9f715cce4cc6b231ead6bd8db42c88d4104e83f65671838fd9fe4"
+  },
+  "datos/crudos/municipio/ZONIFICACIONWEB_2.js": {
+    "url": "https://necochea.gov.ar/descargas/planeamiento/qgis/data/ZONIFICACIONWEB_2.js",
+    "descargado": "2026-10-05T03:02:37+00:00",
+    "last_modified": "Tue, 04 Aug 2026 16:07:25 GMT",
+    "bytes": 846899,
+    "sha256": "333d82bf1c4587f9303e4fc085b4c4d71df6a9e62d961963a7fea056135389d8"
+  },
+  "datos/crudos/municipio/pozos_obras_sanitarias.kml": {
+    "url": "https://www.google.com/maps/d/kml?mid=1MgtytVAe0iBcq8nbGEWAVSQfK1k-laSO&forcekml=1",
+    "descargado": "2026-10-05T03:02:37+00:00",
+    "last_modified": null,
+    "bytes": 75504,
+    "sha256": "d7707030e16b5d5b6f672ef9b8e3f1b50dd5f088e7edb1f73fb0765862585d39"
+  },
+  "datos/crudos/osm/organismos/way_1234875706.json": {
+    "url": "https://api.openstreetmap.org/api/0.6/way/1234875706/full.json",
+    "descargado": "2026-10-05T03:26:17+00:00",
+    "last_modified": null,
+    "bytes": 1267,
+    "sha256": "eb60c781a0921681358c23071f5abf989fd588ac9da0ce7477e2bce5c07d8a00"
   }
 }

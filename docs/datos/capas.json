@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-05T02:57:38+00:00",
+  "generado": "2026-10-05T03:26:23+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -846,8 +846,8 @@
         "controles": [
           "41 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=registro-de-operadores-autorizados-para-la-venta-de-combustibles-liquidos (leída el 2026-10-05).",
-          "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=operadores_glp (leída el 2026-10-01).",
-          "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=plantas-productoras-y-refinadoras-de-aceite-vegetal (leída el 2026-10-01).",
+          "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=operadores_glp (leída el 2026-10-05).",
+          "Licencia confirmada en https://datos.gob.ar/api/3/action/package_show?id=plantas-productoras-y-refinadoras-de-aceite-vegetal (leída el 2026-10-05).",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-10-05)."
         ]
       }
@@ -925,15 +925,59 @@
       }
     },
     {
+      "organismo": "Municipalidad de Necochea, Secretaría de Planeamiento, Obras y Servicios Públicos",
+      "url_fuente": "https://necochea.gov.ar/descargas/planeamiento/qgis/index.html",
+      "url_datos": "https://necochea.gov.ar/descargas/planeamiento/qgis/data/ZONIFICACIONWEB_2.js",
+      "licencia": "Información pública de la Municipalidad de Necochea, sin licencia declarada: se usa citando la fuente (decisión de Sebastián, 05/10/2026).",
+      "url_licencia": "https://necochea.gov.ar/transparencia/",
+      "cita": "Municipalidad de Necochea, Secretaría de Planeamiento, Obras y Servicios Públicos, Visor de Información Territorial y Urbanística (capa de zonificación), consultado en octubre de 2026.",
+      "formato": "GeoJSON armado por scripts/descargar_municipio.py a partir de la capa del visor (qgis2web), sin redibujar",
       "id": "portuaria_zonificacion",
       "grupo": "portuaria",
-      "nombre": "Zonificación industrial (ordenamiento territorial)",
-      "archivo": null,
-      "organismo": "Municipalidad de Necochea",
-      "motivo_pendiente": "La zonificación (Ordenanza 2005/81 y modificatorias) no está publicada como dato geográfico abierto. No se digitaliza a ojo desde un plano.",
-      "que_representa": "Sería la zonificación oficial de usos del suelo, incluidas las zonas industriales.",
-      "que_no_representa": "Los polígonos industriales de OpenStreetMap no la reemplazan.",
-      "estado": "sin_fuente"
+      "nombre": "Zonificación (ordenamiento territorial)",
+      "archivo": "zonificacion.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#525252",
+        "grosor": 0.6,
+        "campo_color": "categoria",
+        "colores": {
+          "Industrial y portuaria": "#7f2704",
+          "Residencial": "#fdd49e",
+          "Comercial y administrativa": "#fc8d59",
+          "Equipamiento y usos específicos": "#9ecae1",
+          "Complementaria, semiurbanizada y de reserva": "#d9d9d9",
+          "Rural": "#f7fcb9",
+          "Verde, playa y frente marítimo": "#a1d99b",
+          "Sujeta a estudio": "#bcbddc",
+          "Sin categoría": "#ffffff"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Las zonas del ordenamiento territorial del partido, con el nombre y la sigla que les da el municipio, y un color por tipo de uso. Sirve para ver dónde el código admite industria y actividad portuaria junto a zonas residenciales.",
+      "que_no_representa": "No dice qué hay construido ni qué actividad funciona hoy en cada lugar: dice qué uso admite la norma. No es un mapa de riesgo. Los indicadores urbanísticos (alturas, factores de ocupación) no se publican: para eso está el visor municipal.",
+      "limitaciones": "Según el propio visor, la información es orientativa; para un trámite vale la consulta a las áreas técnicas. La categoría de uso, solo para el color, es una agrupación del proyecto (datos/zonificacion_categorias.json), no del municipio. Hay dos inconsistencias en la fuente que se publican como vienen: una \"Zona Residencial 7 Especial\" con la sigla C3 y una \"Zona Comercial 3\" sin sigla.",
+      "estado": "verificada",
+      "elementos": 148,
+      "fecha_datos": "Archivo de la capa publicado el 04/08/2026, según el servidor municipal (Last-Modified); el visor no informa otra fecha y la capa cita ordenanzas de 2024. Consulta al servicio: 2026-10-05.",
+      "procesado": "2026-10-05T03:02:46+00:00",
+      "por_tipo": {
+        "Rural": 1,
+        "Complementaria, semiurbanizada y de reserva": 21,
+        "Comercial y administrativa": 25,
+        "Equipamiento y usos específicos": 30,
+        "Residencial": 46,
+        "Sujeta a estudio": 1,
+        "Verde, playa y frente marítimo": 11,
+        "Industrial y portuaria": 13
+      },
+      "verificacion": {
+        "fecha": "2026-10-05",
+        "controles": [
+          "148 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://necochea.gov.ar/transparencia/ (leída el 2026-10-05)."
+        ]
+      }
     },
     {
       "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
@@ -1080,6 +1124,48 @@
         "controles": [
           "22 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-05)."
+        ]
+      }
+    },
+    {
+      "organismo": "Municipalidad de Necochea, Obras Sanitarias",
+      "url_fuente": "https://necochea.gov.ar/obras-sanitarias/",
+      "url_datos": "https://www.google.com/maps/d/viewer?mid=1MgtytVAe0iBcq8nbGEWAVSQfK1k-laSO (exportación KML)",
+      "licencia": "Información pública de la Municipalidad de Necochea, sin licencia declarada: se usa citando la fuente (decisión de Sebastián, 05/10/2026).",
+      "url_licencia": "https://necochea.gov.ar/transparencia/",
+      "cita": "Municipalidad de Necochea, Obras Sanitarias, \"Pozos OS Necochea\" (mapa de la página de Obras Sanitarias).",
+      "formato": "GeoJSON armado por scripts/descargar_municipio.py a partir de la exportación KML del mapa municipal",
+      "id": "agua_pozos_bombeo",
+      "grupo": "expuestos",
+      "nombre": "Pozos de agua y cámaras de bombeo",
+      "archivo": "agua_pozos_bombeo.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#2171b5",
+        "radio": 5,
+        "campo_color": "tipo",
+        "colores": {
+          "Pozos de explotación de agua": "#2171b5",
+          "Cámaras de bombeo": "#6a51a3"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Los pozos de explotación de agua y las cámaras de bombeo de Obras Sanitarias en Necochea y Quequén. Son una línea vital: funcionan con energía eléctrica y un corte de luz los detiene.",
+      "que_no_representa": "No indica si cada pozo o cámara está funcionando. La página municipal tiene una tabla de estado, pero sus fechas de actualización son de 2021 y 2022: por eso el estado no se publica. Tampoco indica si tienen grupo electrógeno.",
+      "limitaciones": "Ubicación y dirección tal como las carga el municipio. El mapa no aclara si las cámaras de bombeo son de agua o de cloacas (una está en la planta cloacal).",
+      "estado": "verificada",
+      "elementos": 59,
+      "fecha_datos": "Mapa de Obras Sanitarias (Google My Maps del municipio); fechas de actualización de los puntos entre el 27/12/2021 y 28/12/2021.",
+      "procesado": "2026-10-05T03:02:46+00:00",
+      "por_tipo": {
+        "Pozos de explotación de agua": 48,
+        "Cámaras de bombeo": 11
+      },
+      "verificacion": {
+        "fecha": "2026-10-05",
+        "controles": [
+          "59 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "Licencia confirmada en https://necochea.gov.ar/transparencia/ (leída el 2026-10-05)."
         ]
       }
     },
@@ -1290,9 +1376,9 @@
       "que_no_representa": "No indica dotación, equipamiento, horarios ni área de cobertura. Los guardavidas funcionan solo en temporada de verano. No incluye cámaras de videovigilancia ni datos de las personas que trabajan en cada organismo.",
       "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por un colaborador en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. La coordenada que la Provincia da para la Comisaría de la Mujer no cae en su propia dirección (Calle 24 N° 4242, confirmada por un colaborador) sino en Calle 24 y 67: se usa el punto del IGN, que está en esa dirección. La Provincia no publica en datos abiertos la ubicación del Comando de Patrullas, la Policía Rural ni la Policía Vial, y ninguna de las tres figura en el IGN ni en OpenStreetMap (búsqueda del 27/09/2026); lo mismo pasa con los radio clubes. El Comando de Patrullas se publica con el punto que aportó un colaborador que conoce el lugar (28/09/2026), y la ventana lo dice. Los bomberos voluntarios de Ramón Santamarina no tienen cuartel propio publicado: su punto marca el pueblo y no señala ninguna vivienda. La cobertura de los cuarteles de San Cayetano, Benito Juárez y Lobería la informa un colaborador que vive en el partido; la de Lobería la confirma el municipio (incendio de Costa Bonita, 17/12/2020). Sus puntos salen de OpenStreetMap, salvo el de San Manuel. Guardavidas, guardaparques, Cruz Roja, esas tres dependencias policiales y los radio clubes aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central.",
       "estado": "verificada",
-      "elementos": 25,
+      "elementos": 26,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-10-05T02:57:37+00:00",
+      "procesado": "2026-10-05T03:26:21+00:00",
       "por_organismo": {
         "Bomberos": 9,
         "Centro Operativo de Monitoreo": 1,
@@ -1300,14 +1386,14 @@
         "Defensa Civil": 1,
         "Guardaparques": 1,
         "Guardavidas": 1,
-        "Policía": 8,
+        "Policía": 9,
         "Prefectura Naval": 1,
         "Radioaficionados": 1
       },
       "verificacion": {
         "fecha": "2026-10-05",
         "controles": [
-          "25 elementos, todos dentro de la caja de la zona del partido y de los cuarteles vecinos y sin etiquetas excluidas.",
+          "26 elementos, todos dentro de la caja de la zona del partido y de los cuarteles vecinos y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-05).",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-10-05).",
@@ -1345,10 +1431,10 @@
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-10-05T02:57:37+00:00",
+      "procesado": "2026-10-05T03:26:22+00:00",
       "por_tipo": {
-        "Evacuación ante catástrofes": 1,
-        "Personas en situación de calle": 1
+        "Personas en situación de calle": 1,
+        "Evacuación ante catástrofes": 1
       },
       "verificacion": {
         "fecha": "2026-10-05",
@@ -1382,11 +1468,11 @@
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "Puntos aportados por colaboradores; ver la fecha en cada punto.",
-      "procesado": "2026-10-05T02:57:37+00:00",
+      "procesado": "2026-10-05T03:26:22+00:00",
       "por_tipo": {
-        "Comedor": 2,
-        "Organización de ayuda social": 1,
         "Personas en situación de calle": 2,
+        "Organización de ayuda social": 1,
+        "Comedor": 2,
         "Cáritas": 4
       },
       "verificacion": {
