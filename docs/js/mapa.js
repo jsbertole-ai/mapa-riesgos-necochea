@@ -155,10 +155,10 @@
     if (p.fuente === "Provincia de Buenos Aires") {
       return '<p class="nota">Fuente: ' + enlace("https://catalogo.datos.gba.gob.ar/es_AR/dataset/comisarias", "Ministerio de Seguridad de la Provincia de Buenos Aires, Comisarías") + " (CC BY 4.0).</p>";
     }
-    if (p.fuente === "Colaborador") return '<p class="nota">' + esc(p.nota) + "</p>";
+    if (p.fuente === "Colaborador") return '<p class="nota">' + conEnlaces(p.nota) + "</p>";
     return p.fuente === "IGN"
-      ? (p.nota ? '<p class="nota">' + esc(p.nota) + "</p>" : "") + '<p class="nota">' + esc(CITA_IGN) + (p.fuente_captura ? " Fuente de captura: " + esc(p.fuente_captura) + "." : "") + "</p>"
-      : (p.nota ? '<p class="nota">' + esc(p.nota) + "</p>" : "") + '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.ref, "OpenStreetMap, " + p.ref) + " (ODbL).</p>";
+      ? (p.nota ? '<p class="nota">' + conEnlaces(p.nota) + "</p>" : "") + '<p class="nota">' + esc(CITA_IGN) + (p.fuente_captura ? " Fuente de captura: " + esc(p.fuente_captura) + "." : "") + "</p>"
+      : (p.nota ? '<p class="nota">' + conEnlaces(p.nota) + "</p>" : "") + '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.ref, "OpenStreetMap, " + p.ref) + " (ODbL).</p>";
   }
 
   // Organismos de respuesta: IGN (policía, Prefectura, bomberos) y OpenStreetMap (el resto).
@@ -229,12 +229,12 @@
       "<h3>" + esc(p.localidad) + "</h3>" +
       "<div>" + esc(p.categoria) + " · " + numero(p.accesos) + " accesos a Internet fijo</div>" +
       "<ul>" + filas + "</ul>" + minima +
-      '<p class="nota">Accesos declarados por los prestadores ante ENACOM (período no informado). No es un mapa de cobertura. ' + esc(p.punto) + "</p>"
+      '<p class="nota">Accesos declarados por los prestadores ante ENACOM (período no informado). No es un mapa de cobertura. ' + conEnlaces(p.punto) + "</p>"
     );
   }
 
   function popupAsistencia(p) {
-    return "<h3>" + esc(p.nombre) + "</h3>" + "<div>" + esc(p.tipo) + "</div>" + '<p class="nota">' + esc(p.nota) + "</p>";
+    return "<h3>" + esc(p.nombre) + "</h3>" + "<div>" + esc(p.tipo) + "</div>" + '<p class="nota">' + conEnlaces(p.nota) + "</p>";
   }
 
   // Zonificación municipal: nombre y sigla de la zona; la categoría es una agrupación del proyecto para el color.
@@ -265,7 +265,7 @@
     return (
       "<h3>" + esc(p.nombre) + "</h3>" +
       "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
-      (p.nota ? '<p class="nota">' + esc(p.nota) + "</p>" : "") +
+      (p.nota ? '<p class="nota">' + conEnlaces(p.nota) + "</p>" : "") +
       '<p class="nota">' + esc(p.vigencia) + (p.url_vigencia ? " " + enlace(p.url_vigencia, "Ver la nota") + "." : "") + "</p>" +
       '<p class="nota">Ubicación: ' + esc(p.origen) + "</p>" +
       (p.ref
@@ -343,7 +343,7 @@
         return (
           '<div class="registro">' +
           "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
-          '<div class="nota">Ubicación del punto: ' + esc(r.punto) + "</div>" +
+          '<div class="nota">Ubicación del punto: ' + conEnlaces(r.punto) + "</div>" +
           (r.fuentes
             ? '<div class="nota">Fuentes: ' + r.fuentes.map(function (f) { return enlace(f[1], f[0]); }).join("; ") + ".</div>"
             : '<div class="nota">Fuente: ' + esc(r.fuente) + ", Secretaría de Energía (CC BY 4.0).</div>") +
@@ -367,7 +367,7 @@
     return (
       "<h3>" + esc(p.name || tipos[p.man_made] || "Antena") + "</h3>" +
       (filas.length ? "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" : "") +
-      (p.nota ? '<p class="nota">' + esc(p.nota) + "</p>" : "") +
+      (p.nota ? '<p class="nota">' + conEnlaces(p.nota) + "</p>" : "") +
       '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.osm, "OpenStreetMap, " + p.osm) + " (ODbL).</p>"
     );
   }
@@ -410,11 +410,11 @@
           '<div class="registro">' +
           "<strong>" + esc(fecha(r.fecha)) + ". " + esc(r.tipo) + "</strong>" +
           (r.lugar ? " (" + esc(r.lugar) + ")" : "") +
-          "<div>" + esc(r.descripcion) + "</div>" +
+          "<div>" + conEnlaces(r.descripcion) + "</div>" +
           (efectos.length ? "<div>" + esc(efectos.join(" · ")) + "</div>" : "") +
           (r.observaciones_efectos ? "<div>Observaciones: " + conEnlaces(r.observaciones_efectos) + "</div>" : "") +
           (r.servicios && r.servicios.length ? "<div>Servicios afectados: " + esc(r.servicios.join(", ")) + "</div>" : "") +
-          (r.punto ? '<div class="nota">Ubicación del punto: ' + esc(r.punto) + "</div>" : "") +
+          (r.punto ? '<div class="nota">Ubicación del punto: ' + conEnlaces(r.punto) + "</div>" : "") +
           '<div class="nota">Fuente: ' + enlace(r.fuente_url, r.fuente_medio + (r.fuente_fecha ? ", " + fecha(r.fuente_fecha) : "")) + "</div>" +
           "</div>"
         );
