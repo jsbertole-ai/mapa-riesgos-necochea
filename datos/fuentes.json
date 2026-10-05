@@ -554,7 +554,7 @@
       "limitaciones": "El recurso no se actualiza desde el 11/09/2019: algún centro puede haber cerrado o cambiado. La fuente también publica un correo y un teléfono de contacto, que el mapa no muestra. El registro provincial de centros (Datos Abiertos PBA, actualizado en 2026) no trae coordenadas ni ninguno en el partido."
     },
     {
-      "organismo": "Secretaría de Energía de la Nación, en Datos Argentina; parte de los puntos, de OpenStreetMap (colaboradores)",
+      "organismo": "Secretaría de Energía de la Nación, en Datos Argentina; parte de los puntos, de OpenStreetMap (colaboradores); la terminal de fertilizantes Pier Doce, de su presentación ante la ANMaC y de la prensa",
       "url_fuente": "https://datos.gob.ar/dataset/registro-de-operadores-autorizados-para-la-venta-de-combustibles-liquidos",
       "url_datos": "http://sgda.energia.gob.ar/sgdaint/publico/res1102-padronoperadores-publico.xls.zip ; http://datos.energia.gob.ar/dataset/075c393d-5ad1-4cb0-a653-e953c313796d/resource/7f0464ef-9067-4f00-91b3-00b46fde1c39/download/distribuidoras-de-glp.csv ; http://datos.energia.gob.ar/dataset/a9115f5b-084c-4169-92a5-ea85f4a166eb/resource/3f177450-8d92-48e9-a846-91537db5322e/download/plantas-productoras-y-refinadoras-de-aceite-vegetal.csv",
       "licencia": "Creative Commons Atribución 4.0 (CC BY 4.0); ODbL 1.0 para los puntos tomados de OpenStreetMap",
@@ -578,7 +578,7 @@
       "formato": "GeoJSON armado por scripts/descargar_sustancias.py: los tres listados se filtran al partido y cada establecimiento toma el punto que le asigna datos/sustancias/ubicaciones.json; el padrón es un Excel 97 que se lee con scripts/leer_xls.py. Se publican solo el tipo, la dirección que da la fuente y el origen del punto",
       "id": "sustancias_peligrosas",
       "grupo": "portuaria",
-      "nombre": "Sustancias peligrosas: combustibles, gas envasado y aceiteras",
+      "nombre": "Sustancias peligrosas: combustibles, gas envasado, aceiteras y fertilizantes",
       "archivo": "sustancias_peligrosas.geojson",
       "geometria": "punto",
       "estilo": {
@@ -589,13 +589,14 @@
           "Depósitos de combustible": "#7f0000",
           "Estaciones de servicio": "#f16913",
           "Gas envasado (GLP)": "#6a3d9a",
-          "Plantas aceiteras": "#8c510a"
+          "Plantas aceiteras": "#8c510a",
+          "Terminales de fertilizantes": "#1b7837"
         }
       },
       "activa_al_inicio": false,
-      "cita": "Secretaría de Energía: Padrón de operadores autorizados para la venta de combustibles líquidos (Res. SE 1102/2004), Operadores de GLP (distribuidoras) y Plantas productoras y refinadoras de aceite vegetal. Datos Argentina, CC BY 4.0. Parte de los puntos: © colaboradores de OpenStreetMap, ODbL.",
-      "que_representa": "Los establecimientos del partido que los listados oficiales de la Secretaría de Energía registran y que guardan o despachan sustancias inflamables: estaciones de servicio (combustibles líquidos y GNC), depósitos de combustible (revendedores a granel, distribuidores con camiones y tanques de empresas para consumo propio, entre ellos el de la central termoeléctrica), distribuidoras de gas envasado y plantas aceiteras. El proyecto ubicó cada establecimiento uno por uno y la ventana de cada punto dice de dónde sale.",
-      "que_no_representa": "No informa cantidades almacenadas, tipo de tanque ni medidas de seguridad. No incluye depósitos de agroquímicos o fertilizantes, plantas de acopio de granos (donde se fumiga con fosfina), terminales portuarias ni generadores de residuos especiales: ninguno tiene un listado abierto con ubicación. El registro municipal de actividades riesgosas de la Ordenanza 6248/08 existe, pero no está publicado. No muestra titulares, CUIT ni datos de contacto, aunque las fuentes los traigan.",
+      "cita": "Secretaría de Energía: Padrón de operadores autorizados para la venta de combustibles líquidos (Res. SE 1102/2004), Operadores de GLP (distribuidoras) y Plantas productoras y refinadoras de aceite vegetal. Datos Argentina, CC BY 4.0. Parte de los puntos: © colaboradores de OpenStreetMap, ODbL. Terminal de fertilizantes Pier Doce: presentación de Pier Doce S.A. ante la ANMaC (05/03/2018, publicada por el Consorcio de Gestión del Puerto Quequén) y Ecos Diarios (02/12/2020).",
+      "que_representa": "Los establecimientos del partido que los listados oficiales de la Secretaría de Energía registran y que guardan o despachan sustancias inflamables: estaciones de servicio (combustibles líquidos y GNC), depósitos de combustible (revendedores a granel, distribuidores con camiones y tanques de empresas para consumo propio, entre ellos el de la central termoeléctrica), distribuidoras de gas envasado y plantas aceiteras. El proyecto ubicó cada establecimiento uno por uno y la ventana de cada punto dice de dónde sale. Además, la terminal de fertilizantes Pier Doce, con tanques de urea nitrato de amonio y de tiosulfato de amonio según su presentación ante la Agencia Nacional de Materiales Controlados (ANMaC), que no figura en ningún listado abierto con ubicación.",
+      "que_no_representa": "No informa cantidades almacenadas, tipo de tanque ni medidas de seguridad. Salvo la terminal Pier Doce, documentada por su propia presentación ante la ANMaC, no incluye depósitos de agroquímicos o fertilizantes, plantas de acopio de granos (donde se fumiga con fosfina), terminales portuarias ni generadores de residuos especiales: ninguno tiene un listado abierto con ubicación. El registro municipal de actividades riesgosas de la Ordenanza 6248/08 existe, pero no está publicado. No muestra titulares, CUIT ni datos de contacto, aunque las fuentes los traigan.",
       "limitaciones": "El padrón de combustibles es un registro de inscripciones: puede incluir operadores que ya no están en actividad. Trae dirección y no coordenadas. De sus 50 inscripciones en el partido se descartan 4 fleteros, que no almacenan, y se ubicaron 40. De ellas, 32 salen de fuentes abiertas: la estación de servicio de OpenStreetMap que corresponde a la dirección (en la mayoría, con el mismo operador), las coordenadas que declara el propio padrón o la esquina, el cruce o el tramo de calle que declara, tomado de OpenStreetMap. Las otras 8 las ubicó un colaborador que conoce los lugares, porque Quequén, La Dulce y parte de Necochea no tienen direcciones cargadas en OpenStreetMap; la ventana de cada punto lo dice. Cuatro inscripciones no corresponden al partido o tienen una dirección inexistente, y 2 siguen sin ubicar (DATOS.md, sección 17). Una esquina o un cruce tiene una precisión de decenas de metros. La Secretaría de Energía no dice cómo tomó las coordenadas de las distribuidoras de GLP; las de las aceiteras las georreferenció con datos de la Cámara de la Industria Aceitera. Muchas estaciones también figuran en la capa de industria del IGN."
     },
     {

@@ -1,4 +1,4 @@
-"""Capa "Sustancias peligrosas": combustibles, gas envasado y plantas aceiteras del partido.
+"""Capa "Sustancias peligrosas": combustibles, gas envasado, plantas aceiteras y terminales de fertilizantes del partido.
 
 Uso:  python3 scripts/descargar_sustancias.py            (descarga y procesa)
       python3 scripts/descargar_sustancias.py --offline  (procesa lo ya guardado en datos/crudos/sustancias/)
@@ -9,6 +9,9 @@ Listados oficiales de la Secretaría de Energía (Datos Argentina, CC BY 4.0):
     Se descartan los fleteros (distribuidores por cuenta de terceros), que no almacenan.
   - Distribuidoras de GLP (registro de la Res. SE 800/2004), con coordenadas.
   - Plantas productoras y refinadoras de aceite vegetal, con coordenadas.
+Además, los establecimientos sin listado oficial con ubicación que documenta otra fuente pública (la
+terminal de fertilizantes Pier Doce, por su presentación ante la ANMaC), en "otras_fuentes" de
+datos/sustancias/ubicaciones.json.
 
 Regla de ubicación (CLAUDE.md, decisión de Sebastián del 28/09/2026): cada establecimiento se ubica
 uno por uno y el punto, con su origen, queda en datos/sustancias/ubicaciones.json; se publica solo
@@ -51,8 +54,9 @@ ESTACIONES = "Estaciones de servicio"
 DEPOSITOS = "Depósitos de combustible"
 GAS = "Gas envasado (GLP)"
 ACEITE = "Plantas aceiteras"
+FERTILIZANTES = "Terminales de fertilizantes"
 # Si en un mismo punto hay más de un establecimiento, el color es el de la categoría que va primero.
-PRIORIDAD = (DEPOSITOS, GAS, ACEITE, ESTACIONES)
+PRIORIDAD = (DEPOSITOS, FERTILIZANTES, GAS, ACEITE, ESTACIONES)
 
 
 def sin_tildes(texto):
@@ -208,6 +212,23 @@ def main():
             registro["punto"] = u["fuente_punto"]
             por_punto.setdefault((lon, lat), []).append(registro)
             estado["publicados"] += 1
+
+    # Establecimientos sin listado oficial con ubicación, documentados por otra fuente pública
+    # (por ejemplo, la terminal de fertilizantes Pier Doce): traen sus datos y su fuente completos.
+    for clave, u in ubicaciones.get("otras_fuentes", {}).items():
+        if clave.startswith("_"):
+            continue
+        if not u.get("aprobado"):
+            estado["sin_aprobar"].append(f"otras_fuentes: {clave}")
+            continue
+        lat, lon = round(u["punto"][0], 5), round(u["punto"][1], 5)
+        if not punto_en_geometria(lon, lat, limite, caja):
+            estado["fuera_del_partido"].append(f"otras_fuentes: {clave}")
+            continue
+        registro = {k: u[k] for k in ("categoria", "tipo", "detalle", "localidad", "fuentes") if u.get(k)}
+        registro["punto"] = u["fuente_punto"]
+        por_punto.setdefault((lon, lat), []).append(registro)
+        estado["publicados"] += 1
 
     features = []
     for (lon, lat), registros in sorted(por_punto.items()):

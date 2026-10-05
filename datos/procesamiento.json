@@ -757,17 +757,18 @@
     "fecha_datos": "Recurso actualizado por última vez el 11/09/2019, según datos.gob.ar."
   },
   "sustancias_peligrosas": {
-    "procesado": "2026-09-28T17:58:46+00:00",
+    "procesado": "2026-10-05T04:10:15+00:00",
     "archivo_crudo": "sustancias/",
     "sha256_crudo": {
       "res1102-padronoperadores-publico.xls.zip": "830b0b8b16949aa33cb29998d5b98c3f76a8786f262c1c27ef10d6fb81faa12b",
       "distribuidoras-de-glp.csv": "f9cbe0921e8839a1cbc49f7b15f40ede7dc48e564620d589c42d213c9abf120f",
       "plantas-productoras-y-refinadoras-de-aceite-vegetal.csv": "c1bfe94c10e61d513fe94ee89d56d1972bd6713e5483f4fb006367b418aba522"
     },
-    "elementos": 41,
-    "registros": 46,
+    "elementos": 42,
+    "registros": 47,
     "por_tipo": {
       "Depósitos de combustible": 16,
+      "Terminales de fertilizantes": 1,
       "Gas envasado (GLP)": 4,
       "Plantas aceiteras": 2,
       "Estaciones de servicio": 19
