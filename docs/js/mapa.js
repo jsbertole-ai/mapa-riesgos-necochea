@@ -241,14 +241,13 @@
     );
   }
 
-  // Pozos y cámaras de bombeo de Obras Sanitarias: sin el estado, porque la tabla municipal es de 2021 y 2022.
+  // Pozos y cámaras de bombeo de Obras Sanitarias: tipo, dirección y fuente (pedido de Sebastián, 05/10/2026).
   function popupAgua(p) {
+    const filas = [["Tipo", p.tipo], ["Dirección", p.direccion || "Sin dirección en la fuente"],
+      ["Fuente", enlace("https://necochea.gov.ar/obras-sanitarias/", "Municipalidad de Necochea, Obras Sanitarias")]];
     return (
       "<h3>" + esc(p.nombre) + "</h3>" +
-      "<table><tr><td>Tipo</td><td>" + esc(p.tipo) + "</td></tr>" +
-      (p.direccion ? "<tr><td>Dirección</td><td>" + esc(p.direccion) + "</td></tr>" : "") + "</table>" +
-      '<p class="nota">Funciona con energía eléctrica: un corte de luz lo detiene. El estado de funcionamiento no se muestra porque la tabla municipal se actualizó por última vez en 2021 y 2022. Fuente: ' +
-      enlace("https://necochea.gov.ar/obras-sanitarias/", "Municipalidad de Necochea, Obras Sanitarias") + ".</p>"
+      "<table>" + filas.map(function (f, k) { return "<tr><td>" + esc(f[0]) + "</td><td>" + (k === 2 ? f[1] : esc(f[1])) + "</td></tr>"; }).join("") + "</table>"
     );
   }
 
