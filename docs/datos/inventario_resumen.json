@@ -19,8 +19,8 @@
     "Incendio": 1,
     "Sequía": 2,
     "Plaga": 1,
-    "Contaminación": 2,
-    "Otro": 1
+    "Contaminación": 1,
+    "Otro": 2
   },
   "por_anio": {
     "2018": 2,
