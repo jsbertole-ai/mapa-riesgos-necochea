@@ -852,3 +852,19 @@ Capa aprobada por Sebastián el 05/10/2026, en el grupo "Capacidad de respuesta"
 | Lo que no se publica | El estado ("activado", "fuera de servicio"). La página dice que la tabla muestra "la información en tiempo real" y que la actualiza "diariamente" el personal de Obras Sanitarias, pero las fechas de actualización de la tabla van de diciembre de 2021 a noviembre de 2022 (leída el 05/10/2026), y las del KML son del 27 y 28/12/2021. Con datos de esa antigüedad, el estado confundiría a quien mire el mapa durante un corte de energía |
 | Por qué importa | Son una línea vital: funcionan con energía eléctrica, así que un corte de luz deja sin bombeo de agua a la zona que abastecen. El mapa no dice si tienen grupo electrógeno |
 | Limitaciones | El mapa no aclara si las cámaras de bombeo son de agua potable o de cloacas (una está en la planta cloacal). Script: `scripts/descargar_municipio.py` |
+
+## 27. Resolución de la Autoridad del Agua sobre Evasio Marmetto S.A. · **Verificada** · registro `proyecto-0042` del inventario (en espera de aprobación)
+
+Pedido de Sebastián (05/10/2026): cargar como un evento aparte, en el mismo establecimiento que el derrame del 11/08/2018, la resolución oficial hallada ese día.
+
+| Campo | Valor |
+|---|---|
+| Organismo | Directorio de la Autoridad del Agua de la Provincia de Buenos Aires |
+| Documento | Resolución firma conjunta RESOC-2022-717-GDEBA-ADA, 11/05/2022, expediente 2436-29654/18 ("Multa empresa EVASIO MARMETTO SA") |
+| URL exacta | https://normas.gba.gob.ar/documentos/Vmbj3pfd.pdf (PDF de texto, leído completo el 05/10/2026) |
+| Licencia | Sin licencia declarada: norma publicada por el Estado provincial en su sistema de normativa; se cita la fuente |
+| Qué dice | Inspección conjunta con la Policía Ecológica y la Dirección de Gestión Ambiental municipal el 05/07/2018 (acta Serie D N.º 903). Se dejaron sin efecto las infracciones por la inscripción en la Autoridad del Agua y por el permiso de explotación del agua. Se aplicó una multa de $57.916,64 por vuelco sin permiso (art. 104, Ley 12.257) y por la falta de cámara de toma de muestras y aforo (art. 14, reglamento de la Ley 5.965). El análisis del efluente dio valores aceptables. Establecimiento en calle 78 N.º 1968, rubro "elaboración de subproductos ganaderos" |
+| Limitaciones | No trata del derrame de gas fosfina del 11/08/2018 (la inspección es cinco semanas anterior y la resolución no lo menciona). El texto nombra a una persona con su DNI: no se transcribe. Sin páginas numeradas; las fojas se citan dentro del texto |
+| Punto | Centro del edificio de OpenStreetMap `w1565064301` (`building=yes`, `man_made=works`, operador Evasio Marmetto S.A., Calle 78 N.º 1968; versión 1 del 05/10/2026), leído con la API de OpenStreetMap el 05/10/2026 (ODbL). Es un rombo de unos 115 m de lado. Los puntos del colaborador y del 05/10/2026 caen unos 6 m afuera, sobre el borde sudeste |
+| Sitio de la empresa | http://www.evasiomarmetto.com.ar/ (etiqueta `website` de OpenStreetMap; no respondió desde el entorno el 05/10/2026, sin comprobar su contenido) |
+| Pendiente | La causa judicial de la clausura del 2018 no se encontró: AhoraInfo (12/02/2019, https://ahorainfo.com.ar/2019/02/12/contaminacion-que-pasa-con-evasio-marmetto-sa/) dice que intervino la Fiscalía Departamental y que se ordenó una clausura preventiva, sin número de causa (sin comprobar) |
