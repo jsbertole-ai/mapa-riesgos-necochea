@@ -65,6 +65,15 @@ RASTROS_PERSONALES = [
 ]
 
 
+# En los textos libres, [texto](https://...) se muestra como enlace en la ventana del mapa. Para los topes de largo
+# y el control de datos personales cuenta solo el texto visible: la dirección no es parte de lo que se lee.
+ENLACE_MARCADO = re.compile(r"\[([^\]]+)\]\(https?://[^\s)]+\)")
+
+
+def visible(texto):
+    return ENLACE_MARCADO.sub(r"\1", texto)
+
+
 def leer_csv(ruta):
     texto = ruta.read_bytes().decode("utf-8-sig")
     primera = texto.splitlines()[0] if texto else ""
@@ -140,10 +149,11 @@ def controlar(fila, cfg, etiquetas, limite, caja):
     punto_fuente = (fila.get("ubicacion_fuente") or "").strip()
     descripcion = fila["descripcion"].strip()
     observaciones = (fila.get("observaciones_efectos") or "").strip() if tipo == "evento" else ""
-    if len(lugar) > 120 or len(descripcion) > 400 or len(observaciones) > 300 or len(punto_fuente) > 200:
+    if (len(visible(lugar)) > 120 or len(visible(descripcion)) > 400 or len(visible(observaciones)) > 300
+            or len(visible(punto_fuente)) > 200 or len(descripcion) + len(observaciones) + len(punto_fuente) > 1200):
         return None, "texto más largo que lo permitido"
     for nombre, patron in RASTROS_PERSONALES:
-        if any(patron.search(t) for t in (lugar, descripcion, observaciones, punto_fuente)):
+        if any(patron.search(visible(t)) for t in (lugar, descripcion, observaciones, punto_fuente)):
             return None, f"posible dato personal ({nombre}); revisar y corregir en Kobo"
     p = punto(fila)
     if p is False:

@@ -101,11 +101,18 @@
     return '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(texto || url) + "</a>";
   }
 
-  // Escapa el texto y convierte en enlace cada dirección http(s) que traiga. El punto, la coma o el
-  // paréntesis que cierran una frase no forman parte del enlace.
+  // Escapa el texto y convierte en enlace: cada [texto](https://...), cada dirección http(s) suelta y cada
+  // referencia de OpenStreetMap ("OSM w123", "OSM n123", "OSM r123"). El punto, la coma o el paréntesis que
+  // cierran una frase no forman parte del enlace.
+  const TIPO_OSM = { w: "way", n: "node", r: "relation" };
   function conEnlaces(texto) {
-    return String(texto).split(/(https?:\/\/[^\s]*[^\s.,;:)])/).map(function (trozo, i) {
-      return i % 2 ? enlace(trozo, trozo.replace(/^https?:\/\/(www\.)?/, "").split("/")[0]) : esc(trozo);
+    return String(texto).split(/(\[[^\]]+\]\(https?:\/\/[^\s)]+\)|https?:\/\/[^\s]*[^\s.,;:)]|\bOSM [wnr]\d+\b)/).map(function (trozo, i) {
+      if (i % 2 === 0) return esc(trozo);
+      let m = trozo.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)$/);
+      if (m) return enlace(m[2], m[1]);
+      m = trozo.match(/^OSM ([wnr])(\d+)$/);
+      if (m) return enlace("https://www.openstreetmap.org/" + TIPO_OSM[m[1]] + "/" + m[2], trozo);
+      return enlace(trozo, trozo.replace(/^https?:\/\/(www\.)?/, "").split("/")[0]);
     }).join("");
   }
 
