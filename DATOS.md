@@ -356,6 +356,7 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Respuesta: cuarteles de bomberos | OpenStreetMap | Verificada, ODbL; completa según Sebastián | Publicada, apagada al inicio (2) |
 | Respuesta: Defensa Civil | OpenStreetMap (corregido el 26/09/2026) | Verificada, ODbL | Publicada, apagada al inicio (1) |
 | Respuesta: Centro Operativo de Monitoreo | OpenStreetMap | Verificada, ODbL; sin cámaras | Publicada, apagada al inicio (1) |
+| Respuesta: servicios de playa | Municipalidad de Necochea (mapa de 2023 y notas de 2025-2026) y OpenStreetMap (sección 25) | Verificada, información pública municipal con cita y ODbL | Publicada, apagada al inicio (42; falta el puesto 61) |
 
 ---
 
@@ -803,3 +804,29 @@ Diario Necochea (diarionecochea.com) responde con una página vacía (código 20
 - https://diarionecochea.com/2023/12/12/jornada-intensa-para-bomberos-por-multiples-incendios-en-la-dulce-fernandez-y-san-cayetano/ (incendios simultáneos en La Dulce, Fernández y San Cayetano; puede documentar asistencia entre cuarteles, sección 9).
 - https://diarionecochea.com/2023/04/09/se-incendio-un-auto-en-ruta-86-causando-perdidas-totales/ (auto incendiado en la RP 86: ver qué cuartel actuó).
 - https://diarionecochea.com/2024/03/06/bomberos-voluntarios-de-san-cayetano-y-la-dulce-recibiran-mas-de-11-millones-del-ministerio-de-seguridad/ (subsidios a San Cayetano y La Dulce).
+
+## 25. Servicios de playa (Municipalidad de Necochea y OpenStreetMap) · **Verificada** · en uso (desde el 05/10/2026)
+
+Capa aprobada por Sebastián el 05/10/2026, en el grupo "Capacidad de respuesta". Lista de puntos en `datos/servicios_playa.json`; script `scripts/armar_playa.py`.
+
+| Campo | Valor |
+|---|---|
+| Fuente de los puntos | Municipalidad de Necochea, Dirección de Relaciones con la Comunidad y DDHH (Área GIS), mapa "Info Zona Playa - 2023", publicado en "Mapas Útiles" (https://necochea.gov.ar/mapas-utiles/). Visor: https://www.google.com/maps/d/viewer?mid=14s6GBczqEDmkVCyO3y27SkUbBibg_dM. Exportación: https://www.google.com/maps/d/kml?mid=14s6GBczqEDmkVCyO3y27SkUbBibg_dM&forcekml=1 (KML, cuatro carpetas; se usa "PUNTOS DE INTERES", 42 puntos) |
+| Por qué se puede usar | Los puntos los cargó el municipio; Google solo aloja el mapa (My Maps). No es "contenido de Google Maps" en el sentido de sus condiciones |
+| Licencia | Sin licencia declarada. La página "Datos Abiertos" del municipio (https://necochea.gov.ar/transparencia/) dice que, por la Ley de Acceso a la Información Pública, la información del Estado debe estar disponible "para facilitar su circulación y redistribución": se usa como información pública, citando la fuente (decisión de Sebastián, 05/10/2026). `verificar.py` controla esa frase |
+| Fecha | Mapa de 2023. Vigencia cotejada con notas municipales: guardavidas, 26/12/2025 (https://necochea.gov.ar/desde-enero-se-pone-en-marcha-la-cobertura-completa-del-servicio-de-guardavidas/) y 27/03/2026 (https://necochea.gov.ar/se-informa-como-funcionara-el-servicio-de-guardavidas-desde-el-1-de-abril/); postas sanitarias, 14/01/2026 (https://necochea.gov.ar/postas-sanitarias-de-verano-la-municipalidad-refuerza-la-atencion-con-cobertura-de-8-a-20/) y 12/02/2026 (https://necochea.gov.ar/las-postas-de-salud-tuvieron-amplia-cobertura-en-enero-y-continuan-activas-durante-el-verano/) |
+| Contenido publicado | 42 puntos: 36 puestos de guardavidas, 3 postas sanitarias (2 y 87, escollera de Quequén, Villa Zabala), la posta de seguridad de Villa Zabala, el puesto de verano de Prefectura y guardaparques |
+| Cotejo (05/10/2026) | De los 31 puestos de guardavidas del mapa de 2023, 25 figuran en la nota de la temporada 2025-2026 (el puesto "Neco" es el de "Letras de Necochea": en OpenStreetMap está el "Cartel de Necochea" en el mismo lugar). La Hélice, 65 y Cisnes no figuran en la nota y se mantienen porque, según un colaborador, los puestos no se levantan: se suman según la cantidad de guardavidas de cada temporada. La comparación de nombres la hizo primero Jev (TypeSafe) y se revisó a mano: marcó sin correspondencia Escollera, Rambla y 87, con confianza baja (0,51 a 0,6), y se corrigieron |
+| Puestos ubicados en OpenStreetMap | Los que la nota de 2026 nombra y el mapa de 2023 no tiene: 67 (cruce de la calle 67 y la avenida 2), Playa Morena (balneario), Espigón (muelle de pescadores, según un colaborador), Puente Dardo Rocha y Puente Blanco (puentes) y Las Cascadas (paraje) |
+| No incluidos | Karamawi 2 (en Karamawi hay un solo puesto, según un colaborador); las postas de 2 y 79 y de Costa Bonita (no figuran en las notas de 2026); Defensa Civil (ya está en "Organismos de respuesta"); turismo y estacionamiento medido |
+| Pendiente | Puesto 61: la nota lo nombra, pero en OpenStreetMap la calle 61 no llega a la costanera. Postas de seguridad del Operativo Sol 2026: las notas (Data eNe y Necochea Digital, 26/12/2025; https://necochea.gov.ar/tag/operativo-sol/) dan efectivos y fechas, no lugares |
+| Control | Contra la caja del partido, no contra su polígono: la costa del límite del IGN está simplificada y deja afuera 12 puestos que están sobre la arena |
+
+**Mapa de fondo: se sigue con OpenStreetMap (decisión de Sebastián, 05/10/2026).** Se evaluó pasar al mapa de Google, que usa el municipio. Las condiciones de Google Maps Platform (https://cloud.google.com/maps-platform/terms, modificadas el 26/08/2026) prohíben crear contenido a partir de su mapa ("No Creating Content From Google Maps Content") y usarlo junto a mapas o contenido que no sean de Google ("No Use With Non-Google Maps"): con su fondo no se podría tomar de él ningún punto, y las capas de OpenStreetMap del proyecto quedarían en infracción. Además pide cuenta de facturación y clave. Lo que falta en OpenStreetMap se puede cargar ahí.
+
+**Otras fuentes municipales aportadas por un colaborador (05/10/2026) · Identificadas, sin procesar:**
+
+- Secretaría de Planeamiento, Obras y Servicios Públicos (https://necochea.gov.ar/secretaria-de-planeamiento-obras-y-servicios-publicos/): indicadores urbanísticos por zona y plano de zonificación (PDF), y zonificación de Claraz, Juan N. Fernández, Nicanor Olivera (La Dulce) y Ramón Santamarina (JPG). El colaborador ya los descargó. Cita indicada: "Municipalidad de Necochea, Secretaría de Planeamiento, Obras y Servicios Públicos, actualización a octubre de 2026". Puede resolver la sección 3.3.
+- Visor de Información Territorial y Urbanística (https://necochea.gov.ar/descargas/planeamiento/qgis/index.html), hecho con qgis2web y Leaflet: parcelas, zonificación e indicadores. Información orientativa según el propio visor. Falta revisar qué capas trae y en qué formato.
+- Obras Sanitarias (https://necochea.gov.ar/obras-sanitarias/): estado de cámaras de bombeo y pozos de explotación, con su ubicación; dejan de funcionar con un corte de energía. Falta revisar el formato y si el mapa es del municipio o de Google.
+- Google Flood Hub (https://sites.research.google/floods): pronóstico de crecidas de ríos. Es contenido de Google: sirve de referencia y enlace, no como capa.

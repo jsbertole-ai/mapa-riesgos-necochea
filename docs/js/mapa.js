@@ -229,6 +229,21 @@
     return "<h3>" + esc(p.nombre) + "</h3>" + "<div>" + esc(p.tipo) + "</div>" + '<p class="nota">' + esc(p.nota) + "</p>";
   }
 
+  // Servicios de playa: el punto sale del mapa municipal de 2023 o de OpenStreetMap; la vigencia, de una nota municipal.
+  function popupPlaya(p) {
+    const filas = [["Tipo", p.tipo], ["Temporada", p.temporada === "verano" ? "Funciona en verano" : "Todo el año"]];
+    return (
+      "<h3>" + esc(p.nombre) + "</h3>" +
+      "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
+      (p.nota ? '<p class="nota">' + esc(p.nota) + "</p>" : "") +
+      '<p class="nota">' + esc(p.vigencia) + (p.url_vigencia ? " " + enlace(p.url_vigencia, "Ver la nota") + "." : "") + "</p>" +
+      '<p class="nota">Ubicación: ' + esc(p.origen) + "</p>" +
+      (p.ref
+        ? '<p class="nota">Fuente: ' + enlace("https://www.openstreetmap.org/" + p.ref, "OpenStreetMap, " + p.ref) + " (ODbL).</p>"
+        : '<p class="nota">Fuente: ' + enlace("https://necochea.gov.ar/mapas-utiles/", "Municipalidad de Necochea, Mapas Útiles") + ".</p>")
+    );
+  }
+
   function popupRefugio(p) {
     return (
       "<h3>" + esc(p.nombre || p.tipo) + "</h3>" +
@@ -521,6 +536,7 @@
           if (capa.id === "inventario_local") return popupInventario(f.properties);
           if (capa.id === "organismos") return popupOrganismo(f.properties);
           if (capa.id === "refugios") return popupRefugio(f.properties);
+          if (capa.id === "servicios_playa") return popupPlaya(f.properties);
           if (capa.id === "red_asistencia") return popupAsistencia(f.properties);
           if (capa.id === "conectividad_localidades") return popupConectividad(f.properties);
           if (capa.id === "gasoductos") return popupGasoducto(f.properties);

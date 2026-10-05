@@ -766,5 +766,54 @@
     "last_modified": null,
     "bytes": 642,
     "sha256": "dc6cedf3c14b81584a659d2a7cf09fc85da1995c2ffb3a2edd7e0788615a1bd4"
+  },
+  "datos/crudos/municipio/info_zona_playa.kml": {
+    "url": "https://www.google.com/maps/d/kml?mid=14s6GBczqEDmkVCyO3y27SkUbBibg_dM&forcekml=1",
+    "descargado": "2026-10-05T02:38:12+00:00",
+    "last_modified": null,
+    "bytes": 74924,
+    "sha256": "6f1c58a45c0915ae8f3026fd5c4e1acf21cfcfd9ca01a50f25bee75905656a1b"
+  },
+  "datos/crudos/osm/playa/node_1271626899.json": {
+    "url": "https://api.openstreetmap.org/api/0.6/node/1271626899.json",
+    "descargado": "2026-10-05T02:38:12+00:00",
+    "last_modified": null,
+    "bytes": 432,
+    "sha256": "81be1397422cc1c30b7d5f27491aa5af1f75befb337075b7cc3588340efa5953"
+  },
+  "datos/crudos/osm/playa/way_1547343582.json": {
+    "url": "https://api.openstreetmap.org/api/0.6/way/1547343582/full.json",
+    "descargado": "2026-10-05T02:38:13+00:00",
+    "last_modified": null,
+    "bytes": 1379,
+    "sha256": "45303e77e6e701f36248b25a12d4cccd827e759e85aa7228ba73d482ec0eda43"
+  },
+  "datos/crudos/osm/playa/way_183802537.json": {
+    "url": "https://api.openstreetmap.org/api/0.6/way/183802537/full.json",
+    "descargado": "2026-10-05T02:38:13+00:00",
+    "last_modified": null,
+    "bytes": 2713,
+    "sha256": "82ada39a679803b4a347578b7037e0eac7c252046fb78e7cbd702402b70c292e"
+  },
+  "datos/crudos/osm/playa/way_111662520.json": {
+    "url": "https://api.openstreetmap.org/api/0.6/way/111662520/full.json",
+    "descargado": "2026-10-05T02:38:13+00:00",
+    "last_modified": null,
+    "bytes": 959,
+    "sha256": "53c29e6ecaab1e4be3eb2a22c6e486ea36eb5dcfe3bf2b8a4bd16d92ddb81e06"
+  },
+  "datos/crudos/osm/playa/node_1764401041.json": {
+    "url": "https://api.openstreetmap.org/api/0.6/node/1764401041.json",
+    "descargado": "2026-10-05T02:38:14+00:00",
+    "last_modified": null,
+    "bytes": 429,
+    "sha256": "07a08ece812252808974973458db6f5033c19eed75a1304fc4151e35a1194c7e"
+  },
+  "datos/crudos/osm/playa/node_1764401015.json": {
+    "url": "https://api.openstreetmap.org/api/0.6/node/1764401015.json",
+    "descargado": "2026-10-05T02:38:14+00:00",
+    "last_modified": null,
+    "bytes": 493,
+    "sha256": "e5bfb7845fc9f715cce4cc6b231ead6bd8db42c88d4104e83f65671838fd9fe4"
   }
 }

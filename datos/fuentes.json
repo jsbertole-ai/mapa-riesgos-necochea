@@ -987,6 +987,43 @@
       "limitaciones": "Está en construcción: por ahora tiene solo los puntos que aportaron colaboradores que conocen el lugar, y cada ventana lo dice. Los puntos de Cáritas del mapa \"Mapas Cáritas\" (Mapa Poblaciones) están pendientes de descarga (DATOS.md, sección 13.1)."
     },
     {
+      "organismo": "Municipalidad de Necochea (Dirección de Relaciones con la Comunidad y DDHH, Área GIS; Secretaría de Gobierno; Secretaría de Salud) y OpenStreetMap (colaboradores)",
+      "url_fuente": "https://necochea.gov.ar/mapas-utiles/",
+      "url_datos": "https://www.google.com/maps/d/viewer?mid=14s6GBczqEDmkVCyO3y27SkUbBibg_dM (exportación KML) ; https://api.openstreetmap.org/api/0.6/",
+      "licencia": "Información pública de la Municipalidad de Necochea, sin licencia declarada: se usa citando la fuente (decisión de Sebastián, 05/10/2026). Lo tomado de OpenStreetMap, ODbL 1.0.",
+      "url_licencia": "https://necochea.gov.ar/transparencia/",
+      "frase_licencia": "facilitar su circulación y redistribución",
+      "licencias_extra": [
+        {
+          "url_licencia": "https://www.openstreetmap.org/copyright",
+          "frase_licencia": "Open Data Commons Open Database License"
+        }
+      ],
+      "cita": "Municipalidad de Necochea, Dirección de Relaciones con la Comunidad y DDHH (Área GIS), \"Info Zona Playa - 2023\"; notas municipales del 26/12/2025 (guardavidas) y del 14/01/2026 (postas sanitarias). Algunos puestos: © colaboradores de OpenStreetMap (ODbL).",
+      "formato": "GeoJSON armado por scripts/armar_playa.py a partir del KML municipal y de la API de OpenStreetMap, según la lista de datos/servicios_playa.json",
+      "id": "servicios_playa",
+      "grupo": "respuesta",
+      "nombre": "Servicios de playa",
+      "archivo": "servicios_playa.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#e8b400",
+        "radio": 5,
+        "campo_color": "tipo",
+        "colores": {
+          "Guardavidas": "#e8b400",
+          "Posta sanitaria": "#e7298a",
+          "Posta de seguridad": "#253494",
+          "Prefectura Naval (puesto de verano)": "#1d91c0",
+          "Guardaparques": "#33a02c"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Los puestos de guardavidas de las playas y de los balnearios del río Quequén Grande, las tres postas sanitarias de verano, la posta de seguridad de Villa Zabala, el puesto de verano de Prefectura y la base de guardaparques. Salvo guardaparques, funcionan en temporada de verano.",
+      "que_no_representa": "No indica si el puesto está abierto hoy ni sus horarios, que cambian cada temporada y dentro de ella (la Municipalidad los informa cada año). No incluye los guardavidas privados de cada balneario. Un puesto sin guardavidas no es una playa segura para bañarse.",
+      "limitaciones": "Los puntos vienen del mapa municipal de 2023 y se cotejaron con las notas municipales de la temporada 2025-2026; los puestos que ese mapa no tiene se ubicaron en OpenStreetMap (un balneario, un puente, un muelle o un cruce de calles), y cada ventana dice de dónde sale el punto. Falta el puesto 61, que OpenStreetMap no permite ubicar. Las postas de seguridad del Operativo Sol 2026 no tienen ubicación publicada."
+    },
+    {
       "id": "inventario_local",
       "grupo": "inventario",
       "nombre": "Eventos y vulnerabilidades registrados en medios locales",
