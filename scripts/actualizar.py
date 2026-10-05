@@ -4,7 +4,7 @@ Uso:  python3 scripts/actualizar.py            (descarga todo y verifica)
       python3 scripts/actualizar.py --offline  (reprocesa lo que ya está en datos/crudos/)
 
 Orden: límite (hace falta para recortar lo demás), FIRMS, OpenStreetMap, IGN, cuenca del Quequén,
-organismos de respuesta, media tensión, barrios populares (RENABAP), indicadores, inventario local (usa la última exportación de Kobo que haya en
+organismos de respuesta, servicios de playa, media tensión, barrios populares (RENABAP), indicadores, inventario local (usa la última exportación de Kobo que haya en
 datos/crudos/inventario/) y verificación. Un paso que falla no frena los siguientes: la capa afectada
 queda "pendiente de fuente" y verificar.py lo anota.
 """
@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
-PASOS = ["descargar_limite.py", "descargar_firms.py", "descargar_osm.py", "descargar_ign.py", "descargar_cuenca.py", "armar_respuesta.py", "armar_conectividad.py", "armar_poblacion.py", "armar_vulnerabilidad.py", "descargar_energia.py", "descargar_gasoductos.py", "descargar_renabap.py", "descargar_envases.py", "descargar_sustancias.py", "descargar_indicadores.py",
+PASOS = ["descargar_limite.py", "descargar_firms.py", "descargar_osm.py", "descargar_ign.py", "descargar_cuenca.py", "armar_respuesta.py", "armar_playa.py", "armar_conectividad.py", "armar_poblacion.py", "armar_vulnerabilidad.py", "descargar_energia.py", "descargar_gasoductos.py", "descargar_renabap.py", "descargar_envases.py", "descargar_sustancias.py", "descargar_indicadores.py",
          "procesar_inventario.py", "verificar.py"]
 
 

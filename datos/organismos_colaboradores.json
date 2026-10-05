@@ -56,6 +56,15 @@
         -58.84772
       ],
       "fuente": "Destacamento de un partido vecino que asiste al de Necochea, según un colaborador (01/10/2026). No tiene cuartel propio publicado: como en Ramón Santamarina, el punto marca el pueblo y no señala ninguna vivienda. En octubre de 2022 se designó un nuevo jefe del servicio (2261 Noticias: https://www.2261.com.ar/nuevo-jefe-para-el-destacamento-de-bomberos-de-san-manuel/)."
+    },
+    {
+      "organismo": "Guardaparques",
+      "nombre": "Guardaparques",
+      "punto": [
+        -38.583829,
+        -58.736109
+      ],
+      "fuente": "Base de guardaparques: punto del mapa municipal \"Info Zona Playa - 2023\" (Área GIS de la Municipalidad de Necochea, https://necochea.gov.ar/mapas-utiles/). Funciona todo el año, según un colaborador (05/10/2026)."
     }
   ]
 }

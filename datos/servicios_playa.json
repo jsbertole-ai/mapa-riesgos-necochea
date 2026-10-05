@@ -1,0 +1,83 @@
+{
+  "_nota": "Capa \"Servicios de playa\" (aprobada por Sebastián el 05/10/2026). El punto sale del mapa municipal \"Info Zona Playa - 2023\" (campo kml: nombre e id del punto en la carpeta PUNTOS DE INTERES) o, para los puestos que ese mapa no tiene, de un elemento de OpenStreetMap (campo osm). La vigencia de cada punto se apoya en la fuente indicada en vigencia.",
+  "kml": {
+    "url": "https://www.google.com/maps/d/kml?mid=14s6GBczqEDmkVCyO3y27SkUbBibg_dM&forcekml=1",
+    "visor": "https://www.google.com/maps/d/viewer?mid=14s6GBczqEDmkVCyO3y27SkUbBibg_dM",
+    "carpeta": "PUNTOS DE INTERES",
+    "cita": "Municipalidad de Necochea, Dirección de Relaciones con la Comunidad y DDHH (Área GIS), \"Info Zona Playa - 2023\", mapa publicado en la página \"Mapas Útiles\" (https://necochea.gov.ar/mapas-utiles/)."
+  },
+  "vigencia": {
+    "guardavidas_2026": {
+      "texto": "Puesto que la Municipalidad de Necochea informó para la temporada 2025-2026 (nota del 26/12/2025, servicio desde el 1/1/2026).",
+      "url": "https://necochea.gov.ar/desde-enero-se-pone-en-marcha-la-cobertura-completa-del-servicio-de-guardavidas/"
+    },
+    "guardavidas_colaborador": {
+      "texto": "Puesto del mapa municipal de 2023 que no nombra la nota de la temporada 2025-2026. Se mantiene porque, según un colaborador (05/10/2026), los puestos de guardavidas no se levantan: se van sumando según la cantidad de guardavidas de cada temporada.",
+      "url": "https://necochea.gov.ar/desde-enero-se-pone-en-marcha-la-cobertura-completa-del-servicio-de-guardavidas/"
+    },
+    "postas_2026": {
+      "texto": "Posta sanitaria de verano que la Municipalidad de Necochea informó para la temporada 2026 (nota del 14/01/2026): enfermería y ambulancia, de 8 a 20.",
+      "url": "https://necochea.gov.ar/postas-sanitarias-de-verano-la-municipalidad-refuerza-la-atencion-con-cobertura-de-8-a-20/"
+    },
+    "colaborador": {
+      "texto": "Según un colaborador (05/10/2026), el lugar no cambia de una temporada a otra.",
+      "url": null
+    }
+  },
+  "elementos": [
+    {"nombre": "Posta sanitaria de verano (avenida 2 y 87)", "tipo": "Posta sanitaria", "temporada": "verano", "kml": ["POSTA SALUD", 8], "vigencia": "postas_2026"},
+    {"nombre": "Posta sanitaria de verano (playa de Quequén, escollera)", "tipo": "Posta sanitaria", "temporada": "verano", "kml": ["POSTA SALUD", 10], "vigencia": "postas_2026"},
+    {"nombre": "Posta sanitaria de verano (Villa Zabala)", "tipo": "Posta sanitaria", "temporada": "verano", "kml": ["POSTA SANITARIA", 1], "vigencia": "postas_2026"},
+    {"nombre": "Posta de seguridad (Villa Zabala)", "tipo": "Posta de seguridad", "temporada": "verano", "kml": ["POSTA SEGURIDAD", 2], "vigencia": "colaborador", "nota": "Funciona con el Operativo Sol de cada verano."},
+    {"nombre": "Puesto de verano de Prefectura Naval", "tipo": "Prefectura Naval (puesto de verano)", "temporada": "verano", "kml": ["PREFECTURA NAVAL", 9], "vigencia": "colaborador", "nota": "Es un puesto de playa que funciona solo en verano, no la sede de la Prefectura Quequén (está en la capa \"Organismos de respuesta\")."},
+
+    {"nombre": "Guardavidas Costa Bonita", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS COSTA BONITA", 1], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Bajada Pública (502 y 531)", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS BAJADA PUBLICA", 13], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Escollera Norte", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS ESCOLLERA", 14], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas La Hélice", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS LA HELICE", 15], "vigencia": "guardavidas_colaborador"},
+    {"nombre": "Guardavidas Puesto Casilla", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO CASILLA", 16], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Monte Pasubio", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS MONTE PASUBIO", 16], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Puesto Medio (502 y 521)", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO MEDIO", 20], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Los Patos", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PLAYAS LOS PATOS", 17], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Puesto 63", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO 63", 18], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Puesto 65", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO 65", 19], "vigencia": "guardavidas_colaborador"},
+    {"nombre": "Guardavidas Puesto 67", "tipo": "Guardavidas", "temporada": "verano", "osm": "node/1271626899", "vigencia": "guardavidas_2026", "origen": "Cruce de la calle 67 y la avenida 2 en OpenStreetMap; el puesto está sobre la playa, al final de esa calle. Por la tarde, según la nota municipal."},
+    {"nombre": "Guardavidas Puesto 69", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO 69", 21], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Puesto 71", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO 71", 23], "vigencia": "guardavidas_2026", "nota": "Por la tarde, según la nota municipal."},
+    {"nombre": "Guardavidas Puesto 75", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO 75", 24], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Puesto 79", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO 79", 25], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Playa Morena", "tipo": "Guardavidas", "temporada": "verano", "osm": "way/1547343582", "vigencia": "guardavidas_2026", "origen": "Balneario Playa Morena en OpenStreetMap (punto central)."},
+    {"nombre": "Guardavidas Rambla", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO RAMBLA", 26], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Tarsis", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO EX TARSIS", 27], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Puesto 87", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO 87", 28], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Puesto 91", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO 91", 29], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Ex ACA", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO EX ACA", 30], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Neptuno", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO NEPTUNO", 31], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Letras de Necochea", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO NECO", 40], "vigencia": "guardavidas_2026", "nota": "En el mapa municipal de 2023 figura como \"Puesto Neco\"; está junto al cartel con el nombre de la ciudad."},
+    {"nombre": "Guardavidas Sotavento", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS SOTAVENTO", 32], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Caño", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO CAÑO", 33], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Cisnes", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIADAS PUESTO CISNES", 33], "vigencia": "guardavidas_colaborador"},
+    {"nombre": "Guardavidas Camping Miguel Lillo", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO CAMPING", 34], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Kabryl", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO KABRIL", 35], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Espigón (muelle de pescadores)", "tipo": "Guardavidas", "temporada": "verano", "osm": "way/183802537", "vigencia": "guardavidas_2026", "origen": "Muelle de OpenStreetMap (punto central); un colaborador indicó que el Espigón de la nota municipal es el muelle de pescadores (05/10/2026)."},
+    {"nombre": "Guardavidas Karamawi", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS PUESTO KARAMAWI", 36], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Bajada 4x4, puesto 1", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS BAJADA 4X4 PUESTO 1", 36], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Bajada 4x4, puesto 2", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS BAJADA 4X4 PUESTO 2", 39], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Bajada 4x4, puesto 3", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS BAJADA 4X4 PUESTO 3", 39], "vigencia": "guardavidas_2026"},
+    {"nombre": "Guardavidas Puente Dardo Rocha", "tipo": "Guardavidas", "temporada": "verano", "osm": "way/111662520", "vigencia": "guardavidas_2026", "origen": "Puente Dardo Rocha en OpenStreetMap (punto medio del puente). Puesto sobre el río Quequén Grande."},
+    {"nombre": "Guardavidas Puente Blanco", "tipo": "Guardavidas", "temporada": "verano", "osm": "node/1764401041", "vigencia": "guardavidas_2026", "origen": "Extremo del Puente Blanco del lado del partido de Necochea, en OpenStreetMap. Puesto sobre el río Quequén Grande; en 2026 se cubrió hasta fines de marzo, según la nota municipal del 27/03/2026."},
+    {"nombre": "Guardavidas Las Cascadas", "tipo": "Guardavidas", "temporada": "verano", "osm": "node/1764401015", "vigencia": "guardavidas_2026", "origen": "Paraje Las Cascadas en OpenStreetMap. Puesto sobre el río Quequén Grande; en 2026 se cubrió hasta fines de marzo, según la nota municipal del 27/03/2026."}
+  ],
+  "pendientes": [
+    {"nombre": "Guardavidas Puesto 61", "motivo": "La nota municipal del 26/12/2025 lo nombra (por la tarde), pero en OpenStreetMap la calle 61 no llega a la costanera: no hay un cruce ni un lugar con nombre del que tomar el punto. Se deja sin punto (decisión de Sebastián, 05/10/2026: hay otro puesto cerca) y se vuelve a mirar si la Municipalidad publica la nota de la temporada 2026-2027."}
+  ],
+  "no_incluidos": [
+    {"kml": ["GUARDAVIDAS PUESTO KARAMAWI 2", 37], "motivo": "Según un colaborador (05/10/2026), en Karamawi hay un solo puesto; el otro de la nota municipal es el Espigón, ubicado en el muelle de pescadores de OpenStreetMap."},
+    {"kml": ["POSTA SALUD", 4], "motivo": "Posta de 2 y 79, de temporadas anteriores: no figura en las notas municipales de 2026, que nombran tres postas."},
+    {"kml": ["POSTA SALUD", 11], "motivo": "Posta de Costa Bonita, de temporadas anteriores: no figura en las notas municipales de 2026, que nombran tres postas."},
+    {"kml": ["DEFENSA CIVIL", 3], "motivo": "Ya está en la capa \"Organismos de respuesta\", en el mismo lugar."},
+    {"kml": ["GUARDAPARQUES", 6], "motivo": "Funciona todo el año (colaborador, 05/10/2026): va en la capa \"Organismos de respuesta\", con el mismo punto."},
+    {"kml": ["TURISMO", 5], "motivo": "Información turística; no es un servicio de respuesta."},
+    {"kml": ["ESTACIONAMIENTO MEDIDO", 7], "motivo": "No es un servicio de respuesta."}
+  ]
+}
