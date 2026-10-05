@@ -647,14 +647,40 @@
       "limitaciones": "Un tramo que cruza el límite se ve completo. La red terciaria del IGN (797 tramos en la caja envolvente del partido) queda afuera para que el mapa se pueda leer."
     },
     {
+      "organismo": "Municipalidad de Necochea, Secretaría de Planeamiento, Obras y Servicios Públicos",
+      "url_fuente": "https://necochea.gov.ar/descargas/planeamiento/qgis/index.html",
+      "url_datos": "https://necochea.gov.ar/descargas/planeamiento/qgis/data/ZONIFICACIONWEB_2.js",
+      "licencia": "Información pública de la Municipalidad de Necochea, sin licencia declarada: se usa citando la fuente (decisión de Sebastián, 05/10/2026).",
+      "url_licencia": "https://necochea.gov.ar/transparencia/",
+      "frase_licencia": "facilitar su circulación y redistribución",
+      "cita": "Municipalidad de Necochea, Secretaría de Planeamiento, Obras y Servicios Públicos, Visor de Información Territorial y Urbanística (capa de zonificación), consultado en octubre de 2026.",
+      "formato": "GeoJSON armado por scripts/descargar_municipio.py a partir de la capa del visor (qgis2web), sin redibujar",
+      "fecha_datos_fija": "Archivo de la capa publicado el 04/08/2026, según el servidor municipal (Last-Modified); el visor no informa otra fecha y la capa cita ordenanzas de 2024.",
       "id": "portuaria_zonificacion",
       "grupo": "portuaria",
-      "nombre": "Zonificación industrial (ordenamiento territorial)",
-      "archivo": null,
-      "organismo": "Municipalidad de Necochea",
-      "motivo_pendiente": "La zonificación (Ordenanza 2005/81 y modificatorias) no está publicada como dato geográfico abierto. No se digitaliza a ojo desde un plano.",
-      "que_representa": "Sería la zonificación oficial de usos del suelo, incluidas las zonas industriales.",
-      "que_no_representa": "Los polígonos industriales de OpenStreetMap no la reemplazan."
+      "nombre": "Zonificación (ordenamiento territorial)",
+      "archivo": "zonificacion.geojson",
+      "geometria": "poligono",
+      "estilo": {
+        "color": "#525252",
+        "grosor": 0.6,
+        "campo_color": "categoria",
+        "colores": {
+          "Industrial y portuaria": "#7f2704",
+          "Residencial": "#fdd49e",
+          "Comercial y administrativa": "#fc8d59",
+          "Equipamiento y usos específicos": "#9ecae1",
+          "Complementaria, semiurbanizada y de reserva": "#d9d9d9",
+          "Rural": "#f7fcb9",
+          "Verde, playa y frente marítimo": "#a1d99b",
+          "Sujeta a estudio": "#bcbddc",
+          "Sin categoría": "#ffffff"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Las zonas del ordenamiento territorial del partido, con el nombre y la sigla que les da el municipio, y un color por tipo de uso. Sirve para ver dónde el código admite industria y actividad portuaria junto a zonas residenciales.",
+      "que_no_representa": "No dice qué hay construido ni qué actividad funciona hoy en cada lugar: dice qué uso admite la norma. No es un mapa de riesgo. Los indicadores urbanísticos (alturas, factores de ocupación) no se publican: para eso está el visor municipal.",
+      "limitaciones": "Según el propio visor, la información es orientativa; para un trámite vale la consulta a las áreas técnicas. La categoría de uso, solo para el color, es una agrupación del proyecto (datos/zonificacion_categorias.json), no del municipio. Hay dos inconsistencias en la fuente que se publican como vienen: una \"Zona Residencial 7 Especial\" con la sigla C3 y una \"Zona Comercial 3\" sin sigla."
     },
     {
       "organismo": "Instituto Geográfico Nacional (IGN), servicio WFS de sus Capas SIG",
@@ -760,6 +786,34 @@
       "que_no_representa": "No informa camas, servicios ni capacidad.",
       "limitaciones": "Puede haber establecimientos cerrados o nuevos que no figuren. El IGN no informa la fecha.",
       "fecha_datos_fija": "El IGN no informa la fecha de esta capa."
+    },
+    {
+      "organismo": "Municipalidad de Necochea, Obras Sanitarias",
+      "url_fuente": "https://necochea.gov.ar/obras-sanitarias/",
+      "url_datos": "https://www.google.com/maps/d/viewer?mid=1MgtytVAe0iBcq8nbGEWAVSQfK1k-laSO (exportación KML)",
+      "licencia": "Información pública de la Municipalidad de Necochea, sin licencia declarada: se usa citando la fuente (decisión de Sebastián, 05/10/2026).",
+      "url_licencia": "https://necochea.gov.ar/transparencia/",
+      "frase_licencia": "facilitar su circulación y redistribución",
+      "cita": "Municipalidad de Necochea, Obras Sanitarias, \"Pozos OS Necochea\" (mapa de la página de Obras Sanitarias).",
+      "formato": "GeoJSON armado por scripts/descargar_municipio.py a partir de la exportación KML del mapa municipal",
+      "id": "agua_pozos_bombeo",
+      "grupo": "expuestos",
+      "nombre": "Pozos de agua y cámaras de bombeo",
+      "archivo": "agua_pozos_bombeo.geojson",
+      "geometria": "punto",
+      "estilo": {
+        "color": "#2171b5",
+        "radio": 5,
+        "campo_color": "tipo",
+        "colores": {
+          "Pozos de explotación de agua": "#2171b5",
+          "Cámaras de bombeo": "#6a51a3"
+        }
+      },
+      "activa_al_inicio": false,
+      "que_representa": "Los pozos de explotación de agua y las cámaras de bombeo de Obras Sanitarias en Necochea y Quequén. Son una línea vital: funcionan con energía eléctrica y un corte de luz los detiene.",
+      "que_no_representa": "No indica si cada pozo o cámara está funcionando. La página municipal tiene una tabla de estado, pero sus fechas de actualización son de 2021 y 2022: por eso el estado no se publica. Tampoco indica si tienen grupo electrógeno.",
+      "limitaciones": "Ubicación y dirección tal como las carga el municipio. El mapa no aclara si las cámaras de bombeo son de agua o de cloacas (una está en la planta cloacal)."
     },
     {
       "organismo": "Colaboradores de OpenStreetMap (consulta Overpass); se revisó también el IGN",

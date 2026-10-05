@@ -875,5 +875,33 @@
       "Guardavidas Puesto 61"
     ],
     "fecha_datos": "Mapa municipal de 2023; vigencia según notas municipales de la temporada 2025-2026; OpenStreetMap al 2026-08-04 (UTC)."
+  },
+  "portuaria_zonificacion": {
+    "procesado": "2026-10-05T03:02:46+00:00",
+    "archivo_crudo": "municipio/ZONIFICACIONWEB_2.js",
+    "sha256_crudo": "333d82bf1c4587f9303e4fc085b4c4d71df6a9e62d961963a7fea056135389d8",
+    "elementos": 148,
+    "por_tipo": {
+      "Rural": 1,
+      "Complementaria, semiurbanizada y de reserva": 21,
+      "Comercial y administrativa": 25,
+      "Equipamiento y usos específicos": 30,
+      "Residencial": 46,
+      "Sujeta a estudio": 1,
+      "Verde, playa y frente marítimo": 11,
+      "Industrial y portuaria": 13
+    },
+    "zonas_sin_categoria": []
+  },
+  "agua_pozos_bombeo": {
+    "procesado": "2026-10-05T03:02:46+00:00",
+    "archivo_crudo": "municipio/pozos_obras_sanitarias.kml",
+    "sha256_crudo": "d7707030e16b5d5b6f672ef9b8e3f1b50dd5f088e7edb1f73fb0765862585d39",
+    "elementos": 59,
+    "por_tipo": {
+      "Pozos de explotación de agua": 48,
+      "Cámaras de bombeo": 11
+    },
+    "fecha_datos": "Mapa de Obras Sanitarias (Google My Maps del municipio); fechas de actualización de los puntos entre el 27/12/2021 y 28/12/2021."
   }
 }

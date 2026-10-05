@@ -229,6 +229,29 @@
     return "<h3>" + esc(p.nombre) + "</h3>" + "<div>" + esc(p.tipo) + "</div>" + '<p class="nota">' + esc(p.nota) + "</p>";
   }
 
+  // Zonificación municipal: nombre y sigla de la zona; la categoría es una agrupación del proyecto para el color.
+  function popupZona(p) {
+    const filas = [["Sigla", p.sigla || "Sin sigla en la fuente"], ["Tipo de uso (agrupación del mapa)", p.categoria]];
+    if (p.observaciones) filas.push(["Observaciones", p.observaciones]);
+    return (
+      "<h3>" + esc(p.zona || "Zona sin nombre") + "</h3>" +
+      "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
+      '<p class="nota">Dice qué uso admite la norma, no qué hay construido. Fuente: ' +
+      enlace("https://necochea.gov.ar/descargas/planeamiento/qgis/index.html", "Municipalidad de Necochea, Secretaría de Planeamiento, Obras y Servicios Públicos") + ".</p>"
+    );
+  }
+
+  // Pozos y cámaras de bombeo de Obras Sanitarias: sin el estado, porque la tabla municipal es de 2021 y 2022.
+  function popupAgua(p) {
+    return (
+      "<h3>" + esc(p.nombre) + "</h3>" +
+      "<table><tr><td>Tipo</td><td>" + esc(p.tipo) + "</td></tr>" +
+      (p.direccion ? "<tr><td>Dirección</td><td>" + esc(p.direccion) + "</td></tr>" : "") + "</table>" +
+      '<p class="nota">Funciona con energía eléctrica: un corte de luz lo detiene. El estado de funcionamiento no se muestra porque la tabla municipal se actualizó por última vez en 2021 y 2022. Fuente: ' +
+      enlace("https://necochea.gov.ar/obras-sanitarias/", "Municipalidad de Necochea, Obras Sanitarias") + ".</p>"
+    );
+  }
+
   // Servicios de playa: el punto sale del mapa municipal de 2023 o de OpenStreetMap; la vigencia, de una nota municipal.
   function popupPlaya(p) {
     const filas = [["Tipo", p.tipo], ["Temporada", p.temporada === "verano" ? "Funciona en verano" : "Todo el año"]];
@@ -537,6 +560,8 @@
           if (capa.id === "organismos") return popupOrganismo(f.properties);
           if (capa.id === "refugios") return popupRefugio(f.properties);
           if (capa.id === "servicios_playa") return popupPlaya(f.properties);
+          if (capa.id === "portuaria_zonificacion") return popupZona(f.properties);
+          if (capa.id === "agua_pozos_bombeo") return popupAgua(f.properties);
           if (capa.id === "red_asistencia") return popupAsistencia(f.properties);
           if (capa.id === "conectividad_localidades") return popupConectividad(f.properties);
           if (capa.id === "gasoductos") return popupGasoducto(f.properties);

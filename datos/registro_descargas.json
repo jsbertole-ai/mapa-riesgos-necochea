@@ -815,5 +815,19 @@
     "last_modified": null,
     "bytes": 493,
     "sha256": "e5bfb7845fc9f715cce4cc6b231ead6bd8db42c88d4104e83f65671838fd9fe4"
+  },
+  "datos/crudos/municipio/ZONIFICACIONWEB_2.js": {
+    "url": "https://necochea.gov.ar/descargas/planeamiento/qgis/data/ZONIFICACIONWEB_2.js",
+    "descargado": "2026-10-05T03:02:37+00:00",
+    "last_modified": "Tue, 04 Aug 2026 16:07:25 GMT",
+    "bytes": 846899,
+    "sha256": "333d82bf1c4587f9303e4fc085b4c4d71df6a9e62d961963a7fea056135389d8"
+  },
+  "datos/crudos/municipio/pozos_obras_sanitarias.kml": {
+    "url": "https://www.google.com/maps/d/kml?mid=1MgtytVAe0iBcq8nbGEWAVSQfK1k-laSO&forcekml=1",
+    "descargado": "2026-10-05T03:02:37+00:00",
+    "last_modified": null,
+    "bytes": 75504,
+    "sha256": "d7707030e16b5d5b6f672ef9b8e3f1b50dd5f088e7edb1f73fb0765862585d39"
   }
 }
