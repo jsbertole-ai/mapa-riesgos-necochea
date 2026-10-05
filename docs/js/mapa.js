@@ -101,6 +101,14 @@
     return '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(texto || url) + "</a>";
   }
 
+  // Escapa el texto y convierte en enlace cada dirección http(s) que traiga. El punto, la coma o el
+  // paréntesis que cierran una frase no forman parte del enlace.
+  function conEnlaces(texto) {
+    return String(texto).split(/(https?:\/\/[^\s]*[^\s.,;:)])/).map(function (trozo, i) {
+      return i % 2 ? enlace(trozo, trozo.replace(/^https?:\/\/(www\.)?/, "").split("/")[0]) : esc(trozo);
+    }).join("");
+  }
+
   function numero(n) {
     return Number(n).toLocaleString("es-AR");
   }
@@ -404,7 +412,7 @@
           (r.lugar ? " (" + esc(r.lugar) + ")" : "") +
           "<div>" + esc(r.descripcion) + "</div>" +
           (efectos.length ? "<div>" + esc(efectos.join(" · ")) + "</div>" : "") +
-          (r.observaciones_efectos ? "<div>Observaciones: " + esc(r.observaciones_efectos) + "</div>" : "") +
+          (r.observaciones_efectos ? "<div>Observaciones: " + conEnlaces(r.observaciones_efectos) + "</div>" : "") +
           (r.servicios && r.servicios.length ? "<div>Servicios afectados: " + esc(r.servicios.join(", ")) + "</div>" : "") +
           (r.punto ? '<div class="nota">Ubicación del punto: ' + esc(r.punto) + "</div>" : "") +
           '<div class="nota">Fuente: ' + enlace(r.fuente_url, r.fuente_medio + (r.fuente_fecha ? ", " + fecha(r.fuente_fecha) : "")) + "</div>" +
