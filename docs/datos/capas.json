@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-05T02:40:27+00:00",
+  "generado": "2026-10-05T02:57:38+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1290,14 +1290,15 @@
       "que_no_representa": "No indica dotación, equipamiento, horarios ni área de cobertura. Los guardavidas funcionan solo en temporada de verano. No incluye cámaras de videovigilancia ni datos de las personas que trabajan en cada organismo.",
       "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por un colaborador en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. La coordenada que la Provincia da para la Comisaría de la Mujer no cae en su propia dirección (Calle 24 N° 4242, confirmada por un colaborador) sino en Calle 24 y 67: se usa el punto del IGN, que está en esa dirección. La Provincia no publica en datos abiertos la ubicación del Comando de Patrullas, la Policía Rural ni la Policía Vial, y ninguna de las tres figura en el IGN ni en OpenStreetMap (búsqueda del 27/09/2026); lo mismo pasa con los radio clubes. El Comando de Patrullas se publica con el punto que aportó un colaborador que conoce el lugar (28/09/2026), y la ventana lo dice. Los bomberos voluntarios de Ramón Santamarina no tienen cuartel propio publicado: su punto marca el pueblo y no señala ninguna vivienda. La cobertura de los cuarteles de San Cayetano, Benito Juárez y Lobería la informa un colaborador que vive en el partido; la de Lobería la confirma el municipio (incendio de Costa Bonita, 17/12/2020). Sus puntos salen de OpenStreetMap, salvo el de San Manuel. Guardavidas, guardaparques, Cruz Roja, esas tres dependencias policiales y los radio clubes aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central.",
       "estado": "verificada",
-      "elementos": 24,
+      "elementos": 25,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-10-01T18:07:31+00:00",
+      "procesado": "2026-10-05T02:57:37+00:00",
       "por_organismo": {
         "Bomberos": 9,
         "Centro Operativo de Monitoreo": 1,
         "Cruz Roja": 2,
         "Defensa Civil": 1,
+        "Guardaparques": 1,
         "Guardavidas": 1,
         "Policía": 8,
         "Prefectura Naval": 1,
@@ -1306,7 +1307,7 @@
       "verificacion": {
         "fecha": "2026-10-05",
         "controles": [
-          "24 elementos, todos dentro de la caja de la zona del partido y de los cuarteles vecinos y sin etiquetas excluidas.",
+          "25 elementos, todos dentro de la caja de la zona del partido y de los cuarteles vecinos y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-05).",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-10-05).",
@@ -1344,10 +1345,10 @@
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-10-01T18:07:31+00:00",
+      "procesado": "2026-10-05T02:57:37+00:00",
       "por_tipo": {
-        "Personas en situación de calle": 1,
-        "Evacuación ante catástrofes": 1
+        "Evacuación ante catástrofes": 1,
+        "Personas en situación de calle": 1
       },
       "verificacion": {
         "fecha": "2026-10-05",
@@ -1381,12 +1382,12 @@
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "Puntos aportados por colaboradores; ver la fecha en cada punto.",
-      "procesado": "2026-10-01T16:47:22+00:00",
+      "procesado": "2026-10-05T02:57:37+00:00",
       "por_tipo": {
-        "Personas en situación de calle": 2,
-        "Cáritas": 4,
         "Comedor": 2,
-        "Organización de ayuda social": 1
+        "Organización de ayuda social": 1,
+        "Personas en situación de calle": 2,
+        "Cáritas": 4
       },
       "verificacion": {
         "fecha": "2026-10-05",
@@ -1417,29 +1418,27 @@
           "Guardavidas": "#e8b400",
           "Posta sanitaria": "#e7298a",
           "Posta de seguridad": "#253494",
-          "Prefectura Naval (puesto de verano)": "#1d91c0",
-          "Guardaparques": "#33a02c"
+          "Prefectura Naval (puesto de verano)": "#1d91c0"
         }
       },
       "activa_al_inicio": false,
-      "que_representa": "Los puestos de guardavidas de las playas y de los balnearios del río Quequén Grande, las tres postas sanitarias de verano, la posta de seguridad de Villa Zabala, el puesto de verano de Prefectura y la base de guardaparques. Salvo guardaparques, funcionan en temporada de verano.",
+      "que_representa": "Los puestos de guardavidas de las playas y de los balnearios del río Quequén Grande, las tres postas sanitarias de verano, la posta de seguridad de Villa Zabala, y el puesto de verano de Prefectura. Todos funcionan en temporada de verano; la base de guardaparques, que funciona todo el año, está en \"Organismos de respuesta\".",
       "que_no_representa": "No indica si el puesto está abierto hoy ni sus horarios, que cambian cada temporada y dentro de ella (la Municipalidad los informa cada año). No incluye los guardavidas privados de cada balneario. Un puesto sin guardavidas no es una playa segura para bañarse.",
       "limitaciones": "Los puntos vienen del mapa municipal de 2023 y se cotejaron con las notas municipales de la temporada 2025-2026; los puestos que ese mapa no tiene se ubicaron en OpenStreetMap (un balneario, un puente, un muelle o un cruce de calles), y cada ventana dice de dónde sale el punto. Falta el puesto 61, que OpenStreetMap no permite ubicar. Las postas de seguridad del Operativo Sol 2026 no tienen ubicación publicada.",
       "estado": "verificada",
-      "elementos": 42,
+      "elementos": 41,
       "fecha_datos": "Mapa municipal de 2023; vigencia según notas municipales de la temporada 2025-2026; OpenStreetMap al 2026-08-04 (UTC).",
-      "procesado": "2026-10-05T02:38:54+00:00",
+      "procesado": "2026-10-05T02:57:38+00:00",
       "por_tipo": {
         "Posta sanitaria": 3,
         "Posta de seguridad": 1,
         "Prefectura Naval (puesto de verano)": 1,
-        "Guardaparques": 1,
         "Guardavidas": 36
       },
       "verificacion": {
         "fecha": "2026-10-05",
         "controles": [
-          "42 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
+          "41 elementos, todos dentro de la caja del partido y sin etiquetas excluidas.",
           "Licencia confirmada en https://necochea.gov.ar/transparencia/ (leída el 2026-10-05).",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-10-05)."
         ]

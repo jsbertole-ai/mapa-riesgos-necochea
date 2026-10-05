@@ -30,7 +30,6 @@
     {"nombre": "Posta sanitaria de verano (Villa Zabala)", "tipo": "Posta sanitaria", "temporada": "verano", "kml": ["POSTA SANITARIA", 1], "vigencia": "postas_2026"},
     {"nombre": "Posta de seguridad (Villa Zabala)", "tipo": "Posta de seguridad", "temporada": "verano", "kml": ["POSTA SEGURIDAD", 2], "vigencia": "colaborador", "nota": "Funciona con el Operativo Sol de cada verano."},
     {"nombre": "Puesto de verano de Prefectura Naval", "tipo": "Prefectura Naval (puesto de verano)", "temporada": "verano", "kml": ["PREFECTURA NAVAL", 9], "vigencia": "colaborador", "nota": "Es un puesto de playa que funciona solo en verano, no la sede de la Prefectura Quequén (está en la capa \"Organismos de respuesta\")."},
-    {"nombre": "Guardaparques", "tipo": "Guardaparques", "temporada": "todo el año", "kml": ["GUARDAPARQUES", 6], "vigencia": "colaborador"},
 
     {"nombre": "Guardavidas Costa Bonita", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS COSTA BONITA", 1], "vigencia": "guardavidas_2026"},
     {"nombre": "Guardavidas Bajada Pública (502 y 531)", "tipo": "Guardavidas", "temporada": "verano", "kml": ["GUARDAVIDAS BAJADA PUBLICA", 13], "vigencia": "guardavidas_2026"},
@@ -77,6 +76,7 @@
     {"kml": ["POSTA SALUD", 4], "motivo": "Posta de 2 y 79, de temporadas anteriores: no figura en las notas municipales de 2026, que nombran tres postas."},
     {"kml": ["POSTA SALUD", 11], "motivo": "Posta de Costa Bonita, de temporadas anteriores: no figura en las notas municipales de 2026, que nombran tres postas."},
     {"kml": ["DEFENSA CIVIL", 3], "motivo": "Ya está en la capa \"Organismos de respuesta\", en el mismo lugar."},
+    {"kml": ["GUARDAPARQUES", 6], "motivo": "Funciona todo el año (colaborador, 05/10/2026): va en la capa \"Organismos de respuesta\", con el mismo punto."},
     {"kml": ["TURISMO", 5], "motivo": "Información turística; no es un servicio de respuesta."},
     {"kml": ["ESTACIONAMIENTO MEDIDO", 7], "motivo": "No es un servicio de respuesta."}
   ]

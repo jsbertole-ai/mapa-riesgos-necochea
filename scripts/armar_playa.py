@@ -1,5 +1,6 @@
-"""Arma la capa "Servicios de playa": guardavidas, postas sanitarias y de seguridad, puesto de verano de
-Prefectura y guardaparques (aprobada por Sebastián el 05/10/2026).
+"""Arma la capa "Servicios de playa": guardavidas, postas sanitarias y de seguridad y puesto de verano de
+Prefectura (aprobada por Sebastián el 05/10/2026). La base de guardaparques, que funciona todo el año, va en
+"Organismos de respuesta" (datos/organismos_colaboradores.json).
 
 Uso:  python3 scripts/armar_playa.py            (descarga el KML municipal y los elementos de OSM, y arma)
       python3 scripts/armar_playa.py --offline  (arma con lo guardado en datos/crudos/)
