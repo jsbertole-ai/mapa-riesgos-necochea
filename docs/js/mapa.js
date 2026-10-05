@@ -400,7 +400,7 @@
     const registros = p.registros.slice().reverse();
     const titulo = p.ubicacion === "localidad"
       ? registros.length + (registros.length === 1 ? " registro en " : " registros en ") + p.localidad
-      : registros[0].tipo;
+      : (registros.length > 1 ? registros.length + " registros en este punto" : registros[0].tipo);
     return (
       "<h3>" + esc(titulo) + "</h3>" +
       (p.ubicacion === "localidad" ? '<p class="nota">' + (registros.length === 1 ? "Ubicado" : "Ubicados") + ' en el punto de la localidad (IGN): no marca el lugar del evento.</p>' : "") +

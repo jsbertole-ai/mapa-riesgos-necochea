@@ -1,8 +1,8 @@
 {
   "exportacion": "kobo_2026-10-05.csv, registros_proyecto.csv",
-  "registros_en_la_exportacion": 42,
-  "aprobados": 42,
-  "publicados": 42,
+  "registros_en_la_exportacion": 44,
+  "aprobados": 44,
+  "publicados": 44,
   "no_publicados_por_controles": 0,
   "sin_ubicacion_en_el_mapa": 6,
   "por_tipo": {
@@ -19,10 +19,11 @@
     "Incendio": 1,
     "Sequía": 2,
     "Plaga": 1,
-    "Contaminación": 1
+    "Contaminación": 2,
+    "Otro": 1
   },
   "por_anio": {
-    "2018": 1,
+    "2018": 2,
     "2026": 12,
     "1980": 4,
     "1990": 1,
@@ -31,7 +32,7 @@
     "2020": 2,
     "2024": 4,
     "2015": 1,
-    "2021": 2,
+    "2021": 3,
     "2012": 3,
     "2017": 2,
     "2025": 3,
@@ -41,7 +42,7 @@
     "2009": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 28,
+    "Necochea y Quequén": 30,
     "Nicanor Olivera (La Dulce)": 3,
     "Juan N. Fernández": 1,
     "Claraz": 1,
