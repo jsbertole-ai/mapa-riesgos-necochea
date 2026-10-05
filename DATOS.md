@@ -810,6 +810,12 @@ Diario Necochea (diarionecochea.com) responde con una página vacía (código 20
 - https://diarionecochea.com/2023/04/09/se-incendio-un-auto-en-ruta-86-causando-perdidas-totales/ (auto incendiado en la RP 86: ver qué cuartel actuó).
 - https://diarionecochea.com/2024/03/06/bomberos-voluntarios-de-san-cayetano-y-la-dulce-recibiran-mas-de-11-millones-del-ministerio-de-seguridad/ (subsidios a San Cayetano y La Dulce).
 
+**Basural de Necochea: causa judicial (05/10/2026).** Pistas que el entorno no pudo leer; Sebastián las abre a mano para conseguir el fallo o el dictamen, que se citaría con tribunal, número, fecha y páginas:
+
+- https://cijur.mpba.gov.ar/novedad/3346 (Centro de Información Jurídica del Ministerio Público de la Provincia de Buenos Aires; responde 403 al entorno). Según el resumen de un buscador, sin comprobar, reconstruye el conflicto de competencia entre el Juzgado de Garantías N.º 2 de Necochea y la Justicia Federal por el predio del camino viejo a La Dulce (Ley 24.051) y cita el expediente CSJ 1750/2021/CS1 con dictamen de la Procuración General de la Nación.
+- https://www.mpf.gob.ar/buscador-dictamenes/ (buscar "1750/2021"): el buscador abre, pero no listó el expediente al consultarlo desde el entorno.
+- Lo hallado hasta ahora es prensa (0223, 07/07/2021, registro `proyecto-0043`): no hay sentencia ni número de causa confirmados.
+
 ## 25. Servicios de playa (Municipalidad de Necochea y OpenStreetMap) · **Verificada** · en uso (desde el 05/10/2026)
 
 Capa aprobada por Sebastián el 05/10/2026, en el grupo "Capacidad de respuesta". Lista de puntos en `datos/servicios_playa.json`; script `scripts/armar_playa.py`.
