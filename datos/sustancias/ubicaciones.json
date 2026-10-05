@@ -457,5 +457,31 @@
       "aprobado": true,
       "aprobado_por": "revisión del proyecto, 28/09/2026"
     }
+  },
+  "otras_fuentes": {
+    "_nota": "Establecimientos que no figuran en un listado oficial con ubicación, documentados por otra fuente pública (presentaciones ante organismos, prensa). Cada uno trae sus datos completos y su fuente; se publica solo con \"aprobado\": true.",
+    "Pier Doce": {
+      "categoria": "Terminales de fertilizantes",
+      "tipo": "Terminal de fertilizantes Pier Doce",
+      "detalle": "Tanques de urea nitrato de amonio y de tiosulfato de amonio (presentación de la empresa ante la ANMaC, 05/03/2018). Planta de fertilizantes líquidos de 24.000 m³ y celda de sólidos de 76.000 toneladas, en los sitios 11 y 12 del puerto (Ecos Diarios, 02/12/2020).",
+      "localidad": "Necochea",
+      "fuentes": [
+        [
+          "Pier Doce S.A., presentación ante la ANMaC del 05/03/2018, publicada por el Consorcio de Gestión del Puerto Quequén",
+          "https://www.puertoquequen.com/descargas/pierdoce/3%20-%20Nota%20Presentaci%C3%B3n%20ANMaC/Presentaci%C3%B3n%20ANMaC%20-%2027-03-18.pdf"
+        ],
+        [
+          "Ecos Diarios, \"Con el primer desembarque, Pier Doce inauguró su nueva terminal de fertilizantes\", 02/12/2020",
+          "https://elecos.com.ar/con-el-primer-desembarque-pier-doce-inauguro-su-nueva-terminal-de-fertilizantes"
+        ]
+      ],
+      "punto": [
+        -38.57752,
+        -58.70887
+      ],
+      "fuente_punto": "Galpón de la terminal en OpenStreetMap (way/1238450150, punto central), nombre cargado por un colaborador (05/10/2026).",
+      "aprobado": true,
+      "aprobado_por": "Sebastián, 05/10/2026 (pedido de armarlo; el punto es el mismo que aprobó para el inventario)"
+    }
   }
 }

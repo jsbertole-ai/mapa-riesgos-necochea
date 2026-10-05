@@ -336,11 +336,13 @@
           '<div class="registro">' +
           "<table>" + filas.map(function (f) { return "<tr><td>" + esc(f[0]) + "</td><td>" + esc(f[1]) + "</td></tr>"; }).join("") + "</table>" +
           '<div class="nota">Ubicación del punto: ' + esc(r.punto) + "</div>" +
-          '<div class="nota">Fuente: ' + esc(r.fuente) + ", Secretaría de Energía (CC BY 4.0).</div>" +
+          (r.fuentes
+            ? '<div class="nota">Fuentes: ' + r.fuentes.map(function (f) { return enlace(f[1], f[0]); }).join("; ") + ".</div>"
+            : '<div class="nota">Fuente: ' + esc(r.fuente) + ", Secretaría de Energía (CC BY 4.0).</div>") +
           "</div>"
         );
       }).join("") +
-      '<p class="nota">No informa cantidades almacenadas. No se publican titulares ni datos de contacto.</p>'
+      '<p class="nota">No informa cantidades almacenadas (la capacidad de una planta no es lo que guarda). No se publican titulares ni datos de contacto.</p>'
     );
   }
 
