@@ -42,12 +42,12 @@
     "2009": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 30,
+    "Necochea y Quequén": 28,
+    "Zona rural o costa fuera de las localidades": 9,
     "Nicanor Olivera (La Dulce)": 3,
     "Juan N. Fernández": 1,
     "Claraz": 1,
-    "Ramón Santamarina": 2,
-    "Zona rural o costa fuera de las localidades": 7
+    "Ramón Santamarina": 2
   },
   "efectos": {
     "Evacuados": 892,
