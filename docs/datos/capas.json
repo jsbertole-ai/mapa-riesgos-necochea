@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-05T03:05:40+00:00",
+  "generado": "2026-10-05T03:16:12+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1376,9 +1376,9 @@
       "que_no_representa": "No indica dotación, equipamiento, horarios ni área de cobertura. Los guardavidas funcionan solo en temporada de verano. No incluye cámaras de videovigilancia ni datos de las personas que trabajan en cada organismo.",
       "limitaciones": "Fuentes en orden de prioridad: las comisarías de la Provincia (autoridad sobre su policía; junio de 2026), el IGN (posiciones confirmadas por un colaborador en el visor del IGN; sin fecha informada), ubicaciones fijadas en OpenStreetMap y el resto de OpenStreetMap. Si dos fuentes traen el mismo organismo a menos de 200 m o con el mismo nombre, queda la primera. La Comisaría Necochea 1ª figura en la Provincia sin coordenadas, así que se usa el punto del IGN. La coordenada que la Provincia da para la Comisaría de la Mujer no cae en su propia dirección (Calle 24 N° 4242, confirmada por un colaborador) sino en Calle 24 y 67: se usa el punto del IGN, que está en esa dirección. La Provincia no publica en datos abiertos la ubicación del Comando de Patrullas, la Policía Rural ni la Policía Vial, y ninguna de las tres figura en el IGN ni en OpenStreetMap (búsqueda del 27/09/2026); lo mismo pasa con los radio clubes. El Comando de Patrullas se publica con el punto que aportó un colaborador que conoce el lugar (28/09/2026), y la ventana lo dice. Los bomberos voluntarios de Ramón Santamarina no tienen cuartel propio publicado: su punto marca el pueblo y no señala ninguna vivienda. La cobertura de los cuarteles de San Cayetano, Benito Juárez y Lobería la informa un colaborador que vive en el partido; la de Lobería la confirma el municipio (incendio de Costa Bonita, 17/12/2020). Sus puntos salen de OpenStreetMap, salvo el de San Manuel. Guardavidas, guardaparques, Cruz Roja, esas tres dependencias policiales y los radio clubes aparecen a medida que se cargan en OpenStreetMap. Los predios y edificios se muestran como su punto central.",
       "estado": "verificada",
-      "elementos": 25,
+      "elementos": 26,
       "fecha_datos": "OpenStreetMap al 2026-09-26T23:42:00Z (UTC); IGN sin fecha informada.",
-      "procesado": "2026-10-05T02:57:37+00:00",
+      "procesado": "2026-10-05T03:16:00+00:00",
       "por_organismo": {
         "Bomberos": 9,
         "Centro Operativo de Monitoreo": 1,
@@ -1386,14 +1386,14 @@
         "Defensa Civil": 1,
         "Guardaparques": 1,
         "Guardavidas": 1,
-        "Policía": 8,
+        "Policía": 9,
         "Prefectura Naval": 1,
         "Radioaficionados": 1
       },
       "verificacion": {
         "fecha": "2026-10-05",
         "controles": [
-          "25 elementos, todos dentro de la caja de la zona del partido y de los cuarteles vecinos y sin etiquetas excluidas.",
+          "26 elementos, todos dentro de la caja de la zona del partido y de los cuarteles vecinos y sin etiquetas excluidas.",
           "La respuesta cruda de Overpass no trae elementos de vigilancia.",
           "Licencia confirmada en https://www.ign.gob.ar/descargas/tyc1.html (leída el 2026-10-05).",
           "Licencia confirmada en https://www.openstreetmap.org/copyright (leída el 2026-10-05).",
@@ -1431,10 +1431,10 @@
       "estado": "verificada",
       "elementos": 2,
       "fecha_datos": "Base de OpenStreetMap al 2026-07-30 (UTC).",
-      "procesado": "2026-10-05T02:57:37+00:00",
+      "procesado": "2026-10-05T03:16:01+00:00",
       "por_tipo": {
-        "Evacuación ante catástrofes": 1,
-        "Personas en situación de calle": 1
+        "Personas en situación de calle": 1,
+        "Evacuación ante catástrofes": 1
       },
       "verificacion": {
         "fecha": "2026-10-05",
@@ -1468,12 +1468,12 @@
       "estado": "verificada",
       "elementos": 9,
       "fecha_datos": "Puntos aportados por colaboradores; ver la fecha en cada punto.",
-      "procesado": "2026-10-05T02:57:37+00:00",
+      "procesado": "2026-10-05T03:16:01+00:00",
       "por_tipo": {
-        "Comedor": 2,
         "Organización de ayuda social": 1,
+        "Cáritas": 4,
         "Personas en situación de calle": 2,
-        "Cáritas": 4
+        "Comedor": 2
       },
       "verificacion": {
         "fecha": "2026-10-05",
