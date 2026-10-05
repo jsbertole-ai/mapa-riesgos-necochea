@@ -19,8 +19,8 @@ no se publica y el motivo se informa en pantalla (nunca en un archivo público):
      02/10/2026: el punto va en el lugar exacto, también si es una vivienda);
   5. si trae un punto, que caiga dentro del partido.
 
-Los registros sin punto se ubican en el punto de su localidad (IGN, BAHRA) y se
-agrupan: el mapa muestra un solo marcador por localidad, aclarado como ubicación
+Los registros con exactamente el mismo punto comparten marcador. Los registros sin punto se ubican en el punto de su
+localidad (IGN, BAHRA) y se agrupan: el mapa muestra un solo marcador por localidad, aclarado como ubicación
 por localidad, no como lugar del evento. Los registros de "zona rural" sin punto
 solo cuentan en el resumen.
 
@@ -219,11 +219,17 @@ def main():
         vistos.add(clave)
         publicados.append(resultado)
 
-    features, por_localidad, sin_ubicacion = [], {}, 0
+    features, por_localidad, por_punto, sin_ubicacion = [], {}, {}, 0
     for registro, p, localidad in sorted(publicados, key=lambda r: r[0]["fecha"]):
         if p:
-            features.append({"type": "Feature", "properties": {"ubicacion": "punto", "registros": [registro]},
-                             "geometry": {"type": "Point", "coordinates": list(p)}})
+            # Los registros con exactamente el mismo punto (por ejemplo, el derrame de 2018 y la inspección en el
+            # mismo establecimiento) comparten marcador, para que ninguno tape a los otros.
+            if p in por_punto:
+                por_punto[p]["properties"]["registros"].append(registro)
+                continue
+            por_punto[p] = {"type": "Feature", "properties": {"ubicacion": "punto", "registros": [registro]},
+                            "geometry": {"type": "Point", "coordinates": list(p)}}
+            features.append(por_punto[p])
         elif ubic_localidad.get(localidad):
             por_localidad.setdefault(localidad, []).append(registro)
         else:

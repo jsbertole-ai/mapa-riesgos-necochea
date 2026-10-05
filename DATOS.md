@@ -810,6 +810,18 @@ Diario Necochea (diarionecochea.com) responde con una página vacía (código 20
 - https://diarionecochea.com/2023/04/09/se-incendio-un-auto-en-ruta-86-causando-perdidas-totales/ (auto incendiado en la RP 86: ver qué cuartel actuó).
 - https://diarionecochea.com/2024/03/06/bomberos-voluntarios-de-san-cayetano-y-la-dulce-recibiran-mas-de-11-millones-del-ministerio-de-seguridad/ (subsidios a San Cayetano y La Dulce).
 
+**Basural de Necochea: causa judicial (05/10/2026).** Registro `proyecto-0043`.
+
+| Campo | Valor |
+|---|---|
+| Documento | Procuración General de la Nación, dictamen del 29/12/2021, causa "N.N. s/ incidente de incompetencia", CSJ 1750/2021/CS1, 4 páginas |
+| URL exacta | https://www.mpf.gob.ar/dictamenes/2021/ECasal/diciembre/NN_CSJ_1750_2021_CS1.pdf (encontrado en el buscador https://www.mpf.gob.ar/buscador-dictamenes/; leído completo el 05/10/2026; SHA-256 fed61bba19f61978…) |
+| Licencia | Sin licencia declarada: documento del Ministerio Público Fiscal de la Nación; se cita la fuente |
+| Hechos que trae (con páginas) | Antecedentes, pp. 1 y 2: causa por presunta infracción a la Ley 24.051 por un basural a cielo abierto de doce hectáreas en el km 5,5 del camino viejo a La Dulce; el Juzgado de Garantías N.º 2 de Necochea declina a favor de la justicia federal (29/06/2021, con un estudio de agua del canal que rodea el predio y el plano de los canales); el Juzgado Federal lo rechaza por prematuro (24/08/2021: imagen satelital e informe privado, faltan los informes de la Autoridad del Agua); contienda trabada el 30/08/2021. Fundamento, pp. 3 y 4: la competencia federal exige afectación interjurisdiccional demostrada; el municipio autorizó el predio y el OPDS emitió su declaratoria de impacto ambiental (Resolución 713/18); falta investigar los residuos con peritos. Conclusión, p. 4: corresponde a la justicia local |
+| Limitaciones | Es un dictamen, no una sentencia: no fija hechos probados. No se localizó la decisión de la Corte ni un fallo posterior. No dice quién denunció ni nombra a ninguna persona imputada |
+| Contradicción con la prensa | 0223 (07/07/2021, https://www.0223.com.ar/nota/2021-7-7-20-42-0-la-justicia-federal-toma-intervencion-por-la-contaminacion-del-basural-en-necochea) atribuyó la derivación a la Justicia Federal a la UFI N.º 3; el dictamen señala al Juzgado de Garantías N.º 2 y dice que el Juzgado Federal la rechazó. El registro sigue al dictamen (regla de fuentes judiciales primero) y lo aclara |
+| Pendiente | La decisión posterior de la Corte sobre la competencia no se localizó: el buscador de dictámenes de la Procuración (https://www.mpf.gob.ar/buscador-dictamenes/) trae el dictamen y no la resolución. Descartada: https://cijur.mpba.gov.ar/novedad/3346, que un resumen de buscador asoció a esta causa, corresponde a Tucumán (quema de ladrillos), según comprobó Sebastián el 05/10/2026; el entorno nunca pudo abrirla (403) |
+
 ## 25. Servicios de playa (Municipalidad de Necochea y OpenStreetMap) · **Verificada** · en uso (desde el 05/10/2026)
 
 Capa aprobada por Sebastián el 05/10/2026, en el grupo "Capacidad de respuesta". Lista de puntos en `datos/servicios_playa.json`; script `scripts/armar_playa.py`.
