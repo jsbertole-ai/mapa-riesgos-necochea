@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-05T03:26:23+00:00",
+  "generado": "2026-10-05T04:03:48+00:00",
   "grupos": [
     {
       "id": "referencia",
@@ -1552,8 +1552,8 @@
       "url_formulario": "https://ee.kobotoolbox.org/x/JsHKYrg5",
       "estado": "verificada",
       "elementos": 24,
-      "fecha_datos": "Registros aprobados al 2026-10-03; eventos entre 1980-04-29 y 2026-09-21",
-      "procesado": "2026-10-03T02:00:41+00:00",
+      "fecha_datos": "Registros aprobados al 2026-10-05; eventos entre 1980-04-29 y 2026-09-21",
+      "procesado": "2026-10-05T04:03:46+00:00",
       "verificacion": {
         "fecha": "2026-10-05",
         "controles": [
