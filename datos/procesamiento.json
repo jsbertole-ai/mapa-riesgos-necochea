@@ -738,11 +738,11 @@
     }
   },
   "inventario_local": {
-    "procesado": "2026-10-05T13:09:40+00:00",
+    "procesado": "2026-10-05T13:11:16+00:00",
     "archivo_crudo": "datos/crudos/inventario/kobo_2026-10-05.csv, datos/inventario/registros_proyecto.csv",
     "sha256_crudo": {
       "kobo_2026-10-05.csv": "f2bc74326174fb4f029e571a9ede79872a7700dc81b213dc0cb1d2b597afda01",
-      "registros_proyecto.csv": "80a6f33a7b0acaca2c313bcc205c1a9a0b31e6e5c91d41038eb67802748f6119"
+      "registros_proyecto.csv": "ffc0d8c8758807608e028be68fc924ebdd1f36aab35ce16cff63d5c0cd8255e6"
     },
     "elementos": 26,
     "registros": 44,

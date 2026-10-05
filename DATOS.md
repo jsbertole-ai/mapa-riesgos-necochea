@@ -860,7 +860,7 @@ Capa aprobada por Sebastián el 05/10/2026, en el grupo "Capacidad de respuesta"
 | Por qué importa | Son una línea vital: funcionan con energía eléctrica, así que un corte de luz deja sin bombeo de agua a la zona que abastecen. El mapa no dice si tienen grupo electrógeno |
 | Limitaciones | El mapa no aclara si las cámaras de bombeo son de agua potable o de cloacas (una está en la planta cloacal). Script: `scripts/descargar_municipio.py` |
 
-## 27. Resolución de la Autoridad del Agua sobre Evasio Marmetto S.A. · **Verificada** · registro `proyecto-0042` del inventario (en espera de aprobación)
+## 27. Resolución de la Autoridad del Agua sobre Evasio Marmetto S.A. · **Verificada** · registro `proyecto-0042` del inventario (en uso, desde el 05/10/2026)
 
 Pedido de Sebastián (05/10/2026): cargar como un evento aparte, en el mismo establecimiento que el derrame del 11/08/2018, la resolución oficial hallada ese día.
 
@@ -868,7 +868,8 @@ Pedido de Sebastián (05/10/2026): cargar como un evento aparte, en el mismo est
 |---|---|
 | Organismo | Directorio de la Autoridad del Agua de la Provincia de Buenos Aires |
 | Documento | Resolución firma conjunta RESOC-2022-717-GDEBA-ADA, 11/05/2022, expediente 2436-29654/18 ("Multa empresa EVASIO MARMETTO SA") |
-| URL exacta | https://normas.gba.gob.ar/documentos/Vmbj3pfd.pdf (PDF de texto, leído completo el 05/10/2026) |
+| URL exacta | Ficha oficial en el Sistema de Información Normativa y Documental Malvinas Argentinas (la fuente del registro): https://normas.gba.gob.ar/ar-b/resolucion-conjunta/2022/717/294254, aportada por Sebastián el 05/10/2026. Copia del texto: https://normas.gba.gob.ar/documentos/Vmbj3pfd.pdf (PDF de texto, leído completo el 05/10/2026). El "texto actualizado" de la ficha (https://normas.gba.gob.ar/documentos/0Y6Ek1Hd.html) vino vacío |
+| Ficha de la norma | "Resolución conjunta 717/2022 del Directorio del Autoridad del Agua (ADA)", fecha de promulgación 11/05/2022, tipo de publicación "Integra", última actualización 16/05/2022. La ficha no informa fecha de publicación ni número de Boletín Oficial. Su resumen menciona solo la infracción al art. 104 de la Ley 12.257; el texto aplica la multa también por el art. 14 del reglamento de la Ley 5.965 |
 | Licencia | Sin licencia declarada: norma publicada por el Estado provincial en su sistema de normativa; se cita la fuente |
 | Qué dice | Inspección conjunta con la Policía Ecológica y la Dirección de Gestión Ambiental municipal el 05/07/2018 (acta Serie D N.º 903). Se dejaron sin efecto las infracciones por la inscripción en la Autoridad del Agua y por el permiso de explotación del agua. Se aplicó una multa de $57.916,64 por vuelco sin permiso (art. 104, Ley 12.257) y por la falta de cámara de toma de muestras y aforo (art. 14, reglamento de la Ley 5.965). El análisis del efluente dio valores aceptables. Establecimiento en calle 78 N.º 1968, rubro "elaboración de subproductos ganaderos" |
 | Limitaciones | No trata del derrame de gas fosfina del 11/08/2018 (la inspección es cinco semanas anterior y la resolución no lo menciona). El texto nombra a una persona con su DNI: no se transcribe. Sin páginas numeradas; las fojas se citan dentro del texto |
