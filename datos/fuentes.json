@@ -6,6 +6,10 @@
       "nombre": "Referencia"
     },
     {
+      "id": "inventario",
+      "nombre": "Inventario local (colaborativo)"
+    },
+    {
       "id": "inundaciones",
       "nombre": "Inundaciones y anegamientos"
     },
@@ -28,10 +32,6 @@
     {
       "id": "respuesta",
       "nombre": "Capacidad de respuesta"
-    },
-    {
-      "id": "inventario",
-      "nombre": "Inventario local (colaborativo)"
     }
   ],
   "capas": [
