@@ -1,19 +1,18 @@
 {
-  "exportacion": "kobo_2026-10-05.csv, registros_proyecto.csv",
-  "registros_en_la_exportacion": 43,
-  "aprobados": 42,
-  "publicados": 42,
+  "exportacion": "registros_proyecto.csv",
+  "registros_en_la_exportacion": 40,
+  "aprobados": 40,
+  "publicados": 40,
   "no_publicados_por_controles": 0,
   "sin_ubicacion_en_el_mapa": 6,
   "por_tipo": {
-    "Escape": 3,
-    "Basural o quema a cielo abierto": 1,
     "Inundación": 11,
     "Tornado": 3,
     "Tempestad": 4,
     "Incendio forestal": 5,
     "Marejada": 3,
     "Colapso estructural": 3,
+    "Escape": 2,
     "Vendaval": 2,
     "Cambio de la línea de costa": 2,
     "Incendio": 1,
@@ -22,12 +21,11 @@
     "Contaminación": 1
   },
   "por_anio": {
-    "2018": 1,
-    "2026": 12,
     "1980": 4,
     "1990": 1,
     "1993": 2,
     "2023": 1,
+    "2026": 11,
     "2020": 2,
     "2024": 4,
     "2015": 1,
@@ -41,7 +39,7 @@
     "2009": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 28,
+    "Necochea y Quequén": 26,
     "Nicanor Olivera (La Dulce)": 3,
     "Juan N. Fernández": 1,
     "Claraz": 1,
