@@ -21,7 +21,7 @@
       "osm": "node/14061966263",
       "organismo": "Policía",
       "nombre": "Base de Caballería (Policía de la Provincia de Buenos Aires)",
-      "fuente": "Base del Cuerpo de Caballería, según un colaborador (05/10/2026); Necochea Digital (26/12/2025) también la ubica en el parque Miguel Lillo. En OpenStreetMap figura como puesto de la Policía de la Provincia de Buenos Aires, sin nombre. Según el Ministerio de Seguridad bonaerense, Caballería es un organismo operacional para el orden público y la seguridad de las personas en concentraciones masivas (https://www.mseg.gba.gov.ar/areas/dircaballeria/index.html)."
+      "fuente": "Base del Cuerpo de Caballería, según un colaborador (05/10/2026); Necochea Digital (26/12/2025) también la ubica en el parque Miguel Lillo. En OpenStreetMap figura como \"Base de Caballería\" (nombre cargado por un colaborador el 05/10/2026). Según el Ministerio de Seguridad bonaerense, Caballería es un organismo operacional para el orden público y la seguridad de las personas en concentraciones masivas (https://www.mseg.gba.gov.ar/areas/dircaballeria/index.html)."
     },
     {
       "osm": "way/1234875706",
