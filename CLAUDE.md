@@ -17,6 +17,8 @@ Mapa para la gestión del riesgo del partido de Necochea (provincia de Buenos Ai
 
 ## Plan
 
+**Fase 0 (mediados de junio de 2026, antes de programar):** Sebastián venía pensando el mapa desde meses atrás. Leyó con antelación el material de base, buscó y guardó notas de prensa sobre el riesgo presente en Necochea e hizo trabajos prácticos sobre estas temáticas a escala local. Esas notas son el archivo de prensa del que el proyecto arma registros del inventario. La fecha es aproximada porque no hay un registro que la fije.
+
 **Fase 1 (hecha, 26/09/2026):** relevamiento de fuentes en `DATOS.md` para tres amenazas: inundaciones y anegamientos, incendios de pastizal y rurales, y actividad portuaria e industrial. Ninguna fuente quedó verificada porque la red del entorno las bloqueaba.
 
 **Fase 2 (aprobada por Sebastián; en curso desde el 26/09/2026):**

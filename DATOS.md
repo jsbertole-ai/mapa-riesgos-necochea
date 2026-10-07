@@ -1,7 +1,7 @@
 # Relevamiento de fuentes de datos abiertos
 
 Mapa interactivo de riesgos del partido de Necochea (provincia de Buenos Aires, Argentina).
-Fase 1 (relevamiento con buscador): 26/09/2026. Fase 2 (descarga y verificación con los scripts de `/scripts`): 26/09/2026. Desde el cambio al límite del IGN (0.2), todas las capas se recortan con él.
+Fase 0 (mediados de junio de 2026): lecturas, archivo de notas de prensa y trabajos prácticos previos de Sebastián. Fase 1 (relevamiento con buscador): 26/09/2026. Fase 2 (descarga y verificación con los scripts de `/scripts`): 26/09/2026. Desde el cambio al límite del IGN (0.2), todas las capas se recortan con él.
 
 ## Cómo leer este documento
 
