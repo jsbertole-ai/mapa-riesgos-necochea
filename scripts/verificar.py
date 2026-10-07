@@ -73,6 +73,8 @@ def verificar_archivo(capa, caja, ambito="partido"):
     ruta = SITIO_DATOS / capa["archivo"]
     if not ruta.exists():
         return False, capa.get("mensaje_sin_archivo", "No se descargó todavía."), 0
+    if capa.get("geometria") == "imagen":
+        return verificar_imagen(ruta, caja)
     try:
         fc = json.loads(ruta.read_text(encoding="utf-8"))
     except json.JSONDecodeError as e:
@@ -91,6 +93,22 @@ def verificar_archivo(capa, caja, ambito="partido"):
         return False, f"{prohibidos} elementos con etiquetas excluidas.", len(features)
     return True, (f"{len(features)} elementos, todos dentro de la caja de{'l ' if ambito == 'partido' else ' la '}{ambito} "
                   "y sin etiquetas excluidas."), len(features)
+
+
+def verificar_imagen(ruta, caja):
+    """Capa de imagen: un JSON con el nombre del PNG y sus límites [[sur, oeste], [norte, este]]."""
+    try:
+        meta = json.loads(ruta.read_text(encoding="utf-8"))
+        (s, o), (n, e) = meta["limites"]
+    except (json.JSONDecodeError, KeyError, ValueError, TypeError) as err:
+        return False, f"Metadatos de la imagen inválidos: {err}", 0
+    png = SITIO_DATOS / meta.get("imagen", "")
+    if not png.is_file() or png.read_bytes()[:8] != b"\x89PNG\r\n\x1a\n":
+        return False, "Falta la imagen PNG o no es un PNG válido.", 0
+    tol = 0.01
+    if o < caja[0] - tol or s < caja[1] - tol or e > caja[2] + tol or n > caja[3] + tol:
+        return False, "Los límites de la imagen exceden la caja del partido.", 0
+    return True, f"Imagen PNG de {png.stat().st_size / 1e6:.1f} MB, dentro de la caja del partido.", 1
 
 
 def verificar_crudo_osm(proc):

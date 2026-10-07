@@ -411,3 +411,6 @@ a { color: var(--acento); }
 /* Referencias bibliográficas (APA), con sangría francesa. */
 .referencias { list-style: none; padding-left: 0; }
 .referencias li { padding-left: 2em; text-indent: -2em; margin-bottom: 6px; }
+
+/* Capas de imagen (frecuencia de anegamiento): píxeles nítidos al acercar. */
+.capa-imagen { image-rendering: pixelated; }

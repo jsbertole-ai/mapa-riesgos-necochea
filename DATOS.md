@@ -72,6 +72,21 @@ Regla del proyecto: ninguna capa se completa con datos inventados, estimados ni 
 | Limitaciones | Si no hay mapa para la cuenca, esta es la fuente oficial que falta, no una que se pueda reemplazar. |
 | Fase 2 | **Confirmado a mano por Sebastián el 26/09/2026** en https://ada.gba.gov.ar/cartas-de-riesgo-hidrico/: la carta de riesgo hídrico de la cuenca del río Quequén Grande no existe todavía (no está hecha). Desde el entorno en la nube los sitios de la ADA cortan la conexión, así que la comprobación es solo la manual. |
 
+### 1.0 Frecuencia de anegamiento observada (JRC, Global Surface Water 1.5, con el método del Ministerio de Desarrollo Agrario) · **Verificada** · en uso (desde el 07/10/2026)
+
+Ocupa el lugar de la capa "Peligrosidad hídrica", pendiente desde el 26/09/2026 porque la carta de riesgo hídrico del Quequén Grande no existe (sección 1.1). Aprobada por Sebastián el 07/10/2026, a partir de su hallazgo en el visor de la ADA.
+
+| Campo | Detalle |
+|---|---|
+| Hallazgo | Sebastián encontró en el visor de la ADA (https://gis.ada.gba.gov.ar/gis/?l=red_hidrometrica) una capa de "riesgo hídrico por anegamiento" con clases bajo, medio, alto, agua permanente y excepcional. No tiene servicio abierto ni licencia, y el visor no deja leer su lista de capas (como en la sección 1.1 bis): no se toma de ahí. |
+| Origen de esa capa | Ministerio de Desarrollo Agrario (ex Agroindustria), Dirección de Sustentabilidad, Riesgos y Emergencias, "Mapa de Riesgo Hídrico" (https://www.gba.gob.ar/desarrollo_agrario/direccion_de_sustentabilidad_riesgos_y_emergencias/mapa_de_riesgo_hidrico). Su "Información complementaria" (PDF de 2 páginas, 26/03/2020, https://drive.google.com/open?id=1uoSHxH1erSoe-vWIYzZTkw8s7NyR0XTl) explica el método: usaron el Global Surface Water del JRC (Pekel et al., 2016) de 1984 a 2018; dividieron la ocurrencia y la recurrencia en cinco clases de 20 % y las cruzaron con una matriz de mínimo, medio, alto y agua permanente; el resultado es un "mapa preliminar" que "deberá ser validado". La clase "excepcional" del visor no figura en ese documento. |
+| Dato que se usa | JRC, Global Surface Water versión 1.5 (1984 a 2024), hojas `occurrence` y `recurrence` 60W_30S (https://s3.waw4-1.cloudferro.com/swift/v1/global-surface-water/download2024/Aggregated/VER1-5/, publicadas el 01/07/2026). Licencia: "provided free of charge, without restriction of use", programa Copernicus, con cita obligatoria (https://global-surface-water.appspot.com/download, leída el 07/10/2026). No se usa la versión 1.4 (1984 a 2021): el propio JRC aclara que su ocurrencia tenía errores, corregidos en la 1.5. |
+| Proceso | `scripts/armar_anegamiento.py`: lee las hojas (GeoTIFF en mosaicos comprimidos con ZSTD; es el único script que necesita una librería externa, `zstandard`), recorta al partido, aplica la matriz del Ministerio celda por celda (verificada contra el PDF ampliado) y escribe un PNG de 30 m reproyectado a la proyección del mapa (`docs/datos/anegamiento.png`, 0,1 MB) con sus límites y superficies en `docs/datos/anegamiento.json`. El sitio lo muestra como imagen, debajo de las demás capas. |
+| Resultado | 12.740 ha clasificadas: frecuencia mínima 3.716 ha, media 5.021 ha, alta 1.999 ha, agua permanente 2.004 ha. Control visual: el cauce del Quequén Grande y las lagunas caen en agua permanente, sobre el mapa de fondo. |
+| Nombre | "Frecuencia de anegamiento observada (1984 a 2024)" y no "riesgo hídrico": mide con qué frecuencia hubo agua en superficie, es decir, la amenaza observada; no la probabilidad de daño (Lavell, 2007; ver `MARCO_CONCEPTUAL.md`). |
+| Cruce con el inventario (Jev) | Jev (TypeSafe) clasificó las 9 inundaciones del inventario según dónde afectó el agua: 5 rurales (caminos cortados y localidades aisladas: Juan N. Fernández y Santamarina en 1980, 2012 y 2026; la crecida de 2012 en Las Cascadas, con confianza baja, 0,48), 2 urbanas (el desborde del Quequén en 1980 sobre la ribera y el puerto; La Dulce en 2012, con confianza 0,57) y 2 sin datos suficientes (La Dulce y Claraz en 1980). **Inferido:** la capa sirve para leer los anegamientos rurales, que son la mayoría del inventario; los urbanos breves no los capta el satélite. |
+| Limitaciones | Un satélite cada 16 días y las nubes: anegamientos de pocos días pueden no figurar. 30 m de resolución: no ve calles anegadas. Es un producto derivado del proyecto, no el mapa del Ministerio. |
+
 ### 1.1 bis ADA, visor GIS: capa de cuencas `cuencas_ssrh2` · **Identificada, sin servicio abierto ni licencia** · no se usa
 
 | Campo | Detalle |
@@ -333,7 +348,7 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 |---|---|---|---|
 | Límite del partido | IGN (WFS), de origen catastral (ARBA) | Verificada, términos del IGN; fecha no informada | Publicada (32.136 vértices) |
 | Localidades | IGN (WFS, BAHRA) | Verificada, términos del IGN | Publicada, encendida al inicio (6) |
-| Inundaciones: peligrosidad | ADA | Sin fuente: la carta de riesgo hídrico del Quequén Grande no está hecha (confirmado a mano) | Pendiente de fuente |
+| Inundaciones: frecuencia de anegamiento observada | JRC (Global Surface Water 1.5, 1984 a 2024) con el método del Ministerio de Desarrollo Agrario (sección 1.0). La carta de riesgo hídrico de la ADA sigue sin existir | Verificada, Copernicus: libre y sin restricción, con cita | Publicada, apagada al inicio (12.740 ha clasificadas) |
 | Inundaciones: hidrografía oficial | IGN (WFS) | Verificada, términos del IGN; fecha no informada | Publicada, apagada al inicio (138 elementos) |
 | Inundaciones: hidrografía detallada | OpenStreetMap | Verificada, ODbL; base del 26/09/2026 | Publicada, apagada al inicio (2.279 elementos) |
 | Inundaciones: curvas de nivel | IGN (WFS) | Verificada, términos del IGN; escala 1:500.000 y 1:250.000 | Publicada, apagada al inicio (229 curvas) |

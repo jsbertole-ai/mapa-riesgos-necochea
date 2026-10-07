@@ -905,5 +905,22 @@
       "Cámaras de bombeo": 11
     },
     "fecha_datos": "Mapa de Obras Sanitarias (Google My Maps del municipio); fechas de actualización de los puntos entre el 27/12/2021 y 28/12/2021."
+  },
+  "inundaciones_peligrosidad": {
+    "procesado": "2026-10-07T16:47:07+00:00",
+    "archivo_crudo": "gsw/",
+    "sha256_crudo": {
+      "occurrence_60W_30S_v1_5_2024.tif": "dc2914708df1ec27fc5db1bae11124149e79bd7c5c7028e461432815b4f5cdb5",
+      "recurrence_60W_30S_v1_5_2024.tif": "c208ab195c7287d8883d1f5234f38c744a241cf4c3c9ea6ef344ce5c48442c92"
+    },
+    "elementos": 141565,
+    "por_tipo": {
+      "Mínima": 3716,
+      "Media": 5021,
+      "Alta": 1999,
+      "Agua permanente": 2004
+    },
+    "png_bytes": 109329,
+    "fecha_datos": "Global Surface Water 1.5 del JRC: imágenes Landsat de 1984 a 2024 (publicado el 01/07/2026)."
   }
 }
