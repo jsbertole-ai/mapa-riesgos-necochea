@@ -63,10 +63,12 @@
   // con los clics y las líneas y polígonos de abajo no responden. El orden (polígonos abajo, líneas en el
   // medio, puntos arriba) lo mantiene ordenarDibujo(). El límite va aparte, encima de todo y sin clics.
   // La tolerancia de 6 px permite tocar líneas finas (media tensión, arroyos) en el celular.
-  [["dibujo", 420], ["limite", 440]].forEach(function (p) {
+  // Las imágenes (frecuencia de anegamiento) van debajo de todo lo dibujado y no reciben clics.
+  [["raster", 410], ["dibujo", 420], ["limite", 440]].forEach(function (p) {
     mapa.createPane(p[0]).style.zIndex = p[1];
   });
   mapa.getPane("limite").style.pointerEvents = "none";
+  mapa.getPane("raster").style.pointerEvents = "none";
   const LIENZOS = {
     dibujo: L.canvas({ pane: "dibujo", tolerance: 6 }),
     limite: L.canvas({ pane: "limite" }),
@@ -527,6 +529,10 @@
 
   function crearCapaLeaflet(capa, datos) {
     const e = capa.estilo || {};
+    // Capa de imagen: un PNG ya reproyectado a la proyección del mapa, con sus límites en un JSON.
+    if (capa.geometria === "imagen") {
+      return L.imageOverlay("datos/" + datos.imagen, datos.limites, { pane: "raster", opacity: e.opacidad || 0.85, interactive: false, className: "capa-imagen" });
+    }
     if (e.bicolor) {
       // Simbología de vía férrea: línea negra de base (la que recibe los clics) con trazos blancos encima;
       // las estaciones, como círculos blancos con borde negro.
@@ -686,14 +692,16 @@
     const div = document.createElement("div");
     const verificada = capa.estado === "verificada";
     div.className = "capa" + (verificada ? "" : " pendiente");
-    const cuenta = verificada && capa.id !== "limite" ? '<span class="capa-cuenta">' + numero(capa.elementos) + (capa.elementos === 1 ? " elemento" : " elementos") + "</span>" : "";
+    const cuenta = !verificada || capa.id === "limite" ? ""
+      : capa.geometria === "imagen" ? '<span class="capa-cuenta">' + numero(Object.values(capa.por_tipo || {}).reduce(function (a, b) { return a + b; }, 0)) + " ha clasificadas</span>"
+      : '<span class="capa-cuenta">' + numero(capa.elementos) + (capa.elementos === 1 ? " elemento" : " elementos") + "</span>";
     // Leyenda por organismo, con la cantidad de cada uno (0 = todavía sin cargar).
     const colores = (capa.estilo || {}).colores;
     const lineas = (capa.estilo || {}).lineas;
     const leyenda = !verificada ? ""
       : colores ? '<ul class="leyenda-tipos">' + Object.keys(colores).map(function (k) {
           const n = (capa.por_organismo || capa.por_tipo || {})[k] || 0;
-          return '<li><span class="punto-leyenda" style="background:' + esc(colores[k]) + '"></span>' + esc(k) + " (" + numero(n) + ")</li>";
+          return '<li><span class="punto-leyenda" style="background:' + esc(colores[k]) + '"></span>' + esc(k) + " (" + numero(n) + (capa.geometria === "imagen" ? " ha" : "") + ")</li>";
         }).join("") + "</ul>"
       : (capa.estilo || {}).bicolor && capa.por_tipo ? '<ul class="leyenda-tipos">' + Object.keys(capa.por_tipo).sort().map(function (k) {
           const estacion = k.indexOf("Estación") === 0;

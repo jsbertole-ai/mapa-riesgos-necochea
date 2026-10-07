@@ -1,2 +1,5 @@
 # Los scripts usan solo la biblioteca estándar de Python (3.9 o posterior).
-# No hace falta instalar nada.
+# Casi no hace falta instalar nada; ver la excepción de abajo.
+# Única excepción: scripts/armar_anegamiento.py lee GeoTIFF comprimidos con ZSTD y necesita
+# zstandard (pip install zstandard). Sin ella, ese script avisa y no toca la capa publicada.
+zstandard

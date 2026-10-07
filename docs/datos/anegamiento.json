@@ -1,0 +1,30 @@
+{
+  "imagen": "anegamiento.png",
+  "limites": [
+    [
+      -38.73667,
+      -59.67703
+    ],
+    [
+      -37.61675,
+      -58.61945
+    ]
+  ],
+  "clases": [
+    "Mínima",
+    "Media",
+    "Alta",
+    "Agua permanente"
+  ],
+  "hectareas": {
+    "Mínima": 3716,
+    "Media": 5021,
+    "Alta": 1999,
+    "Agua permanente": 2004
+  },
+  "pixeles": {
+    "ancho": 3085,
+    "alto": 4156,
+    "resolucion_m": 30
+  }
+}
