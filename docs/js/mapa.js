@@ -701,7 +701,9 @@
     const leyenda = !verificada ? ""
       : colores ? '<ul class="leyenda-tipos">' + Object.keys(colores).map(function (k) {
           const n = (capa.por_organismo || capa.por_tipo || {})[k] || 0;
-          return '<li><span class="punto-leyenda" style="background:' + esc(colores[k]) + '"></span>' + esc(k) + " (" + numero(n) + (capa.geometria === "imagen" ? " ha" : "") + ")</li>";
+          // Una capa de imagen mide superficies: su leyenda va en cuadrados, no en puntos.
+          const forma = capa.geometria === "imagen" ? "punto-leyenda cuadro" : "punto-leyenda";
+          return '<li><span class="' + forma + '" style="background:' + esc(colores[k]) + '"></span>' + esc(k) + " (" + numero(n) + (capa.geometria === "imagen" ? " ha" : "") + ")</li>";
         }).join("") + "</ul>"
       : (capa.estilo || {}).bicolor && capa.por_tipo ? '<ul class="leyenda-tipos">' + Object.keys(capa.por_tipo).sort().map(function (k) {
           const estacion = k.indexOf("Estación") === 0;

@@ -406,6 +406,10 @@ a { color: var(--acento); }
 .linea-leyenda { width: 18px; flex: none; border-top: 2px solid; }
 .linea-leyenda.punteada { border-top-style: dashed; }
 .punto-leyenda.estacion { background: #fff; border: 2px solid; box-shadow: none; }
+.punto-leyenda.cuadro { width: 12px; height: 12px; border-radius: 2px; }
+/* Los colores de la leyenda tienen que coincidir con los del mapa: el modo oscuro automático de algunos
+   navegadores de celular (Chrome, Samsung Internet) los oscurece y el amarillo se ve marrón. */
+.punto-leyenda, .linea-leyenda, .muestra { color-scheme: only light; }
 .leyenda-tipos .muestra.ferro { flex: none; margin: 0; }
 
 /* Referencias bibliográficas (APA), con sangría francesa. */
