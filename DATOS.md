@@ -374,6 +374,7 @@ Si un sitio no deja descargar, cada archivo se puede bajar a mano y dejar en `da
 | Respuesta: Centro Operativo de Monitoreo | OpenStreetMap | Verificada, ODbL; sin cámaras | Publicada, apagada al inicio (1) |
 | Expuestos: pozos de agua y cámaras de bombeo | Municipio, Obras Sanitarias (sección 26) | Verificada, información pública municipal con cita | Publicada, apagada al inicio (59), sin el estado de funcionamiento |
 | Respuesta: servicios de playa | Municipalidad de Necochea (mapa de 2023 y notas de 2025-2026) y OpenStreetMap (sección 25) | Verificada, información pública municipal con cita y ODbL | Publicada, apagada al inicio (41; falta el puesto 61) |
+| Pronóstico de corto plazo (barra superior) | Google DeepMind, WeatherNext 3 (sección 28) | Identificada; los términos del pronóstico no permiten publicarlo | No se usa; se reconsidera en la Fase 3 |
 
 ---
 
@@ -895,3 +896,19 @@ Pedido de Sebastián (05/10/2026): cargar como un evento aparte, en el mismo est
 | Punto | Centro del edificio de OpenStreetMap `w1565064301` (`building=yes`, `man_made=works`, operador Evasio Marmetto S.A., Calle 78 N.º 1968; versión 1 del 05/10/2026), leído con la API de OpenStreetMap el 05/10/2026 (ODbL). Es un rombo de unos 115 m de lado. Los puntos del colaborador y del 05/10/2026 caen unos 6 m afuera, sobre el borde sudeste |
 | Sitio de la empresa | http://www.evasiomarmetto.com.ar/ (etiqueta `website` de OpenStreetMap; no respondió desde el entorno el 05/10/2026, sin comprobar su contenido) |
 | Pendiente | La causa judicial de la clausura del 2018 no se encontró: AhoraInfo (12/02/2019, https://ahorainfo.com.ar/2019/02/12/contaminacion-que-pasa-con-evasio-marmetto-sa/) dice que intervino la Fiscalía Departamental y que se ordenó una clausura preventiva, sin número de causa (sin comprobar) |
+
+## 28. Pronóstico WeatherNext 3 (Google DeepMind) · **Identificada, licencia incompatible con la publicación** · no se usa
+
+Propuesta de Sebastián (08/10/2026): mostrar en la barra superior del sitio el pronóstico de corto plazo para Necochea, como acceso a información confiable. Sebastián pidió acceso a los datos con el formulario de Google el 08/10/2026. Decisión del mismo día: no se publica ahora; se vuelve a evaluar en la Fase 3 (un observatorio con sitio propio, dinámico y con colaboradores, donde también se compartirían las alertas meteorológicas).
+
+| Campo | Detalle |
+|---|---|
+| Organismo | Google DeepMind y Google Research (Google LLC) |
+| URL | Presentación: https://deepmind.google/science/weathernext/. Documentación: https://developers.google.com/weathernext/guides/models. Acceso: https://developers.google.com/weathernext/guides/access-forecast (formulario de pedido; la guía dice que se aprueba en 5 a 7 días hábiles) |
+| Qué es | Modelo de pronóstico global por aprendizaje automático, en conjunto de 64 miembros, que se inicializa cada hora con imágenes de satélites geoestacionarios. Horizonte de 15 días (corridas de las 00, 06, 12 y 18 UTC) o de 48 horas (corridas intermedias). Versión del modelo: agosto de 2026 |
+| Resolución | 0,05° (unos 5 km) para la temperatura y el punto de rocío a 2 m, entrenados con estaciones; 0,1° (unos 10 km) para viento, presión, nubes, radiación y precipitación; 0,25° (unos 25 km) para los niveles de presión |
+| Formato y acceso | Google Cloud Storage (Zarr), BigQuery y Earth Engine, con cuenta de Google y pedido de acceso |
+| Licencia | Doble, leída el 08/10/2026. Los datos de una hora atrás o más: CC BY 4.0. Los datos de menos de una hora y los del futuro (el pronóstico): "GDM Real-Time Weather Forecasting Experimental Data Terms of Use", versión del 3 de septiembre de 2026, https://storage.googleapis.com/weathernext-public/terms-of-use.pdf |
+| Por qué no se usa | La sección 2 de esos términos permite el uso interno y compartir los datos solo con "clearly identified third parties via controlled distribution (which does not enable onward sharing), solely for educational purposes". La sección 3 aclara que recortar un área, darle formato o colorearla no cambia nada: el resultado sigue contando como dato "unmodified", y por eso no se puede publicar en un sitio abierto. La sección 6 dice que los datos son "not intended for consumer use". Para otros usos, los términos remiten a weathernext@google.com |
+| Limitaciones | Lo dice la propia documentación: es un sistema experimental, no reemplaza los avisos oficiales y muestra artefactos en la precipitación y en la salida de estaciones. Con celdas de 5 a 10 km, no resuelve diferencias de cientos de metros |
+| Riesgo de uso | Un pronóstico experimental en la barra del sitio, junto a los enlaces al SMN y a sus alertas, le daría al público dos fuentes que pueden contradecirse, y la no oficial quedaría más a la vista |
