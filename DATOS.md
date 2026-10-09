@@ -820,13 +820,13 @@ OpenArg (https://mcp.openarg.org/, Colossus Lab) indexa más de 30.000 conjuntos
 
 ## 24. Notas de prensa que el entorno no puede leer (para leer a mano)
 
-Diario Necochea (diarionecochea.com) responde con una página vacía (código 202) a la lectura automática desde el entorno (01/10/2026). Notas aportadas por un colaborador, pendientes de lectura manual antes de usarlas como fuente del inventario:
+Diario Necochea (diarionecochea.com) responde con una página vacía (código 202) a la lectura automática desde el entorno (01/10/2026). Notas aportadas por un colaborador. Decisión de Sebastián (09/10/2026): en vez de leerlas, los datos de las dos marcadas como "se busca" los busca él en otros medios, y las otras tres se descartan porque lo que aportaban ya está cubierto por otras fuentes o no agrega un evento:
 
-- https://diarionecochea.com/2025/01/31/el-sistema-cloacal-de-necochea-estaria-colapsado-por-la-alta-demanda/ (sistema cloacal en temporada).
-- https://diarionecochea.com/2025/01/25/contaminacion-en-el-cano-no-va-a-cambiar-hasta-que-haya-intendentes-y-concejales-que-se-preocupen/ (complemento del registro `proyecto-0041`, "El Caño").
-- https://diarionecochea.com/2023/12/12/jornada-intensa-para-bomberos-por-multiples-incendios-en-la-dulce-fernandez-y-san-cayetano/ (incendios simultáneos en La Dulce, Fernández y San Cayetano; puede documentar asistencia entre cuarteles, sección 9).
-- https://diarionecochea.com/2023/04/09/se-incendio-un-auto-en-ruta-86-causando-perdidas-totales/ (auto incendiado en la RP 86: ver qué cuartel actuó).
-- https://diarionecochea.com/2024/03/06/bomberos-voluntarios-de-san-cayetano-y-la-dulce-recibiran-mas-de-11-millones-del-ministerio-de-seguridad/ (subsidios a San Cayetano y La Dulce).
+- https://diarionecochea.com/2025/01/31/el-sistema-cloacal-de-necochea-estaria-colapsado-por-la-alta-demanda/ (sistema cloacal en temporada). **Se busca** en otro medio: fecha, barrios o calles afectados, causa informada y cifras.
+- https://diarionecochea.com/2025/01/25/contaminacion-en-el-cano-no-va-a-cambiar-hasta-que-haya-intendentes-y-concejales-que-se-preocupen/ (complemento del registro `proyecto-0041`, "El Caño"). Descartada: el registro ya tiene fuentes.
+- https://diarionecochea.com/2023/12/12/jornada-intensa-para-bomberos-por-multiples-incendios-en-la-dulce-fernandez-y-san-cayetano/ (incendios simultáneos en La Dulce, Fernández y San Cayetano; puede documentar asistencia entre cuarteles, sección 9). **Se busca** en otro medio: lugar (campo, kilómetro o paraje) de los de La Dulce y Juan N. Fernández, superficie quemada y cuarteles que actuaron; lo de San Cayetano ya está en Ecos Diarios (11/12/2023, sección 9).
+- https://diarionecochea.com/2023/04/09/se-incendio-un-auto-en-ruta-86-causando-perdidas-totales/ (auto incendiado en la RP 86: ver qué cuartel actuó). Descartada: la asistencia entre cuarteles ya está documentada en la sección 9.
+- https://diarionecochea.com/2024/03/06/bomberos-voluntarios-de-san-cayetano-y-la-dulce-recibiran-mas-de-11-millones-del-ministerio-de-seguridad/ (subsidios a San Cayetano y La Dulce). Descartada: no agrega un evento.
 
 **Basural de Necochea: causa judicial (05/10/2026).** Registro `proyecto-0043`.
 
