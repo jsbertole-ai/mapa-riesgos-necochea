@@ -94,7 +94,7 @@ body {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 18px;
-  max-width: 34rem;
+  max-width: 50rem;        /* el título puede ser ancho; la bajada y el botón tienen su propio límite */
   padding-block: 24px 8px;
 }
 .presentacion::before {
@@ -125,7 +125,7 @@ h1 span { display: block; color: var(--costa); }
   line-height: 1.5;
   max-width: 30rem;
 }
-.herramienta { display: grid; gap: 10px; justify-items: start; }
+.herramienta { display: grid; gap: 10px; justify-items: start; max-width: 34rem; }
 .etiqueta {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -159,6 +159,7 @@ h1 span { display: block; color: var(--costa); }
   color: var(--tenue);
   line-height: 1.5;
   padding-top: 12px;
+  text-shadow: 0 0 2px var(--negro), 0 0 8px var(--negro);   /* se lee también sobre el agua */
 }
 .trazo { display: inline-block; width: 14px; height: 0; border-top: 2px solid; margin-right: 6px; vertical-align: 3px; }
 .trazo.rio { color: var(--rio); }
