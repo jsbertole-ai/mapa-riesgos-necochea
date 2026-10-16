@@ -90,7 +90,9 @@ body {
 .presentacion {
   position: relative;
   align-self: end;
+  min-width: 0;            /* la columna no se estira con el título: el título se ajusta a ella */
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
   max-width: 34rem;
   padding-block: 24px 8px;
@@ -99,8 +101,9 @@ body {
   /* velo para que el texto se lea sobre el mapa y el mar */
   content: "";
   position: absolute;
-  inset: -60px -60px -20px -60px;
-  background: radial-gradient(75% 75% at 25% 70%, color-mix(in srgb, var(--negro) 85%, transparent), transparent 75%);
+  inset: -80px -80px -70px -80px;
+  /* closest-side: el velo llega a transparente antes de cualquier borde de su caja, así no deja una línea */
+  background: radial-gradient(closest-side at 45% 55%, color-mix(in srgb, var(--negro) 85%, transparent) 45%, transparent 100%);
   z-index: -1;
 }
 h1 {
@@ -658,17 +661,29 @@ void main() {
     escena.classList.add("titulo-listo", "texto-listo");
   }
 
+  // El título se mide ya dibujado y se achica hasta que entre: así no depende de la letra que cargue
+  // el teléfono ni del tamaño de texto que tenga configurado.
+  function ajustarTitulo() {
+    const h1 = document.getElementById("titulo");
+    h1.style.fontSize = "";
+    for (let i = 0; i < 3 && h1.scrollWidth > h1.clientWidth + 1; i++) {
+      const actual = parseFloat(getComputedStyle(h1).fontSize);
+      h1.style.fontSize = (actual * (h1.clientWidth / h1.scrollWidth) * 0.98).toFixed(2) + "px";
+    }
+  }
+  ajustarTitulo();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustarTitulo);
   medir();
   if (quieto) { terminarYa(); return; }
   escena.classList.add("con-arena");
   const fuente = document.fonts && document.fonts.load ? document.fonts.load(`600 40px ${tk("--titulo")}`) : Promise.resolve();
   Promise.race([fuente, new Promise(r => setTimeout(r, 1500))]).then(() => {
-    try { prepararArena(); } catch (e) { escena.classList.add("titulo-listo", "texto-listo"); }
+    try { ajustarTitulo(); prepararArena(); } catch (e) { escena.classList.add("titulo-listo", "texto-listo"); }
     requestAnimationFrame(cuadro);
   });
   // Red de seguridad: pase lo que pase, a los 9 segundos el texto se ve.
   setTimeout(() => escena.classList.add("titulo-listo", "texto-listo"), 9000);
-  window.addEventListener("resize", () => { medir(); orilla = null; terminarYa(); });
+  window.addEventListener("resize", () => { ajustarTitulo(); medir(); orilla = null; terminarYa(); });
 }).catch(() => document.getElementById("escena").classList.add("titulo-listo", "texto-listo"));
 </script>
 
