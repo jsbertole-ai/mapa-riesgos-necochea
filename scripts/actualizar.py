@@ -15,7 +15,7 @@ from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
 PASOS = ["descargar_limite.py", "descargar_firms.py", "descargar_osm.py", "descargar_ign.py", "descargar_cuenca.py", "armar_anegamiento.py", "armar_respuesta.py", "armar_playa.py", "descargar_municipio.py", "armar_conectividad.py", "armar_poblacion.py", "armar_vulnerabilidad.py", "descargar_energia.py", "descargar_gasoductos.py", "descargar_renabap.py", "descargar_envases.py", "descargar_sustancias.py", "descargar_indicadores.py",
-         "procesar_inventario.py", "verificar.py"]
+         "procesar_inventario.py", "armar_portada.py", "verificar.py"]
 
 
 def main():

@@ -6,10 +6,12 @@
  * ni se guardan: la política de uso de OpenStreetMap prohíbe el uso sin
  * conexión y la descarga anticipada.
  */
-const CACHE = "mapa-riesgos-v115";
+const CACHE = "mapa-riesgos-v116";
 const BASE = [
   "./",
   "index.html",
+  "mapa.html",
+  "datos/portada.json",
   "metodologia.html",
   "css/estilo.css",
   "js/mapa.js",
@@ -54,6 +56,6 @@ self.addEventListener("fetch", (evento) => {
         }
         return respuesta;
       })
-      .catch(() => caches.match(evento.request).then((r) => r || caches.match("index.html")))
+      .catch(() => caches.match(evento.request).then((r) => r || caches.match("mapa.html")))
   );
 });

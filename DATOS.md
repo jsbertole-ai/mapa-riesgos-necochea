@@ -918,3 +918,19 @@ Propuesta de Sebastián (08/10/2026): mostrar en la barra superior del sitio el 
 - **Derrumbe parcial.** La nota de Ahorainfo del 09/07/2009 (https://ahorainfo.com.ar/2009/07/09/necochea-se-derrumbo-parte-del-ex-molino-harinero/) lo ubica "este jueves", o sea el 09/07/2009. La del 14/07/2009 (https://ahorainfo.com.ar/2009/07/14/necochea-derrumbe-en-el-edificio-del-ex-molino-harinero/) dice a la vez "ayer jueves" y "sábado 11 de julio", y El Eco repite el 11. Se registra el 09/07/2009 porque una nota del día 9 no puede contar un hecho posterior. Se corrigió la fecha del envío (era 11/07/2009) el 10/10/2026.
 - **Incendio.** El Eco (https://elecos.com.ar/una-decena-de-devastadores-incendios-y-la-condenable-idea-de-quemar-sitios-abandonados) dice 16/09/2002 y destruyó las escaleras de pinotea; la historia del molino del mismo medio (https://elecos.com.ar/una-historia-de-140-anos-el-molino-harinero) dice 2004. Ahorainfo (2009) habla de un incendio "de grandes proporciones" que destruyó los interiores, sin fecha, anterior a la subasta de mayo de 2006. Se conserva 2002 sin confirmar; el incendio grande sigue sin fecha y no se carga hasta que haya una nota que lo fije.
 - **Punto.** Ambos caen dentro del polígono de OpenStreetMap "Ex-Molino Quequén Grande" (way 1545993618, building=ruins).
+
+## 29. Portada "Observatorio Necochea" (desde el 16/10/2026) · **Sin fuente propia** · reutiliza capas verificadas
+
+Decisión de Sebastián (16/10/2026): el sitio abre con una portada animada, "Observatorio Necochea", y el mapa pasa a `docs/mapa.html`. La portada no agrega datos: `scripts/armar_portada.py` (último paso de `actualizar.py` antes de `verificar.py`) toma capas ya publicadas en el mapa y las simplifica en `docs/datos/portada.json` (unos 90 KB).
+
+| Elemento de la portada | Capa de origen | Sección |
+|---|---|---|
+| Límite del partido | IGN (`limite.geojson`) | 0.2 |
+| Ríos y arroyos | IGN (`hidrografia_ign.geojson`) | 1 |
+| Media tensión | Secretaría de Energía (`media_tension.geojson`), sin los tramos de menos de 0,01° | 10 bis |
+| Gasoductos | ENARGAS (`gasoductos.geojson`) | 21 |
+| Localidades | IGN (`localidades.geojson`) | 8 |
+| Focos de calor | NASA FIRMS, VIIRS 2012 a 2024 (`incendios_viirs.geojson`) | 2 |
+| Eventos | Inventario local (`inventario_local.geojson`), un punto por registro con fecha | 10 |
+
+**Limitaciones.** Las líneas se simplifican (Douglas-Peucker, tolerancias de 0,0015° a 0,002°) y las coordenadas se redondean a cuatro decimales: la portada sirve para mirar, no para medir. La costa y el mar no salen de una capa de costa: se deducen del borde sur del límite del IGN, que está simplificado, y a los costados se prolongan en línea recta hasta el borde de la pantalla. Las coordenadas del encabezado (38°33′ S, 58°44′ O) son las del punto de la localidad Necochea - Quequén del IGN, y los 4.546 km² son el área calculada con el límite del IGN (sección 0.2).

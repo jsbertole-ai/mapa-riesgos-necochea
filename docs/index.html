@@ -2,61 +2,545 @@
 <html lang="es-AR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mapa para la gestión del riesgo del partido de Necochea</title>
-  <meta name="description" content="Mapa interactivo para la gestión del riesgo en el partido de Necochea: amenazas (inundaciones, incendios rurales y actividad portuaria e industrial), elementos expuestos, capacidades de respuesta e historia de eventos, hecho solo con datos abiertos.">
-  <meta name="theme-color" content="#1f4e79">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Observatorio Necochea</title>
+  <meta name="description" content="Observatorio Necochea: datos abiertos para conocer las amenazas, lo que queda expuesto y la historia de los eventos del partido de Necochea. Primera herramienta: el mapa para la gestión del riesgo.">
+  <meta name="theme-color" content="#020306">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="iconos/icono.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="iconos/icono-180.png">
-  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
-  <link rel="stylesheet" href="css/estilo.css">
+  <!-- Portada animada "Observatorio Necochea" (decisión de Sebastián, 16/10/2026). El mapa está en mapa.html. -->
+<style>
+/* Concepto: una pantalla de observación en la noche. El partido se arma solo sobre el negro, los ríos
+   brillan en cian, el mar respira bajo la costa y el nombre lo trae la arena de la playa. */
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("vendor/josefin-sans/josefin-sans-latin-600-normal.woff2") format("woff2");
+}
+:root {
+  --negro: #020306;        /* fondo: negro profundo */
+  --tinta: #eef3f6;        /* texto principal */
+  --tenue: #8796a4;        /* texto secundario y localidades */
+  --costa: #dcc9a3;        /* contorno del partido y arena */
+  --rio: #19e3ff;          /* ríos: cian */
+  --mar: #0fb5d1;          /* agua baja junto a la costa: cian */
+  --mar-hondo: #03222e;    /* agua profunda */
+  --espuma: #dcfbff;       /* espuma de la rompiente */
+  --electricidad: #b08cff; /* líneas de media tensión */
+  --gas: #ff6fa5;          /* gasoductos */
+  --evento: #ff8a4c;       /* eventos del inventario */
+  --foco: #f2c14e;         /* focos de calor satelitales */
+  --titulo: "Josefin Sans", "Century Gothic", system-ui, sans-serif;
+  --cuerpo: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --dato: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--negro);
+  color: var(--tinta);
+  font-family: var(--cuerpo);
+}
+.escena {
+  position: relative;
+  min-height: 100%;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: 20px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  overflow: hidden;
+  isolation: isolate;
+}
+.escena canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+#mar { z-index: -3; }
+#lienzo { z-index: -2; }
+#arena { z-index: 2; }
+.lectura {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  font-family: var(--dato);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--tenue);
+  font-variant-numeric: tabular-nums;
+}
+.lectura strong { color: var(--tinta); font-weight: 500; }
+.contador { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.contador span { white-space: nowrap; }
+.punto { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.punto.evento { background: var(--evento); }
+.punto.foco { background: var(--foco); }
+.presentacion {
+  position: relative;
+  align-self: end;
+  display: grid;
+  gap: 18px;
+  max-width: 34rem;
+  padding-block: 24px 8px;
+}
+.presentacion::before {
+  /* velo para que el texto se lea sobre el mapa y el mar */
+  content: "";
+  position: absolute;
+  inset: -60px -60px -20px -60px;
+  background: radial-gradient(75% 75% at 25% 70%, color-mix(in srgb, var(--negro) 85%, transparent), transparent 75%);
+  z-index: -1;
+}
+h1 {
+  margin: 0;
+  font-family: var(--titulo);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 0.95;
+  font-size: clamp(2.6rem, 9vw, 5.6rem);
+  padding-top: 0.1em;
+  text-wrap: balance;
+}
+h1 span { display: block; color: var(--costa); }
+.bajada {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  max-width: 30rem;
+}
+.herramienta { display: grid; gap: 10px; justify-items: start; }
+.etiqueta {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--tenue);
+}
+.entrar {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: var(--costa);
+  color: var(--negro);
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.entrar small { display: block; font-weight: 400; font-size: 0.8rem; opacity: 0.8; }
+.entrar svg { flex: none; transition: transform 0.2s ease; }
+.entrar:hover { background: var(--tinta); }
+.entrar:hover svg { transform: translateX(4px); }
+.entrar:focus-visible { outline: 3px solid var(--rio); outline-offset: 3px; }
+.pie {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 0.75rem;
+  color: var(--tenue);
+  line-height: 1.5;
+  padding-top: 12px;
+}
+.pie span { white-space: nowrap; }
+.trazo { display: inline-block; width: 14px; height: 0; border-top: 2px solid; margin-right: 6px; vertical-align: 3px; }
+.trazo.rio { color: var(--rio); }
+.trazo.electricidad { color: var(--electricidad); border-top-style: dotted; }
+.trazo.gas { color: var(--gas); border-top-style: dashed; }
+
+/* Solo con el script en marcha: el título espera a la arena y el resto entra después. */
+.con-arena h1 { opacity: 0; }
+.con-arena .bajada, .con-arena .herramienta { opacity: 0; transform: translateY(8px); }
+h1, .bajada, .herramienta { transition: opacity 0.9s ease, transform 0.9s ease; }
+.titulo-listo h1 { opacity: 1; }
+.texto-listo .bajada, .texto-listo .herramienta { opacity: 1; transform: none; }
+.texto-listo .herramienta { transition-delay: 0.25s; }
+
+@media (max-width: 759px) {
+  .lectura { font-size: 11px; }
+  .escena { grid-template-rows: auto minmax(52vh, 1fr) auto; }
+}
+@media (max-height: 640px) and (min-width: 700px) {
+  h1 { font-size: clamp(2.2rem, 7vw, 4rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+  h1, .bajada, .herramienta, .entrar, .entrar svg { transition: none; }
+}
+</style>
 </head>
 <body>
-  <header class="cabecera">
-    <h1><span class="titulo-largo">Mapa para la gestión del riesgo del partido de Necochea</span><span class="titulo-medio">Gestión del riesgo · Necochea</span><span class="titulo-corto">Riesgos Necochea</span></h1>
-    <a class="obra-cabecera" href="metodologia.html#colectivo" title="Sitio en construcción: es un proyecto colectivo y abierto">
-      <svg viewBox="0 0 24 20" aria-hidden="true" focusable="false"><defs><pattern id="rayas-mini" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2" height="4" fill="#2b2b2b"/><rect x="2" width="2" height="4" fill="#f2b705"/></pattern></defs><rect x="3" y="7" width="1.6" height="12" fill="#6b6b6b"/><rect x="13" y="7" width="1.6" height="12" fill="#6b6b6b"/><rect x="1" y="5" width="16" height="4.5" rx="0.8" fill="url(#rayas-mini)" stroke="#2b2b2b" stroke-width="0.6"/><path d="M20 6 L23.5 19 H16.5 Z" fill="#e8590c"/><path d="M19 10.5 H21 L21.7 13.2 H18.3 Z" fill="#fff"/></svg>
-      <span class="obra-texto">En construcción</span>
-    </a>
-    <button id="boton-capas" type="button" aria-controls="panel" aria-expanded="false">Capas</button>
-    <nav>
-      <a href="./" aria-current="page">Mapa</a>
-      <a href="metodologia.html">Metodología</a>
-    </nav>
-    <!-- Formulario del inventario local (KoboToolbox); el mismo enlace está en datos/fuentes.json (url_formulario). -->
-    <a class="boton-colaborar" href="https://ee.kobotoolbox.org/x/JsHKYrg5" target="_blank" rel="noopener"
-       title="Formulario para sumar un evento adverso o una vulnerabilidad que ya publicó un medio, un organismo oficial o un fallo judicial. No es un canal de denuncias ni de reclamos. Se publica después de revisarlo."><span class="largo">Sumar una noticia</span><span class="corto">Sumar</span></a>
-  </header>
+<main class="escena" id="escena">
+  <canvas id="mar" aria-hidden="true"></canvas>
+  <canvas id="lienzo" aria-hidden="true"></canvas>
+  <canvas id="arena" aria-hidden="true"></canvas>
 
-  <div class="app">
-    <aside id="panel" class="panel" aria-label="Capas del mapa">
-      <div class="en-construccion" role="note">
-        <svg class="dibujo-obra" viewBox="0 0 64 48" aria-hidden="true" focusable="false">
-          <defs><pattern id="rayas-obra" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="8" fill="#2b2b2b"/><rect x="4" width="4" height="8" fill="#f2b705"/></pattern></defs>
-          <rect x="8" y="14" width="3" height="32" fill="#6b6b6b"/><rect x="37" y="14" width="3" height="32" fill="#6b6b6b"/>
-          <rect x="3" y="12" width="42" height="9" rx="1.5" fill="url(#rayas-obra)" stroke="#2b2b2b"/>
-          <rect x="3" y="27" width="42" height="7" rx="1.5" fill="url(#rayas-obra)" stroke="#2b2b2b"/>
-          <circle cx="24" cy="7" r="3.5" fill="#f2b705" stroke="#2b2b2b"/>
-          <path d="M53 14 L61 44 H45 Z" fill="#e8590c"/><path d="M50.3 24 H55.7 L57.1 29.5 H48.9 Z" fill="#fff"/>
-          <rect x="43" y="43" width="20" height="3" rx="1" fill="#c2410c"/>
-        </svg>
-        <p><strong>Sitio en construcción.</strong> Es un proyecto colectivo: se arma entre quienes aportan datos, correcciones y lecturas. Para sumar algo, usá el botón "Sumar una noticia" o escribí en el <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea">repositorio</a>.</p>
-      </div>
-      <p class="aviso no-denuncias"><strong>Esto no es un canal de denuncias ni de reclamos:</strong> el inventario solo registra hechos que ya publicó un medio, un organismo oficial o un fallo judicial, con su enlace. Para un reclamo, dirigirse al organismo que corresponda; ante una emergencia, 911, 100 (bomberos) o 107 (emergencias médicas).</p>
-      <p class="aviso">Este mapa reúne, con datos abiertos, las amenazas y los elementos expuestos del partido. No es un mapa oficial de riesgo ni reemplaza la información de Defensa Civil. En la <a href="metodologia.html">metodología</a> se explica qué muestra cada capa y cuáles son sus límites.</p>
-      <div id="lista-capas"><p>Cargando capas…</p></div>
-      <div class="pie-panel">
-        Mapa de fondo: © <a href="https://www.openstreetmap.org/copyright">colaboradores de OpenStreetMap</a> (ODbL). El mapa de fondo necesita conexión.
-        Proyecto colectivo y abierto. Lo empezó Juan Sebastián Bértole, estudiante de la <a href="https://iuv.edu.ar/lic-gestion.html" rel="noopener">Licenciatura en Gestión de Riesgos y Siniestralidad</a> del Instituto Universitario Vucetich. Código bajo licencia MIT; cada capa conserva la licencia de su fuente.
-        <a href="https://github.com/jsbertole-ai/mapa-riesgos-necochea">Repositorio</a>.
-      </div>
-    </aside>
-    <main id="mapa" aria-label="Mapa"></main>
-    <p id="aviso-sin-conexion" class="aviso aviso-flotante" role="status" hidden>Sin conexión: las capas guardadas siguen disponibles, pero el mapa de fondo necesita conexión para verse.</p>
+  <div class="lectura">
+    <span>38°33′ S · 58°44′ O<br>Partido de Necochea · 4.546 km²</span>
+    <span class="contador">
+      <span><strong id="anio">1980</strong></span>
+      <span><i class="punto evento"></i><strong id="n-eventos">0</strong> eventos</span>
+      <span><i class="punto foco"></i><strong id="n-focos">0</strong> focos de calor</span>
+    </span>
   </div>
 
-  <script src="vendor/leaflet/leaflet.js"></script>
-  <script src="js/mapa.js"></script>
+  <div></div>
+
+  <section class="presentacion">
+    <h1 id="titulo">Observatorio <span>Necochea</span></h1>
+    <p class="bajada">Datos abiertos para conocer las amenazas, lo que queda expuesto y la historia de los eventos del partido. En construcción, entre quienes aportan datos.</p>
+    <div class="herramienta">
+      <span class="etiqueta">Primera herramienta</span>
+      <a class="entrar" href="mapa.html">
+        <span>Mapa para la gestión del riesgo<small>Entrar al mapa</small></span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer class="pie">
+    <span><i class="trazo rio"></i>Ríos y límite: IGN</span>
+    <span><i class="trazo electricidad"></i>Media tensión: Secretaría de Energía</span>
+    <span><i class="trazo gas"></i>Gasoductos: ENARGAS</span>
+    <span><i class="punto foco"></i>Focos de calor: NASA FIRMS, VIIRS 2012 a 2024 (un foco no es un incendio confirmado)</span>
+    <span><i class="punto evento"></i>Eventos: inventario local, 1980 a 2026</span>
+  </footer>
+</main>
+
+<script>
+// Los datos salen de datos/portada.json, que arma scripts/armar_portada.py con capas ya verificadas.
+fetch("datos/portada.json").then((r) => r.json()).then(function (DATOS) {
+  const escena = document.getElementById("escena");
+  const cMar = document.getElementById("mar"), cMapa = document.getElementById("lienzo"), cArena = document.getElementById("arena");
+  const xMar = cMar.getContext("2d"), ctx = cMapa.getContext("2d"), xArena = cArena.getContext("2d");
+  const css = getComputedStyle(document.documentElement);
+  const tk = (t) => css.getPropertyValue(t).trim();
+  const C = { costa: tk("--costa"), rio: tk("--rio"), mar: tk("--mar"), hondo: tk("--mar-hondo"), espuma: tk("--espuma"), elec: tk("--electricidad"), gas: tk("--gas"),
+              evento: tk("--evento"), foco: tk("--foco"), tenue: tk("--tenue"), tinta: tk("--tinta"), negro: tk("--negro") };
+  const quieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const elAnio = document.getElementById("anio"), elEventos = document.getElementById("n-eventos"), elFocos = document.getElementById("n-focos");
+
+  const LAT0 = -38.2, K = Math.cos(LAT0 * Math.PI / 180);
+  const pts = DATOS.limite.flat();
+  const minX = Math.min(...pts.map(p => p[0] * K)), maxX = Math.max(...pts.map(p => p[0] * K));
+  const minY = Math.min(...pts.map(p => -p[1])), maxY = Math.max(...pts.map(p => -p[1]));
+  const A0 = 1980, A1 = 2026;
+
+  // Línea de tiempo en milisegundos.
+  const T = { limite: [0, 2200], rios: [900, 3400], localidades: [1600, 2600], elec: [2400, 4800], gas: [2900, 5000],
+              anios: [3800, 9800], arena: 700, fin: 10600 };
+  const lerp01 = (t, [a, b]) => Math.max(0, Math.min(1, (t - a) / (b - a)));
+  const suave = (x) => x * x * (3 - 2 * x);
+
+  // Cada punto recibe un momento propio dentro de su año, para que aparezcan de a uno y no en bloque.
+  const azar = (() => { let s = 7; return () => (s = (s * 16807) % 2147483647) / 2147483647; })();
+  const momento = (a) => T.anios[0] + ((a - A0 + azar()) / (A1 - A0 + 1)) * (T.anios[1] - T.anios[0]);
+  const focos = DATOS.focos.map(f => ({ ...f, t: momento(f.a) }));
+  const eventos = DATOS.eventos.map(e => ({ ...e, t: momento(e.a) }));
+
+  let ancho = 0, alto = 0, dpr = 1, escala = 1, ox = 0, oy = 0;
+  function medir() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    ancho = escena.clientWidth; alto = escena.clientHeight;
+    for (const [c, x] of [[cMar, xMar], [cMapa, ctx], [cArena, xArena]]) {
+      c.width = Math.round(ancho * dpr); c.height = Math.round(alto * dpr);
+      x.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    const vertical = ancho < 760;
+    const zona = vertical
+      ? { x: ancho * 0.06, y: 92, w: ancho * 0.88, h: Math.min(alto * 0.46, ancho * 1.1) }
+      : { x: ancho * 0.42, y: 56, w: ancho * 0.54, h: alto - 190 };
+    escala = Math.min(zona.w / (maxX - minX), zona.h / (maxY - minY));
+    ox = zona.x + (zona.w - (maxX - minX) * escala) / 2;
+    oy = zona.y + (zona.h - (maxY - minY) * escala) / 2;
+  }
+  const px = (p) => [ox + (p[0] * K - minX) * escala, oy + (-p[1] - minY) * escala];
+
+  function camino(linea, fraccion) {
+    const n = Math.max(2, Math.ceil(linea.length * fraccion));
+    ctx.beginPath();
+    for (let i = 0; i < n; i++) { const [x, y] = px(linea[i]); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+    ctx.stroke();
+  }
+
+  // ---------- Mar: agua bajo la costa, prolongada hasta los bordes de la pantalla ----------
+  function costaPantalla() {
+    const c = DATOS.costa.map(px);
+    const pend = (a, b) => (b[1] - a[1]) / (b[0] - a[0] || 1);
+    const pi = pend(c[0], c[Math.min(6, c.length - 1)]), pf = pend(c[Math.max(0, c.length - 7)], c[c.length - 1]);
+    const izq = [0, c[0][1] - pi * c[0][0]];
+    const der = [ancho, c[c.length - 1][1] + pf * (ancho - c[c.length - 1][0])];
+    return [izq, ...c, der];
+  }
+  // La costa en tramos cortos, con su normal hacia el mar, para dibujar olas que la siguen.
+  let orilla = null, destellos = [];
+  function prepararMar() {
+    const c = costaPantalla(), salida = [];
+    const dx = c[c.length - 1][0] - c[0][0], dy = c[c.length - 1][1] - c[0][1], Lg = Math.hypot(dx, dy) || 1;
+    let nx = -dy / Lg, ny = dx / Lg;
+    if (ny < 0) { nx = -nx; ny = -ny; }
+    let s = 0;
+    for (let i = 0; i < c.length - 1; i++) {
+      const [x1, y1] = c[i], [x2, y2] = c[i + 1], L = Math.hypot(x2 - x1, y2 - y1) || 1;
+      for (let d = 0; d < L; d += 6) salida.push({ x: x1 + (x2 - x1) * d / L, y: y1 + (y2 - y1) * d / L, nx, ny, s: s + d });
+      s += L;
+    }
+    const u = c[c.length - 1]; salida.push({ ...salida[salida.length - 1], x: u[0], y: u[1], s });
+    orilla = salida;
+    destellos = Array.from({ length: 140 }, () => {
+      const o = orilla[Math.floor(azar() * orilla.length)], d = 8 + Math.pow(azar(), 1.6) * Math.max(80, alto * 0.45);
+      return { x: o.x + o.nx * d, y: o.y + o.ny * d, w: 0.6 + azar() * 1.6, f: azar() * 6.3, d };
+    });
+  }
+  function linea(d, amp, frec, fase) {
+    xMar.beginPath();
+    orilla.forEach((o, i) => {
+      const k = d + amp * Math.sin(o.s * frec + fase);
+      i ? xMar.lineTo(o.x + o.nx * k, o.y + o.ny * k) : xMar.moveTo(o.x + o.nx * k, o.y + o.ny * k);
+    });
+    xMar.stroke();
+  }
+  function dibujarMar(ms) {
+    xMar.clearRect(0, 0, ancho, alto);
+    if (!orilla) prepararMar();
+    const aparicion = suave(lerp01(ms, [0, 1800]));
+    const s = quieto ? 0 : ms / 1000;
+    xMar.save();
+    xMar.beginPath();
+    orilla.forEach((o, i) => i ? xMar.lineTo(o.x, o.y) : xMar.moveTo(o.x, o.y));
+    xMar.lineTo(ancho, alto); xMar.lineTo(0, alto); xMar.closePath();
+    // Agua: cian claro en la rompiente, cada vez más honda mar adentro.
+    const medio = orilla[Math.floor(orilla.length / 2)];
+    const prof = Math.max(160, alto * 0.55);
+    const g = xMar.createLinearGradient(medio.x, medio.y, medio.x + medio.nx * prof, medio.y + medio.ny * prof);
+    g.addColorStop(0, C.mar); g.addColorStop(0.12, C.hondo); g.addColorStop(1, C.negro);
+    xMar.globalAlpha = 0.65 * aparicion; xMar.fillStyle = g; xMar.fill();
+    xMar.clip();
+    xMar.lineCap = "round"; xMar.lineJoin = "round";
+    // Olas que avanzan hacia la orilla: cada cresta se acerca, se ondula y se aclara al llegar.
+    const sep = 22, n = 12, avance = (s * 9) % sep;
+    for (let k = 0; k < n; k++) {
+      const d = k * sep + sep - avance;
+      const cerca = Math.max(0, 1 - d / (sep * n));
+      xMar.strokeStyle = C.rio;
+      xMar.globalAlpha = aparicion * (0.05 + 0.3 * cerca * cerca);
+      xMar.lineWidth = 0.8 + 1.2 * cerca;
+      linea(d, 2 + 3 * cerca, 0.018 + k * 0.002, s * 0.8 + k * 1.9);
+    }
+    // Espuma de la rompiente: sube y baja sobre la arena.
+    const vaiven = 3 + 3 * (Math.sin(s * 0.9) + 1);
+    xMar.strokeStyle = C.espuma;
+    xMar.globalAlpha = aparicion * 0.55; xMar.lineWidth = 1.6; linea(vaiven, 1.5, 0.05, s * 1.3);
+    xMar.globalAlpha = aparicion * 0.25; xMar.lineWidth = 1; linea(vaiven + 6, 2, 0.035, s * 1.1 + 2);
+    // Destellos sobre el agua.
+    xMar.fillStyle = C.espuma;
+    for (const b of destellos) {
+      const v = Math.pow(Math.max(0, Math.sin(s * b.w + b.f)), 14);
+      if (v < 0.02) continue;
+      xMar.globalAlpha = aparicion * v * 0.8 * Math.max(0.25, 1 - b.d / (alto * 0.5));
+      xMar.fillRect(b.x, b.y, 1.6, 1.6);
+    }
+    xMar.restore();
+  }
+
+  // ---------- Mapa ----------
+  function dibujarMapa(ms) {
+    ctx.clearRect(0, 0, ancho, alto);
+    ctx.lineJoin = "round"; ctx.lineCap = "round";
+
+    const fe = suave(lerp01(ms, T.elec));
+    if (fe > 0) {
+      ctx.strokeStyle = C.elec; ctx.lineWidth = 0.8; ctx.globalAlpha = 0.45 * fe;
+      ctx.setLineDash([1.5, 3]);
+      for (const l of DATOS.electricidad) camino(l, fe);
+      ctx.setLineDash([]);
+    }
+    const fg = suave(lerp01(ms, T.gas));
+    if (fg > 0) {
+      ctx.strokeStyle = C.gas; ctx.lineWidth = 1.4; ctx.globalAlpha = 0.8 * fg;
+      ctx.setLineDash([6, 4]);
+      for (const l of DATOS.gas) camino(l, fg);
+      ctx.setLineDash([]);
+    }
+
+    const fr = suave(lerp01(ms, T.rios));
+    if (fr > 0) {
+      ctx.globalCompositeOperation = "lighter";
+      ctx.strokeStyle = C.rio;
+      for (const r of DATOS.rios) {           // halo
+        ctx.globalAlpha = 0.12 * fr; ctx.lineWidth = r.p ? 7 : 4; camino(r.c, fr);
+      }
+      for (const r of DATOS.rios) {           // trazo
+        ctx.globalAlpha = (r.p ? 0.95 : 0.6) * fr; ctx.lineWidth = r.p ? 1.6 : 0.9; camino(r.c, fr);
+      }
+      ctx.globalCompositeOperation = "source-over";
+    }
+
+    const fl = suave(lerp01(ms, T.limite));
+    ctx.globalAlpha = 1; ctx.strokeStyle = C.costa; ctx.lineWidth = 1.5;
+    for (const a of DATOS.limite) camino(a, fl);
+
+    const fn = suave(lerp01(ms, T.localidades));
+    if (fn > 0) {
+      ctx.globalAlpha = fn; ctx.fillStyle = C.tenue; ctx.font = "11px " + tk("--cuerpo");
+      for (const l of DATOS.localidades) {
+        const [x, y] = px(l.c);
+        ctx.beginPath(); ctx.arc(x, y, 2, 0, 2 * Math.PI); ctx.fill();
+        const w = ctx.measureText(l.n).width;
+        if (x + 6 + w > ancho - 8) { ctx.textAlign = "right"; ctx.fillText(l.n, x - 6, y - 8); ctx.textAlign = "left"; }
+        else ctx.fillText(l.n, x + 6, y + 4);
+      }
+    }
+
+    let nf = 0, ne = 0;
+    ctx.fillStyle = C.foco;
+    for (const f of focos) {
+      const a = suave(Math.max(0, Math.min(1, (ms - f.t) / 700)));
+      if (a <= 0) continue;
+      nf++;
+      const [x, y] = px(f.c);
+      ctx.globalAlpha = 0.45 * a + 0.5 * a * (1 - Math.min(1, (ms - f.t) / 1400));
+      ctx.fillRect(x - 1, y - 1, 2, 2);
+    }
+    for (const e of eventos) {
+      const a = suave(Math.max(0, Math.min(1, (ms - e.t) / 900)));
+      if (a <= 0) continue;
+      ne++;
+      const [x, y] = px(e.c);
+      const onda = Math.min(1, (ms - e.t) / 1600);
+      if (onda < 1) {
+        ctx.globalAlpha = 0.4 * (1 - onda); ctx.strokeStyle = C.evento; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.arc(x, y, 3 + 12 * onda, 0, 2 * Math.PI); ctx.stroke();
+      }
+      ctx.globalAlpha = a; ctx.fillStyle = C.evento;
+      ctx.beginPath(); ctx.arc(x, y, 3.2 * (0.6 + 0.4 * a), 0, 2 * Math.PI); ctx.fill();
+      ctx.fillStyle = C.foco;
+    }
+    ctx.globalAlpha = 1;
+    const fa = lerp01(ms, T.anios);
+    elAnio.textContent = fa > 0 ? Math.min(A1, Math.floor(A0 + (A1 - A0 + 1) * fa)) : A0;
+    elEventos.textContent = ne; elFocos.textContent = nf;
+  }
+
+  // ---------- Arena: partículas que salen de la playa y forman el título ----------
+  let granos = [], arenaLista = false;
+  function prepararArena() {
+    const h1 = document.getElementById("titulo");
+    const tam = parseFloat(getComputedStyle(h1).fontSize);
+    const off = document.createElement("canvas");
+    off.width = Math.ceil(ancho); off.height = Math.ceil(alto);
+    const o = off.getContext("2d", { willReadFrequently: true });
+    o.font = `600 ${tam}px ${tk("--titulo")}`;
+    o.textBaseline = "alphabetic";
+    const asc = o.measureText("O").fontBoundingBoxAscent || tam * 0.8;
+    const base = escena.getBoundingClientRect();
+    const marcas = [];
+    // Se dibuja cada letra en el lugar exacto donde la pone el navegador.
+    const recorrer = (nodo, color) => {
+      for (const hijo of nodo.childNodes) {
+        if (hijo.nodeType === 3) {
+          for (let i = 0; i < hijo.length; i++) {
+            const ch = hijo.data[i]; if (!ch.trim()) continue;
+            const r = document.createRange(); r.setStart(hijo, i); r.setEnd(hijo, i + 1);
+            const b = r.getBoundingClientRect();
+            o.fillStyle = color;
+            o.fillText(ch.toUpperCase(), b.left - base.left, b.top - base.top + asc);
+            marcas.push(color);
+          }
+        } else if (hijo.nodeType === 1) recorrer(hijo, hijo.tagName === "SPAN" ? "#000002" : "#000001");
+      }
+    };
+    recorrer(h1, "#000001");
+    const datos = o.getImageData(0, 0, off.width, off.height).data;
+    const paso = Math.max(2, Math.round(tam / 26));
+    const objetivos = [];
+    for (let y = 0; y < off.height; y += paso) for (let x = 0; x < off.width; x += paso) {
+      const i = (y * off.width + x) * 4;
+      if (datos[i + 3] > 128) objetivos.push([x, y, datos[i + 2] === 2]);
+    }
+    const costa = costaPantalla().slice(1, -1);
+    const xMin = Math.min(...objetivos.map(o => o[0])), xMax = Math.max(...objetivos.map(o => o[0]));
+    granos = objetivos.map(([x, y, segunda]) => {
+      const s = costa[Math.floor(azar() * costa.length)];
+      const desde = [s[0] + (azar() - 0.5) * 40, s[1] + (azar() - 0.5) * 16];
+      const dx = x - desde[0], dy = y - desde[1], L = Math.hypot(dx, dy) || 1;
+      return { x, y, desde, n: [-dy / L, dx / L], curva: (azar() - 0.5) * 140,
+               retraso: T.arena + ((x - xMin) / (xMax - xMin || 1)) * 1100 + azar() * 500,
+               dur: 1500 + azar() * 900, color: segunda ? C.costa : C.tinta, alfa: 0.55 + azar() * 0.45 };
+    });
+    arenaLista = true;
+  }
+  const curvaMov = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  let finArena = Infinity;
+  function dibujarArena(ms) {
+    xArena.clearRect(0, 0, ancho, alto);
+    if (!arenaLista) return;
+    const fundido = 1 - lerp01(ms, [finArena, finArena + 900]);
+    if (fundido <= 0) return;
+    let todos = true;
+    for (const g of granos) {
+      const t = Math.max(0, Math.min(1, (ms - g.retraso) / g.dur));
+      if (t < 1) todos = false;
+      if (t <= 0) continue;
+      const e = curvaMov(t), arco = Math.sin(Math.PI * e) * g.curva;
+      const x = g.desde[0] + (g.x - g.desde[0]) * e + g.n[0] * arco;
+      const y = g.desde[1] + (g.y - g.desde[1]) * e + g.n[1] * arco;
+      xArena.globalAlpha = g.alfa * Math.min(1, t * 3) * fundido;
+      xArena.fillStyle = g.color;
+      xArena.fillRect(x, y, 1.4, 1.4);
+    }
+    if (todos && finArena === Infinity) {
+      finArena = ms;
+      escena.classList.add("titulo-listo");
+      setTimeout(() => escena.classList.add("texto-listo"), 500);
+    }
+  }
+
+  // ---------- Bucle ----------
+  let inicio = null, mapaQuieto = false;
+  function cuadro(ahora) {
+    if (inicio === null) inicio = ahora;
+    const ms = ahora - inicio;
+    dibujarMar(ms);
+    if (!mapaQuieto) {
+      dibujarMapa(ms);
+      dibujarArena(ms);
+      if (ms > T.fin && ms > finArena + 1000) { mapaQuieto = true; xArena.clearRect(0, 0, ancho, alto); }
+    }
+    requestAnimationFrame(cuadro);
+  }
+  function terminarYa() {
+    mapaQuieto = true; finArena = 0;
+    dibujarMar(T.fin); dibujarMapa(T.fin + 2000); xArena.clearRect(0, 0, ancho, alto);
+    escena.classList.add("titulo-listo", "texto-listo");
+  }
+
+  medir();
+  if (quieto) { terminarYa(); return; }
+  escena.classList.add("con-arena");
+  const fuente = document.fonts && document.fonts.load ? document.fonts.load(`600 40px ${tk("--titulo")}`) : Promise.resolve();
+  Promise.race([fuente, new Promise(r => setTimeout(r, 1500))]).then(() => {
+    try { prepararArena(); } catch (e) { escena.classList.add("titulo-listo", "texto-listo"); }
+    requestAnimationFrame(cuadro);
+  });
+  // Red de seguridad: pase lo que pase, a los 9 segundos el texto se ve.
+  setTimeout(() => escena.classList.add("titulo-listo", "texto-listo"), 9000);
+  window.addEventListener("resize", () => { medir(); orilla = null; terminarYa(); });
+}).catch(() => document.getElementById("escena").classList.add("titulo-listo", "texto-listo"));
+</script>
+
 </body>
 </html>
