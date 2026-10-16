@@ -90,17 +90,20 @@ body {
 .presentacion {
   position: relative;
   align-self: end;
+  min-width: 0;            /* la columna no se estira con el título: el título se ajusta a ella */
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
-  max-width: 34rem;
+  max-width: 50rem;        /* el título puede ser ancho; la bajada y el botón tienen su propio límite */
   padding-block: 24px 8px;
 }
 .presentacion::before {
   /* velo para que el texto se lea sobre el mapa y el mar */
   content: "";
   position: absolute;
-  inset: -60px -60px -20px -60px;
-  background: radial-gradient(75% 75% at 25% 70%, color-mix(in srgb, var(--negro) 85%, transparent), transparent 75%);
+  inset: -80px -80px -70px -80px;
+  /* closest-side: el velo llega a transparente antes de cualquier borde de su caja, así no deja una línea */
+  background: radial-gradient(closest-side at 45% 55%, color-mix(in srgb, var(--negro) 85%, transparent) 45%, transparent 100%);
   z-index: -1;
 }
 h1 {
@@ -110,7 +113,8 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   line-height: 0.95;
-  font-size: clamp(2.6rem, 9vw, 5.6rem);
+  /* "OBSERVATORIO" mide 8,63 veces el tamaño de la letra: el título se achica para entrar en pantallas angostas. */
+  font-size: clamp(1.6rem, calc((100vw - 36px) / 8.8), 5.6rem);
   padding-top: 0.1em;
   text-wrap: balance;
 }
@@ -121,7 +125,7 @@ h1 span { display: block; color: var(--costa); }
   line-height: 1.5;
   max-width: 30rem;
 }
-.herramienta { display: grid; gap: 10px; justify-items: start; }
+.herramienta { display: grid; gap: 10px; justify-items: start; max-width: 34rem; }
 .etiqueta {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -155,8 +159,8 @@ h1 span { display: block; color: var(--costa); }
   color: var(--tenue);
   line-height: 1.5;
   padding-top: 12px;
+  text-shadow: 0 0 2px var(--negro), 0 0 8px var(--negro);   /* se lee también sobre el agua */
 }
-.pie span { white-space: nowrap; }
 .trazo { display: inline-block; width: 14px; height: 0; border-top: 2px solid; margin-right: 6px; vertical-align: 3px; }
 .trazo.rio { color: var(--rio); }
 .trazo.electricidad { color: var(--electricidad); border-top-style: dotted; }
@@ -172,6 +176,8 @@ h1, .bajada, .herramienta { transition: opacity 0.9s ease, transform 0.9s ease; 
 
 @media (max-width: 759px) {
   .lectura { font-size: 11px; }
+  /* En el celular el título va más chico, con margen de sobra (pedido de Sebastián, 16/10/2026). */
+  h1 { font-size: calc((100vw - 40px) / 11); }
   .escena { grid-template-rows: auto minmax(52vh, 1fr) auto; }
 }
 @media (max-height: 640px) and (min-width: 700px) {
@@ -225,7 +231,7 @@ h1, .bajada, .herramienta { transition: opacity 0.9s ease, transform 0.9s ease; 
 fetch("datos/portada.json").then((r) => r.json()).then(function (DATOS) {
   const escena = document.getElementById("escena");
   const cMar = document.getElementById("mar"), cMapa = document.getElementById("lienzo"), cArena = document.getElementById("arena");
-  const xMar = cMar.getContext("2d"), ctx = cMapa.getContext("2d"), xArena = cArena.getContext("2d");
+  const ctx = cMapa.getContext("2d"), xArena = cArena.getContext("2d");
   const css = getComputedStyle(document.documentElement);
   const tk = (t) => css.getPropertyValue(t).trim();
   const C = { costa: tk("--costa"), rio: tk("--rio"), mar: tk("--mar"), hondo: tk("--mar-hondo"), espuma: tk("--espuma"), elec: tk("--electricidad"), gas: tk("--gas"),
@@ -251,11 +257,132 @@ fetch("datos/portada.json").then((r) => r.json()).then(function (DATOS) {
   const focos = DATOS.focos.map(f => ({ ...f, t: momento(f.a) }));
   const eventos = DATOS.eventos.map(e => ({ ...e, t: momento(e.a) }));
 
+  // ---------- Agua con WebGL: oleaje, reflejos y espuma calculados en la placa de video ----------
+  // La costa llega como una línea de puntos en píxeles de pantalla; el mar es todo lo que queda al sur.
+  function crearAguaGL(canvas) {
+    let gl = null;
+    try { gl = canvas.getContext("webgl", { alpha: true, premultipliedAlpha: false, antialias: false }); } catch (e) { gl = null; }
+    if (!gl) return null;
+    const MAX = 48;
+    const vs = "attribute vec2 p; void main() { gl_Position = vec4(p, 0.0, 1.0); }";
+    const fs = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
+uniform vec2 res; uniform float esc; uniform float t; uniform float apar;
+uniform vec2 costa[${MAX}]; uniform int n;
+uniform vec3 cBaja; uniform vec3 cHonda; uniform vec3 cEspuma; uniform float prof;
+float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float ruido(vec2 p) {
+  vec2 i = floor(p), f = fract(p); vec2 u = f * f * (3.0 - 2.0 * f);
+  return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x), u.y);
+}
+float fbm(vec2 p) { float v = 0.0, a = 0.5; for (int i = 0; i < 4; i++) { v += a * ruido(p); p = p * 2.03 + 17.0; a *= 0.5; } return v; }
+// Altura del agua: s recorre la costa, d es la distancia mar adentro (en píxeles de pantalla).
+float altura(float s, float d) {
+  float h = 0.0;
+  h += 0.55 * sin(0.042 * (d + 16.0 * t) + 0.7 * sin(s * 0.007 + 0.25 * t));   // mar de fondo
+  h += 0.30 * sin(0.075 * (d + 12.0 * t) + s * 0.011 + 1.3);                    // segundo tren de olas
+  h += 0.16 * sin(0.12 * (0.9 * d + 0.3 * s + 20.0 * t));                       // olas cruzadas
+  h += 0.35 * fbm(vec2(s, d) * 0.055 + vec2(0.3 * t, 0.8 * t));                 // picado
+  return h;
+}
+void main() {
+  vec2 q = vec2(gl_FragCoord.x, res.y - gl_FragCoord.y) / esc;
+  float dmin = 1e9, signo = -1.0, sa = 0.0, acum = 0.0;
+  for (int i = 0; i < ${MAX - 1}; i++) {
+    if (i >= n - 1) break;
+    vec2 a = costa[i], b = costa[i + 1], ab = b - a;
+    float L = max(length(ab), 0.001);
+    float h = clamp(dot(q - a, ab) / (L * L), 0.0, 1.0);
+    vec2 c = a + ab * h;
+    float dd = length(q - c);
+    if (dd < dmin) {
+      dmin = dd;
+      vec2 nn = vec2(-ab.y, ab.x) / L; if (nn.y < 0.0) nn = -nn;
+      signo = dot(q - c, nn) >= 0.0 ? 1.0 : -1.0;
+      sa = acum + h * L;
+    }
+    acum += L;
+  }
+  float d = dmin * signo;
+  if (d < -2.0) { gl_FragColor = vec4(0.0); return; }
+  d = max(d, 0.0);
+  // Normal de la superficie a partir de la altura.
+  float e = 1.5, h0 = altura(sa, d);
+  float hs = altura(sa + e, d), hd = altura(sa, d + e);
+  vec3 nrm = normalize(vec3(-(hs - h0) * 2.2, -(hd - h0) * 2.2, 1.0));
+  vec3 luz = normalize(vec3(-0.35, -0.55, 0.75));
+  float z = clamp(d / prof, 0.0, 1.0);
+  vec3 col = mix(cBaja, cHonda, smoothstep(0.0, 1.0, pow(z, 0.55)));
+  col *= 0.55 + 0.6 * max(dot(nrm, luz), 0.0);
+  col += cBaja * pow(1.0 - nrm.z, 2.0) * 1.2 * (1.0 - z);                       // brillo de las laderas
+  float brillo = pow(max(dot(reflect(-luz, nrm), vec3(0.0, 0.0, 1.0)), 0.0), 80.0);
+  col += cEspuma * brillo * (0.9 - 0.5 * z);                                    // reflejos
+  // Espuma: la orilla que sube y baja, y las crestas que revientan cerca de la playa.
+  float lavado = 5.0 + 4.0 * sin(t * 0.75 + sa * 0.012) + 3.0 * ruido(vec2(sa * 0.04, t * 0.5));
+  float encaje = 0.55 + 0.45 * ruido(vec2(sa, d) * 0.22 + vec2(0.0, t * 1.5));
+  float orilla = smoothstep(lavado + 7.0, lavado, d) * encaje;
+  float cresta = smoothstep(0.62, 0.95, h0) * smoothstep(110.0, 15.0, d) * ruido(vec2(sa, d) * 0.12 + t * 0.6);
+  float espuma = clamp(orilla + cresta * 0.8, 0.0, 1.0);
+  col = mix(col, cEspuma, espuma);
+  float a = apar * smoothstep(-2.0, 1.5, dmin * signo) * mix(1.0, 0.85, z);
+  gl_FragColor = vec4(col, a);
+}`;
+    const sh = (tipo, src) => { const s = gl.createShader(tipo); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    let prog;
+    try {
+      prog = gl.createProgram();
+      gl.attachShader(prog, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fs));
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(prog));
+    } catch (e) { return null; }
+    gl.useProgram(prog);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, "p");
+    gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const U = (n) => gl.getUniformLocation(prog, n);
+    const u = { res: U("res"), esc: U("esc"), t: U("t"), apar: U("apar"), costa: U("costa"), n: U("n"),
+                cBaja: U("cBaja"), cHonda: U("cHonda"), cEspuma: U("cEspuma"), prof: U("prof") };
+    const rgb = (hex) => { const h = hex.replace("#", ""); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16) / 255); };
+    gl.uniform3fv(u.cBaja, rgb(C.mar)); gl.uniform3fv(u.cHonda, rgb(C.hondo)); gl.uniform3fv(u.cEspuma, rgb(C.espuma));
+    gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+    let escalaGL = 1, w = 0, h = 0;
+    return {
+      medir(anchoCss, altoCss) {
+        // El agua es suave: alcanza con un píxel por píxel de pantalla (menos en pantallas grandes).
+        escalaGL = Math.min(window.devicePixelRatio || 1, anchoCss > 1200 ? 1 : 1.5);
+        w = Math.round(anchoCss * escalaGL); h = Math.round(altoCss * escalaGL);
+        canvas.width = w; canvas.height = h; gl.viewport(0, 0, w, h);
+        gl.uniform2f(u.res, w, h); gl.uniform1f(u.esc, escalaGL);
+        gl.uniform1f(u.prof, Math.max(160, altoCss * 0.5));
+      },
+      costa(puntos) {
+        const lista = puntos.slice(0, MAX), plano = new Float32Array(MAX * 2);
+        lista.forEach((p, i) => { plano[2 * i] = p[0]; plano[2 * i + 1] = p[1]; });
+        gl.uniform2fv(u.costa, plano); gl.uniform1i(u.n, lista.length);
+      },
+      dibujar(segundos, aparicion) {
+        gl.uniform1f(u.t, segundos % 1000); gl.uniform1f(u.apar, aparicion);
+        gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      },
+    };
+  }
+
+  const aguaGL = crearAguaGL(cMar);
+  const xMar = aguaGL ? null : cMar.getContext("2d");
+
   let ancho = 0, alto = 0, dpr = 1, escala = 1, ox = 0, oy = 0;
   function medir() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     ancho = escena.clientWidth; alto = escena.clientHeight;
-    for (const [c, x] of [[cMar, xMar], [cMapa, ctx], [cArena, xArena]]) {
+    if (aguaGL) aguaGL.medir(ancho, alto);
+    for (const [c, x] of (aguaGL ? [] : [[cMar, xMar]]).concat([[cMapa, ctx], [cArena, xArena]])) {
       c.width = Math.round(ancho * dpr); c.height = Math.round(alto * dpr);
       x.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
@@ -314,6 +441,15 @@ fetch("datos/portada.json").then((r) => r.json()).then(function (DATOS) {
     xMar.stroke();
   }
   function dibujarMar(ms) {
+    if (aguaGL) {
+      if (!orilla) {
+        // En la desembocadura del Quequén el límite da un salto casi vertical; para el agua se omite.
+        orilla = costaPantalla().filter((p, i, l) => i === 0 || Math.abs(p[0] - l[i - 1][0]) > 2);
+        aguaGL.costa(orilla);
+      }
+      aguaGL.dibujar(quieto ? 3 : ms / 1000, suave(lerp01(ms, [0, 1800])));
+      return;
+    }
     xMar.clearRect(0, 0, ancho, alto);
     if (!orilla) prepararMar();
     const aparicion = suave(lerp01(ms, [0, 1800]));
@@ -528,17 +664,29 @@ fetch("datos/portada.json").then((r) => r.json()).then(function (DATOS) {
     escena.classList.add("titulo-listo", "texto-listo");
   }
 
+  // El título se mide ya dibujado y se achica hasta que entre: así no depende de la letra que cargue
+  // el teléfono ni del tamaño de texto que tenga configurado.
+  function ajustarTitulo() {
+    const h1 = document.getElementById("titulo");
+    h1.style.fontSize = "";
+    for (let i = 0; i < 3 && h1.scrollWidth > h1.clientWidth + 1; i++) {
+      const actual = parseFloat(getComputedStyle(h1).fontSize);
+      h1.style.fontSize = (actual * (h1.clientWidth / h1.scrollWidth) * 0.9).toFixed(2) + "px";
+    }
+  }
+  ajustarTitulo();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustarTitulo);
   medir();
   if (quieto) { terminarYa(); return; }
   escena.classList.add("con-arena");
   const fuente = document.fonts && document.fonts.load ? document.fonts.load(`600 40px ${tk("--titulo")}`) : Promise.resolve();
   Promise.race([fuente, new Promise(r => setTimeout(r, 1500))]).then(() => {
-    try { prepararArena(); } catch (e) { escena.classList.add("titulo-listo", "texto-listo"); }
+    try { ajustarTitulo(); prepararArena(); } catch (e) { escena.classList.add("titulo-listo", "texto-listo"); }
     requestAnimationFrame(cuadro);
   });
   // Red de seguridad: pase lo que pase, a los 9 segundos el texto se ve.
   setTimeout(() => escena.classList.add("titulo-listo", "texto-listo"), 9000);
-  window.addEventListener("resize", () => { medir(); orilla = null; terminarYa(); });
+  window.addEventListener("resize", () => { ajustarTitulo(); medir(); orilla = null; terminarYa(); });
 }).catch(() => document.getElementById("escena").classList.add("titulo-listo", "texto-listo"));
 </script>
 
