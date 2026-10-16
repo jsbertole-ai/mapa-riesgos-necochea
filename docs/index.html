@@ -176,6 +176,8 @@ h1, .bajada, .herramienta { transition: opacity 0.9s ease, transform 0.9s ease; 
 
 @media (max-width: 759px) {
   .lectura { font-size: 11px; }
+  /* En el celular el título va más chico, con margen de sobra (pedido de Sebastián, 16/10/2026). */
+  h1 { font-size: calc((100vw - 40px) / 11); }
   .escena { grid-template-rows: auto minmax(52vh, 1fr) auto; }
 }
 @media (max-height: 640px) and (min-width: 700px) {
@@ -669,7 +671,7 @@ void main() {
     h1.style.fontSize = "";
     for (let i = 0; i < 3 && h1.scrollWidth > h1.clientWidth + 1; i++) {
       const actual = parseFloat(getComputedStyle(h1).fontSize);
-      h1.style.fontSize = (actual * (h1.clientWidth / h1.scrollWidth) * 0.98).toFixed(2) + "px";
+      h1.style.fontSize = (actual * (h1.clientWidth / h1.scrollWidth) * 0.9).toFixed(2) + "px";
     }
   }
   ajustarTitulo();
