@@ -10,7 +10,7 @@ Una vez publicado, el sitio queda en https://jsbertole-ai.github.io/mapa-riesgos
 
 | Carpeta o archivo | Contenido |
 |---|---|
-| `docs/` | El sitio completo: `index.html` (mapa), `metodologia.html`, estilos, código, íconos, manifiesto y service worker. |
+| `docs/` | El sitio completo: `index.html` (portada "Observatorio Necochea"), `mapa.html` (mapa), `metodologia.html`, estilos, código, íconos, manifiesto y service worker. |
 | `docs/datos/` | Las capas ya procesadas (GeoJSON) y `capas.json`, el registro que lee el sitio con fuente, fecha, licencia y estado de cada capa. |
 | `docs/vendor/leaflet/` | Leaflet 1.9.4 (licencia BSD de 2 cláusulas), copiado desde npm. |
 | `docs/vendor/josefin-sans/` | Tipografía del título, Josefin Sans SemiBold (The Josefin Sans Project Authors, licencia SIL OFL 1.1), copiada del paquete npm `@fontsource/josefin-sans`. |
@@ -25,7 +25,7 @@ Los archivos crudos que se descargan (`datos/crudos/`) no se suben al repositori
 
 ## Ver el sitio en tu computadora
 
-El sitio tiene que servirse por HTTP; abriendo `index.html` directo desde el disco no carga las capas. Con Python alcanza:
+El sitio tiene que servirse por HTTP; abriendo `index.html` o `mapa.html` directo desde el disco no cargan los datos. Con Python alcanza:
 
 ```
 python3 -m http.server 8080 --directory docs
