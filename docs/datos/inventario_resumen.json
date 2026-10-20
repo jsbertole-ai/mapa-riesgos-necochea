@@ -1,15 +1,16 @@
 {
-  "exportacion": "kobo_2026-10-10.csv, registros_proyecto.csv",
-  "registros_en_la_exportacion": 48,
-  "aprobados": 48,
-  "publicados": 48,
+  "exportacion": "kobo_2026-10-20.csv, registros_proyecto.csv",
+  "registros_en_la_exportacion": 51,
+  "aprobados": 51,
+  "publicados": 51,
   "no_publicados_por_controles": 0,
   "sin_ubicacion_en_el_mapa": 6,
   "por_tipo": {
-    "Escape": 3,
+    "Escape": 4,
     "Basural o quema a cielo abierto": 3,
     "Colapso estructural": 4,
     "Incendio": 2,
+    "Contaminación": 3,
     "Inundación": 11,
     "Tornado": 3,
     "Tempestad": 4,
@@ -19,7 +20,6 @@
     "Cambio de la línea de costa": 2,
     "Sequía": 2,
     "Plaga": 1,
-    "Contaminación": 1,
     "Otro": 2
   },
   "por_anio": {
@@ -27,10 +27,11 @@
     "2026": 12,
     "2009": 2,
     "2002": 1,
+    "2022": 1,
+    "2023": 4,
     "1980": 4,
     "1990": 1,
     "1993": 2,
-    "2023": 2,
     "2020": 2,
     "2024": 4,
     "2015": 1,
@@ -43,7 +44,7 @@
     "2014": 1
   },
   "por_localidad": {
-    "Necochea y Quequén": 32,
+    "Necochea y Quequén": 35,
     "Zona rural o costa fuera de las localidades": 9,
     "Nicanor Olivera (La Dulce)": 3,
     "Juan N. Fernández": 1,
@@ -51,9 +52,9 @@
     "Ramón Santamarina": 2
   },
   "efectos": {
+    "Heridos o enfermos": 28,
     "Evacuados": 892,
     "Muertos": 2,
-    "Heridos o enfermos": 26,
     "Viviendas afectadas": 43,
     "Cultivos, pastizales o bosques (hectáreas)": 87.0,
     "Centros de salud afectados": 1
