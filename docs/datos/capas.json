@@ -1234,13 +1234,13 @@
       "que_no_representa": "No indica potencia, cobertura ni si la antena tiene energía de respaldo. No incluye cámaras de videovigilancia. La clasificación sale de las etiquetas de OSM: una antena sin etiqueta de servicio queda \"sin clasificar\".",
       "limitaciones": "Depende de lo cargado en OpenStreetMap. Un colaborador relevó y cargó las antenas de Necochea y Quequén el 30/09 y el 01/10/2026: la descarga del 01/10/2026 (base de OSM de las 12:49 UTC) trae 22, todas clasificadas por servicio (antes había 12, casi todas rurales y sin clasificar). El municipio lleva un Registro Municipal de Prestadores de Servicios de Telefonía Celular y Telecomunicaciones (Ordenanza 9010/2016, artículo 9) que no es público. La planilla de repetidoras de radioaficionados de ENACOM no trae coordenadas (DATOS.md, sección 15).",
       "estado": "verificada",
-      "elementos": 22,
+      "elementos": 23,
       "fecha_datos": "Base de OpenStreetMap al 2026-10-01T12:49:26Z (UTC).",
       "procesado": "2026-10-01T12:52:08+00:00",
       "por_tipo": {
         "Radio y televisión": 9,
         "Telefonía móvil": 12,
-        "Usos múltiples": 1
+        "Usos múltiples": 2
       },
       "verificacion": {
         "fecha": "2026-10-07",

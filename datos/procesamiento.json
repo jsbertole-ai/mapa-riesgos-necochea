@@ -720,16 +720,16 @@
     }
   },
   "antenas": {
-    "procesado": "2026-10-01T12:52:08+00:00",
+    "procesado": "2026-10-21T13:28:01+00:00",
     "archivo_crudo": "osm/antenas.json",
-    "sha256_crudo": "c086bdf000aa6c2ed1170cd3b537b7cecf83c672412e69650f6f6c4c2d480493",
-    "elementos": 22,
+    "sha256_crudo": "e197b69be007f5435bded9c44e8d91da0294042c558e736f8848f6589a13de1b",
+    "elementos": 23,
     "por_tipo": {
       "Radio y televisión": 9,
       "Telefonía móvil": 12,
-      "Usos múltiples": 1
+      "Usos múltiples": 2
     },
-    "fecha_datos": "2026-10-01T12:49:26Z",
+    "fecha_datos": "2026-10-21T13:24:36Z",
     "servidor_overpass": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
     "descartes_de_la_consulta": {
       "excluidos": 0,
