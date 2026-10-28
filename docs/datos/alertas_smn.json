@@ -1120,6 +1120,42 @@
       ],
       "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.10.27.20.43.48,2026-10-27T20:43:48-03:00",
       "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261028085736_Tormenta_Llanura_alertas_alertas_6.xml"
+    },
+    {
+      "id": "urn:oid:2.49.0.1.32.0.2026.10.28.20.52.57.16",
+      "tipo": "alerta",
+      "mensaje": "Actualización",
+      "enviado": "2026-10-28T20:52:57-03:00",
+      "evento": "Tormentas",
+      "titular": "Tormentas",
+      "descripcion": "El área será afectada por lluvias y tormentas de variada intensidad, algunas localmente fuertes. Las mismas podrán estar acompañadas por abundantes precipitaciones en cortos periodos, ocasional granizo, ráfagas intensas y actividad eléctrica frecuente. Se esperan valores de precipitación acumulada entre 20 y 40 mm, pudiendo ser superados en forma puntual.",
+      "severidad": "Moderada",
+      "certeza": "Probable",
+      "urgencia": "Futura",
+      "inicio": "2026-10-28T21:00:00-03:00",
+      "fin": "2026-10-29T02:59:59-03:00",
+      "alcance": "parte del partido",
+      "localidades": [],
+      "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.10.28.08.56.33,2026-10-28T08:56:33-03:00",
+      "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261028205309_Tormenta_Llanura_alertas_alertas_16.xml"
+    },
+    {
+      "id": "urn:oid:2.49.0.1.32.0.2026.10.28.20.52.57.17",
+      "tipo": "alerta",
+      "mensaje": "Actualización",
+      "enviado": "2026-10-28T20:52:57-03:00",
+      "evento": "Tormentas",
+      "titular": "Tormentas",
+      "descripcion": "El área será afectada por lluvias y tormentas de variada intensidad, algunas localmente fuertes. Las mismas podrán estar acompañadas por abundantes precipitaciones en cortos periodos, ocasional granizo, ráfagas intensas y actividad eléctrica frecuente. Se esperan valores de precipitación acumulada entre 20 y 40 mm, pudiendo ser superados en forma puntual.",
+      "severidad": "Moderada",
+      "certeza": "Probable",
+      "urgencia": "Futura",
+      "inicio": "2026-10-28T21:00:00-03:00",
+      "fin": "2026-10-29T02:59:59-03:00",
+      "alcance": "parte del partido",
+      "localidades": [],
+      "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.10.28.08.56.33,2026-10-28T08:56:33-03:00",
+      "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261028205309_Tormenta_Llanura_alertas_alertas_17.xml"
     }
   ]
 }
