@@ -1174,6 +1174,24 @@
       "localidades": [],
       "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.10.31.08.45.00,2026-10-31T08:45:00-03:00",
       "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261031205741_Tormenta_Llanura_alertas_alertas_45.xml"
+    },
+    {
+      "id": "urn:oid:2.49.0.1.32.0.2026.10.31.22.19.34.45",
+      "tipo": "alerta",
+      "mensaje": "Actualización",
+      "enviado": "2026-10-31T22:19:34-03:00",
+      "evento": "Tormentas",
+      "titular": "Tormentas",
+      "descripcion": "El área será afectada por lluvias y tormentas aisladas de variada intensidad, algunas localmente fuertes. Las mismas podrán estar acompañadas por abundantes precipitaciones en cortos periodos, ocasional granizo, ráfagas intensas y actividad eléctrica frecuente. Se esperan valores de precipitación acumulada entre 20 y 50 mm, que pueden ser superados en forma puntual.",
+      "severidad": "Moderada",
+      "certeza": "Probable",
+      "urgencia": "Futura",
+      "inicio": "2026-11-01T15:00:00-03:00",
+      "fin": "2026-11-01T20:59:59-03:00",
+      "alcance": "parte del partido",
+      "localidades": [],
+      "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.10.31.20.57.32,2026-10-31T20:57:32-03:00",
+      "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261031221939_Tormenta_Llanura_alertas_alertas_45.xml"
     }
   ]
 }
