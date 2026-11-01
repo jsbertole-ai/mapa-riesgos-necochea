@@ -54,10 +54,14 @@
       </div>
     </aside>
     <main id="mapa" aria-label="Mapa"></main>
-    <p id="aviso-sin-conexion" class="aviso aviso-flotante" role="status" hidden>Sin conexión: las capas guardadas siguen disponibles, pero el mapa de fondo necesita conexión para verse.</p>
+    <div class="aviso-flotante">
+      <div id="aviso-alerta-smn" class="aviso aviso-alerta" role="status" hidden></div>
+      <p id="aviso-sin-conexion" class="aviso" role="status" hidden>Sin conexión: las capas guardadas siguen disponibles, pero el mapa de fondo necesita conexión para verse.</p>
+    </div>
   </div>
 
   <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="js/alertas.js"></script>
   <script src="js/mapa.js"></script>
 </body>
 </html>

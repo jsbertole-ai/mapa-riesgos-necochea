@@ -826,6 +826,28 @@
   function actualizarConexion() {
     document.getElementById("aviso-sin-conexion").hidden = navigator.onLine;
   }
+  // Alerta vigente del SMN (datos/alertas_smn.json, vía js/alertas.js): un aviso que se puede cerrar.
+  function avisarAlertaSMN() {
+    const el = document.getElementById("aviso-alerta-smn");
+    if (!el || !window.AlertasSMN || el.dataset.cerrado) return;
+    const A = window.AlertasSMN;
+    A.cargar().then(function (a) {
+      const v = A.estado(a).vigentes;
+      if (!v.length) { el.hidden = true; return; }
+      el.classList.toggle("alta", v.some(function (e) { return /Severa|Extrema/.test(A.severidadMayor(e)); }));
+      el.innerHTML = '<button class="cerrar" type="button" aria-label="Cerrar el aviso">×</button>' +
+        v.map(function (e) {
+          return "<p>" + A.chip(A.severidadMayor(e)) + "<strong>" + A.esc(A.nombre(e)) + "</strong>. " + A.periodo(e) +
+            '. <a href="' + A.esc(e.x.url) + '" target="_blank" rel="noopener">Aviso original del SMN</a></p>';
+        }).join("") +
+        '<p class="nota">Alerta vigente para el partido. Fuente: Servicio Meteorológico Nacional, licencia CC BY 4.0.</p>';
+      el.querySelector(".cerrar").addEventListener("click", function () { el.hidden = true; el.dataset.cerrado = "1"; });
+      el.hidden = false;
+    }).catch(function () { el.hidden = true; });
+  }
+  avisarAlertaSMN();
+  setInterval(avisarAlertaSMN, 10 * 60 * 1000);
+
   window.addEventListener("online", actualizarConexion);
   window.addEventListener("offline", actualizarConexion);
   actualizarConexion();

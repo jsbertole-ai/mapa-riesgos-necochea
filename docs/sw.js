@@ -6,7 +6,7 @@
  * ni se guardan: la política de uso de OpenStreetMap prohíbe el uso sin
  * conexión y la descarga anticipada.
  */
-const CACHE = "mapa-riesgos-v121";
+const CACHE = "mapa-riesgos-v122";
 const BASE = [
   "./",
   "index.html",
@@ -16,6 +16,8 @@ const BASE = [
   "css/estilo.css",
   "js/mapa.js",
   "js/metodologia.js",
+  "js/alertas.js",
+  "datos/alertas_smn.json",
   "vendor/leaflet/leaflet.js",
   "vendor/leaflet/leaflet.css",
   "vendor/josefin-sans/josefin-sans-latin-600-normal.woff2",
@@ -44,6 +46,7 @@ self.addEventListener("fetch", (evento) => {
   // "no-cache": el navegador pregunta al servidor si el archivo cambió en lugar de usar su copia HTTP
   // (GitHub Pages permite guardarla 10 minutos). Sin esto, una versión nueva tardaba en verse.
   // Una navegación no admite opciones sobre el pedido original: se arma uno nuevo con la misma URL.
+  // Esto vale también para datos/alertas_smn.json: primero la red y la copia guardada solo sin conexión.
   const pedido = evento.request.mode === "navigate"
     ? new Request(url.href, { cache: "no-cache", credentials: "same-origin" })
     : new Request(evento.request, { cache: "no-cache" });
