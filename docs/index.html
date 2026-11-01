@@ -82,6 +82,53 @@ body {
   font-variant-numeric: tabular-nums;
 }
 .lectura strong { color: var(--tinta); font-weight: 500; }
+.cabeza { position: relative; display: grid; gap: 12px; align-content: start; min-width: 0; }
+/* Alertas del SMN (pedido de Sebastián, 01/11/2026): arriba de todo, visibles sin desplazarse en el celular. */
+.alertas {
+  justify-self: start;
+  width: 100%;
+  max-width: min(34rem, calc(40vw - 24px));
+  box-sizing: border-box;
+  padding: 10px 14px;
+  border: 1px solid color-mix(in srgb, var(--tinta) 16%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--negro) 82%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.alertas[hidden] { display: none; }
+.alertas.con-vigente { border-color: color-mix(in srgb, var(--foco) 55%, transparent); }
+.alertas.con-vigente-alta { border-color: color-mix(in srgb, var(--evento) 70%, transparent); }
+.alertas-titulo {
+  margin: 0 0 6px;
+  font-family: var(--titulo);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.alerta-smn { padding-top: 6px; }
+.alerta-smn + .alerta-smn { margin-top: 6px; border-top: 1px solid color-mix(in srgb, var(--tinta) 12%, transparent); }
+.alerta-cabeza { margin: 0 0 2px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.alerta-evento { font-size: 1rem; font-weight: 600; }
+.alerta-dato { margin: 0; }
+.alertas a { color: var(--rio); text-underline-offset: 2px; }
+.alertas a:focus-visible { outline: 2px solid var(--rio); outline-offset: 2px; }
+.alertas-nota { margin: 6px 0 0; font-size: 11.5px; color: var(--tenue); }
+.alertas-offline { color: var(--tinta); }
+/* La severidad se lee en el texto y en el ícono, no solo en el color. */
+.sev {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 1px 8px 1px 6px;
+  border: 1px solid currentColor; border-radius: 999px;
+  font-family: var(--dato); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.sev-menor, .sev-sd { color: var(--tenue); }
+.sev-moderada { color: var(--foco); }
+.sev-severa { color: var(--evento); }
+.sev-extrema { color: var(--gas); }
 .contador { display: flex; flex-wrap: wrap; gap: 6px 18px; }
 .contador span { white-space: nowrap; }
 .punto { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
@@ -176,6 +223,7 @@ h1, .bajada, .herramienta { transition: opacity 0.9s ease, transform 0.9s ease; 
 
 @media (max-width: 759px) {
   .lectura { font-size: 11px; }
+  .alertas { max-width: none; }
   /* En el celular el título va más chico, con margen de sobra (pedido de Sebastián, 16/10/2026). */
   h1 { font-size: calc((100vw - 40px) / 11); }
   .escena { grid-template-rows: auto minmax(52vh, 1fr) auto; }
@@ -194,6 +242,7 @@ h1, .bajada, .herramienta { transition: opacity 0.9s ease, transform 0.9s ease; 
   <canvas id="lienzo" aria-hidden="true"></canvas>
   <canvas id="arena" aria-hidden="true"></canvas>
 
+  <div class="cabeza" id="cabeza">
   <div class="lectura">
     <span>38°33′ S · 58°44′ O<br>Partido de Necochea · 4.546 km²</span>
     <span class="contador">
@@ -201,6 +250,8 @@ h1, .bajada, .herramienta { transition: opacity 0.9s ease, transform 0.9s ease; 
       <span><i class="punto evento"></i><strong id="n-eventos">0</strong> eventos</span>
       <span><i class="punto foco"></i><strong id="n-focos">0</strong> focos de calor</span>
     </span>
+  </div>
+  <section class="alertas" id="alertas" aria-live="polite" aria-label="Alertas del Servicio Meteorológico Nacional" hidden></section>
   </div>
 
   <div></div>
@@ -226,9 +277,28 @@ h1, .bajada, .herramienta { transition: opacity 0.9s ease, transform 0.9s ease; 
   </footer>
 </main>
 
+<script src="js/alertas.js"></script>
 <script>
+// Alertas del SMN: se piden primero porque el bloque corre el resto hacia abajo y la arena tiene que
+// apuntar al título ya ubicado. Si tardan más de 1,5 segundos, la portada arranca igual.
+const elAlertas = document.getElementById("alertas");
+let alCambiarAlertas = null;
+function marcarAlertas() {
+  elAlertas.classList.toggle("con-vigente", !!elAlertas.querySelector(".alerta-smn"));
+  elAlertas.classList.toggle("con-vigente-alta", !!elAlertas.querySelector(".sev-severa, .sev-extrema"));
+}
+const alertasListas = window.AlertasSMN
+  ? AlertasSMN.montar(elAlertas, function () { marcarAlertas(); if (alCambiarAlertas) alCambiarAlertas(); }).then(marcarAlertas)
+  : Promise.resolve();
+let alertasDibujadas = false;
+alertasListas.then(() => { alertasDibujadas = true; });
+if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
+
 // Los datos salen de datos/portada.json, que arma scripts/armar_portada.py con capas ya verificadas.
-fetch("datos/portada.json").then((r) => r.json()).then(function (DATOS) {
+Promise.all([
+  fetch("datos/portada.json").then((r) => r.json()),
+  Promise.race([alertasListas, new Promise((r) => setTimeout(r, 1500))]),
+]).then(function ([DATOS]) {
   const escena = document.getElementById("escena");
   const cMar = document.getElementById("mar"), cMapa = document.getElementById("lienzo"), cArena = document.getElementById("arena");
   const ctx = cMapa.getContext("2d"), xArena = cArena.getContext("2d");
@@ -387,8 +457,10 @@ void main() {
       x.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     const vertical = ancho < 760;
+    // En el celular el bloque de alertas ocupa la parte de arriba: el partido baja lo mismo que mide el bloque.
+    const extra = vertical && !elAlertas.hidden ? elAlertas.offsetHeight + 12 : 0;
     const zona = vertical
-      ? { x: ancho * 0.06, y: 92, w: ancho * 0.88, h: Math.min(alto * 0.46, ancho * 1.1) }
+      ? { x: ancho * 0.06, y: 92 + extra, w: ancho * 0.88, h: Math.min((alto - extra) * 0.46, ancho * 1.1) }
       : { x: ancho * 0.42, y: 56, w: ancho * 0.54, h: alto - 190 };
     escala = Math.min(zona.w / (maxX - minX), zona.h / (maxY - minY));
     ox = zona.x + (zona.w - (maxX - minX) * escala) / 2;
@@ -686,7 +758,13 @@ void main() {
   });
   // Red de seguridad: pase lo que pase, a los 9 segundos el texto se ve.
   setTimeout(() => escena.classList.add("titulo-listo", "texto-listo"), 9000);
-  window.addEventListener("resize", () => { ajustarTitulo(); medir(); orilla = null; terminarYa(); });
+  const rehacer = () => { ajustarTitulo(); medir(); orilla = null; terminarYa(); };
+  window.addEventListener("resize", rehacer);
+  // Si el bloque de alertas cambia de tamaño (llegó tarde, se actualizó o se perdió la conexión), se rehace el dibujo.
+  let altoAlertas = elAlertas.offsetHeight;
+  const siCambian = () => { if (elAlertas.offsetHeight !== altoAlertas) { altoAlertas = elAlertas.offsetHeight; rehacer(); } };
+  alCambiarAlertas = siCambian;
+  if (!alertasDibujadas) alertasListas.then(siCambian);
 }).catch(() => document.getElementById("escena").classList.add("titulo-listo", "texto-listo"));
 </script>
 
