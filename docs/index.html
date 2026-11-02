@@ -102,16 +102,35 @@ body {
 .alertas.con-vigente { border-color: color-mix(in srgb, var(--foco) 55%, transparent); }
 .alertas.con-vigente-alta { border-color: color-mix(in srgb, var(--evento) 70%, transparent); }
 .alertas-titulo {
-  margin: 0 0 6px;
+  margin: 0;
   font-family: var(--titulo);
   font-weight: 600;
   font-size: 0.82rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.alerta-smn { padding-top: 6px; }
-.alerta-smn + .alerta-smn { margin-top: 6px; border-top: 1px solid color-mix(in srgb, var(--tinta) 12%, transparent); }
-.alerta-cabeza { margin: 0 0 2px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+.alertas-caja > summary {
+  position: relative;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
+  padding-right: 26px;
+  list-style: none;
+  cursor: pointer;
+}
+.alertas-caja > summary::-webkit-details-marker { display: none; }
+.alertas-caja > summary .alertas-titulo { flex-basis: 100%; margin: 0; }
+.alertas-caja > summary:focus-visible { outline: 2px solid var(--rio); outline-offset: 4px; border-radius: 4px; }
+/* Flecha que indica que se despliega; gira al abrir. */
+.alertas-abrir {
+  position: absolute; right: 2px; top: 2px;
+  width: 9px; height: 9px;
+  border-right: 2px solid var(--tenue); border-bottom: 2px solid var(--tenue);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.alertas-caja[open] .alertas-abrir { transform: translateY(4px) rotate(225deg); }
+.alerta-smn { margin-top: 8px; padding-top: 8px; border-top: 1px solid color-mix(in srgb, var(--tinta) 12%, transparent); }
+.alerta-descripcion { margin-top: 4px; }
+.alerta-cabeza { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
 .alerta-evento { font-size: 1rem; font-weight: 600; }
 .alerta-dato { margin: 0; }
 .alertas a { color: var(--rio); text-underline-offset: 2px; }
@@ -287,14 +306,12 @@ h1, .bajada, .herramienta { transition: opacity 0.9s ease, transform 0.9s ease; 
 const elAlertas = document.getElementById("alertas");
 let alCambiarAlertas = null;
 function marcarAlertas() {
-  elAlertas.classList.toggle("con-vigente", !!elAlertas.querySelector(".alerta-smn"));
+  elAlertas.classList.toggle("con-vigente", !!elAlertas.querySelector(".alerta-cabeza"));
   elAlertas.classList.toggle("con-vigente-alta", !!elAlertas.querySelector(".sev-severa, .sev-extrema"));
 }
 const alertasListas = window.AlertasSMN
   ? AlertasSMN.montar(elAlertas, function () { marcarAlertas(); if (alCambiarAlertas) alCambiarAlertas(); }).then(marcarAlertas)
   : Promise.resolve();
-// Abrir o cerrar el texto del aviso cambia el alto del bloque: el dibujo se reacomoda.
-elAlertas.addEventListener("toggle", () => { if (alCambiarAlertas) alCambiarAlertas(); }, true);
 let alertasDibujadas = false;
 alertasListas.then(() => { alertasDibujadas = true; });
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));
@@ -452,7 +469,7 @@ void main() {
   const aguaGL = crearAguaGL(cMar);
   const xMar = aguaGL ? null : cMar.getContext("2d");
 
-  let ancho = 0, alto = 0, dpr = 1, escala = 1, ox = 0, oy = 0;
+  let ancho = 0, alto = 0, dpr = 1, escala = 1, ox = 0, oy = 0, altoAlertasUsado = 0;
   function medir() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     ancho = escena.clientWidth; alto = escena.clientHeight;
@@ -463,7 +480,8 @@ void main() {
     }
     const vertical = ancho < 760;
     // En el celular el bloque de alertas ocupa la parte de arriba: el partido baja lo mismo que mide el bloque.
-    const extra = vertical && !elAlertas.hidden ? elAlertas.offsetHeight + 12 : 0;
+    altoAlertasUsado = elAlertas.offsetHeight;
+    const extra = vertical && !elAlertas.hidden ? altoAlertasUsado + 12 : 0;
     const zona = vertical
       ? { x: ancho * 0.06, y: 92 + extra, w: ancho * 0.88, h: Math.min((alto - extra) * 0.46, ancho * 1.1) }
       : { x: ancho * 0.42, y: 56, w: ancho * 0.54, h: alto - 190 };
@@ -754,22 +772,30 @@ void main() {
   ajustarTitulo();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustarTitulo);
   medir();
+  const rehacer = () => { ajustarTitulo(); medir(); orilla = null; terminarYa(); };
+  window.addEventListener("resize", rehacer);
+  // Si el bloque de alertas cambia de alto (llegó tarde, cargó la letra, se abrió o se actualizó), el dibujo
+  // se rehace para que el partido no quede debajo del bloque.
+  // Antes de que arranque la animación alcanza con volver a medir; después, el dibujo pasa a su estado final.
+  let arranco = false;
+  const siCambian = () => {
+    if (elAlertas.offsetHeight === altoAlertasUsado) return;
+    if (!arranco && !quieto) { medir(); orilla = null; } else rehacer();
+  };
+  alCambiarAlertas = siCambian;
+  if ("ResizeObserver" in window) new ResizeObserver(siCambian).observe(elAlertas);
+  if (!alertasDibujadas) alertasListas.then(siCambian);
   if (quieto) { terminarYa(); return; }
   escena.classList.add("con-arena");
   const fuente = document.fonts && document.fonts.load ? document.fonts.load(`600 40px ${tk("--titulo")}`) : Promise.resolve();
   Promise.race([fuente, new Promise(r => setTimeout(r, 1500))]).then(() => {
-    try { ajustarTitulo(); prepararArena(); } catch (e) { escena.classList.add("titulo-listo", "texto-listo"); }
+    arranco = true;
+    try { ajustarTitulo(); medir(); orilla = null; prepararArena(); } catch (e) { escena.classList.add("titulo-listo", "texto-listo"); }
     requestAnimationFrame(cuadro);
   });
   // Red de seguridad: pase lo que pase, a los 9 segundos el texto se ve.
   setTimeout(() => escena.classList.add("titulo-listo", "texto-listo"), 9000);
-  const rehacer = () => { ajustarTitulo(); medir(); orilla = null; terminarYa(); };
-  window.addEventListener("resize", rehacer);
-  // Si el bloque de alertas cambia de tamaño (llegó tarde, se actualizó o se perdió la conexión), se rehace el dibujo.
-  let altoAlertas = elAlertas.offsetHeight;
-  const siCambian = () => { if (elAlertas.offsetHeight !== altoAlertas) { altoAlertas = elAlertas.offsetHeight; rehacer(); } };
-  alCambiarAlertas = siCambian;
-  if (!alertasDibujadas) alertasListas.then(siCambian);
+
 }).catch(() => document.getElementById("escena").classList.add("titulo-listo", "texto-listo"));
 </script>
 
