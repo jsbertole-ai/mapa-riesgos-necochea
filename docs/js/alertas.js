@@ -97,13 +97,20 @@
       : "La zona toca el partido, pero no contiene ninguna de sus localidades";
   }
 
+  // El XML del SMN se dibuja con una hoja XSLT que Chrome ya no procesa: el texto se muestra acá y el XML
+  // queda como respaldo, avisando qué es.
+  function enlaceXML(e, texto) {
+    return '<a href="' + esc(e.x.url) + '" target="_blank" rel="noopener">' + texto + "</a>";
+  }
+
   function fichaVigente(e) {
     return '<article class="alerta-smn">' +
       '<p class="alerta-cabeza">' + chip(severidadMayor(e)) + '<strong class="alerta-evento">' + esc(nombre(e)) + "</strong></p>" +
       '<p class="alerta-dato">' + periodo(e) + "</p>" +
       '<p class="alerta-dato">' + alcanzadas(e) + "</p>" +
-      '<p class="alerta-dato"><a href="' + esc(e.x.url) + '" target="_blank" rel="noopener">Aviso original del SMN</a>' +
-      " (emitido el " + fechaHora(e.x.enviado) + ")</p>" +
+      (e.x.descripcion ? '<details class="alerta-texto"><summary>Texto del aviso (emitido el ' + fechaHora(e.x.enviado) + ")</summary><p>" +
+        esc(e.x.descripcion) + "</p></details>" : '<p class="alerta-dato">Emitido el ' + fechaHora(e.x.enviado) + "</p>") +
+      '<p class="alerta-dato alerta-xml">' + enlaceXML(e, "Aviso original del SMN") + " (archivo XML; algunos navegadores lo muestran sin formato)</p>" +
       "</article>";
   }
 
@@ -120,7 +127,7 @@
       cuerpo += u
         ? '<p class="alerta-dato">Última alerta emitida: <strong>' + esc(nombre(u)) + "</strong>, severidad " + esc(severidadMayor(u).toLowerCase()) +
           ", emitida el " + fechaHora(u.x.enviado) + ", vigente del " + fechaHora(u.x.inicio) + " al " + fechaHora(u.x.fin) +
-          '. <a href="' + esc(u.x.url) + '" target="_blank" rel="noopener">Aviso original</a></p>'
+          ". " + enlaceXML(u, "Aviso original") + " (XML)</p>"
         : '<p class="alerta-dato">No hay alertas registradas desde el ' + esc((a.desde || "").split("-").reverse().join("/")) + ".</p>";
     }
     return cuerpo +
