@@ -838,7 +838,7 @@
       el.innerHTML = '<button class="cerrar" type="button" aria-label="Cerrar el aviso">×</button>' +
         v.map(function (e) {
           return "<p>" + A.chip(A.severidadMayor(e)) + "<strong>" + A.esc(A.nombre(e)) + "</strong>. " + A.periodo(e) +
-            '. <a href="' + A.esc(e.x.url) + '" target="_blank" rel="noopener">Aviso original del SMN</a></p>';
+            '. <a href="./">Texto del aviso en el inicio</a> o <a href="' + A.esc(e.x.url) + '" target="_blank" rel="noopener">XML original del SMN</a></p>';
         }).join("") +
         '<p class="nota">Alerta vigente para el partido. Fuente: Servicio Meteorológico Nacional, licencia CC BY 4.0.</p>';
       el.querySelector(".cerrar").addEventListener("click", function () { el.hidden = true; el.dataset.cerrado = "1"; });

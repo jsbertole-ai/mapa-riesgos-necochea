@@ -97,36 +97,52 @@
       : "La zona toca el partido, pero no contiene ninguna de sus localidades";
   }
 
-  function fichaVigente(e) {
-    return '<article class="alerta-smn">' +
-      '<p class="alerta-cabeza">' + chip(severidadMayor(e)) + '<strong class="alerta-evento">' + esc(nombre(e)) + "</strong></p>" +
-      '<p class="alerta-dato">' + periodo(e) + "</p>" +
-      '<p class="alerta-dato">' + alcanzadas(e) + "</p>" +
-      '<p class="alerta-dato"><a href="' + esc(e.x.url) + '" target="_blank" rel="noopener">Aviso original del SMN</a>' +
-      " (emitido el " + fechaHora(e.x.enviado) + ")</p>" +
-      "</article>";
+  // El XML del SMN se dibuja con una hoja XSLT que Chrome ya no procesa: el texto se muestra acá y el XML
+  // queda como respaldo, avisando qué es.
+  function enlaceXML(e, texto) {
+    return '<a href="' + esc(e.x.url) + '" target="_blank" rel="noopener">' + texto + "</a>";
   }
 
-  // HTML del bloque completo. "conexion" es false cuando se muestra la copia guardada.
-  function bloque(a, ahora, conexion) {
+  function fichaVigente(e, compacto) {
+    const texto = !e.x.descripcion ? "" : compacto
+      ? '<p class="alerta-dato alerta-descripcion">' + esc(e.x.descripcion) + "</p>"
+      : '<details class="alerta-texto"><summary>Texto del aviso</summary><p>' + esc(e.x.descripcion) + "</p></details>";
+    return '<div class="alerta-smn">' +
+      '<p class="alerta-dato"><strong>' + esc(nombre(e)) + "</strong>. " + periodo(e) + ".</p>" +
+      '<p class="alerta-dato">' + alcanzadas(e) + ".</p>" + texto +
+      '<p class="alerta-dato alerta-xml">Emitido el ' + fechaHora(e.x.enviado) + ". " + enlaceXML(e, "Aviso original del SMN") +
+      " (archivo XML; algunos navegadores lo muestran sin formato).</p>" +
+      "</div>";
+  }
+
+  /* HTML del bloque completo: un desplegable cuyo resumen es el título y el tipo de alerta. En el celular
+   * ("compacto") llega cerrado y se abre al tocarlo (pedido de Sebastián, 02/11/2026); en la computadora, abierto.
+   * "conexion" es false cuando se muestra la copia guardada. */
+  function bloque(a, ahora, conexion, compacto) {
     const s = estado(a, ahora);
-    let cuerpo;
+    let resumen, cuerpo;
     if (s.vigentes.length) {
-      cuerpo = '<h2 class="alertas-titulo">' + (s.vigentes.length === 1 ? "Alerta vigente del SMN" : s.vigentes.length + " alertas vigentes del SMN") +
-        " para el partido</h2>" + s.vigentes.map(fichaVigente).join("");
+      resumen = '<h2 class="alertas-titulo">' + (s.vigentes.length === 1 ? "Alerta vigente del SMN" : s.vigentes.length + " alertas vigentes del SMN") +
+        " para el partido</h2>" +
+        s.vigentes.map(function (e) {
+          return '<span class="alerta-cabeza">' + chip(severidadMayor(e)) + '<strong class="alerta-evento">' + esc(nombre(e)) + "</strong></span>";
+        }).join("");
+      cuerpo = s.vigentes.map(function (e) { return fichaVigente(e, compacto); }).join("");
     } else {
-      cuerpo = '<h2 class="alertas-titulo">Sin alertas vigentes del SMN para el partido</h2>';
       const u = s.ultima;
-      cuerpo += u
+      resumen = '<h2 class="alertas-titulo">Sin alertas vigentes del SMN para el partido</h2>' +
+        (u ? '<span class="alerta-dato">Última: ' + esc(nombre(u)) + ", emitida el " + fechaHora(u.x.enviado) + "</span>" : "");
+      cuerpo = u
         ? '<p class="alerta-dato">Última alerta emitida: <strong>' + esc(nombre(u)) + "</strong>, severidad " + esc(severidadMayor(u).toLowerCase()) +
           ", emitida el " + fechaHora(u.x.enviado) + ", vigente del " + fechaHora(u.x.inicio) + " al " + fechaHora(u.x.fin) +
-          '. <a href="' + esc(u.x.url) + '" target="_blank" rel="noopener">Aviso original</a></p>'
+          ". " + enlaceXML(u, "Aviso original") + " (XML).</p>"
         : '<p class="alerta-dato">No hay alertas registradas desde el ' + esc((a.desde || "").split("-").reverse().join("/")) + ".</p>";
     }
-    return cuerpo +
+    return '<details class="alertas-caja"' + (compacto ? "" : " open") + "><summary>" + resumen +
+      '<span class="alertas-abrir" aria-hidden="true"></span></summary>' + cuerpo +
       (conexion === false ? '<p class="alertas-nota alertas-offline">Sin conexión: es la última copia guardada; puede haber alertas nuevas.</p>' : "") +
-      '<p class="alertas-nota">Se revisa cada hora. <a href="' + PAGINA_SMN + '" target="_blank" rel="noopener">Alertas en smn.gob.ar</a>. ' +
-      "Fuente: Servicio Meteorológico Nacional, licencia CC BY 4.0.</p>";
+      '<p class="alertas-nota">El archivo se revisa cada hora. <a href="' + PAGINA_SMN + '" target="_blank" rel="noopener">Alertas en smn.gob.ar</a>. ' +
+      "Fuente: Servicio Meteorológico Nacional, licencia CC BY 4.0.</p></details>";
   }
 
   /* Monta el bloque en "el" y lo refresca cada 10 minutos (y al recuperar la conexión).
@@ -135,7 +151,10 @@
     let ultimo = null;
     function dibujar(a) {
       ultimo = a;
-      el.innerHTML = bloque(a, Date.now(), navigator.onLine);
+      // Si el lector ya lo abrió o cerró, se respeta al refrescar.
+      const previo = el.querySelector("details.alertas-caja");
+      const compacto = previo ? !previo.open : window.matchMedia("(max-width: 759px)").matches;
+      el.innerHTML = bloque(a, Date.now(), navigator.onLine, compacto);
       el.hidden = false;
     }
     function refrescar() {
