@@ -1,4 +1,4 @@
-/* Alertas del SMN para el partido, leídas de datos/alertas_smn.json (lo actualiza cada hora el workflow
+/* Alertas del SMN para el partido, leídas de datos/alertas_smn.json (lo actualiza cada 15 minutos el workflow
  * alertas-smn.yml). Lo usan la portada (index.html) y el mapa (mapa.html).
  * No se deduce nada que el archivo no diga: ni el color de la alerta ni localidades que el SMN no nombra
  * (las localidades salen de cruzar el polígono del aviso con las del IGN, en scripts/archivar_alertas_smn.py).
@@ -141,7 +141,7 @@
     return '<details class="alertas-caja"' + (compacto ? "" : " open") + "><summary>" + resumen +
       '<span class="alertas-abrir" aria-hidden="true"></span></summary>' + cuerpo +
       (conexion === false ? '<p class="alertas-nota alertas-offline">Sin conexión: es la última copia guardada; puede haber alertas nuevas.</p>' : "") +
-      '<p class="alertas-nota">El archivo se revisa cada hora. <a href="' + PAGINA_SMN + '" target="_blank" rel="noopener">Alertas en smn.gob.ar</a>. ' +
+      '<p class="alertas-nota">El archivo se revisa cada 15 minutos. <a href="' + PAGINA_SMN + '" target="_blank" rel="noopener">Alertas en smn.gob.ar</a>. ' +
       "Fuente: Servicio Meteorológico Nacional, licencia CC BY 4.0.</p></details>";
   }
 

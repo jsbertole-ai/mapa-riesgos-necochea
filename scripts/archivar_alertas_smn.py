@@ -6,7 +6,7 @@ Lee el canal de alertas del SMN en formato CAP 1.2 (https://ssl.smn.gob.ar/CAP/A
 que declara "Licencia CC BY 4.0", baja cada alerta o aviso vigente y guarda en
 docs/datos/alertas_smn.json los que alcanzan al partido de Necochea. El canal solo
 muestra lo vigente: el archivo se arma hacia adelante, desde el día en que se encendió
-(ver "desde"). Una GitHub Action lo corre cada hora (.github/workflows/alertas-smn.yml).
+(ver "desde"). Una GitHub Action lo corre cada 15 minutos (.github/workflows/alertas-smn.yml).
 
 "Alcanza al partido" quiere decir que el polígono de la alerta y el límite del partido
 se tocan: algún vértice del límite (uno de cada diez, cada 100 m aproximadamente) cae
@@ -15,7 +15,7 @@ anotan las localidades del IGN que quedan dentro. No se deduce el color de la al
 se guarda la severidad del estándar CAP y el titular tal como lo escribe el SMN.
 
 El archivo solo cambia cuando entra una alerta nueva: no guarda la hora de cada consulta,
-para no generar un commit por hora.
+para no generar un commit en cada pasada.
 """
 
 import datetime as dt

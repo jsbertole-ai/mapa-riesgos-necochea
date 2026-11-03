@@ -1,11 +1,12 @@
 # Archivo de alertas del SMN que alcanzan al partido (scripts/archivar_alertas_smn.py).
-# Corre una vez por hora y hace un commit en main solo si entró una alerta nueva.
+# Corre cada 15 minutos (decisión de Sebastián, 03/11/2026: los avisos a muy corto plazo duran pocas horas)
+# y hace un commit en main solo si entró una alerta nueva.
 # Las tareas programadas de GitHub corren únicamente en la rama principal.
 name: Archivo de alertas del SMN
 
 on:
   schedule:
-    - cron: "17 * * * *"
+    - cron: "2,17,32,47 * * * *"
   workflow_dispatch:
 
 permissions:
