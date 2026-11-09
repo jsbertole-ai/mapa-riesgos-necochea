@@ -491,7 +491,7 @@ Decisión de Sebastián (27/09/2026): el proyecto arma su propio registro de eve
 ### 12.1 Archivo propio de alertas del SMN (decisión de Sebastián, 27/09/2026)
 
 - `scripts/archivar_alertas_smn.py` lee https://ssl.smn.gob.ar/CAP/AR.php, baja cada alerta o aviso vigente y guarda en `docs/datos/alertas_smn.json` los que alcanzan al partido: algún vértice del límite (uno de cada diez) dentro del polígono de la alerta, o algún vértice del polígono dentro del partido. Anota las localidades del IGN que quedan dentro. Guarda la severidad del estándar CAP y el titular del SMN; no deduce colores (las alertas no los informan en ningún campo; los avisos a corto plazo los traen en el titular).
-- La tarea `.github/workflows/alertas-smn.yml` lo corre cada hora y hace un commit en `main` solo si entró una alerta nueva.
+- La tarea `.github/workflows/alertas-smn.yml` lo corre cada 15 minutos (desde el 03/11/2026; antes, cada hora) y hace un commit en `main` solo si entró una alerta nueva.
 - Primera corrida (27/09/2026, 48 mensajes vigentes en el país): 3 mensajes alcanzan al partido, todos de un mismo episodio de lluvias (29/09/2026 de 9 a 15 h, severidad "Moderate"), que suman las seis localidades.
 - Limitaciones: el archivo empieza el 27/09/2026; si una corrida falla, una alerta que dure menos de una hora se puede perder; los enlaces a los mensajes originales dejan de funcionar cuando el SMN los retira.
 

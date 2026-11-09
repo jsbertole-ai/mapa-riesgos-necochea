@@ -49,6 +49,100 @@
   }
   const CITA_IGN = "FUENTE: Instituto Geográfico Nacional de la República Argentina";
 
+  // ---------- Símbolos (decisión de Sebastián, 08/11/2026) ----------
+  // Tres pistas que se suman, para no depender solo del color: la forma dice qué clase de cosa es
+  // (círculo: lugar o instalación; rombo: sustancia peligrosa; cuadrado: evento o vulnerabilidad del
+  // inventario), el color dice el grupo y el dibujo (íconos de Lucide, vendor/lucide) dice qué es.
+  // Las capas que no figuran acá (focos de calor, OSM portuario, torres, áreas y líneas) siguen como antes.
+  const COLOR_GRUPO = { inundaciones: "inundaciones", incendios: "incendios", portuaria: "industria", expuestos: "expuestos",
+    vulnerabilidad: "vulnerabilidad", respuesta: "respuesta", inventario: "historia", referencia: "expuestos" };
+
+  // Tipos del inventario (formulario de Kobo, guía de DesInventar) y de las vulnerabilidades.
+  const ICONO_INVENTARIO = {
+    "Inundación": "waves", "Lluvias": "cloud-rain", "Tempestad": "cloud-lightning", "Vendaval": "wind", "Tormenta eléctrica": "zap",
+    "Tornado": "tornado", "Granizada": "cloud-hail", "Nevada": "snowflake", "Helada": "thermometer-snowflake", "Neblina": "cloud-fog",
+    "Sequía": "sun", "Ola de calor": "thermometer-sun", "Marejada": "waves-arrow-up", "Cambio de la línea de costa": "stone",
+    "Incendio forestal": "tree-pine", "Incendio": "flame", "Explosión": "bomb", "Escape": "skull", "Contaminación": "triangle-alert",
+    "Colapso estructural": "brick-wall", "Accidente": "car-front", "Plaga": "bug", "Otro": "circle-alert",
+    "Desagüe pluvial": "droplets", "Viviendas o servicios en zona que se anega": "house", "Erosión": "stone",
+    "Basural o quema a cielo abierto": "trash-2", "Infraestructura deteriorada": "construction",
+    "Almacenamiento o transporte de sustancias peligrosas": "flask-conical", "Pastizal seco": "wheat",
+    "Árboles o postes": "utility-pole", "Otra": "circle-alert",
+  };
+  function iconoInventario(tipo) {
+    if (!tipo) return null;
+    if (ICONO_INVENTARIO[tipo]) return ICONO_INVENTARIO[tipo];
+    // Las vulnerabilidades se publican con la etiqueta completa: se reconocen por el comienzo.
+    const clave = Object.keys(ICONO_INVENTARIO).find(function (k) { return tipo.indexOf(k) === 0; });
+    return clave ? ICONO_INVENTARIO[clave] : null;
+  }
+
+  // Por capa: forma, ícono fijo o por valor de un campo ("tipos"), o una función ("elegir").
+  // Un valor puede ser un ícono o [forma, ícono]. "muestra" es el ícono del panel.
+  const SIMBOLOS = {
+    puentes_vados: { campo: "tipo", tipos: { Puente: "bridge", Vado: "waves" }, defecto: "bridge" },
+    sustancias_peligrosas: { forma: "rombo", campo: "categoria", defecto: "factory", muestra: "fuel",
+      tipos: { "Estaciones de servicio": "fuel", "Depósitos de combustible": "database", "Gas envasado (GLP)": "cylinder",
+        "Plantas aceiteras": "factory", "Terminales de fertilizantes": "sprout" } },
+    envases_fitosanitarios: { forma: "rombo", icono: "flask-conical" },
+    puerto_navegacion: { campo: "tipo", tipos: { Puerto: "anchor", Faro: "lighthouse", Baliza: "flag-triangle-right", "Mareógrafo": "waves" }, defecto: "anchor" },
+    energia: { icono: "zap" },
+    industria_residuos: { muestra: "factory", elegir: function (p) {
+      const t = p.tipo || "";
+      return /^Estación de servicio/.test(t) ? ["rombo", "fuel"] : /efluentes/.test(t) ? "droplets" : /^(Vertedero|Basur)/.test(t) ? "trash-2" : "factory";
+    } },
+    educacion: { icono: "graduation-cap" },
+    salud: { icono: "hospital" },
+    agua_pozos_bombeo: { campo: "tipo", tipos: { "Pozos de explotación de agua": "droplet", "Cámaras de bombeo": "waves-arrow-up" }, defecto: "droplet" },
+    antenas: { campo: "tipo", tipos: { "Telefonía móvil": "smartphone", "Radio y televisión": "tv", "Usos múltiples": "radio-tower" }, defecto: "radio-tower" },
+    organismos: { campo: "organismo", defecto: "shield-plus",
+      tipos: { "Bomberos": "fire-extinguisher", "Policía": "shield", "Defensa Civil": "siren", "Cruz Roja": "heart-pulse",
+        "Centro Operativo de Monitoreo": "cctv", "Guardaparques": "trees", "Guardavidas": "life-buoy", "Prefectura Naval": "anchor", "Radioaficionados": "radio" } },
+    refugios: { campo: "uso", tipos: { "Evacuación ante catástrofes": "house", "Personas en situación de calle": "bed" }, defecto: "house" },
+    red_asistencia: { muestra: "hand-heart", elegir: function (p) {
+      return p.tipo === "Comedor" ? "cooking-pot" : /calle/.test(p.tipo || "") ? "bed" : "hand-heart";
+    } },
+    servicios_playa: { campo: "tipo", defecto: "life-buoy",
+      tipos: { "Guardavidas": "life-buoy", "Posta sanitaria": "heart-pulse", "Posta de seguridad": "shield", "Prefectura Naval (puesto de verano)": "anchor" } },
+    // Cada punto del inventario es un lugar con uno o más registros: el ícono es el del tipo más frecuente.
+    inventario_local: { forma: "cuadrado", muestra: "history", elegir: function (p) {
+      const cuenta = {};
+      (p.registros || []).forEach(function (r) { cuenta[r.tipo] = (cuenta[r.tipo] || 0) + 1; });
+      const tipo = Object.keys(cuenta).sort(function (a, b) { return cuenta[b] - cuenta[a]; })[0];
+      return iconoInventario(tipo) || "circle-alert";
+    } },
+  };
+
+  function simboloDe(capa, p) {
+    const s = SIMBOLOS[capa.id];
+    if (!s) return null;
+    let r = s.elegir ? s.elegir(p || {}) : s.tipos ? s.tipos[(p || {})[s.campo]] : s.icono;
+    if (!r) r = s.defecto || s.icono || "circle-alert";
+    return Array.isArray(r) ? { forma: r[0], icono: r[1] } : { forma: s.forma || "circulo", icono: r };
+  }
+
+  function dibujo(nombre) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+      ((window.ICONOS || {})[nombre] || "") + "</svg>";
+  }
+
+  // Marca con forma, color de grupo y dibujo. "clase" suma "mini" para la leyenda del panel.
+  function marca(forma, grupo, icono, clase, extra) {
+    return '<span class="marca ' + forma + (clase ? " " + clase : "") + '" style="--c:var(--g-' + (COLOR_GRUPO[grupo] || "expuestos") + ')">' +
+      dibujo(icono) + (extra || "") + "</span>";
+  }
+
+  // Botones por grupo, sobre el mapa: cada uno prende sus capas principales o apaga todas las del grupo.
+  const BOTONES = [
+    { grupo: "inundaciones", nombre: "Inundaciones", icono: "waves", capas: ["inundaciones_peligrosidad", "hidrografia_ign", "puentes_vados"] },
+    { grupo: "incendios", nombre: "Incendios", icono: "flame", capas: ["incendios_viirs", "forestaciones"] },
+    { grupo: "portuaria", nombre: "Puerto e industria", icono: "factory", capas: ["sustancias_peligrosas", "envases_fitosanitarios", "puerto_navegacion", "gasoductos"] },
+    { grupo: "expuestos", nombre: "Expuestos", icono: "building-2", capas: ["educacion", "salud", "agua_pozos_bombeo", "antenas"] },
+    { grupo: "vulnerabilidad", nombre: "Vulnerabilidad", icono: "users", capas: ["vulnerabilidad_radios", "barrios_populares"] },
+    { grupo: "respuesta", nombre: "Respuesta", icono: "shield-plus", capas: ["organismos", "refugios", "red_asistencia", "servicios_playa"] },
+    { grupo: "inventario", nombre: "Eventos registrados", icono: "history", capas: ["inventario_local"] },
+  ];
+
   const estado = { capas: {}, datos: {}, capasLeaflet: {}, anios: null };
 
   const mapa = L.map("mapa", { preferCanvas: true, zoomSnap: 0.5 }).setView(VISTA_INICIAL.centro, VISTA_INICIAL.zoom);
@@ -564,6 +658,18 @@
         : null,
       pointToLayer: function (f, latlng) {
         const n = f.properties.registros ? f.properties.registros.length : 1;
+        const sim = simboloDe(capa, f.properties);
+        if (sim) {
+          // En el inventario, si el lugar tiene más de un registro, la marca lleva la cantidad.
+          return L.marker(latlng, {
+            icon: L.divIcon({ className: "icono-mapa", html: marca(sim.forma, capa.grupo, sim.icono, "", n > 1 ? '<b class="marca-cuenta">' + n + "</b>" : ""),
+              iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -12] }),
+            title: capa.nombre,
+            riseOnHover: true,
+            // Los eventos del inventario quedan encima de las instalaciones (en la costa se superponen con guardavidas).
+            zIndexOffset: capa.id === "inventario_local" ? 1000 : 0,
+          });
+        }
         return L.circleMarker(latlng, {
           pane: "dibujo", renderer: lienzo("dibujo"),
           // En el inventario, los marcadores por localidad crecen con la cantidad de registros.
@@ -647,6 +753,11 @@
 
   function muestraDe(capa) {
     const e = capa.estilo || {};
+    const s = SIMBOLOS[capa.id];
+    if (s && capa.estado === "verificada") {
+      const sim = simboloDe(capa, {});
+      return marca(sim.forma, capa.grupo, s.muestra || sim.icono, "mini");
+    }
     const clase = e.bicolor ? "ferro" : capa.geometria === "punto" ? "punto" : capa.geometria === "linea" ? "linea" : "";
     const discontinua = e.trazo ? " discontinua" : "";
     const fondo = capa.geometria === "punto" ? "" : e.relleno && e.relleno !== false ? "background:" + e.relleno + ";" : "";
@@ -703,7 +814,13 @@
           const n = (capa.por_organismo || capa.por_tipo || {})[k] || 0;
           // Una capa de imagen mide superficies: su leyenda va en cuadrados, no en puntos.
           const forma = capa.geometria === "imagen" ? "punto-leyenda cuadro" : "punto-leyenda";
-          return '<li><span class="' + forma + '" style="background:' + esc(colores[k]) + '"></span>' + esc(k) + " (" + numero(n) + (capa.geometria === "imagen" ? " ha" : "") + ")</li>";
+          // Capas con íconos: la leyenda muestra el ícono de cada tipo en lugar del color.
+          const props = {};
+          props[(capa.estilo || {}).campo_color || "organismo"] = k;
+          if (SIMBOLOS[capa.id] && SIMBOLOS[capa.id].campo) props[SIMBOLOS[capa.id].campo] = k;
+          const sim = simboloDe(capa, props);
+          const muestra = sim ? marca(sim.forma, capa.grupo, sim.icono, "mini") : '<span class="' + forma + '" style="background:' + esc(colores[k]) + '"></span>';
+          return "<li>" + muestra + esc(k) + " (" + numero(n) + (capa.geometria === "imagen" ? " ha" : "") + ")</li>";
         }).join("") + "</ul>"
       : (capa.estilo || {}).bicolor && capa.por_tipo ? '<ul class="leyenda-tipos">' + Object.keys(capa.por_tipo).sort().map(function (k) {
           const estacion = k.indexOf("Estación") === 0;
@@ -739,6 +856,7 @@
     if (casilla) {
       casilla.addEventListener("change", function () {
         mostrar(capa, casilla.checked).catch(avisarError);
+        actualizarBotones();
       });
     }
     return div;
@@ -807,7 +925,61 @@
     Object.values(estado.capas).forEach(function (c) {
       if (c.estado === "verificada" && c.activa_al_inicio) mostrar(c, true).catch(avisarError);
     });
+    armarBotones();
   }
+
+  // ---------- Botones por grupo ----------
+
+  function casillasDelGrupo(grupo) {
+    return Object.values(estado.capas)
+      .filter(function (c) { return c.grupo === grupo && c.estado === "verificada"; })
+      .map(function (c) { return document.getElementById("casilla-" + c.id); })
+      .filter(Boolean);
+  }
+
+  function ponerCapa(id, visible) {
+    const casilla = document.getElementById("casilla-" + id);
+    if (!casilla || casilla.checked === visible) return;
+    casilla.checked = visible;
+    mostrar(estado.capas[id], visible).catch(avisarError);
+  }
+
+  function actualizarBotones() {
+    document.querySelectorAll(".boton-grupo").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(casillasDelGrupo(b.dataset.grupo).some(function (c) { return c.checked; })));
+    });
+  }
+
+  function armarBotones() {
+    const barra = document.getElementById("botones-grupo");
+    if (!barra) return;
+    BOTONES.forEach(function (b) {
+      const capas = b.capas.filter(function (id) { return estado.capas[id] && estado.capas[id].estado === "verificada"; });
+      if (!capas.length) return;
+      const boton = document.createElement("button");
+      boton.type = "button";
+      boton.className = "boton-grupo";
+      boton.dataset.grupo = b.grupo;
+      boton.style.setProperty("--c", "var(--g-" + COLOR_GRUPO[b.grupo] + ")");
+      boton.title = "Prende: " + capas.map(function (id) { return estado.capas[id].nombre; }).join("; ") + ". Si el grupo ya tiene algo prendido, lo apaga.";
+      boton.innerHTML = '<span class="disco">' + dibujo(b.icono) + "</span>" + esc(b.nombre);
+      boton.addEventListener("click", function () {
+        const prendido = casillasDelGrupo(b.grupo).some(function (c) { return c.checked; });
+        if (prendido) casillasDelGrupo(b.grupo).forEach(function (c) { ponerCapa(c.id.slice(8), false); });
+        else capas.forEach(function (id) { ponerCapa(id, true); });
+        actualizarBotones();
+      });
+      barra.appendChild(boton);
+    });
+    actualizarBotones();
+  }
+
+  // De lejos, cada marca se achica a una seña con su forma y su color; el dibujo aparece desde el zoom 14 (escala de barrio).
+  function ajustarMarcas() {
+    mapa.getContainer().classList.toggle("lejos", mapa.getZoom() < 14);
+  }
+  mapa.on("zoomend", ajustarMarcas);
+  ajustarMarcas();
 
   // ---------- Panel en celular, conexión y aplicación instalable ----------
 

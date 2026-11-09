@@ -14,6 +14,14 @@
   --radio: 8px;
   --panel: 360px;
   --cabecera: 52px;
+  /* Colores de grupo de los botones y las marcas del mapa (decisión de Sebastián, 08/11/2026). */
+  --g-inundaciones: #1d6fb8;
+  --g-incendios: #b91c1c;
+  --g-industria: #5b3a8c;
+  --g-expuestos: #475569;
+  --g-vulnerabilidad: #a3245e;
+  --g-respuesta: #15803d;
+  --g-historia: #c2410c;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color-scheme: light;
 }
@@ -186,7 +194,7 @@ a { color: var(--acento); }
   position: absolute;
   top: 10px;
   left: calc(var(--panel) + 60px);
-  right: 12px;
+  right: 236px;            /* deja libre la columna de botones por grupo */
   max-width: 460px;
   z-index: 1050;
   display: grid;
@@ -205,6 +213,99 @@ a { color: var(--acento); }
 .aviso-alerta .sev svg path[stroke="#000"] { stroke: #fff; }
 .aviso-alerta .nota { color: var(--texto-suave); font-size: 12px; }
 .aviso-alerta .cerrar { float: right; margin: -4px -4px 0 6px; border: 0; background: none; font-size: 18px; line-height: 1; cursor: pointer; color: var(--texto-suave); padding: 2px 6px; }
+
+/* Botones por grupo sobre el mapa: en la computadora, una columna a la derecha (siete botones no entran
+   en una fila sin taparse con los avisos); en el celular, una fila arriba que se desliza de costado. */
+.botones-grupo {
+  position: absolute;
+  z-index: 1040;
+  top: 10px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 2px;
+  scrollbar-width: none;
+  pointer-events: none;
+}
+.botones-grupo::-webkit-scrollbar { display: none; }
+.boton-grupo {
+  --c: var(--acento);
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px 4px 4px;
+  border: 2px solid var(--c);
+  border-radius: 999px;
+  background: var(--superficie);
+  color: var(--texto);
+  font: 600 14px/1.1 inherit;
+  font-family: inherit;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+.boton-grupo .disco { width: 28px; height: 28px; border-radius: 50%; background: var(--c); display: grid; place-items: center; }
+.boton-grupo svg { width: 17px; height: 17px; stroke: #fff; }
+.boton-grupo[aria-pressed="true"] { background: var(--c); color: #fff; }
+.boton-grupo[aria-pressed="true"] .disco { background: #fff; }
+.boton-grupo[aria-pressed="true"] svg { stroke: var(--c); }
+.boton-grupo:focus-visible { outline: 3px solid var(--texto); outline-offset: 2px; }
+
+/* Marcas: forma (círculo, rombo, cuadrado) + color de grupo + dibujo. */
+.icono-mapa { background: none; border: 0; }
+.marca {
+  --c: #555;
+  position: relative;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  vertical-align: middle;
+  transition: transform 0.15s ease;
+  color-scheme: only light;
+}
+.marca::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--c);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+.marca.circulo::before { border-radius: 50%; }
+.marca.cuadrado::before { border-radius: 6px; }
+.marca.rombo::before { inset: 4px; border-radius: 4px; transform: rotate(45deg); }
+.marca svg { position: relative; width: 17px; height: 17px; stroke: #fff; }
+.marca.rombo svg { width: 15px; height: 15px; }
+.marca-cuenta {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--c);
+  font: 700 11px/17px system-ui, sans-serif;
+  text-align: center;
+  box-shadow: 0 0 0 1.5px var(--c);
+}
+.marca.mini { width: 20px; height: 20px; margin-right: 2px; }
+.marca.mini::before { border-width: 1.5px; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15); }
+.marca.mini.rombo::before { inset: 3px; }
+.marca.mini svg { width: 12px; height: 12px; }
+.marca.mini.rombo svg { width: 11px; height: 11px; }
+/* De lejos: seña chica con forma y color, sin dibujo; solo la seña recibe toques. */
+.lejos .icono-mapa { pointer-events: none; }
+.lejos .icono-mapa .marca { transform: scale(0.42); pointer-events: auto; }
+.lejos .icono-mapa svg, .lejos .icono-mapa .marca-cuenta { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { .marca { transition: none; } }
 
 .grupo { margin: 16px 0 0; }
 
@@ -389,7 +490,8 @@ a { color: var(--acento); }
     transition: transform 0.2s ease;
   }
   .panel.abierto { transform: none; }
-  .aviso-flotante { left: 56px; }
+  .aviso-flotante { left: 56px; right: 12px; top: 62px; }
+  .botones-grupo { left: 56px; right: 0; flex-direction: row; align-items: center; overflow-x: auto; padding: 2px 10px 8px 2px; }
   .ficha-capa .nota { font-size: 13px; color: var(--texto-suave); }
 
 .ficha-capa dl { grid-template-columns: 1fr; }

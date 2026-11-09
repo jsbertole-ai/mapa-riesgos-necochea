@@ -13,6 +13,7 @@ Una vez publicado, el sitio queda en https://jsbertole-ai.github.io/mapa-riesgos
 | `docs/` | El sitio completo: `index.html` (portada "Observatorio Necochea"), `mapa.html` (mapa), `metodologia.html`, estilos, código, íconos, manifiesto y service worker. |
 | `docs/datos/` | Las capas ya procesadas (GeoJSON) y `capas.json`, el registro que lee el sitio con fuente, fecha, licencia y estado de cada capa. |
 | `docs/vendor/leaflet/` | Leaflet 1.9.4 (licencia BSD de 2 cláusulas), copiado desde npm. |
+| `docs/vendor/lucide/` | Íconos de las marcas y los botones del mapa, de Lucide (`lucide-static` 1.59.0, licencia ISC; algunos íconos, MIT), armados con `scripts/armar_iconos.py`. |
 | `docs/vendor/josefin-sans/` | Tipografía del título, Josefin Sans SemiBold (The Josefin Sans Project Authors, licencia SIL OFL 1.1), copiada del paquete npm `@fontsource/josefin-sans`. |
 | `scripts/` | Scripts en Python para descargar, recortar y verificar los datos. Solo usan la biblioteca estándar. |
 | `datos/inventario/` | Formulario del inventario local: `formulario.json` (listas de tipos de evento, efectos, localidades y servicios) y `formulario_inventario.xlsx`, generado a partir de él para subir a KoboToolbox. |
@@ -95,7 +96,7 @@ Overpass a veces corta la conexión cuando recibe muchos pedidos seguidos; el sc
 
 ## Archivo de alertas del SMN
 
-`scripts/archivar_alertas_smn.py` guarda en `docs/datos/alertas_smn.json` las alertas y avisos del Servicio Meteorológico Nacional que alcanzan al partido. No forma parte de `actualizar.py`: lo corre cada hora la tarea de GitHub Actions `.github/workflows/alertas-smn.yml`, que hace un commit en `main` solo cuando entra una alerta nueva. Las tareas programadas de GitHub corren solo en la rama principal, así que se activa después de mergear. Se puede correr a mano desde la pestaña Actions ("Run workflow") o con `python3 scripts/archivar_alertas_smn.py`. Si un repositorio público pasa 60 días sin actividad, GitHub pausa las tareas programadas: se reactivan desde la misma pestaña.
+`scripts/archivar_alertas_smn.py` guarda en `docs/datos/alertas_smn.json` las alertas y avisos del Servicio Meteorológico Nacional que alcanzan al partido. No forma parte de `actualizar.py`: lo corre cada 15 minutos la tarea de GitHub Actions `.github/workflows/alertas-smn.yml`, que hace un commit en `main` solo cuando entra una alerta nueva. Las tareas programadas de GitHub corren solo en la rama principal, así que se activa después de mergear. Se puede correr a mano desde la pestaña Actions ("Run workflow") o con `python3 scripts/archivar_alertas_smn.py`. Si un repositorio público pasa 60 días sin actividad, GitHub pausa las tareas programadas: se reactivan desde la misma pestaña.
 
 ## Inventario local (KoboToolbox)
 
@@ -127,6 +128,7 @@ El control de datos personales es automático solo para correos, teléfonos, DNI
 
 - Código (sitio y scripts): MIT, ver `LICENSE`.
 - Leaflet: licencia BSD de 2 cláusulas, ver `docs/vendor/leaflet/LICENSE`.
+- Íconos de Lucide: licencia ISC (algunos íconos derivados de Feather, MIT), ver `docs/vendor/lucide/LICENSE`.
 - Datos: cada capa conserva la licencia de su fuente y no se relicencia. Detalle en `docs/datos/LEAME.md`.
   - Mapa de fondo y capas derivadas de OpenStreetMap: © colaboradores de OpenStreetMap, Open Database License (ODbL) 1.0. Los GeoJSON derivados se publican bajo ODbL.
   - Límite del partido y todas las capas del IGN (hidrografía oficial, curvas de nivel, ferrocarril, rutas, vegetación, energía, industria, puerto y elementos expuestos): "FUENTE: Instituto Geográfico Nacional de la República Argentina", según los términos y condiciones del IGN (uso libre y gratuito, con cita de la fuente y de la fecha de los datos).
