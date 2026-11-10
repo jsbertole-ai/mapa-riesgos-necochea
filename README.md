@@ -2,7 +2,7 @@
 
 Mapa interactivo para la gestión del riesgo en el partido de Necochea (provincia de Buenos Aires, Argentina), hecho solo con datos abiertos. Reúne amenazas, elementos expuestos, capacidades de respuesta e historia de eventos (por qué no se llama "mapa de riesgos": ver la sección 0 de `MARCO_CONCEPTUAL.md`). Amenazas relevadas: inundaciones y anegamientos, incendios de pastizal y rurales, y actividad portuaria e industrial. Es un sitio estático, sin servidor propio, pensado para publicarse en GitHub Pages y para instalarse como aplicación en el celular.
 
-Proyecto de Juan Sebastián Bértole, estudiante de la Licenciatura en Gestión de Riesgos y Siniestralidad (Instituto Universitario Vucetich).
+Proyecto de Juan Sebastián Bértole, estudiante del [Instituto Universitario Vucetich](https://iuv.edu.ar/index.html).
 
 Una vez publicado, el sitio queda en https://jsbertole-ai.github.io/mapa-riesgos-necochea/
 
