@@ -209,7 +209,8 @@ a { color: var(--acento); }
 .aviso-alerta p + p { margin-top: 2px; }
 .aviso-alerta .sev { display: inline-flex; align-items: center; gap: 4px; margin-right: 6px; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; }
 .aviso-alerta .sev-moderada { color: #8a5a00; }
-.aviso-alerta .sev-severa, .aviso-alerta .sev-extrema { color: var(--colaborar-hover); }
+.aviso-alerta .sev-severa { color: var(--colaborar-hover); }
+.aviso-alerta .sev-extrema { color: #b91c1c; }
 .aviso-alerta .sev svg path[stroke="#000"] { stroke: #fff; }
 .aviso-alerta .nota { color: var(--texto-suave); font-size: 12px; }
 .aviso-alerta .cerrar { float: right; margin: -4px -4px 0 6px; border: 0; background: none; font-size: 18px; line-height: 1; cursor: pointer; color: var(--texto-suave); padding: 2px 6px; }

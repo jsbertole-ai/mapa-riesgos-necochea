@@ -70,7 +70,15 @@
     return e.severidades.slice().sort(function (p, q) { return ORDEN.indexOf(q) - ORDEN.indexOf(p); })[0] || "s/d";
   }
 
-  // La severidad se distingue por el texto, por el ícono (triángulo hueco, lleno u octógono) y por el color.
+  // Nivel de la alerta con el nombre que usa la gente: el color (decisión de Sebastián, 14/11/2026).
+  // El mensaje CAP de una alerta no trae el color, solo la severidad; la correspondencia es la convención
+  // adoptada (moderada, amarilla; severa, naranja; extrema, roja). Ver DATOS.md, sección del SMN.
+  const COLOR = { Moderada: "Alerta amarilla", Severa: "Alerta naranja", Extrema: "Alerta roja" };
+  function nivel(sev) {
+    return COLOR[sev] || "Severidad " + String(sev || "s/d").toLowerCase();
+  }
+
+  // El nivel se distingue por el texto, por el ícono (triángulo hueco, lleno u octógono) y por el color.
   function chip(sev) {
     const clase = { Menor: "menor", Moderada: "moderada", Severa: "severa", Extrema: "extrema" }[sev] || "sd";
     const icono = clase === "extrema"
@@ -79,7 +87,7 @@
         ? '<path d="M12 2 23 21H1z" fill="currentColor"/><path d="M12 9v5M12 17v1" stroke="#000" stroke-width="2.4" stroke-linecap="round"/>'
         : '<path d="M12 3 22 20H2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v5M12 17v1" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>';
     return '<span class="sev sev-' + clase + '"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">' + icono +
-      "</svg>Severidad " + esc(sev.toLowerCase()) + "</span>";
+      "</svg>" + esc(nivel(sev)) + "</span>";
   }
 
   function nombre(e) {
@@ -133,7 +141,7 @@
       resumen = '<h2 class="alertas-titulo">Sin alertas vigentes del SMN para el partido</h2>' +
         (u ? '<span class="alerta-dato">Última: ' + esc(nombre(u)) + ", emitida el " + fechaHora(u.x.enviado) + "</span>" : "");
       cuerpo = u
-        ? '<p class="alerta-dato">Última alerta emitida: <strong>' + esc(nombre(u)) + "</strong>, severidad " + esc(severidadMayor(u).toLowerCase()) +
+        ? '<p class="alerta-dato">Última alerta emitida: <strong>' + esc(nombre(u)) + "</strong>, " + esc(nivel(severidadMayor(u)).toLowerCase()) +
           ", emitida el " + fechaHora(u.x.enviado) + ", vigente del " + fechaHora(u.x.inicio) + " al " + fechaHora(u.x.fin) +
           ". " + enlaceXML(u, "Aviso original") + " (XML).</p>"
         : '<p class="alerta-dato">No hay alertas registradas desde el ' + esc((a.desde || "").split("-").reverse().join("/")) + ".</p>";
@@ -174,5 +182,5 @@
   }
 
   window.AlertasSMN = { cargar: cargar, episodios: episodios, estado: estado, bloque: bloque, montar: montar,
-                        fechaHora: fechaHora, esc: esc, nombre: nombre, severidadMayor: severidadMayor, chip: chip, periodo: periodo };
+                        fechaHora: fechaHora, esc: esc, nombre: nombre, severidadMayor: severidadMayor, nivel: nivel, chip: chip, periodo: periodo };
 })();
