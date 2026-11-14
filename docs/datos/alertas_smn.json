@@ -2923,6 +2923,86 @@
       ],
       "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.11.13.19.47.31,2026-11-13T19:47:31-03:00",
       "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261113203646_Tormenta_Patagonia_alertas_alertas_66.xml"
+    },
+    {
+      "id": "urn:oid:2.49.0.1.32.0.2026.11.13.23.11.15.45",
+      "tipo": "alerta",
+      "mensaje": "Actualización",
+      "enviado": "2026-11-13T23:11:15-03:00",
+      "evento": "Tormentas",
+      "titular": "Tormentas",
+      "descripcion": "El área será afectada por tormentas aisladas, algunas fuertes o puntualmente severas. Las mismas podrán estar acompañadas por fuertes precipitaciones en cortos períodos, frecuente actividad eléctrica, ocasional granizo y ráfagas intensas. Se esperan valores de precipitación acumulada entre 30 y 70 mm, que pueden ser superados en forma puntual.",
+      "severidad": "Moderada",
+      "certeza": "Probable",
+      "urgencia": "Inmediata",
+      "inicio": "2026-11-13T23:11:15-03:00",
+      "fin": "2026-11-14T08:59:59-03:00",
+      "alcance": "parte del partido",
+      "localidades": [
+        "Energía",
+        "Necochea - Quequén"
+      ],
+      "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.11.13.20.35.55,2026-11-13T20:35:55-03:00",
+      "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261113231128_Tormenta_Llanura_alertas_alertas_45.xml"
+    },
+    {
+      "id": "urn:oid:2.49.0.1.32.0.2026.11.13.23.11.15.46",
+      "tipo": "alerta",
+      "mensaje": "Actualización",
+      "enviado": "2026-11-13T23:11:15-03:00",
+      "evento": "Tormentas",
+      "titular": "Tormentas",
+      "descripcion": "El área será afectada por tormentas aisladas, algunas fuertes o puntualmente severas. Las mismas podrán estar acompañadas por fuertes precipitaciones en cortos períodos, frecuente actividad eléctrica, ocasional granizo y ráfagas intensas. Se esperan valores de precipitación acumulada entre 30 y 70 mm, que pueden ser superados en forma puntual.",
+      "severidad": "Moderada",
+      "certeza": "Probable",
+      "urgencia": "Inmediata",
+      "inicio": "2026-11-13T23:11:15-03:00",
+      "fin": "2026-11-14T08:59:59-03:00",
+      "alcance": "parte del partido",
+      "localidades": [],
+      "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.11.13.20.35.55,2026-11-13T20:35:55-03:00",
+      "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261113231128_Tormenta_Llanura_alertas_alertas_46.xml"
+    },
+    {
+      "id": "urn:oid:2.49.0.1.32.0.2026.11.13.23.11.15.47",
+      "tipo": "alerta",
+      "mensaje": "Actualización",
+      "enviado": "2026-11-13T23:11:15-03:00",
+      "evento": "Tormentas",
+      "titular": "Tormentas",
+      "descripcion": "El área será afectada por tormentas aisladas, algunas fuertes o puntualmente severas. Las mismas podrán estar acompañadas por fuertes precipitaciones en cortos períodos, frecuente actividad eléctrica, ocasional granizo y ráfagas intensas. Se esperan valores de precipitación acumulada entre 30 y 70 mm, que pueden ser superados en forma puntual.",
+      "severidad": "Moderada",
+      "certeza": "Probable",
+      "urgencia": "Inmediata",
+      "inicio": "2026-11-13T23:11:15-03:00",
+      "fin": "2026-11-14T08:59:59-03:00",
+      "alcance": "parte del partido",
+      "localidades": [],
+      "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.11.13.20.35.55,2026-11-13T20:35:55-03:00",
+      "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261113231128_Tormenta_Llanura_alertas_alertas_47.xml"
+    },
+    {
+      "id": "urn:oid:2.49.0.1.32.0.2026.11.13.23.11.15.48",
+      "tipo": "alerta",
+      "mensaje": "Actualización",
+      "enviado": "2026-11-13T23:11:15-03:00",
+      "evento": "Tormentas",
+      "titular": "Tormentas",
+      "descripcion": "El área será afectada por tormentas aisladas, algunas fuertes o puntualmente severas. Las mismas podrán estar acompañadas por fuertes precipitaciones en cortos períodos, frecuente actividad eléctrica, ocasional granizo y ráfagas intensas. Se esperan valores de precipitación acumulada entre 30 y 70 mm, que pueden ser superados en forma puntual.",
+      "severidad": "Moderada",
+      "certeza": "Probable",
+      "urgencia": "Inmediata",
+      "inicio": "2026-11-13T23:11:15-03:00",
+      "fin": "2026-11-14T08:59:59-03:00",
+      "alcance": "parte del partido",
+      "localidades": [
+        "Claraz",
+        "Juan N. Fernández",
+        "Nicanor Olivera",
+        "Ramón Santamarina"
+      ],
+      "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.11.13.20.35.55,2026-11-13T20:35:55-03:00",
+      "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261113231128_Tormenta_Llanura_alertas_alertas_48.xml"
     }
   ]
 }
