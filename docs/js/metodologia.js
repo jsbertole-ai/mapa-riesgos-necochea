@@ -118,12 +118,16 @@
     return (
       "<p>" + numero(orden.length) + (orden.length === 1 ? " episodio" : " episodios") + " desde el " + esc(desde) +
       " (" + numero(a.alertas.length) + " mensajes del SMN).</p>" +
-      '<div class="tabla-desplazable"><table class="tabla-alertas"><thead><tr><th>Vigencia</th><th>Evento</th><th>Severidad</th><th>Alcance</th></tr></thead><tbody>' +
+      '<div class="tabla-desplazable"><table class="tabla-alertas"><thead><tr><th>Vigencia</th><th>Evento</th><th>Nivel</th><th>Alcance</th></tr></thead><tbody>' +
       orden.map(function (e) {
         const locs = Object.keys(e.localidades).sort();
         return "<tr><td>" + fechaHora(e.x.inicio) + " a " + fechaHora(e.x.fin) + "</td>" +
           "<td>" + esc(e.x.tipo === "alerta" ? e.x.evento : e.x.titular || e.x.evento) + "</td>" +
-          "<td>" + esc(Object.keys(e.severidades).join(", ")) + "</td>" +
+          // Color de la alerta, con la severidad CAP entre paréntesis (decisión de Sebastián, 14/11/2026).
+          "<td>" + esc(Object.keys(e.severidades).map(function (s) {
+            const c = { Moderada: "Amarilla", Severa: "Naranja", Extrema: "Roja" }[s];
+            return c ? c + " (" + s.toLowerCase() + ")" : s;
+          }).join(", ")) + "</td>" +
           // Si ninguna zona cubre sola todo el partido, no se afirma que haya sido parcial: la unión no se calcula.
           "<td>" + (e.todo ? "Todo el partido" : e.mensajes > 1 ? numero(e.mensajes) + " mensajes cuyas zonas tocan el partido" : "Un mensaje cuya zona toca el partido") +
           (locs.length ? ". Localidades dentro: " + esc(lista(locs)) : ". Ninguna localidad dentro") + "</td></tr>";
