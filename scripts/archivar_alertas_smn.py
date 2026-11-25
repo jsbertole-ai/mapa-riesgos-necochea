@@ -6,7 +6,7 @@ Lee el canal de alertas del SMN en formato CAP 1.2 (https://ssl.smn.gob.ar/CAP/A
 que declara "Licencia CC BY 4.0", baja cada alerta o aviso vigente y guarda en
 docs/datos/alertas_smn.json los que alcanzan al partido de Necochea. El canal solo
 muestra lo vigente: el archivo se arma hacia adelante, desde el día en que se encendió
-(ver "desde"). Una GitHub Action lo corre cada 15 minutos (.github/workflows/alertas-smn.yml).
+(ver "desde"). Una GitHub Action lo corre cada hora (.github/workflows/alertas-smn.yml).
 
 "Alcanza al partido" quiere decir que el polígono de la alerta y el límite del partido
 se tocan: algún vértice del límite (uno de cada diez, cada 100 m aproximadamente) cae
@@ -28,6 +28,8 @@ from comun import (SITIO_DATOS, ErrorRed, aviso, caja_envolvente, cargar_limite,
 
 CANAL = "https://ssl.smn.gob.ar/CAP/AR.php"
 ARCHIVO = SITIO_DATOS / "alertas_smn.json"
+INTENTOS_CANAL = 3  # lecturas del canal antes de dar la corrida por fallida
+ESPERA_CANAL = 60  # segundos entre una lectura fallida y la siguiente
 NS = {"cap": "urn:oasis:names:tc:emergency:cap:1.2"}
 SEVERIDAD = {"Minor": "Menor", "Moderate": "Moderada", "Severe": "Severa", "Extreme": "Extrema", "Unknown": "Desconocida"}
 CERTEZA = {"Observed": "Observado", "Likely": "Probable", "Possible": "Posible", "Unlikely": "Poco probable",
@@ -80,11 +82,19 @@ def main():
     }
     conocidas = {a["id"] for a in archivo["alertas"]}
 
-    try:
-        canal = ET.fromstring(descargar(CANAL, timeout=60))
-    except (ErrorRed, ET.ParseError) as e:
-        aviso(f"No se pudo leer el canal del SMN: {e}")
-        return 1
+    # Entre el 22 y el 25/11/2026 el canal devolvió cuatro veces un XML que no se pudo leer y en la corrida
+    # siguiente respondió bien: se reintenta antes de dar la corrida por fallida.
+    for intento in range(1, INTENTOS_CANAL + 1):
+        try:
+            canal = ET.fromstring(descargar(CANAL, timeout=60, reintentos=2))
+            break
+        except (ErrorRed, ET.ParseError) as e:
+            if intento == INTENTOS_CANAL:
+                aviso(f"No se pudo leer el canal del SMN en {INTENTOS_CANAL} intentos: {e}")
+                return 1
+            aviso(f"No se pudo leer el canal del SMN (intento {intento} de {INTENTOS_CANAL}): {e}; "
+                  f"reintento en {ESPERA_CANAL} s")
+            time.sleep(ESPERA_CANAL)
     enlaces = sorted({(i.findtext("link") or "").strip() for i in canal.iter("item")} - {""})
     nuevas, errores = 0, 0
     for url in enlaces:
