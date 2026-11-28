@@ -4670,6 +4670,68 @@
       ],
       "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.11.24.09.13.29,2026-11-24T09:13:29-03:00",
       "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261124202958_Viento_Llanura_alertas_alertas_6.xml"
+    },
+    {
+      "id": "urn:oid:2.49.0.1.32.0.2026.11.27.20.44.00",
+      "tipo": "alerta",
+      "mensaje": "Emisión",
+      "enviado": "2026-11-27T20:44:00-03:00",
+      "evento": "TEMPERATURAS EXTREMAS CALOR - ALERTA AMARILLA",
+      "titular": "ALERTA AMARILLA POR TEMPERATURAS EXTREMAS CALOR",
+      "descripcion": "---",
+      "severidad": "Moderada",
+      "certeza": "Observado",
+      "urgencia": "Inmediata",
+      "inicio": "2026-11-27T20:44:00-03:00",
+      "fin": "2026-11-28T20:44:00-03:00",
+      "alcance": "parte del partido",
+      "localidades": [],
+      "referencias": null,
+      "url": "http://www3.smn.gob.ar/feeds/CAP/oladecalor/87641_cap_es.xml"
+    },
+    {
+      "id": "urn:oid:2.49.0.1.32.0.2026.11.27.20.45.07.6",
+      "tipo": "alerta",
+      "mensaje": "Actualización",
+      "enviado": "2026-11-27T20:45:07-03:00",
+      "evento": "Tormentas",
+      "titular": "Tormentas",
+      "descripcion": "Las áreas de las provincias de Buenos Aires y La Pampa pueden ser afectadas por tormentas aisladas de variada intensidad, algunas puntualmente fuertes. Las mismas podrán estar acompañadas por lluvias intensas en cortos períodos, granizo e intensas ráfagas. Se esperan valores de precipitación acumulada entre 15 y 30 mm, que pueden ser superados en forma puntual.  Por otro lado, las áreas de la provincia de Misiones serán afectadas por lluvias y algunas tormentas acompañadas por abundantes precipitaciones. En esta zona se prevén valores entre 40 y 70 mm, que pueden ser superados en forma puntual.",
+      "severidad": "Moderada",
+      "certeza": "Probable",
+      "urgencia": "Futura",
+      "inicio": "2026-11-28T15:00:00-03:00",
+      "fin": "2026-11-29T02:59:59-03:00",
+      "alcance": "parte del partido",
+      "localidades": [
+        "Energía",
+        "Necochea - Quequén"
+      ],
+      "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.11.27.13.38.37,2026-11-27T13:38:37-03:00",
+      "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261127204517_Tormenta_Llanura_alertas_alertas_6.xml"
+    },
+    {
+      "id": "urn:oid:2.49.0.1.32.0.2026.11.27.20.45.07.9",
+      "tipo": "alerta",
+      "mensaje": "Actualización",
+      "enviado": "2026-11-27T20:45:07-03:00",
+      "evento": "Tormentas",
+      "titular": "Tormentas",
+      "descripcion": "Las áreas de las provincias de Buenos Aires y La Pampa pueden ser afectadas por tormentas aisladas de variada intensidad, algunas puntualmente fuertes. Las mismas podrán estar acompañadas por lluvias intensas en cortos períodos, granizo e intensas ráfagas. Se esperan valores de precipitación acumulada entre 15 y 30 mm, que pueden ser superados en forma puntual.  Por otro lado, las áreas de la provincia de Misiones serán afectadas por lluvias y algunas tormentas acompañadas por abundantes precipitaciones. En esta zona se prevén valores entre 40 y 70 mm, que pueden ser superados en forma puntual.",
+      "severidad": "Moderada",
+      "certeza": "Probable",
+      "urgencia": "Futura",
+      "inicio": "2026-11-28T15:00:00-03:00",
+      "fin": "2026-11-29T02:59:59-03:00",
+      "alcance": "parte del partido",
+      "localidades": [
+        "Claraz",
+        "Juan N. Fernández",
+        "Nicanor Olivera",
+        "Ramón Santamarina"
+      ],
+      "referencias": "smn@smn.gob.ar,urn:oid:2.49.0.1.32.0.2026.11.27.13.38.37,2026-11-27T13:38:37-03:00",
+      "url": "https://ssl.smn.gob.ar/feeds/CAP/xml_generados/CAP_20261127204517_Tormenta_Llanura_alertas_alertas_9.xml"
     }
   ]
 }
